@@ -18,10 +18,8 @@ try {
     await images.evaluateAll(imgs => Promise.all(imgs.map(img => img.decode())));
     assert.equal(await images.evaluateAll(imgs => imgs.every(img => img.naturalWidth > 0)), true);
     assert.equal(await page.locator('.source-link').count(), 4);
-    await page.locator('.gallery-item').first().click();
-    assert.ok(page.url().endsWith('/images/keyvisual-1.jpg'));
     await page.close();
-    console.log(`Static content, images, source links and gallery work with JavaScript ${mode}.`);
+    console.log(`Static content, images, source links work with JavaScript ${mode}.`);
   }
   const delayed = await browser.newPage();
   const errors = [];

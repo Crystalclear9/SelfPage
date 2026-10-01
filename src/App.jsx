@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
-import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List, CaretLeft, CaretRight, ImageSquare } from '@phosphor-icons/react';
-import { profile, projects, gallery, extraLinks } from './data/site';
+import CharacterCursor from './components/CharacterCursor';
+import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
+import { profile, projects, extraLinks } from './data/site';
 
 const projectIcons = { phone: DeviceMobile, game: GameController, layers: Stack, clock: Timer };
 const categories = ['全部', ...new Set(projects.map(project => project.category))];
@@ -20,9 +21,8 @@ export default function App() {
   const [active, setActive] = useState('home');
   const [filter, setFilter] = useState('全部');
   const [project, setProject] = useState(null);
-  const [picture, setPicture] = useState(null);
   const [toast, setToast] = useState('');
-  const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['moments', '个人收藏']];
+  const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目']];
   useEffect(() => {
     setTheme(document.documentElement.dataset.theme || 'light');
     setTrail(read('spring-trail', 'true') === 'true');
@@ -42,11 +42,6 @@ export default function App() {
     return () => { observer.disconnect(); reveals.disconnect(); };
   }, []);
   useEffect(() => {
-    if (picture === null) return;
-    const key = e => { if (e.key === 'ArrowRight') setPicture(i => (i + 1) % gallery.length); if (e.key === 'ArrowLeft') setPicture(i => (i + gallery.length - 1) % gallery.length); };
-    window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key);
-  }, [picture]);
-  useEffect(() => {
     if (!menu) return;
     const close = e => { if (e.key === 'Escape') { setMenu(false); document.querySelector('.mobile-toggle')?.focus(); } };
     window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close);
@@ -55,9 +50,10 @@ export default function App() {
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
+    <CharacterCursor />
     <header className="site-header">
       <div className="nav-shell">
-        <a href="#home" className="wordmark"><Flower weight="duotone" size={30} /><span>{profile.siteName}<small>HARU LETTER</small></span></a>
+        <a href="#home" className="wordmark"><Code weight="light" size={26} /><span>{profile.name}</span></a>
         <nav className={menu ? 'main-nav open' : 'main-nav'} id="navigation" aria-label="主导航">
           {links.map(([id, label]) => <a key={id} href={`#${id}`} className={active === id ? 'active' : ''} aria-current={active === id ? 'location' : undefined} onClick={() => setMenu(false)}>{label}</a>)}
         </nav>
@@ -82,7 +78,7 @@ export default function App() {
         </div>
         <figure className="hero-art">
           <div className="art-window"><img className="hero-image" src={asset('keyvisual-1.jpg')} alt="官方插画中的加藤惠，站在盛开的樱花之间" fetchPriority="high" width="1200" height="1232" /></div>
-          <figcaption className="art-caption">加藤 恵 <span>冴えない彼女の育てかた Fine</span></figcaption>
+
         </figure>
       </section>
 
@@ -91,7 +87,7 @@ export default function App() {
           <div className="avatar"><img src={asset('keyvisual-3.jpg')} alt="加藤惠主题头像" width="1200" height="1232" loading="lazy" /></div>
           <div><h2>{profile.name}</h2><a href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={15} /> GitHub <ArrowUpRight size={13} /></a></div>
         </div>
-        <div className="about-copy"><h2>关于我</h2><p>{profile.intro}</p><p>{profile.about}</p><ul className="interest-tags">{profile.interests.map(interest => <li key={interest}>{interest}</li>)}</ul></div>
+        <div className="about-copy"><h2>关于我</h2><p>{profile.intro}</p><p>{profile.about}</p></div>
       </section>
 
       <section className="projects-section section-shell reveal" id="projects">
@@ -117,16 +113,11 @@ export default function App() {
         {extraLinks.length > 0 && <div className="extra-links"><h3>其他页面</h3><div>{extraLinks.map(link => <a key={link.href} href={link.href} target="_blank" rel="noreferrer"><h4>{link.title}<ArrowUpRight size={18} /></h4><p>{link.description}</p></a>)}</div></div>}
       </section>
 
-      <section className="moments-section section-shell reveal" id="moments">
-        <div className="section-heading"><h2>个人收藏</h2><p>来自《冴えない彼女の育てかた》的几张喜欢的画面。</p></div>
-        <div className="gallery-grid">{gallery.map((item, i) => <a key={item.title} href={asset(item.image)} className={`gallery-item gallery-${i}`} onClick={event => { event.preventDefault(); setPicture(i); }} aria-label={`放大图片：${item.title}`}><div className="gallery-image"><img src={asset(item.image)} alt={item.title} loading="lazy" width={item.width} height={item.height} /><span className="gallery-expand"><ImageSquare size={22} /></span></div><span className="gallery-caption">{item.title}<ArrowUpRight size={16} /></span></a>)}</div>
-      </section>
-
       <section className="contact-section section-shell reveal" id="contact">
         <div className="contact-inner"><div><h2>更多实现，见 GitHub。</h2><p>实现细节、使用说明和后续提交，保存在项目仓库中。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} onClick={() => { setLiked(!liked); setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。'); }}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
       </section>
     </main>
-    <footer className="site-footer section-shell"><div><a className="footer-brand" href="#home"><Flower size={21} weight="duotone" />{profile.siteName}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links"><a href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><span>非官方个人主题站</span><a href="#home" className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
+    <footer className="site-footer section-shell"><div><a className="footer-brand" href="#home"><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links"><a href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href="#home" className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
     <div className="toast" role="status" aria-live="polite">{toast && <span><Flower size={17} />{toast}</span>}</div>
 
     {project && <Modal title={project.title} onClose={() => setProject(null)} className="project-modal">
@@ -136,6 +127,6 @@ export default function App() {
         <a className="button primary" href={project.source} target="_blank" rel="noreferrer"><GithubLogo size={18} /> 在 GitHub 查看源码 <ArrowUpRight size={16} /></a>
       </div>
     </Modal>}
-    {picture !== null && <Modal title={gallery[picture].title} onClose={() => setPicture(null)} className="gallery-modal"><img src={asset(gallery[picture].image)} alt={gallery[picture].title} /><div className="lightbox-caption"><button className="icon-button" aria-label="上一张图片" onClick={() => setPicture((picture + gallery.length - 1) % gallery.length)}><CaretLeft size={24} /></button><div><h2>{gallery[picture].title}</h2><p>{gallery[picture].description}</p></div><button className="icon-button" aria-label="下一张图片" onClick={() => setPicture((picture + 1) % gallery.length)}><CaretRight size={24} /></button></div></Modal>}
+
   </>;
 }

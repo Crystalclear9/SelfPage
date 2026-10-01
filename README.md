@@ -1,13 +1,13 @@
-# 春日来信 · Haru Letter
+# Crystalclear9 · 个人主页
 
 [访问网站](https://crystalclear9.github.io/SelfPage/) · [GitHub 主页](https://github.com/Crystalclear9) · [部署说明](docs/DEPLOYMENT.md) · [素材来源](docs/ASSETS.md)
 
-Crystalclear9 的个人网站，用于整理公开源码项目与个人兴趣。以加藤惠为视觉主题，采用 React 与 Vite 构建，发布至 GitHub Pages。
+Crystalclear9 的个人网站，用于整理公开源码项目与实现思路。以加藤惠头像、鼠标指针和少量插画作为个人元素，采用 React 与 Vite 构建，发布至 GitHub Pages。
 
 ## 设计与功能
 
 - 项目分类、简要介绍、详情弹窗及源码仓库入口。
-- 官方插画图集，支持原图访问、放大预览与键盘切换。
+- 加藤惠角色指针与居中头像；触屏、键盘操作及弹窗保留原生交互。
 - 深浅主题、轻量樱花拖尾及本地偏好记忆。
 - 桌面与移动端布局，键盘焦点管理及减少动态效果适配。
 - 构建时预渲染完整正文；JavaScript 不可用时，介绍、图片与源码链接仍可访问。
@@ -41,9 +41,10 @@ src/
   App.jsx                     页面结构与交互状态
   main.jsx                    客户端入口与静态正文 hydration
   components/
+    CharacterCursor.jsx       桌面角色指针
     Modal.jsx                 弹窗与焦点恢复
     PetalTrail.jsx            Canvas 鼠标拖尾
-  data/site.js                个人资料、项目与图集配置
+  data/site.js                个人资料、项目与链接配置
   styles.css                  主题、布局和响应式样式
 scripts/
   prerender.mjs               构建后生成完整静态 HTML
@@ -63,7 +64,6 @@ docs/                        部署与素材文档
 | `profile` | 公开昵称、个人介绍、GitHub 链接及可选邮箱 |
 | `projects` | 项目分类、简介、技术标签、详情与源码地址 |
 | `extraLinks` | 其他页面的标题、简介和公开网址；空数组时隐藏 |
-| `gallery` | 图片文件名、尺寸、标题及来源说明 |
 
 项目分类自动根据数据生成；调整数组顺序即可改变展示顺序。邮箱留空时不显示联系入口。
 
@@ -108,7 +108,7 @@ npm run audit
 
 | 命令 | 检查范围 |
 | --- | --- |
-| `check:ui` | 项目筛选、弹窗、焦点恢复、画廊、主题持久化、鼠标拖尾与多尺寸布局 |
+| `check:ui` | 项目筛选、弹窗、焦点恢复、角色指针、主题持久化、鼠标拖尾与多尺寸布局 |
 | `check:static` | 禁用或拦截 JavaScript 时的正文、图片和链接，以及脚本延迟时的首次加载 |
 | `audit` | 目标地址的 Lighthouse 性能、无障碍、最佳实践与 SEO 审核 |
 

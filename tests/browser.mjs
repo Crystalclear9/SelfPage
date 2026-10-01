@@ -12,7 +12,7 @@ const base = process.env.TEST_URL || 'http://127.0.0.1:5173';
 try {
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
-  assert.equal(await page.title(), 'Crystalclear9 · 春日来信');
+  assert.equal(await page.title(), 'Crystalclear9 | 个人主页');
   assert.equal(await page.locator('.hero-image').evaluate(el => el.naturalWidth > 0), true);
   assert.equal(await page.locator('.project-card').count(), 4);
   await page.getByRole('button', { name: '应用', exact: true }).click();
@@ -42,12 +42,7 @@ try {
     await page.keyboard.press('Escape');
   }
 
-  await page.getByRole('link', { name: '放大图片：樱花盛开的坂道' }).click();
-  await page.keyboard.press('ArrowRight');
-  assert.equal(await page.locator('dialog h2').textContent(), '故事里的你');
-  await page.getByRole('button', { name: '上一张图片' }).click();
-  assert.equal(await page.locator('dialog h2').textContent(), '樱花盛开的坂道');
-  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#moments, .interest-tags').count(), 0);
   await page.getByRole('button', { name: '留下一份喜欢' }).click();
   assert.equal(await page.getByRole('button', { name: '已经留下喜欢' }).getAttribute('aria-pressed'), 'true');
   await page.getByRole('button', { name: '樱花拖尾', exact: true }).click();
@@ -85,12 +80,14 @@ try {
   await page.getByRole('button', { name: '樱花拖尾', exact: true }).click();
   await page.mouse.move(400, 250);
   await page.mouse.move(700, 400, { steps: 20 });
+  assert.equal(await page.locator('.character-cursor').isVisible(), true);
+  assert.equal(await page.locator('html').evaluate(el => el.classList.contains('character-cursor-active')), true);
   const hasPetals = await page.locator('canvas').evaluate(el => el.getContext('2d').getImageData(0, 0, el.width, el.height).data.some((value, i) => i % 4 === 3 && value > 0));
   assert.equal(hasPetals, true, 'Pointer movement should draw petals');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   assert.equal(await page.locator('canvas').evaluate(el => getComputedStyle(el).display), 'none');
   assert.deepEqual(errors, []);
-  const result = { passed: true, viewports: [320, 375, 768, 1024, 1440], checks: ['assets', 'source-only external links', 'all project descriptions', 'no private identifiers', 'filtering', 'project modal', 'focus restoration', 'gallery keyboard navigation', 'theme persistence', 'like persistence', 'trail persistence', 'mobile navigation', 'no horizontal overflow', 'canvas petal rendering', 'reduced motion', 'no runtime errors'] };
+  const result = { passed: true, viewports: [320, 375, 768, 1024, 1440], checks: ['assets', 'source-only external links', 'all project descriptions', 'no private identifiers', 'filtering', 'project modal', 'focus restoration', 'collection removed', 'theme persistence', 'like persistence', 'trail persistence', 'mobile navigation', 'no horizontal overflow', 'canvas petal rendering', 'reduced motion', 'no runtime errors'] };
   await writeFile('.local/reports/ui-results.json', JSON.stringify(result, null, 2));
   console.log(JSON.stringify(result, null, 2));
 } finally { await browser.close(); }

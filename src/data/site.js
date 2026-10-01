@@ -1,14 +1,13 @@
 // Public display content only. Never put credentials or private contact details here.
 export const profile = {
   name: 'Crystalclear9',
-  siteName: '春日来信',
+  siteName: 'Crystalclear9',
   subtitle: 'AI 应用与系统探索',
-  intro: '这个主页整理我的开源项目、实现思路和个人收藏。',
+  intro: '这里整理我的开源项目和实现思路。',
   about: '项目主要涉及任务整理、检索问答和推理调度。这里保留概览，具体实现、使用方式和当前进展放在各自的仓库中。',
   github: 'https://github.com/Crystalclear9',
   // Optional: add an email only if you want it to be publicly visible.
   email: '',
-  interests: ['AI 应用', '开源代码', '二次元', '加藤惠'],
 };
 
 // Summarized from public READMEs, not an independent runtime verification.
@@ -75,9 +74,3 @@ export const projects = [
 // Optional links to other public pages; empty means the section is hidden.
 // Example: { title: '我的笔记', description: '技术笔记与学习记录。', href: 'https://your-public-site.example' }
 export const extraLinks = [];
-
-export const gallery = [
-  { image: 'keyvisual-1.jpg', title: '樱花盛开的坂道', description: '《冴えない彼女の育てかた Fine》官方视觉', width: 1200, height: 1232 },
-  { image: 'keyvisual-3.jpg', title: '故事里的你', description: '《冴えない彼女の育てかた Fine》官方视觉', width: 1200, height: 1232 },
-  { image: 'keyvisual-2.jpg', title: '相遇之后', description: '《冴えない彼女の育てかた Fine》官方视觉', width: 1200, height: 1232 },
-];
