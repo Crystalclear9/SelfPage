@@ -70,7 +70,11 @@ export const extraLinks = [
 
 `.github/workflows/deploy.yml` 会安装锁定依赖、构建并部署。`base: './'` 兼容仓库子路径。后续只需修改内容并推送 `main`。
 
-如果第一次工作流在 `configure-pages` 处失败，先完成第 2 步再重新运行即可。仓库设置及账号登录由你自行操作，勿把登录信息放进前端文件。
+本仓库已配置为 GitHub Actions 发布（`build_type: workflow`）。工作流会先检查 Pages 配置，再安装依赖和构建。
+
+部署环境固定为 Ubuntu 24.04，构建使用 Node.js 24；相关 Actions 已升级为使用 Node.js 24 的版本，避免 Node.js 20 弃用警告及 `ubuntu-latest` 的自动版本迁移。
+
+如果复制到新仓库后出现 `Get Pages site failed / Not Found`，需要先启用 Pages，并将 Source 设为 GitHub Actions；不要选 Deploy from a branch。仅增加 `pages: write` 或 `enablement: true` 不能让默认 `GITHUB_TOKEN` 自动启用新站点。配置完成后，重新运行最新的部署工作流即可，不必将个人令牌写入仓库。
 
 可选：在仓库 About 中把 Website 设置为上述 Pages 地址。域名、邮箱和其他页面均不必填写，网站也能正常使用。
 
