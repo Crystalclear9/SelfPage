@@ -2,12 +2,12 @@ import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, colorScheme: 'light', reducedMotion: 'reduce' });
 const errors = [];
 page.on('pageerror', e => errors.push(e.message));
 page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
-await mkdir('artifacts', { recursive: true });
+await mkdir('.local/reports', { recursive: true });
 const base = process.env.TEST_URL || 'http://127.0.0.1:5173';
 try {
   await page.goto(base, { waitUntil: 'networkidle' });
@@ -42,7 +42,7 @@ try {
     await page.keyboard.press('Escape');
   }
 
-  await page.getByRole('button', { name: '放大图片：樱花盛开的坂道' }).click();
+  await page.getByRole('link', { name: '放大图片：樱花盛开的坂道' }).click();
   await page.keyboard.press('ArrowRight');
   assert.equal(await page.locator('dialog h2').textContent(), '故事里的你');
   await page.getByRole('button', { name: '上一张图片' }).click();
@@ -56,11 +56,12 @@ try {
   assert.equal(await page.getByRole('button', { name: '已经留下喜欢' }).getAttribute('aria-pressed'), 'true');
   // Reveal each section before taking the full-page capture.
   for (const section of await page.locator('main > section').all()) await section.scrollIntoViewIfNeeded();
+  assert.equal(await page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0)), true);
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: 'artifacts/desktop-light.png', fullPage: true });
+  await page.screenshot({ path: '.local/reports/desktop-light.png', fullPage: true });
   await page.getByRole('button', { name: '切换到深色模式' }).click();
   assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
-  await page.screenshot({ path: 'artifacts/desktop-dark.png', fullPage: true });
+  await page.screenshot({ path: '.local/reports/desktop-dark.png', fullPage: true });
   await page.reload({ waitUntil: 'networkidle' });
   assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
   await page.getByRole('button', { name: '切换到浅色模式' }).click();
@@ -78,7 +79,7 @@ try {
   assert.ok(page.url().endsWith('#projects'));
   for (const section of await page.locator('main > section').all()) await section.scrollIntoViewIfNeeded();
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: 'artifacts/mobile-light.png', fullPage: true });
+  await page.screenshot({ path: '.local/reports/mobile-light.png', fullPage: true });
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.getByRole('button', { name: '樱花拖尾', exact: true }).click();
@@ -90,6 +91,6 @@ try {
   assert.equal(await page.locator('canvas').evaluate(el => getComputedStyle(el).display), 'none');
   assert.deepEqual(errors, []);
   const result = { passed: true, viewports: [320, 375, 768, 1024, 1440], checks: ['assets', 'source-only external links', 'all project descriptions', 'no private identifiers', 'filtering', 'project modal', 'focus restoration', 'gallery keyboard navigation', 'theme persistence', 'like persistence', 'trail persistence', 'mobile navigation', 'no horizontal overflow', 'canvas petal rendering', 'reduced motion', 'no runtime errors'] };
-  await writeFile('artifacts/ui-results.json', JSON.stringify(result, null, 2));
+  await writeFile('.local/reports/ui-results.json', JSON.stringify(result, null, 2));
   console.log(JSON.stringify(result, null, 2));
 } finally { await browser.close(); }

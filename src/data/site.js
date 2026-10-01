@@ -2,9 +2,9 @@
 export const profile = {
   name: 'Crystalclear9',
   siteName: '春日来信',
-  subtitle: '写代码，也看动画。',
-  intro: '我把代码放在 GitHub，也在这里整理项目和喜欢的动画。',
-  about: '最近的公开项目主要围绕 AI 应用、检索问答与推理调度。这个小站用来给它们做一点简单的介绍。',
+  subtitle: 'AI 应用与系统探索',
+  intro: '这个主页整理我的开源项目、实现思路和个人收藏。',
+  about: '项目主要涉及任务整理、检索问答和推理调度。这里保留概览，具体实现、使用方式和当前进展放在各自的仓库中。',
   github: 'https://github.com/Crystalclear9',
   // Optional: add an email only if you want it to be publicly visible.
   email: '',
@@ -17,7 +17,7 @@ export const projects = [
   {
     id: 'suishouban', title: '随手办', repository: 'AigcProject',
     category: '应用', icon: 'phone',
-    subtitle: '从一张截图，到一件待办。',
+    subtitle: '多模态信息提取与任务整理。',
     description: '面向 Android 的多模态行动助理。将截图、文字和文档里的事项整理成卡片，在核对后创建提醒或团队任务。',
     tags: ['Kotlin', 'Android', 'Python'],
     details: [
@@ -31,7 +31,7 @@ export const projects = [
   {
     id: 'gameqa', title: 'GameQA', repository: 'RagGameQa',
     category: '应用', icon: 'game',
-    subtitle: '给游戏问题，找一个有出处的答案。',
+    subtitle: '面向游戏知识的检索增强问答。',
     description: '基于检索增强生成的游戏问答项目。结合本地知识库和混合检索，整理游戏相关问题与参考来源。',
     tags: ['Python', 'RAG', '混合检索'],
     details: [
@@ -45,7 +45,7 @@ export const projects = [
   {
     id: 'autellix', title: 'Autellix', repository: 'Autellix',
     category: '系统研究', icon: 'layers',
-    subtitle: '从单次请求，走向程序级调度。',
+    subtitle: '以 Agent 程序为单位的推理调度。',
     description: '围绕 LLM Agent 程序的推理调度研究实现。包含推理后端集成，以及独立的 CPU 模拟器。',
     tags: ['Python', 'vLLM', 'SGLang'],
     details: [
@@ -59,7 +59,7 @@ export const projects = [
   {
     id: 'time-predict', title: 'TimePredictModel', repository: 'TimePredictModel',
     category: '系统研究', icon: 'clock',
-    subtitle: '研究工具调用，需要等待多久。',
+    subtitle: '工具调用回返时间的采集与建模。',
     description: '面向 SGLang 工具调用的回返时间预测项目，涵盖事件采集、特征构建与预测模型训练。',
     tags: ['Python', 'XGBoost', 'SGLang'],
     details: [

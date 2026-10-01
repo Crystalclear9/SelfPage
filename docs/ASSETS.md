@@ -17,7 +17,3 @@
 - Outfit：`@fontsource/outfit`，随包字体许可（SIL Open Font License），本地托管。
 - 中文字体：设备系统字体。
 - Phosphor：`@phosphor-icons/react`，MIT 许可，图标与 favicon 均来自该库。
-
-## 第一版资产
-
-第一版的 AI 同人插画保留在本机 `design-archive/` 中供回退参考，不再由网页加载，且不会提交或部署。当前版本无需生成图片服务。

@@ -1,99 +1,125 @@
-# 春日来信
+# 春日来信 · Haru Letter
 
-Crystalclear9 的个人主页。以加藤惠为主题，展示公开源码项目与作品官方插画。
+[访问网站](https://crystalclear9.github.io/SelfPage/) · [GitHub 主页](https://github.com/Crystalclear9) · [部署说明](docs/DEPLOYMENT.md) · [素材来源](docs/ASSETS.md)
 
-## 本地运行
+Crystalclear9 的个人网站，用于整理公开源码项目与个人兴趣。以加藤惠为视觉主题，采用 React 与 Vite 构建，发布至 GitHub Pages。
 
-需要 Node.js 22.12+ 或 24+。
+## 设计与功能
+
+- 项目分类、简要介绍、详情弹窗及源码仓库入口。
+- 官方插画图集，支持原图访问、放大预览与键盘切换。
+- 深浅主题、轻量樱花拖尾及本地偏好记忆。
+- 桌面与移动端布局，键盘焦点管理及减少动态效果适配。
+- 构建时预渲染完整正文；JavaScript 不可用时，介绍、图片与源码链接仍可访问。
+
+本站展示源码与项目说明，不提供项目在线演示。运行时不请求 GitHub API，不包含账号登录、数据收集或第三方统计脚本。
+
+## 开发环境
+
+Node.js 22.12+，推荐使用与 CI 一致的 Node.js 24。
 
 ```bash
 npm ci
 npm run dev
 ```
 
-开发地址：http://127.0.0.1:5173 。
+开发服务器默认运行于 `http://127.0.0.1:5173/`。
 
 ```bash
 npm run build
 npm run preview
 ```
 
-构建文件位于 `dist/`。请通过 HTTP 服务访问，不要直接双击源 `index.html`。
+构建产物写入 `dist/`，预览默认地址为 `http://127.0.0.1:4173/`。页面应通过 HTTP 服务访问，不支持直接双击源码 HTML 文件。
 
-## 已接入的内容
+## 项目结构
 
-- 公开账号：https://github.com/Crystalclear9
-- 站点仓库：https://github.com/Crystalclear9/SelfPage
-- 项目：随手办、GameQA、Autellix、TimePredictModel。
-- 所有项目仅链接公开源码，没有在线演示或已经上线的承诺。
-- 简介依据各仓库公开 README 整理，不代表本主页独立验证了项目运行效果。
+```text
+.github/workflows/deploy.yml   GitHub Pages 构建与部署
+public/                       原始图片、图标与 robots.txt
+src/
+  App.jsx                     页面结构与交互状态
+  main.jsx                    客户端入口与静态正文 hydration
+  components/
+    Modal.jsx                 弹窗与焦点恢复
+    PetalTrail.jsx            Canvas 鼠标拖尾
+  data/site.js                个人资料、项目与图集配置
+  styles.css                  主题、布局和响应式样式
+scripts/
+  prerender.mjs               构建后生成完整静态 HTML
+  audit.mjs                   Lighthouse 审核
+tests/                       浏览器交互与静态降级检查
+docs/                        部署与素材文档
+```
 
-## 自己修改内容
+`node_modules/`、`dist/` 和 `.local/` 为依赖、构建及检查产物，不提交至仓库。测试截图与报告统一写入 `.local/reports/`。
 
-编辑 `src/content.js`，不需要改组件：
+## 内容维护
 
-| 字段 | 用途 | 是否需要填写 |
-| --- | --- | --- |
-| `profile.name` | 公开显示昵称 | 已填 Crystalclear9，可改 |
-| `profile.subtitle` | 首页一句话介绍 | 可选 |
-| `profile.intro` / `about` | 关于我的文字 | 可选，建议换成自己的表达 |
-| `profile.github` | GitHub 主页 | 已填 |
-| `profile.email` | 公开邮箱 | 完全可选，留空就不显示 |
-| `projects` | 项目简介、分类、技术标签、详情、源码链接 | 已填四个公开项目，可增删 |
-| `extraLinks` | 其他网站的标题、简介、网址 | 可选，默认不显示 |
-| `gallery` | 图集与来源说明 | 可选 |
+公开内容集中在 [`src/data/site.js`](src/data/site.js)。
 
-添加其他页面的示例：
+| 配置项 | 说明 |
+| --- | --- |
+| `profile` | 公开昵称、个人介绍、GitHub 链接及可选邮箱 |
+| `projects` | 项目分类、简介、技术标签、详情与源码地址 |
+| `extraLinks` | 其他页面的标题、简介和公开网址；空数组时隐藏 |
+| `gallery` | 图片文件名、尺寸、标题及来源说明 |
+
+项目分类自动根据数据生成；调整数组顺序即可改变展示顺序。邮箱留空时不显示联系入口。
+
+新增其他页面的格式：
 
 ```js
 export const extraLinks = [
   {
-    title: '我的笔记',
-    description: '技术笔记与学习记录。',
-    href: 'https://你的公开网站地址',
+    title: '笔记',
+    description: '学习过程中的记录与整理。',
+    href: 'https://example.com/notes/',
   },
 ];
 ```
 
-这段仅用于说明，实际配置保持为空，不会出现未配置的假入口。项目分类根据 `projects` 自动生成。修改项目顺序即改变展示顺序。
+以上地址仅为示例，请替换为实际公开地址。前端配置会随构建产物公开，不应写入访问令牌、密码或私人服务地址。
 
-所有 `src/content.js` 内容会公开打包到浏览器。不要填写密码、访问令牌、私人服务地址或不想公开的个人信息。本网站的 GitHub Pages 部署不需要自行填写 PAT/API key。
+## 渲染与资源路径
 
-## GitHub Pages 发布
+生产构建先由 Vite 生成资源，再复用 `App.jsx` 输出静态正文；浏览器加载 JavaScript 后为相同内容接入交互。静态与交互模式共享数据源，不维护两份页面文案。
 
-远程仓库：`Crystalclear9/SelfPage`，分支：`main`。
+`SITE_BASE_PATH` 控制部署子路径，默认 `/`。GitHub Actions 自动使用 Pages 返回的 `base_path`，本仓库为 `/SelfPage/`。自定义构建时，构建与预览需使用相同变量。
 
-1. 打开 [Pages 设置](https://github.com/Crystalclear9/SelfPage/settings/pages)。
-2. 在 **Build and deployment → Source** 选择 **GitHub Actions**。
-3. 在 [Actions](https://github.com/Crystalclear9/SelfPage/actions) 中运行 **Deploy GitHub Pages**，或推送新提交触发。
-4. 工作流成功后，站点地址为 **https://crystalclear9.github.io/SelfPage/**。
+```powershell
+$env:SITE_BASE_PATH = '/SelfPage/'
+npm run build
+npm run preview
+```
 
-`.github/workflows/deploy.yml` 会安装锁定依赖、构建并部署。`base: './'` 兼容仓库子路径。后续只需修改内容并推送 `main`。
+对应预览地址为 `http://127.0.0.1:4173/SelfPage/`。详细配置与故障排查见 [部署说明](docs/DEPLOYMENT.md)。
 
-本仓库已配置为 GitHub Actions 发布（`build_type: workflow`）。工作流会先检查 Pages 配置，再安装依赖和构建。
+## 验证
 
-部署环境固定为 Ubuntu 24.04，构建使用 Node.js 24；相关 Actions 已升级为使用 Node.js 24 的版本，避免 Node.js 20 弃用警告及 `ubuntu-latest` 的自动版本迁移。
+先启动构建预览，再执行：
 
-如果复制到新仓库后出现 `Get Pages site failed / Not Found`，需要先启用 Pages，并将 Source 设为 GitHub Actions；不要选 Deploy from a branch。仅增加 `pages: write` 或 `enablement: true` 不能让默认 `GITHUB_TOKEN` 自动启用新站点。配置完成后，重新运行最新的部署工作流即可，不必将个人令牌写入仓库。
+```powershell
+$env:TEST_URL = 'http://127.0.0.1:4173/'
+npm run check:ui
+npm run check:static
+npm run audit
+```
 
-可选：在仓库 About 中把 Website 设置为上述 Pages 地址。域名、邮箱和其他页面均不必填写，网站也能正常使用。
+| 命令 | 检查范围 |
+| --- | --- |
+| `check:ui` | 项目筛选、弹窗、焦点恢复、画廊、主题持久化、鼠标拖尾与多尺寸布局 |
+| `check:static` | 禁用或拦截 JavaScript 时的正文、图片和链接，以及脚本延迟时的首次加载 |
+| `audit` | 目标地址的 Lighthouse 性能、无障碍、最佳实践与 SEO 审核 |
 
-参考：[GitHub 自定义 Pages 工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
+浏览器检查默认使用 Microsoft Edge；可用 `BROWSER_CHANNEL=chrome` 指定本机 Chrome。GitHub Pages 子路径或线上检查请将 `TEST_URL` 改为完整站点地址。静态降级检查应针对生产构建，开发服务器不执行预渲染。
 
-## 交互
+## 部署
 
-- 轻量樱花拖尾，最多 30 枚；可关闭，空闲暂停，触屏不绘制。
-- 深浅主题默认遵循系统，手动设置在当前浏览器保存。
-- 项目筛选、简介弹窗、直接跳转源码仓库。
-- 图集放大、左右方向键切换、Esc 关闭、关闭后恢复焦点。
-- 手机导航、减少动态效果适配。
-- 喜欢状态仅保存在本机，不生成虚假的全站点赞数。
-- 无分析脚本，无运行时 GitHub API 请求，无第三方图片/字体请求。
+推送 `main` 后自动执行依赖安装、静态构建与 Pages 发布。CI 固定使用 Ubuntu 24.04 与 Node.js 24。
 
-## 维护与检查
+站点地址：**https://crystalclear9.github.io/SelfPage/**。不带 `/SelfPage/` 的账号根地址不是本仓库的发布入口。
 
-`npm run check:ui` 使用本机 Microsoft Edge 执行 Playwright 浏览器检查。默认访问开发服务器；设置 `TEST_URL` 可以改为构建预览。其他系统可修改浏览器 channel 或安装 Playwright Chromium。
+## 素材与权利归属
 
-`node scripts/audit.mjs` 对 4173 端口的构建预览运行移动端 Lighthouse。截图和报告位于不提交的 `artifacts/`。本次本地结果：性能 96，无障碍 100，最佳实践 100，SEO 100；线上网络和设备可能改变分数。
-
-图片来源见 `ASSETS.md`。本站为非官方个人主题站，代码和角色插画的权利归属分开处理。
+角色插画来自作品官方网站，来源及使用位置记录于 [素材文档](docs/ASSETS.md)。本站为非官方个人主题站。第三方图片、字体和图标的权利归属各自权利方，不因本仓库公开而自动获得再分发授权。
