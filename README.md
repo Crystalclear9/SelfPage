@@ -65,6 +65,7 @@ src/
   main.jsx                    客户端入口、样式加载和 hydration
   data/                       个人资料、项目与路由数据
   lib/navigation.js           跨页方向与导航层级判断
+  lib/transition-guard.js      首帧前注册的过渡异常恢复
   pages/                      项目详情、内容索引和 Markdown 正文
   components/
     PageNavigation.jsx        统一返回主页与列表入口
@@ -103,6 +104,7 @@ npm run check:content
 $env:TEST_URL = 'http://127.0.0.1:4173/SelfPage/'
 npm run check:pages
 npm run check:navigation
+npm run check:recovery
 npm run check:static
 npm run check:ui
 npm run check:motion
