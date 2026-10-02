@@ -16,6 +16,17 @@ try {
   await page.mouse.move(600, 160);
   await expect(cursor).toBeVisible();
   await expect(cursor.locator('img')).toHaveAttribute('src', /megumi-cursor.svg$/);
+  await page.mouse.move(720, 160);
+  await page.mouse.move(550, 160);
+  await page.mouse.move(720, 160);
+  await state('playful');
+  await page.waitForTimeout(700);
+  await page.mouse.down();
+  await page.mouse.move(760, 170, { steps: 3 });
+  await expect(cursor).toHaveAttribute('data-tether', 'true');
+  await page.mouse.up();
+  await expect(cursor).not.toHaveAttribute('data-tether', 'true');
+  await page.waitForTimeout(450);
   // Long press is visual feedback only, never an alternate navigation action.
   await page.mouse.down();
   await state('charging');
@@ -94,6 +105,14 @@ try {
   await page.keyboard.press('Escape');
   await expect(page.locator('dialog')).toHaveCount(0);
   await expect(cursor).toBeHidden();
+  const like = page.locator('.like-button');
+  await like.click();
+  await expect(like).toHaveAttribute('aria-pressed', 'true');
+  await state('like');
+  await page.screenshot({ path: '.local/reports/pointer-thanks.png' });
+  await like.click();
+  await expect(like).toHaveAttribute('aria-pressed', 'false');
+  await state('click');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.mouse.move(300, 160);
   await expect(cursor).toBeHidden();

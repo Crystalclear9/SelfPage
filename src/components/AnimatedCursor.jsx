@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Heart } from '@phosphor-icons/react';
 
 // One unchanged sprite. Rotation and scale are anchored on its fingertip (8, 12).
 // A manual popover keeps the pointer above native dialogs without intercepting input.
@@ -14,6 +15,7 @@ export default function AnimatedCursor() {
     let x = 0, y = 0, down = null, target = null, frame = 0, timer = 0;
     let transient = '', nativeDrag = false, visible = false, travelTimer = 0;
     let holdTimer = 0, chargeTimer = 0, lastMove = 0;
+    let anchor = null, previousDirection = 0, reversals = 0, lastReverse = 0, lastPlay = -2000;
     const sparks = [...el.querySelectorAll('.cursor-spark')];
     const clearHold = () => { clearTimeout(holdTimer); clearTimeout(chargeTimer); };
     const burst = (radius = 27) => {
@@ -58,6 +60,7 @@ export default function AnimatedCursor() {
     const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
     const hide = () => {
       visible = false; down = null; nativeDrag = false; transient = '';
+      anchor = null; reversals = 0; previousDirection = 0; delete el.dataset.tether;
       clearTimeout(timer); clearTimeout(travelTimer); clearHold(); cancelAnimationFrame(frame); frame = 0;
       sparks.forEach(spark => spark.getAnimations().forEach(animation => animation.cancel()));
       root.classList.remove('animated-cursor-active');
@@ -66,6 +69,7 @@ export default function AnimatedCursor() {
     const position = event => {
       if (!fine.matches || reduced.matches || (event.pointerType && event.pointerType !== 'mouse') || !sprite.complete || !sprite.naturalWidth) return hide();
       const now = performance.now();
+      const dx = event.clientX - x;
       const speed = visible ? Math.hypot(event.clientX - x, event.clientY - y) / Math.max(8, now - lastMove) : 0;
       lastMove = now;
       const lean = visible ? Math.max(-13, Math.min(13, (event.clientX - x) / 2)) : 0;
@@ -75,6 +79,25 @@ export default function AnimatedCursor() {
       travelTimer = setTimeout(() => { el.style.setProperty('--travel-angle', '0deg'); el.dataset.speed = 'idle'; }, 140);
       x = event.clientX; y = event.clientY; target = event.target;
       if (!visible) { visible = true; el.showPopover(); root.classList.add('animated-cursor-active'); }
+      const semantic = context();
+      if (transient === 'playful' && semantic !== 'default') { clearTimeout(timer); transient = ''; }
+      if (!down && !nativeDrag && !transient && semantic === 'default' && Math.abs(dx) > 12 && speed > .6) {
+        const direction = Math.sign(dx);
+        if (previousDirection && previousDirection !== direction) {
+          reversals = now - lastReverse < 450 ? reversals + 1 : 1;
+          lastReverse = now;
+          if (reversals >= 2 && now - lastPlay > 1800) {
+            pulse('playful', 650); lastPlay = now; reversals = 0;
+          }
+        }
+        previousDirection = direction;
+      }
+      if (anchor && anchor.mode !== 'text') {
+        const distance = Math.hypot(anchor.x - x, anchor.y - y);
+        el.dataset.tether = distance > 6 ? 'true' : 'false';
+        el.style.setProperty('--tether-length', `${Math.min(48, distance)}px`);
+        el.style.setProperty('--tether-angle', `${Math.atan2(anchor.y - y, anchor.x - x)}rad`);
+      }
       if (down && Math.hypot(x - down.x, y - down.y) > 5) { clearHold(); transient = context() === 'text' ? 'text' : 'grabbing'; }
       schedule();
     };
@@ -86,6 +109,7 @@ export default function AnimatedCursor() {
       position(event); clearHold();
       if (!visible) return;
       down = { x: event.clientX, y: event.clientY };
+      anchor = event.button === 0 ? { ...down, mode: context() } : null;
       pulse(event.button === 2 ? 'context' : event.button === 1 ? 'scroll' : 'pressed', 10000);
       if (event.button === 0 && !['text', 'not-allowed', 'wait'].includes(context())) {
         holdTimer = setTimeout(() => { if (down) pulse('charging', 10000); }, 420);
@@ -95,6 +119,7 @@ export default function AnimatedCursor() {
     const release = event => {
       const charged = transient === 'charged';
       clearHold(); down = null;
+      anchor = null; delete el.dataset.tether;
       if (event.button === 0) burst(charged ? 48 : 22);
       pulse(event.button === 2 ? 'context' : event.button === 1 ? 'scroll' : charged ? 'charged-release' : 'click', charged ? 650 : 420);
     };
@@ -104,6 +129,10 @@ export default function AnimatedCursor() {
       if (!down) pulse('scroll', 240);
     };
     const copy = () => { burst(25); pulse('copy', 650); };
+    const feedback = event => {
+      if (event.detail !== 'like' || !visible || reduced.matches) return;
+      burst(32); pulse('like', 900);
+    };
     const dragStart = event => {
       clearHold();
       nativeDrag = true;
@@ -113,7 +142,7 @@ export default function AnimatedCursor() {
       schedule();
     };
     const cancel = () => { if (nativeDrag) { down = null; schedule(); } else hide(); };
-    const dragEnd = () => { clearHold(); nativeDrag = false; down = null; pulse('settle', 450); };
+    const dragEnd = () => { clearHold(); nativeDrag = false; down = null; anchor = null; delete el.dataset.tether; pulse('settle', 450); };
     const leave = () => { if (!nativeDrag) hide(); };
     const dragMove = event => { nativeDrag = true; position(event); };
     const dragLeave = event => { if (event.clientX <= 0 || event.clientY <= 0 || event.clientX >= innerWidth || event.clientY >= innerHeight) hide(); };
@@ -127,12 +156,15 @@ export default function AnimatedCursor() {
     observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open', 'aria-busy', 'data-cursor', 'disabled', 'aria-disabled'] });
     const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'dblclick', doubleClick], [document, 'wheel', wheel], [document, 'copy', copy], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'load', schedule], [fine, 'change', hide], [reduced, 'change', hide]];
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
-    return () => { hide(); observer.disconnect(); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
+    document.addEventListener('cursor-feedback', feedback);
+    return () => { hide(); observer.disconnect(); document.removeEventListener('cursor-feedback', feedback); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
   }, []);
   return <div ref={ref} popover="manual" className="animated-cursor" aria-hidden="true">
     <img className="cursor-sprite" src={`${import.meta.env.BASE_URL}images/megumi-cursor.svg`} alt="" width="64" height="68" draggable="false" />
     <span className="cursor-ring" /><span className="cursor-status" />
     <span className="cursor-orbit" /><span className="cursor-wake" />
+    <span className="cursor-tether" />
+    <span className="cursor-hearts">{[0, 1, 2].map(i => <Heart key={i} size={12} weight="fill" style={{ '--heart-index': i }} />)}</span>
     {Array.from({ length: 8 }, (_, i) => <i key={i} className="cursor-spark" />)}
   </div>;
 }

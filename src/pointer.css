@@ -48,6 +48,20 @@
 .animated-cursor[data-state='copy'] .cursor-orbit { animation: cursor-ripple .5s both; }
 @keyframes charge-orbit { from { rotate: 0deg; scale: .6; } to { rotate: 270deg; scale: 1.6; } }
 @keyframes charged-release { 0% { transform: rotate(-10deg) scale(.92); } 35% { transform: rotate(12deg) scale(1.18); } 65% { transform: rotate(-5deg) scale(.97); } 100% { transform: none; } }
+.cursor-tether { position: absolute; left: 8px; top: 12px; width: var(--tether-length, 0px); border-top: 1px dashed var(--accent); transform: rotate(var(--tether-angle, 0rad)); transform-origin: left center; opacity: 0; }
+.animated-cursor[data-tether='true'] .cursor-tether { opacity: .45; }
+.cursor-hearts { position: absolute; left: 8px; top: 12px; }
+.cursor-hearts svg { position: absolute; opacity: 0; color: var(--accent); }
+.animated-cursor[data-state='like'] .cursor-hearts svg { animation: cursor-heart .85s calc(var(--heart-index) * .07s) both; }
+.animated-cursor[data-state='like'] .cursor-sprite { animation: cursor-thanks .8s both; }
+.animated-cursor[data-state='playful'] .cursor-sprite { animation: cursor-sway .65s both; }
+@keyframes cursor-heart {
+  0% { opacity: 0; transform: translate(0, 0) scale(.5); }
+  20% { opacity: .85; }
+  100% { opacity: 0; transform: translate(calc((var(--heart-index) - 1) * 18px), -38px) scale(1); }
+}
+@keyframes cursor-thanks { 0%, 100% { transform: none; } 35% { transform: rotate(-12deg) scale(1.07); } 65% { transform: rotate(5deg); } }
+@keyframes cursor-sway { 0%, 100% { transform: none; } 25% { transform: rotate(14deg); } 55% { transform: rotate(-11deg); } 80% { transform: rotate(4deg); } }
 @media (prefers-reduced-motion: reduce) {
-  .cursor-spark, .cursor-orbit, .cursor-wake { display: none; }
+  .cursor-spark, .cursor-orbit, .cursor-wake, .cursor-tether, .cursor-hearts { display: none; }
 }
