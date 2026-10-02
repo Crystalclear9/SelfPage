@@ -6,6 +6,7 @@ import '@fontsource/outfit/500.css';
 import '@fontsource/outfit/600.css';
 import './styles.css';
 import './motion.css';
+import './pointer.css';
 
 const container = document.getElementById('root');
 const app = <React.StrictMode><App /></React.StrictMode>;

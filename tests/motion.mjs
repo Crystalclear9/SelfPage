@@ -16,6 +16,17 @@ try {
   await page.mouse.move(600, 160);
   await expect(cursor).toBeVisible();
   await expect(cursor.locator('img')).toHaveAttribute('src', /megumi-cursor.svg$/);
+  // Long press is visual feedback only, never an alternate navigation action.
+  await page.mouse.down();
+  await state('charging');
+  await state('charged');
+  await page.screenshot({ path: '.local/reports/pointer-charged.png' });
+  await page.mouse.up(); await state('charged-release');
+  assert.ok(await cursor.locator('.cursor-spark').evaluateAll(nodes => nodes.some(node => node.getAnimations().length > 0)));
+  await page.waitForTimeout(700);
+  await page.mouse.move(350, 160);
+  await page.mouse.move(900, 160);
+  await expect(cursor).toHaveAttribute('data-speed', 'fast');
   await page.locator('.hero-actions .button').hover();
   await state('pointer');
   await page.mouse.down(); await state('pressed');
@@ -56,6 +67,15 @@ try {
   await page.screenshot({ path: '.local/reports/motion-scroll.png' });
   await page.locator('#projects').scrollIntoViewIfNeeded();
   await page.waitForTimeout(100);
+  const card = page.locator('.project-card').first();
+  await card.hover({ position: { x: 70, y: 65 } });
+  await expect(card).toHaveAttribute('data-pointer-inside', 'true');
+  assert.notEqual(await card.evaluate(el => el.style.getPropertyValue('--tilt-x')), '0deg');
+  await page.screenshot({ path: '.local/reports/pointer-card.png' });
+  await card.click({ position: { x: 70, y: 65 } });
+  assert.ok(await card.evaluate(el => el.getAnimations({ subtree: true }).some(a => a.effect?.pseudoElement === '::after')));
+  await page.mouse.move(400, 160);
+  await expect(card).not.toHaveAttribute('data-pointer-inside', 'true');
   await page.screenshot({ path: '.local/reports/motion-projects.png' });
   const first = await page.locator('.projects-intro').boundingBox();
   await page.mouse.wheel(0, 400);
@@ -77,10 +97,11 @@ try {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.mouse.move(300, 160);
   await expect(cursor).toBeHidden();
+  assert.equal(await page.locator('[data-pointer-inside]').count(), 0);
   assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /megumi-cursor/);
   const touch = await browser.newPage({ hasTouch: true, isMobile: true, viewport: { width: 375, height: 812 } });
   await touch.goto(base, { waitUntil: 'networkidle' });
   await expect(touch.locator('.animated-cursor')).toBeHidden();
   assert.deepEqual(errors, []);
-  console.log('Scroll choreography, cursor action states, dialog top layer, touch and reduced motion passed.');
+  console.log('Scroll, charge/release, speed feedback, card tilt/ripple, cursor states, dialogs, touch and reduced motion passed.');
 } finally { await browser.close(); }

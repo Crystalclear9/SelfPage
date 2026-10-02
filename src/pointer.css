@@ -1,0 +1,53 @@
+/* Extra feedback shares the existing rose accent and unchanged character asset. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-card, .art-window, .contact-inner, .avatar { position: relative; isolation: isolate; }
+  .project-card, .art-window, .contact-inner, .avatar {
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform .45s cubic-bezier(.16, 1, .3, 1), border-color .25s;
+  }
+  .project-card[data-pointer-inside], .art-window[data-pointer-inside], .contact-inner[data-pointer-inside], .avatar[data-pointer-inside] {
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(3px);
+    transition-duration: .14s;
+  }
+  .project-card::before, .art-window::before, .contact-inner::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(240px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 80%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+    opacity: 0; transition: opacity .35s; z-index: 1;
+  }
+  .project-card[data-pointer-inside]::before, .art-window[data-pointer-inside]::before, .contact-inner[data-pointer-inside]::before { opacity: 1; }
+  .project-card::after, .art-window::after, .contact-inner::after, .avatar::after {
+    content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px;
+    border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; z-index: 2;
+  }
+  .button svg, .icon-button svg, .source-link svg {
+    translate: var(--magnet-x, 0px) var(--magnet-y, 0px);
+    transition: translate .2s cubic-bezier(.16, 1, .3, 1), transform .25s;
+  }
+  .filter-bar button[data-pointer-inside] { box-shadow: inset 0 0 0 1px var(--line); }
+}
+.cursor-spark { position: absolute; left: 6px; top: 10px; width: 4px; height: 4px; background: var(--accent); border-radius: 1px; opacity: 0; }
+.cursor-orbit { position: absolute; left: -4px; top: 0; width: 24px; height: 24px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0; transform-origin: center; }
+.cursor-orbit::after { content: ''; position: absolute; top: -2px; left: 10px; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); }
+.cursor-wake { position: absolute; left: 34px; top: 30px; width: 26px; height: 24px; border-right: 1px solid var(--accent); border-radius: 50%; opacity: 0; rotate: -35deg; transition: opacity .15s, transform .2s; }
+.cursor-wake::after { content: ''; position: absolute; inset: 3px -5px 3px 5px; border-right: 1px solid var(--accent); border-radius: 50%; }
+.animated-cursor[data-speed='fast'] .cursor-wake { opacity: .45; transform: translate(4px, 4px); }
+.animated-cursor[data-state='pointer'] .cursor-orbit { opacity: .35; scale: .7; border-style: dashed; animation: cursor-spin 3s linear infinite; }
+.animated-cursor[data-state='charging'] .cursor-orbit { opacity: .7; animation: charge-orbit .65s ease-out both; }
+.animated-cursor[data-state='charging'] .cursor-sprite { transform: rotate(12deg) scale(.85); }
+.animated-cursor[data-state='charged'] .cursor-orbit { opacity: .8; scale: 1.6; border-style: dashed; animation: cursor-spin 1.2s linear infinite; }
+.animated-cursor[data-state='charged'] .cursor-sprite { transform: rotate(-10deg) scale(.92); }
+.animated-cursor[data-state='charged-release'] .cursor-sprite { animation: charged-release .6s cubic-bezier(.16, 1, .3, 1) both; }
+.animated-cursor[data-state='charged-release'] .cursor-ring { animation: cursor-ripple .65s both; }
+.animated-cursor[data-state='grabbing'] .cursor-orbit { opacity: .6; scale: .65; border-style: dotted; animation: cursor-spin 1.8s linear infinite; }
+.animated-cursor[data-state='settle'] .cursor-sprite { animation: cursor-tap .45s both; }
+.animated-cursor[data-state='settle'] .cursor-ring { animation: cursor-ripple .45s both; }
+.animated-cursor[data-state='scroll'] .cursor-sprite { transform: rotate(var(--scroll-angle, 10deg)); }
+.animated-cursor[data-state='scroll'] .cursor-orbit { opacity: .5; border-top-color: transparent; border-bottom-color: transparent; animation: cursor-spin .75s linear infinite; }
+.animated-cursor[data-state='context'] .cursor-sprite { transform: rotate(-12deg) scale(.94); }
+.animated-cursor[data-state='copy'] .cursor-orbit { animation: cursor-ripple .5s both; }
+@keyframes charge-orbit { from { rotate: 0deg; scale: .6; } to { rotate: 270deg; scale: 1.6; } }
+@keyframes charged-release { 0% { transform: rotate(-10deg) scale(.92); } 35% { transform: rotate(12deg) scale(1.18); } 65% { transform: rotate(-5deg) scale(.97); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .cursor-spark, .cursor-orbit, .cursor-wake { display: none; }
+}
