@@ -44,15 +44,16 @@ export const projects = [
   {
     id: 'autellix', title: 'Autellix', repository: 'Autellix',
     category: '系统研究', icon: 'layers',
-    subtitle: '以 Agent 程序为单位的推理调度。',
-    description: '围绕 LLM Agent 程序的推理调度研究实现。包含推理后端集成，以及独立的 CPU 模拟器。',
+    subtitle: 'Autellix 论文的个人复现尝试。',
+    description: '基于他人提出的 Autellix 方法，尝试实现程序感知的 LLM Agent 推理调度。仓库包含后端集成与 CPU 模拟器。',
     tags: ['Python', 'vLLM', 'SGLang'],
     details: [
       { title: '程序感知调度', text: '结合程序历史与调用关系，探索多种调度策略。' },
       { title: '推理与模拟', text: '仓库包含 vLLM、SGLang 集成，以及独立的 CPU 模拟路径。' },
       { title: '研究边界', text: '基于 Autellix 论文展开实现，不代表已经复现论文中的性能结果。' },
     ],
-    note: '研究实现。实际运行需要匹配的后端版本与计算环境；实现范围以 README 为准。',
+    note: '这是个人论文复现尝试，原方法与研究贡献归原论文作者。当前实现不代表完整复现，也不据此主张论文中的性能结果。',
+    reference: { title: 'Autellix: An Efficient Serving Engine for LLM Agents as General Programs', url: 'https://arxiv.org/abs/2502.13965' },
     source: 'https://github.com/Crystalclear9/Autellix',
   },
   {

@@ -3,6 +3,8 @@ import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
 import AnimatedCursor from './components/AnimatedCursor';
 import PointerSurfaces from './components/PointerSurfaces';
+import ContentPage, { WritingSection } from './pages/ContentPage';
+import { href } from './data/routes';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
 import { profile, projects, extraLinks } from './data/site';
 
@@ -13,7 +15,7 @@ const asset = (name) => `${import.meta.env.BASE_URL}images/${name}`;
 const read = (key, fallback) => { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } };
 const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Private browsing can disable storage. */ } };
 
-export default function App() {
+export default function App({ path = '/' }) {
   const [theme, setTheme] = useState('light');
   const [hydrated, setHydrated] = useState(false);
   const [trail, setTrail] = useState(true);
@@ -56,10 +58,10 @@ export default function App() {
     <div className="scroll-progress" aria-hidden="true" />
     <header className="site-header">
       <div className="nav-shell">
-        <a href="#home" className="wordmark"><Code weight="light" size={26} /><span>{profile.name}</span></a>
+        <a href={href('/#home')} className="wordmark"><Code weight="light" size={26} /><span>{profile.name}</span></a>
         <nav className={menu ? 'main-nav open' : 'main-nav'} id="navigation" aria-label="主导航">
-          {links.map(([id, label]) => <a key={id} href={`#${id}`} className={active === id ? 'active' : ''} aria-current={active === id ? 'location' : undefined} onClick={() => setMenu(false)}>{label}</a>)}
-        </nav>
+          {links.map(([id, label]) => <a key={id} href={path === '/' ? `#${id}` : href(`/#${id}`)} className={path === '/' && active === id ? 'active' : ''} aria-current={path === '/' && active === id ? 'location' : undefined} onClick={() => setMenu(false)}>{label}</a>)}
+        <a href={href('/articles/')} aria-current={path.startsWith('/articles/') ? 'page' : undefined} data-cursor="read">文章</a><a href={href('/papers/')} aria-current={path.startsWith('/papers/') ? 'page' : undefined} data-cursor="read">论文</a></nav>
         <div className="nav-actions">
           <button className="icon-button trail-toggle" aria-label="樱花拖尾" title="樱花拖尾" aria-pressed={trail} onClick={toggleTrail}><Sparkle size={21} weight={trail ? 'duotone' : 'regular'} /></button>
           <button className="icon-button" aria-label={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={21} /> : <Sun size={21} />}</button>
@@ -68,6 +70,7 @@ export default function App() {
       </div>
     </header>
     <main id="main">
+      {path === '/' ? <>
       <section className="hero section-shell" id="home">
         <div className="hero-stage">
           <div className="hero-copy">
@@ -105,10 +108,11 @@ export default function App() {
             const Icon = projectIcons[p.icon] || Code;
             return <article className={`project-card ${p.category === '应用' ? 'application-card' : 'research-card'}`} key={p.id}>
               <div className="project-top"><Icon size={31} weight="light" aria-hidden="true" /><span>{p.category}</span></div>
-              <h3>{p.title}</h3>
+              <h3><a href={href(`/projects/${p.id}/`)} data-cursor="read">{p.title}</a></h3>
               <p className="project-subtitle">{p.subtitle}</p>
               <p className="project-description">{p.description}</p>
               <ul className="project-tags">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+              <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>项目页面 <ArrowRight size={15}/></a>
               <div className="project-actions">
                 <a className="source-link" href={p.source} target="_blank" rel="noreferrer" aria-label={`${p.title} 查看源码`}>查看源码 <ArrowUpRight size={16} /></a>
                 <button className="detail-button" aria-label={`项目介绍：${p.title}`} onClick={() => setProject(p)}><span>项目介绍</span><Plus size={18} /></button>
@@ -120,11 +124,13 @@ export default function App() {
         {extraLinks.length > 0 && <div className="extra-links"><h3>其他页面</h3><div>{extraLinks.map(link => <a key={link.href} href={link.href} target="_blank" rel="noreferrer"><h4>{link.title}<ArrowUpRight size={18} /></h4><p>{link.description}</p></a>)}</div></div>}
       </section>
 
+      <WritingSection />
       <section className="contact-section section-shell reveal" id="contact">
         <div className="contact-inner"><div><h2>更多实现，见 GitHub。</h2><p>实现细节、使用说明和后续提交，保存在项目仓库中。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} onClick={() => { if (!liked) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' })); setLiked(!liked); setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。'); }}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
       </section>
+      </> : <ContentPage path={path}/>}
     </main>
-    <footer className="site-footer section-shell"><div><a className="footer-brand" href="#home"><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links"><a href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href="#home" className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
+    <footer className="site-footer section-shell"><div><a className="footer-brand" href={href('/#home')}><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links"><a href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href={path === '/' ? '#home' : '#main'} className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
     <div className="toast" role="status" aria-live="polite">{toast && <span><Flower size={17} />{toast}</span>}</div>
 
     {project && <Modal title={project.title} onClose={() => setProject(null)} className="project-modal">

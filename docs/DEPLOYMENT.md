@@ -46,3 +46,7 @@
 通过 `TEST_URL` 指向线上地址运行 `check:ui` 和 `check:static`，同时确认最新 Actions 的 build、deploy 均成功。部署成功与特定网络环境下的可达性是不同的检查项。
 
 参考：[GitHub Pages 自定义工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
+
+## 独立页面
+
+构建为每个项目、内容索引和已发布文章输出对应目录的 `index.html`，同时输出 `404.html`。无需单页路由重写或 404 跳转脚本。验收时应直接打开子页面并刷新，避免只从首页点击验证。新增文章与论文的操作见 [内容维护](CONTENT.md)。

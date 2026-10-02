@@ -2,7 +2,7 @@
 
 ## 当前展示的图片
 
-均来自[剧场版《冴えない彼女の育てかた Fine》官方网站](https://saenai-movie.com/)。主视觉与头像使用以下官方原图。
+首页主视觉与头像来自[剧场版《冴えない彼女の育てかた Fine》官方网站](https://saenai-movie.com/)。主视觉与头像使用以下官方原图。
 
 | 文件 | 原始分辨率 | 原地址 |
 | --- | --- | --- |
@@ -26,3 +26,7 @@
 生成提示词：
 
 > Create a single transparent-background mouse cursor sprite: Megumi Kato from Saekano, recognizable short chestnut bob haircut, white beret, red cardigan over white dress. Cute compact chibi full body, crisp pixel-art-like clean anime silhouette legible at 48x64 pixels. She leans diagonally and extends her left arm toward upper left with ONE index fingertip at the extreme upper left of the silhouette as the precise cursor click hotspot. Entire character visible, shoes included. Tight crop, transparent margins minimal. No arrow, no conventional mouse cursor, no circle, no badge, no background, no text, no shadow backdrop, no other characters. Clean defined outlines, restrained shading, white clothing opaque, genuine transparent alpha outside silhouette. Output single isolated character asset for UI use.
+
+## 文章与论文附件
+
+正文图片与 PDF 统一放在 `public/files/`。文件名应稳定，并在文章中记录必要的来源信息；已发布链接依赖该路径。此目录当前不包含附件。

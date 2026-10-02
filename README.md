@@ -1,96 +1,36 @@
-# Crystalclear9 · 个人主页
+# Crystalclear9 · 个人网站
 
-[访问网站](https://crystalclear9.github.io/SelfPage/) · [GitHub 主页](https://github.com/Crystalclear9) · [部署说明](docs/DEPLOYMENT.md) · [素材来源](docs/ASSETS.md)
+[网站](https://crystalclear9.github.io/SelfPage/) · [内容维护](docs/CONTENT.md) · [部署](docs/DEPLOYMENT.md) · [动效](docs/MOTION.md) · [素材来源](docs/ASSETS.md)
 
-Crystalclear9 的个人网站，用于整理公开源码项目与实现思路。以加藤惠头像、鼠标指针和少量插画作为个人元素，采用 React 与 Vite 构建，发布至 GitHub Pages。
+个人项目、技术文章与论文的静态网站。使用 React、Vite 和构建时预渲染，部署至 GitHub Pages。加藤惠插画与角色光标作为个人视觉元素，内容以项目实现和技术记录为主。
 
-## 设计与功能
+## 页面
 
-- 项目分类、简要介绍、详情弹窗及源码仓库入口。
-- 保持原始加藤惠角色素材，提供移动、悬停、点击、拖动、滚轮、文本及等待等动态光标状态。
-- 长按蓄力与释放粒子、快速移动气流、卡片倾转与局部光斑、按钮图标磁吸。
-- 首屏滚动视差、项目区侧栏停留、内容渐进呈现、阅读进度线与弹窗过渡。
-- 深浅主题、轻量樱花拖尾及本地偏好记忆。
-- 桌面与移动端布局，键盘焦点管理及减少动态效果适配。
-- 构建时预渲染完整正文；JavaScript 不可用时，介绍、图片与源码链接仍可访问。
+| 路径（相对站点根目录） | 内容 |
+| --- | --- |
+| `/` | 个人介绍、项目概览、文章与论文入口 |
+| `/projects/suishouban/` | 随手办 |
+| `/projects/gameqa/` | GameQA |
+| `/projects/autellix/` | Autellix 论文的个人复现尝试 |
+| `/projects/time-predict/` | TimePredictModel |
+| `/articles/` | 技术文章索引 |
+| `/papers/` | 论文索引 |
+| `/articles/<slug>/`、`/papers/<slug>/` | 已发布内容的独立页面 |
 
-本站展示源码与项目说明，不提供项目在线演示。运行时不请求 GitHub API，不包含账号登录、数据收集或第三方统计脚本。
+每个页面均输出独立 HTML，可直接访问、刷新和在禁用 JavaScript 时阅读。项目介绍基于公开仓库整理，不代表已经完成独立运行验证。本站提供源码入口，不提供项目在线演示。
 
-## 开发环境
+Autellix 的原方法与研究贡献归[原论文作者](https://arxiv.org/abs/2502.13965)。此处仓库属于个人复现尝试，不声称完整复现或达到原论文的性能结果。
 
-Node.js 22.12+，推荐使用与 CI 一致的 Node.js 24。
+## 本地开发
+
+Node.js 22.12+；CI 使用 Node.js 24。
 
 ```bash
 npm ci
 npm run dev
 ```
 
-开发服务器默认运行于 `http://127.0.0.1:5173/`。
-
-```bash
-npm run build
-npm run preview
-```
-
-构建产物写入 `dist/`，预览默认地址为 `http://127.0.0.1:4173/`。页面应通过 HTTP 服务访问，不支持直接双击源码 HTML 文件。
-
-## 项目结构
-
-```text
-.github/workflows/deploy.yml   GitHub Pages 构建与部署
-public/                       原始图片、图标与 robots.txt
-src/
-  App.jsx                     页面结构与交互状态
-  main.jsx                    客户端入口与静态正文 hydration
-  motion.css                  滚动编排与角色动作样式
-  pointer.css                 鼠标与表面交互样式
-  components/
-    AnimatedCursor.jsx        角色光标状态与顶层显示
-    PointerSurfaces.jsx       卡片倾转、局部光斑与点击波纹
-    Modal.jsx                 弹窗与焦点恢复
-    PetalTrail.jsx            Canvas 鼠标拖尾
-  data/site.js                个人资料、项目与链接配置
-  styles.css                  主题、布局和响应式样式
-scripts/
-  prerender.mjs               构建后生成完整静态 HTML
-  audit.mjs                   Lighthouse 审核
-tests/                       浏览器交互与静态降级检查
-docs/                        部署与素材文档
-```
-
-`node_modules/`、`dist/` 和 `.local/` 为依赖、构建及检查产物，不提交至仓库。测试截图与报告统一写入 `.local/reports/`。
-
-## 内容维护
-
-公开内容集中在 [`src/data/site.js`](src/data/site.js)。
-
-| 配置项 | 说明 |
-| --- | --- |
-| `profile` | 公开昵称、个人介绍、GitHub 链接及可选邮箱 |
-| `projects` | 项目分类、简介、技术标签、详情与源码地址 |
-| `extraLinks` | 其他页面的标题、简介和公开网址；空数组时隐藏 |
-
-项目分类自动根据数据生成；调整数组顺序即可改变展示顺序。邮箱留空时不显示联系入口。
-
-新增其他页面的格式：
-
-```js
-export const extraLinks = [
-  {
-    title: '笔记',
-    description: '学习过程中的记录与整理。',
-    href: 'https://example.com/notes/',
-  },
-];
-```
-
-以上地址仅为示例，请替换为实际公开地址。前端配置会随构建产物公开，不应写入访问令牌、密码或私人服务地址。
-
-## 渲染与资源路径
-
-生产构建先由 Vite 生成资源，再复用 `App.jsx` 输出静态正文；浏览器加载 JavaScript 后为相同内容接入交互。静态与交互模式共享数据源，不维护两份页面文案。
-
-`SITE_BASE_PATH` 控制部署子路径，默认 `/`。GitHub Actions 自动使用 Pages 返回的 `base_path`，本仓库为 `/SelfPage/`。自定义构建时，构建与预览需使用相同变量。
+本地开发默认地址为 `http://127.0.0.1:5173/`。模拟当前 GitHub Pages 子路径：
 
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
@@ -98,37 +38,54 @@ npm run build
 npm run preview
 ```
 
-对应预览地址为 `http://127.0.0.1:4173/SelfPage/`。详细配置与故障排查见 [部署说明](docs/DEPLOYMENT.md)。
+预览默认地址为 `http://127.0.0.1:4173/SelfPage/`。构建与预览使用相同的 `SITE_BASE_PATH`；根路径部署使用 `/`。
 
-## 验证
+## 目录
 
-先启动构建预览，再执行：
+```text
+content/index.json       文章、论文元数据；当前为空
+content/articles/        文章 Markdown
+content/papers/          论文说明 Markdown
+public/files/            公开 PDF 和正文图片
+public/images/           页面插画与角色光标
+src/data/site.js         个人信息及项目说明
+src/data/routes.js       页面路由与元数据
+src/pages/               项目、索引和正文页面
+src/components/          角色光标、表面反馈、弹窗与拖尾
+src/*css                 布局、主题、响应式和动效
+scripts/content.mjs      内容加载、校验和草稿过滤
+scripts/prerender.mjs    全部页面的静态 HTML 生成
+scripts/audit.mjs        Lighthouse 检查
+tests/                  内容、页面及交互检查
+docs/                   内容维护、部署与素材说明
+```
+
+`node_modules/` 是本地依赖，`dist/` 是构建输出，`.local/reports/` 是检查生成的报告与截图，均不纳入版本控制。无需提交构建产物；GitHub Actions 从源码重新生成。
+
+## 内容维护
+
+项目和个人资料修改 `src/data/site.js`。项目 ID 同时用于详情页网址，发布后应保持稳定。邮箱为空时隐藏联系入口。
+
+文章和论文采用 Markdown 正文与 JSON 元数据分离的方式。仅 `published: true` 的条目参与构建；未发布内容不生成页面，也不进入客户端内容模块。文章可独立发布，论文可提供摘要、PDF 或外部发表链接。当前索引为空，页面展示真实空状态。具体字段、操作步骤和示例见 [CONTENT.md](docs/CONTENT.md)。
+
+## 检查
 
 ```powershell
-$env:TEST_URL = 'http://127.0.0.1:4173/'
-npm run check:ui
+npm run check:content
+$env:TEST_URL = 'http://127.0.0.1:4173/SelfPage/'
+npm run check:pages
 npm run check:static
+npm run check:ui
 npm run check:motion
 npm run audit
 ```
 
-| 命令 | 检查范围 |
-| --- | --- |
-| `check:ui` | 项目筛选、弹窗、焦点恢复、角色指针、主题持久化、鼠标拖尾与多尺寸布局 |
-| `check:static` | 禁用或拦截 JavaScript 时的正文、图片和链接，以及脚本延迟时的首次加载 |
-| `check:motion` | 滚动联动、角色动作、弹窗层级、触控及减少动态效果 |
-| `audit` | 目标地址的 Lighthouse 性能、无障碍、最佳实践与 SEO 审核 |
+浏览器检查使用本机 Microsoft Edge。`check:pages` 覆盖新增路由的直接访问、刷新、无脚本渲染及移动端宽度；其余检查覆盖首页静态正文、主题、筛选、弹窗、光标和减少动态效果设置。
 
-浏览器检查默认使用 Microsoft Edge；可用 `BROWSER_CHANNEL=chrome` 指定本机 Chrome。GitHub Pages 子路径或线上检查请将 `TEST_URL` 改为完整站点地址。静态降级检查应针对生产构建，开发服务器不执行预渲染。
+## 实现约束
 
-## 部署
-
-推送 `main` 后自动执行依赖安装、静态构建与 Pages 发布。CI 固定使用 Ubuntu 24.04 与 Node.js 24。
-
-站点地址：**https://crystalclear9.github.io/SelfPage/**。不带 `/SelfPage/` 的账号根地址不是本仓库的发布入口。
-
-## 素材与权利归属
-
-主视觉与头像来自作品官方网站，透明角色光标由 imagegen 生成，来源及使用位置记录于 [素材文档](docs/ASSETS.md)。本站为个人项目主页，与作品官方无关联。第三方图片、字体和图标的权利归属各自权利方，不因本仓库公开而自动获得再分发授权。
-
-动效实现、光标状态及兼容性说明见 [动效文档](docs/MOTION.md)。
+- 静态 HTML 与客户端共享组件和内容数据，避免首屏依赖脚本才能显示。
+- 滚动效果使用 CSS scroll/view timeline；不拦截滚轮，不修改浏览器滚动速度。
+- 触屏和减少动态效果模式使用降级样式，正文保持可读。
+- 内容在构建时读取，不依赖运行时 GitHub API；不包含登录、数据库或第三方统计。
+- 前端配置和 `public/` 文件均会公开。公开仓库中的未发布 Markdown 也可以通过源码访问，不应提交私人草稿或凭据。

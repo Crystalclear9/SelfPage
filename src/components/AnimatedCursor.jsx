@@ -30,7 +30,7 @@ export default function AnimatedCursor() {
       });
     };
     const aliases = { auto: 'default', all: 'move', 'all-scroll': 'move', 'n-resize': 'ns-resize', 's-resize': 'ns-resize', 'e-resize': 'ew-resize', 'w-resize': 'ew-resize', 'ne-resize': 'nesw-resize', 'sw-resize': 'nesw-resize', 'nw-resize': 'nwse-resize', 'se-resize': 'nwse-resize' };
-    const allowed = new Set(['default', 'pointer', 'text', 'vertical-text', 'wait', 'progress', 'grab', 'grabbing', 'move', 'not-allowed', 'no-drop', 'copy', 'alias', 'zoom-in', 'zoom-out', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize', 'col-resize', 'row-resize', 'crosshair', 'help']);
+    const allowed = new Set(['read', 'download', 'default', 'pointer', 'text', 'vertical-text', 'wait', 'progress', 'grab', 'grabbing', 'move', 'not-allowed', 'no-drop', 'copy', 'alias', 'zoom-in', 'zoom-out', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize', 'col-resize', 'row-resize', 'crosshair', 'help']);
     const context = () => {
       if (document.readyState !== 'complete' || document.querySelector('[aria-busy="true"]')) return 'wait';
       if (!(target instanceof Element)) return 'default';
@@ -55,7 +55,7 @@ export default function AnimatedCursor() {
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : context());
       el.dataset.state = state;
       el.dataset.axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
-      el.querySelector('.cursor-status').textContent = ({ text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
+      el.querySelector('.cursor-status').textContent = ({ read: '≡', download: '↓', text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
     const hide = () => {

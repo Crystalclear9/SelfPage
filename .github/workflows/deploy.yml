@@ -25,6 +25,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm run check:content
       - run: npm run build
         env:
           SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
