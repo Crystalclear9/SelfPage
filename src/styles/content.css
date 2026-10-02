@@ -27,9 +27,6 @@
 .implementation-row p { margin: 0; }
 .technical-note { font-size: 14px; }
 .detail-block .button { margin-top: 18px; }
-.next-project { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 65px 20px; margin-top: 65px; border-bottom: 1px solid var(--line); }
-.next-project span { grid-column: 1 / -1; color: var(--muted); font-size: 14px; }
-.next-project strong { font-size: clamp(24px, 4vw, 48px); font-weight: 500; overflow-wrap: anywhere; }
 .empty-writing { padding: 70px 0 90px; border-bottom: 1px solid var(--line); }
 .empty-writing p { font-size: 24px; margin: 0 0 18px; }
 .empty-writing span { color: var(--muted); }
@@ -61,24 +58,22 @@
  .entry-row time { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: no-preference) {
- .writing-door .entry-arrow, .entry-row > svg, .next-project > svg { transition: translate .35s, rotate .35s; }
- .writing-door:hover .entry-arrow, .entry-row:hover > svg, .next-project:hover > svg { translate: 7px 0; rotate: -12deg; }
+ .writing-door .entry-arrow, .entry-row > svg { transition: translate .35s, rotate .35s; }
+ .writing-door:hover .entry-arrow, .entry-row:hover > svg { translate: 7px 0; rotate: -12deg; }
  .writing-door > div > svg { transition: transform .4s; transform-origin: bottom left; }
  .writing-door:hover > div > svg { transform: rotate(-9deg) translateY(-3px); }
  @supports (animation-timeline: view()) {
   .writing-door, .implementation-row, .entry-row { animation: reading-enter linear both; animation-timeline: view(); animation-range: entry 0% entry 95%; }
   .writing-door:nth-child(2) { animation-name: reading-enter-reverse; }
-  .next-project { animation: reading-expand linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; }
   .detail-heading { animation: reading-header linear both; animation-timeline: view(); animation-range: exit 0% exit 100%; }
  }
 }
 @keyframes reading-enter { from { translate: 0 45px; } to { translate: 0 0; } }
 @keyframes reading-enter-reverse { from { translate: 0 65px; } to { translate: 0 0; } }
-@keyframes reading-expand { from { scale: .96; } to { scale: 1; } }
 @keyframes reading-header { to { translate: 0 -35px; } }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
- .writing-door, .next-project { background: radial-gradient(240px circle at var(--pointer-x, -100%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%); }
- .writing-door::after, .next-project::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; }
+ .writing-door { background: radial-gradient(240px circle at var(--pointer-x, -100%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%); }
+ .writing-door::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; }
  .animated-cursor[data-state='read'] img { animation: cursor-read .9s ease-in-out infinite alternate; }
  .animated-cursor[data-state='download'] img { animation: cursor-download .7s ease-in-out infinite alternate; }
  .animated-cursor:is([data-state='read'], [data-state='download']) .cursor-status { opacity: 1; }

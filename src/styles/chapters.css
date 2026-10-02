@@ -1,0 +1,30 @@
+/* A staged unfold connects the cover and profile, without wheel interception. */
+.project-pager { margin-top: 70px; padding-top: 28px; border-top: 1px solid var(--line); }
+.pager-position { color: var(--muted); font-size: 12px; margin: 0 0 24px; font-variant-numeric: tabular-nums; }
+.pager-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pager-link { display: flex; gap: 20px; align-items: center; padding: 28px 20px; min-height: 110px; border-radius: 18px; background: var(--surface); }
+.pager-link span { min-width: 0; }
+.pager-link small { display: block; font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.pager-link strong { font-size: clamp(19px, 2.6vw, 30px); font-weight: 500; overflow-wrap: anywhere; }
+.pager-link svg { flex-shrink: 0; color: var(--accent); }
+.pager-next { justify-content: space-between; }
+@media (max-width: 760px) { .pager-links { grid-template-columns: 1fr; gap: 12px; } .pager-link { padding: 22px 18px; } }
+@media (prefers-reduced-motion: no-preference) {
+ .pager-link { transition: background .25s, translate .3s; }
+ .pager-link:hover { background: var(--soft); translate: 0 -3px; }
+ @supports (animation-timeline: view()) {
+  .about { view-timeline-name: --profile-unfold; perspective: 1400px; }
+  .profile-card { animation: profile-leaf linear both; animation-timeline: --profile-unfold; animation-range: entry 0% entry 100%; transform-origin: right center; }
+  .about .about-copy { animation: profile-copy-leaf linear both; animation-timeline: --profile-unfold; animation-range: entry 5% entry 100%; transform-origin: left center; }
+  .writing-door { transform-origin: center top; animation-name: writing-leaf; }
+  .writing-door:nth-child(2) { animation-name: writing-leaf; }
+  @media (min-width: 1000px) and (min-height: 650px) {
+   .hero { min-height: 130svh; }
+   .hero-art { animation-name: cover-open; }
+  }
+ }
+ @keyframes profile-leaf { from { transform: rotateY(26deg) translateY(45px); scale: .96; } to { transform: none; scale: 1; } }
+ @keyframes profile-copy-leaf { from { transform: rotateY(-22deg) translateY(65px); } to { transform: none; } }
+ @keyframes writing-leaf { from { translate: 0 42px; rotate: 1 0 0 14deg; scale: .97; } to { translate: 0 0; rotate: 1 0 0 0deg; scale: 1; } }
+ @keyframes cover-open { to { translate: -22px -55px; rotate: -6deg; scale: 1.12; } }
+}

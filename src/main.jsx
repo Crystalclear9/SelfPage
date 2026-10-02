@@ -10,6 +10,10 @@ import './styles/pointer.css';
 import './styles/content.css';
 import './styles/navigation.css';
 import './styles/avatar.css';
+import './styles/chapters.css';
+import { installNavigationMotion } from './lib/navigation';
+const disposeNavigation = installNavigationMotion();
+if (import.meta.hot) import.meta.hot.dispose(disposeNavigation);
 import { currentPath } from './data/routes';
 
 const container = document.getElementById('root');

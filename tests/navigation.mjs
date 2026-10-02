@@ -33,6 +33,14 @@ try {
   await page.waitForTimeout(600);
   await mkdir('.local/reports', { recursive: true });
   await page.screenshot({ path: '.local/reports/return-navigation.png' });
+  await page.locator('.pager-next').click();
+  await page.waitForURL(base + 'projects/gameqa/');
+  await expect(page.locator('html')).toHaveAttribute('data-transition-kind', 'project');
+  assert.equal(await page.locator('html').evaluate(el => el.style.getPropertyValue('--page-direction')), '1');
+  await page.locator('.pager-previous').click();
+  await page.waitForURL(base + 'projects/suishouban/');
+  await expect(page.locator('html')).toHaveAttribute('data-transition-kind', 'project');
+  assert.equal(await page.locator('html').evaluate(el => el.style.getPropertyValue('--page-direction')), '-1');
   await page.locator('.site-footer .home-link').click();
   await page.waitForURL(base);
   await page.goBack();

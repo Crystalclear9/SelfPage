@@ -5,7 +5,7 @@ export default function PointerSurfaces() {
   useEffect(() => {
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const surfaceSelector = '.project-card, .art-window, .contact-inner, .avatar, .writing-door, .next-project';
+    const surfaceSelector = '.project-card, .art-window, .contact-inner, .avatar, .writing-door';
     const controlSelector = '.button, .icon-button, .filter-bar button, .source-link';
     let frame = 0, last = null, surface = null, control = null, pressed = null;
     const pulses = new Map();

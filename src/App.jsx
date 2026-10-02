@@ -110,7 +110,7 @@ export default function App({ path = '/' }) {
             const Icon = projectIcons[p.icon] || Code;
             return <div className="project-reveal" key={p.id}><article className={`project-card ${p.category === '应用' ? 'application-card' : 'research-card'}`} key={p.id}>
               <div className="project-top"><Icon size={31} weight="light" aria-hidden="true" /><span>{p.category}</span></div>
-              <h3><a href={href(`/projects/${p.id}/`)} data-cursor="read">{p.title}</a></h3>
+              <h3 style={{ viewTransitionName: `project-${p.id}` }}><a href={href(`/projects/${p.id}/`)} data-cursor="read">{p.title}</a></h3>
               <p className="project-subtitle">{p.subtitle}</p>
               <p className="project-description">{p.description}</p>
               <ul className="project-tags">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>

@@ -20,12 +20,20 @@
  :root:has(.hero) { --page-direction: -1; }
  .site-header { view-transition-name: site-navigation; }
  ::view-transition { pointer-events: none; }
- ::view-transition-group(root) { animation-duration: .52s; }
- ::view-transition-old(root) { animation: page-depart .42s cubic-bezier(.4,0,.2,1) both; }
- ::view-transition-new(root) { animation: page-enter .52s cubic-bezier(.16,1,.3,1) both; }
- ::view-transition-group(site-navigation) { animation-duration: .52s; }
- @keyframes page-depart { to { opacity: 0; transform: translateX(calc(-65px * var(--page-direction))) scale(.96); } }
- @keyframes page-enter { from { opacity: 0; transform: translateX(calc(100px * var(--page-direction))) translateY(24px) scale(.95); } to { opacity: 1; transform: none; } }
+ ::view-transition-group(root) { animation-duration: .72s; perspective: 1400px; }
+ ::view-transition-old(root) { transform-origin: left center; animation: page-fold-away .55s cubic-bezier(.4,0,.2,1) both; }
+ ::view-transition-new(root) { transform-origin: right center; animation: page-unfold .72s cubic-bezier(.16,1,.3,1) both; }
+ ::view-transition-group(site-navigation) { animation-duration: .72s; }
+ ::view-transition-group(*) { animation-duration: .72s; animation-timing-function: cubic-bezier(.16,1,.3,1); }
+ :root[data-transition-kind='return']::view-transition-old(root) { transform-origin: right center; }
+ :root[data-transition-kind='return']::view-transition-new(root) { transform-origin: left center; }
+ :root[data-transition-kind='project']::view-transition-old(root) { animation-name: project-page-away; }
+ :root[data-transition-kind='project']::view-transition-new(root) { animation-name: project-page-enter; }
+ @keyframes page-fold-away { to { opacity: 0; transform: perspective(1400px) translateX(calc(-8% * var(--page-direction))) rotateY(calc(-12deg * var(--page-direction))) scale(.93); } }
+ @keyframes page-unfold { from { opacity: 0; transform: perspective(1400px) translateX(calc(12% * var(--page-direction))) rotateY(calc(16deg * var(--page-direction))) scale(.94); } to { opacity: 1; transform: none; } }
+ @keyframes project-page-away { to { opacity: 0; transform: translateX(calc(-22% * var(--page-direction))) scale(.96); } }
+ @keyframes project-page-enter { from { opacity: 0; transform: translateX(calc(28% * var(--page-direction))) scale(.96); } to { opacity: 1; transform: none; } }
+
 }
 @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
 @media (max-width: 760px) {
