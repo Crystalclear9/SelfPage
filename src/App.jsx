@@ -100,7 +100,7 @@ export default function App({ path = '/' }) {
 
       <section className="projects-section section-shell" id="projects">
         <div className="projects-intro">
-          <div className="section-heading"><h2>项目与实践</h2><p>围绕具体问题展开的一些实现。<br />使用说明与后续进展，见各自的源码仓库。</p></div>
+          <div className="section-heading"><h2>项目与实践</h2><p>从具体问题出发，边做边理解。<br />这里是一些应用与系统方面的尝试。</p></div>
           <div className="filter-bar" role="group" aria-label="筛选项目">{categories.map(value => <button key={value} aria-pressed={filter === value} className={filter === value ? 'selected' : ''} onClick={() => setFilter(value)}>{value}</button>)}</div>
         </div>
         <div className="project-grid" aria-live="polite">
@@ -112,7 +112,7 @@ export default function App({ path = '/' }) {
               <p className="project-subtitle">{p.subtitle}</p>
               <p className="project-description">{p.description}</p>
               <ul className="project-tags">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-              <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>项目页面 <ArrowRight size={15}/></a>
+              <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>了解项目 <ArrowRight size={15}/></a>
               <div className="project-actions">
                 <a className="source-link" href={p.source} target="_blank" rel="noreferrer" aria-label={`${p.title} 查看源码`}>查看源码 <ArrowUpRight size={16} /></a>
                 <button className="detail-button" aria-label={`项目介绍：${p.title}`} onClick={() => setProject(p)}><span>项目介绍</span><Plus size={18} /></button>
@@ -126,7 +126,7 @@ export default function App({ path = '/' }) {
 
       <WritingSection />
       <section className="contact-section section-shell reveal" id="contact">
-        <div className="contact-inner"><div><h2>更多实现，见 GitHub。</h2><p>实现细节、使用说明和后续提交，保存在项目仓库中。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} onClick={() => { if (!liked) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' })); setLiked(!liked); setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。'); }}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
+        <div className="contact-inner"><div><h2>在 GitHub 上</h2><p>最近的更新和完整实现，可以在 GitHub 找到。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} onClick={() => { if (!liked) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' })); setLiked(!liked); setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。'); }}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
       </section>
       </> : <ContentPage path={path}/>}
     </main>
