@@ -7,7 +7,8 @@ Crystalclear9 的个人网站，用于整理公开源码项目与实现思路。
 ## 设计与功能
 
 - 项目分类、简要介绍、详情弹窗及源码仓库入口。
-- 透明底加藤惠全身角色光标，直接替换系统指针，弹窗内同样生效；触屏保持原生交互。
+- 保持原始加藤惠角色素材，提供移动、悬停、点击、拖动、滚轮、文本及等待等动态光标状态。
+- 首屏滚动视差、项目区侧栏停留、内容渐进呈现、阅读进度线与弹窗过渡。
 - 深浅主题、轻量樱花拖尾及本地偏好记忆。
 - 桌面与移动端布局，键盘焦点管理及减少动态效果适配。
 - 构建时预渲染完整正文；JavaScript 不可用时，介绍、图片与源码链接仍可访问。
@@ -40,7 +41,9 @@ public/                       原始图片、图标与 robots.txt
 src/
   App.jsx                     页面结构与交互状态
   main.jsx                    客户端入口与静态正文 hydration
+  motion.css                  滚动编排与角色动作样式
   components/
+    AnimatedCursor.jsx        角色光标状态与顶层显示
     Modal.jsx                 弹窗与焦点恢复
     PetalTrail.jsx            Canvas 鼠标拖尾
   data/site.js                个人资料、项目与链接配置
@@ -102,6 +105,7 @@ npm run preview
 $env:TEST_URL = 'http://127.0.0.1:4173/'
 npm run check:ui
 npm run check:static
+npm run check:motion
 npm run audit
 ```
 
@@ -109,6 +113,7 @@ npm run audit
 | --- | --- |
 | `check:ui` | 项目筛选、弹窗、焦点恢复、角色指针、主题持久化、鼠标拖尾与多尺寸布局 |
 | `check:static` | 禁用或拦截 JavaScript 时的正文、图片和链接，以及脚本延迟时的首次加载 |
+| `check:motion` | 滚动联动、角色动作、弹窗层级、触控及减少动态效果 |
 | `audit` | 目标地址的 Lighthouse 性能、无障碍、最佳实践与 SEO 审核 |
 
 浏览器检查默认使用 Microsoft Edge；可用 `BROWSER_CHANNEL=chrome` 指定本机 Chrome。GitHub Pages 子路径或线上检查请将 `TEST_URL` 改为完整站点地址。静态降级检查应针对生产构建，开发服务器不执行预渲染。
@@ -122,3 +127,5 @@ npm run audit
 ## 素材与权利归属
 
 主视觉与头像来自作品官方网站，透明角色光标由 imagegen 生成，来源及使用位置记录于 [素材文档](docs/ASSETS.md)。本站为个人项目主页，与作品官方无关联。第三方图片、字体和图标的权利归属各自权利方，不因本仓库公开而自动获得再分发授权。
+
+动效实现、光标状态及兼容性说明见 [动效文档](docs/MOTION.md)。

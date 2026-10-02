@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
+import AnimatedCursor from './components/AnimatedCursor';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
 import { profile, projects, extraLinks } from './data/site';
 
@@ -49,6 +50,8 @@ export default function App() {
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
+    <AnimatedCursor />
+    <div className="scroll-progress" aria-hidden="true" />
     <header className="site-header">
       <div className="nav-shell">
         <a href="#home" className="wordmark"><Code weight="light" size={26} /><span>{profile.name}</span></a>
@@ -64,20 +67,22 @@ export default function App() {
     </header>
     <main id="main">
       <section className="hero section-shell" id="home">
-        <div className="hero-copy">
-          <p className="hero-greeting">你好，我是</p>
-          <h1>{profile.name}<span>.</span></h1>
-          <p className="hero-lead">{profile.subtitle}</p>
-          <p className="hero-description">关注模型在应用中的使用，<br />也研究推理与调度背后的系统问题。</p>
-          <div className="hero-actions">
-            <a className="button primary" href="#projects">浏览项目 <ArrowRight size={17} /></a>
-            <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={17} /></a>
+        <div className="hero-stage">
+          <div className="hero-copy">
+            <p className="hero-greeting">你好，我是</p>
+            <h1>{profile.name}<span>.</span></h1>
+            <p className="hero-lead">{profile.subtitle}</p>
+            <p className="hero-description">关注模型在应用中的使用，<br />也研究推理与调度背后的系统问题。</p>
+            <div className="hero-actions">
+              <a className="button primary" href="#projects">浏览项目 <ArrowRight size={17} /></a>
+              <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={17} /></a>
+            </div>
           </div>
-        </div>
-        <figure className="hero-art">
-          <div className="art-window"><img className="hero-image" src={asset('keyvisual-1.jpg')} alt="官方插画中的加藤惠，站在盛开的樱花之间" fetchPriority="high" width="1200" height="1232" /></div>
+          <figure className="hero-art">
+            <div className="art-window"><img className="hero-image" src={asset('keyvisual-1.jpg')} alt="官方插画中的加藤惠，站在盛开的樱花之间" fetchPriority="high" width="1200" height="1232" /></div>
 
-        </figure>
+          </figure>
+        </div>
       </section>
 
       <section className="about section-shell reveal" id="about">
@@ -88,9 +93,11 @@ export default function App() {
         <div className="about-copy"><h2>关于我</h2><p>{profile.intro}</p><p>{profile.about}</p></div>
       </section>
 
-      <section className="projects-section section-shell reveal" id="projects">
-        <div className="section-heading"><h2>项目与实践</h2><p>围绕具体问题展开的一些实现。<br />使用说明与后续进展，见各自的源码仓库。</p></div>
-        <div className="filter-bar" role="group" aria-label="筛选项目">{categories.map(value => <button key={value} aria-pressed={filter === value} className={filter === value ? 'selected' : ''} onClick={() => setFilter(value)}>{value}</button>)}</div>
+      <section className="projects-section section-shell" id="projects">
+        <div className="projects-intro">
+          <div className="section-heading"><h2>项目与实践</h2><p>围绕具体问题展开的一些实现。<br />使用说明与后续进展，见各自的源码仓库。</p></div>
+          <div className="filter-bar" role="group" aria-label="筛选项目">{categories.map(value => <button key={value} aria-pressed={filter === value} className={filter === value ? 'selected' : ''} onClick={() => setFilter(value)}>{value}</button>)}</div>
+        </div>
         <div className="project-grid" aria-live="polite">
           {projects.filter(p => filter === '全部' || p.category === filter).map(p => {
             const Icon = projectIcons[p.icon] || Code;

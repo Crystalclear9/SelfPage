@@ -81,9 +81,9 @@ try {
   await page.mouse.move(400, 250);
   await page.mouse.move(700, 400, { steps: 20 });
   assert.equal(await page.locator('.character-cursor').count(), 0);
-  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /megumi-cursor/);
+  assert.equal(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), 'none');
   await page.getByRole('button', { name: '项目介绍：随手办' }).click();
-  assert.match(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), /megumi-cursor/);
+  assert.equal(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), 'none');
   await page.keyboard.press('Escape');
   await page.mouse.move(600, 350);
   await page.mouse.move(700, 400, { steps: 20 });

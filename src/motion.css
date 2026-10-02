@@ -1,0 +1,90 @@
+/* Motion is progressive enhancement. Content is readable before JS and on
+   browsers without scroll timelines. No scroll interception or synthetic waits. */
+.scroll-progress { position: fixed; inset: 0 0 auto; height: 2px; background: var(--accent); z-index: 40; transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.hero { position: relative; }
+.hero::before { content: ''; position: absolute; inset: 24px 0 0; background-image: radial-gradient(var(--line) .7px, transparent .7px); background-size: 24px 24px; mask-image: linear-gradient(90deg, transparent 35%, #000); opacity: .55; pointer-events: none; }
+.hero-stage { position: relative; }
+.projects-intro { min-width: 0; }
+.all-repositories { min-height: 44px; margin-top: 72px; }
+.project-card { border: 1px solid transparent; transition: transform .35s, border-color .35s, background .35s; }
+.project-card:hover { border-color: var(--line); }
+.project-top svg, .text-link svg, .button svg, .source-link svg { transition: transform .3s; }
+.project-card:hover .project-top svg { transform: rotate(-8deg) scale(1.1); }
+.text-link:hover svg, .source-link:hover svg { transform: translate(2px, -2px); }
+.button:hover svg:last-child { transform: translateX(3px); }
+.button:active, .icon-button:active, .filter-bar button:active { transform: scale(.96); }
+@media (min-width: 1000px) {
+  .projects-section { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 84px; align-items: start; }
+  .projects-intro { position: sticky; top: 138px; }
+  .project-grid { grid-template-columns: 1fr; gap: 38px; }
+  .all-repositories, .extra-links { grid-column: 2; }
+  .research-card { padding: 36px; background: var(--surface); }
+  .project-description { max-width: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .modal[open] { animation: modal-enter .32s cubic-bezier(.16, 1, .3, 1); }
+  .modal[open]::backdrop { animation: backdrop-enter .25s both; }
+  .project-card { animation: card-change .38s both; }
+  .toast > span { animation: modal-enter .25s both; }
+  @keyframes modal-enter { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: none; } }
+  @keyframes backdrop-enter { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes card-change { from { opacity: .6; } to { opacity: 1; } }
+  @supports (animation-timeline: view()) {
+    .reveal.is-visible { animation: none; }
+    .scroll-progress { animation: progress linear both; animation-timeline: scroll(root); }
+    .project-card { animation: card-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    .about-copy { animation: copy-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+    .contact-inner { animation: panel-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
+    .hero { view-timeline-name: --hero; }
+    .hero-art { animation: art-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 90%; }
+    .hero-copy { animation: copy-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 80%; }
+    @keyframes progress { to { transform: scaleX(1); } }
+    @keyframes card-arrive { from { translate: 0 64px; scale: .96; opacity: 1; } to { translate: 0 0; scale: 1; opacity: 1; } }
+    @keyframes copy-arrive { from { translate: 0 36px; } to { translate: 0 0; } }
+    @keyframes panel-arrive { from { scale: .93; translate: 0 36px; } to { scale: 1; translate: 0 0; } }
+    @keyframes art-depart { to { translate: 0 -65px; rotate: -4deg; scale: .9; } }
+    @keyframes copy-depart { to { translate: 0 -35px; opacity: 1; } }
+    @media (min-width: 1000px) and (min-height: 650px) {
+      .hero { min-height: 110svh; }
+      .hero-stage { position: sticky; top: 90px; min-height: 76svh; }
+      .hero-art { max-width: 380px; }
+      .art-window { height: 380px; }
+    }
+  }
+}
+
+/* Top-layer cursor replaces the native sprite only when ready and mouse-driven.
+   Its original silhouette and fingertip hotspot stay unchanged in every state. */
+.animated-cursor { position: fixed; inset: 0 auto auto 0; margin: 0; padding: 0; border: 0; width: 92px; height: 96px; overflow: visible; background: none; color: var(--accent); pointer-events: none; }
+.animated-cursor::backdrop { display: none; }
+.animated-cursor .cursor-sprite { width: 64px; height: 68px; max-width: none; transform-origin: 8px 12px; transform: rotate(var(--travel-angle, 0deg)); transition: transform .18s cubic-bezier(.2,.8,.2,1); }
+.cursor-status { position: absolute; left: 49px; top: 12px; min-width: 16px; height: 18px; text-align: center; font: 600 15px/18px system-ui; color: var(--accent); text-shadow: 0 0 3px var(--bg), 0 0 3px var(--bg); }
+.cursor-ring { position: absolute; left: 1px; top: 5px; width: 14px; height: 14px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.animated-cursor-active, html.animated-cursor-active * { cursor: none !important; }
+}
+.animated-cursor[data-state='pointer'] .cursor-sprite { transform: rotate(-7deg) scale(1.06); }
+.animated-cursor[data-state='pressed'] .cursor-sprite { transform: rotate(7deg) scale(.88); }
+.animated-cursor[data-state='grab'] .cursor-sprite { transform: rotate(-5deg); }
+.animated-cursor[data-state='grabbing'] .cursor-sprite { transform: rotate(12deg) scale(.94); }
+.animated-cursor[data-state='text'] .cursor-sprite, .animated-cursor[data-state='vertical-text'] .cursor-sprite { transform: scale(.86); }
+.animated-cursor[data-state='scroll'] .cursor-sprite { transform: rotate(5deg) translateY(0); }
+.animated-cursor[data-state='click'] .cursor-sprite { animation: cursor-tap .4s both; }
+.animated-cursor[data-state='double-click'] .cursor-sprite { animation: cursor-tap .28s 2; }
+.animated-cursor[data-state='click'] .cursor-ring, .animated-cursor[data-state='double-click'] .cursor-ring { animation: cursor-ripple .45s both; }
+.animated-cursor[data-state='wait'] .cursor-sprite, .animated-cursor[data-state='progress'] .cursor-sprite { animation: cursor-wait 1.2s ease-in-out infinite alternate; }
+.animated-cursor[data-state='wait'] .cursor-ring, .animated-cursor[data-state='progress'] .cursor-ring { opacity: 1; border-right-color: transparent; animation: cursor-spin .7s linear infinite; }
+.animated-cursor[data-state='not-allowed'] .cursor-sprite, .animated-cursor[data-state='no-drop'] .cursor-sprite { transform: rotate(-9deg) scale(.9); }
+.animated-cursor[data-state='zoom-in'] .cursor-sprite { transform: scale(1.1); }
+.animated-cursor[data-state='zoom-out'] .cursor-sprite { transform: scale(.85); }
+.animated-cursor[data-axis='vertical'] .cursor-status { rotate: 90deg; }
+.animated-cursor[data-axis='diagonal-up'] .cursor-status { rotate: -45deg; }
+.animated-cursor[data-axis='diagonal-down'] .cursor-status { rotate: 45deg; }
+@keyframes cursor-tap { 0% { transform: scale(.88) rotate(7deg); } 60% { transform: scale(1.07) rotate(-4deg); } 100% { transform: none; } }
+@keyframes cursor-ripple { from { opacity: .7; scale: .5; } to { opacity: 0; scale: 2.5; } }
+@keyframes cursor-wait { to { transform: rotate(8deg); } }
+@keyframes cursor-spin { to { rotate: 360deg; } }
+@media (prefers-reduced-motion: reduce) {
+  .animated-cursor { display: none !important; }
+  .projects-intro { position: static; }
+}
