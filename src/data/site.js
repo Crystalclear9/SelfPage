@@ -14,10 +14,11 @@ export const profile = {
 // Source links only: these projects do not have hosted demos.
 export const projects = [
   {
+    context: '这个项目关注散落在不同输入里的待办信息。处理过程保留原始内容与修正入口，让用户先核对再执行；行动卡片则把个人计划、团队任务和本地草稿放进同一套流程。',
     id: 'suishouban', title: '随手办', repository: 'AigcProject',
     category: '应用', icon: 'phone',
     subtitle: '多模态信息提取与任务整理。',
-    description: '面向 Android 的多模态行动助理。将截图、文字和文档里的事项整理成卡片，在核对后创建提醒或团队任务。',
+    description: '面向 Android 的多模态行动助理，把截图、文字和文档里的事项整理成可核对的卡片。确认时间和内容后，再创建提醒或团队任务，让信息收集与后续处理衔接起来。',
     tags: ['Kotlin', 'Android', 'Python'],
     details: [
       { title: '收集信息', text: '从截图、长截图、文字及办公文档中提取待办事项。' },
@@ -28,10 +29,11 @@ export const projects = [
     source: 'https://github.com/Crystalclear9/AigcProject',
   },
   {
+    context: '检索部分结合 BM25 与向量检索，分别利用关键词和语义信息寻找资料。知识按游戏组织，对话界面提供会话管理、来源查看和重试入口，便于围绕具体问题继续查询。',
     id: 'gameqa', title: 'GameQA', repository: 'RagGameQa',
     category: '应用', icon: 'game',
     subtitle: '面向游戏知识的检索增强问答。',
-    description: '基于检索增强生成的游戏问答项目。结合本地知识库和混合检索，整理游戏相关问题与参考来源。',
+    description: '基于检索增强生成的游戏问答项目，先从本地知识库寻找相关内容，再结合模型组织回答。通过混合检索和来源展示，让游戏知识的查询有据可查，也便于回到原文核对。',
     tags: ['Python', 'RAG', '混合检索'],
     details: [
       { title: '知识检索', text: '结合 BM25 与向量检索，从游戏知识库中寻找相关内容。' },
@@ -42,10 +44,11 @@ export const projects = [
     source: 'https://github.com/Crystalclear9/RagGameQa',
   },
   {
+    context: '复现的重点是把论文中的程序级调度思路落到可阅读的实现中。仓库同时保留后端集成与独立模拟路径，用于从不同运行条件理解调度逻辑；原论文的性能结果仍需进一步验证。',
     id: 'autellix', title: 'Autellix', repository: 'Autellix',
     category: '系统研究', icon: 'layers',
     subtitle: '程序感知调度：从论文到实现。',
-    description: '阅读 Autellix 论文后进行的复现尝试，关注如何结合 Agent 程序的调用关系安排推理请求。',
+    description: '阅读 Autellix 论文后进行的复现尝试，关注如何结合 Agent 程序的调用关系安排推理请求。从程序历史与调度策略入手，结合推理后端和 CPU 模拟路径理解论文中的方法。',
     tags: ['Python', 'vLLM', 'SGLang'],
     details: [
       { title: '程序感知调度', text: '结合程序历史与调用关系，探索多种调度策略。' },
@@ -57,10 +60,11 @@ export const projects = [
     source: 'https://github.com/Crystalclear9/Autellix',
   },
   {
+    context: '这里把事件采集、样本构建和预测训练串成一个实验流程。模型采用结构化特征与 XGBoost，关注不同分位数下的回返时间；数据配对和预测校准也是需要持续检查的部分。',
     id: 'time-predict', title: 'TimePredictModel', repository: 'TimePredictModel',
     category: '系统研究', icon: 'clock',
     subtitle: '工具调用回返时间的采集与建模。',
-    description: '面向 SGLang 工具调用的回返时间预测项目，涵盖事件采集、特征构建与预测模型训练。',
+    description: '面向 SGLang 工具调用的回返时间预测项目，从调用与返回事件中构建时间标签，再进行特征提取和模型训练。尝试用分位数预测描述等待时间，为分析工具调用的延迟提供依据。',
     tags: ['Python', 'XGBoost', 'SGLang'],
     details: [
       { title: '采集与配对', text: '围绕工具调用和结果回返采集事件，构建时间标签。' },

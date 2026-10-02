@@ -106,7 +106,7 @@ export default function App({ path = '/' }) {
         <div className="project-grid" aria-live="polite">
           {projects.filter(p => filter === '全部' || p.category === filter).map(p => {
             const Icon = projectIcons[p.icon] || Code;
-            return <article className={`project-card ${p.category === '应用' ? 'application-card' : 'research-card'}`} key={p.id}>
+            return <div className="project-reveal" key={p.id}><article className={`project-card ${p.category === '应用' ? 'application-card' : 'research-card'}`} key={p.id}>
               <div className="project-top"><Icon size={31} weight="light" aria-hidden="true" /><span>{p.category}</span></div>
               <h3><a href={href(`/projects/${p.id}/`)} data-cursor="read">{p.title}</a></h3>
               <p className="project-subtitle">{p.subtitle}</p>
@@ -117,7 +117,7 @@ export default function App({ path = '/' }) {
                 <a className="source-link" href={p.source} target="_blank" rel="noreferrer" aria-label={`${p.title} 查看源码`}>查看源码 <ArrowUpRight size={16} /></a>
                 <button className="detail-button" aria-label={`项目介绍：${p.title}`} onClick={() => setProject(p)}><span>项目介绍</span><Plus size={18} /></button>
               </div>
-            </article>;
+            </article></div>;
           })}
         </div>
         <a className="all-repositories text-link" href={`${profile.github}?tab=repositories`} target="_blank" rel="noreferrer">GitHub 上的全部仓库 <ArrowUpRight size={16} /></a>

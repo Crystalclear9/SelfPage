@@ -32,14 +32,26 @@
   @supports (animation-timeline: view()) {
     .reveal.is-visible { animation: none; }
     .scroll-progress { animation: progress linear both; animation-timeline: scroll(root); }
-    .project-card { animation: card-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    .project-reveal { view-timeline-name: --project-arrival; perspective: 1200px; }
+    .project-reveal .project-card { animation: card-arrive linear both; animation-timeline: --project-arrival; animation-range: entry 0% entry 100%; transform-origin: center top; }
     .about-copy { animation: copy-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
     .contact-inner { animation: panel-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
     .hero { view-timeline-name: --hero; }
     .hero-art { animation: art-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 90%; }
     .hero-copy { animation: copy-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 80%; }
     @keyframes progress { to { transform: scaleX(1); } }
-    @keyframes card-arrive { from { translate: 0 64px; scale: .96; opacity: 1; } to { translate: 0 0; scale: 1; opacity: 1; } }
+    @keyframes card-arrive {
+      from { translate: 0 110px; scale: .9; rotate: 1 0 0 8deg; box-shadow: 0 26px 45px -32px color-mix(in srgb, var(--ink) 24%, transparent); }
+      75% { translate: 0 8px; scale: .99; rotate: 1 0 0 1deg; }
+      to { translate: 0 0; scale: 1; rotate: 1 0 0 0deg; box-shadow: 0 0 0 transparent; }
+    }
+    @media (min-width: 1000px) {
+      .project-grid { gap: 90px; }
+    }
+    @media (max-width: 760px) {
+      .project-reveal .project-card { animation-name: card-arrive-small; }
+      @keyframes card-arrive-small { from { translate: 0 55px; scale: .95; } to { translate: 0 0; scale: 1; } }
+    }
     @keyframes copy-arrive { from { translate: 0 36px; } to { translate: 0 0; } }
     @keyframes panel-arrive { from { scale: .93; translate: 0 36px; } to { scale: 1; translate: 0 0; } }
     @keyframes art-depart { to { translate: 0 -65px; rotate: -4deg; scale: .9; } }
@@ -88,3 +100,6 @@
   .animated-cursor { display: none !important; }
   .projects-intro { position: static; }
 }
+
+.project-reveal { min-width: 0; }
+.project-reveal > .project-card { height: 100%; }
