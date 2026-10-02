@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
-import CharacterCursor from './components/CharacterCursor';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
 import { profile, projects, extraLinks } from './data/site';
 
@@ -50,7 +49,6 @@ export default function App() {
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
-    <CharacterCursor />
     <header className="site-header">
       <div className="nav-shell">
         <a href="#home" className="wordmark"><Code weight="light" size={26} /><span>{profile.name}</span></a>

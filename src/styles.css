@@ -266,18 +266,13 @@ html:not(.interactive) .like-button { display: none; }
   html:not(.interactive) .main-nav a { padding: 4px; font-size: 10px; }
 }
 
-/* Shared crop keeps Megumi centered at every avatar and cursor size. */
-.avatar img, .character-face img { position: absolute; width: 300%; max-width: none; height: 308%; left: -185%; top: -85%; }
-/* Cursor layer stays above page content; native cursors remain in modal top layers. */
-.character-cursor { position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none; width: 48px; height: 48px; }
-.character-cursor[hidden] { display: none; }
-.character-cursor > svg { position: absolute; left: -2px; top: -2px; color: var(--ink); filter: drop-shadow(0 0 1px var(--bg)); }
-.character-face { position: absolute; top: 9px; left: 9px; width: 34px; height: 34px; border-radius: 50%; overflow: hidden; background: #fff; border: 1px solid var(--line); }
-.character-cursor[data-link="true"] .character-face { border: 2px solid var(--accent); }
+/* Center the profile avatar independently of the cursor artwork. */
+.avatar img { position: absolute; width: 300%; max-width: none; height: 308%; left: -185%; top: -85%; }
+/* Native cursor: the character itself is the pointer, including inside dialogs. */
 @media (hover: hover) and (pointer: fine) {
-  html.character-cursor-active:not(:has(dialog[open])), html.character-cursor-active:not(:has(dialog[open])) * { cursor: none !important; }
+  html, body, body * { cursor: url('/images/megumi-cursor.svg') 8 12, auto; }
+  a, button, a *, button * { cursor: url('/images/megumi-cursor.svg') 8 12, pointer; }
 }
-html:has(dialog[open]) .character-cursor { display: none; }
 @media (max-width: 767px) {
   .hero-art { max-width: 260px; justify-self: start; }
 }

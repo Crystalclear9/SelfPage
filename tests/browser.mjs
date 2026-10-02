@@ -80,8 +80,13 @@ try {
   await page.getByRole('button', { name: '樱花拖尾', exact: true }).click();
   await page.mouse.move(400, 250);
   await page.mouse.move(700, 400, { steps: 20 });
-  assert.equal(await page.locator('.character-cursor').isVisible(), true);
-  assert.equal(await page.locator('html').evaluate(el => el.classList.contains('character-cursor-active')), true);
+  assert.equal(await page.locator('.character-cursor').count(), 0);
+  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /megumi-cursor/);
+  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
+  assert.match(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), /megumi-cursor/);
+  await page.keyboard.press('Escape');
+  await page.mouse.move(600, 350);
+  await page.mouse.move(700, 400, { steps: 20 });
   const hasPetals = await page.locator('canvas').evaluate(el => el.getContext('2d').getImageData(0, 0, el.width, el.height).data.some((value, i) => i % 4 === 3 && value > 0));
   assert.equal(hasPetals, true, 'Pointer movement should draw petals');
   await page.emulateMedia({ reducedMotion: 'reduce' });
