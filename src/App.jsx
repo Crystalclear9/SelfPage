@@ -4,6 +4,7 @@ import Modal from './components/Modal';
 import AnimatedCursor from './components/AnimatedCursor';
 import PointerSurfaces from './components/PointerSurfaces';
 import ProfileAvatar from './components/ProfileAvatar';
+import ScrollToTop from './components/ScrollToTop';
 import { HomeLink } from './components/PageNavigation';
 import ContentPage, { WritingSection } from './pages/ContentPage';
 import { href } from './data/routes';
@@ -57,6 +58,7 @@ export default function App({ path = '/' }) {
     <PetalTrail enabled={trail} />
     <AnimatedCursor />
     <PointerSurfaces />
+    {path === '/' && <ScrollToTop />}
     <div className="scroll-progress" aria-hidden="true" />
     <header className="site-header">
       <div className="nav-shell">

@@ -32,7 +32,7 @@
   @supports (animation-timeline: view()) {
     .reveal.is-visible { animation: none; }
     .scroll-progress { animation: progress linear both; animation-timeline: scroll(root); }
-    .project-reveal { view-timeline-name: --project-arrival; perspective: 1000px; }
+    .project-reveal { view-timeline-name: --project-arrival; perspective: 850px; }
     .project-reveal .project-card { animation: card-arrive linear both; animation-timeline: --project-arrival; animation-range: cover 0% cover 100%; transform-origin: center; }
     .about-copy { animation: copy-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
     .contact-inner { animation: panel-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
@@ -41,16 +41,16 @@
     .hero-copy { animation: copy-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 80%; }
     @keyframes progress { to { transform: scaleX(1); } }
     @keyframes card-arrive {
-      from { translate: 0 18px; scale: .975; rotate: 1 0 0 24deg; }
+      from { translate: 0 18px; scale: .975; rotate: 1 0 0 36deg; }
       38%, 62% { translate: 0 0; scale: 1; rotate: 1 0 0 0deg; }
-      to { translate: 0 -18px; scale: .975; rotate: 1 0 0 -24deg; }
+      to { translate: 0 -18px; scale: .975; rotate: 1 0 0 -36deg; }
     }
     @media (max-width: 760px) {
       .project-reveal .project-card { animation-name: card-arrive-small; }
       @keyframes card-arrive-small {
-        from { translate: 0 12px; scale: .985; rotate: 1 0 0 17deg; }
+        from { translate: 0 12px; scale: .985; rotate: 1 0 0 26deg; }
         38%, 62% { translate: 0 0; scale: 1; rotate: 1 0 0 0deg; }
-        to { translate: 0 -12px; scale: .985; rotate: 1 0 0 -17deg; }
+        to { translate: 0 -12px; scale: .985; rotate: 1 0 0 -26deg; }
       }
     }
     @keyframes copy-arrive { from { translate: 0 36px; } to { translate: 0 0; } }
@@ -108,3 +108,6 @@
 /* Compact spacing at every viewport; motion does not reserve extra layout space. */
 .project-grid { gap: 16px; }
 @media (max-width: 760px) { .project-grid { gap: 12px; } }
+
+/* Contain perspective at narrow viewport edges without creating a scroll container. */
+.projects-section { overflow-x: clip; }

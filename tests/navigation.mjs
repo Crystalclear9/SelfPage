@@ -90,6 +90,28 @@ try {
     await bar.locator('.home-link').click();
     await page.waitForURL(base);
   }
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(base);
+    const topLink = page.locator('.floating-top');
+    await expect(topLink).toBeHidden();
+    await page.evaluate(() => scrollTo({ top: 1500, behavior: 'instant' }));
+    await expect(topLink).toBeHidden();
+    await page.mouse.wheel(0, -100);
+    await expect(topLink).toBeVisible();
+    await page.mouse.wheel(0, 80);
+    await expect(topLink).toBeHidden();
+    await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+    await expect(topLink).toBeHidden();
+    await page.mouse.wheel(0, -15);
+    await expect(topLink).toBeHidden();
+    assert.ok(await page.locator('.site-footer .back-top').evaluate(el => el.getBoundingClientRect().top < innerHeight));
+    await page.mouse.wheel(0, -700);
+    await expect(topLink).toBeVisible();
+    await topLink.click();
+    await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(150);
+    await expect(topLink).toBeHidden();
+  }
   assert.deepEqual(errors, []);
   console.log('Return links, no-JS navigation, page transitions, history, avatar and reduced motion passed.');
 } finally { await browser.close(); }
