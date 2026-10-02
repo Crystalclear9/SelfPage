@@ -1,0 +1,35 @@
+/* Ordinary links remain usable with scripts disabled or transitions unsupported. */
+.page-navigation { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px; }
+.home-link { display: inline-flex; align-items: center; gap: 12px; min-height: 46px; padding: 6px 18px 6px 6px; border: 1px solid var(--line); border-radius: 999px; background: var(--elevated); font-size: 14px; color: var(--ink); }
+.home-link-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--soft); color: var(--accent); }
+.home-link:hover { border-color: var(--accent); }
+.section-return { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; color: var(--muted); }
+.section-return:hover { color: var(--accent); }
+.home-link-compact { font-size: 12px; min-height: 40px; }
+.home-link-compact .home-link-icon { width: 28px; height: 28px; }
+.site-footer .home-link span { font-size: inherit; }
+.footer-links { flex-wrap: wrap; }
+@media (prefers-reduced-motion: no-preference) {
+ .home-link { transition: border-color .2s, box-shadow .2s; }
+ .home-link-icon svg { transition: translate .25s; }
+ .home-link:hover .home-link-icon svg { translate: -3px 0; }
+ .home-link:active { scale: .97; }
+ /* The browser owns navigation and history, with no artificial loading delay. */
+ @view-transition { navigation: auto; }
+ :root { --page-direction: 1; }
+ :root:has(.hero) { --page-direction: -1; }
+ .site-header { view-transition-name: site-navigation; }
+ ::view-transition { pointer-events: none; }
+ ::view-transition-group(root) { animation-duration: .52s; }
+ ::view-transition-old(root) { animation: page-depart .42s cubic-bezier(.4,0,.2,1) both; }
+ ::view-transition-new(root) { animation: page-enter .52s cubic-bezier(.16,1,.3,1) both; }
+ ::view-transition-group(site-navigation) { animation-duration: .52s; }
+ @keyframes page-depart { to { opacity: 0; transform: translateX(calc(-65px * var(--page-direction))) scale(.96); } }
+ @keyframes page-enter { from { opacity: 0; transform: translateX(calc(100px * var(--page-direction))) translateY(24px) scale(.95); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+@media (max-width: 760px) {
+ .page-navigation { gap: 8px 16px; }
+ .home-link { font-size: 13px; }
+ .footer-links .home-link { font-size: 12px; }
+}

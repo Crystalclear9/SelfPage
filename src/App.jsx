@@ -3,6 +3,8 @@ import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
 import AnimatedCursor from './components/AnimatedCursor';
 import PointerSurfaces from './components/PointerSurfaces';
+import ProfileAvatar from './components/ProfileAvatar';
+import { HomeLink } from './components/PageNavigation';
 import ContentPage, { WritingSection } from './pages/ContentPage';
 import { href } from './data/routes';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
@@ -92,7 +94,7 @@ export default function App({ path = '/' }) {
 
       <section className="about section-shell reveal" id="about">
         <div className="profile-card">
-          <div className="avatar"><img src={asset('keyvisual-3.jpg')} alt="加藤惠主题头像" width="1200" height="1232" loading="lazy" /></div>
+          <ProfileAvatar enabled={hydrated} onGreet={() => setToast('你好，欢迎来这里。')} />
           <div><h2>{profile.name}</h2><a href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={15} /> GitHub <ArrowUpRight size={13} /></a></div>
         </div>
         <div className="about-copy"><h2>关于我</h2><p>{profile.intro}</p><p>{profile.about}</p></div>
@@ -130,7 +132,7 @@ export default function App({ path = '/' }) {
       </section>
       </> : <ContentPage path={path}/>}
     </main>
-    <footer className="site-footer section-shell"><div><a className="footer-brand" href={href('/#home')}><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links"><a href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href={path === '/' ? '#home' : '#main'} className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
+    <footer className="site-footer section-shell"><div><a className="footer-brand" href={href('/#home')}><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links">{path !== '/' && <HomeLink compact />}<a className="visual-credit" href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href={path === '/' ? '#home' : '#main'} className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
     <div className="toast" role="status" aria-live="polite">{toast && <span><Flower size={17} />{toast}</span>}</div>
 
     {project && <Modal title={project.title} onClose={() => setProject(null)} className="project-modal">

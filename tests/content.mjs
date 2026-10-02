@@ -30,6 +30,7 @@ try {
  const { default: Page } = await server.ssrLoadModule('/src/pages/ContentPage.jsx');
  for (const entry of fixtures) {
   const output = renderToString(createElement(Page, { path: entry.route }));
+  assert.match(output, /class="home-link" href="\/SelfPage\/"/); assert.ok(output.includes(`class="section-return" href="/SelfPage/${entry.type}/"`));
   assert.match(output, /<table>/); assert.match(output, /src="\/SelfPage\/files\/figure.png"/);
   assert.ok(!output.includes('<script>'));
   if (entry.type === 'papers') assert.match(output, /href="\/SelfPage\/files\/fixture.pdf"/);

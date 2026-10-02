@@ -4,10 +4,12 @@ import App from './App';
 import '@fontsource/outfit/400.css';
 import '@fontsource/outfit/500.css';
 import '@fontsource/outfit/600.css';
-import './styles.css';
-import './motion.css';
-import './pointer.css';
-import './content.css';
+import './styles/base.css';
+import './styles/motion.css';
+import './styles/pointer.css';
+import './styles/content.css';
+import './styles/navigation.css';
+import './styles/avatar.css';
 import { currentPath } from './data/routes';
 
 const container = document.getElementById('root');

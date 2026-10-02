@@ -139,8 +139,8 @@ h1 > span { color: var(--accent); }
 .site-footer > div { display: flex; align-items: center; gap: 22px; }
 .footer-brand { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; }
 .footer-brand svg { color: var(--accent); }
-.site-footer span, .footer-links > a:first-child { font-size: 10px; color: var(--muted); }
-.footer-links > a:first-child { display: flex; align-items: center; gap: 4px; }
+.site-footer span, .footer-links > .visual-credit { font-size: 10px; color: var(--muted); }
+.footer-links > .visual-credit { display: flex; align-items: center; gap: 4px; }
 .footer-links a:hover { color: var(--accent); }
 .back-top { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; }
 .toast { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); z-index: 30; pointer-events: none; max-width: calc(100% - 32px); width: max-content; }
@@ -231,7 +231,7 @@ h1 > span { color: var(--accent); }
   .site-footer { display: block; padding-block: 24px; }
   .site-footer > div { gap: 17px; }
   .site-footer .footer-links { margin-top: 22px; gap: 13px; }
-  .site-footer span, .footer-links > a:first-child { font-size: 9px; }
+  .site-footer span, .footer-links > .visual-credit { font-size: 9px; }
   .back-top { margin-left: auto; }
   .modal-body { padding: 35px 26px; }
   .modal h2 { font-size: 29px; }
