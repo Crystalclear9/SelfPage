@@ -70,6 +70,26 @@ try {
     assert.equal(await page.locator('.project-grid').evaluate(el => getComputedStyle(el).gap), width === 375 ? '12px' : '16px');
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   }
+  await page.setViewportSize({ width: 375, height: 600 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const route of ['projects/gameqa/', 'articles/', 'papers/']) {
+    await page.goto(base + route);
+    const bar = page.locator('.scroll-return');
+    await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+    await expect(bar).toHaveAttribute('inert', '');
+    await page.mouse.wheel(0, -25);
+    await expect(bar).toHaveClass(/is-visible/);
+    await expect(bar).not.toHaveAttribute('inert', '');
+    await page.mouse.wheel(0, 20);
+    await expect(bar).not.toHaveClass(/is-visible/);
+    await page.mouse.wheel(0, -25);
+    await expect(bar).toHaveClass(/is-visible/);
+    await bar.locator('.home-link').focus();
+    await page.mouse.wheel(0, 20);
+    await expect(bar).toHaveClass(/is-visible/);
+    await bar.locator('.home-link').click();
+    await page.waitForURL(base);
+  }
   assert.deepEqual(errors, []);
   console.log('Return links, no-JS navigation, page transitions, history, avatar and reduced motion passed.');
 } finally { await browser.close(); }

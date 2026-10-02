@@ -41,3 +41,12 @@
  .home-link { font-size: 13px; }
  .footer-links .home-link { font-size: 12px; }
 }
+
+/* This bar overlays the reading area, never changing the document's layout. */
+.scroll-return { position: fixed; top: var(--return-top, 78px); left: 50%; z-index: 9; display: flex; align-items: center; justify-content: space-between; gap: 16px; width: max-content; max-width: calc(100% - 32px); padding: 8px 16px 8px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--nav); backdrop-filter: blur(16px); box-shadow: 0 8px 28px color-mix(in srgb, var(--ink) 8%, transparent); translate: -50% -12px; opacity: 0; visibility: hidden; pointer-events: none; }
+.scroll-return.is-visible { translate: -50% 0; opacity: 1; visibility: visible; pointer-events: auto; }
+.scroll-return .section-return { white-space: nowrap; }
+.scroll-return .home-link { flex-shrink: 0; }
+@media (prefers-reduced-motion: no-preference) { .scroll-return { transition: opacity .18s, translate .22s, visibility .22s; } }
+@media (prefers-reduced-transparency: reduce) { .scroll-return { background: var(--bg); backdrop-filter: none; } }
+@media (max-width: 380px) { .scroll-return { gap: 8px; padding-right: 12px; } .scroll-return .section-return { font-size: 11px; gap: 4px; } .scroll-return .home-link { gap: 6px; padding-right: 10px; } }
