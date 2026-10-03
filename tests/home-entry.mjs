@@ -29,8 +29,27 @@ try {
   await page.locator('.pager-previous').click();
   await expect(page).toHaveURL(base);
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(500);
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.all(document.getAnimations().filter(a => a.effect?.pseudoElement?.startsWith('::view-transition')).map(a => a.finished.catch(() => {})));
+    scrollTo({ top: document.querySelector('#projects').offsetTop + 200, behavior: 'instant' });
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
+  const refreshY = await page.evaluate(() => scrollY);
+  await page.addInitScript(() => {
+    if (performance.getEntriesByType('navigation')[0]?.type !== 'reload') return;
+    window.refreshFrames = [];
+    const sample = () => {
+      if (document.readyState !== 'loading') window.refreshFrames.push(scrollY);
+      if (window.refreshFrames.length < 60) requestAnimationFrame(sample);
+    };
+    requestAnimationFrame(sample);
+  });
   await page.reload();
-  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(500);
+  await expect.poll(() => page.evaluate(() => window.refreshFrames?.length)).toBe(60);
+  const frames = await page.evaluate(() => window.refreshFrames);
+  expect(Math.abs(frames.at(-1) - refreshY)).toBeLessThan(3);
+  expect(frames.filter(y => Math.abs(y - refreshY) > 3)).toEqual([]);
   await page.locator('.detail-button').first().click();
   await expect(page.locator('dialog')).toBeVisible();
   await expect.poll(() => page.locator('.project-detail-list').evaluate(el => getComputedStyle(el).opacity)).toBe('1');

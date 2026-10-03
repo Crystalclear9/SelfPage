@@ -3,6 +3,17 @@
   const base = document.currentScript.dataset.base;
   if (location.pathname !== base && location.pathname !== `${base}index.html`) return;
   const navigation = performance.getEntriesByType('navigation')[0];
+  if (navigation?.type === 'reload') {
+    // Native restoration must not inherit the smooth behavior used by section links.
+    const root = document.documentElement;
+    const previous = root.style.getPropertyValue('scroll-behavior');
+    const priority = root.style.getPropertyPriority('scroll-behavior');
+    root.style.setProperty('scroll-behavior', 'auto', 'important');
+    window.addEventListener('pageshow', () => requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (previous) root.style.setProperty('scroll-behavior', previous, priority);
+      else root.style.removeProperty('scroll-behavior');
+    })), { once: true });
+  }
   let internal = false;
   try {
     const from = new URL(document.referrer);
