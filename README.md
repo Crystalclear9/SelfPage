@@ -47,7 +47,7 @@ src/
   main.jsx          客户端入口
   components/       导航、头像、光标、弹窗和拖尾
   data/             个人资料、项目及路由数据
-  lib/              翻页方向与异常恢复
+  lib/              首页入口、翻页方向与异常恢复
   pages/            项目详情、内容索引和正文
   styles/           基础、内容、导航及动效样式
 scripts/            内容校验、静态生成和性能检查
@@ -71,6 +71,7 @@ npm run check:ui
 npm run check:motion
 npm run check:navigation
 npm run check:recovery
+npm run check:entry
 ```
 
 浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。
@@ -78,6 +79,7 @@ npm run check:recovery
 ## 交互与发布约定
 
 - 首页上滑显示回到顶部，页脚按钮可见时隐藏悬浮按钮；子页面上滑显示返回导航，下滑收起。
+- 收藏或直接打开首页时从首屏开始；站内返回分区保留定位，浏览后的首页地址不保留分区锚点。`check:entry` 覆盖入口、历史恢复及项目介绍弹窗。
 - 滚动卡片、页面翻页、头像与角色光标均支持减少动态效果设置。浏览器不支持页面过渡时使用普通导航。
 - 翻页保护脚本独立于应用包，过渡失败或超时后释放正文。实现和测试范围见 [交互说明](docs/MOTION.md)。
 - 推送到 `main` 触发 GitHub Actions。仓库 Pages 的 Source 应为 **GitHub Actions**。

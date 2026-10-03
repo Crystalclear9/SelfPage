@@ -71,7 +71,7 @@ try {
   await page.getByRole('button', { name: '打开导航' }).click();
   await page.getByRole('navigation').getByRole('link', { name: '我的项目' }).click();
   assert.equal(await page.getByRole('button', { name: '打开导航' }).getAttribute('aria-expanded'), 'false');
-  assert.ok(page.url().endsWith('#projects'));
+  await page.waitForFunction(() => !location.hash && window.scrollY > 500);
   for (const section of await page.locator('main > section').all()) await section.scrollIntoViewIfNeeded();
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: '.local/reports/mobile-light.png', fullPage: true });

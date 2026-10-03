@@ -111,3 +111,27 @@
 
 /* Contain perspective at narrow viewport edges without creating a scroll container. */
 .projects-section { overflow-x: clip; }
+
+/* Small reading cues in project summaries; keep the dialog itself steady. */
+.project-modal .project-detail-list > div { border-radius: 10px; }
+@media (prefers-reduced-motion: no-preference) {
+  .project-modal[open] .modal-body > :is(.modal-meta, h2, p, .project-detail-list, .button) {
+    animation: summary-enter .42s cubic-bezier(.2,.7,.3,1) both;
+  }
+  .project-modal[open] .project-detail-list { animation-delay: .06s; }
+  .project-modal[open] .project-note { animation-delay: .1s; }
+  .project-modal[open] .modal-body > .button { animation-delay: .14s; }
+  .project-modal .project-detail-list > div { transition: background-color .2s, translate .2s; }
+  .project-modal .close-modal { transition: scale .18s, background-color .18s; }
+  .project-modal .close-modal:active { scale: .94; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .project-modal .project-detail-list > div:hover { background: var(--surface); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-modal .project-detail-list > div:hover { translate: 2px 0; }
+}
+@keyframes summary-enter {
+  from { opacity: .35; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
