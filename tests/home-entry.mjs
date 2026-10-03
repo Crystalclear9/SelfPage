@@ -12,6 +12,15 @@ try {
   await page.locator('.hero a[href="#projects"]').click();
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(500);
   await expect(page).toHaveURL(base);
+  // Browser-UI navigation to an old bookmark while the homepage is already open.
+  // This is a same-document fragment navigation: no new head script executes.
+  await page.evaluate(() => { window.entryDocumentMarker = 'same-document'; });
+  await page.goto(base + '#projects');
+  expect(await page.evaluate(() => window.entryDocumentMarker)).toBe('same-document');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+  await expect(page).toHaveURL(base);
+  await page.locator('.hero a[href="#projects"]').click();
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(500);
   await page.locator('.project-page-link').first().click();
   await expect(page).toHaveURL(base + 'projects/suishouban/');
   await page.goBack();
@@ -21,7 +30,7 @@ try {
   await expect(page).toHaveURL(base);
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(500);
   await page.reload();
-  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(500);
   await page.locator('.detail-button').first().click();
   await expect(page.locator('dialog')).toBeVisible();
   await expect.poll(() => page.locator('.project-detail-list').evaluate(el => getComputedStyle(el).opacity)).toBe('1');

@@ -12,8 +12,34 @@
   const cleanAddress = () => {
     if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
   };
-  window.addEventListener('hashchange', cleanAddress);
-  if (navigation?.type === 'back_forward') return;
+  let clickedSection = null;
+  let traversing = false;
+  document.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest?.('a[href]');
+    if (!link || link.target && link.target !== '_self' || link.hasAttribute('download')) return;
+    const to = new URL(link.href, location.href);
+    if (to.origin === location.origin && to.pathname === location.pathname && to.search === location.search && to.hash) {
+      clickedSection = to.href;
+      // A cancelled link must not authorize a later browser-UI navigation.
+      setTimeout(() => { clickedSection = null; }, 0);
+    }
+  }, true);
+  window.navigation?.addEventListener('navigate', event => {
+    traversing = event.navigationType === 'traverse';
+    if (!traversing && event.hashChange) {
+      const internalClick = clickedSection === event.destination.url;
+      clickedSection = null;
+      if (!internalClick) requestAnimationFrame(() => {
+        cleanAddress();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
+    }
+  });
+  window.addEventListener('hashchange', () => {
+    if (!traversing) cleanAddress();
+  });
+  if (navigation?.type === 'back_forward' || navigation?.type === 'reload') return;
   if (!sectionReturn) {
     cleanAddress();
     const restoration = history.scrollRestoration;
