@@ -1,5 +1,7 @@
 /* Editorial extensions share the homepage palette and type system. */
-.project-page-link { margin: 4px 0 24px; font-size: 14px; }
+.project-page-link { margin: 0; font-size: 13px; min-height: 44px; }
+.summary-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 26px; }
+.copy-project-link { background: none; color: var(--muted); min-height: 44px; font-size: 13px; }
 .writing-section { padding-block: 110px; }
 .writing-index { margin-top: 48px; border-top: 1px solid var(--line); }
 .writing-door { display: grid; grid-template-columns: 80px 1fr 40px; align-items: center; padding: 40px 16px; border-bottom: 1px solid var(--line); position: relative; isolation: isolate; }
@@ -72,7 +74,8 @@
 @keyframes reading-enter-reverse { from { translate: 0 65px; } to { translate: 0 0; } }
 @keyframes reading-header { to { translate: 0 -35px; } }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
- .writing-door { background: radial-gradient(240px circle at var(--pointer-x, -100%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%); }
+ .writing-door::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(240px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%); opacity: 0; transition: opacity .2s; }
+ .writing-door[data-pointer-inside]::before { opacity: 1; }
  .writing-door::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; }
  .animated-cursor[data-state='read'] img { animation: cursor-read .9s ease-in-out infinite alternate; }
  .animated-cursor[data-state='download'] img { animation: cursor-download .7s ease-in-out infinite alternate; }

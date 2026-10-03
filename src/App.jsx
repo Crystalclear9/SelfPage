@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import { HomeLink } from './components/PageNavigation';
 import ContentPage, { WritingSection } from './pages/ContentPage';
 import { href } from './data/routes';
+import useProjectFilter from './lib/useProjectFilter';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
 import { profile, projects, extraLinks } from './data/site';
 
@@ -25,7 +26,7 @@ export default function App({ path = '/' }) {
   const [liked, setLiked] = useState(false);
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState('home');
-  const [filter, setFilter] = useState('全部');
+  const { filter, gridRef, changeFilter } = useProjectFilter();
   const [project, setProject] = useState(null);
   const [toast, setToast] = useState('');
   const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['writing', '文章与论文']];
@@ -54,6 +55,13 @@ export default function App({ path = '/' }) {
     window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close);
   }, [menu]);
   const toggleTrail = () => { setTrail(!trail); setToast(trail ? '樱花拖尾已关闭' : '樱花拖尾已开启（鼠标设备生效）'); };
+  const copyProjectLink = async () => {
+    try {
+      await navigator.clipboard.writeText(new URL(href(`/projects/${project.id}/`), location.href).href);
+      setToast('项目链接已复制');
+      document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'copied' }));
+    } catch { setToast('未能复制链接，请打开项目页面后复制地址栏网址。'); }
+  };
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
@@ -106,9 +114,9 @@ export default function App({ path = '/' }) {
       <section className="projects-section section-shell" id="projects">
         <div className="projects-intro">
           <div className="section-heading"><h2>项目与实践</h2><p>从具体问题出发，边做边理解。<br />这里是一些应用与系统方面的尝试。</p></div>
-          <div className="filter-bar" role="group" aria-label="筛选项目">{categories.map(value => <button key={value} aria-pressed={filter === value} className={filter === value ? 'selected' : ''} onClick={() => setFilter(value)}>{value}</button>)}</div>
+          <div className="filter-bar" role="group" aria-label="筛选项目">{categories.map(value => <button key={value} aria-pressed={filter === value} className={filter === value ? 'selected' : ''} onClick={() => changeFilter(value)}>{value}</button>)}</div>
         </div>
-        <div className="project-grid" aria-live="polite">
+        <div className="project-grid" ref={gridRef} aria-live="polite">
           {projects.filter(p => filter === '全部' || p.category === filter).map(p => {
             const Icon = projectIcons[p.icon] || Code;
             return <div className="project-reveal" key={p.id}><article className={`project-card ${p.category === '应用' ? 'application-card' : 'research-card'}`} key={p.id}>
@@ -117,8 +125,8 @@ export default function App({ path = '/' }) {
               <p className="project-subtitle">{p.subtitle}</p>
               <p className="project-description">{p.description}</p>
               <ul className="project-tags">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-              <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>了解项目 <ArrowRight size={15}/></a>
               <div className="project-actions">
+                <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>了解项目 <ArrowRight size={15}/></a>
                 <a className="source-link" href={p.source} target="_blank" rel="noreferrer" aria-label={`${p.title} 查看源码`}>查看源码 <ArrowUpRight size={16} /></a>
                 <button className="detail-button" aria-label={`项目介绍：${p.title}`} onClick={() => setProject(p)}><span>项目介绍</span><Plus size={18} /></button>
               </div>
@@ -142,7 +150,7 @@ export default function App({ path = '/' }) {
       <div className="modal-body"><span className="modal-meta">{project.category} / 公开源码</span><h2>{project.title}</h2><p>{project.description}</p>
         <div className="project-detail-list">{project.details.map(detail => <div key={detail.title}><h3>{detail.title}</h3><p>{detail.text}</p></div>)}</div>
         <p className="project-note">{project.note}</p>
-        <a className="button primary" href={project.source} target="_blank" rel="noreferrer"><GithubLogo size={18} /> 在 GitHub 查看源码 <ArrowUpRight size={16} /></a>
+        <div className="summary-actions"><a className="button primary" href={project.source} target="_blank" rel="noreferrer"><GithubLogo size={18} /> 在 GitHub 查看源码 <ArrowUpRight size={16} /></a><button className="text-link copy-project-link" onClick={copyProjectLink} data-cursor="copy">复制项目链接</button></div>
       </div>
     </Modal>}
 

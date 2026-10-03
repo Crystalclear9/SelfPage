@@ -15,7 +15,7 @@
 .button:active, .icon-button:active, .filter-bar button:active { transform: scale(.96); }
 @media (min-width: 1000px) {
   .projects-section { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 84px; align-items: start; }
-  .projects-intro { position: sticky; top: 138px; }
+  .projects-intro { position: sticky; top: 68px; min-height: calc(100svh - 68px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
   .project-grid { grid-template-columns: 1fr; gap: 16px; }
   .all-repositories, .extra-links { grid-column: 2; }
   .research-card { padding: 36px; background: var(--surface); }
@@ -99,7 +99,6 @@
 @keyframes cursor-spin { to { rotate: 360deg; } }
 @media (prefers-reduced-motion: reduce) {
   .animated-cursor { display: none !important; }
-  .projects-intro { position: static; }
 }
 
 .project-reveal { min-width: 0; }
@@ -109,18 +108,19 @@
 .project-grid { gap: 16px; }
 @media (max-width: 760px) { .project-grid { gap: 12px; } }
 
-/* Contain perspective at narrow viewport edges without creating a scroll container. */
-.projects-section { overflow-x: clip; }
+/* Clip only at the viewport edge, leaving room outside cards for perspective. */
+main { overflow-x: clip; }
+.projects-section { overflow-anchor: none; }
 
 /* Small reading cues in project summaries; keep the dialog itself steady. */
 .project-modal .project-detail-list > div { border-radius: 10px; }
 @media (prefers-reduced-motion: no-preference) {
-  .project-modal[open] .modal-body > :is(.modal-meta, h2, p, .project-detail-list, .button) {
+  .project-modal[open] .modal-body > :is(.modal-meta, h2, p, .project-detail-list, .summary-actions) {
     animation: summary-enter .42s cubic-bezier(.2,.7,.3,1) both;
   }
   .project-modal[open] .project-detail-list { animation-delay: .06s; }
   .project-modal[open] .project-note { animation-delay: .1s; }
-  .project-modal[open] .modal-body > .button { animation-delay: .14s; }
+  .project-modal[open] .summary-actions { animation-delay: .14s; }
   .project-modal .project-detail-list > div { transition: background-color .2s, translate .2s; }
   .project-modal .close-modal { transition: scale .18s, background-color .18s; }
   .project-modal .close-modal:active { scale: .94; }

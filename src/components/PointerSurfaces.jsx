@@ -12,7 +12,7 @@ export default function PointerSurfaces() {
     const reset = el => {
       if (!el) return;
       delete el.dataset.pointerInside;
-      for (const key of ['--tilt-x', '--tilt-y', '--magnet-x', '--magnet-y']) el.style.removeProperty(key);
+      for (const key of ['--tilt-x', '--tilt-y', '--magnet-x', '--magnet-y', '--pointer-x', '--pointer-y']) el.style.removeProperty(key);
     };
     const hide = () => {
       cancelAnimationFrame(frame); frame = 0; last = null; pressed = null;
@@ -49,6 +49,7 @@ export default function PointerSurfaces() {
       last = { x: e.clientX, y: e.clientY };
       if (!frame) frame = requestAnimationFrame(paint);
     };
+    const scroll = () => { if (last && !frame) frame = requestAnimationFrame(paint); };
     const press = e => {
       if (e.button !== 0 || !fine.matches || reduced.matches || e.pointerType !== 'mouse') return;
       pressed = { x: e.clientX, y: e.clientY, el: e.target.closest(surfaceSelector) };
@@ -64,7 +65,7 @@ export default function PointerSurfaces() {
       pulses.set(el, animation);
       animation.onfinish = () => { if (pulses.get(el) === animation) pulses.delete(el); };
     };
-    const events = [[document, 'pointermove', move], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', hide], [document, 'keydown', hide], [document, 'wheel', hide], [document.documentElement, 'pointerleave', hide], [window, 'blur', hide], [window, 'resize', hide], [fine, 'change', hide], [reduced, 'change', hide]];
+    const events = [[document, 'pointermove', move], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', hide], [document, 'keydown', hide], [document, 'wheel', hide], [document, 'scroll', scroll], [document, 'visibilitychange', hide], [document.documentElement, 'pointerleave', hide], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'resize', hide], [fine, 'change', hide], [reduced, 'change', hide]];
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
     return () => { hide(); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
   }, []);

@@ -47,10 +47,10 @@ src/
   main.jsx          客户端入口
   components/       导航、头像、光标、弹窗和拖尾
   data/             个人资料、项目及路由数据
-  lib/              首页入口、翻页方向与异常恢复
+  lib/              首页入口、项目筛选、翻页方向与异常恢复
   pages/            项目详情、内容索引和正文
   styles/           基础、内容、导航及动效样式
-scripts/            内容校验、静态生成和性能检查
+scripts/            内容校验、静态生成、性能检查与产物清理
 tests/              内容、渲染及交互回归检查
 docs/               内容维护、部署、交互及素材文档
 ```
@@ -58,6 +58,8 @@ docs/               内容维护、部署、交互及素材文档
 `package-lock.json` 用于锁定依赖；空内容目录中的 `.gitkeep` 用于保留后续发布位置。二者都应提交。
 
 `node_modules/` 是本地开发依赖，`dist/` 是构建输出，`.local/` 是截图和报告，均被 Git 忽略。构建输出和报告可删除，命令会重新生成；无需手工上传 `dist/`，CI 从源码构建。
+
+Windows 下运行 `npm run clean` 清理 `dist/` 和 `.local/`，保留依赖、源码、内容及 Git 历史。清理前可用 `powershell -NoProfile -File scripts/clean.ps1 -WhatIf` 查看目标；清理后需重新构建才能使用预览服务。
 
 ## 检查
 
@@ -72,6 +74,7 @@ npm run check:motion
 npm run check:navigation
 npm run check:recovery
 npm run check:entry
+npm run check:projects
 ```
 
 浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。
@@ -79,6 +82,8 @@ npm run check:entry
 ## 交互与发布约定
 
 - 首页上滑显示回到顶部，页脚按钮可见时隐藏悬浮按钮；子页面上滑显示返回导航，下滑收起。
+- 宽屏项目区左侧居中停留；分类切换将缩短后的列表定位到开头，以淡入淡出衔接。“了解项目”和“查看源码”并排放置，项目介绍内可复制页面链接。
+- 角色光标提示阅读、源码和筛选等操作，复制成功后显示确认；触屏与减少动态效果模式保留普通按钮和文字提示。
 - 收藏或直接打开首页时从首屏开始；站内返回分区保留定位，浏览后的首页地址不保留分区锚点。`check:entry` 覆盖入口、历史恢复及项目介绍弹窗。
 - 滚动卡片、页面翻页、头像与角色光标均支持减少动态效果设置。浏览器不支持页面过渡时使用普通导航。
 - 翻页保护脚本独立于应用包，过渡失败或超时后释放正文。实现和测试范围见 [交互说明](docs/MOTION.md)。

@@ -54,6 +54,12 @@ export default function AnimatedCursor() {
       el.style.transform = `translate3d(${x - 8}px, ${y - 12}px, 0)`;
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : context());
       el.dataset.state = state;
+      const hint = state === 'copied' ? '已复制' : state === 'filtered' ? '已筛选'
+        : target?.closest('.copy-project-link') ? '复制链接'
+        : target?.closest('.filter-bar button:not(.selected)') ? '筛选'
+        : target?.closest('.source-link') ? '查看源码'
+        : target?.closest('.project-page-link, .writing-door') ? '阅读' : '';
+      el.querySelector('.cursor-hint').textContent = hint;
       el.dataset.axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
       el.querySelector('.cursor-status').textContent = ({ read: '≡', download: '↓', text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
     };
@@ -130,8 +136,9 @@ export default function AnimatedCursor() {
     };
     const copy = () => { burst(25); pulse('copy', 650); };
     const feedback = event => {
-      if (event.detail !== 'like' || !visible || reduced.matches) return;
-      burst(32); pulse('like', 900);
+      if (!['like', 'copied', 'filtered'].includes(event.detail) || !visible || reduced.matches) return;
+      if (event.detail === 'like') burst(32);
+      pulse(event.detail, event.detail === 'like' ? 900 : 750);
     };
     const dragStart = event => {
       clearHold();
@@ -161,7 +168,7 @@ export default function AnimatedCursor() {
   }, []);
   return <div ref={ref} popover="manual" className="animated-cursor" aria-hidden="true">
     <img className="cursor-sprite" src={`${import.meta.env.BASE_URL}images/megumi-cursor.svg`} alt="" width="64" height="68" draggable="false" />
-    <span className="cursor-ring" /><span className="cursor-status" />
+    <span className="cursor-ring" /><span className="cursor-status" /><span className="cursor-hint" />
     <span className="cursor-orbit" /><span className="cursor-wake" />
     <span className="cursor-tether" />
     <span className="cursor-hearts">{[0, 1, 2].map(i => <Heart key={i} size={12} weight="fill" style={{ '--heart-index': i }} />)}</span>

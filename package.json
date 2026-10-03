@@ -7,6 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview --host 127.0.0.1",
+    "clean": "powershell -NoProfile -File scripts/clean.ps1",
     "check:ui": "node tests/browser.mjs",
     "check:static": "node tests/static.mjs",
     "audit": "node scripts/audit.mjs",
@@ -15,7 +16,8 @@
     "check:pages": "node tests/pages.mjs",
     "check:navigation": "node tests/navigation.mjs",
     "check:recovery": "node tests/render-recovery.mjs",
-    "check:entry": "node tests/home-entry.mjs"
+    "check:entry": "node tests/home-entry.mjs",
+    "check:projects": "node tests/project-interactions.mjs"
   },
   "dependencies": {
     "@fontsource/outfit": "^5.3.0",
