@@ -2,7 +2,9 @@
 
 ## 项目
 
-修改 `src/data/site.js` 中的 `projects`。每个项目的 `id` 生成 `/projects/<id>/`，首页、详情页和介绍弹窗共用简介与实现说明。`source` 指向源码；`reference` 可记录原论文标题与链接。
+修改 `src/data/site.js` 中的 `projects`。每个项目的 `id` 生成 `/projects/<id>/`，首页与介绍弹窗保持简短。`source` 指向源码；`reference` 可记录原论文标题与链接。
+
+独立详情页正文放在 `src/data/project-notes.js`，使用同一个项目 `id` 关联：`motivation` 说明问题背景，`implementation` 展开实现过程，`scopeTitle` 和 `scope` 说明当前范围与验证边界。新增项目时需一并补充正文。内容依据公开仓库整理，不复制敏感配置，也不把 README 中的性能声明直接改写为已验证结论。
 
 项目文案应区分方法来源、实现范围和验证结果。Autellix 标注为他人论文的个人复现尝试，原论文不作为本站作者的发表成果列入论文索引。
 

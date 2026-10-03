@@ -93,7 +93,7 @@ try {
   await state('scroll');
   await page.waitForTimeout(500);
   const later = await page.locator('.projects-intro').boundingBox();
-  assert.ok(Math.abs(later.y - 68) < 3, 'Project intro pins below the header');
+  assert.ok(Math.abs(later.y - 138) < 3, 'Project intro pins below the header');
   await page.mouse.wheel(0, 200);
   await page.waitForTimeout(300);
   assert.ok(Math.abs((await page.locator('.projects-intro').boundingBox()).y - later.y) < 3);

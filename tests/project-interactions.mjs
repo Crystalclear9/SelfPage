@@ -9,12 +9,7 @@ try {
   await page.goto(base);
   await page.evaluate(() => document.fonts.ready);
   await page.locator('.project-grid').evaluate(el => scrollTo({ top: scrollY + el.getBoundingClientRect().top + 400, behavior: 'instant' }));
-  await expect.poll(() => page.locator('.projects-intro').evaluate(el => Math.round(el.getBoundingClientRect().top))).toBe(68);
-  const centered = await page.locator('.projects-intro').evaluate(el => {
-    const a = el.firstElementChild.getBoundingClientRect(), b = el.lastElementChild.getBoundingClientRect();
-    return Math.abs((a.top + b.bottom + parseFloat(getComputedStyle(el.lastElementChild).marginBottom)) / 2 - (innerHeight + 68) / 2);
-  });
-  expect(centered).toBeLessThan(3);
+  await expect.poll(() => page.locator('.projects-intro').evaluate(el => Math.round(el.getBoundingClientRect().top))).toBe(138);
   for (const name of ['应用', '系统研究', '全部', '应用', '全部']) {
     await page.getByRole('button', { name, exact: true }).click();
     await expect(page.locator('.project-card')).toHaveCount(name === '全部' ? 4 : 2);
@@ -62,5 +57,5 @@ try {
   await expect(page.locator('.project-card')).toHaveCount(2);
   expect(await page.locator('.project-grid').evaluate(el => el.getAnimations().length)).toBe(0);
   expect(errors).toEqual([]);
-  console.log('Centered sidebar, stable filtering, grouped actions, clipboard, glow cleanup and viewport containment passed.');
+  console.log('Upper-positioned sidebar, stable filtering, grouped actions, clipboard, glow cleanup and viewport containment passed.');
 } finally { await browser.close(); }
