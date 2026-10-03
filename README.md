@@ -1,46 +1,19 @@
 # Crystalclear9 · 个人网站
 
-[网站](https://crystalclear9.github.io/SelfPage/) · [内容维护](docs/CONTENT.md) · [部署](docs/DEPLOYMENT.md) · [动效](docs/MOTION.md) · [素材来源](docs/ASSETS.md)
+[访问网站](https://crystalclear9.github.io/SelfPage/) · [内容维护](docs/CONTENT.md) · [部署说明](docs/DEPLOYMENT.md) · [交互实现](docs/MOTION.md) · [素材来源](docs/ASSETS.md)
 
-Crystalclear9 的个人技术站，集中展示项目、开发记录与论文材料。使用 React 和 Vite 构建，在构建阶段生成各页面 HTML，部署至 GitHub Pages。加藤惠插画、头像和角色光标作为个人视觉元素。
+个人项目、技术文章与论文的静态网站。使用 React、Vite 和构建时预渲染，发布至 GitHub Pages。每个页面输出独立 HTML，支持直接访问、刷新和无 JavaScript 阅读；客户端加载后接入筛选、主题及交互。
 
-## 页面
+## 开发与构建
 
-| 路径（相对站点根目录） | 内容 |
-| --- | --- |
-| `/` | 个人介绍、项目概览、文章与论文入口 |
-| `/projects/suishouban/` | 随手办 |
-| `/projects/gameqa/` | GameQA |
-| `/projects/autellix/` | Autellix 论文的个人复现尝试 |
-| `/projects/time-predict/` | TimePredictModel |
-| `/articles/` | 技术文章索引 |
-| `/papers/` | 论文索引 |
-| `/articles/<slug>/`、`/papers/<slug>/` | 已发布内容的独立页面 |
-
-每个页面均输出独立 HTML，可直接访问、刷新和在禁用 JavaScript 时阅读。项目介绍基于公开仓库整理，不代表已经完成独立运行验证。本站提供源码入口，不提供项目在线演示。
-
-Autellix 的原方法与研究贡献归[原论文作者](https://arxiv.org/abs/2502.13965)。此处仓库属于个人复现尝试，不声称完整复现或达到原论文的性能结果。
-
-## 导航与交互
-
-首页向上滚动时显示悬浮“回到顶部”，向下滚动隐藏；页脚原有按钮进入视口后，悬浮按钮立即隐藏。
-
-- 项目、文章和论文页面的顶部、页脚均提供“返回个人主页”；正文页另提供返回所属列表的链接。页首入口离开视口后，向上滚动唤出悬浮返回条，向下滚动收起。
-- 站内页面使用浏览器原生跨文档过渡：进入详情时展开，返回时反向收回，项目间切换按前后顺序横向翻页；项目标题跨页连续移动，导航栏保持稳定。链接、刷新和前进后退保持浏览器默认行为；不支持过渡的浏览器直接导航。
-- 项目卡片随滚动从上下两端翻转回正，中央阅读区保持稳定。卡片间距为 16px，窄屏为 12px。
-- 头像支持鼠标、触屏和键盘点击，播放一次轻微摆动并显示问候；角色光标沿用现有素材与动作。
-- 减少动态效果模式关闭页面过渡、卡片翻转和头像摆动，保留导航及文字反馈。
-
-## 本地开发
-
-Node.js 22.12+；CI 使用 Node.js 24。
+Node.js 22.12+，推荐与 CI 一致的 Node.js 24。
 
 ```bash
 npm ci
 npm run dev
 ```
 
-本地开发默认地址为 `http://127.0.0.1:5173/`。模拟当前 GitHub Pages 子路径：
+开发地址默认为 `http://127.0.0.1:5173/`。按当前 GitHub Pages 子路径构建和预览：
 
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
@@ -48,75 +21,64 @@ npm run build
 npm run preview
 ```
 
-预览默认地址为 `http://127.0.0.1:4173/SelfPage/`。构建与预览使用相同的 `SITE_BASE_PATH`；根路径部署使用 `/`。
+预览地址默认为 `http://127.0.0.1:4173/SelfPage/`。根路径部署使用 `/`；构建与预览需使用相同的 `SITE_BASE_PATH`。
 
-## 目录
+## 内容与页面
+
+| 内容 | 维护位置 | 页面路径 |
+| --- | --- | --- |
+| 个人资料、项目说明 | `src/data/site.js` | `/`、`/projects/<id>/` |
+| 文章 | `content/index.json`、`content/articles/` | `/articles/`、`/articles/<slug>/` |
+| 论文 | `content/index.json`、`content/papers/` | `/papers/`、`/papers/<slug>/` |
+| 公开 PDF、正文图片 | `public/files/` | `/files/<filename>` |
+
+路径均相对站点根目录。文章与论文目前为空，仅 `published: true` 的条目生成页面。Markdown、PDF、发表链接和项目关联的配置见 [内容维护](docs/CONTENT.md)。这是文件驱动的静态发布流程，不包含在线编辑后台。
+
+本站提供项目说明和源码链接，不提供在线演示。Autellix 是基于[原论文](https://arxiv.org/abs/2502.13965)的个人复现尝试，原方法归论文作者，尚未完成对论文性能结果的复现。
+
+## 项目结构
 
 ```text
-content/
-  index.json                  文章、论文元数据
-  articles/                   文章 Markdown
-  papers/                     论文说明 Markdown
-public/
-  images/                     插画与角色光标
-  files/                      公开 PDF 和正文图片
+.github/workflows/  GitHub Pages 构建与部署
+content/            文章、论文正文与元数据
+public/             直接发布的图片、图标和附件
 src/
-  App.jsx                     首页及公共页面框架
-  main.jsx                    客户端入口、样式加载和 hydration
-  data/                       个人资料、项目与路由数据
-  lib/navigation.js           跨页方向与导航层级判断
-  lib/transition-guard.js      首帧前注册的过渡异常恢复
-  pages/                      项目详情、内容索引和 Markdown 正文
-  components/
-    PageNavigation.jsx        统一返回主页与列表入口
-    ProjectPager.jsx          项目顺序、上一项与下一项
-    ProfileAvatar.jsx         头像问候反馈
-    ScrollToTop.jsx           首页上滑返回顶部及页脚互斥
-    AnimatedCursor.jsx        角色光标状态
-    PointerSurfaces.jsx       表面倾转、光斑和波纹
-    Modal.jsx                 弹窗及焦点管理
-    PetalTrail.jsx            Canvas 拖尾
-  styles/
-    base.css                  主题、首页布局与响应式
-    content.css               详情页与正文排版
-    motion.css                页面滚动与光标动作
-    pointer.css               鼠标表面反馈
-    navigation.css            返回按钮与页面过渡
-    avatar.css                头像交互
-    chapters.css              首屏展开与项目翻页布局
-scripts/                      内容校验、静态生成与性能检查
-tests/                       内容、导航、页面与交互检查
-docs/                        内容维护、部署、动效与素材说明
+  App.jsx           首页与公共页面框架
+  main.jsx          客户端入口
+  components/       导航、头像、光标、弹窗和拖尾
+  data/             个人资料、项目及路由数据
+  lib/              翻页方向与异常恢复
+  pages/            项目详情、内容索引和正文
+  styles/           基础、内容、导航及动效样式
+scripts/            内容校验、静态生成和性能检查
+tests/              内容、渲染及交互回归检查
+docs/               内容维护、部署、交互及素材文档
 ```
 
-`node_modules/` 是本地依赖，`dist/` 是构建输出，`.local/reports/` 是检查生成的报告与截图，均不纳入版本控制。无需提交构建产物；GitHub Actions 从源码重新生成。
+`package-lock.json` 用于锁定依赖；空内容目录中的 `.gitkeep` 用于保留后续发布位置。二者都应提交。
 
-## 内容维护
-
-项目和个人资料修改 `src/data/site.js`。项目 ID 同时用于详情页网址，发布后应保持稳定。邮箱为空时隐藏联系入口。
-
-文章和论文采用 Markdown 正文与 JSON 元数据分离的方式。仅 `published: true` 的条目参与构建；未发布内容不生成页面，也不进入客户端内容模块。文章可独立发布，论文可提供摘要、PDF 或外部发表链接。当前索引为空，页面展示真实空状态。具体字段、操作步骤和示例见 [CONTENT.md](docs/CONTENT.md)。
+`node_modules/` 是本地开发依赖，`dist/` 是构建输出，`.local/` 是截图和报告，均被 Git 忽略。构建输出和报告可删除，命令会重新生成；无需手工上传 `dist/`，CI 从源码构建。
 
 ## 检查
 
+先运行 `npm run check:content` 与 `npm run build`，再启动预览，在另一个终端指定地址：
+
 ```powershell
-npm run check:content
 $env:TEST_URL = 'http://127.0.0.1:4173/SelfPage/'
 npm run check:pages
-npm run check:navigation
-npm run check:recovery
 npm run check:static
 npm run check:ui
 npm run check:motion
-npm run audit
+npm run check:navigation
+npm run check:recovery
 ```
 
-浏览器检查使用本机 Microsoft Edge。`check:navigation` 验证所有子页面的返回入口、无脚本导航、历史记录、页面过渡及头像反馈。`check:pages` 覆盖新增路由的直接访问、刷新、无脚本渲染及移动端宽度；其余检查覆盖首页静态正文、主题、筛选、弹窗、光标和减少动态效果设置。
+浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。
 
-## 实现约束
+## 交互与发布约定
 
-- 静态 HTML 与客户端共享组件和内容数据，避免首屏依赖脚本才能显示。
-- 滚动效果使用 CSS scroll/view timeline；不拦截滚轮，不修改浏览器滚动速度。
-- 触屏和减少动态效果模式使用降级样式，正文保持可读。
-- 内容在构建时读取，不依赖运行时 GitHub API；不包含登录、数据库或第三方统计。
-- 前端配置和 `public/` 文件均会公开。公开仓库中的未发布 Markdown 也可以通过源码访问，不应提交私人草稿或凭据。
+- 首页上滑显示回到顶部，页脚按钮可见时隐藏悬浮按钮；子页面上滑显示返回导航，下滑收起。
+- 滚动卡片、页面翻页、头像与角色光标均支持减少动态效果设置。浏览器不支持页面过渡时使用普通导航。
+- 翻页保护脚本独立于应用包，过渡失败或超时后释放正文。实现和测试范围见 [交互说明](docs/MOTION.md)。
+- 推送到 `main` 触发 GitHub Actions。仓库 Pages 的 Source 应为 **GitHub Actions**。
+- `public/` 会直接发布；公开仓库内的未发布 Markdown 也可通过源码访问，不应存放私人内容或凭据。
