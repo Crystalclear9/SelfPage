@@ -112,6 +112,32 @@ try {
     await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(150);
     await expect(topLink).toBeHidden();
   }
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(base);
+    if (width === 375) await page.getByRole('button', { name: '打开导航' }).click();
+    const writingNav = page.locator('.main-nav').getByRole('link', { name: '文章与论文', exact: true, includeHidden: true });
+    await writingNav.click();
+    await expect(writingNav).toHaveClass('active');
+    await expect(writingNav).toHaveAttribute('aria-current', 'location');
+    if (width === 375) await expect(page.locator('.mobile-toggle')).toHaveAttribute('aria-expanded', 'false');
+    await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+    await expect(writingNav).not.toHaveClass('active');
+    await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
+    await expect(writingNav).toHaveClass('active');
+    await expect(writingNav).toHaveCSS('color', await page.locator('body').evaluate(el => getComputedStyle(el).getPropertyValue('--ink').trim()).then(color => page.evaluate(color => {
+      const el = document.createElement('span'); el.style.color = color; document.body.append(el);
+      const result = getComputedStyle(el).color; el.remove(); return result;
+    }, color)));
+  }
+  for (const route of ['articles/', 'papers/']) {
+    await page.goto(base + route);
+    await expect(page.locator('.main-nav a.active')).toHaveText('文章与论文');
+    await page.getByRole('button', { name: '打开导航' }).click();
+    await page.locator('.main-nav a.active').click();
+    await expect(page).toHaveURL(base);
+    await expect(page.locator('.main-nav a.active')).toHaveText('文章与论文');
+  }
   assert.deepEqual(errors, []);
   console.log('Return links, no-JS navigation, page transitions, history, avatar and reduced motion passed.');
 } finally { await browser.close(); }

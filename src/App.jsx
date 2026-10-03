@@ -28,7 +28,8 @@ export default function App({ path = '/' }) {
   const [filter, setFilter] = useState('全部');
   const [project, setProject] = useState(null);
   const [toast, setToast] = useState('');
-  const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目']];
+  const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['writing', '文章与论文']];
+  const activeSection = path === '/' ? active : /^\/(articles|papers)\//.test(path) ? 'writing' : path.startsWith('/projects/') ? 'projects' : null;
   useEffect(() => {
     setTheme(document.documentElement.dataset.theme || 'light');
     setTrail(read('spring-trail', 'true') === 'true');
@@ -64,8 +65,8 @@ export default function App({ path = '/' }) {
       <div className="nav-shell">
         <a href={href('/#home')} className="wordmark"><Code weight="light" size={26} /><span>{profile.name}</span></a>
         <nav className={menu ? 'main-nav open' : 'main-nav'} id="navigation" aria-label="主导航">
-          {links.map(([id, label]) => <a key={id} href={path === '/' ? `#${id}` : href(`/#${id}`)} className={path === '/' && active === id ? 'active' : ''} aria-current={path === '/' && active === id ? 'location' : undefined} onClick={() => setMenu(false)}>{label}</a>)}
-        <a href={href('/articles/')} aria-current={path.startsWith('/articles/') ? 'page' : undefined} data-cursor="read">文章</a><a href={href('/papers/')} aria-current={path.startsWith('/papers/') ? 'page' : undefined} data-cursor="read">论文</a></nav>
+          {links.map(([id, label]) => <a key={id} href={path === '/' ? `#${id}` : href(`/#${id}`)} className={activeSection === id ? 'active' : ''} aria-current={activeSection === id ? 'location' : undefined} onClick={() => setMenu(false)}>{label}</a>)}
+        </nav>
         <div className="nav-actions">
           <button className="icon-button trail-toggle" aria-label="樱花拖尾" title="樱花拖尾" aria-pressed={trail} onClick={toggleTrail}><Sparkle size={21} weight={trail ? 'duotone' : 'regular'} /></button>
           <button className="icon-button" aria-label={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={21} /> : <Sun size={21} />}</button>
