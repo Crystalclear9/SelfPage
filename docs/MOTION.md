@@ -73,4 +73,30 @@
 
 样式加载顺序由 `src/main.jsx` 维护。背景、文字与强调色使用 `base.css` 的主题变量，交互组件卸载时清理监听与计时器。
 
+## 修改动效时的定位表
+
+| 要调整的行为 | 主要位置 | 同时检查 |
+| --- | --- | --- |
+| 首屏插画与章节展开 | `styles/chapters.css`、`styles/motion.css` | 首次打开、短屏、减少动态效果 |
+| 项目卡片翻转幅度与间距 | `styles/motion.css` | 上下两个方向、倾转后的卡片边缘、窄屏溢出 |
+| 左侧项目介绍停留位置 | `styles/motion.css` 中的宽屏媒体查询 | 页眉遮挡、项目区结束、筛选后列表缩短 |
+| 分类切换 | `lib/useProjectFilter.js` | 快速交替选择、重复选择当前项、减少动态效果 |
+| 表面光晕与倾转 | `components/PointerSurfaces.jsx`、`styles/pointer.css`、`styles/content.css` | 指针移出、滚动、切换窗口后是否清理 |
+| 角色动作和操作提示 | `components/AnimatedCursor.jsx` | 原热点、弹窗上层、实际操作结果和键盘切换 |
+| 弹窗进入与焦点恢复 | `components/Modal.jsx`、`styles/motion.css` | Escape、关闭按钮、关闭后页面位置 |
+| 悬浮返回与回到顶部 | `components/PageNavigation.jsx`、`components/ScrollToTop.jsx` | 上滑显示、下滑隐藏、焦点可达性和页脚互斥 |
+| 翻页方向与快照 | `lib/navigation.js`、`styles/navigation.css` | 前后项目、返回主页、浏览器历史遍历 |
+
+表中路径均相对 `src/`。滚动翻转使用独立的 rotate、scale、translate 属性，鼠标倾转使用 transform；修改其中一层时，应检查两者叠加后的实际外形，避免只在静止截图中判断卡片是否越界。
+
+长按、拖动和摆动等角色动作主要提供反馈，不代表新增了相应业务功能。复制链接只在剪贴板写入成功后显示确认，不能把鼠标释放动画当作操作成功。新增状态应绑定明确的按钮、原生事件或已完成的操作，并为失败路径保留普通文字反馈。
+
+## 调整后的验证顺序
+
+先在减少动态效果模式下确认正文、导航与控件本身可用，再启用完整动效查看实际滚动。对项目区至少覆盖全部项目、两个分类和快速连续切换；对文章入口检查鼠标移出后光晕是否消失。
+
+导航相关修改需同时覆盖新标签页打开、同页收藏、刷新和前进后退。这些进入方式的事件顺序不同，单次点击成功不能代替其他入口验证。涉及 View Transition 的检查应保留一次正常过渡与一次故障恢复，确认恢复保护没有把所有动画都跳过。
+
+样式调试时不要用永久隐藏正文或依赖固定等待时间的方式掩盖过渡问题。保持原生链接、静态 HTML 和减少动态效果路径可用，具体故障记录目标 URL、导航方式、浏览器及失败请求。
+
 参考：[CSS 滚动驱动动画](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations)、[跨文档 View Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40view-transition)、[Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using)。

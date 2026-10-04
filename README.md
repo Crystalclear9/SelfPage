@@ -4,6 +4,16 @@
 
 个人项目、技术文章与论文的静态网站。使用 React、Vite 和构建时预渲染，发布至 GitHub Pages。每个页面输出独立 HTML，支持直接访问、刷新和无 JavaScript 阅读；客户端加载后接入筛选、主题及交互。
 
+## 文档导航
+
+| 要做的事情 | 阅读位置 |
+| --- | --- |
+| 首次运行、理解目录、选择测试、清理产物 | [本地开发与验证](docs/DEVELOPMENT.md) |
+| 修改项目介绍、添加文章或论文、上传图片和 PDF | [内容维护](docs/CONTENT.md) |
+| 推送发布、检查 Actions、定位线上问题、回退版本 | [GitHub Pages 部署](docs/DEPLOYMENT.md) |
+| 理解滚动、筛选、返回按钮、光标与刷新行为 | [导航与动效实现](docs/MOTION.md) |
+| 查看插画、角色光标、字体及图标的来源 | [素材来源](docs/ASSETS.md) |
+
 ## 开发与构建
 
 Node.js 22.12+，推荐与 CI 一致的 Node.js 24。
