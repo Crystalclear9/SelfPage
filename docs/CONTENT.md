@@ -8,12 +8,26 @@
 
 项目文案应区分方法来源、实现范围和验证结果。Autellix 标注为他人论文的个人复现尝试，原论文不作为本站作者的发表成果列入论文索引。
 
+当前项目 ID 与详情路径：
+
+| 项目 | ID | 相对站点路径 |
+| --- | --- | --- |
+| 随手办 | `suishouban` | `/projects/suishouban/` |
+| GameQA | `gameqa` | `/projects/gameqa/` |
+| Autellix | `autellix` | `/projects/autellix/` |
+| TimePredictModel | `time-predict` | `/projects/time-predict/` |
+
+已有 ID 应保持稳定，它同时用于页面网址、文章关联和项目间翻页。新增项目需同时更新 `projects` 与 `projectNotes`；项目数组顺序决定首页和前后翻页顺序。分类取自 `category`，筛选按钮自动生成。
+
+维护正文时，优先更新具体处理流程、关键设计选择和验证边界。首页的 `description` 与弹窗的 `details` 保留摘要，较长的解释放入 `projectNotes.implementation`。论文方法、仓库自述的测试记录和本人独立验证的结果应分别表述；配置教程与易变的参数留在原项目仓库维护。
+
 ## 新增文章
 
 1. 在 `content/articles/` 创建 Markdown 文件，例如 `retrieval-notes.md`。
 2. 在 `content/index.json` 数组中加入以下对象，替换标题、日期和摘要。
-3. 本地预览、核对内容后，将 `published` 改为 `true`。
-4. 执行构建和检查，提交并推送至 `main`。
+3. 编辑期间保持 `published: false`；需要查看生成页面时，在本地临时设为 `true`，再启动开发服务或重新构建预览。
+4. 核对正文、图片与链接。准备发布则保留 `true`，否则改回 `false` 后再提交。
+5. 执行构建和检查，提交并推送至 `main`。
 
 ```json
 {
@@ -76,6 +90,6 @@ npm run check:content
 npm run build
 ```
 
-构建拒绝重复网址、无效日期、缺少正文文件、越界路径以及错误的链接格式。只有 `published: true` 的内容进入页面和客户端模块。
+构建对已发布条目检查重复网址、无效日期、缺少正文文件、越界路径以及错误的链接格式。只有 `published: true` 的内容进入校验、页面和客户端模块；未发布草稿不会生成预览页面。`check:content` 使用测试样例验证加载器，当前索引的校验以实际构建为准。
 
 这是静态发布流程，不包含后台上传或在线编辑。可在本地编辑，或通过 GitHub 上传文件并编辑元数据；推送后由 Actions 构建。`public/` 下的文件始终会部署，公开仓库中的草稿也能通过仓库访问。私人内容应保存在仓库之外。

@@ -10,6 +10,8 @@
 
 工作流使用 Node.js 24 执行 `npm ci`、内容检查和生产构建，将 `dist/` 上传至 Pages。日常发布只需提交源码并推送到 `main`，不提交构建产物，也不需要在前端配置中填写令牌。
 
+构建和部署运行于 `ubuntu-24.04`。工作流同时支持手动触发，同一 Pages 部署组有新任务时会取消仍在进行的旧任务。浏览器回归检查不在当前 CI 中；需要在推送前按修改范围执行。
+
 ## 路径与静态页面
 
 `SITE_BASE_PATH` 控制资源和导航前缀。当前值为 `/SelfPage/`，由 Pages 元数据提供；自定义域名根路径部署使用 `/`。修改前缀后需重新构建。
@@ -25,6 +27,7 @@ $env:TEST_URL = 'https://crystalclear9.github.io/SelfPage/'
 npm run check:pages
 npm run check:static
 npm run check:navigation
+npm run check:entry
 ```
 
 `check:recovery` 会注入故障以验证恢复逻辑，建议对本地生产预览运行。完整检查命令见 [README](../README.md)。
@@ -37,6 +40,9 @@ npm run check:navigation
 | 页面或静态资源 404 | 完整网址包含 `/SelfPage/`，构建前缀与部署位置一致 |
 | 正文可见但交互不可用 | Network 中应用脚本的状态、缓存与拦截情况 |
 | 翻页卡住或需要刷新 | 记录目标网址、浏览器和失败请求；检查是否加载最新 HTML，以及过渡保护脚本是否存在 |
+| 收藏仍定位到项目区 | 确认收藏是首页 `/SelfPage/#projects` 而非项目详情页，并让已有标签页载入最新脚本；分别检查新标签页与同页再次打开收藏 |
+| 刷新从首屏滑向原位置 | 检查新版 `data-home-entry` 内联脚本是否存在；刷新应即时恢复，正常分区点击仍平滑滚动 |
+| 新文章或论文没有出现 | 检查 `published`、正文路径和最新构建结果；草稿不生成页面 |
 | 本地文件双击不能使用 | 通过 `npm run dev` 或 `npm run preview` 提供 HTTP 服务 |
 
 过渡保护脚本可结束失败或超时的动画，但不证明所有空白页问题均由动画引起。部署成功和具体访问环境下正常渲染需分别验证。
