@@ -11,13 +11,14 @@ try {
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   await page.locator('.project-grid').evaluate(el => scrollTo({ top: scrollY + el.getBoundingClientRect().top + 400, behavior: 'instant' }));
   await expect.poll(() => page.locator('.projects-intro').evaluate(el => Math.round(el.getBoundingClientRect().top))).toBe(138);
+  await expect(page.locator('[data-sticky-reveal]')).toHaveCSS('translate', '0px');
+  await expect(page.locator('[data-sticky-reveal]')).toHaveCSS('opacity', '1');
   for (const name of ['应用', '系统研究', '全部', '应用', '全部']) {
     await page.getByRole('button', { name, exact: true }).click();
     await expect(page.locator('.project-card')).toHaveCount(name === '全部' ? 5 : name === '应用' ? 3 : 2);
     await expect(page.getByRole('button', { name, exact: true })).toHaveAttribute('aria-pressed', 'true');
-    const top = await page.locator('.project-grid').evaluate(el => el.getBoundingClientRect().top);
-    expect(top).toBeGreaterThanOrEqual(95);
-    expect(top).toBeLessThan(200);
+    await expect.poll(() => page.locator('.project-grid').evaluate(el => el.getBoundingClientRect().top)).toBeGreaterThanOrEqual(95);
+    await expect.poll(() => page.locator('.project-grid').evaluate(el => el.getBoundingClientRect().top)).toBeLessThan(200);
   }
   await page.locator('.project-card').first().hover({ position: { x: 40, y: 100 } });
   const links = await page.locator('.project-card').first().evaluate(el => {
