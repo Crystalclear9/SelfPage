@@ -9,7 +9,7 @@ try {
     if (mode === 'blocked') await page.route('**/*', route => route.request().resourceType() === 'script' ? route.abort() : route.continue());
     await page.goto(base, { waitUntil: 'networkidle' });
     assert.equal(await page.locator('h1').textContent(), 'Crystalclear9.');
-    assert.equal(await page.locator('.project-card').count(), 4);
+    assert.equal(await page.locator('.project-card').count(), 5);
     for (const section of await page.locator('main > section').all()) {
       await section.scrollIntoViewIfNeeded();
       assert.equal(await section.evaluate(el => getComputedStyle(el).opacity), '1');
@@ -17,7 +17,7 @@ try {
     const images = page.locator('img');
     await images.evaluateAll(imgs => Promise.all(imgs.map(img => img.decode())));
     assert.equal(await images.evaluateAll(imgs => imgs.every(img => img.naturalWidth > 0)), true);
-    assert.equal(await page.locator('.source-link').count(), 4);
+    assert.equal(await page.locator('.source-link').count(), 5);
     await page.close();
     console.log(`Static content, images, source links work with JavaScript ${mode}.`);
   }
@@ -31,7 +31,7 @@ try {
   await delayed.goto(base, { waitUntil: 'commit' });
   await delayed.locator('h1').waitFor({ state: 'visible', timeout: 1500 });
   assert.equal(await delayed.locator('html').evaluate(el => el.classList.contains('interactive')), false);
-  assert.equal(await delayed.locator('.source-link').count(), 4);
+  assert.equal(await delayed.locator('.source-link').count(), 5);
   await delayed.locator('html.interactive').waitFor({ timeout: 15000 });
   assert.deepEqual(errors, []);
   await delayed.getByRole('button', { name: '项目介绍：随手办' }).click();

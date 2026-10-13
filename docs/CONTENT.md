@@ -16,6 +16,7 @@
 | GameQA | `gameqa` | `/projects/gameqa/` |
 | Autellix | `autellix` | `/projects/autellix/` |
 | TimePredictModel | `time-predict` | `/projects/time-predict/` |
+| SandBoxSim | `sandboxsim` | `/projects/sandboxsim/` |
 
 已有 ID 应保持稳定，它同时用于页面网址、文章关联和项目间翻页。新增项目需同时更新 `projects` 与 `projectNotes`；项目数组顺序决定首页和前后翻页顺序。分类取自 `category`，筛选按钮自动生成。
 
@@ -150,7 +151,7 @@ Markdown 支持标题、列表、代码块、表格、引用和图片。正文�
 }
 ```
 
-两处 ID 必须完全一致；详情渲染直接读取对应正文，缺少 `projectNotes` 会导致构建失败。构建后检查首页、介绍弹窗、直接打开详情，以及前后项目导航。现有测试包含四个项目的固定断言，新增项目时需同步调整。
+两处 ID 必须完全一致；详情渲染直接读取对应正文，缺少 `projectNotes` 会导致构建失败。构建后检查首页、介绍弹窗、直接打开详情，以及前后项目导航。现有测试包含五个项目的固定断言，新增项目时需同步调整。
 
 ## 图片、PDF 与链接路径
 

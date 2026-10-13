@@ -12,7 +12,7 @@ try {
   await expect.poll(() => page.locator('.projects-intro').evaluate(el => Math.round(el.getBoundingClientRect().top))).toBe(138);
   for (const name of ['应用', '系统研究', '全部', '应用', '全部']) {
     await page.getByRole('button', { name, exact: true }).click();
-    await expect(page.locator('.project-card')).toHaveCount(name === '全部' ? 4 : 2);
+    await expect(page.locator('.project-card')).toHaveCount(name === '全部' ? 5 : name === '应用' ? 3 : 2);
     await expect(page.getByRole('button', { name, exact: true })).toHaveAttribute('aria-pressed', 'true');
     const top = await page.locator('.project-grid').evaluate(el => el.getBoundingClientRect().top);
     expect(top).toBeGreaterThanOrEqual(95);

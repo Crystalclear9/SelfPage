@@ -14,9 +14,9 @@ try {
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.title(), 'Crystalclear9 | 个人主页');
   assert.equal(await page.locator('.hero-image').evaluate(el => el.naturalWidth > 0), true);
-  assert.equal(await page.locator('.project-card').count(), 4);
+  assert.equal(await page.locator('.project-card').count(), 5);
   await page.getByRole('button', { name: '应用', exact: true }).click();
-  assert.equal(await page.locator('.project-card').count(), 2);
+  assert.equal(await page.locator('.project-card').count(), 3);
   await page.getByRole('button', { name: '项目介绍：随手办' }).click();
   assert.equal(await page.locator('dialog[open]').count(), 1);
   await page.keyboard.press('Escape');
@@ -31,6 +31,7 @@ try {
     'https://github.com/Crystalclear9/RagGameQa',
     'https://github.com/Crystalclear9/Autellix',
     'https://github.com/Crystalclear9/TimePredictModel',
+    'https://github.com/Crystalclear9/SandBoxSim',
   ]);
   assert.ok(sourceLinks.every(a => a.target === '_blank' && a.rel.includes('noreferrer')));
   assert.equal(await page.getByRole('link', { name: /演示|体验|访问作品/ }).count(), 0);

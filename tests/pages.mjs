@@ -7,7 +7,7 @@ try {
   const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });
   const page = await context.newPage(); const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'articles/', 'papers/']) {
+  for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'projects/sandboxsim/', 'articles/', 'papers/']) {
    const response = await page.goto(base + route); assert.equal(response.status(), 200);
    await page.reload(); await page.locator('h1').waitFor();
    assert.equal(await page.locator('h1').count(), 1);
@@ -24,5 +24,5 @@ try {
  await page.screenshot({ path: '.local/reports/writing-section.png' });
  await page.goto(base + 'projects/autellix/');
  await page.screenshot({ path: '.local/reports/project-page.png', fullPage: true });
- console.log('All 6 new routes: direct load, refresh, no-JS, mobile overflow and reading cursor passed.');
+ console.log('All 7 detail/index routes: direct load, refresh, no-JS, mobile overflow and reading cursor passed.');
 } finally { await browser.close(); }

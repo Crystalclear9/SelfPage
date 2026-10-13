@@ -74,6 +74,20 @@ export const projects = [
     note: '项目仍在实验阶段。数据设置、训练流程和已有结果记录在仓库中。',
     source: 'https://github.com/Crystalclear9/TimePredictModel',
   },
+  {
+    id: 'sandboxsim', title: 'SandBoxSim', repository: 'SandBoxSim',
+    category: '应用', icon: 'game',
+    subtitle: '自然生态与自主居民的 3D 沙盒模拟。',
+    description: '使用 Godot 与 C# 构建的沙盒模拟游戏。玩家调整地形、水源和资源，居民根据需求与可达性进行采集、建造和迁移；通过人物档案、世界事件和每日曲线，观察环境与聚落逐渐变化。',
+    tags: ['C#', 'Godot', '.NET'],
+    details: [
+      { title: '自由塑造世界', text: '调整地貌、生命与气候，观察水土、天气、资源和居民活动之间的关系。' },
+      { title: '居民与聚落', text: '围绕需求、材料和可达性组织自主行为，结合人物档案与历史记录观察生存和聚落变化。' },
+      { title: '观察与实验', text: '提供图层、曲线、世界保存，以及独立的固定步进和性能对照接口。' },
+    ],
+    note: '源码运行需要 Godot .NET 与 .NET 开发环境。游戏玩法与实验接口分开维护，运行方式和验证范围见仓库文档。',
+    source: 'https://github.com/Crystalclear9/SandBoxSim',
+  },
 ];
 
 // Optional links to other public pages; empty means the section is hidden.

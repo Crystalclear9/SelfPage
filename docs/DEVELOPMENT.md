@@ -69,7 +69,7 @@ npm run preview -- --port 4173
 4. 预渲染脚本使用共享 React 组件输出各路由 HTML，并填写页面标题和描述。
 5. 浏览器先显示 HTML，`src/main.jsx` 再进行 hydration，接入筛选、偏好与交互。
 
-目前没有文章和论文条目时，构建生成首页、四个项目页、两个内容索引，共七个常规页面，另有 `404.html`。发布内容后页面数量随索引增加。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
+目前没有文章和论文条目时，构建生成首页、五个项目页、两个内容索引，共八个常规页面，另有 `404.html`。发布内容后页面数量随索引增加。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
 
 新增内部链接使用 `src/data/routes.js` 的 `href()`，使其带上构建前缀。直接写 `/projects/...` 会指向域名根目录，在 `/SelfPage/` 部署下可能访问错误位置。
 
@@ -91,6 +91,7 @@ npm run check:pages
 | `npm run check:pages` | 项目和内容索引直接打开、刷新、无 JS、手机溢出 | 是 |
 | `npm run check:static` | 禁用、阻断、延迟脚本时的内容与 hydration | 是 |
 | `npm run check:ui` | 基础控件、筛选、弹窗、偏好持久化、多种宽度 | 是 |
+| `npm run check:chapters` | 双向板块触发、分层视差、窄屏及减少动态效果 | 是 |
 | `npm run check:motion` | 滚动动效、角色状态、弹窗、触屏和减少动态效果 | 是 |
 | `npm run check:navigation` | 返回、历史遍历、翻页、导航选中态、顶部按钮互斥 | 是 |
 | `npm run check:entry` | 新入口、同页收藏、刷新逐帧位置和弹窗反馈 | 是 |

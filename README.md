@@ -18,7 +18,7 @@
 
 ## 已实现功能
 
-- **项目展示**：分类筛选、简介弹窗、四个独立详情页、源码跳转和项目链接复制。
+- **项目展示**：分类筛选、简介弹窗、五个独立详情页、源码跳转和项目链接复制。
 - **内容发布**：Markdown 文章、论文索引、作者与发表信息、PDF 和项目关联记录；通过仓库文件维护。
 - **页面导航**：分区定位、滚动选中态、项目前后翻页、上滑返回条、互斥的回到顶部入口。
 - **阅读入口**：独立 HTML、直接访问与刷新、收藏首屏定位、浏览器历史位置恢复。
@@ -60,7 +60,7 @@ npm run preview
 
 本站提供项目说明和源码链接，不提供在线演示。Autellix 是基于[原论文](https://arxiv.org/abs/2502.13965)的个人复现尝试，原方法归论文作者，尚未完成对论文性能结果的复现。
 
-目前展示随手办、GameQA、Autellix 和 TimePredictModel。首页卡片与介绍弹窗用于快速浏览，独立详情页按问题背景、实现过程、适用范围和代码参考展开。项目说明依据公开仓库整理，不代表本站对各项目进行了完整运行或性能复验。
+目前展示随手办、GameQA、Autellix、TimePredictModel 和 SandBoxSim。首页卡片与介绍弹窗用于快速浏览，独立详情页按问题背景、实现过程、适用范围和代码参考展开。项目说明依据公开仓库整理，不代表本站对各项目进行了完整运行或性能复验。
 
 ## 项目结构
 
@@ -101,6 +101,7 @@ npm run check:navigation
 npm run check:recovery
 npm run check:entry
 npm run check:projects
+npm run check:chapters
 ```
 
 浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。
@@ -110,7 +111,7 @@ npm run check:projects
 | 改动 | 建议检查 |
 | --- | --- |
 | 项目文案、文章和论文 | `build`、`check:pages`；修改内容加载逻辑时加 `check:content` |
-| 首页布局、项目筛选、光标 | `check:ui`、`check:projects`、`check:motion` |
+| 首页布局、项目筛选、光标 | `check:ui`、`check:projects`、`check:motion`、`check:chapters` |
 | 首页入口、返回与翻页 | `check:entry`、`check:navigation`、`check:recovery` |
 | 预渲染与脚本加载 | `check:static`、`check:pages` |
 

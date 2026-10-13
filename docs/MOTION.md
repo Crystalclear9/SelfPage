@@ -17,6 +17,14 @@
 
 首屏展开节奏参考 [wutaghost](https://wutaghost.github.io/)，本站的文案、插画和页面结构独立维护。
 
+## 板块触发与分层视差
+
+`ChapterMotion` 仅在首页挂载，观察标有 `data-chapter` 的个人介绍、项目标题、文章标题及联系区域。进入和离开视口时重复更新 `data-chapter-visible`，不在首次触发后取消观察，因此向上回看也有反馈。内容始终保留可见下限，观察器或 JavaScript 不可用时直接显示正文。
+
+连续视差由 `chapters.css` 的 CSS view timeline 驱动。标题、说明与文章入口分别采用不同位移幅度，中央区间保持静止；项目标题依赖项目区的时间线，sticky 容器本身不发生变换。窄屏降低位移幅度，减少动态效果模式关闭观察与时间线动画。
+
+`check:chapters` 检查四个板块在上下两个方向的位置变化、再次进入时的触发、手机溢出和减少动态效果，同时检查 SandBoxSim 的详情与翻页入口。
+
 ## 返回与项目翻页
 
 首页入口行为由 `home-entry.js` 独立处理，不依赖 React 完成加载：

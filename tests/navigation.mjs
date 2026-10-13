@@ -7,7 +7,7 @@ try {
   for (const javaScriptEnabled of [false, true]) {
     const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
-    for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'articles/', 'papers/']) {
+    for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'projects/sandboxsim/', 'articles/', 'papers/']) {
       await page.goto(base + route);
       await expect(page.locator('.page-navigation .home-link')).toHaveAttribute('href', new URL(base).pathname);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
