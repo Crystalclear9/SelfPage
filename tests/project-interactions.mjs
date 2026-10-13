@@ -8,6 +8,7 @@ try {
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   await page.goto(base);
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   await page.locator('.project-grid').evaluate(el => scrollTo({ top: scrollY + el.getBoundingClientRect().top + 400, behavior: 'instant' }));
   await expect.poll(() => page.locator('.projects-intro').evaluate(el => Math.round(el.getBoundingClientRect().top))).toBe(138);
   for (const name of ['应用', '系统研究', '全部', '应用', '全部']) {

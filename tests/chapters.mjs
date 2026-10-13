@@ -6,6 +6,17 @@ try {
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   await page.goto(base);
   await page.evaluate(() => document.fonts.ready);
+  const intro = page.locator('[data-sticky-reveal]');
+  await expect(intro).toHaveAttribute('data-chapter-visible', 'false');
+  await expect(intro).toHaveCSS('opacity', '0');
+  await page.locator('#projects').evaluate(el => scrollTo({ top: el.offsetTop + 250, behavior: 'instant' }));
+  await expect(intro).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(intro).toHaveCSS('translate', '0px');
+  await expect(intro).toHaveCSS('rotate', /^(?:x )?0deg$/);
+  await expect.poll(() => page.locator('.projects-intro').evaluate(el => Math.round(el.getBoundingClientRect().top))).toBe(138);
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await expect(intro).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(intro).toHaveCSS('opacity', '1');
   const writing = page.locator('[data-chapter="writing"]');
   await expect(writing).toHaveAttribute('data-chapter-visible', 'false');
   await expect(writing).toHaveCSS('opacity', '0');

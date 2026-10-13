@@ -4,14 +4,17 @@ import { useEffect } from 'react';
 export default function ChapterMotion() {
   useEffect(() => {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const selector = '[data-chapter]:not([data-chapter="projects"]), [data-module]';
+    const selector = '[data-chapter]:not([data-chapter="projects"]), [data-module], [data-sticky-reveal]';
     const nodes = new Set();
+    const settled = new WeakSet();
     if (!('IntersectionObserver' in window)) return;
     let observer;
     const reveal = target => {
       target.dataset.chapterVisible = 'true';
+      if (target.hasAttribute('data-sticky-reveal')) { settled.add(target); observer?.unobserve(target); }
     };
     const prepare = (target, rect) => {
+      if (settled.has(target)) return reveal(target);
       if (target.contains(document.activeElement)) return;
       target.dataset.chapterEntry = rect.bottom <= 70 ? 'top' : 'bottom';
       target.dataset.chapterVisible = 'false';
@@ -31,7 +34,7 @@ export default function ChapterMotion() {
         const rect = el.getBoundingClientRect();
         if (rect.top < innerHeight * .92 && rect.bottom > 70) reveal(el);
         else prepare(el, rect);
-        observer.observe(el);
+        if (!settled.has(el)) observer.observe(el);
       });
     };
     const sync = () => {
@@ -43,7 +46,7 @@ export default function ChapterMotion() {
         const rect = el.getBoundingClientRect();
         if (rect.top < innerHeight * .92 && rect.bottom > 70) reveal(el);
         else prepare(el, rect);
-        observer?.observe(el);
+        if (!settled.has(el)) observer?.observe(el);
       });
     };
     const focus = event => {

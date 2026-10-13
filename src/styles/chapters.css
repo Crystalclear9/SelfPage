@@ -1,5 +1,7 @@
 /* Repeat entry transitions, keeping modules still throughout reading. */
 [data-chapter], [data-module] { opacity: 1; }
+.projects-intro { perspective: 1000px; }
+.projects-intro-content { transform-origin: center top; }
 @media (prefers-reduced-motion: no-preference) {
  [data-chapter-visible] {
    animation: none !important;
@@ -10,6 +12,11 @@
  [data-chapter-visible='true'] { opacity: 1; translate: 0 0; }
  [data-module][data-chapter-visible='false'] { translate: 0 36px; }
  [data-module][data-chapter-visible='false'][data-chapter-entry='top'] { translate: 0 -36px; }
+ [data-sticky-reveal][data-chapter-visible] {
+   transition: opacity .7s ease, translate .7s cubic-bezier(.2,.72,.14,1), rotate .7s cubic-bezier(.2,.72,.14,1), scale .7s ease;
+ }
+ [data-sticky-reveal][data-chapter-visible='false'] { translate: 0 36px; rotate: 1 0 0 12deg; scale: .98; transition: none; }
+ [data-sticky-reveal][data-chapter-visible='true'] { translate: 0 0; rotate: 1 0 0 0deg; scale: 1; }
 }
 .project-pager { margin-top: 70px; padding-top: 28px; border-top: 1px solid var(--line); }
 .pager-position { color: var(--muted); font-size: 12px; margin: 0 0 24px; font-variant-numeric: tabular-nums; }

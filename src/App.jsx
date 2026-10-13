@@ -114,8 +114,10 @@ export default function App({ path = '/' }) {
 
       <section className="projects-section section-shell" id="projects">
         <div className="projects-intro">
+          <div className="projects-intro-content" data-sticky-reveal>
           <div className="section-heading" data-chapter="projects"><h2>项目与实践</h2><p>从具体问题出发，边做边理解。<br />这里是一些应用与系统方面的尝试。</p></div>
           <div className="filter-bar" role="group" aria-label="筛选项目">{categories.map(value => <button key={value} aria-pressed={filter === value} className={filter === value ? 'selected' : ''} onClick={() => changeFilter(value)}>{value}</button>)}</div>
+          </div>
         </div>
         <div className="project-grid" ref={gridRef} aria-live="polite">
           {projects.filter(p => filter === '全部' || p.category === filter).map(p => {
