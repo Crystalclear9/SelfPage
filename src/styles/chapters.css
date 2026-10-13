@@ -1,50 +1,12 @@
-/* A staged unfold connects chapters without wheel interception or hidden content. */
+/* Reveal a chapter once, then leave it at its normal reading position. */
 [data-chapter] { opacity: 1; }
 @media (prefers-reduced-motion: no-preference) {
- [data-chapter-visible] { transition: opacity .65s ease; }
- [data-chapter-visible='false'] { opacity: .78; }
- [data-chapter-visible='true'] { opacity: 1; }
- @supports (animation-timeline: view()) {
-  .projects-section { view-timeline-name: --projects-chapter; }
-  .writing-section { view-timeline-name: --writing-chapter; }
-  .contact-section { view-timeline-name: --contact-chapter; }
-  .about-copy > h2, .about-copy > p,
-  [data-chapter='projects'] > h2, [data-chapter='projects'] > p,
-  [data-chapter='writing'] > h2, [data-chapter='writing'] > p,
-  .contact-inner h2, .contact-inner p {
-    animation: chapter-title-drift linear both;
-    animation-range: cover 0% cover 100%;
-  }
-  .about-copy > :is(h2, p) { animation-timeline: --profile-unfold; }
-  [data-chapter='projects'] > :is(h2, p) { animation-timeline: --projects-chapter; }
-  [data-chapter='writing'] > :is(h2, p) { animation-timeline: --writing-chapter; }
-  .contact-inner :is(h2, p) { animation-timeline: --contact-chapter; }
-  .about-copy > p, [data-chapter='projects'] > p,
-  [data-chapter='writing'] > p, .contact-inner p { animation-name: chapter-copy-drift; }
-  .writing-index {
-    animation: chapter-panel-drift linear both;
-    animation-timeline: --writing-chapter; animation-range: cover 0% cover 100%;
-  }
-  @keyframes chapter-title-drift {
-    from { translate: 0 44px; }
-    30%, 70% { translate: 0 0; }
-    to { translate: 0 -18px; }
-  }
-  @keyframes chapter-copy-drift {
-    from { translate: 0 64px; }
-    34%, 70% { translate: 0 0; }
-    to { translate: 0 -32px; }
-  }
-  @keyframes chapter-panel-drift {
-    from { translate: 0 28px; }
-    30%, 72% { translate: 0 0; }
-    to { translate: 0 -12px; }
-  }
-  @media (max-width: 760px) {
-    @keyframes chapter-title-drift { from { translate: 0 26px; } 30%, 70% { translate: 0 0; } to { translate: 0 -12px; } }
-    @keyframes chapter-copy-drift { from { translate: 0 38px; } 34%, 70% { translate: 0 0; } to { translate: 0 -20px; } }
-  }
+ [data-chapter-visible] {
+   animation: none !important;
+   transition: opacity .62s ease, translate .62s cubic-bezier(.2,.72,.14,1);
  }
+ [data-chapter-visible='false'] { opacity: 0; translate: 0 24px; }
+ [data-chapter-visible='true'] { opacity: 1; translate: 0 0; }
 }
 .project-pager { margin-top: 70px; padding-top: 28px; border-top: 1px solid var(--line); }
 .pager-position { color: var(--muted); font-size: 12px; margin: 0 0 24px; font-variant-numeric: tabular-nums; }
@@ -61,8 +23,6 @@
  .pager-link:hover { background: var(--soft); translate: 0 -3px; }
  @supports (animation-timeline: view()) {
   .about { view-timeline-name: --profile-unfold; perspective: 1400px; }
-  .profile-card { animation: profile-leaf linear both; animation-timeline: --profile-unfold; animation-range: entry 0% entry 100%; transform-origin: right center; }
-  .about .about-copy { animation: profile-copy-leaf linear both; animation-timeline: --profile-unfold; animation-range: entry 5% entry 100%; transform-origin: left center; }
   .writing-door { transform-origin: center top; animation-name: writing-leaf; }
   .writing-door:nth-child(2) { animation-name: writing-leaf; }
   @media (min-width: 1000px) and (min-height: 650px) {
@@ -70,8 +30,6 @@
    .hero-art { animation-name: cover-open; }
   }
  }
- @keyframes profile-leaf { from { transform: rotateY(26deg) translateY(45px); scale: .96; } to { transform: none; scale: 1; } }
- @keyframes profile-copy-leaf { from { transform: rotateY(-22deg) translateY(65px); } to { transform: none; } }
  @keyframes writing-leaf { from { translate: 0 42px; rotate: 1 0 0 14deg; scale: .97; } to { translate: 0 0; rotate: 1 0 0 0deg; scale: 1; } }
  @keyframes cover-open { to { translate: -22px -55px; rotate: -6deg; scale: 1.12; } }
 }

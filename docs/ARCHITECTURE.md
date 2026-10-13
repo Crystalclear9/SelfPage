@@ -68,7 +68,7 @@ flowchart TD
 | AnimatedCursor | 角色位置、上下文、短暂反馈和顶层展示 | 拦截业务点击或代替成功判断 |
 | PointerSurfaces | 命中检测、倾转、光晕与波纹清理 | 保存偏好或修改内容 |
 | PetalTrail | 装饰画布与鼠标拖尾 | 承担输入区域或影响布局 |
-| ChapterMotion | 首页板块重复进入/退出观察与状态清理 | 劫持滚轮或移动 sticky 容器 |
+| ChapterMotion | 首页模块首次进入观察与状态清理 | 劫持滚轮或移动 sticky 容器 |
 
 持久化键与默认值见功能说明。所有浏览器 effect 应在卸载时取消动画帧、计时器、监听和观察器。客户端使用 StrictMode，开发中 effect 可能重复挂载，新增逻辑不能依赖“只执行一次且永不清理”的假设。
 

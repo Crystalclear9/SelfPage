@@ -6,27 +6,27 @@ try {
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   await page.goto(base);
   await page.evaluate(() => document.fonts.ready);
-  for (const selector of ['#about', '#projects', '#writing', '#contact']) {
-    const positions = [];
-    for (const progress of [.12, .5, .82, .5, .12]) {
-      await page.locator(selector).evaluate((el, progress) => scrollTo({
-        top: el.getBoundingClientRect().top + scrollY - innerHeight + (innerHeight + el.offsetHeight) * progress,
-        behavior: 'instant',
-      }), progress);
-      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-      const heading = selector === '#about' ? '.about-copy h2' : `${selector} [data-chapter] h2`;
-      positions.push(await page.locator(heading).first().evaluate(el => getComputedStyle(el).translate));
-    }
-    expect(positions[0]).not.toBe(positions[1]);
-    expect(positions[1]).toBe(positions[3]);
-    expect(positions[0]).toBe(positions[4]);
-  }
+  const writing = page.locator('[data-chapter="writing"]');
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'false');
+  await expect(writing).toHaveCSS('opacity', '0');
   await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
-  await expect(page.locator('[data-chapter="writing"]')).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(writing).toHaveCSS('opacity', '1');
+  await expect(writing).toHaveCSS('translate', '0px');
   await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
-  await expect(page.locator('[data-chapter="writing"]')).toHaveAttribute('data-chapter-visible', 'false');
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
   await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
-  await expect(page.locator('[data-chapter="writing"]')).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(writing).toHaveCSS('translate', '0px');
+  for (const progress of [.12, .5, .82, .5, .12]) {
+    await page.locator('#projects').evaluate((el, progress) => scrollTo({
+      top: el.offsetTop - innerHeight + (innerHeight + el.offsetHeight) * progress,
+      behavior: 'instant',
+    }), progress);
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    expect(await page.locator('[data-chapter="projects"]').evaluate(el => getComputedStyle(el).translate)).toBe('none');
+    expect(await page.locator('[data-chapter="projects"] > h2').evaluate(el => getComputedStyle(el).translate)).toBe('none');
+    expect(await page.locator('[data-chapter="projects"] > p').evaluate(el => getComputedStyle(el).translate)).toBe('none');
+  }
   for (const width of [320, 375, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     for (const section of await page.locator('main > section').all()) {
@@ -43,5 +43,5 @@ try {
   await expect(page.locator('.pager-previous strong')).toHaveText('TimePredictModel');
   await expect(page.locator('.pager-next strong')).toHaveText('文章');
   expect(errors).toEqual([]);
-  console.log('Bidirectional chapter triggers, parallax, reduced motion, responsive containment and SandBoxSim detail passed.');
+  console.log('One-time module reveal, stationary project heading, reduced motion, responsive containment and SandBoxSim detail passed.');
 } finally { await browser.close(); }
