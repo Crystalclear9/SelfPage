@@ -89,11 +89,11 @@ try {
   await expect(card).not.toHaveAttribute('data-pointer-inside', 'true');
   await page.screenshot({ path: '.local/reports/motion-projects.png' });
   const first = await page.locator('.projects-intro').boundingBox();
-  await page.mouse.wheel(0, 400);
+  await page.mouse.wheel(0, Math.max(400, first.y - 138 + 100));
   await state('scroll');
   await page.waitForTimeout(500);
   const later = await page.locator('.projects-intro').boundingBox();
-  assert.ok(Math.abs(later.y - 138) < 3, 'Project intro pins below the header');
+  assert.ok(Math.abs(later.y - 138) < 3, `Project intro pins below the header: initial=${first.y}, after=${later.y}`);
   await page.mouse.wheel(0, 200);
   await page.waitForTimeout(300);
   assert.ok(Math.abs((await page.locator('.projects-intro').boundingBox()).y - later.y) < 3);

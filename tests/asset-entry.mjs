@@ -42,12 +42,13 @@ try {
     await expect(page.locator('[data-chapter="writing"]')).toHaveCSS('translate', '0px');
     const gap = await page.evaluate(() => {
       const p = document.querySelector('#projects'), w = document.querySelector('#writing');
-      const link = p.querySelector('.all-repositories').getBoundingClientRect();
+      const link = p.querySelector('.project-grid').getBoundingClientRect();
       const title = w.querySelector('h2').getBoundingClientRect();
       return title.top - link.bottom;
     });
-    expect(gap).toBeLessThan(100);
+    expect(gap).toBeGreaterThan(width === 1440 ? 310 : 230);
+    expect(gap).toBeLessThan(width === 1440 ? 330 : 260);
   }
   expect(errors).toEqual([]);
-  console.log('Cached entry versions, styled SandBoxSim direct/reload/history and compact section boundary passed.');
+  console.log('Cached entry versions, styled SandBoxSim direct/reload/history and restored section spacing passed.');
 } finally { await browser.close(); }

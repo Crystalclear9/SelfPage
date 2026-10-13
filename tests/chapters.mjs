@@ -12,6 +12,25 @@ try {
   await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
   await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
   await expect(writing).toHaveCSS('opacity', '1');
+  // Entry rows and project cards have their own reveal, not just the section title.
+  await page.setViewportSize({ width: 1440, height: 400 });
+  for (const item of [page.locator('.project-reveal').first(), page.locator('.project-reveal').last(),
+    page.locator('.writing-door').first(), page.locator('.writing-door').last()]) {
+    await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+    await expect(item).toHaveAttribute('data-chapter-visible', 'false');
+    await item.evaluate(el => scrollTo({ top: el.getBoundingClientRect().top + scrollY - 110, behavior: 'instant' }));
+    await expect(item).toHaveAttribute('data-chapter-visible', 'true');
+    await expect(item).toHaveCSS('opacity', '1');
+    await expect(item).toHaveCSS('translate', '0px');
+    await item.evaluate(el => scrollTo({ top: el.getBoundingClientRect().bottom + scrollY + 50, behavior: 'instant' }));
+    await expect(item).toHaveAttribute('data-chapter-visible', 'false');
+    await expect(item).toHaveAttribute('data-chapter-entry', 'top');
+    await item.evaluate(el => scrollTo({ top: el.getBoundingClientRect().top + scrollY - 110, behavior: 'instant' }));
+    await expect(item).toHaveAttribute('data-chapter-visible', 'true');
+    await expect(item).toHaveCSS('opacity', '1');
+  }
+  await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
   await expect(writing).toHaveCSS('translate', '0px');
   await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
   await expect(writing).toHaveAttribute('data-chapter-visible', 'false');
@@ -34,6 +53,11 @@ try {
   await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
   await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
   await expect(writing).toHaveCSS('opacity', '1');
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.getByRole('button', { name: '应用', exact: true }).click();
+  await expect(page.locator('[data-module="project-card"][data-chapter-visible]')).toHaveCount(3);
+  await page.getByRole('button', { name: '全部', exact: true }).click();
+  await expect(page.locator('[data-module="project-card"][data-chapter-visible]')).toHaveCount(5);
   for (const progress of [.12, .5, .82, .5, .12]) {
     await page.locator('#projects').evaluate((el, progress) => scrollTo({
       top: el.offsetTop - innerHeight + (innerHeight + el.offsetHeight) * progress,

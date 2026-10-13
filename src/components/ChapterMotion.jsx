@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 export default function ChapterMotion() {
   useEffect(() => {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const nodes = [...document.querySelectorAll('[data-chapter]:not([data-chapter="projects"])')];
+    const selector = '[data-chapter]:not([data-chapter="projects"]), [data-module]';
+    const nodes = new Set();
     if (!('IntersectionObserver' in window)) return;
     let observer;
     const reveal = target => {
@@ -33,13 +34,28 @@ export default function ChapterMotion() {
         observer.observe(el);
       });
     };
+    const sync = () => {
+      nodes.forEach(el => { if (!el.isConnected) { observer?.unobserve(el); nodes.delete(el); } });
+      document.querySelectorAll(selector).forEach(el => {
+        if (nodes.has(el)) return;
+        nodes.add(el);
+        if (reduced.matches) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < innerHeight * .92 && rect.bottom > 70) reveal(el);
+        else prepare(el, rect);
+        observer?.observe(el);
+      });
+    };
     const focus = event => {
       const target = event.target.closest?.('[data-chapter-visible="false"]');
       if (target) reveal(target);
     };
-    reset(); reduced.addEventListener('change', reset);
+    reset(); sync(); reduced.addEventListener('change', reset);
+    const mutations = new MutationObserver(sync);
+    const grid = document.querySelector('.project-grid');
+    if (grid) mutations.observe(grid, { childList: true });
     document.addEventListener('focusin', focus);
-    return () => { observer?.disconnect(); document.removeEventListener('focusin', focus); reduced.removeEventListener('change', reset); nodes.forEach(el => { delete el.dataset.chapterVisible; delete el.dataset.chapterEntry; }); };
+    return () => { observer?.disconnect(); mutations.disconnect(); document.removeEventListener('focusin', focus); reduced.removeEventListener('change', reset); nodes.forEach(el => { delete el.dataset.chapterVisible; delete el.dataset.chapterEntry; }); };
   }, []);
   return null;
 }

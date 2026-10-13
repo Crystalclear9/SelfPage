@@ -16,7 +16,7 @@ export function EntryList({ entries, type }) {
 }
 
 export function WritingSection() {
-  return <section id="writing" className="writing-section section-shell"><div className="section-heading" data-chapter="writing"><h2>文章与论文</h2><p>开发过程中的记录，以及研究相关的整理。</p></div><div className="writing-index">{Object.keys(labels).map((type, index) => <a className="writing-door" data-cursor="read" href={href(`/${type}/`)} key={type}><span className="writing-number">0{index + 1}</span><div>{type === 'articles' ? <BookOpen size={28} weight="light"/> : <FileText size={28} weight="light"/>}<h3>{labels[type]}</h3><p>{descriptions[type]}</p>{writing.filter(e => e.type === type).length > 0 && <span className="writing-count">{writing.filter(e => e.type === type).length} 篇</span>}</div><ArrowRight className="entry-arrow" size={25}/></a>)}</div></section>;
+  return <section id="writing" className="writing-section section-shell"><div className="section-heading" data-chapter="writing"><h2>文章与论文</h2><p>开发过程中的记录，以及研究相关的整理。</p></div><div className="writing-index">{Object.keys(labels).map((type, index) => <a className="writing-door" data-module="writing-entry" data-cursor="read" href={href(`/${type}/`)} key={type}><span className="writing-number">0{index + 1}</span><div>{type === 'articles' ? <BookOpen size={28} weight="light"/> : <FileText size={28} weight="light"/>}<h3>{labels[type]}</h3><p>{descriptions[type]}</p>{writing.filter(e => e.type === type).length > 0 && <span className="writing-count">{writing.filter(e => e.type === type).length} 篇</span>}</div><ArrowRight className="entry-arrow" size={25}/></a>)}</div></section>;
 }
 
 export default function ContentPage({ path }) {
