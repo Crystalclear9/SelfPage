@@ -1,11 +1,12 @@
-/* Reveal a chapter once, then leave it at its normal reading position. */
+/* Repeat entry transitions, keeping modules still throughout reading. */
 [data-chapter] { opacity: 1; }
 @media (prefers-reduced-motion: no-preference) {
  [data-chapter-visible] {
    animation: none !important;
    transition: opacity .62s ease, translate .62s cubic-bezier(.2,.72,.14,1);
  }
- [data-chapter-visible='false'] { opacity: 0; translate: 0 24px; }
+ [data-chapter-visible='false'] { opacity: 0; translate: 0 24px; transition: none; }
+ [data-chapter-visible='false'][data-chapter-entry='top'] { translate: 0 -24px; }
  [data-chapter-visible='true'] { opacity: 1; translate: 0 0; }
 }
 .project-pager { margin-top: 70px; padding-top: 28px; border-top: 1px solid var(--line); }

@@ -14,9 +14,26 @@ try {
   await expect(writing).toHaveCSS('opacity', '1');
   await expect(writing).toHaveCSS('translate', '0px');
   await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
-  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'false');
+  await expect(writing).toHaveAttribute('data-chapter-entry', 'bottom');
   await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
   await expect(writing).toHaveCSS('translate', '0px');
+  // Leave above the viewport, re-enter while scrolling upward, then repeat downward.
+  await page.setViewportSize({ width: 1440, height: 600 });
+  await page.locator('#contact').evaluate(el => scrollTo({ top: el.offsetTop - 70, behavior: 'instant' }));
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'false');
+  await expect(writing).toHaveAttribute('data-chapter-entry', 'top');
+  await expect(writing).toHaveCSS('translate', '0px -24px');
+  await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(writing).toHaveCSS('opacity', '1');
+  await expect(writing).toHaveCSS('translate', '0px');
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'false');
+  await page.locator('#writing').evaluate(el => scrollTo({ top: el.offsetTop - 100, behavior: 'instant' }));
+  await expect(writing).toHaveAttribute('data-chapter-visible', 'true');
+  await expect(writing).toHaveCSS('opacity', '1');
   for (const progress of [.12, .5, .82, .5, .12]) {
     await page.locator('#projects').evaluate((el, progress) => scrollTo({
       top: el.offsetTop - innerHeight + (innerHeight + el.offsetHeight) * progress,
@@ -43,5 +60,5 @@ try {
   await expect(page.locator('.pager-previous strong')).toHaveText('TimePredictModel');
   await expect(page.locator('.pager-next strong')).toHaveText('文章');
   expect(errors).toEqual([]);
-  console.log('One-time module reveal, stationary project heading, reduced motion, responsive containment and SandBoxSim detail passed.');
+  console.log('Repeated upward/downward module reveals, stationary project heading, reduced motion, responsive containment and SandBoxSim detail passed.');
 } finally { await browser.close(); }
