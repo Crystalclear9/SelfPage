@@ -14,14 +14,14 @@ try {
         transition.finished.then(() => { window.transitionResult.finished = true; });
       });
     });
-    if (stalled) await context.route('**/*.css', async route => {
+    if (stalled) await context.route(/\.css(?:\?|$)/, async route => {
       const response = await route.fetch();
       await route.fulfill({ response, body: (await response.text()) + '\n::view-transition-new(root) { animation-duration: 600s !important; }' });
     });
     const page = await context.newPage(), errors = [];
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(base);
-    if (stalled) await context.route('**/*.js', route => route.abort());
+    if (stalled) await context.route(/\.js(?:\?|$)/, route => route.abort());
     await page.locator('.project-page-link').first().click();
     await page.waitForURL(base + 'projects/suishouban/');
     await expect.poll(() => page.evaluate(() => window.transitionResult?.finished), { timeout: 3500 }).toBe(true);

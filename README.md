@@ -102,6 +102,7 @@ npm run check:recovery
 npm run check:entry
 npm run check:projects
 npm run check:chapters
+npm run check:assets
 ```
 
 浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。

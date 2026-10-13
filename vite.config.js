@@ -19,4 +19,13 @@ const transitionGuard = {
 export default defineConfig({
   plugins: [react(), writingPlugin(), transitionGuard],
   base: process.env.SITE_BASE_PATH || '/',
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/site.js',
+        assetFileNames: asset => asset.names?.some(name => name.endsWith('.css'))
+          ? 'assets/site.css' : 'assets/[name]-[hash][extname]',
+      },
+    },
+  },
 });

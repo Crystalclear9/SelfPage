@@ -92,6 +92,7 @@ npm run check:pages
 | `npm run check:static` | 禁用、阻断、延迟脚本时的内容与 hydration | 是 |
 | `npm run check:ui` | 基础控件、筛选、弹窗、偏好持久化、多种宽度 | 是 |
 | `npm run check:chapters` | 模块双向重复进入、项目标题固定、窄屏及减少动态效果 | 是 |
+| `npm run check:assets` | 缓存入口兼容、SandBoxSim 样式与历史恢复、板块间距 | 是 |
 | `npm run check:motion` | 滚动动效、角色状态、弹窗、触屏和减少动态效果 | 是 |
 | `npm run check:navigation` | 返回、历史遍历、翻页、导航选中态、顶部按钮互斥 | 是 |
 | `npm run check:entry` | 新入口、同页收藏、刷新逐帧位置和弹窗反馈 | 是 |
