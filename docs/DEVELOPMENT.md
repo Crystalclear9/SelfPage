@@ -66,7 +66,7 @@ npm run preview -- --port 4173
 1. `scripts/content.mjs` 读取文章、论文索引，筛选并校验已发布条目。
 2. Vite 编译客户端代码、样式和本地字体，生成静态资源。
 3. `src/data/routes.js` 汇总首页、项目页、内容索引及已发布正文路由。
-4. 预渲染脚本使用共享 React 组件输出各路由 HTML，并填写页面标题和描述。
+4. 预渲染脚本生成入口版本参数和旧入口兼容文件，再使用共享 React 组件输出各路由 HTML，并填写页面标题和描述。
 5. 浏览器先显示 HTML，`src/main.jsx` 再进行 hydration，接入筛选、偏好与交互。
 
 目前没有文章和论文条目时，构建生成首页、五个项目页、两个内容索引，共八个常规页面，另有 `404.html`。发布内容后页面数量随索引增加。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
@@ -91,7 +91,7 @@ npm run check:pages
 | `npm run check:pages` | 项目和内容索引直接打开、刷新、无 JS、手机溢出 | 是 |
 | `npm run check:static` | 禁用、阻断、延迟脚本时的内容与 hydration | 是 |
 | `npm run check:ui` | 基础控件、筛选、弹窗、偏好持久化、多种宽度 | 是 |
-| `npm run check:chapters` | 模块双向重复进入、项目标题固定、窄屏及减少动态效果 | 是 |
+| `npm run check:chapters` | 模块和标题组多轮双向触发、实际过渡、区内固定、动态卡片登记 | 是 |
 | `npm run check:assets` | 缓存入口兼容、SandBoxSim 样式与历史恢复、板块间距 | 是 |
 | `npm run check:motion` | 滚动动效、角色状态、弹窗、触屏和减少动态效果 | 是 |
 | `npm run check:navigation` | 返回、历史遍历、翻页、导航选中态、顶部按钮互斥 | 是 |
@@ -126,6 +126,8 @@ npm run clean
 | `ERR_CONNECTION_REFUSED` | 启动预览，核对 `TEST_URL` 与终端打印地址 |
 | 提示找不到 Edge | 安装本机 Microsoft Edge；不要假设所有脚本都支持浏览器通道覆盖 |
 | 页面能打开但资源 404 | 核对构建时的 `SITE_BASE_PATH` 与访问网址 |
+| 只有普通文字和默认超链接 | 检查 CSS 是否载入、是否误开旧端口；资源迁移规则见部署指南 |
+| 进入动画只播放一次 | 检查是否取消了观察或保留永久播放标记，并检查焦点是否阻止重新准备 |
 | 清理后预览失败 | 重新执行构建，`preview` 本身不会生成 `dist/` |
 | 内容检查失败 | 从第一条错误定位元数据或文件，参照内容指南修正 |
 
