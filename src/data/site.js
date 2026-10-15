@@ -3,8 +3,10 @@ export const profile = {
   name: 'Crystalclear9',
   siteName: 'Crystalclear9',
   subtitle: 'AI 应用与系统探索',
-  intro: '我主要做一些 AI 应用，也关注推理和调度相关的系统问题。',
-  about: '从任务整理、检索问答，到论文里的调度方法，尝试把想法落实到代码里。这里放着其中的一些项目和记录。',
+  intro: '我是 Crystalclear9，主要关注 AI 应用与系统实现。最近的项目围绕多模态任务整理、检索增强问答展开，也涉及模型推理、工具调用与调度。',
+  about: '做应用时，我更关心信息从哪里来、结果能否核对，以及模型输出怎样接入实际操作。界面、数据处理和服务之间的衔接，也是我想持续打磨的部分。',
+  approach: '系统方向的探索以论文阅读和复现尝试为主，关注方法的实现条件与适用范围。除此之外，我也在做 SandBoxSim，尝试用沙盒模拟观察环境、资源与个体行为之间的关系。',
+  siteNote: '这里整理了部分开源项目与实现思路，后续也会补充开发记录和论文相关内容。项目详情侧重背景与设计，代码、配置和当前进展则保留在各自的 GitHub 仓库中。',
   github: 'https://github.com/Crystalclear9',
   // Optional: add an email only if you want it to be publicly visible.
   email: '',

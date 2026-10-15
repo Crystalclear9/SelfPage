@@ -109,7 +109,13 @@ export default function App({ path = '/' }) {
           <ProfileAvatar enabled={hydrated} onGreet={() => setToast('你好，欢迎来这里。')} />
           <div><h2>{profile.name}</h2><a href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={15} /> GitHub <ArrowUpRight size={13} /></a></div>
         </div>
-        <div className="about-copy" data-chapter="about"><h2>关于我</h2><p>{profile.intro}</p><p>{profile.about}</p></div>
+        <div className="about-copy" data-chapter="about">
+          <h2>关于我</h2>
+          <p>{profile.intro}</p>
+          <p>{profile.about}</p>
+          <p>{profile.approach}</p>
+          <p>{profile.siteNote}</p>
+        </div>
       </section>
 
       <section className="projects-section section-shell" id="projects">
