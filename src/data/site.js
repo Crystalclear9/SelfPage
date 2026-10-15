@@ -3,7 +3,8 @@ export const profile = {
   name: 'Crystalclear9',
   siteName: 'Crystalclear9',
   subtitle: 'AI 应用与系统探索',
-  intro: '我是 Crystalclear9，平时做一些 AI 应用，也对推理调度和沙盒模拟感兴趣。喜欢边写代码边理解问题，偶尔读论文、尝试复现。这里放着我的一些项目，之后也会慢慢补上开发笔记和学习记录。',
+  intro: '我主要做一些 AI 应用，也关注推理和调度相关的系统问题。',
+  about: '从任务整理、检索问答，到论文里的调度方法，尝试把想法落实到代码里。这里放着其中的一些项目和记录。',
   github: 'https://github.com/Crystalclear9',
   // Optional: add an email only if you want it to be publicly visible.
   email: '',

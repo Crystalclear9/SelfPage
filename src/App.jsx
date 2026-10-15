@@ -112,6 +112,7 @@ export default function App({ path = '/' }) {
         <div className="about-copy" data-chapter="about">
           <h2>关于我</h2>
           <p>{profile.intro}</p>
+          <p>{profile.about}</p>
         </div>
       </section>
 
