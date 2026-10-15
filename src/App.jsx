@@ -113,6 +113,8 @@ export default function App({ path = '/' }) {
           <h2>关于我</h2>
           <p>{profile.intro}</p>
           <p>{profile.about}</p>
+          <p>{profile.systems}</p>
+          <p>{profile.sandbox}</p>
           <p>{profile.approach}</p>
           <p>{profile.siteNote}</p>
         </div>
