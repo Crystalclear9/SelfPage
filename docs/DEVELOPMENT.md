@@ -48,7 +48,8 @@ npm run preview -- --port 4173
 
 | 需求 | 入口 | 注意事项 |
 | --- | --- | --- |
-| 修改昵称、个人说明、GitHub 地址 | `src/data/site.js` 的 `profile` | 邮箱留空时不生成邮件入口 |
+| 修改昵称、个人说明、GitHub 地址 | `src/data/site.js` 的 `profile` | “关于我”读取 `intro`、`about` 两段；邮箱留空时不生成邮件入口 |
+| 修改首屏的补充说明 | `src/App.jsx` 的 `hero-description` | 与个人介绍独立维护，调整技术方向时核对两处文案 |
 | 修改项目卡片、分类和简介弹窗 | `src/data/site.js` 的 `projects` | 保持已有 `id` 稳定 |
 | 扩充项目独立详情 | `src/data/project-notes.js` | 对应项目 ID 必须存在 |
 | 新增文章、论文或附件 | `content/`、`public/files/` | 按内容指南配置元数据 |
