@@ -32,7 +32,6 @@ try {
     const target = route.path === '/404/' ? 'dist/404.html' : path.join('dist', route.path, 'index.html');
     await mkdir(path.dirname(target), { recursive: true });
     let output = html.replace('<div id="root"></div>', () => `<div id="root">${markup}</div>`)
-      .replace(/<title>.*?<\/title>/, () => `<title>Crystalclear9 | ${escape(route.title)}</title>`)
       .replace(/(<meta name="description" content=")[^"]*/, (_, prefix) => `${prefix}${escape(route.description)}`);
     if (route.path !== '/') output = output.replace(/<link[^>]*rel="preload"[^>]*as="image"[^>]*>/g, '');
     await writeFile(target, output);
