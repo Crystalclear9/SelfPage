@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { createServer } from 'vite';
+import { loadLearning, renderLearning } from './learning.mjs';
 const escape = value => value.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 try {
@@ -23,13 +24,16 @@ try {
     for (const name of names) await copyFile(path.join('dist', file), path.join('dist/assets', name));
   }
   if (!html.includes('<div id="root"></div>')) throw new Error('Missing prerender mount point');
+  const learningPages = loadLearning().pages;
   for (const route of [...routes, { path: '/404/', title: '页面不存在', description: '页面不存在或尚未发布。' }]) {
-    const markup = renderToString(createElement(App, { path: route.path }));
+    const learningPage = learningPages.find(p => p.route === route.path);
+    const learningHtml = learningPage ? renderLearning(learningPage, server.config.base) : '';
+    const markup = renderToString(createElement(App, { path: route.path, learningHtml }));
     const target = route.path === '/404/' ? 'dist/404.html' : path.join('dist', route.path, 'index.html');
     await mkdir(path.dirname(target), { recursive: true });
-    let output = html.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
-      .replace(/<title>.*?<\/title>/, `<title>Crystalclear9 | ${escape(route.title)}</title>`)
-      .replace(/(<meta name="description" content=")[^"]*/, `$1${escape(route.description)}`);
+    let output = html.replace('<div id="root"></div>', () => `<div id="root">${markup}</div>`)
+      .replace(/<title>.*?<\/title>/, () => `<title>Crystalclear9 | ${escape(route.title)}</title>`)
+      .replace(/(<meta name="description" content=")[^"]*/, (_, prefix) => `${prefix}${escape(route.description)}`);
     if (route.path !== '/') output = output.replace(/<link[^>]*rel="preload"[^>]*as="image"[^>]*>/g, '');
     await writeFile(target, output);
   }

@@ -20,7 +20,7 @@ const asset = (name) => `${import.meta.env.BASE_URL}images/${name}`;
 const read = (key, fallback) => { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } };
 const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Private browsing can disable storage. */ } };
 
-export default function App({ path = '/' }) {
+export default function App({ path = '/', learningHtml = '' }) {
   const [theme, setTheme] = useState('light');
   const [hydrated, setHydrated] = useState(false);
   const [trail, setTrail] = useState(true);
@@ -148,7 +148,7 @@ export default function App({ path = '/' }) {
       <section className="contact-section section-shell reveal" id="contact">
         <div className="contact-inner" data-chapter="contact"><div><h2>在 GitHub 上</h2><p>最近的更新和完整实现，可以在 GitHub 找到。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} onClick={() => { if (!liked) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' })); setLiked(!liked); setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。'); }}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
       </section>
-      </> : <ContentPage path={path}/>}
+      </> : <ContentPage path={path} learningHtml={learningHtml}/>}
     </main>
     <footer className="site-footer section-shell"><div><a className="footer-brand" href={href('/#home')}><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links">{path !== '/' && <HomeLink compact />}<a className="visual-credit" href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href={path === '/' ? '#home' : '#main'} className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
     <div className="toast" role="status" aria-live="polite">{toast && <span><Flower size={17} />{toast}</span>}</div>

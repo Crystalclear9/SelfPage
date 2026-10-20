@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { writingPlugin } from './scripts/content.mjs';
+import { learningPlugin } from './scripts/learning.mjs';
 import { readFileSync } from 'node:fs';
 
 let siteBase = '/';
@@ -17,7 +18,7 @@ const transitionGuard = {
 };
 
 export default defineConfig({
-  plugins: [react(), writingPlugin(), transitionGuard],
+  plugins: [react(), writingPlugin(), learningPlugin(), transitionGuard],
   base: process.env.SITE_BASE_PATH || '/',
   build: {
     rollupOptions: {

@@ -21,6 +21,7 @@
 - **个人介绍**：头像、公开 GitHub 入口与两段简短说明；介绍内容集中在 `profile` 中维护。
 - **项目展示**：分类筛选、简介弹窗、五个独立详情页、源码跳转和项目链接复制。
 - **内容发布**：Markdown 文章、论文索引、作者与发表信息、PDF 和项目关联记录；通过仓库文件维护。
+- **AILearning 专题**：文章列表保留一个入口，进入后按分类、主题、章节阅读；支持公式、章内目录和前后章导航。
 - **页面导航**：分区定位、滚动选中态、项目前后翻页、上滑返回条、互斥的回到顶部入口。
 - **阅读入口**：独立 HTML、直接访问与刷新、收藏首屏定位、浏览器历史位置恢复。
 - **视觉交互**：浅深色主题、加藤惠光标、樱花拖尾、头像问候、项目与章节滚动动效。
@@ -54,10 +55,11 @@ npm run preview
 | 个人资料、项目说明 | `src/data/site.js` | `/`、`/projects/<id>/` |
 | 项目详情正文 | `src/data/project-notes.js` | `/projects/<id>/` |
 | 文章 | `content/index.json`、`content/articles/` | `/articles/`、`/articles/<slug>/` |
+| AILearning 资料 | `content/collections/ailearning/` | `/articles/ailearning/` 及其下级页面 |
 | 论文 | `content/index.json`、`content/papers/` | `/papers/`、`/papers/<slug>/` |
 | 公开 PDF、正文图片 | `public/files/` | `/files/<filename>` |
 
-路径均相对站点根目录。文章与论文目前为空，仅 `published: true` 的条目生成页面。Markdown、PDF、发表链接和项目关联的配置见 [内容维护](docs/CONTENT.md)。这是文件驱动的静态发布流程，不包含在线编辑后台。
+路径均相对站点根目录。文章现收录 AILearning 专题，包含 8 个分类、47 个主题、186 个章节和 4 份阅读指南；论文索引暂为空。章节独立生成页面，不平铺到文章列表，也不合并成一篇长文。发布规则、资料同步和附件配置见 [内容维护](docs/CONTENT.md)。
 
 “关于我”保留简短的技术方向与项目记录说明，详细内容放在项目页和文章中。修改这部分时编辑 `profile.intro` 与 `profile.about`；首屏补充说明另在 `src/App.jsx` 中维护，具体对应关系见内容指南。
 
@@ -106,6 +108,8 @@ npm run check:entry
 npm run check:projects
 npm run check:chapters
 npm run check:assets
+npm run check:learning
+npm run check:learning-ui
 ```
 
 浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。
@@ -119,8 +123,9 @@ npm run check:assets
 | 首页入口、返回与翻页 | `check:entry`、`check:navigation`、`check:recovery` |
 | 预渲染与脚本加载 | `check:static`、`check:pages` |
 | 入口资源、版本参数与旧页面兼容 | `check:assets`、`check:static` |
+| AILearning 导入、目录、公式和阅读页面 | `build`、`check:learning`、`check:learning-ui` |
 
-`check:content` 验证内容加载与渲染规则，`build` 读取当前内容索引并生成页面。CI 当前执行这两项；浏览器检查需在本地或指定的部署地址单独运行。
+`check:content` 验证内容加载与渲染规则，`build` 读取当前内容并生成页面，`check:learning` 检查学习资料的全部内部链接、锚点和公式输出。CI 执行这三项；浏览器检查需在本地或指定的部署地址单独运行。
 
 ## 交互与发布约定
 

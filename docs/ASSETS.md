@@ -15,6 +15,7 @@
 
 - Outfit：`@fontsource/outfit`，随包字体许可（SIL Open Font License），本地托管。
 - 中文字体：设备系统字体。
+- KaTeX：学习资料中的数学排版与字体，来自 `katex` 包，随包许可，本地托管；公式在构建时生成。
 - Phosphor：`@phosphor-icons/react`，MIT 许可，图标与 favicon 均来自该库。
 
 头像使用 `keyvisual-3.jpg`，通过 CSS 居中裁切。

@@ -34,10 +34,13 @@ flowchart TD
 | `extraLinks` | 首页项目区 | 空数组隐藏额外链接板块 |
 | `content/index.json` | loadWriting | 仅布尔值 published=true 的条目进入校验和输出 |
 | `virtual:writing` | routes.js、ContentPage | 构建生成的模块，不是应手动编辑的文件 |
+| `collections/ailearning/manifest.json` | routes.js、LearningPage、预渲染 | 导入生成；一个文章入口，下级页面独立注册路由 |
 
 `projects.details` 是简介弹窗要点；独立页面读取 `projectNotes.implementation`。两者有意分开，避免扩写正文时同时把弹窗拉得过长。`projectNotes.scope` 保存多个段落，解释适用范围与验证边界。
 
 内容加载器检查已发布文章和论文的类型、路径、日期、重复路由及材料存在性，但不是通用 schema 校验器。项目 ID、项目与正文映射、文章 project 关联值仍需维护者核对。字段示例见 [内容维护](CONTENT.md)。
+
+AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、相对链接和显式锚点；仅保留安全 Markdown 输出，不启用任意 HTML。预渲染按路由传入 `learningHtml`，客户端启动时读取当前页面的 `#learning-content` 作为相同内容接入。完整 Markdown 不进入客户端包，只有目录元数据随应用加载。开发服务通过 `__learning?route=…` 返回当前页渲染结果；该端点只用于 Vite 开发，不是生产 API。
 
 ## 3. 路由、预渲染与启动顺序
 
@@ -137,6 +140,6 @@ GitHub Pages 只能提供本站静态产物。评论、在线上传、认证或�
 
 ## 8. 验证边界
 
-本项目浏览器测试覆盖既定页面和关键交互，不代表所有浏览器组合均已验证。CI 当前执行内容加载/渲染测试及生产构建，不自动执行整套 Edge 回归。项目扩展、路由变化或新增动作应按实际影响更新相应测试，而不是仅让旧测试继续通过。
+本项目浏览器测试覆盖既定页面和关键交互，不代表所有浏览器组合均已验证。CI 当前执行内容加载/渲染测试、生产构建及学习资料静态检查，不自动执行整套 Edge 回归。项目扩展、路由变化或新增动作应按实际影响更新相应测试，而不是仅让旧测试继续通过。
 
 交付一次修改时，记录改动功能、受影响文件、运行过的检查及未验证条件。日常流程、命令与报告位置见开发指南；发布与回退见部署说明。

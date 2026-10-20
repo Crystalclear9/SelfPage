@@ -53,6 +53,8 @@ npm run preview -- --port 4173
 | 修改项目卡片、分类和简介弹窗 | `src/data/site.js` 的 `projects` | 保持已有 `id` 稳定 |
 | 扩充项目独立详情 | `src/data/project-notes.js` | 对应项目 ID 必须存在 |
 | 新增文章、论文或附件 | `content/`、`public/files/` | 按内容指南配置元数据 |
+| 同步 AILearning 学习资料 | `scripts/import-learning.mjs`、`content/collections/ailearning/` | 一个专题入口，下级章节不写入文章列表 |
+| 调整学习目录和章节阅读页 | `src/pages/LearningPage.jsx`、`scripts/learning.mjs` | 检查深层链接、公式、锚点与静态阅读 |
 | 调整首页结构、公共导航 | `src/App.jsx` | 同时检查桌面与手机菜单 |
 | 调整项目详情、文章列表和正文 | `src/pages/ContentPage.jsx` | 同时检查静态渲染与客户端加载 |
 | 修改主题、基础排版 | `src/styles/base.css` | 浅色、深色共用主题变量 |
@@ -70,7 +72,7 @@ npm run preview -- --port 4173
 4. 预渲染脚本生成入口版本参数和旧入口兼容文件，再使用共享 React 组件输出各路由 HTML，并填写页面标题和描述。
 5. 浏览器先显示 HTML，`src/main.jsx` 再进行 hydration，接入筛选、偏好与交互。
 
-目前没有文章和论文条目时，构建生成首页、五个项目页、两个内容索引，共八个常规页面，另有 `404.html`。发布内容后页面数量随索引增加。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
+当前构建生成首页、五个项目页、两个内容索引及 AILearning 的 246 个页面，共 254 个常规页面，另有 `404.html`。后续数量随内容变化。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
 
 新增内部链接使用 `src/data/routes.js` 的 `href()`，使其带上构建前缀。直接写 `/projects/...` 会指向域名根目录，在 `/SelfPage/` 部署下可能访问错误位置。
 
@@ -89,6 +91,8 @@ npm run check:pages
 | --- | --- | --- |
 | `npm run build` | 当前索引校验、客户端打包与页面预渲染 | 否 |
 | `npm run check:content` | 测试样例的元数据规则、草稿排除、Markdown 与论文渲染 | 否 |
+| `npm run check:learning` | 已构建的全部学习资料页面、内部链接、锚点和公式输出 | 否，需先构建 |
+| `npm run check:learning-ui` | 单一专题入口、分层导航、章节直达/刷新/历史、无 JS 与手机阅读 | 是 |
 | `npm run check:pages` | 项目和内容索引直接打开、刷新、无 JS、手机溢出 | 是 |
 | `npm run check:static` | 禁用、阻断、延迟脚本时的内容与 hydration | 是 |
 | `npm run check:ui` | 基础控件、筛选、弹窗、偏好持久化、多种宽度 | 是 |

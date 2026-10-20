@@ -13,7 +13,8 @@ try {
    assert.equal(await page.locator('h1').count(), 1);
    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
    if (route.includes('autellix')) assert.match(await page.locator('main').innerText(), /个人论文复现尝试/);
-   if (route === 'articles/' || route === 'papers/') assert.equal(await page.locator('.empty-writing').count(), 1);
+   if (route === 'papers/') assert.equal(await page.locator('.empty-writing').count(), 1);
+   if (route === 'articles/') assert.equal(await page.locator('.entry-row', { hasText: 'AILearning' }).count(), 1);
   }
   assert.deepEqual(errors, []); await context.close();
  }

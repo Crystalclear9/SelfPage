@@ -8,7 +8,7 @@
 - Pages Source：**GitHub Actions**（`build_type: workflow`）
 - 工作流：`.github/workflows/deploy.yml`
 
-工作流使用 Node.js 24 执行 `npm ci`、内容检查和生产构建，将 `dist/` 上传至 Pages。日常发布只需提交源码并推送到 `main`，不提交构建产物，也不需要在前端配置中填写令牌。
+工作流使用 Node.js 24 执行 `npm ci`、内容检查、生产构建及 `check:learning`，将 `dist/` 上传至 Pages。学习资料检查覆盖全部章节链接、锚点与公式输出，失败时不上传产物。日常发布只需提交源码并推送到 `main`，不提交构建产物，也不需要在前端配置中填写令牌。
 
 构建和部署运行于 `ubuntu-24.04`。工作流同时支持手动触发，同一 Pages 部署组有新任务时会取消仍在进行的旧任务。浏览器回归检查不在当前 CI 中；需要在推送前按修改范围执行。
 

@@ -1,6 +1,8 @@
 import writing from 'virtual:writing';
 import { projects } from './site';
-export { writing };
+import learning from '../../content/collections/ailearning/manifest.json';
+export { writing, learning };
+export const learningPublished = writing.some(p => p.route === '/articles/ailearning/');
 export const href = route => `${import.meta.env.BASE_URL}${route.replace(/^\//, '')}`;
 export const routes = [
   { path: '/', title: '个人主页', description: 'Crystalclear9 的开源项目、技术文章与论文。' },
@@ -8,6 +10,9 @@ export const routes = [
   { path: '/articles/', title: '文章', description: '实现记录、实验分析与技术笔记。' },
   { path: '/papers/', title: '论文', description: '论文、摘要与相关材料。' },
   ...writing.map(p => ({ path: p.route, title: p.title, description: p.summary })),
+  ...learning.pages.filter(p => learningPublished && p.kind !== 'collection').map(p => ({
+    path: p.route, title: `${p.title} · AILearning`, description: `AILearning 学习资料 · ${p.title}`,
+  })),
 ];
 export function currentPath(pathname) {
   const base = import.meta.env.BASE_URL;
