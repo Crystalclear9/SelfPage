@@ -68,7 +68,7 @@ export default function App({ path = '/', learningHtml = '' }) {
     <PetalTrail enabled={trail} />
     <AnimatedCursor />
     <PointerSurfaces />
-    <ScrollToTop target={path === '/' ? '#home' : '#main'} label={path === '/' ? '回到顶部' : '回到本页顶部'} />
+    <ScrollToTop target={path === '/' ? '#home' : '#main'} />
     {path === '/' && <ChapterMotion />}
     <div className="scroll-progress" aria-hidden="true" />
     <header className="site-header">

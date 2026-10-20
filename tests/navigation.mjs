@@ -96,6 +96,7 @@ try {
       await page.goto(base + route);
       const topLink = page.locator('.floating-top');
       await expect(topLink).toHaveAttribute('href', route ? '#main' : '#home');
+      await expect(topLink).toHaveText('回到顶部');
       await expect(topLink).toBeHidden();
       await page.evaluate(() => scrollTo({ top: Math.min(1500, (document.documentElement.scrollHeight - innerHeight) / 2), behavior: 'instant' }));
       await expect(topLink).toBeHidden();
@@ -107,14 +108,31 @@ try {
       await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
       await expect(topLink).toBeHidden();
       await page.mouse.wheel(0, -15);
-      await expect(topLink).toBeHidden();
-      assert.ok(await page.locator('.site-footer .back-top').evaluate(el => el.getBoundingClientRect().top < innerHeight));
-      await page.mouse.wheel(0, -700);
+      await expect(topLink).toBeVisible();
+      await expect(page.locator('.site-footer .back-top')).toBeHidden();
       await expect(topLink).toBeVisible();
       await topLink.click();
       await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(150);
       await expect(topLink).toBeHidden();
       assert.equal(new URL(page.url()).pathname, new URL(base + route).pathname, 'Back to top stays on the current page');
+    }
+  }
+  // Short index pages can have less than 80px of scrollable space.
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const route of ['articles/', 'papers/']) {
+      await page.goto(base + route);
+      await page.getByRole('button', { name: '切换到深色模式' }).click();
+      await page.getByRole('button', { name: '切换到浅色模式' }).click();
+      await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+      await page.waitForTimeout(100);
+      await page.mouse.wheel(0, -10);
+      await expect(page.locator('.floating-top')).toBeVisible();
+      await expect(page.locator('.back-top')).toBeHidden();
+      await page.locator('.floating-top').focus();
+      await page.keyboard.press('Enter');
+      await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
     }
   }
   for (const width of [1440, 375]) {
