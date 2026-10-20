@@ -17,6 +17,21 @@ function researchSections() {
       }
       (section ? section.children : children).push(node);
     }
+    // Consecutive figures form one comparison, rather than unrelated full-width blocks.
+    for (const block of children) {
+      if (block.type !== 'researchSection') continue;
+      const grouped = [];
+      for (const node of block.children) {
+        const isFigure = node.type === 'paragraph' && node.children.length === 1 && node.children[0].type === 'image';
+        const previous = grouped.at(-1);
+        if (isFigure && previous?.type === 'figureGroup') previous.children.push(node);
+        else if (isFigure && previous?.type === 'paragraph' && previous.children.length === 1 && previous.children[0].type === 'image') {
+          grouped.pop();
+          grouped.push({ type: 'figureGroup', data: { hName: 'div', hProperties: { className: ['publication-comparison'] } }, children: [previous, node] });
+        } else grouped.push(node);
+      }
+      block.children = grouped;
+    }
     tree.children = children;
   };
 }
@@ -53,7 +68,9 @@ export default function PaperBody({ markdown }) {
           : <p>{children}</p>,
         img: ({ src, alt }) => {
           const size = src.endsWith('/k-gat/evidence-first.png') ? [1024, 416]
-            : src.endsWith('/k-gat/inference.png') ? [3360, 1280] : [];
+            : /\/k-gat\/(inference|training)\.png$/.test(src) ? [3360, 1280]
+            : src.endsWith('/k-gat/over-planning.png') ? [617, 544]
+            : src.endsWith('/k-gat/under-planning.png') ? [637, 544] : [];
           return <a href={src} target="_blank" rel="noreferrer" aria-label={`查看原图：${alt}`}><img src={src} alt={alt} width={size[0]} height={size[1]} loading="lazy" decoding="async" /></a>;
         },
       }} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{markdown}</ReactMarkdown>

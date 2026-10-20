@@ -20,7 +20,7 @@ try {
     assert.match(await page.locator('.prose').innerText(), /研究概览/);
     assert.equal(await page.locator('.publication-page .eyebrow').innerText(), 'EMNLP 2026');
     assert.equal(await page.locator('.publication-authors li').count(), 9);
-    assert.equal(await page.locator('.publication-figure').count(), 2);
+    assert.equal(await page.locator('.publication-figure').count(), 5);
     assert.equal(await page.locator('.research-section').count(), 6);
     if (javaScriptEnabled) {
       await page.locator('.paper-contents a').first().waitFor();
