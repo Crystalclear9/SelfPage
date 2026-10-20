@@ -8,6 +8,8 @@ export const profile = {
   github: 'https://github.com/Crystalclear9',
   // Optional: add an email only if you want it to be publicly visible.
   email: '',
+  // Local public/ path, e.g. 'audio/megumi-greeting.mp3'. Empty until supplied.
+  avatarVoice: '',
 };
 
 // Summarized from public READMEs, not an independent runtime verification.
