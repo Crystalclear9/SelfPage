@@ -121,3 +121,12 @@
 @keyframes cursor-download { to { translate: 0 4px; scale: 1 .97; } }
 
 .main-nav a[aria-current="page"] { color: var(--accent); }
+
+.publication-figure { margin: 34px 0; }
+.publication-figure a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.publication-figure img { display: block; width: 100%; }
+.publication-figure figcaption { color: var(--muted); font-size: 13px; line-height: 1.75; margin-top: 12px; }
+.publication-page .prose table { width: 100%; font-size: 14px; }
+.publication-page .prose th, .publication-page .prose td { padding: 10px 8px; }
+
+.publication-page .prose th:not(:first-child), .publication-page .prose td:not(:first-child) { white-space: nowrap; overflow-wrap: normal; }

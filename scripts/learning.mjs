@@ -37,20 +37,37 @@ function learningMarkdown({ page, pages, base }) {
   };
 }
 
-export function renderLearning(page, base = '/') {
-  const { pages } = loadLearning();
-  // Some source blocks close $$ on the formula line. Give display delimiters
-  // their own lines so they cannot swallow the rest of a chapter.
-  let fence = null;
-  const markdown = readFileSync(path.join(directory, page.file), 'utf8').split('\n').map(line => {
+// Preserve literal code examples while repairing compact display-math delimiters.
+export function normalizeLearningMath(source) {
+  let fence = null, inline = 0;
+  return source.split('\n').map(line => {
     const marker = line.match(/^\s*(`{3,}|~{3,})/);
-    if (marker) {
+    if (!inline && marker) {
       if (!fence) fence = marker[1];
       else if (marker[1][0] === fence[0] && marker[1].length >= fence.length) fence = null;
       return line;
     }
-    return fence ? line : line.replace(/\$\$/g, () => '\n$$\n');
+    if (fence) return line;
+    let output = '';
+    for (let i = 0; i < line.length;) {
+      if (line[i] === '`') {
+        const run = line.slice(i).match(/^`+/)[0];
+        if (!inline) inline = run.length;
+        else if (inline === run.length) inline = 0;
+        output += run; i += run.length;
+      } else if (!inline && line[i] === '\\') {
+        output += line.slice(i, i + 2); i += 2;
+      } else if (!inline && line.slice(i, i + 2) === '$$') {
+        output += '\n$$\n'; i += 2;
+      } else { output += line[i++]; }
+    }
+    return output;
   }).join('\n');
+}
+
+export function renderLearning(page, base = '/') {
+  const { pages } = loadLearning();
+  const markdown = normalizeLearningMath(readFileSync(path.join(directory, page.file), 'utf8'));
   return renderToStaticMarkup(createElement(ReactMarkdown, {
     remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, base }]],
     rehypePlugins: [[rehypeKatex, { strict: false, trust: false }]],

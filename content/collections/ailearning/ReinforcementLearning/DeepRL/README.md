@@ -4,8 +4,6 @@
 
 **先修知识：** DQN 分支需要价值方法与 PyTorch；连续控制分支还需要策略梯度与 Actor-Critic。
 
-**正文篇幅状态：** 本主题现有 4 章均已按长篇教材标准展开，逐章纯正文达到 12000–20000 汉字。全库进度见[长篇教材覆盖表](../../README.md#textbook-status)。
-
 ## 学习顺序与覆盖范围
 
 价值方法与 PyTorch 就绪后可先读第 1、3 章的 DQN 原理与更新；第 2、4 章的连续控制和离线问题在[Actor-Critic](../PolicyBasedMethods/README.md)之后阅读。按章顺读也可以，但不能将 DQN 必须先学 PPO 当作算法依赖。

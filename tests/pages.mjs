@@ -20,6 +20,13 @@ try {
     assert.match(await page.locator('.prose').innerText(), /研究问题/);
     assert.equal(await page.locator('.publication-page .eyebrow').innerText(), 'EMNLP 2026');
     assert.equal(await page.locator('.publication-authors li').count(), 9);
+    assert.equal(await page.locator('.publication-figure').count(), 2);
+    for (const img of await page.locator('.publication-figure img').all()) {
+      await img.scrollIntoViewIfNeeded();
+      await img.evaluate(el => el.decode());
+      assert.ok(await img.evaluate(el => el.naturalWidth > 0));
+      assert.ok((await img.getAttribute('src')).startsWith(new URL(base).pathname + 'files/k-gat/'));
+    }
    }
    if (route === 'articles/') assert.equal(await page.locator('.entry-row', { hasText: 'AILearning' }).count(), 1);
   }

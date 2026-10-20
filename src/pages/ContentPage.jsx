@@ -46,7 +46,12 @@ export default function ContentPage({ path, learningHtml }) {
           {entry.pdf && <a className={isPaper ? 'text-link' : 'button primary'} data-cursor="download" href={contentUrl(entry.pdf)} target="_blank" rel="noreferrer">阅读 PDF <ArrowUpRight size={17}/></a>}
         </div>
       </header>
-      <div className="prose"><ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>
+      <div className="prose"><ReactMarkdown components={isPaper ? {
+        p: ({ children, node }) => node.children.length === 1 && node.children[0].tagName === 'img'
+          ? <figure className="publication-figure">{children}<figcaption>{node.children[0].properties.alt}</figcaption></figure>
+          : <p>{children}</p>,
+        img: ({ src, alt }) => <a href={src} target="_blank" rel="noreferrer" aria-label={`查看原图：${alt}`}><img src={src} alt={alt} loading="lazy" decoding="async" /></a>,
+      } : undefined} remarkPlugins={[remarkGfm]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>
     </article>;
   }
   return <section className="detail-page section-shell"><PageNavigation /><header className="detail-heading"><p className="eyebrow">404</p><h1>页面不存在</h1><p>链接可能已变更，或内容尚未发布。</p></header></section>;

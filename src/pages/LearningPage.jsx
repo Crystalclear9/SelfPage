@@ -8,9 +8,8 @@ const kindLabels = { category: '分类', topic: '主题', chapter: '章节', gui
 function Contents({ entries, label }) {
   return <section className="learning-contents" aria-label={label}><h2>{label}</h2>
     <div className="learning-list">{entries.map(item => {
-      const children = learning.pages.filter(p => p.parent === item.route);
       return <a href={href(item.route)} className="learning-row" data-cursor="read" key={item.route}>
-        <div><h3>{item.title}</h3><span>{children.length ? `${children.length} 个${kindLabels[children[0].kind]}` : kindLabels[item.kind]}</span></div>
+        <div><h3>{item.title}</h3><span>{kindLabels[item.kind]}</span></div>
         <ArrowRight size={20} aria-hidden="true" />
       </a>;
     })}</div>
@@ -35,7 +34,6 @@ export default function LearningPage({ page, html = '' }) {
     <header className="detail-heading">
       <p className="eyebrow">{isRoot ? '学习资料' : <a href={href(rootRoute)}>AILearning</a>}</p>
       <h1>{page.title}</h1><p className="detail-lead">{description}</p>
-      {isRoot && <p className="learning-meta">{learning.pages.filter(p => p.kind === 'category').length} 个分类 · {learning.pages.filter(p => p.kind === 'topic').length} 个主题 · {learning.pages.filter(p => p.kind === 'chapter').length} 个章节</p>}
     </header>
     {isRoot ? <>
       <Contents entries={children.filter(p => p.kind === 'guide')} label="开始阅读" />

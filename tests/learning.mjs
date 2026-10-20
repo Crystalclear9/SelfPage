@@ -1,9 +1,14 @@
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { loadLearning } from '../scripts/learning.mjs';
+import { loadLearning, normalizeLearningMath, renderLearning } from '../scripts/learning.mjs';
 
+const literals = ['公式使用 `$...$`、`$$...$$` 数学标记。', '``带 ` 和 $$ 的代码``', '```tex\n$$x$$\n```', '~~~tex\n$$x$$\n~~~', '`多行\n$$example$$`'];
+for (const literal of literals) assert.equal(normalizeLearningMath(literal), literal);
+assert.equal(normalizeLearningMath('$$x^2$$'), '\n$$\nx^2\n$$\n');
 const { pages } = loadLearning();
+const rootHtml = renderLearning(pages.find(p => p.kind === 'collection'));
+assert.ok(rootHtml.includes('<code>$$...$$</code>'), 'Display-math syntax examples must remain inline code');
 const index = JSON.parse(readFileSync('content/index.json', 'utf8'));
 assert.equal(index.filter(p => p.published && p.slug === 'ailearning').length, 1);
 assert.equal(index.filter(p => p.slug?.startsWith('ailearning/')).length, 0);

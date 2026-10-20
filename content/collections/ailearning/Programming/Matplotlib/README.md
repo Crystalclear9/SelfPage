@@ -4,8 +4,6 @@
 
 **先修知识：** Python；NumPy。
 
-**正文篇幅状态：** 本主题现有 4 章均已按长篇教材标准展开，逐章纯正文达到 12000–20000 汉字。完整范围见[长篇教材覆盖表](../../README.md#textbook-status)。
-
 ## 学习顺序与覆盖范围
 
 第 1 章可直接用于数据探索；第 2—4 章的训练曲线、误差条和模型诊断在学习[统计](../../Mathematics/Statistics/README.md)与[模型评估](../../MachineLearning/ModelEvaluation/README.md)时返回。先会画图，再判断图中差异能支持什么结论。
