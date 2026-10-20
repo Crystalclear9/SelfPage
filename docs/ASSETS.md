@@ -31,3 +31,14 @@
 ## 文章与论文附件
 
 正文图片与 PDF 统一放在 `public/files/`。文件名应稳定，并在文章中记录必要的来源信息；已发布链接依赖该路径。此目录当前不包含附件。
+
+## 首页角色语音
+
+两段短语音来自 Sony Music Solutions 的 [Xperia Ear Duo（加藤恵）官方角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)，核对日期为 2026-10-20。使用原始 MP3，不进行合成、变声或台词拼接。保存至站内，避免访问时依赖第三方音频请求。
+
+| 本地文件 | 官方试听场景 | 时长 | 原始音频 |
+| --- | --- | --- | --- |
+| `public/audio/megumi-greeting.mp3` | 会話の始まり；头像点击回应 | 约 2.04 秒 | [voice_sapmle.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle.mp3) |
+| `public/audio/megumi-like.mp3` | 問いかけ：好き；回应喜欢，带调侃语气 | 约 9.38 秒 | [voice_sapmle01.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle01.mp3) |
+
+角色与录音权利属于原权利方。官方公开试听不等同于开放许可；这些片段不属于本项目原创素材，也不作为可自由复用的素材包发布。站内仅在用户点击对应控件后播放，取消喜欢或点击其他语音入口会停止当前播放。
