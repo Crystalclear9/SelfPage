@@ -10,6 +10,7 @@ import { HomeLink } from './components/PageNavigation';
 import ContentPage, { WritingSection } from './pages/ContentPage';
 import { href } from './data/routes';
 import useProjectFilter from './lib/useProjectFilter';
+import useVoice from './lib/useVoice';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
 import { profile, projects, extraLinks } from './data/site';
 
@@ -30,6 +31,16 @@ export default function App({ path = '/', learningHtml = '' }) {
   const { filter, gridRef, changeFilter } = useProjectFilter();
   const [project, setProject] = useState(null);
   const [toast, setToast] = useState('');
+  const likeVoice = useVoice(path === '/' && profile.likeVoice ? `${import.meta.env.BASE_URL}${profile.likeVoice}` : '',
+    () => setToast('谢谢你的喜欢。语音暂时无法播放，请稍后再试。'));
+  const toggleLike = () => {
+    if (!liked) {
+      document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' }));
+      void likeVoice.play();
+    } else likeVoice.stop();
+    setLiked(!liked);
+    setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。');
+  };
   const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['writing', '文章与论文']];
   const activeSection = path === '/' ? active : /^\/(articles|papers)\//.test(path) ? 'writing' : path.startsWith('/projects/') ? 'projects' : null;
   useEffect(() => {
@@ -149,7 +160,7 @@ export default function App({ path = '/', learningHtml = '' }) {
 
       <WritingSection />
       <section className="contact-section section-shell reveal" id="contact">
-        <div className="contact-inner" data-chapter="contact"><div><h2>在 GitHub 上</h2><p>最近的更新和完整实现，可以在 GitHub 找到。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} onClick={() => { if (!liked) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' })); setLiked(!liked); setToast(liked ? '已取消喜欢' : '谢谢你的喜欢。'); }}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
+        <div className="contact-inner" data-chapter="contact"><div><h2>在 GitHub 上</h2><p>最近的更新和完整实现，可以在 GitHub 找到。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} disabled={!hydrated} onClick={toggleLike}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
       </section>
       </> : <ContentPage path={path} learningHtml={learningHtml}/>}
     </main>

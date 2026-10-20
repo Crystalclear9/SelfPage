@@ -10,6 +10,8 @@ export const profile = {
   email: '',
   // Local public/ path, e.g. 'audio/megumi-greeting.mp3'. Empty until supplied.
   avatarVoice: '',
+  // Separate thank-you line for the like button; never reuse the greeting.
+  likeVoice: '',
 };
 
 // Summarized from public READMEs, not an independent runtime verification.
