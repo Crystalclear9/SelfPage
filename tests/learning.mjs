@@ -1,8 +1,13 @@
+import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { loadLearning, normalizeLearningMath, renderLearning } from '../scripts/learning.mjs';
 
+const require = createRequire(import.meta.url);
+const rendererRequire = createRequire(require.resolve('rehype-katex'));
+assert.equal(require('katex/package.json').version, rendererRequire('katex/package.json').version,
+  'KaTeX stylesheet/fonts must match the renderer version');
 const literals = ['公式使用 `$...$`、`$$...$$` 数学标记。', '``带 ` 和 $$ 的代码``', '```tex\n$$x$$\n```', '~~~tex\n$$x$$\n~~~', '`多行\n$$example$$`'];
 for (const literal of literals) assert.equal(normalizeLearningMath(literal), literal);
 assert.equal(normalizeLearningMath('$$x^2$$'), '\n$$\nx^2\n$$\n');
