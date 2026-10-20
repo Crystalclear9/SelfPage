@@ -3,13 +3,12 @@ import PageNavigation from '../components/PageNavigation';
 import { href, learning, writing } from '../data/routes';
 
 const rootRoute = '/articles/ailearning/';
-const kindLabels = { category: '分类', topic: '主题', chapter: '章节', guide: '阅读指南' };
 
 function Contents({ entries, label }) {
   return <section className="learning-contents" aria-label={label}><h2>{label}</h2>
     <div className="learning-list">{entries.map(item => {
       return <a href={href(item.route)} className="learning-row" data-cursor="read" key={item.route}>
-        <div><h3>{item.title}</h3><span>{kindLabels[item.kind]}</span></div>
+        <h3>{item.title}</h3>
         <ArrowRight size={20} aria-hidden="true" />
       </a>;
     })}</div>
