@@ -128,22 +128,23 @@
 
 .publication-page .prose th:not(:first-child), .publication-page .prose td:not(:first-child) { white-space: nowrap; overflow-wrap: normal; }
 
-/* Research pages keep the site's palette and controls, with a wider editorial rhythm. */
+/* Research pages use a continuous, static reading layout. */
 .publication-page { max-width: 1080px; padding-top: 80px; font-family: 'Outfit', 'Noto Sans SC', 'Microsoft YaHei UI', '微软雅黑', 'PingFang SC', sans-serif; }
-.publication-page .detail-heading { padding: 55px 0 58px; animation: none; }
+.publication-page .detail-heading { padding: 40px 0 36px; border-bottom: 0; animation: none; }
 .publication-page .publication-authors { max-width: 900px; margin-bottom: 22px; }
 .publication-page .detail-lead { max-width: 780px; }
 .paper-content-layout { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 52px; }
-.paper-contents { align-self: start; position: sticky; top: 160px; display: grid; gap: 18px; padding-top: 56px; font-size: 13px; }
+.paper-contents { align-self: start; position: sticky; top: 160px; display: grid; gap: 18px; padding-top: 4px; font-size: 13px; }
 .paper-contents[hidden] { display: none; }
 .paper-contents > span { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
 .paper-contents a { color: var(--muted); border-left: 2px solid transparent; padding-left: 12px; }
 .paper-contents a:hover, .paper-contents a[aria-current] { color: var(--accent); border-color: var(--accent); }
 .publication-page .research-body { grid-column: 2; padding-top: 0; min-width: 0; font-size: 16px; line-height: 1.95; }
-.research-section { padding-block: 52px; border-bottom: 1px solid var(--line); scroll-margin-top: 160px; }
-.research-section:last-child { border-bottom: 0; padding-bottom: 0; }
+.research-section { display: flow-root; scroll-margin-top: 160px; }
+.research-section + .research-section { margin-top: 36px; }
+.research-section > :last-child { margin-bottom: 0; }
 .research-body .research-section h2 { font-size: clamp(24px, 2.4vw, 29px); font-weight: 600; line-height: 1.45; margin: 0 0 24px; letter-spacing: 0; }
-.research-section-content > p { margin: 0 0 22px; color: var(--ink); }
+.research-section > p { margin: 0 0 22px; color: var(--ink); }
 .research-section strong { color: var(--ink); font-weight: 500; }
 
 .research-body .research-section h3 { font-size: 19px; margin: 30px 0 10px; }
@@ -162,10 +163,10 @@
 @media (max-width: 900px) {
  .paper-content-layout { grid-template-columns: 1fr; gap: 0; }
  .publication-page .research-body { grid-column: 1; }
- .paper-contents { position: static; display: flex; flex-wrap: wrap; gap: 14px 20px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+ .paper-contents { position: static; display: flex; flex-wrap: wrap; gap: 14px 20px; padding: 0 0 28px; }
  .paper-contents > span { display: none; }
  .paper-contents a { padding-left: 0; border: 0; }
- .research-section { padding-block: 42px; }
+ .research-section + .research-section { margin-top: 30px; }
 }
 @media (max-width: 600px) {
  .publication-page { padding-top: 55px; }
@@ -173,22 +174,6 @@
  .research-section ol { grid-template-columns: 1fr; gap: 14px; }
  .publication-page .research-section th, .publication-page .research-section td { padding: 12px 6px; font-size: 13px; }
 }
-/* Stable outer sections keep scroll measurements independent of the reveal. */
-.research-section-content { display: flow-root; }
-@media (prefers-reduced-motion: no-preference) {
- .research-section-content {
-  opacity: calc(.08 + var(--paper-reveal, 1) * .92);
-  transform: perspective(1400px) translateY(calc(var(--paper-shift, 0) * 76px)) rotateX(calc(var(--paper-shift, 0) * 5deg)) scale(calc(.95 + var(--paper-reveal, 1) * .05));
-  transform-origin: center center;
- }
- .research-section:has(:focus-visible) > .research-section-content { opacity: 1; transform: none; }
-}
-@media (max-width: 600px) and (prefers-reduced-motion: no-preference) {
- .research-section-content {
-  transform: translateY(calc(var(--paper-shift, 0) * 42px)) scale(calc(.98 + var(--paper-reveal, 1) * .02));
- }
-}
-
 /* Directory feedback keeps the whole row stationary and clickable. */
 .learning-row { position: relative; isolation: isolate; overflow: hidden; }
 .learning-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; color: var(--accent); }

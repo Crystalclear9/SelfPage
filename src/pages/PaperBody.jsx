@@ -30,11 +30,7 @@ function researchSections() {
           grouped.push({ type: 'figureGroup', data: { hName: 'div', hProperties: { className: ['publication-comparison'] } }, children: [previous, node] });
         } else grouped.push(node);
       }
-      block.children = [{
-        type: 'researchContent',
-        data: { hName: 'div', hProperties: { className: ['research-section-content'] } },
-        children: grouped,
-      }];
+      block.children = grouped;
     }
     tree.children = children;
   };
@@ -44,47 +40,6 @@ export default function PaperBody({ markdown }) {
   const root = useRef(null);
   const [sections, setSections] = useState([]);
   const [active, setActive] = useState('');
-  useEffect(() => {
-    const nodes = [...root.current.querySelectorAll('.research-section')];
-    const preference = matchMedia('(prefers-reduced-motion: reduce)');
-    let frame = 0;
-    const clamp = value => Math.max(0, Math.min(1, value));
-    const update = () => {
-      frame = 0;
-      // Measure stationary sections; transform only their inner content.
-      const bounds = nodes.map(node => node.getBoundingClientRect());
-      nodes.forEach((node, index) => {
-        if (preference.matches) {
-          node.style.removeProperty('--paper-reveal');
-          node.style.removeProperty('--paper-shift');
-          return;
-        }
-        const { top, bottom } = bounds[index];
-        const enter = clamp((innerHeight * .92 - top) / (innerHeight * .3));
-        const leave = clamp((bottom - innerHeight * .12) / (innerHeight * .22));
-        const progress = Math.min(enter, leave);
-        const eased = progress * progress * (3 - 2 * progress);
-        node.style.setProperty('--paper-reveal', eased);
-        node.style.setProperty('--paper-shift', (1 - eased) * (enter < leave ? 1 : -1));
-      });
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
-    const resize = new ResizeObserver(schedule);
-    nodes.forEach(node => resize.observe(node));
-    window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', schedule);
-    window.addEventListener('pageshow', schedule);
-    preference.addEventListener('change', schedule);
-    update();
-    return () => {
-      cancelAnimationFrame(frame);
-      resize.disconnect();
-      window.removeEventListener('scroll', schedule);
-      window.removeEventListener('resize', schedule);
-      window.removeEventListener('pageshow', schedule);
-      preference.removeEventListener('change', schedule);
-    };
-  }, [markdown]);
   useEffect(() => {
     const nodes = [...root.current.querySelectorAll('.research-section')];
     setSections(nodes.map(node => ({ id: node.id, title: node.querySelector('h2').textContent })));
