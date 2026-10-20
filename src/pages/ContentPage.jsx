@@ -34,12 +34,11 @@ export default function ContentPage({ path, learningHtml }) {
   if (type) return <article className="detail-page section-shell"><PageNavigation section="文章与论文" sectionHref="/#writing" /><header className="detail-heading"><p className="eyebrow">{type === 'articles' ? 'TECHNICAL NOTES' : 'PUBLICATIONS'}</p><h1>{labels[type]}</h1><p className="detail-lead">{descriptions[type]}</p></header><EntryList entries={writing.filter(e => e.type === type)} type={type}/><a className="text-link index-switch" href={href(type === 'articles' ? '/papers/' : '/articles/')}>浏览{type === 'articles' ? '论文' : '文章'} <ArrowRight size={18}/></a></article>;
   if (entry) {
     const isPaper = entry.type === 'papers';
-    const titleBreak = isPaper ? entry.title.indexOf(':') : -1;
     return <article className={`detail-page section-shell reading-page${isPaper ? ' publication-page' : ''}`}>
       <PageNavigation section={`返回${labels[entry.type]}列表`} sectionHref={`/${entry.type}/`} />
       <header className="detail-heading">
         <p className="eyebrow">{isPaper ? (entry.venue || 'RESEARCH PAPER') : <><time dateTime={entry.date}>{entry.date}</time>{entry.venue && ` · ${entry.venue}`}</>}</p>
-        <h1>{titleBreak > 0 ? <>{entry.title.slice(0, titleBreak)}<span className="paper-subtitle">{entry.title.slice(titleBreak + 1).trim()}</span></> : entry.title}</h1>
+        <h1>{entry.title}</h1>
         {isPaper && entry.authors?.length > 0 && <ul className="publication-authors" aria-label="论文作者">{entry.authors.map(author => <li key={author}>{author}</li>)}</ul>}
         <p className="detail-lead">{entry.summary}</p>
         {!isPaper && entry.authors?.length > 0 && <p>{entry.authors.join('、')}</p>}

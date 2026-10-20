@@ -39,7 +39,6 @@
 .reading-page { max-width: 850px; }
 .publication-links { display: flex; flex-wrap: wrap; gap: 25px; align-items: center; margin-top: 30px; }
 .publication-page .detail-heading { padding-block: 40px 44px; }
-.publication-page .detail-heading h1 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.22; letter-spacing: -.025em; font-weight: 600; margin: 20px 0 24px; text-wrap: balance; overflow-wrap: break-word; }
 .publication-authors { display: flex; flex-wrap: wrap; column-gap: 18px; row-gap: 5px; list-style: none; padding: 0; margin: 0 0 28px; color: var(--muted); font-size: 15px; line-height: 1.7; }
 .publication-page .detail-lead { font-size: 17px; line-height: 1.85; margin: 0; }
 .publication-page .publication-links { margin-top: 26px; gap: 28px; }
@@ -132,8 +131,6 @@
 /* Research pages keep the site's palette and controls, with a wider editorial rhythm. */
 .publication-page { max-width: 1120px; padding-top: 92px; }
 .publication-page .detail-heading { padding: 55px 0 58px; animation: none; }
-.publication-page .detail-heading h1 { max-width: 950px; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.08; text-wrap: balance; margin-bottom: 28px; }
-.paper-subtitle { display: block; max-width: 900px; margin-top: 20px; font-size: clamp(22px, 2.7vw, 34px); line-height: 1.3; letter-spacing: -.02em; color: var(--accent); }
 .publication-page .publication-authors { max-width: 900px; margin-bottom: 22px; }
 .publication-page .detail-lead { max-width: 780px; }
 .paper-content-layout { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 65px; }
@@ -202,3 +199,5 @@
  .learning-row:active h3 { transform: translateX(4px) scale(.98); }
  .learning-row:active svg { transform: translateX(3px) scale(.9); }
 }
+
+.publication-page .detail-heading h1 { max-width: 1000px; font-size: clamp(26px, 2.8vw, 38px); font-weight: 500; line-height: 1.35; letter-spacing: -.015em; color: var(--ink); margin: 22px 0 26px; text-wrap: pretty; overflow-wrap: break-word; }
