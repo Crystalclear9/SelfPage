@@ -7,8 +7,7 @@
 .writing-door { display: grid; grid-template-columns: 80px 1fr 40px; align-items: center; padding: 40px 16px; border-bottom: 1px solid var(--line); position: relative; isolation: isolate; }
 .writing-number, .eyebrow { color: var(--accent); font-size: 12px; letter-spacing: .1em; }
 .writing-door h3 { font-size: 30px; margin: 14px 0 10px; }
-.writing-door p, .writing-count { color: var(--muted); }
-.writing-count { display: block; margin-top: 24px; font-size: 13px; }
+.writing-door p { color: var(--muted); }
 .detail-page { padding-top: 145px; padding-bottom: 100px; min-height: 80svh; }
 .breadcrumb { color: var(--muted); font-size: 14px; }
 .detail-heading { padding: 70px 0 65px; border-bottom: 1px solid var(--line); }
@@ -39,6 +38,13 @@
 .entry-row p { color: var(--muted); margin: 0; line-height: 1.8; }
 .reading-page { max-width: 850px; }
 .publication-links { display: flex; flex-wrap: wrap; gap: 25px; align-items: center; margin-top: 30px; }
+.publication-page .detail-heading { padding-block: 40px 44px; }
+.publication-page .detail-heading h1 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.22; letter-spacing: -.025em; font-weight: 600; margin: 20px 0 24px; text-wrap: balance; overflow-wrap: break-word; }
+.publication-authors { display: flex; flex-wrap: wrap; column-gap: 18px; row-gap: 5px; list-style: none; padding: 0; margin: 0 0 28px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+.publication-page .detail-lead { font-size: 17px; line-height: 1.85; margin: 0; }
+.publication-page .publication-links { margin-top: 26px; gap: 28px; }
+.publication-page .prose { padding-top: 16px; }
+
 .prose { padding-top: 45px; font-size: 17px; line-height: 1.95; overflow-wrap: anywhere; }
 .prose h2, .prose h3 { margin-top: 2em; line-height: 1.4; }
 .prose pre { overflow-x: auto; padding: 24px; background: var(--surface); border-radius: 12px; font-size: 14px; }

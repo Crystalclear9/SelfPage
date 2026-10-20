@@ -18,6 +18,8 @@
 
 ## 版本与引用
 
-首次提交于 2026 年 8 月 28 日，本页介绍依据 2026 年 9 月 2 日的 **v2** 版本整理。页首的 arXiv 与 PDF 入口指向最新公开版本。
+论文发表于 **EMNLP 2026**，正式发表信息见 [OpenReview](https://openreview.net/forum?id=E51inMWXf1)。
+
+预印本首次提交于 2026 年 8 月 28 日，本页的方法与实验介绍依据 2026 年 9 月 2 日的 **arXiv v2** 整理。PDF 入口指向 arXiv 最新公开版本。
 
 论文编号：[arXiv:2608.27984](https://arxiv.org/abs/2608.27984) · DOI：[10.48550/arXiv.2608.27984](https://doi.org/10.48550/arXiv.2608.27984)

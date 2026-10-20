@@ -16,15 +16,17 @@ try {
    if (route === 'papers/') assert.equal(await page.locator('.entry-row', { hasText: 'When Evidence Shapes Collaboration' }).count(), 1);
    if (route === 'papers/k-gat/') {
     assert.equal(await page.locator('.publication-links a[href="https://arxiv.org/pdf/2608.27984"]').count(), 1);
-    assert.equal(await page.locator('.publication-links a[href="https://arxiv.org/abs/2608.27984"]').count(), 1);
+    assert.equal(await page.locator('.publication-links a[href="https://openreview.net/forum?id=E51inMWXf1"]').count(), 1);
     assert.match(await page.locator('.prose').innerText(), /研究问题/);
+    assert.equal(await page.locator('.publication-page .eyebrow').innerText(), 'EMNLP 2026');
+    assert.equal(await page.locator('.publication-authors li').count(), 9);
    }
    if (route === 'articles/') assert.equal(await page.locator('.entry-row', { hasText: 'AILearning' }).count(), 1);
   }
   assert.deepEqual(errors, []); await context.close();
  }
  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
- await page.goto(base); await page.locator('.writing-door').first().scrollIntoViewIfNeeded();
+ await page.goto(base); assert.equal(await page.locator('.writing-count').count(), 0); await page.locator('.writing-door').first().scrollIntoViewIfNeeded();
  await page.locator('.writing-door').first().hover(); await page.waitForTimeout(800);
  assert.equal(await page.locator('.animated-cursor').getAttribute('data-state'), 'read');
  await page.screenshot({ path: '.local/reports/writing-section.png' });

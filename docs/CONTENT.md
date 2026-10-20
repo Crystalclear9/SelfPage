@@ -123,7 +123,7 @@ Markdown 支持标题、列表、代码块、表格、引用和图片。正文�
 
 ## 新增论文
 
-当前已发布 K-GAT，入口为 `/papers/k-gat/`，正文位于 `content/papers/k-gat.md`。标题、作者顺序、首次提交日期依据 arXiv 元数据；介绍记录所依据的版本，PDF 与发表页面链接指向 arXiv 最新版本。预印本标注为“arXiv 预印本”，后续若正式发表，再核对并更新发表信息。
+当前已发布 K-GAT，入口为 `/papers/k-gat/`，正文位于 `content/papers/k-gat.md`。发表渠道为 EMNLP 2026，`externalUrl` 指向 OpenReview，`pdf` 保留 arXiv 原文入口。`date` 记录预印本首次提交日期，不代表会议发表日期；正文明确介绍所依据的 arXiv 版本。论文详情采用独立的标题字号和换行作者列表，首页文章与论文入口不显示收录数量。
 
 论文说明放在 `content/papers/`。元数据示例（占位内容应替换为真实信息，保持未发布直到核对完毕）：
 
