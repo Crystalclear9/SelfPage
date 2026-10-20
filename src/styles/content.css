@@ -58,7 +58,7 @@
 .learning-contents h2 { font-size: 21px; margin-bottom: 20px; }
 .learning-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }
 .learning-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); min-width: 0; }
-.learning-row h3 { margin: 0 0 9px; font-size: 18px; line-height: 1.55; }
+.learning-row h3 { margin: 0; font-size: 18px; line-height: 1.55; }
 .learning-row svg { flex-shrink: 0; }
 .learning-row:hover { color: var(--accent); }
 .learning-notes { margin-top: 44px; border-block: 1px solid var(--line); padding-block: 22px; }
@@ -179,3 +179,26 @@
  }
 }
 @keyframes research-arrive { from { opacity: .35; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+
+/* Directory feedback keeps the whole row stationary and clickable. */
+.learning-row { position: relative; isolation: isolate; overflow: hidden; }
+.learning-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; color: var(--accent); }
+.learning-row:active { color: var(--accent); background: var(--soft); }
+@media (prefers-reduced-motion: no-preference) {
+ .learning-row { transition: color .2s, border-color .2s, background-color .2s; }
+ .learning-row h3, .learning-row svg { transition: transform .24s cubic-bezier(.16, 1, .3, 1); }
+ .learning-row:active h3 { transform: translateX(4px) scale(.98); transform-origin: left center; }
+ .learning-row:active svg { transform: translateX(3px) scale(.9); }
+}
+@media (hover: hover) and (pointer: fine) {
+ .learning-row:hover { border-color: var(--accent); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+ .learning-row::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(220px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 85%); opacity: 0; transition: opacity .22s; z-index: -1; }
+ .learning-row[data-pointer-inside]::before { opacity: 1; }
+ .learning-row::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0; pointer-events: none; }
+ .learning-row:hover h3 { transform: translateX(6px); }
+ .learning-row:hover svg { transform: translateX(7px); }
+ .learning-row:active h3 { transform: translateX(4px) scale(.98); }
+ .learning-row:active svg { transform: translateX(3px) scale(.9); }
+}
