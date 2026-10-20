@@ -60,7 +60,7 @@
 .learning-row h3 { margin: 0; font-size: 18px; line-height: 1.55; }
 .learning-row svg { flex-shrink: 0; }
 .learning-row:hover { color: var(--accent); }
-.learning-notes { margin-top: 44px; border-block: 1px solid var(--line); padding-block: 22px; }
+.learning-notes { margin-top: 44px; border-block: 1px solid var(--line); padding-block: 0; }
 .learning-notes summary { cursor: pointer; font-size: 15px; }
 .learning-source { margin-top: 35px; }
 .learning-page .prose { min-width: 0; }
@@ -208,3 +208,26 @@
 .publication-comparison .publication-figure img { width: 100%; height: 100%; object-fit: contain; }
 .research-section .publication-figure figcaption { font-size: 13px; line-height: 1.75; margin-top: 12px; }
 @media (max-width: 600px) { .publication-comparison { grid-template-columns: 1fr; gap: 28px; } }
+
+.learning-notes summary { display: flex; align-items: center; gap: 10px; padding: 22px 12px; list-style: none; border-radius: 6px; }
+.learning-notes summary::-webkit-details-marker { display: none; }
+.learning-notes summary svg { flex-shrink: 0; color: var(--accent); }
+.learning-notes[open] > summary svg { rotate: 90deg; }
+.learning-notes summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.learning-notes summary:active { background: var(--soft); color: var(--accent); }
+.learning-notes > .prose { padding-bottom: 24px; }
+@media (hover: hover) { .learning-notes summary:hover { background: var(--soft); color: var(--accent); } }
+@media (prefers-reduced-motion: no-preference) {
+ .learning-notes summary { transition: background-color .2s, color .2s; }
+ .learning-notes summary svg { transition: rotate .25s ease; }
+ .learning-notes summary span { transition: translate .2s ease; }
+ .learning-notes summary:hover span { translate: 4px 0; }
+ .learning-notes summary:active span { translate: 2px 0; }
+ .learning-notes[open] > .prose { animation: notes-reveal .25s ease-out; }
+ @supports (interpolate-size: allow-keywords) {
+  .learning-notes { interpolate-size: allow-keywords; }
+  .learning-notes::details-content { block-size: 0; overflow: clip; transition: block-size .3s ease, content-visibility .3s; transition-behavior: allow-discrete; }
+  .learning-notes[open]::details-content { block-size: auto; }
+ }
+}
+@keyframes notes-reveal { from { opacity: .4; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }

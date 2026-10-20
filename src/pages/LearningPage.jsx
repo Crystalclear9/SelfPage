@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, CaretRight } from '@phosphor-icons/react';
 import PageNavigation from '../components/PageNavigation';
 import { href, learning, writing } from '../data/routes';
 
@@ -38,7 +38,7 @@ export default function LearningPage({ page, html = '' }) {
       <Contents entries={children.filter(p => p.kind === 'guide')} label="开始阅读" />
       <Contents entries={children.filter(p => p.kind === 'category')} label="学习目录" />
     </> : isIndex && <Contents entries={children} label={page.kind === 'category' ? '主题目录' : '章节目录'} />}
-    {isIndex ? <details className="learning-notes"><summary>资料说明与阅读建议</summary>
+    {isIndex ? <details className="learning-notes"><summary><CaretRight size={18} aria-hidden="true" /><span>资料说明与阅读建议</span></summary>
       <div id="learning-content" className="prose" dangerouslySetInnerHTML={{ __html: html }} />
     </details> : <div id="learning-content" className="prose" dangerouslySetInnerHTML={{ __html: html }} />}
     {position >= 0 && <nav className="learning-pager" aria-label="章节翻页">

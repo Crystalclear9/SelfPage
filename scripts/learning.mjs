@@ -15,6 +15,12 @@ function learningMarkdown({ page, pages, base }) {
   return tree => {
     if (tree.children[0]?.type === 'heading' && tree.children[0].depth === 1) tree.children.shift();
     const visit = node => {
+      // GitHub's $`...`$ notation wraps LaTeX in backticks, not code content.
+      // Handle parsed math nodes only so literal examples and code stay untouched.
+      if (node.type === 'inlineMath' && node.value.startsWith('`') && node.value.endsWith('`')) {
+        node.value = node.value.slice(1, -1);
+        node.data.hChildren = [{ type: 'text', value: node.value }];
+      }
       if (node.type === 'html') {
         const match = node.value.trim().match(/^<a\s+id=["']([a-zA-Z0-9_-]+)["']\s*>(?:<\/a>)?$/);
         if (match) {
