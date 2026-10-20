@@ -73,6 +73,7 @@ AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、�
 | App | 主题、拖尾、喜欢、菜单、当前板块、弹窗与提示 | 读取远程项目数据或实现内容后台 |
 | useProjectFilter | 当前分类、列表引用、动画取消与替换 | 改写详情路由、持久化分类 |
 | ContentPage | 按 path 展示项目、索引、正文或 404 | 修改项目数据或写入发布文件 |
+| PaperBody | 论文 Markdown 分节、配图分组与页内目录选中态 | 正文滚动入场或退场动画 |
 | Modal | 原生 dialog、背景滚动锁定、焦点恢复 | 控制页面路由 |
 | PageNavigation / ScrollToTop | 滚动方向、可见性、键盘焦点与入口互斥 | 接管滚轮速度或劫持历史 |
 | ProjectPager | 按完整项目数组计算前后页 | 按首页筛选动态改写翻页顺序 |

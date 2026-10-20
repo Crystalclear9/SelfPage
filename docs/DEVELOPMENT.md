@@ -57,6 +57,7 @@ npm run preview -- --port 4173
 | 调整学习目录和章节阅读页 | `src/pages/LearningPage.jsx`、`scripts/learning.mjs` | 检查深层链接、公式、锚点与静态阅读 |
 | 调整首页结构、公共导航 | `src/App.jsx` | 同时检查桌面与手机菜单 |
 | 调整项目详情、文章列表和正文 | `src/pages/ContentPage.jsx` | 同时检查静态渲染与客户端加载 |
+| 调整论文正文、配图和页内目录 | `src/pages/PaperBody.jsx`、`src/styles/content.css` | 保持静态连续阅读，核对图片尺寸、图注和锚点 |
 | 修改主题、基础排版 | `src/styles/base.css` | 浅色、深色共用主题变量 |
 | 修改滚动、翻页、光标 | 对应组件与 `src/styles/` | 文件职责见交互文档，保留减少动态效果分支 |
 | 修改分类切换 | `src/lib/useProjectFilter.js` | 检查列表缩短时的定位和快速连续点击 |
@@ -124,6 +125,19 @@ npm run clean
 ```
 
 清理仅删除 `dist/` 与 `.local/`；脚本拒绝跟随其中的链接目录或文件。`node_modules/`、源码、附件、锁文件及 Git 历史保留。需要预览时重新构建即可。
+
+| 文件类别 | 处理规则 |
+| --- | --- |
+| `src/`、`content/`、`public/` | 保留源码、内容和发布素材；删除前核对数据、Markdown 和样式引用 |
+| AILearning 的 `manifest.json` | 与资料快照一起提交，构建需要其中的来源与目录信息 |
+| `.github/`、构建配置、`scripts/`、`tests/` | 保留部署、生成与验证入口；测试不是临时产物 |
+| `scripts/legacy-entrypoints.json` | 保留旧资源地址兼容清单，避免旧 HTML 请求不到样式或脚本 |
+| `docs/`、`README.md` | 实现变化时同步更新，不保留已移除功能的说明 |
+| `package.json`、`package-lock.json` | 保留依赖声明和锁定版本，确保 KaTeX 渲染器与样式一致 |
+| `node_modules/` | 本地运行依赖，Git 忽略，日常清理保留；可通过 `npm ci` 重建 |
+| `dist/`、`.local/` | 可再生的构建、截图和报告，停止相关任务后使用 `npm run clean` 删除 |
+
+已有正文或附件的目录不需要 `.gitkeep`。新截图、日志和临时报告统一放入 `.local/`，不要混入源码或 `public/`，后者会直接发布。清理不涉及仓库外的原始素材和用户文件。
 
 | 现象 | 处理方式 |
 | --- | --- |
