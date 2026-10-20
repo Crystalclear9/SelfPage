@@ -7,13 +7,18 @@ try {
   const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });
   const page = await context.newPage(); const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'projects/sandboxsim/', 'articles/', 'papers/']) {
+  for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'projects/sandboxsim/', 'articles/', 'papers/', 'papers/k-gat/']) {
    const response = await page.goto(base + route); assert.equal(response.status(), 200);
    await page.reload(); await page.locator('h1').waitFor();
    assert.equal(await page.locator('h1').count(), 1);
    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
    if (route.includes('autellix')) assert.match(await page.locator('main').innerText(), /个人论文复现尝试/);
-   if (route === 'papers/') assert.equal(await page.locator('.empty-writing').count(), 1);
+   if (route === 'papers/') assert.equal(await page.locator('.entry-row', { hasText: 'When Evidence Shapes Collaboration' }).count(), 1);
+   if (route === 'papers/k-gat/') {
+    assert.equal(await page.locator('.publication-links a[href="https://arxiv.org/pdf/2608.27984"]').count(), 1);
+    assert.equal(await page.locator('.publication-links a[href="https://arxiv.org/abs/2608.27984"]').count(), 1);
+    assert.match(await page.locator('.prose').innerText(), /研究问题/);
+   }
    if (route === 'articles/') assert.equal(await page.locator('.entry-row', { hasText: 'AILearning' }).count(), 1);
   }
   assert.deepEqual(errors, []); await context.close();
@@ -25,5 +30,5 @@ try {
  await page.screenshot({ path: '.local/reports/writing-section.png' });
  await page.goto(base + 'projects/autellix/');
  await page.screenshot({ path: '.local/reports/project-page.png', fullPage: true });
- console.log('All 7 detail/index routes: direct load, refresh, no-JS, mobile overflow and reading cursor passed.');
+ console.log('All 8 detail/index routes: direct load, refresh, no-JS, mobile overflow, paper links and reading cursor passed.');
 } finally { await browser.close(); }
