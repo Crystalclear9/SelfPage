@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from '@phosphor-icons/react';
 
-export default function ScrollToTop() {
+export default function ScrollToTop({ target = '#home', label = '回到顶部' }) {
   const link = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -34,7 +34,7 @@ export default function ScrollToTop() {
     };
   }, []);
 
-  return <a ref={link} className="floating-top" href="#home" hidden={!visible} aria-label="回到顶部">
-    <ArrowUp size={20} aria-hidden="true" /><span>回到顶部</span>
+  return <a ref={link} className="floating-top" href={target} hidden={!visible} aria-label={label}>
+    <ArrowUp size={20} aria-hidden="true" /><span>{label}</span>
   </a>;
 }

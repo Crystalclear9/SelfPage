@@ -92,25 +92,30 @@ try {
   }
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto(base);
-    const topLink = page.locator('.floating-top');
-    await expect(topLink).toBeHidden();
-    await page.evaluate(() => scrollTo({ top: 1500, behavior: 'instant' }));
-    await expect(topLink).toBeHidden();
-    await page.mouse.wheel(0, -100);
-    await expect(topLink).toBeVisible();
-    await page.mouse.wheel(0, 80);
-    await expect(topLink).toBeHidden();
-    await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
-    await expect(topLink).toBeHidden();
-    await page.mouse.wheel(0, -15);
-    await expect(topLink).toBeHidden();
-    assert.ok(await page.locator('.site-footer .back-top').evaluate(el => el.getBoundingClientRect().top < innerHeight));
-    await page.mouse.wheel(0, -700);
-    await expect(topLink).toBeVisible();
-    await topLink.click();
-    await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(150);
-    await expect(topLink).toBeHidden();
+    for (const route of ['', 'papers/k-gat/', 'articles/ailearning/mathematics/linear-algebra/chapter-01/']) {
+      await page.goto(base + route);
+      const topLink = page.locator('.floating-top');
+      await expect(topLink).toHaveAttribute('href', route ? '#main' : '#home');
+      await expect(topLink).toBeHidden();
+      await page.evaluate(() => scrollTo({ top: Math.min(1500, (document.documentElement.scrollHeight - innerHeight) / 2), behavior: 'instant' }));
+      await expect(topLink).toBeHidden();
+      await page.mouse.wheel(0, -100);
+      await expect(topLink).toBeVisible();
+      if (route) await expect(page.locator('.scroll-return')).toHaveClass(/is-visible/);
+      await page.mouse.wheel(0, 80);
+      await expect(topLink).toBeHidden();
+      await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+      await expect(topLink).toBeHidden();
+      await page.mouse.wheel(0, -15);
+      await expect(topLink).toBeHidden();
+      assert.ok(await page.locator('.site-footer .back-top').evaluate(el => el.getBoundingClientRect().top < innerHeight));
+      await page.mouse.wheel(0, -700);
+      await expect(topLink).toBeVisible();
+      await topLink.click();
+      await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(150);
+      await expect(topLink).toBeHidden();
+      assert.equal(new URL(page.url()).pathname, new URL(base + route).pathname, 'Back to top stays on the current page');
+    }
   }
   for (const width of [1440, 375]) {
     await page.setViewportSize({ width, height: 900 });
