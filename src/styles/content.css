@@ -234,3 +234,11 @@
  }
 }
 @keyframes notes-reveal { from { opacity: .4; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+.learning-table-scroll { max-width: 100%; overflow-x: auto; margin-block: 24px; }
+.learning-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.prose .learning-topic-table { display: table; width: 100%; min-width: 880px; overflow: visible; table-layout: auto; }
+.learning-topic-table th:first-child, .learning-topic-table td:first-child { width: 24%; white-space: nowrap; overflow-wrap: normal; }
+.learning-topic-table th:nth-child(2), .learning-topic-table td:nth-child(2) { width: 48%; }
+.learning-topic-table th:nth-child(3), .learning-topic-table td:nth-child(3) { width: 28%; }
+.learning-topic-table td { vertical-align: top; }

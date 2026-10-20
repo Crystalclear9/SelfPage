@@ -15,6 +15,13 @@ function learningMarkdown({ page, pages, base }) {
   return tree => {
     if (tree.children[0]?.type === 'heading' && tree.children[0].depth === 1) tree.children.shift();
     const visit = node => {
+      if (node.type === 'table') {
+        const text = n => n.value || n.children?.map(text).join('') || '';
+        const headings = node.children[0].children.map(text);
+        if (headings.join('|') === '主题|章节|主要内容') {
+          node.data = { ...node.data, hProperties: { className: ['learning-topic-table'] } };
+        }
+      }
       // GitHub's $`...`$ notation wraps LaTeX in backticks, not code content.
       // Handle parsed math nodes only so literal examples and code stay untouched.
       if (node.type === 'inlineMath' && node.value.startsWith('`') && node.value.endsWith('`')) {
@@ -77,6 +84,11 @@ export function renderLearning(page, base = '/') {
   return renderToStaticMarkup(createElement(ReactMarkdown, {
     remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, base }]],
     rehypePlugins: [[rehypeKatex, { strict: false, trust: false }]],
+    components: {
+      table: ({ node, children, ...props }) => props.className === 'learning-topic-table'
+        ? createElement('div', { className: 'learning-table-scroll', tabIndex: 0, role: 'region', 'aria-label': '主题与章节目录，可横向滚动' }, createElement('table', props, children))
+        : createElement('table', props, children),
+    },
     skipHtml: true,
   }, markdown));
 }
