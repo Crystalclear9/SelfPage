@@ -129,33 +129,36 @@
 .publication-page .prose th:not(:first-child), .publication-page .prose td:not(:first-child) { white-space: nowrap; overflow-wrap: normal; }
 
 /* Research pages keep the site's palette and controls, with a wider editorial rhythm. */
-.publication-page { max-width: 1120px; padding-top: 92px; }
+.publication-page { max-width: 1080px; padding-top: 80px; font-family: 'Outfit', 'Noto Sans SC', 'Microsoft YaHei UI', '微软雅黑', 'PingFang SC', sans-serif; }
 .publication-page .detail-heading { padding: 55px 0 58px; animation: none; }
 .publication-page .publication-authors { max-width: 900px; margin-bottom: 22px; }
 .publication-page .detail-lead { max-width: 780px; }
-.paper-content-layout { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 65px; }
-.paper-contents { align-self: start; position: sticky; top: 160px; display: grid; gap: 18px; padding-top: 64px; font-size: 13px; }
+.paper-content-layout { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 52px; }
+.paper-contents { align-self: start; position: sticky; top: 160px; display: grid; gap: 18px; padding-top: 56px; font-size: 13px; }
 .paper-contents[hidden] { display: none; }
 .paper-contents > span { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
 .paper-contents a { color: var(--muted); border-left: 2px solid transparent; padding-left: 12px; }
 .paper-contents a:hover, .paper-contents a[aria-current] { color: var(--accent); border-color: var(--accent); }
-.publication-page .research-body { grid-column: 2; padding-top: 0; min-width: 0; }
-.research-section { padding-block: 60px; border-bottom: 1px solid var(--line); scroll-margin-top: 160px; }
+.publication-page .research-body { grid-column: 2; padding-top: 0; min-width: 0; font-size: 16px; line-height: 1.95; }
+.research-section { padding-block: 52px; border-bottom: 1px solid var(--line); scroll-margin-top: 160px; }
 .research-section:last-child { border-bottom: 0; padding-bottom: 0; }
-.research-body .research-section h2 { font-size: clamp(26px, 3vw, 34px); margin: 0 0 26px; letter-spacing: -.025em; }
-.research-section > p { max-width: none; margin: 0 0 20px; color: var(--muted); }
+.research-body .research-section h2 { font-size: clamp(24px, 2.4vw, 29px); font-weight: 600; line-height: 1.45; margin: 0 0 24px; letter-spacing: 0; }
+.research-section > p { margin: 0 0 22px; color: var(--ink); }
 .research-section strong { color: var(--ink); font-weight: 500; }
-.research-section > p:first-of-type { color: var(--ink); }
+
 .research-body .research-section h3 { font-size: 19px; margin: 30px 0 10px; }
 .research-section ol { display: grid; grid-template-columns: 1fr; gap: 0; list-style: decimal; padding-left: 24px; margin: 26px 0; }
-.research-section li { padding: 16px 0 16px 8px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 16px; line-height: 1.85; }
-.research-section li strong { display: block; margin-bottom: 8px; font-size: 18px; }
+.research-section li { padding: 12px 0 12px 8px; color: var(--ink); font-size: 16px; line-height: 1.85; }
+.research-section li strong { display: block; margin-bottom: 6px; font-size: 17px; font-weight: 600; }
 .research-section .publication-figure { margin: 36px 0 24px; }
 .research-section table { margin: 30px 0 14px; border-collapse: collapse; }
 .publication-page .research-section th, .publication-page .research-section td { border: 0; border-bottom: 1px solid var(--line); padding: 16px 10px; }
 .research-section thead { background: var(--surface); }
 .research-section tr:last-child { background: var(--soft); }
-.research-section p:has(> em:only-child) { font-size: 13px; }
+.research-section p:has(> em:only-child) { font-size: 12px; color: var(--muted); line-height: 1.8; }
+.research-section p > em:only-child { font-style: normal; }
+.research-section p:has(> a:only-child) { font-size: 13px; }
+.research-section li::marker { color: var(--accent); font-variant-numeric: tabular-nums; }
 @media (max-width: 900px) {
  .paper-content-layout { grid-template-columns: 1fr; gap: 0; }
  .publication-page .research-body { grid-column: 1; }
