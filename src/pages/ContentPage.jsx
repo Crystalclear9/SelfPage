@@ -6,6 +6,7 @@ import { projectNotes } from '../data/project-notes';
 import PageNavigation from '../components/PageNavigation';
 import ProjectPager from '../components/ProjectPager';
 import LearningPage from './LearningPage';
+import PaperBody from './PaperBody';
 import { writing, learning, learningPublished, href } from '../data/routes';
 
 const labels = { articles: '文章', papers: '论文' };
@@ -33,11 +34,12 @@ export default function ContentPage({ path, learningHtml }) {
   if (type) return <article className="detail-page section-shell"><PageNavigation section="文章与论文" sectionHref="/#writing" /><header className="detail-heading"><p className="eyebrow">{type === 'articles' ? 'TECHNICAL NOTES' : 'PUBLICATIONS'}</p><h1>{labels[type]}</h1><p className="detail-lead">{descriptions[type]}</p></header><EntryList entries={writing.filter(e => e.type === type)} type={type}/><a className="text-link index-switch" href={href(type === 'articles' ? '/papers/' : '/articles/')}>浏览{type === 'articles' ? '论文' : '文章'} <ArrowRight size={18}/></a></article>;
   if (entry) {
     const isPaper = entry.type === 'papers';
+    const titleBreak = isPaper ? entry.title.indexOf(':') : -1;
     return <article className={`detail-page section-shell reading-page${isPaper ? ' publication-page' : ''}`}>
       <PageNavigation section={`返回${labels[entry.type]}列表`} sectionHref={`/${entry.type}/`} />
       <header className="detail-heading">
         <p className="eyebrow">{isPaper ? (entry.venue || 'RESEARCH PAPER') : <><time dateTime={entry.date}>{entry.date}</time>{entry.venue && ` · ${entry.venue}`}</>}</p>
-        <h1>{entry.title}</h1>
+        <h1>{titleBreak > 0 ? <>{entry.title.slice(0, titleBreak)}<span className="paper-subtitle">{entry.title.slice(titleBreak + 1).trim()}</span></> : entry.title}</h1>
         {isPaper && entry.authors?.length > 0 && <ul className="publication-authors" aria-label="论文作者">{entry.authors.map(author => <li key={author}>{author}</li>)}</ul>}
         <p className="detail-lead">{entry.summary}</p>
         {!isPaper && entry.authors?.length > 0 && <p>{entry.authors.join('、')}</p>}
@@ -46,12 +48,7 @@ export default function ContentPage({ path, learningHtml }) {
           {entry.pdf && <a className={isPaper ? 'text-link' : 'button primary'} data-cursor="download" href={contentUrl(entry.pdf)} target="_blank" rel="noreferrer">阅读 PDF <ArrowUpRight size={17}/></a>}
         </div>
       </header>
-      <div className="prose"><ReactMarkdown components={isPaper ? {
-        p: ({ children, node }) => node.children.length === 1 && node.children[0].tagName === 'img'
-          ? <figure className="publication-figure">{children}<figcaption>{node.children[0].properties.alt}</figcaption></figure>
-          : <p>{children}</p>,
-        img: ({ src, alt }) => <a href={src} target="_blank" rel="noreferrer" aria-label={`查看原图：${alt}`}><img src={src} alt={alt} loading="lazy" decoding="async" /></a>,
-      } : undefined} remarkPlugins={[remarkGfm]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>
+      {isPaper ? <PaperBody markdown={entry.markdown} /> : <div className="prose"><ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>}
     </article>;
   }
   return <section className="detail-page section-shell"><PageNavigation /><header className="detail-heading"><p className="eyebrow">404</p><h1>页面不存在</h1><p>链接可能已变更，或内容尚未发布。</p></header></section>;
