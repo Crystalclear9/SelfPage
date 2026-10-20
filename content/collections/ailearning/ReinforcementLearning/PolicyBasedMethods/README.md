@@ -13,9 +13,9 @@
 | 章节 | 主要内容 | 深入讲解入口 |
 | --- | --- | --- |
 | [策略梯度与方差控制](01-策略梯度与方差控制.md) | 轨迹似然比与折扣访问、因果回报到达、最优基线条件与连续动作梯度 | [进入讲解](01-策略梯度与方差控制.md#deep-dive-2) |
-| [Actor-Critic优势与PPO](02-Actor-Critic优势与PPO.md) | TD优势与GAE完整误差、两种边界掩码、PPO分段梯度与信赖域保证的前提 | [进入讲解](02-Actor-Critic优势与PPO.md#deep-dive-2) |
-| [从REINFORCE到GAE的实现细节](03-从REINFORCE到GAE的实现细节.md) | 真实轨迹采集、冻结优势与归约、REINFORCE及GAE完整训练与独立评价 | [进入讲解](03-从REINFORCE到GAE的实现细节.md#deep-dive-3) |
-| [PPO训练循环与稳定性检查](04-PPO训练循环与稳定性检查.md) | 旧策略数据身份、分阶段采样与多轮更新、完整PPO闭环及稳定性诊断 | [进入讲解](04-PPO训练循环与稳定性检查.md#deep-dive-2) |
+| [Actor-Critic优势与PPO](02-Actor-Critic优势与PPO.md) | TD 优势与 GAE 完整误差、两种边界掩码、PPO 分段梯度与信赖域保证的前提 | [进入讲解](02-Actor-Critic优势与PPO.md#deep-dive-2) |
+| [从REINFORCE到GAE的实现细节](03-从REINFORCE到GAE的实现细节.md) | 真实轨迹采集、冻结优势与归约、REINFORCE 及 GAE 完整训练与独立评价 | [进入讲解](03-从REINFORCE到GAE的实现细节.md#deep-dive-3) |
+| [PPO训练循环与稳定性检查](04-PPO训练循环与稳定性检查.md) | 旧策略数据身份、分阶段采样与多轮更新、完整 PPO 闭环及稳定性诊断 | [进入讲解](04-PPO训练循环与稳定性检查.md#deep-dive-2) |
 
 ## 如何完成本主题
 
