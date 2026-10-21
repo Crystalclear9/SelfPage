@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import codeHighlight from '../src/lib/code-highlight.js';
 
 const directory = path.resolve('content/collections/ailearning');
 export const loadLearning = () => JSON.parse(readFileSync(path.join(directory, 'manifest.json'), 'utf8'));
@@ -83,7 +84,7 @@ export function renderLearning(page, base = '/') {
   const markdown = normalizeLearningMath(readFileSync(path.join(directory, page.file), 'utf8'));
   return renderToStaticMarkup(createElement(ReactMarkdown, {
     remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, base }]],
-    rehypePlugins: [[rehypeKatex, { strict: false, trust: false }]],
+    rehypePlugins: [[rehypeKatex, { strict: false, trust: false }], codeHighlight],
     components: {
       table: ({ node, children, ...props }) => props.className === 'learning-topic-table'
         ? createElement('div', { className: 'learning-table-scroll', tabIndex: 0, role: 'region', 'aria-label': '主题与章节目录，可横向滚动' }, createElement('table', props, children))

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
+import codeHighlight from '../lib/code-highlight';
 import remarkGfm from 'remark-gfm';
 import { href } from '../data/routes';
 
@@ -62,7 +63,7 @@ export default function PaperBody({ markdown }) {
       {sections.map(section => <a key={section.id} href={`#${section.id}`} aria-current={active === section.id ? 'location' : undefined}>{section.title}</a>)}
     </nav>
     <div ref={root} className="prose research-body">
-      <ReactMarkdown remarkPlugins={[remarkGfm, researchSections]} components={{
+      <ReactMarkdown remarkPlugins={[remarkGfm, researchSections]} rehypePlugins={[codeHighlight]} components={{
         p: ({ children, node }) => node.children.length === 1 && node.children[0].tagName === 'img'
           ? <figure className="publication-figure">{children}<figcaption>{node.children[0].properties.alt}</figcaption></figure>
           : <p>{children}</p>,
