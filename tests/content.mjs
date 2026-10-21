@@ -25,6 +25,7 @@ const { default: react } = await import('@vitejs/plugin-react');
 const { createElement } = await import('react');
 const { renderToString } = await import('react-dom/server');
 const fixtures = ['articles', 'papers'].map(type => ({ type, slug: 'fixture', route: `/${type}/fixture/`, title: 'Fixture', summary: 'Summary', date: '2026-10-02', markdown: '## Section\n\n| A | B |\n| - | - |\n| 1 | 2 |\n\n![Figure](/files/figure.png)\n\n<script>alert(1)</script>', ...(type === 'papers' ? { pdf: 'files/fixture.pdf', authors: ['Author'], venue: 'Venue' } : {}) }));
+for (const entry of fixtures) entry.markdown += '\n\nInline $x^2$ and block:\n\n$$\n\\frac{1}{2}\n$$\n\n```python\nprint("$x^2$")\n```';
 const server = await createServer({ configFile: false, base: '/SelfPage/', plugins: [react(), { name: 'fixtures', resolveId(id) { if (id === 'virtual:writing') return '\0virtual:writing'; }, load(id) { if (id === '\0virtual:writing') return `export default ${JSON.stringify(fixtures)}`; } }], server: { middlewareMode: true }, appType: 'custom' });
 try {
  const { default: Page } = await server.ssrLoadModule('/src/pages/ContentPage.jsx');
@@ -33,6 +34,9 @@ try {
   assert.match(output, /class="home-link" href="\/SelfPage\/"/); assert.ok(output.includes(`class="section-return" href="/SelfPage/${entry.type}/"`));
   assert.match(output, /<table>/); assert.match(output, /src="\/SelfPage\/files\/figure.png"/);
   assert.ok(!output.includes('<script>'));
+  assert.match(output, /class="katex"/, 'Regular articles and papers must render inline math');
+  assert.match(output, /class="katex-display"/, 'Regular articles and papers must render block math');
+  assert.ok(output.includes('$x^2$'), 'Math inside code must remain literal');
   if (entry.type === 'papers') assert.match(output, /href="\/SelfPage\/files\/fixture.pdf"/);
  }
  console.log('Published Markdown and paper rendering: tables, image/PDF base paths, HTML escaping passed.');

@@ -91,8 +91,8 @@ npm run check:pages
 | 命令 | 检查内容 | 是否需要预览服务 |
 | --- | --- | --- |
 | `npm run build` | 当前索引校验、客户端打包与页面预渲染 | 否 |
-| `npm run check:content` | 测试样例的元数据规则、草稿排除、Markdown 与论文渲染 | 否 |
-| `node tests/voice.mjs` | 模拟音频检查头像与点赞互斥播放、取消、失败重试；真实音色需配置素材后试听 | 否 |
+| `npm run check:content` | 测试样例的元数据规则、草稿排除、文章/论文表格、图片、公式与代码中的字面量 | 否 |
+| `node tests/voice.mjs` | 模拟音频检查互斥播放、取消、播放中断、失败后新实例重试与过期事件隔离；真实音色需试听 | 否 |
 | `npm run check:learning` | 已构建的全部学习资料页面、内部链接、锚点和公式输出 | 否，需先构建 |
 | `node tests/code-blocks.mjs` | PyTorch 示例高亮、原始缩进、等宽字体、主题和手机溢出，无 JS / 水合后均验证 | 是 |
 | `npm run check:learning-ui` | 单一专题入口、分层导航、章节直达/刷新/历史、无 JS 与手机阅读 | 是 |

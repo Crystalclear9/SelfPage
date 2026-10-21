@@ -1,6 +1,8 @@
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import codeHighlight from '../lib/code-highlight';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import { ArrowUpRight, ArrowRight, BookOpen, FileText } from '@phosphor-icons/react';
 import { projects } from '../data/site';
 import { projectNotes } from '../data/project-notes';
@@ -48,7 +50,7 @@ export default function ContentPage({ path, learningHtml }) {
           {entry.pdf && <a className={isPaper ? 'text-link' : 'button primary'} data-cursor="download" href={contentUrl(entry.pdf)} target="_blank" rel="noreferrer">阅读 PDF <ArrowUpRight size={17}/></a>}
         </div>
       </header>
-      {isPaper ? <PaperBody markdown={entry.markdown} /> : <div className="prose"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[codeHighlight]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>}
+      {isPaper ? <PaperBody markdown={entry.markdown} /> : <div className="prose"><ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[[rehypeKatex, { strict: false, trust: false }], codeHighlight]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>}
     </article>;
   }
   return <section className="detail-page section-shell"><PageNavigation /><header className="detail-heading"><p className="eyebrow">404</p><h1>页面不存在</h1><p>链接可能已变更，或内容尚未发布。</p></header></section>;

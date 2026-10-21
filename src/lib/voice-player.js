@@ -26,7 +26,15 @@ export function createVoicePlayer(src, { onPlaying = () => {}, onError = () => {
         audio = new Audio(src);
         audio.preload = 'none';
         audio.volume = .7;
-        audio.onended = () => player.stop();
+        const media = audio;
+        audio.onended = () => { if (audio === media) player.stop(); };
+        audio.onerror = () => {
+          // Media errors can arrive after play() has already resolved.
+          if (audio !== media || !running || activePlayer !== player) return;
+          player.stop();
+          audio = undefined; // Retry with a fresh media element after a failed load.
+          onError();
+        };
       }
       try {
         await audio.play();
