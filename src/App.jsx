@@ -34,7 +34,7 @@ export default function App({ path = '/', learningHtml = '' }) {
   const likeVoice = useVoice(path === '/' && profile.likeVoice ? `${import.meta.env.BASE_URL}${profile.likeVoice}` : '',
     () => setToast('谢谢你的喜欢。语音暂时无法播放，请稍后再试。'));
   const unlikeVoice = useVoice(path === '/' && profile.unlikeVoice ? `${import.meta.env.BASE_URL}${profile.unlikeVoice}` : '',
-    () => setToast('这样啊，有点可惜呢。'));
+    () => setToast('才、才不是在等你呢。'));
   const toggleLike = () => {
     if (!liked) {
       unlikeVoice.stop();
@@ -45,7 +45,7 @@ export default function App({ path = '/', learningHtml = '' }) {
       void unlikeVoice.play();
     }
     setLiked(!liked);
-    setToast(liked ? '这样啊，有点可惜呢。' : '谢谢你的喜欢。');
+    setToast(liked ? '才、才不是在等你呢。' : '谢谢你的喜欢。');
   };
   const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['writing', '文章与论文']];
   const activeSection = path === '/' ? active : /^\/(articles|papers)\//.test(path) ? 'writing' : path.startsWith('/projects/') ? 'projects' : null;

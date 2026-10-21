@@ -34,11 +34,18 @@
 
 ## 首页角色语音
 
-两段短语音来自 Sony Music Solutions 的 [Xperia Ear Duo（加藤恵）官方角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)，核对日期为 2026-10-20。使用原始 MP3，不进行合成、变声或台词拼接。保存至站内，避免访问时依赖第三方音频请求。
+三段短语音来自 Sony Music Solutions 的 [Xperia Ear Duo（加藤恵）官方角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)，核对日期为 2026-10-21。使用官方 MP3 作为源文件，不进行合成、变声或台词拼接；取消点赞截取一段连续的完整回应。保存至站内，避免访问时依赖第三方音频请求。
 
 | 本地文件 | 官方试听场景 | 时长 | 原始音频 |
 | --- | --- | --- | --- |
-| `public/audio/megumi-greeting.mp3` | 会話の始まり；头像点击回应 | 约 2.04 秒 | [voice_sapmle.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle.mp3) |
-| `public/audio/megumi-like.mp3` | 問いかけ：好き；回应喜欢，带调侃语气 | 约 9.38 秒 | [voice_sapmle01.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle01.mp3) |
+| `public/audio/megumi-greeting.flac` | 会話の始まり；头像点击回应 | 约 2.04 秒 | [voice_sapmle.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle.mp3) |
+| `public/audio/megumi-like.flac` | 問いかけ：好き；回应喜欢，带调侃语气 | 约 9.38 秒 | [voice_sapmle01.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle01.mp3) |
+| `public/audio/megumi-unlike.flac` | いってらっしゃい；取 4.02–7.85 秒的“才、才不是在等你呢”回应 | 约 3.83 秒 | [voice_sapmle02.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle02.mp3) |
+
+取消点赞台词为「べ、別に待ってるわけじゃないんだからね」，属于轻微嘴硬的回应，不宣称它是原作中专门表达遗憾或取消点赞的台词。
+
+音频处理使用 60 Hz 高通、10 ms 入场淡化，以及两遍响度归一化（目标 −20 LUFS、真峰值上限 −2 dBTP），输出 44.1 kHz / 16 bit FLAC。保留呼吸和音色，不做激进降噪；源 MP3 已损失的细节无法通过转为无损格式恢复。FLAC 的作用是避免处理后再次有损编码，并非把低码率录音变成高清录音。三段合计大小以仓库文件为准，浏览器只在点击时加载。
+
+重建：安装 FFmpeg 后运行 `python scripts/prepare-voices.py --ffmpeg <ffmpeg可执行文件路径>`。脚本仅使用 Python 标准库，临时下载原始样本并按上述参数处理；开发环境和正常构建不依赖 FFmpeg。
 
 角色与录音权利属于原权利方。官方公开试听不等同于开放许可；这些片段不属于本项目原创素材，也不作为可自由复用的素材包发布。站内仅在用户点击对应控件后播放，取消喜欢或点击其他语音入口会停止当前播放。

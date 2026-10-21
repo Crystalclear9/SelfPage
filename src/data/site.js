@@ -9,11 +9,11 @@ export const profile = {
   // Optional: add an email only if you want it to be publicly visible.
   email: '',
   // Official character samples; source details are recorded in docs/ASSETS.md.
-  avatarVoice: 'audio/megumi-greeting.mp3',
+  avatarVoice: 'audio/megumi-greeting.flac',
   // A separate response to liking, not the greeting.
-  likeVoice: 'audio/megumi-like.mp3',
-  // Await a matching regret line; do not substitute an unrelated sample.
-  unlikeVoice: '',
+  likeVoice: 'audio/megumi-like.flac',
+  // A lightly teasing response to withdrawing a like.
+  unlikeVoice: 'audio/megumi-unlike.flac',
 };
 
 // Summarized from public READMEs, not an independent runtime verification.
