@@ -95,6 +95,7 @@ npm run check:pages
 | `node tests/voice.mjs` | 模拟音频检查互斥播放、取消、播放中断、失败后新实例重试与过期事件隔离；真实音色需试听 | 否 |
 | `npm run check:learning` | 已构建的全部学习资料页面、内部链接、锚点和公式输出 | 否，需先构建 |
 | `node tests/code-blocks.mjs` | PyTorch 示例高亮、原始缩进、等宽字体、主题和手机溢出，无 JS / 水合后均验证 | 是 |
+| `node tests/learning-render.mjs` | 全部学习页面：有/无 JS、桌面/手机、深浅色、资源错误、公式与代码字体/配色 | 是 |
 | `npm run check:learning-ui` | 单一专题入口、分层导航、章节直达/刷新/历史、无 JS 与手机阅读 | 是 |
 | `npm run check:pages` | 项目和内容索引直接打开、刷新、无 JS、手机溢出 | 是 |
 | `npm run check:static` | 禁用、阻断、延迟脚本时的内容与 hydration | 是 |

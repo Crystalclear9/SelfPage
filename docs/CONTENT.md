@@ -65,6 +65,8 @@ npm run import:learning -- ../AI_Learning
 $env:SITE_BASE_PATH = '/SelfPage/'
 npm run build
 npm run check:learning
+# 启动生产预览后，逐页检查渲染
+node tests/learning-render.mjs
 ```
 
 路径可替换为实际源目录。导入脚本只复制 Markdown，不复制 `.git`、隐藏目录或运行环境；生成的 `manifest.json` 记录来源提交和页面层级。同步会覆盖同路径的本站快照，先确认需保留的编辑；不再列入清单的旧文件不会生成页面，但脚本不会自动删除它们。
@@ -237,7 +239,7 @@ Markdown 中 `/files/` 开头的链接会自动加上部署前缀；其他站内
 
 ## 不在当前正文渲染范围内的功能
 
-普通文章与论文使用 React Markdown 与 GFM，支持常见表格和任务列表；AILearning 专题另有构建时公式渲染与锚点转换。普通正文目前未接入公式插件，公式较多的论文可提供 PDF。本站没有代码语法高亮、评论系统、站内搜索或在线上传后台。
+普通文章、论文与 AILearning 均支持 GFM 表格、任务列表、数学公式与代码语法高亮；AILearning 另有源文档锚点转换。本站暂不提供评论系统、站内搜索或在线上传后台。
 
 ## 校验与公开范围
 
