@@ -52,4 +52,4 @@
 
 ## AILearning 配图
 
-`public/files/ailearning/` 保存教材仓库中的图解与动画，未改变图像内容。原作者、外部图的许可及来源见 `content/collections/ailearning/assets/external/README.md`；对应许可文件随图片发布。导入清单记录来源版本，图片使用本站路径加载，不依赖第三方图床。
+`public/files/ailearning/` 保存教材仓库中的图解与动画，未改变图像内容。原作者、外部图的许可及来源见 `docs/LEARNING-IMAGE-SOURCES.md`；对应许可文件随图片发布。导入清单记录来源版本，图片使用本站路径加载，不依赖第三方图床。

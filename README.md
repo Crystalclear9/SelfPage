@@ -60,7 +60,7 @@ npm run preview
 | 论文 | `content/index.json`、`content/papers/` | `/papers/`、`/papers/<slug>/` |
 | 公开 PDF、正文图片 | `public/files/` | `/files/<filename>` |
 
-路径均相对站点根目录。文章现收录 AILearning 专题，包含 8 个分类、47 个主题、186 个章节和 阅读指南与配图来源说明；论文收录 K-GAT（[EMNLP 2026](https://openreview.net/forum?id=E51inMWXf1)），提供研究动机、方法流程、实验对比与原图阅读入口。学习章节独立生成页面，不平铺到文章列表，也不合并成一篇长文。发布规则、资料同步和附件配置见 [内容维护](docs/CONTENT.md)。
+路径均相对站点根目录。文章现收录 AILearning 专题，包含 8 个分类、47 个主题、186 个章节和 4 份阅读指南；论文收录 K-GAT（[EMNLP 2026](https://openreview.net/forum?id=E51inMWXf1)），提供研究动机、方法流程、实验对比与原图阅读入口。学习章节独立生成页面，不平铺到文章列表，也不合并成一篇长文。发布规则、资料同步和附件配置见 [内容维护](docs/CONTENT.md)。
 
 “关于我”保留简短的技术方向与项目记录说明，详细内容放在项目页和文章中。修改这部分时编辑 `profile.intro` 与 `profile.about`；首屏补充说明另在 `src/App.jsx` 中维护，具体对应关系见内容指南。
 

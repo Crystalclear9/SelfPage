@@ -1,5 +1,6 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
+import { loadLearning } from '../scripts/learning.mjs';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
 const chapter = 'articles/ailearning/mathematics/linear-algebra/chapter-01/';
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -14,7 +15,7 @@ try {
     assert.equal(await page.locator('.entry-row').count(), 1);
     await page.locator('.entry-row', { hasText: 'AILearning' }).click();
     await page.waitForURL(base + 'articles/ailearning/');
-    assert.equal(await page.locator('.learning-row').count(), 13);
+    assert.equal(await page.locator('.learning-row').count(), loadLearning().pages.filter(p => p.parent === '/articles/ailearning/').length);
     assert.equal(await page.locator('.learning-notes').getAttribute('open'), null);
     assert.equal(await page.locator('.learning-meta').count(), 0);
     assert.equal(await page.locator('.learning-row span').count(), 0);
