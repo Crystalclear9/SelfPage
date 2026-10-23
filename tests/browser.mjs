@@ -1,5 +1,6 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
+import { projects } from '../src/data/site.js';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
@@ -14,25 +15,19 @@ try {
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.title(), 'Crystalclear9 | 个人主页');
   assert.equal(await page.locator('.hero-image').evaluate(el => el.naturalWidth > 0), true);
-  assert.equal(await page.locator('.project-card').count(), 5);
+  assert.equal(await page.locator('.project-card').count(), projects.length);
   await page.getByRole('button', { name: '应用', exact: true }).click();
-  assert.equal(await page.locator('.project-card').count(), 3);
+  assert.equal(await page.locator('.project-card').count(), projects.filter(p => p.category === '应用').length);
   await page.getByRole('button', { name: '项目介绍：随手办' }).click();
   assert.equal(await page.locator('dialog[open]').count(), 1);
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('dialog[open]').count(), 0);
   assert.equal(await page.getByRole('button', { name: '项目介绍：随手办' }).evaluate(el => el === document.activeElement), true);
   await page.getByRole('button', { name: '系统研究', exact: true }).click();
-  assert.equal(await page.locator('.project-card').count(), 2);
+  assert.equal(await page.locator('.project-card').count(), projects.filter(p => p.category === '系统研究').length);
   await page.getByRole('button', { name: '全部' }).click();
   const sourceLinks = await page.locator('.source-link').evaluateAll(links => links.map(a => ({ href: a.href, target: a.target, rel: a.rel })));
-  assert.deepEqual(sourceLinks.map(a => a.href), [
-    'https://github.com/Crystalclear9/AigcProject',
-    'https://github.com/Crystalclear9/RagGameQa',
-    'https://github.com/Crystalclear9/Autellix',
-    'https://github.com/Crystalclear9/TimePredictModel',
-    'https://github.com/Crystalclear9/SandBoxSim',
-  ]);
+  assert.deepEqual(sourceLinks.map(a => a.href), projects.map(p => p.source));
   assert.ok(sourceLinks.every(a => a.target === '_blank' && a.rel.includes('noreferrer')));
   assert.equal(await page.getByRole('link', { name: /演示|体验|访问作品/ }).count(), 0);
   assert.equal(await page.locator('a[href^="mailto:"]').count(), 0);

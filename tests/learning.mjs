@@ -42,6 +42,7 @@ for (const [route, { html }] of documents) {
     if (documents.has(target) && url.hash) {
       assert.ok(documents.get(target).ids.has(decodeURIComponent(url.hash.slice(1))), `Missing anchor: ${route} -> ${raw}`);
     }
+    if (target.startsWith('/files/')) { assert.ok(existsSync(path.join('dist', decodeURIComponent(target)))); continue; }
     assert.ok(existsSync(path.join('dist', target, 'index.html')), `Missing internal destination: ${route} -> ${raw}`);
   }
 }

@@ -49,3 +49,7 @@
 重建：安装 FFmpeg 后运行 `python scripts/prepare-voices.py --ffmpeg <ffmpeg可执行文件路径>`。脚本仅使用 Python 标准库，临时下载原始样本并按上述参数处理；开发环境和正常构建不依赖 FFmpeg。
 
 角色与录音权利属于原权利方。官方公开试听不等同于开放许可；这些片段不属于本项目原创素材，也不作为可自由复用的素材包发布。站内仅在用户点击对应控件后播放，取消喜欢或点击其他语音入口会停止当前播放。
+
+## AILearning 配图
+
+`public/files/ailearning/` 保存教材仓库中的图解与动画，未改变图像内容。原作者、外部图的许可及来源见 `content/collections/ailearning/assets/external/README.md`；对应许可文件随图片发布。导入清单记录来源版本，图片使用本站路径加载，不依赖第三方图床。

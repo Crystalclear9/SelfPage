@@ -1,0 +1,270 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:ns4="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="1008pt" height="597.6pt" viewBox="0 0 1008 597.6" version="1.1">
+ <title>同一条件分布在不同损失下有不同最优点</title>
+ <metadata>
+  <rdf:RDF>
+   <ns2:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title>同一条件分布在不同损失下有不同最优点</dc:title>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <ns2:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </ns2:Agent>
+    </dc:creator>
+   </ns2:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 597.6 L 1008 597.6 L 1008 0 L 0 0 z " style="fill: white" />
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 90.72 484.056 L 685.44 484.056 L 685.44 125.496 L 90.72 125.496 z " style="fill: #ffffff" />
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="md1ba2fa1f9" d="M 0 0 L 0 3.5 " style="stroke: #365669; stroke-width: 0.8" />
+      </defs>
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="90.72" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="90.72" y="499.849125" transform="rotate(-0 90.72 499.849125)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="189.84" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="189.84" y="499.849125" transform="rotate(-0 189.84 499.849125)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="288.96" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="288.96" y="499.849125" transform="rotate(-0 288.96 499.849125)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="388.08" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="388.08" y="499.849125" transform="rotate(-0 388.08 499.849125)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="487.2" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="487.2" y="499.849125" transform="rotate(-0 487.2 499.849125)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="586.32" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="586.32" y="499.849125" transform="rotate(-0 586.32 499.849125)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use ns4:href="#md1ba2fa1f9" x="685.44" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #365669" x="685.44" y="499.849125" transform="rotate(-0 685.44 499.849125)">6</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="388.08" y="516.176156" transform="rotate(-0 388.08 516.176156)">预测值 a</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_8">
+      <path d="M 90.72 484.056 L 685.44 484.056 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #dbe4ec; stroke-width: 0.8; stroke-linecap: square" />
+     </g>
+     <g id="line2d_9">
+      <defs>
+       <path id="m31df9b6c4d" d="M 0 0 L -3.5 0 " style="stroke: #365669; stroke-width: 0.8" />
+      </defs>
+      <g>
+       <use ns4:href="#m31df9b6c4d" x="90.72" y="484.056" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #365669" x="83.72" y="488.452562" transform="rotate(-0 83.72 488.452562)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_10">
+      <path d="M 90.72 412.344 L 685.44 412.344 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #dbe4ec; stroke-width: 0.8; stroke-linecap: square" />
+     </g>
+     <g id="line2d_11">
+      <g>
+       <use ns4:href="#m31df9b6c4d" x="90.72" y="412.344" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #365669" x="83.72" y="416.740563" transform="rotate(-0 83.72 416.740563)">5</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_12">
+      <path d="M 90.72 340.632 L 685.44 340.632 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #dbe4ec; stroke-width: 0.8; stroke-linecap: square" />
+     </g>
+     <g id="line2d_13">
+      <g>
+       <use ns4:href="#m31df9b6c4d" x="90.72" y="340.632" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #365669" x="83.72" y="345.028562" transform="rotate(-0 83.72 345.028562)">10</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_14">
+      <path d="M 90.72 268.92 L 685.44 268.92 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #dbe4ec; stroke-width: 0.8; stroke-linecap: square" />
+     </g>
+     <g id="line2d_15">
+      <g>
+       <use ns4:href="#m31df9b6c4d" x="90.72" y="268.92" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #365669" x="83.72" y="273.316562" transform="rotate(-0 83.72 273.316562)">15</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_16">
+      <path d="M 90.72 197.208 L 685.44 197.208 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #dbe4ec; stroke-width: 0.8; stroke-linecap: square" />
+     </g>
+     <g id="line2d_17">
+      <g>
+       <use ns4:href="#m31df9b6c4d" x="90.72" y="197.208" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #365669" x="83.72" y="201.604562" transform="rotate(-0 83.72 201.604562)">20</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_18">
+      <path d="M 90.72 125.496 L 685.44 125.496 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #dbe4ec; stroke-width: 0.8; stroke-linecap: square" />
+     </g>
+     <g id="line2d_19">
+      <g>
+       <use ns4:href="#m31df9b6c4d" x="90.72" y="125.496" style="fill: #365669; stroke: #365669; stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #365669" x="83.72" y="129.892562" transform="rotate(-0 83.72 129.892562)">25</text>
+     </g>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="63.835938" y="304.776" transform="rotate(-90 63.835938 304.776)">各自定义下的期望损失</text>
+    </g>
+   </g>
+   <g id="line2d_20">
+    <path d="M 90.72 311.9472 L 100.3842 317.404394 L 110.0484 322.588902 L 118.9692 327.132575 L 127.89 331.4439 L 136.8108 335.522879 L 145.7316 339.36951 L 154.6524 342.983795 L 163.5732 346.365733 L 172.494 349.515324 L 181.4148 352.432568 L 190.3356 355.117465 L 199.2564 357.570016 L 208.1772 359.790219 L 217.098 361.778076 L 226.0188 363.533586 L 234.9396 365.056749 L 243.8604 366.347565 L 252.7812 367.406034 L 261.702 368.232156 L 270.6228 368.825931 L 279.5436 369.18736 L 288.4644 369.316441 L 297.3852 369.213176 L 306.306 368.877564 L 315.2268 368.309605 L 324.1476 367.509299 L 333.0684 366.476646 L 341.9892 365.211647 L 350.91 363.7143 L 359.8308 361.984607 L 368.7516 360.022566 L 377.6724 357.828179 L 386.5932 355.401445 L 395.514 352.742364 L 404.4348 349.850936 L 413.3556 346.727161 L 422.2764 343.37104 L 431.1972 339.782571 L 440.118 335.961756 L 449.0388 331.908594 L 457.9596 327.623085 L 466.8804 323.105229 L 475.8012 318.355026 L 485.4654 312.946776 L 495.1296 307.265841 L 504.7938 301.312221 L 514.458 295.085916 L 524.1222 288.586926 L 533.7864 281.815252 L 543.4506 274.770892 L 553.1148 267.453848 L 562.779 259.864119 L 572.4432 252.001705 L 582.1074 243.866606 L 591.7716 235.458822 L 602.1792 226.099331 L 612.5868 216.423589 L 622.9944 206.431597 L 633.402 196.123356 L 643.8096 185.498865 L 654.2172 174.558123 L 664.6248 163.301132 L 675.0324 151.727891 L 685.44 139.8384 L 685.44 139.8384 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #087f82; stroke-width: 2.4; stroke-linecap: square" />
+   </g>
+   <g id="line2d_21">
+    <path d="M 90.72 455.3712 L 685.44 426.6864 L 685.44 426.6864 " clip-path="url(#p73349cc0a8)" style="fill: none; stroke: #de873e; stroke-width: 2.4; stroke-linecap: square" />
+   </g>
+   <g id="patch_3">
+    <path d="M 90.72 484.056 L 90.72 125.496 " style="fill: none; stroke: #9cafbd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </g>
+   <g id="patch_4">
+    <path d="M 90.72 484.056 L 685.44 484.056 " style="fill: none; stroke: #9cafbd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #183449" x="294.96" y="359.3168" transform="rotate(-0 294.96 359.3168)">(2, 8)</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #183449" x="96.72" y="445.3712" transform="rotate(-0 96.72 445.3712)">(0, 2)</text>
+   </g>
+   <g id="legend_1" transform="translate(0 -22)">
+    <g id="line2d_22">
+     <path d="M 99.72 562.09055 L 109.72 562.09055 L 119.72 562.09055 " style="fill: none; stroke: #087f82; stroke-width: 2.4; stroke-linecap: square" />
+    </g>
+    <g id="text_18">
+     <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start" x="127.72" y="565.59055" transform="rotate(-0 127.72 565.59055)">平方损失</text>
+    </g>
+    <g id="line2d_23">
+     <path d="M 187.72 562.09055 L 197.72 562.09055 L 207.72 562.09055 " style="fill: none; stroke: #de873e; stroke-width: 2.4; stroke-linecap: square" />
+    </g>
+    <g id="text_19">
+     <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start" x="215.72" y="565.59055" transform="rotate(-0 215.72 565.59055)">绝对损失</text>
+    </g>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="mc865835be6" d="M 0 3.708099 C 0.983399 3.708099 1.926654 3.317391 2.622022 2.622022 C 3.317391 1.926654 3.708099 0.983399 3.708099 0 C 3.708099 -0.983399 3.317391 -1.926654 2.622022 -2.622022 C 1.926654 -3.317391 0.983399 -3.708099 0 -3.708099 C -0.983399 -3.708099 -1.926654 -3.317391 -2.622022 -2.622022 C -3.317391 -1.926654 -3.708099 -0.983399 -3.708099 0 C -3.708099 0.983399 -3.317391 1.926654 -2.622022 2.622022 C -1.926654 3.317391 -0.983399 3.708099 0 3.708099 z " style="stroke: #ffffff" />
+    </defs>
+    <g clip-path="url(#p73349cc0a8)">
+     <use ns4:href="#mc865835be6" x="288.96" y="369.3168" style="fill: #183449; stroke: #ffffff" />
+    </g>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#p73349cc0a8)">
+     <use ns4:href="#mc865835be6" x="90.72" y="455.3712" style="fill: #183449; stroke: #ffffff" />
+    </g>
+   </g>
+  </g>
+  <g id="patch_5">
+   <path d="M 740.88 478.08 L 972.72 478.08 L 972.72 119.52 L 740.88 119.52 z " style="fill: #e8f2f4" />
+  </g>
+  <g id="text_20">
+   <text style="font-weight: 700; font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #183449" x="65.52" y="41.832" transform="rotate(-0 65.52 41.832)">同一条件分布在不同损失下有不同最优点</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #577184" x="65.52" y="74.7" transform="rotate(-0 65.52 74.7)">解析关系与明确条件 · 数值坐标按真实间距绘制</text>
+  </g>
+  <g id="text_22">
+   <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #087f82" x="761.04" y="146.412" transform="rotate(-0 761.04 146.412)">固定条件分布</text>
+  </g>
+  <g id="text_23">
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 182.496813)">Y=0：概率三分之二</text>
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 202.821984)">Y=6：概率三分之一</text>
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 223.147156)" />
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 243.472328)">平方损失：最优 a=2</text>
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 263.7975)">绝对损失：最优 a=0</text>
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 284.122672)" />
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 304.447844)">两种损失单位不同，</text>
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 324.773016)">应比较各自最优位置，</text>
+   <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; fill: #284b5e" transform="translate(761.04 345.098187)">不能跨曲线比较高低。</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #577184" x="65.52" y="584.708" transform="rotate(-0 65.52 584.708)">本地原创科学插图 · 构造数据或解析关系；结论范围由图中假设和正文共同限定。</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p73349cc0a8">
+   <rect x="90.72" y="125.496" width="594.72" height="358.56" />
+  </clipPath>
+ </defs>
+</svg>

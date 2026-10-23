@@ -1,5 +1,6 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
+import { projects } from '../src/data/site.js';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
@@ -7,7 +8,7 @@ try {
   const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });
   const page = await context.newPage(); const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'projects/sandboxsim/', 'articles/', 'papers/', 'papers/k-gat/']) {
+  for (const route of [...projects.map(p => `projects/${p.id}/`), 'articles/', 'papers/', 'papers/k-gat/']) {
    const response = await page.goto(base + route); assert.equal(response.status(), 200);
    await page.reload(); await page.locator('h1').waitFor();
    assert.equal(await page.locator('h1').count(), 1);
@@ -45,5 +46,5 @@ try {
  await page.screenshot({ path: '.local/reports/writing-section.png' });
  await page.goto(base + 'projects/autellix/');
  await page.screenshot({ path: '.local/reports/project-page.png', fullPage: true });
- console.log('All 8 detail/index routes: direct load, refresh, no-JS, mobile overflow, paper links and reading cursor passed.');
+ console.log('All project/detail/index routes: direct load, refresh, no-JS, mobile overflow, paper links and reading cursor passed.');
 } finally { await browser.close(); }

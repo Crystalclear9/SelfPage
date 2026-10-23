@@ -14,7 +14,7 @@ try {
     assert.equal(await page.locator('.entry-row').count(), 1);
     await page.locator('.entry-row', { hasText: 'AILearning' }).click();
     await page.waitForURL(base + 'articles/ailearning/');
-    assert.equal(await page.locator('.learning-row').count(), 12);
+    assert.equal(await page.locator('.learning-row').count(), 13);
     assert.equal(await page.locator('.learning-notes').getAttribute('open'), null);
     assert.equal(await page.locator('.learning-meta').count(), 0);
     assert.equal(await page.locator('.learning-row span').count(), 0);

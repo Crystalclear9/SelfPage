@@ -10,18 +10,20 @@ const categories = ['Mathematics', 'Programming', 'ComputerScience', 'MachineLea
 const guides = { '学习路线.md': 'learning-path', '内容范围与掌握标准.md': 'scope', '运行环境.md': 'environment', '术语与符号.md': 'glossary' };
 const slug = value => value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 const files = [];
+const images = [];
 function scan(directory, relative = '') {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
     if (entry.name.startsWith('.')) continue;
     const file = path.posix.join(relative, entry.name);
     if (entry.isDirectory()) scan(path.join(directory, entry.name), file);
     else if (entry.isFile() && entry.name.endsWith('.md')) files.push(file);
+    else if (entry.isFile() && /\.(svg|png|jpg|jpeg|gif|webp|txt)$/i.test(file)) images.push(file);
   }
 }
 scan(root);
 const pages = files.sort().map(file => {
   const parts = file.split('/');
-  if (parts.length > 1 && !categories.includes(parts[0])) throw new Error(`Unknown category: ${file}`);
+  if (parts.length > 1 && !categories.includes(parts[0]) && file !== 'assets/external/README.md') throw new Error(`Unknown category: ${file}`);
   const markdown = readFileSync(path.join(root, file), 'utf8');
   const title = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim();
   if (!title) throw new Error(`Missing title: ${file}`);
@@ -38,11 +40,12 @@ const pages = files.sort().map(file => {
       segments.push(`chapter-${number}`);
     }
   }
+  if (file === 'assets/external/README.md') segments = ['guides', 'image-sources'];
   const route = `/articles/ailearning/${segments.length ? segments.join('/') + '/' : ''}`;
-  const parentFile = isIndex ? (directory.length ? [...directory.slice(0, -1), 'README.md'].join('/') : null)
+  const parentFile = file === 'assets/external/README.md' ? 'README.md' : isIndex ? (directory.length ? [...directory.slice(0, -1), 'README.md'].join('/') : null)
     : [...directory, 'README.md'].join('/');
   return { file, route, title: file === 'README.md' ? 'AILearning' : title, parentFile,
-    kind: file === 'README.md' ? 'collection' : isIndex ? (parts.length === 2 ? 'category' : 'topic') : parts.length === 1 ? 'guide' : 'chapter' };
+    kind: file === 'assets/external/README.md' ? 'guide' : file === 'README.md' ? 'collection' : isIndex ? (parts.length === 2 ? 'category' : 'topic') : parts.length === 1 ? 'guide' : 'chapter' };
 });
 if (new Set(pages.map(p => p.route)).size !== pages.length) throw new Error('Duplicate learning routes');
 for (const page of pages) {
@@ -55,14 +58,19 @@ pages.sort((a, b) => {
   const rank = p => p.kind === 'collection' ? -2 : p.kind === 'guide' ? -1 : categories.indexOf(p.file.split('/')[0]);
   return rank(a) - rank(b) || a.file.localeCompare(b.file, 'en');
 });
-// Only Markdown is copied. The sibling checkout, its configuration and Git data stay separate.
+// Copy publishing content only; keep source configuration and Git history separate.
 for (const page of pages) {
   const target = path.join(destination, page.file);
   mkdirSync(path.dirname(target), { recursive: true });
   copyFileSync(path.join(root, page.file), target);
 }
+for (const image of images) {
+ const target = path.resolve('public/files/ailearning', image);
+ mkdirSync(path.dirname(target), { recursive: true });
+ copyFileSync(path.join(root, image), target);
+}
 let revision = null;
 try { revision = execFileSync('git', ['-C', root, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(); } catch { /* Local folders need not be repositories. */ }
-const manifest = { source: 'https://github.com/Crystalclear9/AILearning', revision, pages };
+const manifest = { source: 'https://github.com/Crystalclear9/AILearning', revision, images, pages };
 writeFileSync(path.join(destination, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Imported ${pages.length} Markdown pages: ${pages.filter(p => p.kind === 'chapter').length} chapters. Review the diff before publishing.`);
