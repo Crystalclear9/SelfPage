@@ -81,8 +81,8 @@ export const projects = [
     "repository": "Autellix",
     "category": "系统研究",
     "icon": "layers",
-    "subtitle": "程序感知调度：从论文到实现。",
-    "description": "对 Autellix 论文的非官方独立复现尝试，实现程序感知调度，并适配 vLLM 与 SGLang。仓库记录了小模型功能验证；核心方法实现不等同于原作者代码、相同 CUDA 实现或论文性能复现。",
+    "subtitle": "面向智能体程序的推理调度复现。",
+    "description": "基于 Autellix 论文的非官方独立复现项目，结合程序历史与调用关系安排推理请求。通过调度策略、后端适配和独立模拟，探索智能体程序的执行过程，也便于对照论文理解实现。",
     "tags": [
       "Python",
       "vLLM",
@@ -116,8 +116,8 @@ export const projects = [
     "repository": "TimePredictModel",
     "category": "系统研究",
     "icon": "clock",
-    "subtitle": "工具回返时间的采集、AFT 建模与条件预测。",
-    "description": "独立的工具回返时间预测插件，串联事件采集、关联、特征转换、XGBoost AFT 训练和模型验收发布。从生存分布计算条件剩余时间与窗口概率，为外部调度模块提供接口；生产环境仍需单独验收。",
+    "subtitle": "面向工具回返时间的建模与预测。",
+    "description": "基于 XGBoost AFT 的工具回返时间预测插件，从调用事件中构建样本，再训练生存模型。通过条件剩余时间与窗口概率，为外部调度提供时间信息，也便于检查数据与预测结果。",
     "tags": [
       "Python",
       "XGBoost",

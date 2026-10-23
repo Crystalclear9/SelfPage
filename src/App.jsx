@@ -146,7 +146,7 @@ export default function App({ path = '/', learningHtml = '' }) {
         <div className="project-grid" ref={gridRef} aria-live="polite">
           {projects.filter(p => filter === '全部' || p.category === filter).map(p => {
             const Icon = projectIcons[p.icon] || Code;
-            return <div className="project-reveal" data-module="project-card" key={p.id}><article className={`project-card ${p.category === '应用' ? 'application-card' : 'research-card'}`} key={p.id}>
+            return <div className="project-reveal" data-module="project-card" key={p.id}><article className="project-card" key={p.id}>
               <div className="project-top"><Icon size={31} weight="light" aria-hidden="true" /><span>{p.category}</span></div>
               <h3 style={{ viewTransitionName: `project-${p.id}` }}><a href={href(`/projects/${p.id}/`)} data-cursor="read">{p.title}</a></h3>
               <p className="project-subtitle">{p.subtitle}</p>
