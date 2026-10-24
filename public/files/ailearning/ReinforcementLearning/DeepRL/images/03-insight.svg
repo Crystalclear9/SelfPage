@@ -1,238 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:ns4="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="1200" height="760" viewBox="0 0 864 547.2" version="1.1">
- <metadata>
-  <rdf:RDF>
-   <ns2:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:date>2026-10-23T10:14:32.477043</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <ns2:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
-     </ns2:Agent>
-    </dc:creator>
-   </ns2:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 547.2 L 864 547.2 L 864 0 L 0 0 z " style="fill: white" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="835" viewBox="0 0 1200 835" role="img" aria-labelledby="title desc">
+  <title id="title">最大值偏差：选到正噪声，再用同一噪声评价</title>
+  <desc id="desc">穷举两动作的独立正负一噪声，最大值均值为0.5；独立零均值的评价器读取被选动作时，均值为零。</desc>
+  <rect width="1200" height="835" fill="white" />
+  <defs>
+    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+    </marker>
+    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+    </marker>
+  </defs>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">最大值偏差：选到正噪声，再用同一噪声评价</text>
+    <text x="35" y="100" font-size="25" fill="#213447" font-weight="400" text-anchor="start">两个动作真值都为 0；各自误差独立取 ±1，四种情况等概率</text>
+    <text x="165" y="130" font-size="25" fill="#213447" font-weight="600" text-anchor="middle">情况 1</text>
+    <line x1="80" y1="247" x2="275" y2="247" stroke="#cad7e2" stroke-width="1.5" />
+    <line x1="115" y1="247" x2="115" y2="192" stroke="#2865a0" stroke-width="3" />
+    <circle cx="115" cy="192" r="9" fill="#2865a0" />
+    <circle cx="115" cy="192" r="17" fill="none" stroke="#cf7432" stroke-width="3" />
+    <text x="115" y="167" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">+1</text>
+    <text x="115" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 1</text>
+    <line x1="235" y1="247" x2="235" y2="192" stroke="#2865a0" stroke-width="3" />
+    <circle cx="235" cy="192" r="9" fill="#2865a0" />
+    <text x="235" y="167" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">+1</text>
+    <text x="235" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 2</text>
+    <text x="165" y="386" font-size="26" fill="#cf7432" font-weight="600" text-anchor="middle">同网读值 +1</text>
+    <text x="460" y="130" font-size="25" fill="#213447" font-weight="600" text-anchor="middle">情况 2</text>
+    <line x1="375" y1="247" x2="570" y2="247" stroke="#cad7e2" stroke-width="1.5" />
+    <line x1="410" y1="247" x2="410" y2="192" stroke="#2865a0" stroke-width="3" />
+    <circle cx="410" cy="192" r="9" fill="#2865a0" />
+    <circle cx="410" cy="192" r="17" fill="none" stroke="#cf7432" stroke-width="3" />
+    <text x="410" y="167" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">+1</text>
+    <text x="410" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 1</text>
+    <line x1="530" y1="247" x2="530" y2="302" stroke="#2865a0" stroke-width="3" />
+    <circle cx="530" cy="302" r="9" fill="#2865a0" />
+    <text x="530" y="277" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
+    <text x="530" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 2</text>
+    <text x="460" y="386" font-size="26" fill="#cf7432" font-weight="600" text-anchor="middle">同网读值 +1</text>
+    <text x="755" y="130" font-size="25" fill="#213447" font-weight="600" text-anchor="middle">情况 3</text>
+    <line x1="670" y1="247" x2="865" y2="247" stroke="#cad7e2" stroke-width="1.5" />
+    <line x1="705" y1="247" x2="705" y2="302" stroke="#2865a0" stroke-width="3" />
+    <circle cx="705" cy="302" r="9" fill="#2865a0" />
+    <text x="705" y="277" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
+    <text x="705" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 1</text>
+    <line x1="825" y1="247" x2="825" y2="192" stroke="#2865a0" stroke-width="3" />
+    <circle cx="825" cy="192" r="9" fill="#2865a0" />
+    <circle cx="825" cy="192" r="17" fill="none" stroke="#cf7432" stroke-width="3" />
+    <text x="825" y="167" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">+1</text>
+    <text x="825" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 2</text>
+    <text x="755" y="386" font-size="26" fill="#cf7432" font-weight="600" text-anchor="middle">同网读值 +1</text>
+    <text x="1050" y="130" font-size="25" fill="#213447" font-weight="600" text-anchor="middle">情况 4</text>
+    <line x1="965" y1="247" x2="1160" y2="247" stroke="#cad7e2" stroke-width="1.5" />
+    <line x1="1000" y1="247" x2="1000" y2="302" stroke="#2865a0" stroke-width="3" />
+    <circle cx="1000" cy="302" r="9" fill="#2865a0" />
+    <circle cx="1000" cy="302" r="17" fill="none" stroke="#cf7432" stroke-width="3" />
+    <text x="1000" y="277" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
+    <text x="1000" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 1</text>
+    <line x1="1120" y1="247" x2="1120" y2="302" stroke="#2865a0" stroke-width="3" />
+    <circle cx="1120" cy="302" r="9" fill="#2865a0" />
+    <text x="1120" y="277" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
+    <text x="1120" y="354" font-size="23" fill="#213447" font-weight="400" text-anchor="middle">动作 2</text>
+    <text x="1050" y="386" font-size="26" fill="#cf7432" font-weight="600" text-anchor="middle">同网读值 -1</text>
+    <text x="35" y="438" font-size="24" fill="#5a6c7d" font-weight="400" text-anchor="start">橙圈：选中的动作；并列时固定选择动作 1</text>
+    <line x1="35" y1="465" x2="1165" y2="465" stroke="#cad7e2" stroke-width="2" />
+    <text x="60" y="510" font-size="25" fill="#213447" font-weight="600" text-anchor="start">同一估计负责选择和评价</text>
+    <line x1="100" y1="715.0" x2="505" y2="715.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="88" y="722.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0</text>
+    <line x1="100" y1="665.0" x2="505" y2="665.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="88" y="672.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0.25</text>
+    <line x1="100" y1="615.0" x2="505" y2="615.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="88" y="622.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0.5</text>
+    <line x1="100" y1="565.0" x2="505" y2="565.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="88" y="572.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0.75</text>
+    <line x1="100" y1="715" x2="505" y2="715" stroke="#5a6c7d" stroke-width="1.4" />
+    <line x1="100" y1="545" x2="100" y2="715" stroke="#5a6c7d" stroke-width="1.4" />
+    <line x1="175.9375" y1="715.0" x2="175.9375" y2="720.0" stroke="#5a6c7d" stroke-width="2" />
+    <text x="175.9375" y="744.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="middle">-1</text>
+    <line x1="429.0625" y1="715.0" x2="429.0625" y2="720.0" stroke="#5a6c7d" stroke-width="2" />
+    <text x="429.0625" y="744.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="middle">1</text>
+    <rect x="144.296875" y="665.0" width="63.28125" height="50.0" fill="#cf7432" />
+    <text x="175.9375" y="655.0" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">0.25</text>
+    <rect x="397.421875" y="565.0" width="63.28125" height="150.0" fill="#cf7432" />
+    <text x="429.0625" y="555.0" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">0.75</text>
+    <text x="505" y="762" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="end">读出的估计值</text>
+    <text x="300" y="818" font-size="27" fill="#cf7432" font-weight="600" text-anchor="middle">期望 = 0.5</text>
+    <text x="650" y="510" font-size="25" fill="#213447" font-weight="600" text-anchor="start">独立、零均值的另一估计负责评价</text>
+    <line x1="690" y1="715.0" x2="1095" y2="715.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="678" y="722.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0</text>
+    <line x1="690" y1="665.0" x2="1095" y2="665.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="678" y="672.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0.25</text>
+    <line x1="690" y1="615.0" x2="1095" y2="615.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="678" y="622.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0.5</text>
+    <line x1="690" y1="565.0" x2="1095" y2="565.0" stroke="#cad7e2" stroke-width="1" />
+    <text x="678" y="572.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">0.75</text>
+    <line x1="690" y1="715" x2="1095" y2="715" stroke="#5a6c7d" stroke-width="1.4" />
+    <line x1="690" y1="545" x2="690" y2="715" stroke="#5a6c7d" stroke-width="1.4" />
+    <line x1="765.9375" y1="715.0" x2="765.9375" y2="720.0" stroke="#5a6c7d" stroke-width="2" />
+    <text x="765.9375" y="744.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="middle">-1</text>
+    <line x1="1019.0625" y1="715.0" x2="1019.0625" y2="720.0" stroke="#5a6c7d" stroke-width="2" />
+    <text x="1019.0625" y="744.0" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="middle">1</text>
+    <rect x="734.296875" y="615.0" width="63.28125" height="100.0" fill="#2865a0" />
+    <text x="765.9375" y="605.0" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">0.5</text>
+    <rect x="987.421875" y="615.0" width="63.28125" height="100.0" fill="#2865a0" />
+    <text x="1019.0625" y="605.0" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">0.5</text>
+    <text x="1095" y="762" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="end">读出的估计值</text>
+    <text x="890" y="818" font-size="27" fill="#2865a0" font-weight="600" text-anchor="middle">期望 = 0</text>
   </g>
-  <g id="patch_2">
-   <path d="M 695.52 388.512 L 833.76 388.512 L 833.76 125.856 L 695.52 125.856 z " style="fill: #e5f2f4; stroke: #e5f2f4; stroke-linejoin: miter" />
-  </g>
-  <g id="axes_1">
-   <g id="patch_3">
-    <path d="M 95.04 421.344 L 656.64 421.344 L 656.64 120.384 L 95.04 120.384 z " style="fill: #ffffff" />
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <defs>
-       <path id="m17b5ce6d6d" d="M 0 0 L 0 3.5 " style="stroke: #496579; stroke-width: 0.8" />
-      </defs>
-      <g>
-       <use ns4:href="#m17b5ce6d6d" x="120.567273" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_1">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="120.567273" y="438.735875" transform="rotate(-0 120.567273 438.735875)">1</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use ns4:href="#m17b5ce6d6d" x="248.203636" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_2">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="248.203636" y="438.735875" transform="rotate(-0 248.203636 438.735875)">2</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3">
-      <g>
-       <use ns4:href="#m17b5ce6d6d" x="375.84" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_3">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="375.84" y="438.735875" transform="rotate(-0 375.84 438.735875)">3</text>
-     </g>
-    </g>
-    <g id="xtick_4">
-     <g id="line2d_4">
-      <g>
-       <use ns4:href="#m17b5ce6d6d" x="503.476364" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_4">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="503.476364" y="438.735875" transform="rotate(-0 503.476364 438.735875)">4</text>
-     </g>
-    </g>
-    <g id="xtick_5">
-     <g id="line2d_5">
-      <g>
-       <use ns4:href="#m17b5ce6d6d" x="631.112727" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_5">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="631.112727" y="438.735875" transform="rotate(-0 631.112727 438.735875)">5</text>
-     </g>
-    </g>
-    <g id="text_6">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.84" y="466.757594" transform="rotate(-0 375.84 466.757594)">零真值动作个数 M</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_6">
-      <path d="M 95.04 407.664 L 656.64 407.664 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_7">
-      <defs>
-       <path id="md9e7c94c0b" d="M 0 0 L -3.5 0 " style="stroke: #496579; stroke-width: 0.8" />
-      </defs>
-      <g>
-       <use ns4:href="#md9e7c94c0b" x="95.04" y="407.664" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_7">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="412.859937" transform="rotate(-0 88.04 412.859937)">0.0</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_8">
-      <path d="M 95.04 349.296 L 656.64 349.296 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_9">
-      <g>
-       <use ns4:href="#md9e7c94c0b" x="95.04" y="349.296" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_8">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="354.491937" transform="rotate(-0 88.04 354.491937)">0.2</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_10">
-      <path d="M 95.04 290.928 L 656.64 290.928 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_11">
-      <g>
-       <use ns4:href="#md9e7c94c0b" x="95.04" y="290.928" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_9">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="296.123937" transform="rotate(-0 88.04 296.123937)">0.4</text>
-     </g>
-    </g>
-    <g id="ytick_4">
-     <g id="line2d_12">
-      <path d="M 95.04 232.56 L 656.64 232.56 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_13">
-      <g>
-       <use ns4:href="#md9e7c94c0b" x="95.04" y="232.56" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_10">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="237.755937" transform="rotate(-0 88.04 237.755937)">0.6</text>
-     </g>
-    </g>
-    <g id="ytick_5">
-     <g id="line2d_14">
-      <path d="M 95.04 174.192 L 656.64 174.192 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_15">
-      <g>
-       <use ns4:href="#md9e7c94c0b" x="95.04" y="174.192" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_11">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="179.387937" transform="rotate(-0 88.04 179.387937)">0.8</text>
-     </g>
-    </g>
-   </g>
-   <g id="patch_4">
-    <path d="M 95.04 421.344 L 95.04 120.384 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="patch_5">
-    <path d="M 95.04 421.344 L 656.64 421.344 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="line2d_16">
-    <path d="M 120.567273 407.664 L 248.203636 261.744 L 375.84 188.784 L 503.476364 152.304 L 631.112727 134.064 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #079b91; stroke-width: 3; stroke-linecap: square" />
-    <defs>
-     <path id="mdcc5ff8286" d="M 0 3 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 C 2.683901 1.55874 3 0.795609 3 0 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 C 1.55874 -2.683901 0.795609 -3 0 -3 C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 C -2.683901 -1.55874 -3 -0.795609 -3 0 C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 C -1.55874 2.683901 -0.795609 3 0 3 z " style="stroke: #079b91" />
-    </defs>
-    <g clip-path="url(#pfcec60ce15)">
-     <use ns4:href="#mdcc5ff8286" x="120.567273" y="407.664" style="fill: #079b91; stroke: #079b91" />
-     <use ns4:href="#mdcc5ff8286" x="248.203636" y="261.744" style="fill: #079b91; stroke: #079b91" />
-     <use ns4:href="#mdcc5ff8286" x="375.84" y="188.784" style="fill: #079b91; stroke: #079b91" />
-     <use ns4:href="#mdcc5ff8286" x="503.476364" y="152.304" style="fill: #079b91; stroke: #079b91" />
-     <use ns4:href="#mdcc5ff8286" x="631.112727" y="134.064" style="fill: #079b91; stroke: #079b91" />
-    </g>
-   </g>
-   <g id="line2d_17">
-    <path d="M 120.567273 407.664 L 248.203636 407.664 L 375.84 407.664 L 503.476364 407.664 L 631.112727 407.664 " clip-path="url(#pfcec60ce15)" style="fill: none; stroke: #ef8b3a; stroke-width: 3; stroke-linecap: square" />
-    <defs>
-     <path id="m1f453f8dc3" d="M 0 3 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 C 2.683901 1.55874 3 0.795609 3 0 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 C 1.55874 -2.683901 0.795609 -3 0 -3 C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 C -2.683901 -1.55874 -3 -0.795609 -3 0 C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 C -1.55874 2.683901 -0.795609 3 0 3 z " style="stroke: #ef8b3a" />
-    </defs>
-    <g clip-path="url(#pfcec60ce15)">
-     <use ns4:href="#m1f453f8dc3" x="120.567273" y="407.664" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     <use ns4:href="#m1f453f8dc3" x="248.203636" y="407.664" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     <use ns4:href="#m1f453f8dc3" x="375.84" y="407.664" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     <use ns4:href="#m1f453f8dc3" x="503.476364" y="407.664" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     <use ns4:href="#m1f453f8dc3" x="631.112727" y="407.664" style="fill: #ef8b3a; stroke: #ef8b3a" />
-    </g>
-   </g>
-   <g id="text_12">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #37576d" x="95.04" y="106.384" transform="rotate(-0 95.04 106.384)">所选动作的期望估计值</text>
-   </g>
-   <g id="legend_1">
-    <g id="line2d_18">
-     <path d="M 88.992 488.6997 L 100.992 488.6997 L 112.992 488.6997 " style="fill: none; stroke: #079b91; stroke-width: 3; stroke-linecap: square" />
-     <g>
-      <use ns4:href="#mdcc5ff8286" x="100.992" y="488.6997" style="fill: #079b91; stroke: #079b91" />
-     </g>
-    </g>
-    <g id="text_13">
-     <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #294c62" x="122.592" y="492.8997" transform="rotate(-0 122.592 492.8997)">普通最大估计</text>
-    </g>
-    <g id="line2d_19">
-     <path d="M 218.592 488.6997 L 230.592 488.6997 L 242.592 488.6997 " style="fill: none; stroke: #ef8b3a; stroke-width: 3; stroke-linecap: square" />
-     <g>
-      <use ns4:href="#m1f453f8dc3" x="230.592" y="488.6997" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     </g>
-    </g>
-    <g id="text_14">
-     <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #294c62" x="252.192" y="492.8997" transform="rotate(-0 252.192 492.8997)">独立评价噪声的Double参照</text>
-    </g>
-   </g>
-  </g>
-  <g id="text_15">
-   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #17344f" x="38.88" y="35.568" transform="rotate(-0 38.88 35.568)">对同一噪声集合取最大值会产生选择偏差</text>
-  </g>
-  <g id="text_16">
-   <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #627d91" x="39.744" y="68.4" transform="rotate(-0 39.744 68.4)">机制图解  /  依照正文设定核对参数、数据与边界</text>
-  </g>
-  <g id="text_17">
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #087b78" x="712.8" y="153.216" transform="rotate(-0 712.8 153.216)">读图要点</text>
-  </g>
-  <g id="text_18">
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 195.302625)">两个同真值动作</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 219.415594)">：最大估计期望</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 243.528562)">0.5，独立评价</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 267.641531)">期望0。</text>
-  </g>
-  <g id="text_19">
-   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #648094" x="38.88" y="528.048" transform="rotate(-0 38.88 528.048)">本地原创矢量图 · 构造或解析数据，非未声明的实验结果 · 适用条件见正文</text>
-  </g>
- </g>
- <defs>
-  <clipPath id="pfcec60ce15">
-   <rect x="95.04" y="120.384" width="561.6" height="300.96" />
-  </clipPath>
- </defs>
 </svg>

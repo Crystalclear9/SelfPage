@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img"><title>范数下界分支：输出不在单位圆上，梯度也不同</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#245f98"/></marker></defs><rect width="1400" height="760" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<text x="44" y="58" font-size="34" fill="#18324a" text-anchor="start" font-weight="bold">范数下界分支：输出不在单位圆上，梯度也不同</text>
+<line x1="44" y1="85" x2="1356" y2="85" stroke="#dce5ed" stroke-width="2"/>
+<text x="235" y="140" font-size="28" fill="#18324a" text-anchor="middle" font-weight="normal">a=(0.3,0.4)，r=0.5</text>
+<text x="710" y="140" font-size="28" fill="#18324a" text-anchor="middle" font-weight="normal">理想单位归一化</text>
+<text x="1170" y="140" font-size="28" fill="#18324a" text-anchor="middle" font-weight="normal">ε=1 的截断分支</text>
+<circle cx="235" cy="405" r="145" fill="white" stroke="#dce5ed" stroke-width="2"/>
+<line x1="70" y1="405" x2="400" y2="405" stroke="#62778a" stroke-width="2"/>
+<line x1="235" y1="570" x2="235" y2="240" stroke="#62778a" stroke-width="2"/>
+<circle cx="710" cy="405" r="145" fill="white" stroke="#dce5ed" stroke-width="2"/>
+<line x1="545" y1="405" x2="875" y2="405" stroke="#62778a" stroke-width="2"/>
+<line x1="710" y1="570" x2="710" y2="240" stroke="#62778a" stroke-width="2"/>
+<circle cx="1170" cy="405" r="145" fill="white" stroke="#dce5ed" stroke-width="2"/>
+<line x1="1005" y1="405" x2="1335" y2="405" stroke="#62778a" stroke-width="2"/>
+<line x1="1170" y1="570" x2="1170" y2="240" stroke="#62778a" stroke-width="2"/>
+<line x1="235" y1="405" x2="278.5" y2="347.0" stroke="#245f98" stroke-width="5" marker-end="url(#arrow)"/>
+<circle cx="278.5" cy="347.0" r="7" fill="#245f98" stroke="#245f98" stroke-width="2"/>
+<text x="235" y="645" font-size="28" fill="#245f98" text-anchor="middle" font-weight="normal">原始范数 0.5</text>
+<line x1="710" y1="405" x2="797.0" y2="289.0" stroke="#c76b25" stroke-width="5" marker-end="url(#arrow)"/>
+<circle cx="797.0" cy="289.0" r="7" fill="#c76b25" stroke="#c76b25" stroke-width="2"/>
+<text x="710" y="610" font-size="26" fill="#c76b25" text-anchor="middle" font-weight="normal">输出 (0.6,0.8)</text>
+<text x="710" y="665" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">梯度 (1.28,−0.96)</text>
+<line x1="1170" y1="405" x2="1213.5" y2="347.0" stroke="#245f98" stroke-width="5" marker-end="url(#arrow)"/>
+<circle cx="1213.5" cy="347.0" r="7" fill="#245f98" stroke="#245f98" stroke-width="2"/>
+<text x="1170" y="610" font-size="26" fill="#245f98" text-anchor="middle" font-weight="normal">输出 (0.3,0.4)</text>
+<text x="1170" y="665" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">梯度 (1,0)</text>
+<text x="700" y="730" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">梯度均针对“第一个输出坐标”；不同分支对应不同局部算子。</text></g></svg>

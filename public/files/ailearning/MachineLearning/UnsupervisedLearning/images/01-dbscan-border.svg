@@ -1,1 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="760" viewBox="0 0 1080 760" role="img"><title>DBSCAN：共享边界点为什么不能把两个簇粘起来</title><desc>样本为正负1、1.1、1.2、1.3及0，闭球半径1，最低计数4含自身；0为共享边界点。</desc><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif"><rect x="0" y="0" width="1080" height="760" rx="5" fill="white" /><rect x="24" y="94" width="1032" height="632" rx="5" fill="white" /><text x="42" y="49" font-size="29" fill="#17364c" text-anchor="start">DBSCAN：共享边界点为什么不能把两个簇粘起来</text><text x="50" y="136" font-size="23" fill="#17364c" text-anchor="start">A  一维样本：ε = 1，min_samples = 4（计入自身）</text><path d="M280,235 L280,252" stroke="#c6d5df" stroke-width="2" fill="none" /><text x="280" y="283" font-size="20" fill="#17364c" text-anchor="middle">-1</text><path d="M540,235 L540,252" stroke="#c6d5df" stroke-width="2" fill="none" /><text x="540" y="283" font-size="20" fill="#17364c" text-anchor="middle">0</text><path d="M800,235 L800,252" stroke="#c6d5df" stroke-width="2" fill="none" /><text x="800" y="283" font-size="20" fill="#17364c" text-anchor="middle">1</text><path d="M150,240 L930,240" stroke="#c6d5df" stroke-width="2" fill="none" /><circle cx="202.0" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="228.0" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="254.0" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="280" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="800" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="826.0" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="852.0" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="878.0" cy="240" r="9" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="540" cy="240" r="11" fill="#dc7935" stroke="white" stroke-width="2" /><text x="170" y="194" font-size="20" fill="#078c83" text-anchor="start">左侧 4 个核心点</text><text x="695" y="194" font-size="20" fill="#078c83" text-anchor="start">右侧 4 个核心点</text><text x="540" y="322" font-size="21" fill="#dc7935" text-anchor="middle">0 的邻域仅有 −1、0、1：计数 3</text><path d="M280,240 L540,240" stroke="#dc7935" stroke-width="3" fill="none" stroke-dasharray="6 5" /><path d="M540,240 L800,240" stroke="#dc7935" stroke-width="3" fill="none" stroke-dasharray="6 5" /><text x="50" y="404" font-size="23" fill="#17364c" text-anchor="start">B  只在核心点之间建连通关系</text><path d="M205,515 L205,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M205,515 L250,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M205,515 L295,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M205,515 L250,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,475 L205,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,475 L250,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,475 L295,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,475 L250,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M295,515 L205,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M295,515 L250,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M295,515 L295,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M295,515 L250,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,555 L205,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,555 L250,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,555 L295,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M250,555 L250,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><circle cx="205" cy="515" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="250" cy="475" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="295" cy="515" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="250" cy="555" r="10" fill="#078c83" stroke="white" stroke-width="2" /><path d="M775,515 L775,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M775,515 L820,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M775,515 L865,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M775,515 L820,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,475 L775,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,475 L820,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,475 L865,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,475 L820,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M865,515 L775,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M865,515 L820,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M865,515 L865,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M865,515 L820,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,555 L775,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,555 L820,475" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,555 L865,515" stroke="#a9d9d4" stroke-width="2" fill="none" /><path d="M820,555 L820,555" stroke="#a9d9d4" stroke-width="2" fill="none" /><circle cx="775" cy="515" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="820" cy="475" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="865" cy="515" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="820" cy="555" r="10" fill="#078c83" stroke="white" stroke-width="2" /><circle cx="540" cy="515" r="11" fill="#dc7935" stroke="white" stroke-width="2" /><path d="M295,515 L529,515" stroke="#dc7935" stroke-width="2" fill="none" stroke-dasharray="7 6" /><path d="M551,515 L775,515" stroke="#dc7935" stroke-width="2" fill="none" stroke-dasharray="7 6" /><text x="540" y="583" font-size="22" fill="#17364c" text-anchor="middle">共享边界点不能传递核心连通</text><text x="50" y="659" font-size="20" fill="#17364c" text-anchor="start">两个核心连通分量保持分离；边界点 0 可分给其中之一，归属取决于遍历规则。</text><text x="50" y="697" font-size="18" fill="#526b7c" text-anchor="start">下图是连接示意，节点间的画布距离不表示原始欧氏距离。</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">DBSCAN：共享边界点不能连接两个核心簇</title>
+  <desc id="desc">上方显示九个样本的真实一维位置和共享边界点的闭邻域，下方仅连接核心点；边界点不合并左右核心簇。</desc>
+  <rect width="1200" height="650" fill="white" />
+  <defs>
+    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+    </marker>
+    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+    </marker>
+  </defs>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">DBSCAN：共享边界点不能连接两个核心簇</text>
+    <text x="35" y="95" font-size="25" fill="#213447" font-weight="400" text-anchor="start">ε = 1；min_samples = 4（计入自身）</text>
+    <rect x="250" y="142" width="700" height="100" fill="#fff0e3" />
+    <line x1="75.0" y1="200" x2="1125.0" y2="200" stroke="#5a6c7d" stroke-width="2" />
+    <circle cx="145.0" cy="200" r="9" fill="#2865a0" />
+    <text x="145.0" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.3</text>
+    <circle cx="180.0" cy="200" r="9" fill="#2865a0" />
+    <text x="180.0" y="165" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.2</text>
+    <circle cx="214.99999999999994" cy="200" r="9" fill="#2865a0" />
+    <text x="214.99999999999994" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.1</text>
+    <circle cx="250.0" cy="200" r="9" fill="#2865a0" />
+    <text x="250.0" y="140" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
+    <circle cx="600.0" cy="200" r="9" fill="#cf7432" />
+    <text x="600.0" y="270" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">0</text>
+    <circle cx="950.0" cy="200" r="9" fill="#2865a0" />
+    <text x="950.0" y="140" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">1</text>
+    <circle cx="985.0" cy="200" r="9" fill="#2865a0" />
+    <text x="985.0" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.1</text>
+    <circle cx="1020.0" cy="200" r="9" fill="#2865a0" />
+    <text x="1020.0" y="165" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.2</text>
+    <circle cx="1055.0" cy="200" r="9" fill="#2865a0" />
+    <text x="1055.0" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.3</text>
+    <text x="600" y="120" font-size="25" fill="#cf7432" font-weight="400" text-anchor="middle">0 的闭邻域：[−1, 1]</text>
+    <text x="600" y="315" font-size="27" fill="#cf7432" font-weight="400" text-anchor="middle">只含 −1、0、1，共 3 点：0 不是核心点</text>
+    <line x1="35" y1="343" x2="1165" y2="343" stroke="#cad7e2" stroke-width="2" />
+    <text x="35" y="388" font-size="26" fill="#213447" font-weight="400" text-anchor="start">核心点图：仅核心点之间的邻接可传递连通</text>
+    <line x1="310" y1="455" x2="150" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="150" y1="570" x2="150" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="150" y1="570" x2="310" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="310" y1="570" x2="150" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="310" y1="570" x2="310" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="310" y1="570" x2="150" y2="570" stroke="#2865a0" stroke-width="2" />
+    <circle cx="150" cy="455" r="10" fill="#2865a0" />
+    <text x="150" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.3</text>
+    <circle cx="310" cy="455" r="10" fill="#2865a0" />
+    <text x="310" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.2</text>
+    <circle cx="150" cy="570" r="10" fill="#2865a0" />
+    <text x="150" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.1</text>
+    <circle cx="310" cy="570" r="10" fill="#2865a0" />
+    <text x="310" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
+    <line x1="1050" y1="455" x2="890" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="890" y1="570" x2="890" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="890" y1="570" x2="1050" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="1050" y1="570" x2="890" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="1050" y1="570" x2="1050" y2="455" stroke="#2865a0" stroke-width="2" />
+    <line x1="1050" y1="570" x2="890" y2="570" stroke="#2865a0" stroke-width="2" />
+    <circle cx="890" cy="455" r="10" fill="#2865a0" />
+    <text x="890" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1</text>
+    <circle cx="1050" cy="455" r="10" fill="#2865a0" />
+    <text x="1050" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.1</text>
+    <circle cx="890" cy="570" r="10" fill="#2865a0" />
+    <text x="890" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.2</text>
+    <circle cx="1050" cy="570" r="10" fill="#2865a0" />
+    <text x="1050" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.3</text>
+    <circle cx="600" cy="510" r="11" fill="#cf7432" />
+    <text x="600" y="553" font-size="25" fill="#cf7432" font-weight="400" text-anchor="middle">边界点 0</text>
+    <line x1="310" y1="570" x2="587" y2="515" stroke="#cf7432" stroke-width="2" stroke-dasharray="8 6" />
+    <line x1="890" y1="455" x2="613" y2="505" stroke="#cf7432" stroke-width="2" stroke-dasharray="8 6" />
+    <text x="215" y="625" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">核心簇 1</text>
+    <text x="970" y="625" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">核心簇 2</text>
+  </g>
+</svg>

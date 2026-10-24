@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="805" viewBox="0 0 1200 805" role="img" aria-labelledby="title desc">
+  <title id="title">t-SNE 条件邻域：带宽与距离的相对尺度</title>
+  <desc id="desc">窄带宽下概率集中于最近候选，宽带宽更均匀；距离和带宽同时放大保持条件概率与困惑度不变。</desc>
+  <rect width="1200" height="805" fill="white" />
+  <defs>
+    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+    </marker>
+    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+    </marker>
+  </defs>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">t-SNE 条件邻域：带宽与距离的相对尺度</text>
+    <text x="35" y="110" font-size="25" fill="#213447" font-weight="600" text-anchor="start">同一组距离；窄带宽</text>
+    <text x="35" y="152" font-size="24" fill="#213447" font-weight="400" text-anchor="start">d = 1, 2, 3；σ = 0.5</text>
+    <text x="35" y="195" font-size="25" fill="#cf7432" font-weight="400" text-anchor="start">困惑度 1.017</text>
+    <text x="510" y="168" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">A</text>
+    <rect x="535" y="145" width="428.9367238915325" height="30" fill="#cf7432" />
+    <text x="995" y="168" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.997527</text>
+    <text x="510" y="214" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">B</text>
+    <rect x="535" y="191" width="1.063227837998273" height="30" fill="#cf7432" />
+    <text x="995" y="214" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.002473</text>
+    <text x="510" y="260" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">C</text>
+    <rect x="535" y="237" width="4.827046916664022e-05" height="30" fill="#cf7432" />
+    <text x="995" y="260" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.000000112</text>
+    <line x1="35" y1="290" x2="1165" y2="290" stroke="#cad7e2" stroke-width="2" />
+    <text x="35" y="334" font-size="25" fill="#213447" font-weight="600" text-anchor="start">同一组距离；宽带宽</text>
+    <text x="35" y="376" font-size="24" fill="#213447" font-weight="400" text-anchor="start">d = 1, 2, 3；σ = 2</text>
+    <text x="35" y="419" font-size="25" fill="#cf7432" font-weight="400" text-anchor="start">困惑度 2.786</text>
+    <text x="510" y="392" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">A</text>
+    <rect x="535" y="369" width="209.22856397301723" height="30" fill="#2865a0" />
+    <text x="995" y="392" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.486578</text>
+    <text x="510" y="438" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">B</text>
+    <rect x="535" y="415" width="143.80054883548578" height="30" fill="#2865a0" />
+    <text x="995" y="438" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.334420</text>
+    <text x="510" y="484" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">C</text>
+    <rect x="535" y="461" width="76.97088719149696" height="30" fill="#2865a0" />
+    <text x="995" y="484" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.179002</text>
+    <line x1="35" y1="514" x2="1165" y2="514" stroke="#cad7e2" stroke-width="2" />
+    <text x="35" y="558" font-size="25" fill="#213447" font-weight="600" text-anchor="start">距离与带宽同时放大 4 倍</text>
+    <text x="35" y="600" font-size="24" fill="#213447" font-weight="400" text-anchor="start">d = 4, 8, 12；σ = 8</text>
+    <text x="35" y="643" font-size="25" fill="#cf7432" font-weight="400" text-anchor="start">困惑度 2.786</text>
+    <text x="510" y="616" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">A</text>
+    <rect x="535" y="593" width="209.22856397301723" height="30" fill="#2865a0" />
+    <text x="995" y="616" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.486578</text>
+    <text x="510" y="662" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">B</text>
+    <rect x="535" y="639" width="143.80054883548578" height="30" fill="#2865a0" />
+    <text x="995" y="662" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.334420</text>
+    <text x="510" y="708" font-size="24" fill="#2865a0" font-weight="400" text-anchor="end">C</text>
+    <rect x="535" y="685" width="76.97088719149696" height="30" fill="#2865a0" />
+    <text x="995" y="708" font-size="23" fill="#213447" font-weight="400" text-anchor="start">0.179002</text>
+    <text x="35" y="780" font-size="26" fill="#213447" font-weight="400" text-anchor="start">概率质量由相对距离决定；不是固定保留 k 个邻居</text>
+  </g>
+</svg>

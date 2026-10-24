@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img"><title>同一条 CRF 链：求和用于归一化，取最大用于最优路径</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#245f98"/></marker></defs><rect width="1400" height="760" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<text x="44" y="58" font-size="34" fill="#18324a" text-anchor="start" font-weight="bold">同一条 CRF 链：求和用于归一化，取最大用于最优路径</text>
+<line x1="44" y1="85" x2="1356" y2="85" stroke="#dce5ed" stroke-width="2"/>
+<text x="350" y="140" font-size="29" fill="#18324a" text-anchor="middle" font-weight="normal">四条路径的未归一化质量</text>
+<circle cx="120" cy="255" r="38" fill="#f4f7fa" stroke="#245f98" stroke-width="2"/>
+<text x="120" y="266" font-size="31" fill="#18324a" text-anchor="middle" font-weight="normal">0</text>
+<circle cx="120" cy="480" r="38" fill="#f4f7fa" stroke="#245f98" stroke-width="2"/>
+<text x="120" y="491" font-size="31" fill="#18324a" text-anchor="middle" font-weight="normal">1</text>
+<circle cx="580" cy="255" r="38" fill="#f4f7fa" stroke="#245f98" stroke-width="2"/>
+<text x="580" y="266" font-size="31" fill="#18324a" text-anchor="middle" font-weight="normal">0</text>
+<circle cx="580" cy="480" r="38" fill="#f4f7fa" stroke="#245f98" stroke-width="2"/>
+<text x="580" y="491" font-size="31" fill="#18324a" text-anchor="middle" font-weight="normal">1</text>
+<line x1="163" y1="255" x2="537" y2="255" stroke="#c76b25" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="322" y="203" width="56" height="38" rx="7" fill="white" stroke="white"/>
+<text x="350" y="230" font-size="28" fill="#c76b25" text-anchor="middle" font-weight="normal">35</text>
+<line x1="163" y1="255" x2="537" y2="480" stroke="#245f98" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="262" y="328" width="56" height="38" rx="7" fill="white" stroke="white"/>
+<text x="290" y="355" font-size="28" fill="#245f98" text-anchor="middle" font-weight="normal">30</text>
+<line x1="163" y1="480" x2="537" y2="255" stroke="#62778a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="382" y="368" width="56" height="38" rx="7" fill="white" stroke="white"/>
+<text x="410" y="395" font-size="28" fill="#62778a" text-anchor="middle" font-weight="normal">1</text>
+<line x1="163" y1="480" x2="537" y2="480" stroke="#245f98" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="322" y="508" width="56" height="38" rx="7" fill="white" stroke="white"/>
+<text x="350" y="535" font-size="28" fill="#245f98" text-anchor="middle" font-weight="normal">34</text>
+<text x="120" y="595" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">位置 1</text>
+<text x="580" y="595" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">位置 2</text>
+<line x1="720" y1="115" x2="720" y2="675" stroke="#dce5ed" stroke-width="2"/>
+<text x="1050" y="155" font-size="27" fill="#18324a" text-anchor="middle" font-weight="normal">前向：把进入同一状态的质量相加</text>
+<text x="1050" y="230" font-size="31" fill="#245f98" text-anchor="middle" font-weight="normal">0：35+1=36</text>
+<text x="1050" y="285" font-size="31" fill="#245f98" text-anchor="middle" font-weight="normal">1：30+34=64</text>
+<text x="1050" y="345" font-size="28" fill="#18324a" text-anchor="middle" font-weight="normal">Z=100；边缘选择 01</text>
+<line x1="800" y1="385" x2="1315" y2="385" stroke="#dce5ed" stroke-width="2"/>
+<text x="1050" y="445" font-size="27" fill="#18324a" text-anchor="middle" font-weight="normal">Viterbi：每个状态只保留最佳前缀</text>
+<text x="1050" y="510" font-size="29" fill="#c76b25" text-anchor="middle" font-weight="normal">0：max(35,1)=35</text>
+<text x="1050" y="565" font-size="29" fill="#c76b25" text-anchor="middle" font-weight="normal">1：max(30,34)=34</text>
+<text x="1050" y="635" font-size="28" fill="#18324a" text-anchor="middle" font-weight="normal">回溯最佳路径 00；概率 0.35</text></g></svg>

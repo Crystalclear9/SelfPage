@@ -1,227 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:ns4="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="1200" height="760" viewBox="0 0 864 547.2" version="1.1">
- <metadata>
-  <rdf:RDF>
-   <ns2:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:date>2026-10-23T10:14:33.325650</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <ns2:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
-     </ns2:Agent>
-    </dc:creator>
-   </ns2:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 547.2 L 864 547.2 L 864 0 L 0 0 z " style="fill: white" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="755" viewBox="0 0 1200 755" role="img" aria-labelledby="title desc">
+  <title id="title">EM 的一轮更新：用真实混合模型核对下界</title>
+  <desc id="desc">固定Bernoulli分量成功率0.2和0.8，仅更新混合权重，显示EM一次M步提高下界，新E步只消除后验间隙。</desc>
+  <rect width="1200" height="755" fill="white" />
+  <defs>
+    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+    </marker>
+    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+    </marker>
+  </defs>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">EM 的一轮更新：用真实混合模型核对下界</text>
+    <text x="35" y="98" font-size="25" fill="#213447" font-weight="400" text-anchor="start">一次观察 x = 1；两 Bernoulli 分量成功率固定为 0.2、0.8</text>
+    <text x="210" y="156" font-size="24" fill="#213447" font-weight="600" text-anchor="middle">旧 E 步</text>
+    <text x="210" y="200" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">π = (0.5, 0.5)</text>
+    <text x="210" y="242" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">q = (0.2, 0.8)</text>
+    <path d="M385,194 L420,194" fill="none" stroke="#5a6c7d" stroke-width="2.5" marker-end="url(#arrow-muted)" />
+    <text x="605" y="156" font-size="24" fill="#213447" font-weight="600" text-anchor="middle">M 步：只更新混合权重</text>
+    <text x="605" y="200" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">π = (0.2, 0.8)</text>
+    <text x="605" y="242" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">q = (0.2, 0.8)</text>
+    <path d="M780,194 L815,194" fill="none" stroke="#5a6c7d" stroke-width="2.5" marker-end="url(#arrow-muted)" />
+    <text x="1000" y="156" font-size="24" fill="#213447" font-weight="600" text-anchor="middle">新 E 步：只更新后验</text>
+    <text x="1000" y="200" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">π = (0.2, 0.8)</text>
+    <text x="1000" y="242" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">q ≈ (0.0588, 0.9412)</text>
+    <line x1="110" y1="572.7777777777777" x2="1055" y2="572.7777777777777" stroke="#cad7e2" stroke-width="1" />
+    <text x="98" y="579.7777777777777" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">-0.7</text>
+    <line x1="110" y1="508.3333333333333" x2="1055" y2="508.3333333333333" stroke="#cad7e2" stroke-width="1" />
+    <text x="98" y="515.3333333333333" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">-0.6</text>
+    <line x1="110" y1="443.8888888888889" x2="1055" y2="443.8888888888889" stroke="#cad7e2" stroke-width="1" />
+    <text x="98" y="450.8888888888889" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">-0.5</text>
+    <line x1="110" y1="379.44444444444446" x2="1055" y2="379.44444444444446" stroke="#cad7e2" stroke-width="1" />
+    <text x="98" y="386.44444444444446" font-size="21" fill="#5a6c7d" font-weight="400" text-anchor="end">-0.4</text>
+    <line x1="110" y1="605" x2="1055" y2="605" stroke="#5a6c7d" stroke-width="1.4" />
+    <line x1="110" y1="315" x2="110" y2="605" stroke="#5a6c7d" stroke-width="1.4" />
+    <polyline points="171.630,568.362 582.500,370.205 993.370,370.205" fill="none" stroke="#2865a0" stroke-width="3.5" stroke-linejoin="round" />
+    <polyline points="171.630,568.362 582.500,444.148 993.370,370.205" fill="none" stroke="#cf7432" stroke-width="3.5" stroke-linejoin="round" />
+    <circle cx="171.6304347826087" cy="568.3615163608537" r="7" fill="#2865a0" />
+    <circle cx="582.5" cy="370.20470985661234" r="7" fill="#2865a0" />
+    <circle cx="993.3695652173914" cy="370.20470985661234" r="7" fill="#2865a0" />
+    <circle cx="171.6304347826087" cy="568.3615163608537" r="6" fill="#cf7432" />
+    <circle cx="582.5" cy="444.1482285023877" r="6" fill="#cf7432" />
+    <circle cx="993.3695652173914" cy="370.20470985661234" r="6" fill="#cf7432" />
+    <text x="171.6304347826087" y="646" font-size="24" fill="#213447" font-weight="400" text-anchor="middle">旧 E 步</text>
+    <text x="582.5" y="646" font-size="24" fill="#213447" font-weight="400" text-anchor="middle">新 M 步</text>
+    <text x="993.3695652173914" y="646" font-size="24" fill="#213447" font-weight="400" text-anchor="middle">新 E 步</text>
+    <text x="35" y="290" font-size="24" fill="#5a6c7d" font-weight="400" text-anchor="start">对数值</text>
+    <text x="171.6304347826087" y="548.3615163608537" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">-0.693147</text>
+    <text x="582.5" y="350.20470985661234" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">-0.385662</text>
+    <text x="993.3695652173914" y="350.20470985661234" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">-0.385662</text>
+    <text x="610.5" y="472.1482285023877" font-size="24" fill="#cf7432" font-weight="400" text-anchor="start">-0.500402</text>
+    <text x="800" y="440" font-size="25" fill="#5a6c7d" font-weight="400" text-anchor="start">间隙 ≈ 0.114740</text>
+    <line x1="594.5" y1="444.1482285023877" x2="594.5" y2="370.20470985661234" stroke="#5a6c7d" stroke-width="2" stroke-dasharray="5 4" />
+    <line x1="40" y1="710" x2="100" y2="710" stroke="#2865a0" stroke-width="4" />
+    <text x="115" y="718" font-size="25" fill="#2865a0" font-weight="400" text-anchor="start">观察对数似然</text>
+    <line x1="650" y1="710" x2="710" y2="710" stroke="#cf7432" stroke-width="4" />
+    <text x="725" y="718" font-size="25" fill="#cf7432" font-weight="400" text-anchor="start">当前 q 对应的下界</text>
   </g>
-  <g id="patch_2">
-   <path d="M 695.52 388.512 L 833.76 388.512 L 833.76 125.856 L 695.52 125.856 z " style="fill: #e5f2f4; stroke: #e5f2f4; stroke-linejoin: miter" />
-  </g>
-  <g id="axes_1">
-   <g id="patch_3">
-    <path d="M 95.04 421.344 L 656.64 421.344 L 656.64 120.384 L 95.04 120.384 z " style="fill: #ffffff" />
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <defs>
-       <path id="mba1b245b9c" d="M 0 0 L 0 3.5 " style="stroke: #496579; stroke-width: 0.8" />
-      </defs>
-      <g>
-       <use ns4:href="#mba1b245b9c" x="120.567273" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_1">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="120.567273" y="438.735875" transform="rotate(-0 120.567273 438.735875)">0</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use ns4:href="#mba1b245b9c" x="375.84" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_2">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="375.84" y="438.735875" transform="rotate(-0 375.84 438.735875)">1</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3">
-      <g>
-       <use ns4:href="#mba1b245b9c" x="631.112727" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_3">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #496579" x="631.112727" y="438.735875" transform="rotate(-0 631.112727 438.735875)">2</text>
-     </g>
-    </g>
-    <g id="text_4">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.84" y="466.757594" transform="rotate(-0 375.84 466.757594)">更新阶段（0旧E步，1新M步，2新E步）</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_4">
-      <path d="M 95.04 407.664 L 656.64 407.664 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_5">
-      <defs>
-       <path id="m13a044fd43" d="M 0 0 L -3.5 0 " style="stroke: #496579; stroke-width: 0.8" />
-      </defs>
-      <g>
-       <use ns4:href="#m13a044fd43" x="95.04" y="407.664" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_5">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="412.859937" transform="rotate(-0 88.04 412.859937)">5.0</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_6">
-      <path d="M 95.04 352.944 L 656.64 352.944 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_7">
-      <g>
-       <use ns4:href="#m13a044fd43" x="95.04" y="352.944" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_6">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="358.139937" transform="rotate(-0 88.04 358.139937)">5.1</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_8">
-      <path d="M 95.04 298.224 L 656.64 298.224 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_9">
-      <g>
-       <use ns4:href="#m13a044fd43" x="95.04" y="298.224" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_7">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="303.419937" transform="rotate(-0 88.04 303.419937)">5.2</text>
-     </g>
-    </g>
-    <g id="ytick_4">
-     <g id="line2d_10">
-      <path d="M 95.04 243.504 L 656.64 243.504 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_11">
-      <g>
-       <use ns4:href="#m13a044fd43" x="95.04" y="243.504" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_8">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="248.699938" transform="rotate(-0 88.04 248.699938)">5.3</text>
-     </g>
-    </g>
-    <g id="ytick_5">
-     <g id="line2d_12">
-      <path d="M 95.04 188.784 L 656.64 188.784 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_13">
-      <g>
-       <use ns4:href="#m13a044fd43" x="95.04" y="188.784" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_9">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="193.979938" transform="rotate(-0 88.04 193.979938)">5.4</text>
-     </g>
-    </g>
-    <g id="ytick_6">
-     <g id="line2d_14">
-      <path d="M 95.04 134.064 L 656.64 134.064 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #dfebf2; stroke-width: 0.9; stroke-linecap: square" />
-     </g>
-     <g id="line2d_15">
-      <g>
-       <use ns4:href="#m13a044fd43" x="95.04" y="134.064" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_10">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #496579" x="88.04" y="139.259938" transform="rotate(-0 88.04 139.259938)">5.5</text>
-     </g>
-    </g>
-   </g>
-   <g id="patch_4">
-    <path d="M 95.04 421.344 L 95.04 120.384 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="patch_5">
-    <path d="M 95.04 421.344 L 656.64 421.344 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="line2d_16">
-    <path d="M 120.567273 407.664 L 375.84 298.224 L 631.112727 134.064 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #079b91; stroke-width: 3; stroke-linecap: square" />
-    <defs>
-     <path id="mcf5dc2acd2" d="M 0 3 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 C 2.683901 1.55874 3 0.795609 3 0 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 C 1.55874 -2.683901 0.795609 -3 0 -3 C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 C -2.683901 -1.55874 -3 -0.795609 -3 0 C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 C -1.55874 2.683901 -0.795609 3 0 3 z " style="stroke: #079b91" />
-    </defs>
-    <g clip-path="url(#pb70ee66a61)">
-     <use ns4:href="#mcf5dc2acd2" x="120.567273" y="407.664" style="fill: #079b91; stroke: #079b91" />
-     <use ns4:href="#mcf5dc2acd2" x="375.84" y="298.224" style="fill: #079b91; stroke: #079b91" />
-     <use ns4:href="#mcf5dc2acd2" x="631.112727" y="134.064" style="fill: #079b91; stroke: #079b91" />
-    </g>
-   </g>
-   <g id="line2d_17">
-    <path d="M 120.567273 407.664 L 375.84 134.064 L 631.112727 134.064 " clip-path="url(#pb70ee66a61)" style="fill: none; stroke: #ef8b3a; stroke-width: 3; stroke-linecap: square" />
-    <defs>
-     <path id="maa81add7c3" d="M 0 3 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 C 2.683901 1.55874 3 0.795609 3 0 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 C 1.55874 -2.683901 0.795609 -3 0 -3 C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 C -2.683901 -1.55874 -3 -0.795609 -3 0 C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 C -1.55874 2.683901 -0.795609 3 0 3 z " style="stroke: #ef8b3a" />
-    </defs>
-    <g clip-path="url(#pb70ee66a61)">
-     <use ns4:href="#maa81add7c3" x="120.567273" y="407.664" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     <use ns4:href="#maa81add7c3" x="375.84" y="134.064" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     <use ns4:href="#maa81add7c3" x="631.112727" y="134.064" style="fill: #ef8b3a; stroke: #ef8b3a" />
-    </g>
-   </g>
-   <g id="text_11">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #37576d" x="95.04" y="106.384" transform="rotate(-0 95.04 106.384)">下界与观察对数似然</text>
-   </g>
-   <g id="legend_1">
-    <g id="line2d_18">
-     <path d="M 88.992 488.6997 L 100.992 488.6997 L 112.992 488.6997 " style="fill: none; stroke: #079b91; stroke-width: 3; stroke-linecap: square" />
-     <g>
-      <use ns4:href="#mcf5dc2acd2" x="100.992" y="488.6997" style="fill: #079b91; stroke: #079b91" />
-     </g>
-    </g>
-    <g id="text_12">
-     <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #294c62" x="122.592" y="492.8997" transform="rotate(-0 122.592 492.8997)">当前辅助分布下界</text>
-    </g>
-    <g id="line2d_19">
-     <path d="M 242.592 488.6997 L 254.592 488.6997 L 266.592 488.6997 " style="fill: none; stroke: #ef8b3a; stroke-width: 3; stroke-linecap: square" />
-     <g>
-      <use ns4:href="#maa81add7c3" x="254.592" y="488.6997" style="fill: #ef8b3a; stroke: #ef8b3a" />
-     </g>
-    </g>
-    <g id="text_13">
-     <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #294c62" x="276.192" y="492.8997" transform="rotate(-0 276.192 492.8997)">观察对数似然</text>
-    </g>
-   </g>
-  </g>
-  <g id="text_14">
-   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #17344f" x="38.88" y="35.568" transform="rotate(-0 38.88 35.568)">EM 先抬高固定下界，再把新参数处间隙贴紧</text>
-  </g>
-  <g id="text_15">
-   <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #627d91" x="39.744" y="68.4" transform="rotate(-0 39.744 68.4)">机制图解  /  依照正文设定核对参数、数据与边界</text>
-  </g>
-  <g id="text_16">
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #087b78" x="712.8" y="153.216" transform="rotate(-0 712.8 153.216)">读图要点</text>
-  </g>
-  <g id="text_17">
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 195.302625)">M步后下界5.2、</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 219.415594)">似然5.5；再E步</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 243.528562)">只消除0.3间隙</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 267.641531)">。</text>
-  </g>
-  <g id="text_18">
-   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #648094" x="38.88" y="528.048" transform="rotate(-0 38.88 528.048)">本地原创矢量图 · 构造或解析数据，非未声明的实验结果 · 适用条件见正文</text>
-  </g>
- </g>
- <defs>
-  <clipPath id="pb70ee66a61">
-   <rect x="95.04" y="120.384" width="561.6" height="300.96" />
-  </clipPath>
- </defs>
 </svg>

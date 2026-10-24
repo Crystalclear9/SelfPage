@@ -1,94 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="1200" height="760" viewBox="0 0 864 547.2" version="1.1">
- <metadata>
-  <rdf:RDF>
-   <ns2:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:date>2026-10-23T10:14:33.739557</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <ns2:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
-     </ns2:Agent>
-    </dc:creator>
-   </ns2:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 547.2 L 864 547.2 L 864 0 L 0 0 z " style="fill: white" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">降维验证：比较同一对象的邻居身份</title>
+  <desc id="desc">同一个对象在原空间和投影空间的四个候选邻居中，最近三个分别为ABC与ADC，共同邻居为AC。</desc>
+  <rect width="1200" height="620" fill="white" />
+  <defs>
+    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+    </marker>
+    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+    </marker>
+  </defs>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">降维验证：比较同一对象的邻居身份</text>
+    <text x="35" y="110" font-size="27" fill="#213447" font-weight="400" text-anchor="start">原空间：最近的 3 个是 A、B、C</text>
+    <line x1="100" y1="215" x2="1080" y2="215" stroke="#5a6c7d" stroke-width="2" />
+    <circle cx="100" cy="215" r="10" fill="#213447" />
+    <text x="100" y="190" font-size="27" fill="#213447" font-weight="600" text-anchor="middle">X</text>
+    <text x="100" y="255" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">0</text>
+    <circle cx="335" cy="215" r="10" fill="#2865a0" />
+    <text x="335" y="190" font-size="27" fill="#2865a0" font-weight="600" text-anchor="middle">A</text>
+    <text x="335" y="255" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">1</text>
+    <circle cx="570" cy="215" r="10" fill="#cf7432" />
+    <text x="570" y="190" font-size="27" fill="#cf7432" font-weight="600" text-anchor="middle">B</text>
+    <text x="570" y="255" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">2</text>
+    <circle cx="805" cy="215" r="10" fill="#2865a0" />
+    <text x="805" y="190" font-size="27" fill="#2865a0" font-weight="600" text-anchor="middle">C</text>
+    <text x="805" y="255" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">3</text>
+    <circle cx="1040" cy="215" r="10" fill="#cf7432" />
+    <text x="1040" y="190" font-size="27" fill="#cf7432" font-weight="600" text-anchor="middle">D</text>
+    <text x="1040" y="255" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">4</text>
+    <text x="1130" y="255" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="end">距离</text>
+    <text x="35" y="350" font-size="27" fill="#213447" font-weight="400" text-anchor="start">投影空间：最近的 3 个是 A、D、C</text>
+    <line x1="100" y1="455" x2="1080" y2="455" stroke="#5a6c7d" stroke-width="2" />
+    <circle cx="100" cy="455" r="10" fill="#213447" />
+    <text x="100" y="430" font-size="27" fill="#213447" font-weight="600" text-anchor="middle">X</text>
+    <text x="100" y="495" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">0</text>
+    <circle cx="288.0" cy="455" r="10" fill="#2865a0" />
+    <text x="288.0" y="430" font-size="27" fill="#2865a0" font-weight="600" text-anchor="middle">A</text>
+    <text x="288.0" y="495" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">0.8</text>
+    <circle cx="1040" cy="455" r="10" fill="#cf7432" />
+    <text x="1040" y="430" font-size="27" fill="#cf7432" font-weight="600" text-anchor="middle">B</text>
+    <text x="1040" y="495" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">4</text>
+    <circle cx="570" cy="455" r="10" fill="#2865a0" />
+    <text x="570" y="430" font-size="27" fill="#2865a0" font-weight="600" text-anchor="middle">C</text>
+    <text x="570" y="495" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">2</text>
+    <circle cx="382.0" cy="455" r="10" fill="#cf7432" />
+    <text x="382.0" y="430" font-size="27" fill="#cf7432" font-weight="600" text-anchor="middle">D</text>
+    <text x="382.0" y="495" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="middle">1.2</text>
+    <text x="1130" y="495" font-size="23" fill="#5a6c7d" font-weight="400" text-anchor="end">距离</text>
+    <text x="35" y="590" font-size="27" fill="#2865a0" font-weight="400" text-anchor="start">共同邻居 A、C</text>
+    <text x="530" y="590" font-size="27" fill="#213447" font-weight="400" text-anchor="start">邻居召回 =</text>
+    <text x="739.0" y="568" font-size="24" fill="#213447" font-weight="400" text-anchor="middle">2</text>
+    <line x1="715" y1="578" x2="763" y2="578" stroke="#213447" stroke-width="1.5" />
+    <text x="739.0" y="607" font-size="24" fill="#213447" font-weight="400" text-anchor="middle">3</text>
   </g>
-  <g id="patch_2">
-   <path d="M 695.52 388.512 L 833.76 388.512 L 833.76 125.856 L 695.52 125.856 z " style="fill: #e5f2f4; stroke: #e5f2f4; stroke-linejoin: miter" />
-  </g>
-  <g id="axes_1">
-   <g id="patch_3">
-    <path d="M 185.527059 421.344 L 566.152941 421.344 L 566.152941 120.384 L 185.527059 120.384 z " style="fill: #ffffff" />
-   </g>
-   <g id="patch_4">
-    <path d="M 318.303529 394.788706 C 347.647472 394.788706 375.793514 383.130234 396.542815 362.380933 C 417.292116 341.631632 428.950588 313.48559 428.950588 284.141647 C 428.950588 254.797704 417.292116 226.651663 396.542815 205.902361 C 375.793514 185.15306 347.647472 173.494588 318.303529 173.494588 C 288.959586 173.494588 260.813545 185.15306 240.064244 205.902361 C 219.314943 226.651663 207.656471 254.797704 207.656471 284.141647 C 207.656471 313.48559 219.314943 341.631632 240.064244 362.380933 C 260.813545 383.130234 288.959586 394.788706 318.303529 394.788706 z " clip-path="url(#p9f81103775)" style="fill: #079b91; opacity: 0.2; stroke: #079b91; stroke-width: 3; stroke-linejoin: miter" />
-   </g>
-   <g id="patch_5">
-    <path d="M 433.376471 394.788706 C 462.720414 394.788706 490.866455 383.130234 511.615756 362.380933 C 532.365057 341.631632 544.023529 313.48559 544.023529 284.141647 C 544.023529 254.797704 532.365057 226.651663 511.615756 205.902361 C 490.866455 185.15306 462.720414 173.494588 433.376471 173.494588 C 404.032528 173.494588 375.886486 185.15306 355.137185 205.902361 C 334.387884 226.651663 322.729412 254.797704 322.729412 284.141647 C 322.729412 313.48559 334.387884 341.631632 355.137185 362.380933 C 375.886486 383.130234 404.032528 394.788706 433.376471 394.788706 z " clip-path="url(#p9f81103775)" style="fill: #ef8b3a; opacity: 0.2; stroke: #ef8b3a; stroke-width: 3; stroke-linejoin: miter" />
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="text_1">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.84" y="446.134" transform="rotate(-0 375.84 446.134)">集合布局不表示原距离</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2" />
-   <g id="patch_6">
-    <path d="M 185.527059 421.344 L 185.527059 120.384 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="patch_7">
-    <path d="M 185.527059 421.344 L 566.152941 421.344 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="text_2">
-    <text style="font-weight: 700; font-size: 28px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="260.767059" y="291.852585" transform="rotate(-0 260.767059 291.852585)">B</text>
-   </g>
-   <g id="text_3">
-    <text style="font-weight: 700; font-size: 28px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="375.84" y="260.871408" transform="rotate(-0 375.84 260.871408)">A</text>
-   </g>
-   <g id="text_4">
-    <text style="font-weight: 700; font-size: 28px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="375.84" y="322.833761" transform="rotate(-0 375.84 322.833761)">C</text>
-   </g>
-   <g id="text_5">
-    <text style="font-weight: 700; font-size: 28px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="495.338824" y="291.852585" transform="rotate(-0 495.338824 291.852585)">D</text>
-   </g>
-   <g id="text_6">
-    <text style="font-size: 18px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="291.748235" y="146.939294" transform="rotate(-0 291.748235 146.939294)">原空间邻居</text>
-   </g>
-   <g id="text_7">
-    <text style="font-size: 18px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="459.931765" y="146.939294" transform="rotate(-0 459.931765 146.939294)">投影邻居</text>
-   </g>
-   <g id="text_8">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #37576d" x="185.527059" y="106.384" transform="rotate(-0 185.527059 106.384)">原邻域与投影邻域</text>
-   </g>
-  </g>
-  <g id="text_9">
-   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #17344f" x="38.88" y="35.568" transform="rotate(-0 38.88 35.568)">三个近邻中保留两个，交集说明局部结构保留程度</text>
-  </g>
-  <g id="text_10">
-   <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #627d91" x="39.744" y="68.4" transform="rotate(-0 39.744 68.4)">机制图解  /  依照正文设定核对参数、数据与边界</text>
-  </g>
-  <g id="text_11">
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #087b78" x="712.8" y="153.216" transform="rotate(-0 712.8 153.216)">读图要点</text>
-  </g>
-  <g id="text_12">
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 195.302625)">原邻域ABC，投</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 219.415594)">影邻域ACD；保</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 243.528562)">留A与C，召回为</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 267.641531)">三分之二。</text>
-  </g>
-  <g id="text_13">
-   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #648094" x="38.88" y="528.048" transform="rotate(-0 38.88 528.048)">本地原创矢量图 · 构造或解析数据，非未声明的实验结果 · 适用条件见正文</text>
-  </g>
- </g>
- <defs>
-  <clipPath id="p9f81103775">
-   <rect x="185.527059" y="120.384" width="380.625882" height="300.96" />
-  </clipPath>
- </defs>
 </svg>

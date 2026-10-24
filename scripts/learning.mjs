@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import GithubSlugger from 'github-slugger';
 import codeHighlight from '../src/lib/code-highlight.js';
 
 const directory = path.resolve('content/collections/ailearning');
@@ -14,8 +15,13 @@ export const loadLearning = () => JSON.parse(readFileSync(path.join(directory, '
 // Recognize only the source's empty anchor tags; arbitrary HTML remains disabled.
 function learningMarkdown({ page, pages, base }) {
   return tree => {
+    const slugger = new GithubSlugger();
+    const headingText = node => node.value || node.children?.map(headingText).join('') || '';
     if (tree.children[0]?.type === 'heading' && tree.children[0].depth === 1) tree.children.shift();
     const visit = node => {
+      if (node.type === 'heading') {
+        node.data = { ...node.data, hProperties: { ...node.data?.hProperties, id: slugger.slug(headingText(node)) } };
+      }
       if (node.type === 'table') {
         const text = n => n.value || n.children?.map(text).join('') || '';
         const headings = node.children[0].children.map(text);

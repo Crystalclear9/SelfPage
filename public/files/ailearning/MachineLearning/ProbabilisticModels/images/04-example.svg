@@ -1,132 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:ns4="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="1200" height="760" viewBox="0 0 864 547.2" version="1.1">
- <metadata>
-  <rdf:RDF>
-   <ns2:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:date>2026-10-23T10:14:33.428229</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <ns2:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
-     </ns2:Agent>
-    </dc:creator>
-   </ns2:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 547.2 L 864 547.2 L 864 0 L 0 0 z " style="fill: white" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="710" viewBox="0 0 1200 710" role="img" aria-labelledby="title desc">
+  <title id="title">HMM 解码：整条路径最优 ≠ 每个位置最优</title>
+  <desc id="desc">两步路径联合后验求和得到边缘后验；联合最优路径BB与逐位置最优AB对应不同损失。</desc>
+  <rect width="1200" height="710" fill="white" />
+  <defs>
+    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+    </marker>
+    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+    </marker>
+  </defs>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
+    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">HMM 解码：整条路径最优 ≠ 每个位置最优</text>
+    <text x="35" y="100" font-size="26" fill="#213447" font-weight="400" text-anchor="start">同一组观察下的联合后验</text>
+    <text x="275" y="150" font-size="24" fill="#5a6c7d" font-weight="400" text-anchor="middle">时刻 2</text>
+    <text x="230" y="195" font-size="26" fill="#213447" font-weight="600" text-anchor="middle">A</text>
+    <text x="375" y="195" font-size="26" fill="#213447" font-weight="600" text-anchor="middle">B</text>
+    <text x="110" y="253" font-size="26" fill="#213447" font-weight="600" text-anchor="middle">A</text>
+    <rect x="160" y="213" width="140" height="86" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <text x="230.0" y="264.0" font-size="32" fill="#2865a0" font-weight="500" text-anchor="middle">0.34</text>
+    <rect x="305" y="213" width="140" height="86" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <text x="375.0" y="264.0" font-size="32" fill="#2865a0" font-weight="500" text-anchor="middle">0.27</text>
+    <text x="110" y="345" font-size="26" fill="#213447" font-weight="600" text-anchor="middle">B</text>
+    <rect x="160" y="305" width="140" height="86" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <text x="230.0" y="356.0" font-size="32" fill="#2865a0" font-weight="500" text-anchor="middle">0.03</text>
+    <rect x="305" y="305" width="140" height="86" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <text x="375.0" y="356.0" font-size="32" fill="#cf7432" font-weight="500" text-anchor="middle">0.36</text>
+    <text x="35" y="200" font-size="22" fill="#5a6c7d" font-weight="400" text-anchor="start">时刻 1</text>
+    <text x="520" y="150" font-size="26" fill="#213447" font-weight="400" text-anchor="start">边缘后验：沿行、沿列求和</text>
+    <text x="520" y="205" font-size="24" fill="#213447" font-weight="400" text-anchor="start">时刻 1</text>
+    <rect x="655" y="181" width="244.0" height="29" fill="#2865a0" />
+    <text x="640" y="203" font-size="23" fill="#213447" font-weight="400" text-anchor="end">A</text>
+    <text x="960" y="203" font-size="24" fill="#2865a0" font-weight="400" text-anchor="start">0.61</text>
+    <rect x="655" y="221" width="156.0" height="29" fill="#d7e2ec" />
+    <text x="640" y="243" font-size="23" fill="#213447" font-weight="400" text-anchor="end">B</text>
+    <text x="960" y="243" font-size="24" fill="#5a6c7d" font-weight="400" text-anchor="start">0.39</text>
+    <text x="520" y="313" font-size="24" fill="#213447" font-weight="400" text-anchor="start">时刻 2</text>
+    <rect x="655" y="289" width="148.0" height="29" fill="#d7e2ec" />
+    <text x="640" y="311" font-size="23" fill="#213447" font-weight="400" text-anchor="end">A</text>
+    <text x="960" y="311" font-size="24" fill="#5a6c7d" font-weight="400" text-anchor="start">0.37</text>
+    <rect x="655" y="329" width="252.0" height="29" fill="#2865a0" />
+    <text x="640" y="351" font-size="23" fill="#213447" font-weight="400" text-anchor="end">B</text>
+    <text x="960" y="351" font-size="24" fill="#2865a0" font-weight="400" text-anchor="start">0.63</text>
+    <line x1="35" y1="430" x2="1165" y2="430" stroke="#cad7e2" stroke-width="2" />
+    <text x="35" y="485" font-size="27" fill="#cf7432" font-weight="600" text-anchor="start">整条路径：最大化联合后验</text>
+    <text x="650" y="485" font-size="27" fill="#2865a0" font-weight="600" text-anchor="start">逐位置：分别最大化边缘后验</text>
+    <circle cx="155" cy="555" r="35" fill="#fff0e3" stroke="#cf7432" stroke-width="2" />
+    <text x="155" y="565" font-size="29" fill="#cf7432" font-weight="600" text-anchor="middle">B</text>
+    <circle cx="340" cy="555" r="35" fill="#fff0e3" stroke="#cf7432" stroke-width="2" />
+    <text x="340" y="565" font-size="29" fill="#cf7432" font-weight="600" text-anchor="middle">B</text>
+    <path d="M195,555 L300,555" fill="none" stroke="#cf7432" stroke-width="2.5" marker-end="url(#arrow-orange)" />
+    <circle cx="770" cy="555" r="35" fill="#eaf2fa" stroke="#2865a0" stroke-width="2" />
+    <text x="770" y="565" font-size="29" fill="#2865a0" font-weight="600" text-anchor="middle">A</text>
+    <circle cx="955" cy="555" r="35" fill="#eaf2fa" stroke="#2865a0" stroke-width="2" />
+    <text x="955" y="565" font-size="29" fill="#2865a0" font-weight="600" text-anchor="middle">B</text>
+    <path d="M810,555 L915,555" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+    <text x="245" y="645" font-size="28" fill="#cf7432" font-weight="400" text-anchor="middle">BB：路径概率 0.36</text>
+    <text x="865" y="645" font-size="28" fill="#2865a0" font-weight="400" text-anchor="middle">AB：路径概率 0.27</text>
   </g>
-  <g id="patch_2">
-   <path d="M 695.52 388.512 L 833.76 388.512 L 833.76 125.856 L 695.52 125.856 z " style="fill: #e5f2f4; stroke: #e5f2f4; stroke-linejoin: miter" />
-  </g>
-  <g id="axes_1">
-   <g id="patch_3">
-    <path d="M 95.04 421.344 L 656.64 421.344 L 656.64 120.384 L 95.04 120.384 z " style="fill: #ffffff" />
-   </g>
-   <g clip-path="url(#pc95b669ce7)">
-    <image ns4:href="data:image/png;base64, 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" id="image0547a1bc8a" transform="scale(1 -1) translate(0 -300.96)" x="95.04" y="-120.384" width="561.6" height="300.96" />
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <defs>
-       <path id="mf4ac8349fa" d="M 0 0 L 0 3.5 " style="stroke: #496579; stroke-width: 0.8" />
-      </defs>
-      <g>
-       <use ns4:href="#mf4ac8349fa" x="235.44" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_1">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #496579" x="235.44" y="438.735875" transform="rotate(-0 235.44 438.735875)">A</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use ns4:href="#mf4ac8349fa" x="516.24" y="421.344" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_2">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #496579" x="516.24" y="438.735875" transform="rotate(-0 516.24 438.735875)">B</text>
-     </g>
-    </g>
-    <g id="text_3">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.84" y="466.757594" transform="rotate(-0 375.84 466.757594)">时刻2的状态</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_3">
-      <defs>
-       <path id="m1da1052618" d="M 0 0 L -3.5 0 " style="stroke: #496579; stroke-width: 0.8" />
-      </defs>
-      <g>
-       <use ns4:href="#m1da1052618" x="95.04" y="195.624" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_4">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #496579" x="88.04" y="200.819937" transform="rotate(-0 88.04 200.819937)">A</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_4">
-      <g>
-       <use ns4:href="#m1da1052618" x="95.04" y="346.104" style="fill: #496579; stroke: #496579; stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_5">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #496579" x="88.04" y="351.299937" transform="rotate(-0 88.04 351.299937)">B</text>
-     </g>
-    </g>
-   </g>
-   <g id="patch_4">
-    <path d="M 95.04 421.344 L 95.04 120.384 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="patch_5">
-    <path d="M 95.04 421.344 L 656.64 421.344 " style="fill: none; stroke: #b6cbd9; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square" />
-   </g>
-   <g id="text_6">
-    <text style="font-size: 26px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="235.44" y="202.784156" transform="rotate(-0 235.44 202.784156)">0.34</text>
-   </g>
-   <g id="text_7">
-    <text style="font-size: 26px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="516.24" y="202.784156" transform="rotate(-0 516.24 202.784156)">0.27</text>
-   </g>
-   <g id="text_8">
-    <text style="font-size: 26px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #17344f" x="235.44" y="353.264156" transform="rotate(-0 235.44 353.264156)">0.03</text>
-   </g>
-   <g id="text_9">
-    <text style="font-size: 26px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="516.24" y="353.264156" transform="rotate(-0 516.24 353.264156)">0.36</text>
-   </g>
-   <g id="text_10">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #37576d" x="95.04" y="106.384" transform="rotate(-0 95.04 106.384)">时刻1的状态</text>
-   </g>
-  </g>
-  <g id="text_11">
-   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #17344f" x="38.88" y="35.568" transform="rotate(-0 38.88 35.568)">HMM 路径后验的最大格与最大边缘不一定一致</text>
-  </g>
-  <g id="text_12">
-   <text style="font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #627d91" x="39.744" y="68.4" transform="rotate(-0 39.744 68.4)">机制图解  /  依照正文设定核对参数、数据与边界</text>
-  </g>
-  <g id="text_13">
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #087b78" x="712.8" y="153.216" transform="rotate(-0 712.8 153.216)">读图要点</text>
-  </g>
-  <g id="text_14">
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 195.302625)">边缘最优拼为AB</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 219.415594)">，概率0.27；最</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 243.528562)">大格却为BB的</text>
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #244c5e" transform="translate(712.8 267.641531)">0.36。</text>
-  </g>
-  <g id="text_15">
-   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #648094" x="38.88" y="528.048" transform="rotate(-0 38.88 528.048)">本地原创矢量图 · 构造或解析数据，非未声明的实验结果 · 适用条件见正文</text>
-  </g>
- </g>
- <defs>
-  <clipPath id="pc95b669ce7">
-   <rect x="95.04" y="120.384" width="561.6" height="300.96" />
-  </clipPath>
- </defs>
 </svg>

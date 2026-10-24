@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="740" viewBox="0 0 1400 740" role="img"><title>缓存追加两词：2×6 掩码必须按绝对位置对齐</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#245f98"/></marker></defs><rect width="1400" height="740" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<text x="44" y="58" font-size="34" fill="#18324a" text-anchor="start" font-weight="bold">缓存追加两词：2×6 掩码必须按绝对位置对齐</text>
+<line x1="44" y1="85" x2="1356" y2="85" stroke="#dce5ed" stroke-width="2"/>
+<text x="350" y="145" font-size="29" fill="#18324a" text-anchor="middle" font-weight="normal">错误：从局部行号 0 开始</text>
+<text x="150" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">0</text>
+<text x="225" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">1</text>
+<text x="300" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">2</text>
+<text x="375" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">3</text>
+<text x="450" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">4</text>
+<text x="525" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">5</text>
+<text x="50" y="310" font-size="28" fill="#18324a" text-anchor="start" font-weight="normal">q4</text>
+<rect x="117" y="255" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="150" y="306" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="192" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="225" y="306" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="267" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="300" y="306" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="342" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="375" y="306" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="417" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="450" y="306" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="492" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="525" y="306" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<text x="50" y="410" font-size="28" fill="#18324a" text-anchor="start" font-weight="normal">q5</text>
+<rect x="117" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="150" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="192" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="225" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="267" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="300" y="406" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="342" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="375" y="406" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="417" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="450" y="406" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<rect x="492" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="525" y="406" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<text x="350" y="525" font-size="29" fill="#c76b25" text-anchor="middle" font-weight="normal">可见键数：1、2</text>
+<text x="1050" y="145" font-size="29" fill="#18324a" text-anchor="middle" font-weight="normal">正确：查询位置为 4、5</text>
+<text x="850" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">0</text>
+<text x="925" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">1</text>
+<text x="1000" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">2</text>
+<text x="1075" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">3</text>
+<text x="1150" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">4</text>
+<text x="1225" y="220" font-size="26" fill="#18324a" text-anchor="middle" font-weight="normal">5</text>
+<text x="750" y="310" font-size="28" fill="#18324a" text-anchor="start" font-weight="normal">q4</text>
+<rect x="817" y="255" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="850" y="306" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="892" y="255" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="925" y="306" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="967" y="255" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1000" y="306" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="1042" y="255" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1075" y="306" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="1117" y="255" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1150" y="306" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="1192" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
+<text x="1225" y="306" font-size="29" fill="#62778a" text-anchor="middle" font-weight="normal">×</text>
+<text x="750" y="410" font-size="28" fill="#18324a" text-anchor="start" font-weight="normal">q5</text>
+<rect x="817" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="850" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="892" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="925" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="967" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1000" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="1042" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1075" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="1117" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1150" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<rect x="1192" y="355" width="66" height="80" rx="7" fill="#dbeaf7" stroke="#dce5ed"/>
+<text x="1225" y="406" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">1</text>
+<text x="1050" y="525" font-size="29" fill="#245f98" text-anchor="middle" font-weight="normal">可见键数：5、6</text>
+<line x1="700" y1="115" x2="700" y2="660" stroke="#dce5ed" stroke-width="2"/>
+<text x="700" y="635" font-size="29" fill="#18324a" text-anchor="middle" font-weight="normal">past=4；允许条件：键位置 j ≤ 4+i</text></g></svg>
