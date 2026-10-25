@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790" role="img" aria-labelledby="title desc">
+<title id="title">注意力Dropout的四种结果</title><desc id="desc">两条权重0.25和0.75，值1和3，独立丢弃概率0.5；缩放后输出0、0.5、4.5、5各等概率，期望2.5。</desc>
+<rect width="1200" height="790" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="34" fill="#213447" text-anchor="start" font-weight="700">注意力 Dropout：保持期望，不保持凸组合</text>
+<text x="44" y="99" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">原权重 (0.25, 0.75)，值 (1, 3)；每条边独立丢弃，概率均为 0.5</text>
+<text x="44" y="158" font-size="29" fill="#213447" text-anchor="start" font-weight="700">① 枚举全部掩码</text>
+<text x="655" y="158" font-size="29" fill="#213447" text-anchor="start" font-weight="700">② 四种输出落在哪里</text>
+<text x="60" y="209" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">保留掩码</text>
+<text x="212" y="209" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">实际权重</text>
+<text x="373" y="209" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">行和</text>
+<text x="519" y="209" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">输出</text>
+<rect x="44" y="226" width="552" height="58" rx="8" fill="#f1f5f9" stroke="none"/>
+<text x="60" y="265" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">(0, 0)</text>
+<text x="212" y="265" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">(0, 0)</text>
+<text x="373" y="265" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">0</text>
+<text x="519" y="265" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">0</text>
+<rect x="44" y="298" width="552" height="58" rx="8" fill="#fbfcfd" stroke="none"/>
+<text x="60" y="337" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">(1, 0)</text>
+<text x="212" y="337" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">(0.5, 0)</text>
+<text x="373" y="337" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">0.5</text>
+<text x="519" y="337" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">0.5</text>
+<rect x="44" y="370" width="552" height="58" rx="8" fill="#f1f5f9" stroke="none"/>
+<text x="60" y="409" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">(0, 1)</text>
+<text x="212" y="409" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">(0, 1.5)</text>
+<text x="373" y="409" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">1.5</text>
+<text x="519" y="409" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">4.5</text>
+<rect x="44" y="442" width="552" height="58" rx="8" fill="#fbfcfd" stroke="none"/>
+<text x="60" y="481" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">(1, 1)</text>
+<text x="212" y="481" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">(0.5, 1.5)</text>
+<text x="373" y="481" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">2</text>
+<text x="519" y="481" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">5</text>
+<text x="60" y="574" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">每行概率相同；保留下来的权重乘 2</text>
+<rect x="772.0" y="232" width="172.0" height="290" rx="0" fill="#edf4fa" stroke="none"/>
+<text x="858.0" y="223" font-size="24" fill="#2865a0" text-anchor="middle" font-weight="400">原值的凸包</text>
+<line x1="686" y1="265" x2="1116" y2="265" stroke="#dce5ed" stroke-width="2"/>
+<circle cx="686.0" cy="265" r="9" fill="#c87536"/>
+<line x1="686" y1="337" x2="1116" y2="337" stroke="#dce5ed" stroke-width="2"/>
+<circle cx="729.0" cy="337" r="9" fill="#c87536"/>
+<line x1="686" y1="409" x2="1116" y2="409" stroke="#dce5ed" stroke-width="2"/>
+<circle cx="1073.0" cy="409" r="9" fill="#c87536"/>
+<line x1="686" y1="481" x2="1116" y2="481" stroke="#dce5ed" stroke-width="2"/>
+<circle cx="1116.0" cy="481" r="9" fill="#c87536"/>
+<line x1="686.0" y1="527" x2="686.0" y2="536" stroke="#63788c" stroke-width="2"/>
+<text x="686.0" y="571" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">0</text>
+<line x1="772.0" y1="527" x2="772.0" y2="536" stroke="#63788c" stroke-width="2"/>
+<text x="772.0" y="571" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">1</text>
+<line x1="858.0" y1="527" x2="858.0" y2="536" stroke="#63788c" stroke-width="2"/>
+<text x="858.0" y="571" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">2</text>
+<line x1="944.0" y1="527" x2="944.0" y2="536" stroke="#63788c" stroke-width="2"/>
+<text x="944.0" y="571" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">3</text>
+<line x1="1030.0" y1="527" x2="1030.0" y2="536" stroke="#63788c" stroke-width="2"/>
+<text x="1030.0" y="571" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">4</text>
+<line x1="1116.0" y1="527" x2="1116.0" y2="536" stroke="#63788c" stroke-width="2"/>
+<text x="1116.0" y="571" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">5</text>
+<line x1="901.0" y1="238" x2="901.0" y2="520" stroke="#2865a0" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="901.0" y="613" font-size="26" fill="#2865a0" text-anchor="middle" font-weight="700">期望 = 2.5</text>
+<rect x="44" y="652" width="1112" height="91" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="66" y="690" font-size="27" fill="#213447" text-anchor="start" font-weight="400">若再除以随机行和，并把空行置零：输出变为 0、1、3、2.5。</text>
+<text x="66" y="726" font-size="27" fill="#213447" text-anchor="start" font-weight="400">新期望为 1.625，已经不是原来的 Dropout 算子。</text>
+</g></svg>

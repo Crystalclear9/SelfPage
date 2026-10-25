@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950" viewBox="0 0 1200 950" role="img" aria-labelledby="title desc">
+<title id="title">分页KV的块内碎片和写时复制</title><desc id="desc">每块4个token槽。长度5,9,17请求共31个有效槽，稠密填充51槽，独立分页40槽。三分支共享6token前缀后各缓存一个新token，共享满块加3个私有尾块，总16槽；不共享为24槽。</desc>
+<rect width="1200" height="950" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="33" fill="#213447" text-anchor="start" font-weight="700">分页 KV：减少空位，共享前缀，写入时再分开</text>
+<text x="44" y="101" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">每块 4 个 token 槽；一个槽代表该位置所需的全部层 K、V</text>
+<text x="44" y="163" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 请求独立：分页仍保留末块空位</text>
+<text x="55" y="241" font-size="27" fill="#213447" text-anchor="start" font-weight="400">长度 5</text>
+<rect x="220" y="209" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="258" y="209" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="296" y="209" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="334" y="209" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="385" y="209" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="423" y="209" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<rect x="461" y="209" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<rect x="499" y="209" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<text x="1085" y="240" font-size="26" fill="#213447" text-anchor="middle" font-weight="400">8 槽</text>
+<text x="55" y="307" font-size="27" fill="#213447" text-anchor="start" font-weight="400">长度 9</text>
+<rect x="220" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="258" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="296" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="334" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="385" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="423" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="461" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="499" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="550" y="275" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="588" y="275" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<rect x="626" y="275" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<rect x="664" y="275" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<text x="1085" y="306" font-size="26" fill="#213447" text-anchor="middle" font-weight="400">12 槽</text>
+<text x="55" y="373" font-size="27" fill="#213447" text-anchor="start" font-weight="400">长度 17</text>
+<rect x="220" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="258" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="296" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="334" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="385" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="423" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="461" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="499" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="550" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="588" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="626" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="664" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="715" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="753" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="791" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="829" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="880" y="341" width="34" height="41" rx="4" fill="#2865a0" stroke="#dce5ed"/>
+<rect x="918" y="341" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<rect x="956" y="341" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<rect x="994" y="341" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
+<text x="1085" y="372" font-size="26" fill="#213447" text-anchor="middle" font-weight="400">20 槽</text>
+<text x="55" y="445" font-size="28" fill="#213447" text-anchor="start" font-weight="700">有效内容 31 槽　　稠密批量 51 槽　　独立分页 40 槽</text>
+<line x1="44" y1="478" x2="1156" y2="478" stroke="#dce5ed" stroke-width="2"/>
+<text x="44" y="531" font-size="28" fill="#213447" text-anchor="start" font-weight="700">② 三分支：6 项共同前缀，各缓存 1 项不同续写</text>
+<text x="55" y="591" font-size="26" fill="#2865a0" text-anchor="start" font-weight="700">共享满块 A</text>
+<rect x="55" y="614" width="58" height="50" rx="5" fill="#2865a0" stroke="none"/>
+<text x="84" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">1</text>
+<rect x="120" y="614" width="58" height="50" rx="5" fill="#2865a0" stroke="none"/>
+<text x="149" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">2</text>
+<rect x="185" y="614" width="58" height="50" rx="5" fill="#2865a0" stroke="none"/>
+<text x="214" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">3</text>
+<rect x="250" y="614" width="58" height="50" rx="5" fill="#2865a0" stroke="none"/>
+<text x="279" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">4</text>
+<text x="55" y="708" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">引用数 3</text>
+<line x1="337" y1="639" x2="670" y2="605" stroke="#63788c" stroke-width="2"/>
+<text x="690" y="614" font-size="25" fill="#213447" text-anchor="start" font-weight="400">分支 1</text>
+<rect x="815" y="580" width="65" height="50" rx="5" fill="#2865a0" stroke="#dce5ed"/>
+<text x="847.5" y="614" font-size="27" fill="white" text-anchor="middle" font-weight="400">5</text>
+<rect x="890" y="580" width="65" height="50" rx="5" fill="#2865a0" stroke="#dce5ed"/>
+<text x="922.5" y="614" font-size="27" fill="white" text-anchor="middle" font-weight="400">6</text>
+<rect x="965" y="580" width="65" height="50" rx="5" fill="#c87536" stroke="#dce5ed"/>
+<text x="997.5" y="614" font-size="27" fill="white" text-anchor="middle" font-weight="400">a</text>
+<rect x="1040" y="580" width="65" height="50" rx="5" fill="#edf1f5" stroke="#dce5ed"/>
+<text x="1072.5" y="614" font-size="27" fill="#63788c" text-anchor="middle" font-weight="400">空</text>
+<line x1="337" y1="639" x2="670" y2="688" stroke="#63788c" stroke-width="2"/>
+<text x="690" y="697" font-size="25" fill="#213447" text-anchor="start" font-weight="400">分支 2</text>
+<rect x="815" y="663" width="65" height="50" rx="5" fill="#2865a0" stroke="#dce5ed"/>
+<text x="847.5" y="697" font-size="27" fill="white" text-anchor="middle" font-weight="400">5</text>
+<rect x="890" y="663" width="65" height="50" rx="5" fill="#2865a0" stroke="#dce5ed"/>
+<text x="922.5" y="697" font-size="27" fill="white" text-anchor="middle" font-weight="400">6</text>
+<rect x="965" y="663" width="65" height="50" rx="5" fill="#c87536" stroke="#dce5ed"/>
+<text x="997.5" y="697" font-size="27" fill="white" text-anchor="middle" font-weight="400">b</text>
+<rect x="1040" y="663" width="65" height="50" rx="5" fill="#edf1f5" stroke="#dce5ed"/>
+<text x="1072.5" y="697" font-size="27" fill="#63788c" text-anchor="middle" font-weight="400">空</text>
+<line x1="337" y1="639" x2="670" y2="771" stroke="#63788c" stroke-width="2"/>
+<text x="690" y="780" font-size="25" fill="#213447" text-anchor="start" font-weight="400">分支 3</text>
+<rect x="815" y="746" width="65" height="50" rx="5" fill="#2865a0" stroke="#dce5ed"/>
+<text x="847.5" y="780" font-size="27" fill="white" text-anchor="middle" font-weight="400">5</text>
+<rect x="890" y="746" width="65" height="50" rx="5" fill="#2865a0" stroke="#dce5ed"/>
+<text x="922.5" y="780" font-size="27" fill="white" text-anchor="middle" font-weight="400">6</text>
+<rect x="965" y="746" width="65" height="50" rx="5" fill="#c87536" stroke="#dce5ed"/>
+<text x="997.5" y="780" font-size="27" fill="white" text-anchor="middle" font-weight="400">c</text>
+<rect x="1040" y="746" width="65" height="50" rx="5" fill="#edf1f5" stroke="#dce5ed"/>
+<text x="1072.5" y="780" font-size="27" fill="#63788c" text-anchor="middle" font-weight="400">空</text>
+<text x="380" y="758" font-size="26" fill="#c87536" text-anchor="start" font-weight="700">尾块写时复制</text>
+<rect x="44" y="842" width="1112" height="70" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="885" font-size="25" fill="#213447" text-anchor="start" font-weight="400">最终 1 个共享满块 + 3 个私有尾块 = 16 槽；完全不共享则需 24 槽。</text>
+</g></svg>

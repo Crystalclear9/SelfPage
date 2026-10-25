@@ -309,6 +309,6 @@ KaTeX 的渲染器、CSS 和字体必须使用同一版本。直接依赖固定�
 
 ### 当前学习资料快照
 
-AILearning 已同步至 `c2bd19b`（2026-10-24），包含 246 个阅读页面与 624 个配图及许可文件。此次更新覆盖 47 个主题的算例、图解与配套说明；页面仍按分类、主题、章节独立组织。完整来源版本以 `content/collections/ailearning/manifest.json` 为准。
+AILearning 已同步至 `c787842`（2026-10-25），包含 246 个阅读页面与 709 个配图及许可文件。此次更新补充核心章节中相互衔接的算例图解与配套说明；页面仍按分类、主题、章节独立组织。完整来源版本以 `content/collections/ailearning/manifest.json` 为准。
 
 章内目录同时支持原有手写锚点与 GitHub 风格的标题锚点。标题锚点由 `github-slugger` 在 Markdown 转换阶段生成，重复标题自动编号；更新正文后运行 `npm run check:learning` 核对所有内部链接和锚点。同步配图时应删除新清单中已不存在的旧素材，避免发布过期文件。

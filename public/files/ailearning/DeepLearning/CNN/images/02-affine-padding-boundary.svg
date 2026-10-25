@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="830" viewBox="0 0 1200 830" role="img" aria-labelledby="title desc">
+<title id="title">输入标准化折叠与边界填充</title><desc id="desc">一维切片x为2,4,6，均值2标准差2，卷积核1,2,1。标准化后补零得到1,4,5；折叠核和偏置但原空间补零得到0,4,4；原空间补均值2恢复1,4,5。</desc>
+<rect width="1200" height="830" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="32" fill="#213447" text-anchor="start" font-weight="700">标准化可以折叠，但填充的“零”属于哪个空间？</text>
+<text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">原输入 (2, 4, 6)，μ = 2，σ = 2；核 (1, 2, 1)，偏置 0</text>
+<text x="44" y="161" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 三条计算路径：只改边界就改变输出</text>
+<text x="55" y="234" font-size="27" fill="#2865a0" text-anchor="start" font-weight="700">先标准化，再补零</text>
+<rect x="365" y="203" width="62" height="48" rx="5" fill="#faefe4" stroke="#dce5ed"/>
+<text x="396" y="237" font-size="28" fill="#2865a0" text-anchor="middle" font-weight="400">0</text>
+<rect x="431" y="203" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="462" y="237" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">0</text>
+<rect x="497" y="203" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="528" y="237" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">1</text>
+<rect x="563" y="203" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="594" y="237" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">2</text>
+<rect x="629" y="203" width="62" height="48" rx="5" fill="#faefe4" stroke="#dce5ed"/>
+<text x="660" y="237" font-size="28" fill="#2865a0" text-anchor="middle" font-weight="400">0</text>
+<text x="740" y="234" font-size="33" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<rect x="820" y="203" width="82" height="48" rx="7" fill="#eef4f9" stroke="none"/>
+<text x="861" y="237" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">1</text>
+<rect x="912" y="203" width="82" height="48" rx="7" fill="#eef4f9" stroke="none"/>
+<text x="953" y="237" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">4</text>
+<rect x="1004" y="203" width="82" height="48" rx="7" fill="#eef4f9" stroke="none"/>
+<text x="1045" y="237" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">5</text>
+<text x="365" y="294" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">核 (1, 2, 1)，偏置 0</text>
+<text x="55" y="372" font-size="27" fill="#c87536" text-anchor="start" font-weight="700">折叠后仍补原始零</text>
+<rect x="365" y="341" width="62" height="48" rx="5" fill="#faefe4" stroke="#dce5ed"/>
+<text x="396" y="375" font-size="28" fill="#c87536" text-anchor="middle" font-weight="400">0</text>
+<rect x="431" y="341" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="462" y="375" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">2</text>
+<rect x="497" y="341" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="528" y="375" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">4</text>
+<rect x="563" y="341" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="594" y="375" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">6</text>
+<rect x="629" y="341" width="62" height="48" rx="5" fill="#faefe4" stroke="#dce5ed"/>
+<text x="660" y="375" font-size="28" fill="#c87536" text-anchor="middle" font-weight="400">0</text>
+<text x="740" y="372" font-size="33" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<rect x="820" y="341" width="82" height="48" rx="7" fill="#fcf1e8" stroke="none"/>
+<text x="861" y="375" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">0</text>
+<rect x="912" y="341" width="82" height="48" rx="7" fill="#fcf1e8" stroke="none"/>
+<text x="953" y="375" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">4</text>
+<rect x="1004" y="341" width="82" height="48" rx="7" fill="#fcf1e8" stroke="none"/>
+<text x="1045" y="375" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">4</text>
+<text x="365" y="432" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">核 (0.5, 1, 0.5)，偏置 −4</text>
+<text x="55" y="510" font-size="27" fill="#2865a0" text-anchor="start" font-weight="700">折叠后补原始均值</text>
+<rect x="365" y="479" width="62" height="48" rx="5" fill="#faefe4" stroke="#dce5ed"/>
+<text x="396" y="513" font-size="28" fill="#2865a0" text-anchor="middle" font-weight="400">2</text>
+<rect x="431" y="479" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="462" y="513" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">2</text>
+<rect x="497" y="479" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="528" y="513" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">4</text>
+<rect x="563" y="479" width="62" height="48" rx="5" fill="#edf4f9" stroke="#dce5ed"/>
+<text x="594" y="513" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">6</text>
+<rect x="629" y="479" width="62" height="48" rx="5" fill="#faefe4" stroke="#dce5ed"/>
+<text x="660" y="513" font-size="28" fill="#2865a0" text-anchor="middle" font-weight="400">2</text>
+<text x="740" y="510" font-size="33" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<rect x="820" y="479" width="82" height="48" rx="7" fill="#eef4f9" stroke="none"/>
+<text x="861" y="513" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">1</text>
+<rect x="912" y="479" width="82" height="48" rx="7" fill="#eef4f9" stroke="none"/>
+<text x="953" y="513" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">4</text>
+<rect x="1004" y="479" width="82" height="48" rx="7" fill="#eef4f9" stroke="none"/>
+<text x="1045" y="513" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">5</text>
+<text x="365" y="570" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">核 (0.5, 1, 0.5)，偏置 −4</text>
+<text x="55" y="633" font-size="28" fill="#213447" text-anchor="start" font-weight="700">② 左边界手算</text>
+<text x="365" y="633" font-size="27" fill="#2865a0" text-anchor="start" font-weight="400">0×1 + 0×2 + 1×1 = 1</text>
+<text x="365" y="677" font-size="27" fill="#c87536" text-anchor="start" font-weight="400">0×0.5 + 2×1 + 4×0.5 − 4 = 0</text>
+<rect x="44" y="726" width="1112" height="69" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="768" font-size="25" fill="#213447" text-anchor="start" font-weight="400">标准化空间的 0 对应原空间的 μ；内部位置相等，不能证明边界也等价。</text>
+</g></svg>

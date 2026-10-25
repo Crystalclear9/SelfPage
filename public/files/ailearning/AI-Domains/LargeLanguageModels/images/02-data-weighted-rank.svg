@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">低秩近似：保留哪个方向取决于误差度量</title><desc id="desc">目标矩阵 diag(3,1)，输入二阶矩 diag(0.01,100)。矩阵截断保留第一方向，预测风险最优保留第二方向。</desc>
+<rect width="1200" height="760" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="34" fill="#213447" text-anchor="start" font-weight="700">同为秩一：矩阵最接近，不一定预测最准</text>
+<text x="44" y="98" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">目标更新 M = diag(3, 1)；输入零均值，两个坐标方差为 0.01 和 100</text>
+<rect x="44" y="132" width="348" height="480" rx="14" fill="#f7f9fc" stroke="#dce5ed"/>
+<text x="66" y="177" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 只看矩阵系数</text>
+<rect x="426" y="132" width="348" height="480" rx="14" fill="#f7f9fc" stroke="#dce5ed"/>
+<text x="448" y="177" font-size="28" fill="#213447" text-anchor="start" font-weight="700">② 纳入输入尺度</text>
+<rect x="808" y="132" width="348" height="480" rx="14" fill="#f7f9fc" stroke="#dce5ed"/>
+<text x="830" y="177" font-size="28" fill="#213447" text-anchor="start" font-weight="700">③ 比较预测误差</text>
+<text x="66" y="223" font-size="26" fill="#2865a0" text-anchor="start" font-weight="400">奇异值：3 与 1</text>
+<text x="448" y="223" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">加权奇异值：0.3 与 10</text>
+<line x1="85" y1="489.0" x2="310" y2="489.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="72" y="497.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0</text>
+<line x1="85" y1="419.0" x2="310" y2="419.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="72" y="427.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">1</text>
+<line x1="85" y1="349.0" x2="310" y2="349.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="72" y="357.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">2</text>
+<line x1="85" y1="279.0" x2="310" y2="279.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="72" y="287.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">3</text>
+<rect x="125" y="279.0" width="55" height="210.0" rx="0" fill="#2865a0" stroke="none"/>
+<text x="152" y="266.0" font-size="25" fill="#2865a0" text-anchor="middle" font-weight="700">3</text>
+<text x="152" y="527" font-size="24" fill="#213447" text-anchor="middle" font-weight="400">方向 1</text>
+<rect x="240" y="419.0" width="55" height="70.0" rx="0" fill="#2865a0" stroke="none"/>
+<text x="267" y="406.0" font-size="25" fill="#2865a0" text-anchor="middle" font-weight="700">1</text>
+<text x="267" y="527" font-size="24" fill="#213447" text-anchor="middle" font-weight="400">方向 2</text>
+<line x1="467" y1="489.0" x2="692" y2="489.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="454" y="497.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0</text>
+<line x1="467" y1="384.0" x2="692" y2="384.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="454" y="392.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">5</text>
+<line x1="467" y1="279.0" x2="692" y2="279.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="454" y="287.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">10</text>
+<rect x="507" y="482.7" width="55" height="6.3" rx="0" fill="#c87536" stroke="none"/>
+<text x="534" y="469.7" font-size="25" fill="#c87536" text-anchor="middle" font-weight="700">0.3</text>
+<text x="534" y="527" font-size="24" fill="#213447" text-anchor="middle" font-weight="400">方向 1</text>
+<rect x="622" y="279.0" width="55" height="210.0" rx="0" fill="#c87536" stroke="none"/>
+<text x="649" y="266.0" font-size="25" fill="#c87536" text-anchor="middle" font-weight="700">10</text>
+<text x="649" y="527" font-size="24" fill="#213447" text-anchor="middle" font-weight="400">方向 2</text>
+<text x="66" y="576" font-size="27" fill="#2865a0" text-anchor="start" font-weight="700">保留方向 1</text>
+<text x="448" y="576" font-size="27" fill="#c87536" text-anchor="start" font-weight="700">保留方向 2</text>
+<text x="830" y="228" font-size="26" fill="#2865a0" text-anchor="start" font-weight="700">保留方向 1</text>
+<text x="830" y="267" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">遗漏第二坐标</text>
+<text x="830" y="311" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">风险 = 1² × 100 = 100</text>
+<line x1="830" y1="342" x2="1130" y2="342" stroke="#dce5ed" stroke-width="2"/>
+<text x="830" y="390" font-size="26" fill="#c87536" text-anchor="start" font-weight="700">保留方向 2</text>
+<text x="830" y="431" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">遗漏第一坐标</text>
+<text x="830" y="479" font-size="24" fill="#c87536" text-anchor="start" font-weight="400">风险 = 3² × 0.01 = 0.09</text>
+<text x="830" y="568" font-size="24" fill="#213447" text-anchor="start" font-weight="700">度量改变，最优解改变</text>
+<rect x="44" y="640" width="1112" height="76" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="687" font-size="27" fill="#213447" text-anchor="start" font-weight="400">矩阵误差平方：1 对 9　　预测误差：100 对 0.09　　两种排名正好相反</text>
+</g></svg>

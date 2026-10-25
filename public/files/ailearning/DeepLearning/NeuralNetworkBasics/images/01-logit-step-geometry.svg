@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<title id="title">同一二类概率的参数化改变SGD有效步长</title><desc id="desc">固定输入等于1，标签1，初始logit为0。单logit步长0.2后有效logit0.1；两个logit同样步长各向相反方向移动0.1，有效差值0.2；两logit学习率减半则恢复0.1。</desc>
+<rect width="1200" height="820" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="34" fill="#213447" text-anchor="start" font-weight="700">同一概率函数，为什么一步 SGD 走得不同？</text>
+<text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">固定输入 x = 1，标签 y = 1，初始概率 0.5；无动量、无正则</text>
+<text x="44" y="163" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 两个分数沿相反方向移动</text>
+<line x1="152.0" y1="208.99999999999997" x2="152.0" y2="569.0" stroke="#dce5ed" stroke-width="1"/>
+<line x1="91.99999999999997" y1="569.0" x2="512.0" y2="569.0" stroke="#dce5ed" stroke-width="1"/>
+<text x="152.0" y="599.0" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">-0.1</text>
+<text x="69.5" y="577.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">-0.1</text>
+<line x1="302" y1="208.99999999999997" x2="302" y2="569.0" stroke="#dce5ed" stroke-width="1"/>
+<line x1="91.99999999999997" y1="419" x2="512.0" y2="419" stroke="#dce5ed" stroke-width="1"/>
+<text x="302" y="599.0" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">0</text>
+<text x="69.5" y="427" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0</text>
+<line x1="452.0" y1="208.99999999999997" x2="452.0" y2="569.0" stroke="#dce5ed" stroke-width="1"/>
+<line x1="91.99999999999997" y1="269.0" x2="512.0" y2="269.0" stroke="#dce5ed" stroke-width="1"/>
+<text x="452.0" y="599.0" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">0.1</text>
+<text x="69.5" y="277.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0.1</text>
+<line x1="91.99999999999997" y1="419" x2="512.0" y2="419" stroke="#63788c" stroke-width="2"/>
+<line x1="302" y1="569.0" x2="302" y2="208.99999999999997" stroke="#63788c" stroke-width="2"/>
+<text x="514" y="452" font-size="26" fill="#213447" text-anchor="start" font-weight="400">s0</text>
+<text x="319" y="208" font-size="26" fill="#213447" text-anchor="start" font-weight="400">s1</text>
+<polyline points="152.000,569.000 482.000,239.000" fill="none" stroke="#63788c" stroke-width="2" stroke-linejoin="round"/>
+<text x="361" y="251" font-size="24" fill="#63788c" text-anchor="start" font-weight="400">共同平移</text>
+<polyline points="302.000,419.000 152.000,269.000" fill="none" stroke="#c87536" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="152.0" cy="269.0" r="8" fill="#c87536"/>
+<circle cx="227.0" cy="344.0" r="8" fill="#2865a0"/>
+<circle cx="302" cy="419" r="6" fill="#213447"/>
+<text x="62" y="219" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">η = 0.2：差值 0.2</text>
+<line x1="154" y1="230" x2="152.0" y2="256.0" stroke="#c87536" stroke-width="2"/>
+<text x="44" y="550" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">η = 0.1：差值 0.1</text>
+<line x1="205" y1="524" x2="214.0" y2="357.0" stroke="#2865a0" stroke-width="2"/>
+<text x="55" y="650" font-size="26" fill="#213447" text-anchor="start" font-weight="700">概率只看差值 a = s1 − s0</text>
+<text x="650" y="163" font-size="28" fill="#213447" text-anchor="start" font-weight="700">② 对齐的是有效差值更新</text>
+<text x="650" y="235" font-size="28" fill="#2865a0" text-anchor="start" font-weight="700">单 logit</text>
+<text x="850" y="235" font-size="26" fill="#2865a0" text-anchor="start" font-weight="400">η = 0.2</text>
+<line x1="650" y1="254" x2="1145" y2="254" stroke="#dce5ed" stroke-width="2"/>
+<text x="668" y="300" font-size="28" fill="#213447" text-anchor="start" font-weight="400">a = 0.1</text>
+<text x="900" y="300" font-size="27" fill="#213447" text-anchor="start" font-weight="400">p = 0.5250</text>
+<text x="650" y="371" font-size="28" fill="#c87536" text-anchor="start" font-weight="700">双 logit</text>
+<text x="850" y="371" font-size="26" fill="#c87536" text-anchor="start" font-weight="400">η = 0.2</text>
+<line x1="650" y1="390" x2="1145" y2="390" stroke="#dce5ed" stroke-width="2"/>
+<text x="668" y="436" font-size="28" fill="#213447" text-anchor="start" font-weight="400">a = 0.2</text>
+<text x="900" y="436" font-size="27" fill="#213447" text-anchor="start" font-weight="400">p = 0.5498</text>
+<text x="650" y="507" font-size="28" fill="#2865a0" text-anchor="start" font-weight="700">双 logit</text>
+<text x="850" y="507" font-size="26" fill="#2865a0" text-anchor="start" font-weight="400">η = 0.1</text>
+<line x1="650" y1="526" x2="1145" y2="526" stroke="#dce5ed" stroke-width="2"/>
+<text x="668" y="572" font-size="28" fill="#213447" text-anchor="start" font-weight="400">a = 0.1</text>
+<text x="900" y="572" font-size="27" fill="#213447" text-anchor="start" font-weight="400">p = 0.5250</text>
+<rect x="44" y="692" width="1112" height="92" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="730" font-size="27" fill="#213447" text-anchor="start" font-weight="400">两分数梯度分别为 −g 与 g，所以差值更新含 2ηg。</text>
+<text x="65" y="769" font-size="25" fill="#213447" text-anchor="start" font-weight="400">图仅比较自由输出分数；共享骨干的学习率不能跟着整体减半。</text>
+</g></svg>

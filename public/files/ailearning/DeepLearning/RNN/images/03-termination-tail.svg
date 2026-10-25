@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">序列结束：局部归一化不等于有限长度保证</title><desc id="desc">比较两种结束率：第t步的结束概率分别为1除以(t+1)平方和1除以(t+1)。前者一半概率永不结束；后者几乎必然结束但期望长度无穷。</desc>
+<rect width="1200" height="800" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="34" fill="#213447" text-anchor="start" font-weight="700">每一步都归一化，整条序列一定会结束吗？</text>
+<text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">仅有继续符号和 EOS；T 是首次输出 EOS 的步数，t 从 1 开始</text>
+<text x="80" y="175" font-size="27" fill="#c87536" text-anchor="start" font-weight="400">A：q(t) =</text>
+<text x="300" y="158" font-size="25" fill="#c87536" text-anchor="middle" font-weight="400">1</text>
+<line x1="235" y1="170" x2="365" y2="170" stroke="#c87536" stroke-width="2"/>
+<text x="300" y="204" font-size="25" fill="#c87536" text-anchor="middle" font-weight="400">(t + 1)²</text>
+<text x="670" y="175" font-size="27" fill="#2865a0" text-anchor="start" font-weight="400">B：q(t) =</text>
+<text x="890" y="158" font-size="25" fill="#2865a0" text-anchor="middle" font-weight="400">1</text>
+<line x1="825" y1="170" x2="955" y2="170" stroke="#2865a0" stroke-width="2"/>
+<text x="890" y="204" font-size="25" fill="#2865a0" text-anchor="middle" font-weight="400">t + 1</text>
+<text x="80" y="255" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 仍未结束的概率 P(T &gt; n)</text>
+<line x1="108" y1="613" x2="598" y2="613" stroke="#dce5ed" stroke-width="2"/>
+<text x="93" y="621" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0</text>
+<line x1="108" y1="540.0" x2="598" y2="540.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="93" y="548.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0.25</text>
+<line x1="108" y1="467.0" x2="598" y2="467.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="93" y="475.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0.5</text>
+<line x1="108" y1="394.0" x2="598" y2="394.0" stroke="#dce5ed" stroke-width="2"/>
+<text x="93" y="402.0" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">0.75</text>
+<line x1="108" y1="321" x2="598" y2="321" stroke="#dce5ed" stroke-width="2"/>
+<text x="93" y="329" font-size="24" fill="#63788c" text-anchor="end" font-weight="400">1</text>
+<line x1="108.0" y1="613" x2="108.0" y2="620" stroke="#63788c" stroke-width="2"/>
+<text x="108.0" y="651" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">0</text>
+<line x1="271.33333333333337" y1="613" x2="271.33333333333337" y2="620" stroke="#63788c" stroke-width="2"/>
+<text x="271.33333333333337" y="651" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">10</text>
+<line x1="434.6666666666667" y1="613" x2="434.6666666666667" y2="620" stroke="#63788c" stroke-width="2"/>
+<text x="434.6666666666667" y="651" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">20</text>
+<line x1="598.0" y1="613" x2="598.0" y2="620" stroke="#63788c" stroke-width="2"/>
+<text x="598.0" y="651" font-size="24" fill="#63788c" text-anchor="middle" font-weight="400">30</text>
+<polyline points="108.000,321.000 124.333,394.000 140.667,418.333 157.000,430.500 173.333,437.800 189.667,442.667 206.000,446.143 222.333,448.750 238.667,450.778 255.000,452.400 271.333,453.727 287.667,454.833 304.000,455.769 320.333,456.571 336.667,457.267 353.000,457.875 369.333,458.412 385.667,458.889 402.000,459.316 418.333,459.700 434.667,460.048 451.000,460.364 467.333,460.652 483.667,460.917 500.000,461.160 516.333,461.385 532.667,461.593 549.000,461.786 565.333,461.966 581.667,462.133 598.000,462.290" fill="none" stroke="#c87536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="108.000,321.000 124.333,467.000 140.667,515.667 157.000,540.000 173.333,554.600 189.667,564.333 206.000,571.286 222.333,576.500 238.667,580.556 255.000,583.800 271.333,586.455 287.667,588.667 304.000,590.538 320.333,592.143 336.667,593.533 353.000,594.750 369.333,595.824 385.667,596.778 402.000,597.632 418.333,598.400 434.667,599.095 451.000,599.727 467.333,600.304 483.667,600.833 500.000,601.320 516.333,601.769 532.667,602.185 549.000,602.571 565.333,602.931 581.667,603.267 598.000,603.581" fill="none" stroke="#2865a0" stroke-width="4" stroke-linejoin="round"/>
+<line x1="108" y1="467.0" x2="598" y2="467.0" stroke="#c87536" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="535" y="447.0" font-size="24" fill="#c87536" text-anchor="end" font-weight="400">极限 0.5</text>
+<text x="355" y="688" font-size="25" fill="#213447" text-anchor="middle" font-weight="400">已执行步数 n</text>
+<text x="670" y="255" font-size="28" fill="#213447" text-anchor="start" font-weight="700">② 有限串的全部概率质量</text>
+<text x="680" y="356" font-size="28" fill="#c87536" text-anchor="start" font-weight="700">A</text>
+<rect x="730" y="327" width="360" height="44" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="730" y="327" width="180.0" height="44" rx="5" fill="#c87536" stroke="none"/>
+<text x="1110" y="358" font-size="26" fill="#c87536" text-anchor="start" font-weight="400">0.5</text>
+<text x="680" y="493" font-size="28" fill="#2865a0" text-anchor="start" font-weight="700">B</text>
+<rect x="730" y="464" width="360" height="44" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="730" y="464" width="360.0" height="44" rx="5" fill="#2865a0" stroke="none"/>
+<text x="1110" y="495" font-size="26" fill="#2865a0" text-anchor="start" font-weight="400">1</text>
+<text x="730" y="410" font-size="25" fill="#c87536" text-anchor="start" font-weight="400">仍有 0.5 留在无限路径上</text>
+<text x="730" y="547" font-size="25" fill="#2865a0" text-anchor="start" font-weight="400">总质量为 1，但平均长度仍无穷</text>
+<rect x="44" y="724" width="1112" height="48" rx="10" fill="#eef4f9" stroke="none"/>
+<text x="65" y="758" font-size="26" fill="#213447" text-anchor="start" font-weight="400">B：截断到 10、100、1000 步，期望长度约为 2.929、5.187、7.485。</text>
+</g></svg>

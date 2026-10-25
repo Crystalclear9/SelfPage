@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<title id="title">转置卷积的覆盖数与相位增益</title><desc id="desc">步幅二，无偏置无填充，全一输入三乘三。比较三乘三全一核、四乘四全一核及由向量1,2,1,2外积构造的四乘四核。显示输出零基索引2至5的内部裁剪。</desc>
+<rect width="1200" height="820" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="34" fill="#213447" text-anchor="start" font-weight="700">棋盘纹从哪里来：覆盖数与权重相位</text>
+<text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">输入全 1、步幅 2；二维核为 v 的外积，显示同一内部 4×4 裁剪</text>
+<text x="44" y="171" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 3×3 全 1 核</text>
+<text x="44" y="219" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">v = (1, 1, 1)</text>
+<rect x="83" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="115" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="149" y="257" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="181" y="300" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="215" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="247" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="281" y="257" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="313" y="300" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="83" y="323" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="115" y="366" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="149" y="323" width="64" height="64" rx="4" fill="#eaf2f8" stroke="none"/>
+<text x="181" y="366" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">1</text>
+<rect x="215" y="323" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="247" y="366" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="281" y="323" width="64" height="64" rx="4" fill="#eaf2f8" stroke="none"/>
+<text x="313" y="366" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">1</text>
+<rect x="83" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="115" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="149" y="389" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="181" y="432" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="215" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="247" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="281" y="389" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="313" y="432" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="83" y="455" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="115" y="498" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="149" y="455" width="64" height="64" rx="4" fill="#eaf2f8" stroke="none"/>
+<text x="181" y="498" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">1</text>
+<rect x="215" y="455" width="64" height="64" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="247" y="498" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="281" y="455" width="64" height="64" rx="4" fill="#eaf2f8" stroke="none"/>
+<text x="313" y="498" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">1</text>
+<text x="214" y="566" font-size="26" fill="#213447" text-anchor="middle" font-weight="400">相位增益：2 与 1</text>
+<text x="214" y="611" font-size="26" fill="#2865a0" text-anchor="middle" font-weight="700">输出 1、2、4 交错</text>
+<text x="426" y="171" font-size="28" fill="#213447" text-anchor="start" font-weight="700">② 4×4 全 1 核</text>
+<text x="426" y="219" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">v = (1, 1, 1, 1)</text>
+<rect x="465" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="497" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="531" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="563" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="597" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="629" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="663" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="695" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="465" y="323" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="497" y="366" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="531" y="323" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="563" y="366" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="597" y="323" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="629" y="366" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="663" y="323" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="695" y="366" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="465" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="497" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="531" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="563" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="597" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="629" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="663" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="695" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="465" y="455" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="497" y="498" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="531" y="455" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="563" y="498" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="597" y="455" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="629" y="498" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="663" y="455" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="695" y="498" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<text x="596" y="566" font-size="26" fill="#213447" text-anchor="middle" font-weight="400">相位增益：2 与 2</text>
+<text x="596" y="611" font-size="26" fill="#2865a0" text-anchor="middle" font-weight="700">内部输出均为 4</text>
+<text x="808" y="171" font-size="28" fill="#213447" text-anchor="start" font-weight="700">③ 4×4 非均匀核</text>
+<text x="808" y="219" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">v = (1, 2, 1, 2)</text>
+<rect x="847" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="879" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="913" y="257" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="945" y="300" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="979" y="257" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="1011" y="300" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="1045" y="257" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="1077" y="300" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="847" y="323" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="879" y="366" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="913" y="323" width="64" height="64" rx="4" fill="#a75c27" stroke="none"/>
+<text x="945" y="366" font-size="29" fill="white" text-anchor="middle" font-weight="700">16</text>
+<rect x="979" y="323" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="1011" y="366" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="1045" y="323" width="64" height="64" rx="4" fill="#a75c27" stroke="none"/>
+<text x="1077" y="366" font-size="29" fill="white" text-anchor="middle" font-weight="700">16</text>
+<rect x="847" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="879" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="913" y="389" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="945" y="432" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="979" y="389" width="64" height="64" rx="4" fill="#3975a7" stroke="none"/>
+<text x="1011" y="432" font-size="29" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="1045" y="389" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="1077" y="432" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="847" y="455" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="879" y="498" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="913" y="455" width="64" height="64" rx="4" fill="#a75c27" stroke="none"/>
+<text x="945" y="498" font-size="29" fill="white" text-anchor="middle" font-weight="700">16</text>
+<rect x="979" y="455" width="64" height="64" rx="4" fill="#db9a64" stroke="none"/>
+<text x="1011" y="498" font-size="29" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="1045" y="455" width="64" height="64" rx="4" fill="#a75c27" stroke="none"/>
+<text x="1077" y="498" font-size="29" fill="white" text-anchor="middle" font-weight="700">16</text>
+<text x="978" y="566" font-size="26" fill="#213447" text-anchor="middle" font-weight="400">相位增益：2 与 4</text>
+<text x="978" y="611" font-size="26" fill="#c87536" text-anchor="middle" font-weight="700">输出 4、8、16 交错</text>
+<text x="44" y="674" font-size="25" fill="#63788c" text-anchor="start" font-weight="400">统一色阶：</text>
+<rect x="202" y="647" width="76" height="40" rx="4" fill="#eaf2f8" stroke="none"/>
+<text x="240" y="676" font-size="25" fill="#213447" text-anchor="middle" font-weight="700">1</text>
+<rect x="352" y="647" width="76" height="40" rx="4" fill="#a8c6df" stroke="none"/>
+<text x="390" y="676" font-size="25" fill="#213447" text-anchor="middle" font-weight="700">2</text>
+<rect x="502" y="647" width="76" height="40" rx="4" fill="#3975a7" stroke="none"/>
+<text x="540" y="676" font-size="25" fill="white" text-anchor="middle" font-weight="700">4</text>
+<rect x="652" y="647" width="76" height="40" rx="4" fill="#db9a64" stroke="none"/>
+<text x="690" y="676" font-size="25" fill="#213447" text-anchor="middle" font-weight="700">8</text>
+<rect x="802" y="647" width="76" height="40" rx="4" fill="#a75c27" stroke="none"/>
+<text x="840" y="676" font-size="25" fill="white" text-anchor="middle" font-weight="700">16</text>
+<rect x="44" y="720" width="1112" height="66" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="762" font-size="26" fill="#213447" text-anchor="start" font-weight="400">核长能被步幅整除，只保证内部覆盖数可均衡；权重的各相位总和仍可能不同。</text>
+</g></svg>

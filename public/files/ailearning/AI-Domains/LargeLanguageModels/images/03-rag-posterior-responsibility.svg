@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="810" viewBox="0 0 1200 810" role="img" aria-labelledby="title desc">
+<title id="title">检索先验与答案后验的责任度不同</title><desc id="desc">两个候选先验0.8和0.2，目标答案似然0.1和0.9，联合质量0.08和0.18，边缘答案概率0.26；后验责任度4/13与9/13。平均负对数似然1.8631不同于边缘负对数似然1.3471。</desc>
+<rect width="1200" height="810" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="33" fill="#213447" text-anchor="start" font-weight="700">RAG：先混合概率，再取对数，会改变学习信号</text>
+<text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">固定问题 q 与训练答案 y；两份候选组成完整的教学候选集合</text>
+<text x="70" y="169" font-size="27" fill="#213447" text-anchor="start" font-weight="700">检索先验 π</text>
+<text x="355" y="169" font-size="27" fill="#213447" text-anchor="start" font-weight="700">答案似然 l</text>
+<text x="640" y="169" font-size="27" fill="#213447" text-anchor="start" font-weight="700">联合质量 πl</text>
+<text x="925" y="169" font-size="27" fill="#213447" text-anchor="start" font-weight="700">后验责任度 r</text>
+<text x="70" y="243" font-size="28" fill="#2865a0" text-anchor="start" font-weight="700">z1</text>
+<text x="170" y="243" font-size="28" fill="#2865a0" text-anchor="start" font-weight="400">0.8</text>
+<rect x="70" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="70" y="266" width="168.0" height="27" rx="4" fill="#2865a0" stroke="none"/>
+<text x="311" y="286" font-size="30" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<text x="455" y="243" font-size="28" fill="#2865a0" text-anchor="start" font-weight="400">0.1</text>
+<rect x="355" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="355" y="266" width="21.0" height="27" rx="4" fill="#2865a0" stroke="none"/>
+<text x="596" y="286" font-size="30" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<text x="740" y="243" font-size="28" fill="#2865a0" text-anchor="start" font-weight="400">0.08</text>
+<rect x="640" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="640" y="266" width="16.8" height="27" rx="4" fill="#2865a0" stroke="none"/>
+<text x="881" y="286" font-size="30" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<text x="1025" y="243" font-size="28" fill="#2865a0" text-anchor="start" font-weight="400">0.3077</text>
+<rect x="925" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="925" y="266" width="64.61538461538461" height="27" rx="4" fill="#2865a0" stroke="none"/>
+<text x="70" y="391" font-size="28" fill="#c87536" text-anchor="start" font-weight="700">z2</text>
+<text x="170" y="391" font-size="28" fill="#c87536" text-anchor="start" font-weight="400">0.2</text>
+<rect x="70" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="70" y="414" width="42.0" height="27" rx="4" fill="#c87536" stroke="none"/>
+<text x="311" y="434" font-size="30" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<text x="455" y="391" font-size="28" fill="#c87536" text-anchor="start" font-weight="400">0.9</text>
+<rect x="355" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="355" y="414" width="189.0" height="27" rx="4" fill="#c87536" stroke="none"/>
+<text x="596" y="434" font-size="30" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<text x="740" y="391" font-size="28" fill="#c87536" text-anchor="start" font-weight="400">0.18</text>
+<rect x="640" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="640" y="414" width="37.8" height="27" rx="4" fill="#c87536" stroke="none"/>
+<text x="881" y="434" font-size="30" fill="#63788c" text-anchor="start" font-weight="400">→</text>
+<text x="1025" y="391" font-size="28" fill="#c87536" text-anchor="start" font-weight="400">0.6923</text>
+<rect x="925" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
+<rect x="925" y="414" width="145.3846153846154" height="27" rx="4" fill="#c87536" stroke="none"/>
+<text x="640" y="503" font-size="27" fill="#213447" text-anchor="start" font-weight="700">总质量 = 0.26</text>
+<text x="925" y="503" font-size="27" fill="#213447" text-anchor="start" font-weight="700">后验和 = 1</text>
+<text x="70" y="577" font-size="27" fill="#2865a0" text-anchor="start" font-weight="400">边缘负对数似然</text>
+<text x="70" y="653" font-size="27" fill="#c87536" text-anchor="start" font-weight="400">逐证据平均损失</text>
+<rect x="365" y="548" width="431.06356734931495" height="39" rx="5" fill="#2865a0" stroke="none"/>
+<rect x="365" y="624" width="596.2048568085766" height="39" rx="5" fill="#c87536" stroke="none"/>
+<text x="814.063567349315" y="578" font-size="27" fill="#2865a0" text-anchor="start" font-weight="400">1.3471</text>
+<text x="979.2048568085766" y="654" font-size="27" fill="#c87536" text-anchor="start" font-weight="400">1.8631</text>
+<rect x="44" y="714" width="1112" height="62" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="753" font-size="26" fill="#213447" text-anchor="start" font-weight="400">差距 0.5161 = KL(先验 ‖ 后验)；后验责任度不是引用支持率。</text>
+</g></svg>

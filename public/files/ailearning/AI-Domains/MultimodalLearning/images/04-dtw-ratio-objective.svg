@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<title id="title">DTW最小总和与最小平均代价选择不同路径</title><desc id="desc">序列x为0,0,1，y为0,2,3，格点代价为平方差。总和最优路径代价5长4平均1.25，平均最优路径代价6长5平均1.20。长度为3,4,5的最小总和分别8,5,6。</desc>
+<rect width="1200" height="850" fill="white"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
+<text x="44" y="54" font-size="33" fill="#213447" text-anchor="start" font-weight="700">DTW：选完路径再除长度，不等于优化平均代价</text>
+<text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">x = (0, 0, 1)，y = (0, 2, 3)；每个访问格点按平方差计一次</text>
+<text x="60" y="168" font-size="29" fill="#2865a0" text-anchor="start" font-weight="700">① 总和最小</text>
+<text x="200.0" y="226" font-size="25" fill="#63788c" text-anchor="middle" font-weight="400">y = 0</text>
+<text x="310.0" y="226" font-size="25" fill="#63788c" text-anchor="middle" font-weight="400">y = 2</text>
+<text x="420.0" y="226" font-size="25" fill="#63788c" text-anchor="middle" font-weight="400">y = 3</text>
+<text x="127" y="313.0" font-size="25" fill="#63788c" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="145" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="255" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="365" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<text x="127" y="423.0" font-size="25" fill="#63788c" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="145" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="255" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="365" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<text x="127" y="533.0" font-size="25" fill="#63788c" text-anchor="end" font-weight="400">x = 1</text>
+<rect x="145" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="255" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="365" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<polyline points="200.000,305.000 200.000,415.000 310.000,525.000 420.000,525.000" fill="none" stroke="#2865a0" stroke-width="7" stroke-linejoin="round"/>
+<circle cx="200.0" cy="305.0" r="27" fill="white"/>
+<circle cx="200.0" cy="305.0" r="27" fill="none" stroke="#2865a0" stroke-width="3"/>
+<text x="200.0" y="315.0" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">0</text>
+<text x="310.0" y="315.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">4</text>
+<text x="420.0" y="315.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">9</text>
+<circle cx="200.0" cy="415.0" r="27" fill="white"/>
+<circle cx="200.0" cy="415.0" r="27" fill="none" stroke="#2865a0" stroke-width="3"/>
+<text x="200.0" y="425.0" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">0</text>
+<text x="310.0" y="425.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">4</text>
+<text x="420.0" y="425.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">9</text>
+<text x="200.0" y="535.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">1</text>
+<circle cx="310.0" cy="525.0" r="27" fill="white"/>
+<circle cx="310.0" cy="525.0" r="27" fill="none" stroke="#2865a0" stroke-width="3"/>
+<text x="310.0" y="535.0" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">1</text>
+<circle cx="420.0" cy="525.0" r="27" fill="white"/>
+<circle cx="420.0" cy="525.0" r="27" fill="none" stroke="#2865a0" stroke-width="3"/>
+<text x="420.0" y="535.0" font-size="30" fill="#2865a0" text-anchor="middle" font-weight="700">4</text>
+<text x="305" y="630" font-size="28" fill="#2865a0" text-anchor="middle" font-weight="700">总和 5　长度 4</text>
+<text x="305" y="674" font-size="28" fill="#2865a0" text-anchor="middle" font-weight="400">平均 = 1.25</text>
+<text x="665" y="168" font-size="29" fill="#c87536" text-anchor="start" font-weight="700">② 平均代价最小</text>
+<text x="805.0" y="226" font-size="25" fill="#63788c" text-anchor="middle" font-weight="400">y = 0</text>
+<text x="915.0" y="226" font-size="25" fill="#63788c" text-anchor="middle" font-weight="400">y = 2</text>
+<text x="1025.0" y="226" font-size="25" fill="#63788c" text-anchor="middle" font-weight="400">y = 3</text>
+<text x="732" y="313.0" font-size="25" fill="#63788c" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="750" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="860" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="970" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<text x="732" y="423.0" font-size="25" fill="#63788c" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="750" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="860" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="970" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<text x="732" y="533.0" font-size="25" fill="#63788c" text-anchor="end" font-weight="400">x = 1</text>
+<rect x="750" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="860" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<rect x="970" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
+<polyline points="805.000,305.000 805.000,415.000 805.000,525.000 915.000,525.000 1025.000,525.000" fill="none" stroke="#c87536" stroke-width="7" stroke-linejoin="round"/>
+<circle cx="805.0" cy="305.0" r="27" fill="white"/>
+<circle cx="805.0" cy="305.0" r="27" fill="none" stroke="#c87536" stroke-width="3"/>
+<text x="805.0" y="315.0" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">0</text>
+<text x="915.0" y="315.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">4</text>
+<text x="1025.0" y="315.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">9</text>
+<circle cx="805.0" cy="415.0" r="27" fill="white"/>
+<circle cx="805.0" cy="415.0" r="27" fill="none" stroke="#c87536" stroke-width="3"/>
+<text x="805.0" y="425.0" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">0</text>
+<text x="915.0" y="425.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">4</text>
+<text x="1025.0" y="425.0" font-size="30" fill="#63788c" text-anchor="middle" font-weight="400">9</text>
+<circle cx="805.0" cy="525.0" r="27" fill="white"/>
+<circle cx="805.0" cy="525.0" r="27" fill="none" stroke="#c87536" stroke-width="3"/>
+<text x="805.0" y="535.0" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">1</text>
+<circle cx="915.0" cy="525.0" r="27" fill="white"/>
+<circle cx="915.0" cy="525.0" r="27" fill="none" stroke="#c87536" stroke-width="3"/>
+<text x="915.0" y="535.0" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">1</text>
+<circle cx="1025.0" cy="525.0" r="27" fill="white"/>
+<circle cx="1025.0" cy="525.0" r="27" fill="none" stroke="#c87536" stroke-width="3"/>
+<text x="1025.0" y="535.0" font-size="30" fill="#c87536" text-anchor="middle" font-weight="700">4</text>
+<text x="910" y="630" font-size="28" fill="#c87536" text-anchor="middle" font-weight="700">总和 6　长度 5</text>
+<text x="910" y="674" font-size="28" fill="#c87536" text-anchor="middle" font-weight="400">平均 = 1.20</text>
+<rect x="44" y="719" width="1112" height="96" rx="12" fill="#eef4f9" stroke="none"/>
+<text x="65" y="757" font-size="25" fill="#213447" text-anchor="start" font-weight="400">按长度单独求最优：长度 3 → 总和 8；长度 4 → 总和 5；长度 5 → 总和 6。</text>
+<text x="65" y="793" font-size="25" fill="#213447" text-anchor="start" font-weight="400">比较各长度的最小总和与长度之比，才能得到本例的最小平均值。</text>
+</g></svg>
