@@ -7,9 +7,9 @@ export const profile = {
   "about": "从任务整理、检索问答，到论文里的调度方法，尝试把想法落实到代码里。这里放着其中的一些项目和记录。",
   "github": "https://github.com/Crystalclear9",
   "email": "",
-  "avatarVoice": "audio/megumi-greeting.flac",
-  "likeVoice": "audio/megumi-like.flac",
-  "unlikeVoice": "audio/megumi-unlike.flac"
+  "avatarVoice": "audio/megumi-response-greeting.flac",
+  "likeVoice": "audio/megumi-response-like.flac",
+  "unlikeVoice": "audio/megumi-response-unlike.flac"
 };
 export const projects = [
   {

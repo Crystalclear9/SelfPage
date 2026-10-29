@@ -27,8 +27,8 @@ try {
   await expect(page.locator('.toast')).toContainText('你来啦，随便看看吧。');
   assert.ok(await page.locator('.avatar img').evaluate(el => el.getAnimations().some(a => a.animationName === 'avatar-greeting')));
   await expect(page.locator('.avatar-button')).toHaveAttribute('aria-label', '停止加藤惠语音');
-  // The greeting animation stays active for the actual ~2.04s recording.
-  await expect(page.locator('.avatar-button')).toHaveAttribute('aria-label', '播放加藤惠语音', { timeout: 8000 });
+  // The greeting animation stays active for the actual ~13.74s synthesized response.
+  await expect(page.locator('.avatar-button')).toHaveAttribute('aria-label', '播放加藤惠语音', { timeout: 20000 });
   await expect(page.locator('.avatar-button')).not.toHaveClass(/is-greeting/);
   await page.locator('.project-page-link').first().click();
   await page.waitForURL(base + 'projects/suishouban/');

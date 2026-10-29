@@ -34,21 +34,21 @@
 
 ## 首页角色语音
 
-三段短语音来自 Sony Music Solutions 的 [Xperia Ear Duo（加藤恵）官方角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)，核对日期为 2026-10-21。使用官方 MP3 作为源文件，不进行合成、变声或台词拼接；取消点赞截取一段连续的完整回应。保存至站内，避免访问时依赖第三方音频请求。
+当前三段为 MiniMax `speech-2.8-hd` 根据角色参考音频生成的日语合成回应，不是官方台词或声优新录音。参考素材来自 [Xperia Ear Duo 加藤恵角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)。角色和参考录音权利属于原权利方。
 
-| 本地文件 | 官方试听场景 | 时长 | 原始音频 |
+| 场景 | 文件 | 时长 | 情绪设置 |
 | --- | --- | --- | --- |
-| `public/audio/megumi-greeting.flac` | 会話の始まり；头像点击回应 | 约 2.04 秒 | [voice_sapmle.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle.mp3) |
-| `public/audio/megumi-like.flac` | 問いかけ：好き；回应喜欢，带调侃语气 | 约 9.38 秒 | [voice_sapmle01.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle01.mp3) |
-| `public/audio/megumi-unlike.flac` | いってらっしゃい；取 4.02–7.85 秒的“才、才不是在等你呢”回应 | 约 3.83 秒 | [voice_sapmle02.mp3](https://charactervoice.jp/files/2/xea10_kato/20191111/audio/voice_sapmle02.mp3) |
+| 点击头像 | `public/audio/megumi-response-greeting.flac` | 13.74 秒 | surprised |
+| 点赞 | `public/audio/megumi-response-like.flac` | 10.54 秒 | happy |
+| 取消点赞 | `public/audio/megumi-response-unlike.flac` | 14.91 秒 | sad |
 
-取消点赞台词为「べ、別に待ってるわけじゃないんだからね」，属于轻微嘴硬的回应，不宣称它是原作中专门表达遗憾或取消点赞的台词。
+语速 1.02，音高不偏移，日语语言增强。使用 FFmpeg `loudnorm=I=-20:TP=-3:LRA=11` 统一响度，输出 44.1 kHz / 16 bit 单声道 FLAC。以下台词中的停顿标记仅用于生成，不朗读：
 
-音频处理使用 60 Hz 高通、10 ms 入场淡化，以及两遍响度归一化（目标 −20 LUFS、真峰值上限 −2 dBTP），输出 44.1 kHz / 16 bit FLAC。保留呼吸和音色，不做激进降噪；源 MP3 已损失的细节无法通过转为无损格式恢复。FLAC 的作用是避免处理后再次有损编码，并非把低码率录音变成高清录音。三段合计大小以仓库文件为准，浏览器只在点击时加载。
+- **greeting**：えっ？<#0.2#>ねえ、さっきから私のほっぺ、つつきすぎじゃない？<#0.3#>ともやくん、いったいどこ見てるのかなぁ。<#0.5#>……まあ、別に、嫌とは言ってないけど。
+- **like**：あ、ありがとう。<#0.25#>ともやくんが、いいって思ってくれたんだ。<#0.4#>そっか……。<#0.3#>うん。ちょっとだけ、うれしい、かも。
+- **unlike**：あれ？<#0.2#>……取り消しちゃうんだ。<#0.5#>そっか。<#0.3#>気のせいかなぁ。私、また存在感、薄くなってない？<#0.4#>……ちゃんと、ここにいるんだけどな。
 
-重建：安装 FFmpeg 后运行 `python scripts/prepare-voices.py --ffmpeg <ffmpeg可执行文件路径>`。脚本仅使用 Python 标准库，临时下载原始样本并按上述参数处理；开发环境和正常构建不依赖 FFmpeg。
-
-角色与录音权利属于原权利方。官方公开试听不等同于开放许可；这些片段不属于本项目原创素材，也不作为可自由复用的素材包发布。站内仅在用户点击对应控件后播放，取消喜欢或点击其他语音入口会停止当前播放。
+浏览器只在点击时加载静态音频，各入口互斥播放，再次点击头像可停止。合成服务不接入前端，不保存 API 密钥、上传文件 ID 或复刻音色 ID。旧录音、未采用的试听版本及旧下载处理脚本已移除；重新制作时应先试听，再使用新文件名更新 `profile` 路径，避免缓存旧音频。
 
 ## AILearning 配图
 
