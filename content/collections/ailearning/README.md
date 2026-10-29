@@ -15,22 +15,31 @@
 
 ## 图解与离线阅读
 
-各章主图聚焦关键机制，用几何关系、矩阵、网络连接或时间线展示对象怎样变化。图内保留必要数值与简短说明，详细解释和适用条件紧接在图下。算例、对照与反例按内容需要安排；本地图解分布在关键推导、实验和进阶分析附近，配合正文解释数值相消、数据隔离、梯度传播、采样诊断、异步依赖等容易混淆的细节。图中用直接标注、线型和关键数值说明比较关系，区分教学示意与实验结果；需要进一步核对接口或推导时，可沿相邻正文中的原论文、教材和官方文档链接继续阅读。阅读时先确认对象、坐标与条件，再沿图中的计算过程核对结果。
+配图与正文使用相同的对象和算例。先看像素、曲线、面积或计算路径发生了什么，再对照图下的推导：例如用方块面积区分导数的一阶项与余项，用密度下的阴影区分高度与概率，用卷积窗口追踪一个输出来自哪里。对照图会注明保持不变的条件；人工算例与实际实验结果分别说明，避免把示意图当作模型能力的证据。
+
+图内保留简短标注，计算细节与适用条件放在相邻正文。局部标记、线型和空间位置帮助辨认对象；需要进一步学习时，可沿正文中的教材、论文及官方文档链接阅读。
 
 可按三种方式练习读图：
 
-- **逐项复算**：[批量矩阵乘法](Programming/NumPy/03-高级索引批量运算与内存布局.md#visual-03-mechanism)、[一轮高斯 EM](MachineLearning/ProbabilisticModels/02-隐变量高斯混合与EM.md#visual-depth-probabilisticmodels-02)和[空值分页游标](ComputerScience/Databases/04-索引执行计划与可靠数据提取.md#visual-null-safe-cursor)，从输入追到每个中间量与最终结果。
-- **用反例检查保证**：[掩码的求值边界](Programming/NumPy/01-数组形状索引与广播.md#visual-mask-execution)、[单侧归一化与排序](ComputerScience/DataStructuresAndAlgorithms/04-堆近邻与大数据处理策略.md#visual-one-sided-normalization)和[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，固定条件后只改变一项，判断原结论是否仍成立。
+- **逐项复算**：[批量矩阵乘法](Programming/NumPy/03-高级索引批量运算与内存布局.md#visual-03-mechanism)、[一轮高斯 EM](MachineLearning/ProbabilisticModels/02-隐变量高斯混合与EM.md#visual-depth-probabilisticmodels-02)和[相关噪声下的融合系数](AI-Domains/MultimodalLearning/02-融合跨模态生成与评估.md#visual-correlated-fusion)，从输入追到每个中间量与最终结果。
+- **用反例检查保证**：[掩码的求值边界](Programming/NumPy/01-数组形状索引与广播.md#visual-mask-execution)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)和[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，固定条件后只改变一项，判断原结论是否仍成立。
 - **连接几何与概率**：[对数坐标下的密度面积](Programming/Matplotlib/02-训练诊断分布比较与导出.md#visual-log-density-measure)、[动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)和[POMDP 策略上包络](ReinforcementLearning/MDP/04-部分可观测与奖励建模边界.md#visual-alpha-listening-region)，先读坐标、单位和模型假设，再解释峰、斜率、面积或行动区间。
 
 若希望跟着一套数字看完一个方法，可按以下连续图组学习：先复算前一图的输出，再把它作为后一图的输入；图中省略的条件与公式紧接在正文解释。
 
 - **从数据到样本**：[历史事实、未知字段与标签成熟](Programming/Pandas/04-从原始表到训练样本的完整流程.md#pd4-visual-record-selection)；[阶段依赖、队列背压与训练前缀](ComputerScience/ComputerSystems/03-I_O缓存与数据加载流水线.md#visual-03-concept)。
-- **从坐标到统计对象**：[PCA 的中心化、旋转、重构与标签损失](Mathematics/LinearAlgebra/04-从协方差到PCA的完整实践.md#visual-linearalgebra-04)；[双峰密度、得分责任与去噪后验](AdvancedStudies/ContinuousGenerativeModels/01-得分匹配随机微分方程与概率流.md#visual-continuousgenerativemodels-01)。
+- **从坐标到统计对象**：[PCA 的中心化、正交坐标变换、重构与标签损失](Mathematics/LinearAlgebra/04-从协方差到PCA的完整实践.md#visual-linearalgebra-04)；[双峰密度、得分责任与去噪后验](AdvancedStudies/ContinuousGenerativeModels/01-得分匹配随机微分方程与概率流.md#visual-continuousgenerativemodels-01)。
 - **从前向到参数学习**：[批量 ReLU 的前向账本与共享梯度](DeepLearning/NeuralNetworkBasics/02-反向传播初始化与训练诊断.md#nnb-2-batch-ledger)；[交叉注意力的矩阵读取与双路径反向](DeepLearning/Transformer/03-编码器解码器的最小结构实践.md#transformer-3-cross-matrix-forward)。
 - **从递推到不确定性**：[同一 HMM 的前向、Viterbi 回溯与 EM 软计数](MachineLearning/ProbabilisticModels/04-隐马尔可夫模型与序列推断.md#visual-insight-probabilisticmodels-04)；[七位置 Q 学习的参照表、逐次更新与随机目标](ReinforcementLearning/ValueBasedMethods/02-一维导航的表格Q学习.md#visual-valuebasedmethods-02)。
+- **从观测到定位**：[CPU 时间预算、共享页计数与停顿位置](ComputerScience/Linux/04-服务器实验的监控与故障排查.md#linux-4-quota-timeline)；[同一优化实验的坐标轨迹、一步更新与成本剖面](Mathematics/Optimization/04-优化实验记录与故障定位.md#visual-optimization-04)。
+- **从概率到证据**：[自回归路径、可逆耦合、人工流几何与离散分箱](AI-Domains/GenerativeModels/04-自回归模型与归一化流.md#gm4-binary-ledger)；[RAG 的实际排名、装箱瓶颈与联合引用支持](AI-Domains/LargeLanguageModels/05-RAG系统拆解与评估集构建.md#visual-local-largelanguagemodels-05)。
+- **从实验协议到语言目标**：[真实划分、预处理依赖与验证选择偏差](DeepLearning/Projects/01-任务数据与实验设计.md#visual-local-projects-01)；[字节对齐、监督转移、完整路径概率与历史信息](AI-Domains/LargeLanguageModels/01-分词预训练与语言建模.md#llm-1-byte-alignment)。
+- **从区域到条件信息**：[检测匹配、AP 口径、像素统计与实例身份](AI-Domains/ComputerVision/02-检测分割与视觉评价.md#cv2-matching-ledger)；[跨注意力来源、缺失后验与条件生成评分](AI-Domains/MultimodalLearning/02-融合跨模态生成与评估.md#mm2-cross-source-ledger)。
+- **从对象到像素**：[共享引用、深复制、去重索引与清洗轨道](Programming/Python/01-变量容器与控制流程.md#visual-01-concept)；[换轴、采样相位、空间翻转与冻结状态](AI-Domains/ComputerVision/01-图像表示分类与迁移学习.md#visual-local-computervision-01)。
+- **从分母到概率质量**：[订单行流、三值逻辑与聚合权重](ComputerScience/Databases/01-关系模型筛选与聚合.md#db1-order-group-lineage)；[高斯搬运、支持与频率、筛选流量及条件尺度](AI-Domains/GenerativeModels/05-生成实验设计与可控性评价.md#geneval-gaussian-coupling)。
+- **从独立规格到可信评价**：[梯度检查、最小状态反例与发布失败路径](Programming/Python/05-调试测试与可复现小项目.md#py-5-first-valid-key)；[检索分数、来源隔离与实体跨度](AI-Domains/NLP/03-检索序列标注与文本分类实践.md#nlp3-retrieval-score-geometry)；[命题引用、来源自助抽样与风险覆盖](AI-Domains/NLP/04-生成任务数据质量与评价设计.md#nlp4-source-bootstrap)。
 
-部分章节另附已下载的经典配图与卷积动画，均可离线查看。
+[线性变换](Mathematics/LinearAlgebra/01-向量矩阵与线性变换.md#visual-linearalgebra-01)另有本地网格动画，可连续观察同一批交点如何随基向量移动；旁边的静态图保留端点坐标和面积，便于暂停核对。部分章节还附有已下载的经典配图与卷积动画，均可离线查看。
 
 离线阅读时，请保留完整仓库及各主题的 images 目录、assets 目录，并使用支持本地 SVG 和 GIF 的 Markdown 阅读器；图片均通过相对路径引用，显示图片无需联网。来源链接仅供追溯，不参与图片加载。
 

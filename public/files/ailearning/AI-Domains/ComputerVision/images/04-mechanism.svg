@@ -1,1 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="674" viewBox="0 0 1200 674" role="img"><title>置信筛选必须同时报告覆盖与条件错误率</title><defs><marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#2865a0" /></marker></defs><rect width="1200" height="674" fill="white" /><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif"><text x="38" y="50" font-size="32" fill="#213447">置信筛选必须同时报告覆盖与条件错误率</text><line x1="130" y1="590" x2="1070" y2="590" stroke="#2865a0" stroke-width="3" /><line x1="130" y1="590" x2="130" y2="160" stroke="#2865a0" stroke-width="3" /><text x="145" y="135" font-size="24" fill="#213447">回答内风险</text><text x="120.0" y="620" font-size="24" fill="#213447">0</text><text x="570.0" y="620" font-size="24" fill="#213447">0.5</text><text x="1020.0" y="620" font-size="24" fill="#213447">1</text><text x="63" y="597.0" font-size="24" fill="#213447">0</text><text x="63" y="397.0" font-size="24" fill="#213447">0.15</text><text x="63" y="197.0" font-size="24" fill="#213447">0.3</text><polyline points="310.0,523.3333333333334 670.0,456.66666666666663 1030.0,323.3333333333333" fill="none" stroke="#2865a0" stroke-width="4" /><circle cx="310.0" cy="523.3333333333334" r="10" fill="#2865a0" stroke="#2865a0" /><circle cx="670.0" cy="456.66666666666663" r="10" fill="#2865a0" stroke="#2865a0" /><circle cx="1030.0" cy="323.3333333333333" r="10" fill="#2865a0" stroke="#2865a0" /><text x="240" y="190" font-size="25" fill="#213447">示例：更低风险也可能覆盖更少请求</text><text x="300" y="260" font-size="24" fill="#213447">不能只报告被保留预测的准确率</text><text x="930" y="640" font-size="24" fill="#143651">覆盖率</text></g><desc> 覆盖率</desc></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="840" viewBox="0 0 1400 840" role="img" aria-labelledby="title desc"><title id="title">高置信筛选反而放大错误的八样本反例</title><desc id="desc">分数由高到低为0.99到0.55，前两个预测错误，之后六个正确。只接收前四个时覆盖0.5、条件错误率0.5；全接收时条件错误率0.25。</desc><rect width="1400" height="840" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
+<text x="56" y="62" font-size="38" fill="#20343d" text-anchor="start" font-weight="600">拒绝低置信预测，不一定会降低条件错误率</text>
+<text x="56" y="110" font-size="27" fill="#627982" text-anchor="start" font-weight="400">沿用实验五的 8 条人工预测；橙色叉号是错误，蓝色勾号是正确。</text>
+<text x="120" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.99</text>
+<circle cx="120" cy="230" r="28" fill="#be7028" stroke="none" stroke-width="3"/>
+<line x1="111" y1="221" x2="129" y2="239" stroke="white" stroke-width="3"/>
+<line x1="111" y1="239" x2="129" y2="221" stroke="white" stroke-width="3"/>
+<text x="278" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.98</text>
+<circle cx="278" cy="230" r="28" fill="#be7028" stroke="none" stroke-width="3"/>
+<line x1="269" y1="221" x2="287" y2="239" stroke="white" stroke-width="3"/>
+<line x1="269" y1="239" x2="287" y2="221" stroke="white" stroke-width="3"/>
+<text x="436" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.95</text>
+<circle cx="436" cy="230" r="28" fill="#147d92" stroke="none" stroke-width="3"/>
+<line x1="424" y1="230" x2="433" y2="239" stroke="white" stroke-width="3"/>
+<line x1="433" y1="239" x2="449" y2="221" stroke="white" stroke-width="3"/>
+<text x="594" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.90</text>
+<circle cx="594" cy="230" r="28" fill="#147d92" stroke="none" stroke-width="3"/>
+<line x1="582" y1="230" x2="591" y2="239" stroke="white" stroke-width="3"/>
+<line x1="591" y1="239" x2="607" y2="221" stroke="white" stroke-width="3"/>
+<text x="752" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.80</text>
+<circle cx="752" cy="230" r="28" fill="#147d92" stroke="none" stroke-width="3"/>
+<line x1="740" y1="230" x2="749" y2="239" stroke="white" stroke-width="3"/>
+<line x1="749" y1="239" x2="765" y2="221" stroke="white" stroke-width="3"/>
+<text x="910" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.70</text>
+<circle cx="910" cy="230" r="28" fill="#147d92" stroke="none" stroke-width="3"/>
+<line x1="898" y1="230" x2="907" y2="239" stroke="white" stroke-width="3"/>
+<line x1="907" y1="239" x2="923" y2="221" stroke="white" stroke-width="3"/>
+<text x="1068" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.60</text>
+<circle cx="1068" cy="230" r="28" fill="#147d92" stroke="none" stroke-width="3"/>
+<line x1="1056" y1="230" x2="1065" y2="239" stroke="white" stroke-width="3"/>
+<line x1="1065" y1="239" x2="1081" y2="221" stroke="white" stroke-width="3"/>
+<text x="1226" y="182" font-size="28" fill="#627982" text-anchor="middle" font-weight="400">0.55</text>
+<circle cx="1226" cy="230" r="28" fill="#147d92" stroke="none" stroke-width="3"/>
+<line x1="1214" y1="230" x2="1223" y2="239" stroke="white" stroke-width="3"/>
+<line x1="1223" y1="239" x2="1239" y2="221" stroke="white" stroke-width="3"/>
+<line x1="74" y1="280" x2="635" y2="280" stroke="#be7028" stroke-width="3"/>
+<line x1="74" y1="273" x2="74" y2="287" stroke="#be7028" stroke-width="3"/>
+<line x1="635" y1="273" x2="635" y2="287" stroke="#be7028" stroke-width="3"/>
+<text x="350" y="323" font-size="28" fill="#be7028" text-anchor="middle" font-weight="400">阈值 0.90：保留前 4 条</text>
+<line x1="150" y1="695" x2="780" y2="695" stroke="#e1e9ec" stroke-width="1"/>
+<text x="130" y="704" font-size="24" fill="#627982" text-anchor="end" font-weight="400">0</text>
+<line x1="150" y1="623.75" x2="780" y2="623.75" stroke="#e1e9ec" stroke-width="1"/>
+<text x="130" y="632.75" font-size="24" fill="#627982" text-anchor="end" font-weight="400">0.25</text>
+<line x1="150" y1="552.5" x2="780" y2="552.5" stroke="#e1e9ec" stroke-width="1"/>
+<text x="130" y="561.5" font-size="24" fill="#627982" text-anchor="end" font-weight="400">0.5</text>
+<line x1="150" y1="481.25" x2="780" y2="481.25" stroke="#e1e9ec" stroke-width="1"/>
+<text x="130" y="490.25" font-size="24" fill="#627982" text-anchor="end" font-weight="400">0.75</text>
+<line x1="150" y1="410" x2="780" y2="410" stroke="#e1e9ec" stroke-width="1"/>
+<text x="130" y="419" font-size="24" fill="#627982" text-anchor="end" font-weight="400">1</text>
+<line x1="150" y1="695" x2="780" y2="695" stroke="#627982" stroke-width="2"/>
+<polyline points="228.75,410.0 307.5,410.0 386.25,505.0 465.0,552.5 543.75,581.0 622.5,600.0 701.25,613.5714285714286 780.0,623.75" fill="none" stroke="#147d92" stroke-width="3"/>
+<circle cx="228.75" cy="410.0" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<circle cx="307.5" cy="410.0" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<circle cx="386.25" cy="505.0" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<circle cx="465.0" cy="552.5" r="7" fill="#be7028" stroke="none" stroke-width="3"/>
+<circle cx="543.75" cy="581.0" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<circle cx="622.5" cy="600.0" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<circle cx="701.25" cy="613.5714285714286" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<circle cx="780.0" cy="623.75" r="7" fill="#147d92" stroke="none" stroke-width="3"/>
+<text x="307.5" y="732" font-size="24" fill="#627982" text-anchor="middle" font-weight="400">0.25</text>
+<text x="465.0" y="732" font-size="24" fill="#627982" text-anchor="middle" font-weight="400">0.5</text>
+<text x="622.5" y="732" font-size="24" fill="#627982" text-anchor="middle" font-weight="400">0.75</text>
+<text x="780" y="732" font-size="24" fill="#627982" text-anchor="middle" font-weight="400">1</text>
+<text x="150" y="382" font-size="27" fill="#20343d" text-anchor="start" font-weight="600">接收样本中的错误率</text>
+<text x="600" y="776" font-size="27" fill="#627982" text-anchor="start" font-weight="400">覆盖率</text>
+<text x="900" y="452" font-size="30" fill="#be7028" text-anchor="start" font-weight="600">保留 4 条</text>
+<text x="900" y="501" font-size="29" fill="#be7028" text-anchor="start" font-weight="400">覆盖 50% · 错误 50%</text>
+<text x="900" y="594" font-size="30" fill="#147d92" text-anchor="start" font-weight="600">全部 8 条</text>
+<text x="900" y="643" font-size="29" fill="#147d92" text-anchor="start" font-weight="400">覆盖 100% · 错误 25%</text>
+<text x="56" y="821" font-size="26" fill="#627982" text-anchor="start" font-weight="400">覆盖为零时，条件错误率无定义；连线只帮助追踪阈值变化。</text></g></svg>

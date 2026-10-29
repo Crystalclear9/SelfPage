@@ -1,1 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="624" viewBox="0 0 1200 624" role="img"><title>两层消息传递形成两跳依赖范围</title><defs><marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#2865a0" /></marker></defs><rect width="1200" height="624" fill="white" /><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif"><text x="38" y="50" font-size="32" fill="#213447">两层消息传递形成两跳依赖范围</text><circle cx="590" cy="360" r="28" fill="#2865a0" stroke="#2865a0" /><text x="582" y="367" font-size="24" fill="white">v</text><line x1="590" y1="360" x2="760.0" y2="360.0" stroke="#2865a0" stroke-width="3" /><circle cx="760.0" cy="360.0" r="22" fill="#2865a0" stroke="#2865a0" /><line x1="760.0" y1="360.0" x2="899.9929952396351" y2="281.1335042852462" stroke="#2865a0" stroke-width="3" /><circle cx="899.9929952396351" cy="281.1335042852462" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="760.0" y1="360.0" x2="899.9929952396351" y2="438.8664957147538" stroke="#2865a0" stroke-width="3" /><circle cx="899.9929952396351" cy="438.8664957147538" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="590" y1="360" x2="590.0" y2="520.0" stroke="#2865a0" stroke-width="3" /><circle cx="590.0" cy="520.0" r="22" fill="#2865a0" stroke="#2865a0" /><line x1="590.0" y1="520.0" x2="703.156276460299" y2="576.0557239548971" stroke="#2865a0" stroke-width="3" /><circle cx="703.156276460299" cy="576.0557239548971" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="590.0" y1="520.0" x2="476.84372353970105" y2="576.0557239548971" stroke="#2865a0" stroke-width="3" /><circle cx="476.84372353970105" cy="576.0557239548971" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="590" y1="360" x2="420.0" y2="360.0" stroke="#2865a0" stroke-width="3" /><circle cx="420.0" cy="360.0" r="22" fill="#2865a0" stroke="#2865a0" /><line x1="420.0" y1="360.0" x2="280.00700476036496" y2="438.86649571475385" stroke="#2865a0" stroke-width="3" /><circle cx="280.00700476036496" cy="438.86649571475385" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="420.0" y1="360.0" x2="280.00700476036496" y2="281.1335042852462" stroke="#2865a0" stroke-width="3" /><circle cx="280.00700476036496" cy="281.1335042852462" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="590" y1="360" x2="590.0" y2="200.0" stroke="#2865a0" stroke-width="3" /><circle cx="590.0" cy="200.0" r="22" fill="#2865a0" stroke="#2865a0" /><line x1="590.0" y1="200.0" x2="476.8437235397011" y2="143.94427604510284" stroke="#2865a0" stroke-width="3" /><circle cx="476.8437235397011" cy="143.94427604510284" r="17" fill="#f0b36a" stroke="#2865a0" /><line x1="590.0" y1="200.0" x2="703.1562764602988" y2="143.9442760451028" stroke="#2865a0" stroke-width="3" /><circle cx="703.1562764602988" cy="143.9442760451028" r="17" fill="#f0b36a" stroke="#2865a0" /><text x="85" y="115" font-size="27" fill="#213447">中心零跳 → 蓝色一跳 → 橙色二跳</text></g><desc> 两层可到二跳，但可到达不等于信息保真。</desc></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850" role="img" aria-labelledby="title desc"><title id="title">两跳不是一句标签：沿同一链图逐层计算</title><desc id="desc">五节点自环链，GCN对称归一化，无通道变换与激活。输入仅节点2为1。两层后节点0收到1/(3 sqrt6)，节点3到节点0仍无两步路径。</desc><rect width="1400" height="850" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
+<text x="45" y="58" font-size="37" fill="#20343d" text-anchor="start" font-weight="700">两跳不是一句标签：沿同一链图逐层计算</text>
+<text x="45" y="108" font-size="28" fill="#91a1aa" text-anchor="start" font-weight="400">五节点链加单位自环；只传播标量，不加权重矩阵或激活。</text>
+<text x="48" y="244" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">输入</text>
+<line x1="275" y1="235" x2="480" y2="235" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="480" y1="235" x2="685" y2="235" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="685" y1="235" x2="890" y2="235" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="890" y1="235" x2="1095" y2="235" stroke="#b8c5cc" stroke-width="3"/>
+<path d="M 257 204 C 215 135, 335 135, 293 204" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="275" cy="235" r="36" fill="#e9eff3" stroke="none" stroke-width="3"/>
+<text x="275" y="245" font-size="28" fill="#24699e" text-anchor="middle" font-weight="700">0</text>
+<text x="275" y="310" font-size="29" fill="#91a1aa" text-anchor="middle" font-weight="400">0</text>
+<path d="M 462 204 C 420 135, 540 135, 498 204" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="480" cy="235" r="36" fill="#e9eff3" stroke="none" stroke-width="3"/>
+<text x="480" y="245" font-size="28" fill="#24699e" text-anchor="middle" font-weight="700">1</text>
+<text x="480" y="310" font-size="29" fill="#91a1aa" text-anchor="middle" font-weight="400">0</text>
+<path d="M 667 204 C 625 135, 745 135, 703 204" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="685" cy="235" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="685" y="245" font-size="28" fill="white" text-anchor="middle" font-weight="700">2</text>
+<text x="685" y="310" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">1</text>
+<path d="M 872 204 C 830 135, 950 135, 908 204" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="890" cy="235" r="36" fill="#e9eff3" stroke="none" stroke-width="3"/>
+<text x="890" y="245" font-size="28" fill="#24699e" text-anchor="middle" font-weight="700">3</text>
+<text x="890" y="310" font-size="29" fill="#91a1aa" text-anchor="middle" font-weight="400">0</text>
+<path d="M 1077 204 C 1035 135, 1155 135, 1113 204" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="1095" cy="235" r="36" fill="#e9eff3" stroke="none" stroke-width="3"/>
+<text x="1095" y="245" font-size="28" fill="#24699e" text-anchor="middle" font-weight="700">4</text>
+<text x="1095" y="310" font-size="29" fill="#91a1aa" text-anchor="middle" font-weight="400">0</text>
+<text x="1260" y="243" font-size="28" fill="#91a1aa" text-anchor="start" font-weight="400">h0</text>
+<text x="48" y="429" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">一层后</text>
+<line x1="275" y1="420" x2="480" y2="420" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="480" y1="420" x2="685" y2="420" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="685" y1="420" x2="890" y2="420" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="890" y1="420" x2="1095" y2="420" stroke="#b8c5cc" stroke-width="3"/>
+<path d="M 257 389 C 215 320, 335 320, 293 389" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="275" cy="420" r="36" fill="#e9eff3" stroke="none" stroke-width="3"/>
+<text x="275" y="430" font-size="28" fill="#24699e" text-anchor="middle" font-weight="700">0</text>
+<text x="275" y="495" font-size="29" fill="#91a1aa" text-anchor="middle" font-weight="400">0</text>
+<path d="M 462 389 C 420 320, 540 320, 498 389" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="480" cy="420" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="480" y="430" font-size="28" fill="white" text-anchor="middle" font-weight="700">1</text>
+<text x="480" y="495" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.3333</text>
+<path d="M 667 389 C 625 320, 745 320, 703 389" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="685" cy="420" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="685" y="430" font-size="28" fill="white" text-anchor="middle" font-weight="700">2</text>
+<text x="685" y="495" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.3333</text>
+<path d="M 872 389 C 830 320, 950 320, 908 389" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="890" cy="420" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="890" y="430" font-size="28" fill="white" text-anchor="middle" font-weight="700">3</text>
+<text x="890" y="495" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.3333</text>
+<path d="M 1077 389 C 1035 320, 1155 320, 1113 389" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="1095" cy="420" r="36" fill="#e9eff3" stroke="none" stroke-width="3"/>
+<text x="1095" y="430" font-size="28" fill="#24699e" text-anchor="middle" font-weight="700">4</text>
+<text x="1095" y="495" font-size="29" fill="#91a1aa" text-anchor="middle" font-weight="400">0</text>
+<text x="1260" y="428" font-size="28" fill="#91a1aa" text-anchor="start" font-weight="400">h1</text>
+<text x="48" y="614" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">两层后</text>
+<line x1="275" y1="605" x2="480" y2="605" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="480" y1="605" x2="685" y2="605" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="685" y1="605" x2="890" y2="605" stroke="#b8c5cc" stroke-width="3"/>
+<line x1="890" y1="605" x2="1095" y2="605" stroke="#b8c5cc" stroke-width="3"/>
+<path d="M 257 574 C 215 505, 335 505, 293 574" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="275" cy="605" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="275" y="615" font-size="28" fill="white" text-anchor="middle" font-weight="700">0</text>
+<text x="275" y="680" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.1361</text>
+<path d="M 462 574 C 420 505, 540 505, 498 574" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="480" cy="605" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="480" y="615" font-size="28" fill="white" text-anchor="middle" font-weight="700">1</text>
+<text x="480" y="680" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.2222</text>
+<path d="M 667 574 C 625 505, 745 505, 703 574" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="685" cy="605" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="685" y="615" font-size="28" fill="white" text-anchor="middle" font-weight="700">2</text>
+<text x="685" y="680" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.3333</text>
+<path d="M 872 574 C 830 505, 950 505, 908 574" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="890" cy="605" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="890" y="615" font-size="28" fill="white" text-anchor="middle" font-weight="700">3</text>
+<text x="890" y="680" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.2222</text>
+<path d="M 1077 574 C 1035 505, 1155 505, 1113 574" fill="none" stroke="#b8c5cc" stroke-width="2"/>
+<circle cx="1095" cy="605" r="36" fill="#ca7028" stroke="none" stroke-width="3"/>
+<text x="1095" y="615" font-size="28" fill="white" text-anchor="middle" font-weight="700">4</text>
+<text x="1095" y="680" font-size="29" fill="#ca7028" text-anchor="middle" font-weight="400">0.1361</text>
+<text x="1260" y="613" font-size="28" fill="#91a1aa" text-anchor="start" font-weight="400">h2</text>
+<line x1="45" y1="735" x2="1355" y2="735" stroke="#dce5ea" stroke-width="2"/>
+<text x="45" y="783" font-size="29" fill="#20343d" text-anchor="start" font-weight="400">0 ← 1 ← 2：两层后节点 0 的值为</text>
+<text x="618" y="776" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">1</text>
+<line x1="605" y1="783" x2="631" y2="783" stroke="#20343d" stroke-width="1.5"/>
+<text x="618" y="811" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">3√6</text>
+<text x="675" y="783" font-size="29" fill="#20343d" text-anchor="start" font-weight="400">≈ 0.1361；一步尚未到达。</text>
+<text x="45" y="833" font-size="26" fill="#91a1aa" text-anchor="start" font-weight="400">颜色只表示当前非零响应；数值显示到四位，不代表信息等强传播。</text></g></svg>

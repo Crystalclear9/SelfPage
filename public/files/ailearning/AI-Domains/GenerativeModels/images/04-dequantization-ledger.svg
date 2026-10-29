@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080" role="img"><title>离散事件、连续密度与去量化下界：同一二元例子逐项对应</title><rect width="1440" height="1080" fill="white"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#203247">
+<text x="44" y="55" font-size="34" fill="#203247" text-anchor="start" font-weight="700">离散事件、连续密度与去量化下界：同一二元例子逐项对应</text>
+<text x="65" y="112" font-size="28" fill="#203247" text-anchor="start" font-weight="700">① 连续密度 pY(y)=2y，0 ≤ y &lt; 1</text>
+<line x1="100.0" y1="180" x2="100.0" y2="510" stroke="#dce4ec" stroke-width="2"/>
+<text x="100.0" y="545" font-size="24" fill="#6b7785" text-anchor="middle">0</text>
+<line x1="337.5" y1="180" x2="337.5" y2="510" stroke="#dce4ec" stroke-width="2"/>
+<text x="337.5" y="545" font-size="24" fill="#6b7785" text-anchor="middle">0.5</text>
+<line x1="575.0" y1="180" x2="575.0" y2="510" stroke="#dce4ec" stroke-width="2"/>
+<text x="575.0" y="545" font-size="24" fill="#6b7785" text-anchor="middle">1</text>
+<line x1="100" y1="510.0" x2="575" y2="510.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="87" y="518.0" font-size="24" fill="#6b7785" text-anchor="end">0</text>
+<line x1="100" y1="345.0" x2="575" y2="345.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="87" y="353.0" font-size="24" fill="#6b7785" text-anchor="end">1</text>
+<line x1="100" y1="180.0" x2="575" y2="180.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="87" y="188.0" font-size="24" fill="#6b7785" text-anchor="end">2</text>
+<line x1="100" y1="510" x2="575" y2="510" stroke="#203247" stroke-width="2"/>
+<line x1="100" y1="180" x2="100" y2="510" stroke="#203247" stroke-width="2"/>
+<text x="575" y="582" font-size="26" fill="#203247" text-anchor="end">y</text>
+<text x="100" y="162" font-size="26" fill="#203247" text-anchor="start">pY(y)</text>
+<polyline points="100.000,510.000 100.000,510.000 337.500,345.000 337.500,510.000" fill="#2563a6" stroke="#2563a6" stroke-width="3" opacity="0.2"/>
+<polyline points="337.500,510.000 337.500,345.000 575.000,180.000 575.000,510.000" fill="#d87320" stroke="#d87320" stroke-width="3" opacity="0.2"/>
+<polyline points="100.000,510.000 575.000,180.000" fill="none" stroke="#203247" stroke-width="4" opacity="1"/>
+<line x1="337.5" y1="510.0" x2="337.5" y2="345.0" stroke="#6b7785" stroke-width="2" stroke-dasharray="7 7"/>
+<text x="233.0" y="468.75" font-size="26" fill="#2563a6" text-anchor="middle">质量 0.25</text>
+<text x="456.25" y="419.25" font-size="26" fill="#d87320" text-anchor="middle">质量 0.75</text>
+<text x="680" y="112" font-size="28" fill="#203247" text-anchor="start" font-weight="700">② 分箱后 V∈{0,1}，P(V) 相加为 1</text>
+<rect x="670" y="155" width="720" height="415" fill="#f7f9fc" stroke="#dce4ec" stroke-width="2" rx="12"/>
+<text x="695" y="204" font-size="25" fill="#203247" text-anchor="start" font-weight="700">分箱</text>
+<text x="980" y="204" font-size="25" fill="#203247" text-anchor="start" font-weight="700">V=0</text>
+<text x="1185" y="204" font-size="25" fill="#203247" text-anchor="start" font-weight="700">V=1</text>
+<text x="695" y="276" font-size="25" fill="#203247" text-anchor="start">P(V)</text>
+<text x="980" y="276" font-size="25" fill="#203247" text-anchor="start">0.250000</text>
+<text x="1185" y="276" font-size="25" fill="#203247" text-anchor="start">0.750000</text>
+<text x="695" y="348" font-size="25" fill="#203247" text-anchor="start">精确 log P</text>
+<text x="980" y="348" font-size="25" fill="#203247" text-anchor="start">−1.386294</text>
+<text x="1185" y="348" font-size="25" fill="#203247" text-anchor="start">−0.287682</text>
+<text x="695" y="420" font-size="25" fill="#203247" text-anchor="start">均匀噪声下界</text>
+<text x="980" y="420" font-size="25" fill="#203247" text-anchor="start">−1.693147</text>
+<text x="1185" y="420" font-size="25" fill="#203247" text-anchor="start">−0.306853</text>
+<text x="695" y="492" font-size="25" fill="#27816c" text-anchor="start">差距 KL</text>
+<text x="980" y="492" font-size="25" fill="#27816c" text-anchor="start">0.306853</text>
+<text x="1185" y="492" font-size="25" fill="#27816c" text-anchor="start">0.019171</text>
+<text x="65" y="645" font-size="28" fill="#203247" text-anchor="start" font-weight="700">③ 小格内的真实条件噪声并不均匀</text>
+<line x1="100.0" y1="715" x2="100.0" y2="955" stroke="#dce4ec" stroke-width="2"/>
+<text x="100.0" y="990" font-size="24" fill="#6b7785" text-anchor="middle">0</text>
+<line x1="337.5" y1="715" x2="337.5" y2="955" stroke="#dce4ec" stroke-width="2"/>
+<text x="337.5" y="990" font-size="24" fill="#6b7785" text-anchor="middle">0.5</text>
+<line x1="575.0" y1="715" x2="575.0" y2="955" stroke="#dce4ec" stroke-width="2"/>
+<text x="575.0" y="990" font-size="24" fill="#6b7785" text-anchor="middle">1</text>
+<line x1="100" y1="955.0" x2="575" y2="955.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="87" y="963.0" font-size="24" fill="#6b7785" text-anchor="end">0</text>
+<line x1="100" y1="835.0" x2="575" y2="835.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="87" y="843.0" font-size="24" fill="#6b7785" text-anchor="end">1</text>
+<line x1="100" y1="715.0" x2="575" y2="715.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="87" y="723.0" font-size="24" fill="#6b7785" text-anchor="end">2</text>
+<line x1="100" y1="955" x2="575" y2="955" stroke="#203247" stroke-width="2"/>
+<line x1="100" y1="715" x2="100" y2="955" stroke="#203247" stroke-width="2"/>
+<text x="575" y="1027" font-size="26" fill="#203247" text-anchor="end">u</text>
+<text x="100" y="697" font-size="26" fill="#203247" text-anchor="start">噪声密度</text>
+<polyline points="100.000,835.000 575.000,835.000" fill="none" stroke="#6b7785" stroke-width="3" opacity="1"/>
+<polyline points="100.000,955.000 575.000,715.000" fill="none" stroke="#2563a6" stroke-width="4" opacity="1"/>
+<polyline points="100.000,875.000 575.000,795.000" fill="none" stroke="#d87320" stroke-width="4" opacity="1"/>
+<text x="685" y="720" font-size="26" fill="#6b7785" text-anchor="start">灰：q(u | v)=1，训练用的均匀噪声</text>
+<text x="685" y="780" font-size="27" fill="#2563a6" text-anchor="start">蓝：p(u | V=0)=2u</text>
+<text x="685" y="840" font-size="27" fill="#d87320" text-anchor="start">橙：p(u | V=1) =</text>
+<text x="1040" y="823" font-size="24" fill="#d87320" text-anchor="middle">2(1+u)</text>
+<line x1="975" y1="835" x2="1105" y2="835" stroke="#d87320" stroke-width="2"/>
+<text x="1040" y="865" font-size="24" fill="#d87320" text-anchor="middle">3</text>
+<text x="685" y="905" font-size="27" fill="#27816c" text-anchor="start">若 q 等于对应条件密度，KL=0，</text>
+<text x="685" y="950" font-size="27" fill="#27816c" text-anchor="start">下界就与精确分箱 log 概率相等。</text>
+<text x="65" y="1050" font-size="26" fill="#203247" text-anchor="start">缩放到 y 坐标后，要把 log pY 减去 log 2 才是单位小格密度。</text>
+</g></svg>

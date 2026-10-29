@@ -1,1 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="figure-title figure-desc" width="1200" height="570" viewBox="0 0 1200 570" role="img"><title id="figure-title">连接器训练：梯度穿过冻结语言模型</title><desc id="figure-desc">连接器训练：梯度穿过冻结语言模型</desc><rect width="1200" height="570" fill="white" /><defs><marker id="blue-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" /></marker><marker id="orange-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" /></marker></defs><g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><text x="32" y="47" font-size="32" fill="#213447" text-anchor="start" font-weight="600">连接器训练：梯度穿过冻结语言模型</text><rect x="35" y="180" width="230" height="75" rx="5" fill="#eaf2fa" stroke="#c8d7e3" stroke-width="1" /><text x="150.0" y="227.5" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">图像编码器</text><rect x="335" y="180" width="230" height="75" rx="5" fill="#eaf2fa" stroke="#c8d7e3" stroke-width="1" /><text x="450.0" y="227.5" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">可训练连接器</text><rect x="635" y="180" width="230" height="75" rx="5" fill="#eaf2fa" stroke="#c8d7e3" stroke-width="1" /><text x="750.0" y="227.5" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">冻结语言模型</text><rect x="935" y="180" width="230" height="75" rx="5" fill="#eaf2fa" stroke="#c8d7e3" stroke-width="1" /><text x="1050.0" y="227.5" font-size="28" fill="#213447" text-anchor="middle" font-weight="400">任务损失</text><line x1="275" y1="217" x2="320" y2="217" stroke="#2865a0" stroke-width="2.5" marker-end="url(#blue-arrow)" /><line x1="575" y1="217" x2="620" y2="217" stroke="#2865a0" stroke-width="2.5" marker-end="url(#blue-arrow)" /><line x1="875" y1="217" x2="920" y2="217" stroke="#2865a0" stroke-width="2.5" marker-end="url(#blue-arrow)" /><line x1="935" y1="350" x2="865" y2="350" stroke="#cf7432" stroke-width="2.5" marker-end="url(#orange-arrow)" /><line x1="635" y1="350" x2="565" y2="350" stroke="#cf7432" stroke-width="2.5" marker-end="url(#orange-arrow)" /><text x="750" y="415" font-size="27" fill="#cf7432" text-anchor="middle" font-weight="400">经语言模型回传</text><text x="450" y="495" font-size="29" fill="#2865a0" text-anchor="middle" font-weight="400">只更新连接器参数</text><text x="150" y="325" font-size="25" fill="#647789" text-anchor="middle" font-weight="400">固定视觉表示</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="780" viewBox="0 0 1320 780" role="img" aria-labelledby="title desc"><title id="title">冻结参数并不等于截断输入梯度</title><desc id="desc">标量链 y=xafb 中固定 f=3，x=1,a=2,b=4，损失二分之一y平方。正确反传da288、db144；截断h后da缺失、db仍144。</desc><rect width="1320" height="780" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
+<text x="40" y="55" font-size="35" fill="#20343d" text-anchor="start" font-weight="700">冻结中间层：数值相同，梯度可能完全不同</text>
+<text x="40" y="108" font-size="28" fill="#647b88" text-anchor="start" font-weight="400">x = 1，a = 2，固定 f = 3，b = 4；L = 0.5 × y²</text>
+<text x="90" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">输入</text>
+<rect x="90" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
+<text x="190" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">x = 1</text>
+<text x="350" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">可训练 a</text>
+<rect x="350" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
+<text x="450" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">xa = 2</text>
+<text x="650" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">固定 f</text>
+<rect x="650" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
+<text x="750" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">h = 6</text>
+<text x="990" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">可训练 b</text>
+<rect x="990" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
+<text x="1090" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">y = 24</text>
+<line x1="300" y1="272" x2="340" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="328" y1="265" x2="340" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="328" y1="279" x2="340" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="560" y1="272" x2="640" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="628" y1="265" x2="640" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="628" y1="279" x2="640" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="860" y1="272" x2="980" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="968" y1="265" x2="980" y2="272" stroke="#2867ac" stroke-width="3"/>
+<line x1="968" y1="279" x2="980" y2="272" stroke="#2867ac" stroke-width="3"/>
+<text x="40" y="397" font-size="30" fill="#2867ac" text-anchor="start" font-weight="700">保留链式法则</text>
+<text x="370" y="460" font-size="27" fill="#2867ac" text-anchor="middle" font-weight="400">∂L/∂a = 288</text>
+<text x="680" y="460" font-size="27" fill="#2867ac" text-anchor="middle" font-weight="400">∂L/∂h = 96</text>
+<text x="1000" y="460" font-size="27" fill="#2867ac" text-anchor="middle" font-weight="400">∂L/∂b = 144</text>
+<line x1="1080" y1="400" x2="370" y2="400" stroke="#2867ac" stroke-width="3"/>
+<line x1="385" y1="392" x2="370" y2="400" stroke="#2867ac" stroke-width="3"/>
+<line x1="385" y1="408" x2="370" y2="400" stroke="#2867ac" stroke-width="3"/>
+<line x1="40" y1="510" x2="1280" y2="510" stroke="#a9b8be" stroke-width="2"/>
+<text x="40" y="575" font-size="30" fill="#cd7c2a" text-anchor="start" font-weight="700">在 h 处 detach</text>
+<text x="370" y="646" font-size="28" fill="#cd7c2a" text-anchor="middle" font-weight="400">a 的梯度：缺失</text>
+<text x="730" y="646" font-size="28" fill="#20343d" text-anchor="middle" font-weight="400">h = 6 仍不变</text>
+<text x="1080" y="646" font-size="28" fill="#2867ac" text-anchor="middle" font-weight="400">b 的梯度：144</text>
+<line x1="1080" y1="570" x2="670" y2="570" stroke="#cd7c2a" stroke-width="3"/>
+<line x1="650" y1="547" x2="650" y2="594" stroke="#cd7c2a" stroke-width="5"/>
+<text x="490" y="580" font-size="26" fill="#cd7c2a" text-anchor="start" font-weight="400">截断</text>
+<text x="40" y="737" font-size="29" fill="#20343d" text-anchor="start" font-weight="400">固定 f 不更新；但早期参数 a 仍需要乘上 f 的输入导数。</text></g></svg>

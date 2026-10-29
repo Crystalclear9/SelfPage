@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img"><title>生成评价先选统计对象：点、随机样本和条件分布不能混用</title><rect width="1440" height="1120" fill="white"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#203247">
+<text x="44" y="55" font-size="34" fill="#203247" text-anchor="start" font-weight="700">生成评价先选统计对象：点、随机样本和条件分布不能混用</text>
+<text x="50" y="112" font-size="28" fill="#203247" text-anchor="start" font-weight="700">① 同一条件下，真实结果 Y 等概率取 −1 或 +1</text>
+<rect x="48" y="145" width="1344" height="250" fill="#f7f9fc" stroke="#dce4ec" stroke-width="2" rx="12"/>
+<text x="80" y="195" font-size="28" fill="#2563a6" text-anchor="start" font-weight="700">点预测 ŷ=0</text>
+<text x="80" y="249" font-size="26" fill="#203247" text-anchor="start">总落在两个真实模式之间</text>
+<text x="80" y="309" font-size="26" fill="#203247" text-anchor="start">E[(Y−ŷ)²] = 1</text>
+<text x="540" y="195" font-size="28" fill="#d87320" text-anchor="start" font-weight="700">独立合法采样 Ŷ</text>
+<text x="540" y="249" font-size="26" fill="#203247" text-anchor="start">−1、+1 各一半</text>
+<text x="540" y="309" font-size="26" fill="#203247" text-anchor="start">E[(Y−Ŷ)²] = 2</text>
+<text x="1000" y="195" font-size="28" fill="#27816c" text-anchor="start" font-weight="700">要比较什么？</text>
+<text x="1000" y="249" font-size="26" fill="#203247" text-anchor="start">点估计：预测误差</text>
+<text x="1000" y="309" font-size="26" fill="#203247" text-anchor="start">生成分布：模式与概率</text>
+<text x="50" y="455" font-size="28" fill="#203247" text-anchor="start" font-weight="700">② 换成实验四的二元条件任务：两种条件等频出现</text>
+<line x1="110" y1="860.0" x2="680" y2="860.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="97" y="868.0" font-size="24" fill="#6b7785" text-anchor="end">0</text>
+<line x1="110" y1="700.0" x2="680" y2="700.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="97" y="708.0" font-size="24" fill="#6b7785" text-anchor="end">0.5</text>
+<line x1="110" y1="540.0" x2="680" y2="540.0" stroke="#dce4ec" stroke-width="2"/>
+<text x="97" y="548.0" font-size="24" fill="#6b7785" text-anchor="end">1</text>
+<line x1="110" y1="860" x2="680" y2="860" stroke="#203247" stroke-width="2"/>
+<line x1="110" y1="540" x2="110" y2="860" stroke="#203247" stroke-width="2"/>
+<text x="680" y="932" font-size="26" fill="#203247" text-anchor="end">条件分组</text>
+<text x="110" y="522" font-size="26" fill="#203247" text-anchor="start">正例概率</text>
+<rect x="154.39999999999998" y="796.0" width="48" height="64.0" fill="#2563a6" stroke="#2563a6" stroke-width="2" rx="3"/>
+<rect x="207.60000000000002" y="700.0" width="48" height="160.0" fill="#d87320" stroke="#d87320" stroke-width="2" rx="3"/>
+<text x="205.0" y="901.6" font-size="26" fill="#203247" text-anchor="middle">c=0</text>
+<rect x="344.4" y="604.0" width="48" height="256.0" fill="#2563a6" stroke="#2563a6" stroke-width="2" rx="3"/>
+<rect x="397.6" y="700.0" width="48" height="160.0" fill="#d87320" stroke="#d87320" stroke-width="2" rx="3"/>
+<text x="395.0" y="901.6" font-size="26" fill="#203247" text-anchor="middle">c=1</text>
+<rect x="534.4" y="700.0" width="48" height="160.0" fill="#2563a6" stroke="#2563a6" stroke-width="2" rx="3"/>
+<rect x="587.6" y="700.0" width="48" height="160.0" fill="#d87320" stroke="#d87320" stroke-width="2" rx="3"/>
+<text x="585.0" y="901.6" font-size="26" fill="#203247" text-anchor="middle">总体</text>
+<text x="110" y="980" font-size="27" fill="#2563a6" text-anchor="start">蓝：正确条件模型</text>
+<text x="420" y="980" font-size="27" fill="#d87320" text-anchor="start">橙：忽略条件</text>
+<text x="795" y="565" font-size="28" fill="#203247" text-anchor="start" font-weight="700">指标（理论期望）</text>
+<text x="1060" y="620" font-size="26" fill="#203247" text-anchor="start">按条件</text>
+<text x="1225" y="620" font-size="26" fill="#203247" text-anchor="start">忽略条件</text>
+<text x="795" y="690" font-size="25" fill="#203247" text-anchor="start">总体正例率</text>
+<text x="1080" y="690" font-size="25" fill="#2563a6" text-anchor="start">0.5</text>
+<text x="1240" y="690" font-size="25" fill="#d87320" text-anchor="start">0.5</text>
+<text x="795" y="762" font-size="25" fill="#203247" text-anchor="start">NLL / nat</text>
+<text x="1080" y="762" font-size="25" fill="#2563a6" text-anchor="start">0.500402</text>
+<text x="1240" y="762" font-size="25" fill="#d87320" text-anchor="start">0.693147</text>
+<text x="795" y="834" font-size="25" fill="#203247" text-anchor="start">二元 Brier</text>
+<text x="1080" y="834" font-size="25" fill="#2563a6" text-anchor="start">0.16</text>
+<text x="1240" y="834" font-size="25" fill="#d87320" text-anchor="start">0.25</text>
+<text x="795" y="906" font-size="25" fill="#203247" text-anchor="start">独立采样不匹配率</text>
+<text x="1080" y="906" font-size="25" fill="#2563a6" text-anchor="start">0.32</text>
+<text x="1240" y="906" font-size="25" fill="#d87320" text-anchor="start">0.50</text>
+<text x="50" y="1080" font-size="26" fill="#6b7785" text-anchor="start">上图为精确分布和期望；有限随机实验围绕这些值波动。二元 Brier 使用 (Y−q)²。</text>
+</g></svg>

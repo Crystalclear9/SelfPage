@@ -1,1 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="716.34" viewBox="17.00 14.00 1114.00 665.00" role="img" aria-labelledby="title desc"><rect width="100%" height="100%" fill="white" data-white-background="true" /><title id="title">AVG 的分母不包含 NULL</title><desc id="desc">三条记录中金额有一项 NULL。COUNT(*) 数行，COUNT(金额) 只数非 NULL 值，AVG(金额) 则对有效的 10 与 20 求平均，因此结果为 15，不是 10。 图中的 NULL 代表缺失而非零金额。若先用 COALESCE 替换为零，统计对象与分母会随之改变；哪一种符合业务必须由指标定义决定。 三条输入只有两条非 NULL；全为空时 AVG 返回 NULL。</desc><defs><marker id="arr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#507db3" /></marker></defs><g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><rect x="0" y="0" width="1200" height="780" fill="white" stroke="none" rx="0" stroke-linecap="round" stroke-linejoin="round" /><text x="75" y="75" font-size="30" fill="#213447" text-anchor="start" font-weight="700">AVG 的分母不包含 NULL</text><text x="65" y="169" font-size="24" fill="#627689" text-anchor="start" font-weight="400">输入</text><rect x="65.0" y="190" width="336.0" height="74" fill="#eaf2fa" stroke="#cbd9e5" rx="10" stroke-linecap="round" stroke-linejoin="round" /><text x="78" y="221" font-size="24" fill="#213447" text-anchor="start" font-weight="400">10</text><rect x="415.0" y="190" width="336.0" height="74" fill="#eaf2fa" stroke="#cbd9e5" rx="10" stroke-linecap="round" stroke-linejoin="round" /><text x="428" y="221" font-size="24" fill="#213447" text-anchor="start" font-weight="400">NULL</text><rect x="765.0" y="190" width="336.0" height="74" fill="#eaf2fa" stroke="#cbd9e5" rx="10" stroke-linecap="round" stroke-linejoin="round" /><text x="778" y="221" font-size="24" fill="#213447" text-anchor="start" font-weight="400">20</text><text x="65" y="340" font-size="24" fill="#213447" text-anchor="start" font-weight="400">COUNT(*)</text><rect x="285" y="310" width="226" height="84" fill="#eaf2fa" stroke="#cbd9e5" rx="10" stroke-linecap="round" stroke-linejoin="round" /><text x="300" y="344" font-size="24" fill="#213447" text-anchor="start" font-weight="400">3</text><text x="65" y="465" font-size="24" fill="#213447" text-anchor="start" font-weight="400">COUNT(金额)</text><rect x="285" y="435" width="226" height="84" fill="#f9e8d7" stroke="#cbd9e5" rx="10" stroke-linecap="round" stroke-linejoin="round" /><text x="300" y="469" font-size="24" fill="#213447" text-anchor="start" font-weight="400">2</text><text x="65" y="590" font-size="24" fill="#213447" text-anchor="start" font-weight="400">AVG(金额)</text><rect x="285" y="560" width="226" height="84" fill="#eaf2fa" stroke="#cbd9e5" rx="10" stroke-linecap="round" stroke-linejoin="round" /><text x="300" y="594" font-size="24" fill="#213447" text-anchor="start" font-weight="400">15</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" role="img"><title>三笔订单，两个已知金额</title><rect width="1440" height="960" fill="white"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#203247">
+<text x="44" y="55" font-size="34" fill="#203247" text-anchor="start" font-weight="700">三笔订单，两个已知金额</text>
+<text x="720" y="110" font-size="27" fill="#6b7785" text-anchor="middle">完整实验的用户 1；金额单位为分</text>
+<text x="475" y="178" font-size="27" fill="#2563a6" text-anchor="middle">订单 101</text>
+<rect x="365" y="205" width="220" height="80" fill="white" stroke="#2563a6" stroke-width="2" rx="8"/>
+<text x="475.0" y="255.0" font-size="27" fill="#2563a6" text-anchor="middle">1000</text>
+<text x="855" y="178" font-size="27" fill="#d87320" text-anchor="middle">订单 102</text>
+<rect x="745" y="205" width="220" height="80" fill="white" stroke="#d87320" stroke-width="2" rx="8"/>
+<text x="855.0" y="255.0" font-size="27" fill="#d87320" text-anchor="middle">NULL</text>
+<line x1="755" y1="277" x2="955" y2="277" stroke="#d87320" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="1235" y="178" font-size="27" fill="#2563a6" text-anchor="middle">订单 103</text>
+<rect x="1125" y="205" width="220" height="80" fill="white" stroke="#2563a6" stroke-width="2" rx="8"/>
+<text x="1235.0" y="255.0" font-size="27" fill="#2563a6" text-anchor="middle">2000</text>
+<text x="90" y="362" font-size="28" fill="#203247" text-anchor="start" font-weight="700">COUNT(*)</text>
+<text x="90" y="410" font-size="26" fill="#6b7785" text-anchor="start">三笔订单都计入</text>
+<line x1="475" y1="291" x2="475" y2="365" stroke="#6b7785" stroke-width="2"/>
+<circle cx="475" cy="375" r="11" fill="#203247"/>
+<text x="475" y="420" font-size="28" fill="#203247" text-anchor="middle">1</text>
+<line x1="855" y1="291" x2="855" y2="365" stroke="#6b7785" stroke-width="2"/>
+<circle cx="855" cy="375" r="11" fill="#203247"/>
+<text x="855" y="420" font-size="28" fill="#203247" text-anchor="middle">1</text>
+<line x1="1235" y1="291" x2="1235" y2="365" stroke="#6b7785" stroke-width="2"/>
+<circle cx="1235" cy="375" r="11" fill="#203247"/>
+<text x="1235" y="420" font-size="28" fill="#203247" text-anchor="middle">1</text>
+<text x="1320" y="420" font-size="32" fill="#203247" text-anchor="middle">→ 3</text>
+<text x="90" y="505" font-size="28" fill="#203247" text-anchor="start" font-weight="700">COUNT(金额)</text>
+<text x="90" y="551" font-size="26" fill="#6b7785" text-anchor="start">只计已知金额</text>
+<circle cx="475" cy="490" r="11" fill="#2563a6"/>
+<text x="475" y="550" font-size="28" fill="#2563a6" text-anchor="middle">1</text>
+<rect x="843" y="478" width="24" height="24" fill="white" stroke="#d87320" stroke-width="2" rx="0"/>
+<text x="855" y="550" font-size="26" fill="#d87320" text-anchor="middle">不计</text>
+<circle cx="1235" cy="490" r="11" fill="#2563a6"/>
+<text x="1235" y="550" font-size="28" fill="#2563a6" text-anchor="middle">1</text>
+<text x="1320" y="550" font-size="32" fill="#2563a6" text-anchor="middle">→ 2</text>
+<line x1="65" y1="600" x2="1375" y2="600" stroke="#dce4ec" stroke-width="2"/>
+<text x="65" y="656" font-size="28" fill="#2563a6" text-anchor="start">已知和 = 1000 + 2000 = 3000</text>
+<text x="65" y="712" font-size="28" fill="#2563a6" text-anchor="start" font-weight="700">AVG(金额)</text>
+<text x="410" y="707" font-size="33" fill="#2563a6" text-anchor="middle">3000</text>
+<line x1="345.0" y1="720" x2="475.0" y2="720" stroke="#2563a6" stroke-width="2"/>
+<text x="410" y="758" font-size="33" fill="#2563a6" text-anchor="middle">2</text>
+<text x="500.0" y="732" font-size="33" fill="#2563a6" text-anchor="start">= 1500</text>
+<text x="800" y="656" font-size="28" fill="#d87320" text-anchor="start">若先把 NULL 填成 0</text>
+<text x="930" y="707" font-size="33" fill="#d87320" text-anchor="middle">3000</text>
+<line x1="865.0" y1="720" x2="995.0" y2="720" stroke="#d87320" stroke-width="2"/>
+<text x="930" y="758" font-size="33" fill="#d87320" text-anchor="middle">3</text>
+<text x="1020.0" y="732" font-size="33" fill="#d87320" text-anchor="start">= 1000</text>
+<text x="65" y="865" font-size="28" fill="#203247" text-anchor="start">NULL 仍代表一笔订单；它没有为金额均值贡献一个已知值。</text>
+<text x="65" y="915" font-size="27" fill="#6b7785" text-anchor="start">平均值 1500 描述已知金额；填零后的 1000 回答了另一个问题。</text>
+</g></svg>

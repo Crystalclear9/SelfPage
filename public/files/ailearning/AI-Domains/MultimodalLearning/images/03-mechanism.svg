@@ -1,1 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="691" viewBox="0 0 1200 691" role="img"><title>压缩为少量查询会形成信息瓶颈</title><defs><marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#2865a0" /></marker></defs><rect width="1200" height="691" fill="white" /><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif"><text x="38" y="50" font-size="32" fill="#213447">压缩为少量查询会形成信息瓶颈</text><rect x="70" y="160" width="100" height="90" rx="8" fill="#d8eaf5" stroke="#94a9bb" /><text x="90" y="212" font-size="26" fill="#213447">V1</text><line x1="120" y1="250" x2="425" y2="380" stroke="#b0cbd5" stroke-width="1" /><line x1="120" y1="250" x2="745" y2="380" stroke="#b0cbd5" stroke-width="1" /><rect x="245" y="160" width="100" height="90" rx="8" fill="#d8eaf5" stroke="#94a9bb" /><text x="265" y="212" font-size="26" fill="#213447">V2</text><line x1="295" y1="250" x2="425" y2="380" stroke="#b0cbd5" stroke-width="1" /><line x1="295" y1="250" x2="745" y2="380" stroke="#b0cbd5" stroke-width="1" /><rect x="420" y="160" width="100" height="90" rx="8" fill="#d8eaf5" stroke="#94a9bb" /><text x="440" y="212" font-size="26" fill="#213447">V3</text><line x1="470" y1="250" x2="425" y2="380" stroke="#b0cbd5" stroke-width="1" /><line x1="470" y1="250" x2="745" y2="380" stroke="#b0cbd5" stroke-width="1" /><rect x="595" y="160" width="100" height="90" rx="8" fill="#d8eaf5" stroke="#94a9bb" /><text x="615" y="212" font-size="26" fill="#213447">V4</text><line x1="645" y1="250" x2="425" y2="380" stroke="#b0cbd5" stroke-width="1" /><line x1="645" y1="250" x2="745" y2="380" stroke="#b0cbd5" stroke-width="1" /><rect x="770" y="160" width="100" height="90" rx="8" fill="#d8eaf5" stroke="#94a9bb" /><text x="790" y="212" font-size="26" fill="#213447">V5</text><line x1="820" y1="250" x2="425" y2="380" stroke="#b0cbd5" stroke-width="1" /><line x1="820" y1="250" x2="745" y2="380" stroke="#b0cbd5" stroke-width="1" /><rect x="945" y="160" width="100" height="90" rx="8" fill="#d8eaf5" stroke="#94a9bb" /><text x="965" y="212" font-size="26" fill="#213447">V6</text><line x1="995" y1="250" x2="425" y2="380" stroke="#b0cbd5" stroke-width="1" /><line x1="995" y1="250" x2="745" y2="380" stroke="#b0cbd5" stroke-width="1" /><rect x="365" y="380" width="160" height="95" rx="8" fill="#eaf2fa" stroke="#94a9bb" /><text x="380" y="415" font-size="24" fill="#213447">压缩 token 1</text><line x1="445" y1="475" x2="595" y2="575" stroke="#2865a0" stroke-width="3" marker-end="url(#arr)" /><rect x="685" y="380" width="160" height="95" rx="8" fill="#eaf2fa" stroke="#94a9bb" /><text x="700" y="415" font-size="24" fill="#213447">压缩 token 2</text><line x1="765" y1="475" x2="595" y2="575" stroke="#2865a0" stroke-width="3" marker-end="url(#arr)" /><rect x="425" y="575" width="340" height="85" rx="8" fill="#d4ece1" stroke="#94a9bb" /><text x="460" y="630" font-size="25" fill="#213447">语言侧读取少量 token</text><text x="80" y="115" font-size="27" fill="#213447">六个视觉位置 → 两个连接 token → 语言侧</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="800" viewBox="0 0 1320 800" role="img" aria-labelledby="title desc"><title id="title">压缩碰撞：不同输入得到同一组连接token</title><desc id="desc">固定两个查询，各自均匀汇总三个位置。输入A一零零零一零和B零一零一零零均压缩为三分之一、三分之一，无法回答第一位置是否为一。</desc><rect width="1320" height="800" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
+<text x="40" y="55" font-size="35" fill="#20343d" text-anchor="start" font-weight="700">两个输入、同一个摘要：丢失的区别在哪里？</text>
+<text x="40" y="108" font-size="28" fill="#647b88" text-anchor="start" font-weight="400">固定两个查询：各自读取三个位置的均值</text>
+<text x="270" y="175" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">位置 1</text>
+<text x="390" y="175" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">位置 2</text>
+<text x="510" y="175" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">位置 3</text>
+<text x="730" y="175" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">位置 4</text>
+<text x="850" y="175" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">位置 5</text>
+<text x="970" y="175" font-size="25" fill="#20343d" text-anchor="middle" font-weight="400">位置 6</text>
+<text x="45" y="259" font-size="30" fill="#20343d" text-anchor="start" font-weight="700">输入 A</text>
+<rect x="222" y="217" width="96" height="65" fill="#dbeaf6" stroke="none" stroke-width="2"/>
+<text x="270" y="260" font-size="32" fill="#2867ac" text-anchor="middle" font-weight="400">1</text>
+<rect x="342" y="217" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="390" y="260" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<rect x="462" y="217" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="510" y="260" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<rect x="682" y="217" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="730" y="260" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<rect x="802" y="217" width="96" height="65" fill="#dbeaf6" stroke="none" stroke-width="2"/>
+<text x="850" y="260" font-size="32" fill="#2867ac" text-anchor="middle" font-weight="400">1</text>
+<rect x="922" y="217" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="970" y="260" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<text x="45" y="384" font-size="30" fill="#20343d" text-anchor="start" font-weight="700">输入 B</text>
+<rect x="222" y="342" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="270" y="385" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<rect x="342" y="342" width="96" height="65" fill="#dbeaf6" stroke="none" stroke-width="2"/>
+<text x="390" y="385" font-size="32" fill="#2867ac" text-anchor="middle" font-weight="400">1</text>
+<rect x="462" y="342" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="510" y="385" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<rect x="682" y="342" width="96" height="65" fill="#dbeaf6" stroke="none" stroke-width="2"/>
+<text x="730" y="385" font-size="32" fill="#2867ac" text-anchor="middle" font-weight="400">1</text>
+<rect x="802" y="342" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="850" y="385" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<rect x="922" y="342" width="96" height="65" fill="#f3f5f7" stroke="none" stroke-width="2"/>
+<text x="970" y="385" font-size="32" fill="#647b88" text-anchor="middle" font-weight="400">0</text>
+<line x1="220" y1="440" x2="558" y2="440" stroke="#2867ac" stroke-width="3"/>
+<line x1="220" y1="428" x2="220" y2="440" stroke="#2867ac" stroke-width="3"/>
+<line x1="558" y1="428" x2="558" y2="440" stroke="#2867ac" stroke-width="3"/>
+<line x1="390" y1="452" x2="390" y2="510" stroke="#2867ac" stroke-width="3"/>
+<rect x="310" y="523" width="160" height="95" fill="#edf3f8" stroke="none" stroke-width="2"/>
+<text x="390" y="549" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">1</text>
+<line x1="377" y1="556" x2="403" y2="556" stroke="#20343d" stroke-width="1.5"/>
+<text x="390" y="584" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">3</text>
+<line x1="680" y1="440" x2="1018" y2="440" stroke="#2867ac" stroke-width="3"/>
+<line x1="680" y1="428" x2="680" y2="440" stroke="#2867ac" stroke-width="3"/>
+<line x1="1018" y1="428" x2="1018" y2="440" stroke="#2867ac" stroke-width="3"/>
+<line x1="850" y1="452" x2="850" y2="510" stroke="#2867ac" stroke-width="3"/>
+<rect x="770" y="523" width="160" height="95" fill="#edf3f8" stroke="none" stroke-width="2"/>
+<text x="850" y="549" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">1</text>
+<line x1="837" y1="556" x2="863" y2="556" stroke="#20343d" stroke-width="1.5"/>
+<text x="850" y="584" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">3</text>
+<text x="1150" y="288" font-size="32" fill="#cd7c2a" text-anchor="middle" font-weight="400">不同</text>
+<text x="1150" y="575" font-size="32" fill="#2867ac" text-anchor="middle" font-weight="400">相同</text>
+<text x="40" y="690" font-size="31" fill="#20343d" text-anchor="start" font-weight="700">问题：第一个位置是 1 吗？</text>
+<text x="40" y="750" font-size="29" fill="#cd7c2a" text-anchor="start" font-weight="400">A：是；B：否。只看这两个摘要，后续模型无法区分。</text></g></svg>

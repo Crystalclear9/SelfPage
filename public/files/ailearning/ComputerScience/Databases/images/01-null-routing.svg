@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="930" viewBox="0 0 1440 930" role="img"><title>NOT 不能把 UNKNOWN 变成 TRUE</title><rect width="1440" height="930" fill="white"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#203247">
+<text x="44" y="55" font-size="34" fill="#203247" text-anchor="start" font-weight="700">NOT 不能把 UNKNOWN 变成 TRUE</text>
+<text x="720" y="110" font-size="27" fill="#6b7785" text-anchor="middle">仍用用户 1 的三笔订单：p 表示 amount_cents &gt; 1500</text>
+<rect x="115" y="160" width="290" height="74" fill="white" stroke="#2563a6" stroke-width="2" rx="8"/>
+<text x="260.0" y="207.0" font-size="27" fill="#2563a6" text-anchor="middle">103 · 2000</text>
+<line x1="260" y1="245" x2="260" y2="315" stroke="#2563a6" stroke-width="3"/>
+<polyline points="254.938,303.026 260.000,315.000 265.062,303.026" fill="none" stroke="#2563a6" stroke-width="3" opacity="1"/>
+<circle cx="260" cy="398" r="73" fill="white" stroke="#2563a6" stroke-width="3"/>
+<text x="260" y="410" font-size="28" fill="#2563a6" text-anchor="middle" font-weight="700">TRUE</text>
+<line x1="260" y1="489" x2="260" y2="570" stroke="#2563a6" stroke-width="3"/>
+<polyline points="254.938,558.026 260.000,570.000 265.062,558.026" fill="none" stroke="#2563a6" stroke-width="3" opacity="1"/>
+<text x="260" y="628" font-size="27" fill="#2563a6" text-anchor="middle" font-weight="700">WHERE p</text>
+<circle cx="260" cy="695" r="24" fill="#2563a6"/>
+<text x="260" y="760" font-size="29" fill="#2563a6" text-anchor="middle">保留 1 行</text>
+<rect x="575" y="160" width="290" height="74" fill="white" stroke="#203247" stroke-width="2" rx="8"/>
+<text x="720.0" y="207.0" font-size="27" fill="#203247" text-anchor="middle">101 · 1000</text>
+<line x1="720" y1="245" x2="720" y2="315" stroke="#203247" stroke-width="3"/>
+<polyline points="714.938,303.026 720.000,315.000 725.062,303.026" fill="none" stroke="#203247" stroke-width="3" opacity="1"/>
+<rect x="637" y="325" width="166" height="146" fill="white" stroke="#203247" stroke-width="2" rx="0"/>
+<text x="720" y="410" font-size="28" fill="#203247" text-anchor="middle" font-weight="700">FALSE</text>
+<line x1="720" y1="489" x2="720" y2="570" stroke="#203247" stroke-width="3"/>
+<polyline points="714.938,558.026 720.000,570.000 725.062,558.026" fill="none" stroke="#203247" stroke-width="3" opacity="1"/>
+<text x="720" y="628" font-size="27" fill="#203247" text-anchor="middle" font-weight="700">WHERE NOT p</text>
+<circle cx="720" cy="695" r="24" fill="#203247"/>
+<text x="720" y="760" font-size="29" fill="#203247" text-anchor="middle">保留 1 行</text>
+<rect x="1035" y="160" width="290" height="74" fill="white" stroke="#d87320" stroke-width="2" rx="8"/>
+<text x="1180.0" y="207.0" font-size="27" fill="#d87320" text-anchor="middle">102 · NULL</text>
+<line x1="1045" y1="226" x2="1315" y2="226" stroke="#d87320" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="1180" y1="245" x2="1180" y2="315" stroke="#d87320" stroke-width="3"/>
+<polyline points="1174.938,303.026 1180.000,315.000 1185.062,303.026" fill="none" stroke="#d87320" stroke-width="3" opacity="1"/>
+<polyline points="1180.000,320.000 1290.000,398.000 1180.000,476.000 1070.000,398.000 1180.000,320.000" fill="white" stroke="#d87320" stroke-width="3" opacity="1"/>
+<text x="1180" y="410" font-size="28" fill="#d87320" text-anchor="middle" font-weight="700">UNKNOWN</text>
+<line x1="1180" y1="489" x2="1180" y2="570" stroke="#d87320" stroke-width="3"/>
+<polyline points="1174.938,558.026 1180.000,570.000 1185.062,558.026" fill="none" stroke="#d87320" stroke-width="3" opacity="1"/>
+<text x="1180" y="628" font-size="27" fill="#d87320" text-anchor="middle" font-weight="700">WHERE amount_cents IS NULL</text>
+<circle cx="1180" cy="695" r="24" fill="#d87320"/>
+<text x="1180" y="760" font-size="29" fill="#d87320" text-anchor="middle">保留 1 行</text>
+<line x1="120" y1="805" x2="860" y2="805" stroke="#203247" stroke-width="2"/>
+<line x1="120" y1="795" x2="120" y2="815" stroke="#203247" stroke-width="2"/>
+<line x1="860" y1="795" x2="860" y2="815" stroke="#203247" stroke-width="2"/>
+<text x="490" y="855" font-size="28" fill="#203247" text-anchor="middle">前两种筛选合计只有 2 行</text>
+<text x="1180" y="855" font-size="28" fill="#d87320" text-anchor="middle">缺失需独立分支</text>
+</g></svg>
