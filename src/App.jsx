@@ -32,9 +32,9 @@ export default function App({ path = '/', learningHtml = '' }) {
   const [project, setProject] = useState(null);
   const [toast, setToast] = useState('');
   const likeVoice = useVoice(path === '/' && profile.likeVoice ? `${import.meta.env.BASE_URL}${profile.likeVoice}` : '',
-    () => setToast('谢谢你的喜欢。语音暂时无法播放，请稍后再试。'));
+    () => setToast('收到你的喜欢啦，谢谢。语音暂时无法播放。'));
   const unlikeVoice = useVoice(path === '/' && profile.unlikeVoice ? `${import.meta.env.BASE_URL}${profile.unlikeVoice}` : '',
-    () => setToast('才、才不是在等你呢。'));
+    () => setToast('有点可惜，不过还是谢谢你来看。'));
   const toggleLike = () => {
     if (!liked) {
       unlikeVoice.stop();
@@ -45,7 +45,7 @@ export default function App({ path = '/', learningHtml = '' }) {
       void unlikeVoice.play();
     }
     setLiked(!liked);
-    setToast(liked ? '才、才不是在等你呢。' : '谢谢你的喜欢。');
+    setToast(liked ? '有点可惜，不过还是谢谢你来看。' : '收到你的喜欢啦，谢谢。');
   };
   const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['writing', '文章与论文']];
   const activeSection = path === '/' ? active : /^\/(articles|papers)\//.test(path) ? 'writing' : path.startsWith('/projects/') ? 'projects' : null;
@@ -126,7 +126,7 @@ export default function App({ path = '/', learningHtml = '' }) {
         <div className="profile-card" data-chapter="profile">
           <ProfileAvatar enabled={hydrated}
             voiceSrc={profile.avatarVoice ? `${import.meta.env.BASE_URL}${profile.avatarVoice}` : ''}
-            onGreet={message => setToast(message || '你好，欢迎来这里。')} />
+            onGreet={message => setToast(message || '你来啦，随便看看吧。')} />
           <div><h2>{profile.name}</h2><a href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={15} /> GitHub <ArrowUpRight size={13} /></a></div>
         </div>
         <div className="about-copy" data-chapter="about">

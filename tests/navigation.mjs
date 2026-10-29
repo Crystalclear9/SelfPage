@@ -24,7 +24,7 @@ try {
   }));
   await page.goto(base);
   await page.locator('.avatar-button').click();
-  await expect(page.locator('.toast')).toContainText('你好，欢迎来这里。');
+  await expect(page.locator('.toast')).toContainText('你来啦，随便看看吧。');
   assert.ok(await page.locator('.avatar img').evaluate(el => el.getAnimations().some(a => a.animationName === 'avatar-greeting')));
   await expect(page.locator('.avatar-button')).toHaveAttribute('aria-label', '停止加藤惠语音');
   // The greeting animation stays active for the actual ~2.04s recording.
@@ -53,7 +53,7 @@ try {
   await page.waitForURL(base);
   await page.locator('.avatar-button').focus();
   await page.keyboard.press('Enter');
-  await expect(page.locator('.toast')).toContainText('你好，欢迎来这里。');
+  await expect(page.locator('.toast')).toContainText('你来啦，随便看看吧。');
   assert.equal(await page.locator('.avatar img').evaluate(el => el.getAnimations().length), 0);
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
