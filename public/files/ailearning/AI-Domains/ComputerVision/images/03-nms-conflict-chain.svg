@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-<title id="title">NMS冲突链与排序敏感性</title><desc id="desc">三框同高且水平区间分别[-1,1]、[0,2]、[1,3]。相邻IoU三分之一，首尾IoU零。阈值0.3时先选B只留B，先选A则留A和C。</desc>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1103" height="721" viewBox="26 60 1103 721" role="img" aria-labelledby="title desc">
+<rect x="26" y="60" width="1103" height="721" fill="#ffffff"/><title id="title">NMS冲突链与排序敏感性</title><desc id="desc">三框同高且水平区间分别[-1,1]、[0,2]、[1,3]。相邻IoU三分之一，首尾IoU零。阈值0.3时先选B只留B，先选A则留A和C。</desc>
 <rect width="1200" height="800" fill="white"/>
 <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
-<text x="44" y="54" font-size="32" fill="#213447" text-anchor="start" font-weight="700">NMS：两两重叠不具有传递性，排序会改变保留集合</text>
 <text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">同一类别，竖直区间均为 [0, 1]；A 分数 0.800，C 分数 0.799</text>
 <text x="44" y="163" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 框的水平投影与冲突关系</text>
 <text x="61" y="277" font-size="29" fill="#2865a0" text-anchor="start" font-weight="700">A</text>

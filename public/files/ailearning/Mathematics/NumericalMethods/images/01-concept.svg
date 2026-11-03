@@ -1,1 +1,310 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="850" viewBox="0 0 1280 850" role="img"><title>先找到可表示格点，再判断信息在哪一步丢失</title><rect width="1280" height="850" fill="white"/><g font-family="Microsoft YaHei, Arial, sans-serif"><text x="54" y="60" font-size="34" fill="#20343e" text-anchor="start">先找到可表示格点，再判断信息在哪一步丢失</text><text x="54" y="105" font-size="25" fill="#627882" text-anchor="start">上排 a = 10 的 16 次方；下排以 1 附近的单位 u = 2^−53 观察名义对称的扰动</text><text x="65" y="170" font-size="29" fill="#20343e" text-anchor="start">a 附近：相邻可表示数相差 2</text><line x1="100" y1="255" x2="1140" y2="255" stroke="#627882" stroke-width="2"/><circle cx="204.0" cy="255" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="204.0" y="305" font-size="27" fill="#216983" text-anchor="middle">a</text><circle cx="620.0" cy="255" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="620.0" y="305" font-size="27" fill="#216983" text-anchor="middle">a + 2</text><circle cx="1036.0" cy="255" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="1036.0" y="305" font-size="27" fill="#216983" text-anchor="middle">a + 4</text><circle cx="412.0" cy="255" r="8" fill="white" stroke="#bc5b32" stroke-width="2"/><text x="412.0" y="218" font-size="27" fill="#bc5b32" text-anchor="middle">精确 a + 1</text><line x1="412.0" y1="335" x2="204.0" y2="335" stroke="#bc5b32" stroke-width="3"/><path d="M215.71,329.35 L204.00,335.00 L215.71,340.65" fill="none" stroke="#bc5b32" stroke-width="3"/><text x="65" y="405" font-size="27" fill="#20343e" text-anchor="start">平局取偶数：先做 a + 1，得到 a；之后相减无法恢复那一位。</text><text x="65" y="490" font-size="29" fill="#20343e" text-anchor="start">1 的两侧：左间距是 u，右间距是 2u</text><line x1="100" y1="590" x2="1140" y2="590" stroke="#627882" stroke-width="2"/><circle cx="174.28571428571428" cy="590" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="174.28571428571428" y="640" font-size="27" fill="#216983" text-anchor="middle">1 − 2u</text><circle cx="322.8571428571429" cy="590" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="322.8571428571429" y="640" font-size="27" fill="#216983" text-anchor="middle">1 − u</text><circle cx="471.42857142857144" cy="590" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="471.42857142857144" y="640" font-size="27" fill="#216983" text-anchor="middle">1</text><circle cx="768.5714285714286" cy="590" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="768.5714285714286" y="640" font-size="27" fill="#216983" text-anchor="middle">1 + 2u</text><circle cx="1065.7142857142858" cy="590" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="1065.7142857142858" y="640" font-size="27" fill="#216983" text-anchor="middle">1 + 4u</text><circle cx="337.60732535813383" cy="590" r="7" fill="white" stroke="#bc5b32" stroke-width="2"/><text x="337.60732535813383" y="535" font-size="26" fill="#bc5b32" text-anchor="middle">1 − h</text><line x1="337.60732535813383" y1="680" x2="322.8571428571429" y2="680" stroke="#bc5b32" stroke-width="3"/><path d="M334.56,674.35 L322.86,680.00 L334.56,685.65" fill="none" stroke="#bc5b32" stroke-width="3"/><circle cx="605.249817499009" cy="590" r="7" fill="white" stroke="#bc5b32" stroke-width="2"/><text x="605.249817499009" y="535" font-size="26" fill="#bc5b32" text-anchor="middle">1 + h</text><line x1="605.249817499009" y1="680" x2="471.42857142857144" y2="680" stroke="#bc5b32" stroke-width="3"/><path d="M483.13,674.35 L471.43,680.00 L483.13,685.65" fill="none" stroke="#bc5b32" stroke-width="3"/><text x="65" y="790" font-size="27" fill="#20343e" text-anchor="start">h = 10^−16：左节点移动一个格点，右节点却与中心重合；几何已不再对称。</text></g></svg>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="868.68pt" height="647.985pt" viewBox="0 0 868.68 647.985" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>浮点格点、舍入单元与非对称实际差分节点</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>浮点格点、舍入单元与非对称实际差分节点</dc:title>
+    <dc:date>2026-10-30T14:23:07.137832</dc:date>
+    <dc:description>浮点格点、舍入单元与非对称实际差分节点。所有几何与数值由正文明确的模型生成。</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 647.985
+L 868.68 647.985
+L 868.68 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M -67.86 176.572826
+L 266.94 176.572826
+L 266.94 50.025
+L -67.86 50.025
+z
+" clip-path="url(#pec5d0bf99f)" style="fill: #246b93; opacity: 0.04; stroke: #246b93; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 266.94 176.572826
+L 601.74 176.572826
+L 601.74 50.025
+L 266.94 50.025
+z
+" clip-path="url(#pec5d0bf99f)" style="fill: #246b93; opacity: 0.04; stroke: #246b93; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 601.74 176.572826
+L 936.54 176.572826
+L 936.54 50.025
+L 601.74 50.025
+z
+" clip-path="url(#pec5d0bf99f)" style="fill: #246b93; opacity: 0.04; stroke: #246b93; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 15.84 129.117391
+L 852.84 129.117391
+" clip-path="url(#pec5d0bf99f)" style="fill: none; stroke: #71828c; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="99.54" y="159.1725" transform="rotate(-0 99.54 159.1725)">a</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="434.34" y="159.1725" transform="rotate(-0 434.34 159.1725)">a+2</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="769.14" y="159.1725" transform="rotate(-0 769.14 159.1725)">a+4</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 266.94 101.435054
+Q 183.24 101.435054 102.894102 101.435054
+" style="fill: none; stroke: #cc6b35; stroke-width: 3; stroke-linecap: round"/>
+    <path d="M 112.094102 106.035054
+L 102.894102 101.435054
+L 112.094102 96.835054
+" style="fill: none; stroke: #cc6b35; stroke-width: 3; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #cc6b35" x="266.94" y="77.707337" transform="rotate(-0 266.94 77.707337)">精确 a+1</text>
+   </g>
+   <g id="text_5">
+    <!-- $a=10^{16}$ -->
+    <g style="fill: #243b4a" transform="translate(568.26 73.752717)">
+     <text>
+      <tspan x="0" y="-0.435938" style="font-style: oblique; font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">a</tspan>
+      <tspan x="20.19043" y="-0.435938" style="font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">=</tspan>
+      <tspan x="46.008301" y="-0.435938" style="font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="61.914062" y="-0.435938" style="font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">0</tspan>
+      <tspan x="78.059082" y="-10.00625" style="font-size: 17.5px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="89.193115" y="-10.00625" style="font-size: 17.5px; font-family: 'DejaVu Sans'; fill: #243b4a">6</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start; fill: #243b4a" x="15.84" y="35.025" transform="rotate(-0 15.84 35.025)">大数附近：不可表示的中点先被舍掉</text>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="ma7d6783252" d="M 0 4.330127
+C 1.148363 4.330127 2.249847 3.873878 3.061862 3.061862
+C 3.873878 2.249847 4.330127 1.148363 4.330127 0
+C 4.330127 -1.148363 3.873878 -2.249847 3.061862 -3.061862
+C 2.249847 -3.873878 1.148363 -4.330127 0 -4.330127
+C -1.148363 -4.330127 -2.249847 -3.873878 -3.061862 -3.061862
+C -3.873878 -2.249847 -4.330127 -1.148363 -4.330127 0
+C -4.330127 1.148363 -3.873878 2.249847 -3.061862 3.061862
+C -2.249847 3.873878 -1.148363 4.330127 0 4.330127
+z
+" style="stroke: #246b93"/>
+    </defs>
+    <g clip-path="url(#pec5d0bf99f)">
+     <use xlink:href="#ma7d6783252" x="99.54" y="129.117391" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#pec5d0bf99f)">
+     <use xlink:href="#ma7d6783252" x="434.34" y="129.117391" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#pec5d0bf99f)">
+     <use xlink:href="#ma7d6783252" x="769.14" y="129.117391" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_4">
+    <defs>
+     <path id="m6592a58af8" d="M 0 5
+C 1.326016 5 2.597899 4.473168 3.535534 3.535534
+C 4.473168 2.597899 5 1.326016 5 0
+C 5 -1.326016 4.473168 -2.597899 3.535534 -3.535534
+C 2.597899 -4.473168 1.326016 -5 0 -5
+C -1.326016 -5 -2.597899 -4.473168 -3.535534 -3.535534
+C -4.473168 -2.597899 -5 -1.326016 -5 0
+C -5 1.326016 -4.473168 2.597899 -3.535534 3.535534
+C -2.597899 4.473168 -1.326016 5 0 5
+z
+" style="stroke: #cc6b35"/>
+    </defs>
+    <g clip-path="url(#pec5d0bf99f)">
+     <use xlink:href="#m6592a58af8" x="266.94" y="129.117391" style="fill: #ffffff; stroke: #cc6b35"/>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="line2d_2">
+    <path d="M 15.84 356.903478
+L 852.84 356.903478
+" clip-path="url(#p6f25845a09)" style="fill: none; stroke: #71828c; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 22px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="75.625714" y="386.958587" transform="rotate(-0 75.625714 386.958587)">1−2u</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 22px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="195.197143" y="386.958587" transform="rotate(-0 195.197143 386.958587)">1−u</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 22px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="314.768571" y="386.958587" transform="rotate(-0 314.768571 386.958587)">1</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 22px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="553.911429" y="386.958587" transform="rotate(-0 553.911429 386.958587)">1+2u</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 22px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #243b4a" x="793.054286" y="386.958587" transform="rotate(-0 793.054286 386.958587)">1+4u</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #cc6b35" x="207.068203" y="313.402663" transform="rotate(-0 207.068203 313.402663)">1−h</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 207.068203 337.13038
+Q 201.132673 337.13038 198.551245 337.13038
+" style="fill: none; stroke: #cc6b35; stroke-width: 3; stroke-linecap: round"/>
+    <path d="M 207.751245 341.73038
+L 198.551245 337.13038
+L 207.751245 332.53038
+" style="fill: none; stroke: #cc6b35; stroke-width: 3; stroke-linecap: round"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 23px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #cc6b35" x="422.46894" y="313.402663" transform="rotate(-0 422.46894 313.402663)">1+h</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 422.46894 337.13038
+Q 368.618756 337.13038 318.122673 337.13038
+" style="fill: none; stroke: #cc6b35; stroke-width: 3; stroke-linecap: round"/>
+    <path d="M 327.322673 341.73038
+L 318.122673 337.13038
+L 327.322673 332.53038
+" style="fill: none; stroke: #cc6b35; stroke-width: 3; stroke-linecap: round"/>
+   </g>
+   <g id="text_14">
+    <!-- $u=2^{-53}$ -->
+    <g style="fill: #243b4a" transform="translate(625.654286 313.402663)">
+     <text>
+      <tspan x="0" y="-0.435938" style="font-style: oblique; font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">u</tspan>
+      <tspan x="20.715332" y="-0.435938" style="font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">=</tspan>
+      <tspan x="46.533203" y="-0.435938" style="font-size: 25px; font-family: 'DejaVu Sans'; fill: #243b4a">2</tspan>
+      <tspan x="62.678223" y="-10.00625" style="font-size: 17.5px; font-family: 'DejaVu Sans'; fill: #243b4a">−</tspan>
+      <tspan x="77.341309" y="-10.00625" style="font-size: 17.5px; font-family: 'DejaVu Sans'; fill: #243b4a">5</tspan>
+      <tspan x="88.475342" y="-10.00625" style="font-size: 17.5px; font-family: 'DejaVu Sans'; fill: #243b4a">3</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start; fill: #243b4a" x="15.84" y="262.811087" transform="rotate(-0 15.84 262.811087)">指数分界：同一个名义 h，机器节点却不对称</text>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#ma7d6783252" x="75.625714" y="356.903478" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#ma7d6783252" x="195.197143" y="356.903478" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#ma7d6783252" x="314.768571" y="356.903478" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_8">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#ma7d6783252" x="553.911429" y="356.903478" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_9">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#ma7d6783252" x="793.054286" y="356.903478" style="fill: #246b93; stroke: #246b93"/>
+    </g>
+   </g>
+   <g id="PathCollection_10">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#m6592a58af8" x="207.068203" y="356.903478" style="fill: #ffffff; stroke: #cc6b35"/>
+    </g>
+   </g>
+   <g id="PathCollection_11">
+    <g clip-path="url(#p6f25845a09)">
+     <use xlink:href="#m6592a58af8" x="422.46894" y="356.903478" style="fill: #ffffff; stroke: #cc6b35"/>
+    </g>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="text_16">
+    <text style="font-size: 25px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start; fill: #243b4a" x="32.58" y="553.685348" transform="rotate(-0 32.58 553.685348)">f(x)=x：真实导数为 1</text>
+   </g>
+   <g id="text_17">
+    <!-- $\frac{\mathrm{fl}(1+h)-\mathrm{fl}(1-h)}{2h}$$=\frac{2^{-53}}{2\times10^{-16}}\approx0.5551115$ -->
+    <g style="fill: #243b4a" transform="translate(32.58 616.959261)">
+     <text>
+      <tspan x="0" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">f</tspan>
+      <tspan x="6.900195" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">l</tspan>
+      <tspan x="12.345703" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">(</tspan>
+      <tspan x="19.992383" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="36.281055" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">+</tspan>
+      <tspan x="68.944531" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">)</tspan>
+      <tspan x="76" y="11.332812" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">2</tspan>
+      <tspan x="80.409766" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">−</tspan>
+      <tspan x="100.650977" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">f</tspan>
+      <tspan x="107.551172" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">l</tspan>
+      <tspan x="112.99668" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">(</tspan>
+      <tspan x="120.643359" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="136.932031" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">−</tspan>
+      <tspan x="169.595508" y="-14.895313" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">)</tspan>
+      <tspan x="215.113281" y="14.121875" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">2</tspan>
+      <tspan x="231.401953" y="14.121875" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">×</tspan>
+      <tspan x="239.113281" y="-12.314063" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">2</tspan>
+      <tspan x="251.643164" y="14.121875" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="264.113281" y="14.121875" style="font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">0</tspan>
+      <tspan x="56.522266" y="-14.895313" style="font-style: oblique; font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">h</tspan>
+      <tspan x="88.470117" y="11.332812" style="font-style: oblique; font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">h</tspan>
+      <tspan x="157.173242" y="-14.895313" style="font-style: oblique; font-size: 19.6px; font-family: 'DejaVu Sans'; fill: #243b4a">h</tspan>
+      <tspan x="186.197266" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">=</tspan>
+      <tspan x="315.216016" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">≈</tspan>
+      <tspan x="344.132031" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">0</tspan>
+      <tspan x="361.946484" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">.</tspan>
+      <tspan x="370.846875" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">5</tspan>
+      <tspan x="388.661328" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">5</tspan>
+      <tspan x="406.475781" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">5</tspan>
+      <tspan x="424.290234" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="442.104688" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="459.919141" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="477.733594" y="-0.048438" style="font-size: 28px; font-family: 'DejaVu Sans'; fill: #243b4a">5</tspan>
+      <tspan x="251.770977" y="-19.817188" style="font-size: 13.72px; font-family: 'DejaVu Sans'; fill: #243b4a">−</tspan>
+      <tspan x="263.266836" y="-19.817188" style="font-size: 13.72px; font-family: 'DejaVu Sans'; fill: #243b4a">5</tspan>
+      <tspan x="271.995918" y="-19.817188" style="font-size: 13.72px; font-family: 'DejaVu Sans'; fill: #243b4a">3</tspan>
+      <tspan x="276.770977" y="6.61875" style="font-size: 13.72px; font-family: 'DejaVu Sans'; fill: #243b4a">−</tspan>
+      <tspan x="288.266836" y="6.61875" style="font-size: 13.72px; font-family: 'DejaVu Sans'; fill: #243b4a">1</tspan>
+      <tspan x="296.995918" y="6.61875" style="font-size: 13.72px; font-family: 'DejaVu Sans'; fill: #243b4a">6</tspan>
+     </text>
+     <rect x="0" y="-6.314063" width="177.242188" height="1.75"/>
+     <rect x="215.113281" y="-6.314063" width="91.147656" height="1.75"/>
+    </g>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start; fill: #243b4a" x="15.84" y="490.597174" transform="rotate(-0 15.84 490.597174)">把实际节点带回差分：线性函数也会给错斜率</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pec5d0bf99f">
+   <rect x="15.84" y="50.025" width="837" height="126.547826"/>
+  </clipPath>
+  <clipPath id="p6f25845a09">
+   <rect x="15.84" y="277.811087" width="837" height="126.547826"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,95 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790" role="img" aria-labelledby="title desc">
-  <title id="title">Stacking：算法身份与折身份是两条不同的轴</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="706.939" viewBox="0 58.142523 1200 706.939252" role="img" aria-labelledby="title desc">
+  <rect id="offline-white-background" x="0" y="58.142523" width="1200" height="706.939252" fill="#ffffff"/><title id="title">Stacking：算法身份与折身份是两条不同的轴</title>
   <desc id="desc">两种不同基学习算法在每折分别拟合副本，填充完整六行两列折外特征；部署使用全数据重拟合的两个基学习器。</desc>
-  <rect width="1200" height="790" fill="white" />
+  <rect width="1200" height="790" fill="white"/>
   <defs>
     <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0"/>
     </marker>
     <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432"/>
     </marker>
     <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d"/>
     </marker>
   </defs>
   <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
-    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">Stacking：算法身份与折身份是两条不同的轴</text>
     <text x="35" y="100" font-size="25" fill="#213447" font-weight="400" text-anchor="start">算法 A：逻辑回归；算法 B：树桩；每一折都拟合这两种算法</text>
     <text x="35" y="154" font-size="26" fill="#213447" font-weight="600" text-anchor="start">三折分别留出两行</text>
     <text x="35" y="193" font-size="24" fill="#213447" font-weight="400" text-anchor="start">折 1：拟合行 3、4、5、6</text>
-    <rect x="35" y="213" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="35" y="213" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="112.5" y="245.0" font-size="23" fill="#2865a0" font-weight="500" text-anchor="middle">A（折 1）</text>
-    <rect x="210" y="213" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="210" y="213" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="287.5" y="245.0" font-size="23" fill="#2865a0" font-weight="500" text-anchor="middle">B（折 1）</text>
-    <path d="M390,236 L475,236" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+    <path d="M390,236 L475,236" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
     <text x="405" y="203" font-size="23" fill="#2865a0" font-weight="400" text-anchor="start">写行 1、2</text>
     <text x="35" y="313" font-size="24" fill="#213447" font-weight="400" text-anchor="start">折 2：拟合行 1、2、5、6</text>
-    <rect x="35" y="333" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="35" y="333" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="112.5" y="365.0" font-size="23" fill="#2865a0" font-weight="500" text-anchor="middle">A（折 2）</text>
-    <rect x="210" y="333" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="210" y="333" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="287.5" y="365.0" font-size="23" fill="#2865a0" font-weight="500" text-anchor="middle">B（折 2）</text>
-    <path d="M390,356 L475,356" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+    <path d="M390,356 L475,356" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
     <text x="405" y="323" font-size="23" fill="#2865a0" font-weight="400" text-anchor="start">写行 3、4</text>
     <text x="35" y="433" font-size="24" fill="#213447" font-weight="400" text-anchor="start">折 3：拟合行 1、2、3、4</text>
-    <rect x="35" y="453" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="35" y="453" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="112.5" y="485.0" font-size="23" fill="#2865a0" font-weight="500" text-anchor="middle">A（折 3）</text>
-    <rect x="210" y="453" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="210" y="453" width="155" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="287.5" y="485.0" font-size="23" fill="#2865a0" font-weight="500" text-anchor="middle">B（折 3）</text>
-    <path d="M390,476 L475,476" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+    <path d="M390,476 L475,476" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
     <text x="405" y="443" font-size="23" fill="#2865a0" font-weight="400" text-anchor="start">写行 5、6</text>
     <text x="520" y="154" font-size="26" fill="#213447" font-weight="600" text-anchor="start">折外特征 Z</text>
     <text x="530" y="192" font-size="24" fill="#5a6c7d" font-weight="400" text-anchor="start">行</text>
     <text x="665" y="192" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">A 列</text>
     <text x="815" y="192" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">B 列</text>
     <text x="540" y="240" font-size="25" fill="#213447" font-weight="400" text-anchor="middle">1</text>
-    <rect x="595" y="210" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="595" y="210" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="665.0" y="240.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">0.170</text>
-    <rect x="745" y="210" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="745" y="210" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="815.0" y="240.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">0.000</text>
     <text x="540" y="291" font-size="25" fill="#213447" font-weight="400" text-anchor="middle">2</text>
-    <rect x="595" y="261" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="595" y="261" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="665.0" y="291.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">0.244</text>
-    <rect x="745" y="261" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="745" y="261" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="815.0" y="291.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">0.000</text>
     <text x="540" y="342" font-size="25" fill="#213447" font-weight="400" text-anchor="middle">3</text>
-    <rect x="595" y="312" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="595" y="312" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="665.0" y="342.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">0.476</text>
-    <rect x="745" y="312" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="745" y="312" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="815.0" y="342.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">0.667</text>
     <text x="540" y="393" font-size="25" fill="#213447" font-weight="400" text-anchor="middle">4</text>
-    <rect x="595" y="363" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="595" y="363" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="665.0" y="393.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">0.524</text>
-    <rect x="745" y="363" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="745" y="363" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="815.0" y="393.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">0.667</text>
     <text x="540" y="444" font-size="25" fill="#213447" font-weight="400" text-anchor="middle">5</text>
-    <rect x="595" y="414" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="595" y="414" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="665.0" y="444.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">0.756</text>
-    <rect x="745" y="414" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="745" y="414" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="815.0" y="444.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">0.667</text>
     <text x="540" y="495" font-size="25" fill="#213447" font-weight="400" text-anchor="middle">6</text>
-    <rect x="595" y="465" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <rect x="595" y="465" width="140" height="44" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="665.0" y="495.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">0.830</text>
-    <rect x="745" y="465" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="745" y="465" width="140" height="44" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="815.0" y="495.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">0.667</text>
-    <path d="M900,345 L980,345" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
-    <rect x="990" y="300" width="175" height="90" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <path d="M900,345 L980,345" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <rect x="990" y="300" width="175" height="90" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="1077.5" y="353.0" font-size="27" fill="#2865a0" font-weight="500" text-anchor="middle">元模型</text>
     <text x="1075" y="434" font-size="22" fill="#5a6c7d" font-weight="400" text-anchor="middle">用 Z 与标签 y 拟合</text>
-    <line x1="35" y1="557" x2="1165" y2="557" stroke="#cad7e2" stroke-width="2" />
+    <line x1="35" y1="557" x2="1165" y2="557" stroke="#cad7e2" stroke-width="2"/>
     <text x="35" y="605" font-size="25" fill="#213447" font-weight="600" text-anchor="start">部署：两个算法各用全部六行重训，元模型保持已拟合状态</text>
-    <rect x="35" y="654" width="150" height="70" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="35" y="654" width="150" height="70" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="110.0" y="697.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">新 x = 3.5</text>
-    <path d="M200,689 L300,689" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
-    <rect x="325" y="631" width="210" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <path d="M200,689 L300,689" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <rect x="325" y="631" width="210" height="48" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="430.0" y="663.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">A 全量：0.500</text>
-    <rect x="325" y="696" width="210" height="48" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2" />
+    <rect x="325" y="696" width="210" height="48" rx="5" fill="#fff0e3" stroke="#cf7432" stroke-width="1.2"/>
     <text x="430.0" y="728.0" font-size="24" fill="#cf7432" font-weight="500" text-anchor="middle">B 全量：0.600</text>
-    <path d="M550,689 L655,689" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
-    <rect x="675" y="654" width="240" height="70" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <path d="M550,689 L655,689" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <rect x="675" y="654" width="240" height="70" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="795.0" y="697.0" font-size="24" fill="#2865a0" font-weight="500" text-anchor="middle">按 A、B 列顺序输入</text>
-    <path d="M930,689 L980,689" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)" />
-    <rect x="995" y="654" width="170" height="70" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2" />
+    <path d="M930,689 L980,689" fill="none" stroke="#2865a0" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <rect x="995" y="654" width="170" height="70" rx="5" fill="#eaf2fa" stroke="#9db8d0" stroke-width="1.2"/>
     <text x="1080.0" y="697.0" font-size="25" fill="#2865a0" font-weight="500" text-anchor="middle">固定元模型</text>
   </g>
 </svg>

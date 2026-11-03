@@ -1,78 +1,241 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
-  <title id="title">DBSCAN：共享边界点不能连接两个核心簇</title>
-  <desc id="desc">上方显示九个样本的真实一维位置和共享边界点的闭邻域，下方仅连接核心点；边界点不合并左右核心簇。</desc>
-  <rect width="1200" height="650" fill="white" />
-  <defs>
-    <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#2865a0" />
-    </marker>
-    <marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cf7432" />
-    </marker>
-    <marker id="arrow-muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#5a6c7d" />
-    </marker>
-  </defs>
-  <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif">
-    <text x="30" y="45" font-size="30" fill="#213447" font-weight="600" text-anchor="start">DBSCAN：共享边界点不能连接两个核心簇</text>
-    <text x="35" y="95" font-size="25" fill="#213447" font-weight="400" text-anchor="start">ε = 1；min_samples = 4（计入自身）</text>
-    <rect x="250" y="142" width="700" height="100" fill="#fff0e3" />
-    <line x1="75.0" y1="200" x2="1125.0" y2="200" stroke="#5a6c7d" stroke-width="2" />
-    <circle cx="145.0" cy="200" r="9" fill="#2865a0" />
-    <text x="145.0" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.3</text>
-    <circle cx="180.0" cy="200" r="9" fill="#2865a0" />
-    <text x="180.0" y="165" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.2</text>
-    <circle cx="214.99999999999994" cy="200" r="9" fill="#2865a0" />
-    <text x="214.99999999999994" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.1</text>
-    <circle cx="250.0" cy="200" r="9" fill="#2865a0" />
-    <text x="250.0" y="140" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
-    <circle cx="600.0" cy="200" r="9" fill="#cf7432" />
-    <text x="600.0" y="270" font-size="24" fill="#cf7432" font-weight="400" text-anchor="middle">0</text>
-    <circle cx="950.0" cy="200" r="9" fill="#2865a0" />
-    <text x="950.0" y="140" font-size="24" fill="#2865a0" font-weight="400" text-anchor="middle">1</text>
-    <circle cx="985.0" cy="200" r="9" fill="#2865a0" />
-    <text x="985.0" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.1</text>
-    <circle cx="1020.0" cy="200" r="9" fill="#2865a0" />
-    <text x="1020.0" y="165" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.2</text>
-    <circle cx="1055.0" cy="200" r="9" fill="#2865a0" />
-    <text x="1055.0" y="248" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.3</text>
-    <text x="600" y="120" font-size="25" fill="#cf7432" font-weight="400" text-anchor="middle">0 的闭邻域：[−1, 1]</text>
-    <text x="600" y="315" font-size="27" fill="#cf7432" font-weight="400" text-anchor="middle">只含 −1、0、1，共 3 点：0 不是核心点</text>
-    <line x1="35" y1="343" x2="1165" y2="343" stroke="#cad7e2" stroke-width="2" />
-    <text x="35" y="388" font-size="26" fill="#213447" font-weight="400" text-anchor="start">核心点图：仅核心点之间的邻接可传递连通</text>
-    <line x1="310" y1="455" x2="150" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="150" y1="570" x2="150" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="150" y1="570" x2="310" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="310" y1="570" x2="150" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="310" y1="570" x2="310" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="310" y1="570" x2="150" y2="570" stroke="#2865a0" stroke-width="2" />
-    <circle cx="150" cy="455" r="10" fill="#2865a0" />
-    <text x="150" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.3</text>
-    <circle cx="310" cy="455" r="10" fill="#2865a0" />
-    <text x="310" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.2</text>
-    <circle cx="150" cy="570" r="10" fill="#2865a0" />
-    <text x="150" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1.1</text>
-    <circle cx="310" cy="570" r="10" fill="#2865a0" />
-    <text x="310" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">-1</text>
-    <line x1="1050" y1="455" x2="890" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="890" y1="570" x2="890" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="890" y1="570" x2="1050" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="1050" y1="570" x2="890" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="1050" y1="570" x2="1050" y2="455" stroke="#2865a0" stroke-width="2" />
-    <line x1="1050" y1="570" x2="890" y2="570" stroke="#2865a0" stroke-width="2" />
-    <circle cx="890" cy="455" r="10" fill="#2865a0" />
-    <text x="890" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1</text>
-    <circle cx="1050" cy="455" r="10" fill="#2865a0" />
-    <text x="1050" y="435" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.1</text>
-    <circle cx="890" cy="570" r="10" fill="#2865a0" />
-    <text x="890" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.2</text>
-    <circle cx="1050" cy="570" r="10" fill="#2865a0" />
-    <text x="1050" y="550" font-size="22" fill="#2865a0" font-weight="400" text-anchor="middle">1.3</text>
-    <circle cx="600" cy="510" r="11" fill="#cf7432" />
-    <text x="600" y="553" font-size="25" fill="#cf7432" font-weight="400" text-anchor="middle">边界点 0</text>
-    <line x1="310" y1="570" x2="587" y2="515" stroke="#cf7432" stroke-width="2" stroke-dasharray="8 6" />
-    <line x1="890" y1="455" x2="613" y2="505" stroke="#cf7432" stroke-width="2" stroke-dasharray="8 6" />
-    <text x="215" y="625" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">核心簇 1</text>
-    <text x="970" y="625" font-size="25" fill="#2865a0" font-weight="400" text-anchor="middle">核心簇 2</text>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="1296" height="661.251" viewBox="0 94.749340 1296 661.250660" version="1.1">
+ <rect id="offline-white-background" x="0" y="94.749340" width="1296" height="661.250660" fill="#ffffff"/><title>DBSCAN：边界点可归属一侧，但不能把两侧核心簇连成一簇</title><metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T11:47:23.930123</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 756 L 1296 756 L 1296 0 L 0 0 z " style="fill: #ffffff"/>
   </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 116.64 574.56 L 590.387899 574.56 L 590.387899 158.76 L 116.64 158.76 z " style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 195.597983 574.56 L 511.429916 574.56 L 511.429916 158.76 L 195.597983 158.76 z " clip-path="url(#p0b7319806d)" style="fill: #faeadf; stroke: #faeadf; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="mb649b9530f" d="M 0 0 L 0 3.5 " style="stroke: #526b76; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mb649b9530f" x="116.64" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="116.64" y="600.745" transform="rotate(-0 116.64 600.745)">−1.5</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#mb649b9530f" x="195.597983" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="195.597983" y="600.745" transform="rotate(-0 195.597983 600.745)">−1.0</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#mb649b9530f" x="274.555966" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="274.555966" y="600.745" transform="rotate(-0 274.555966 600.745)">−0.5</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mb649b9530f" x="353.51395" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="353.51395" y="600.745" transform="rotate(-0 353.51395 600.745)">0.0</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#mb649b9530f" x="432.471933" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="432.471933" y="600.745" transform="rotate(-0 432.471933 600.745)">0.5</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mb649b9530f" x="511.429916" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="511.429916" y="600.745" transform="rotate(-0 511.429916 600.745)">1.0</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#mb649b9530f" x="590.387899" y="574.56" style="fill: #526b76; stroke: #526b76; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526b76" x="590.387899" y="600.745" transform="rotate(-0 590.387899 600.745)">1.5</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #183944" x="353.51395" y="629.89625" transform="rotate(-0 353.51395 629.89625)">原始一维位置</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="patch_4">
+    <path d="M 116.64 574.56 L 116.64 158.76 " style="fill: none; stroke: #71858b; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 116.64 574.56 L 590.387899 574.56 " style="fill: none; stroke: #71858b; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="C0_0_ebc76837d6" d="M 0 5.91608 C 1.568963 5.91608 3.073876 5.292724 4.1833 4.1833 C 5.292724 3.073876 5.91608 1.568963 5.91608 -0 C 5.91608 -1.568963 5.292724 -3.073876 4.1833 -4.1833 C 3.073876 -5.292724 1.568963 -5.91608 0 -5.91608 C -1.568963 -5.91608 -3.073876 -5.292724 -4.1833 -4.1833 C -5.292724 -3.073876 -5.91608 -1.568963 -5.91608 0 C -5.91608 1.568963 -5.292724 3.073876 -4.1833 4.1833 C -3.073876 5.292724 -1.568963 5.91608 0 5.91608 z "/>
+    </defs>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="148.223193" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="164.01479" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="179.806387" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="195.597983" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="353.51395" y="366.66" style="fill: #d47636; stroke: #d47636"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="511.429916" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="527.221513" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="543.013109" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+    <g clip-path="url(#p0b7319806d)">
+     <use xlink:href="#C0_0_ebc76837d6" x="558.804706" y="366.66" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #183944" x="353.51395" y="247.86" transform="rotate(-0 353.51395 247.86)">0 的 ε 邻域仅 3 点</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 26px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #183944" x="353.51395" y="138.76" transform="rotate(-0 353.51395 138.76)">ε = 1；min_samples = 4（含自身）</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="PathCollection_2">
+    <defs>
+     <path id="m05ed56366e" d="M 0 5.700877 C 1.51189 5.700877 2.962061 5.100197 4.031129 4.031129 C 5.100197 2.962061 5.700877 1.51189 5.700877 0 C 5.700877 -1.51189 5.100197 -2.962061 4.031129 -4.031129 C 2.962061 -5.100197 1.51189 -5.700877 0 -5.700877 C -1.51189 -5.700877 -2.962061 -5.100197 -4.031129 -4.031129 C -5.100197 -2.962061 -5.700877 -1.51189 -5.700877 0 C -5.700877 1.51189 -5.100197 2.962061 -4.031129 4.031129 C -2.962061 5.100197 -1.51189 5.700877 0 5.700877 z " style="stroke: #246b82"/>
+    </defs>
+    <g clip-path="url(#p6e9ecc14b8)">
+     <use xlink:href="#m05ed56366e" x="817.786891" y="408.24" style="fill: #246b82; stroke: #246b82"/>
+     <use xlink:href="#m05ed56366e" x="880.953277" y="408.24" style="fill: #246b82; stroke: #246b82"/>
+     <use xlink:href="#m05ed56366e" x="817.786891" y="325.08" style="fill: #246b82; stroke: #246b82"/>
+     <use xlink:href="#m05ed56366e" x="880.953277" y="325.08" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#p6e9ecc14b8)">
+     <use xlink:href="#m05ed56366e" x="1133.618824" y="408.24" style="fill: #246b82; stroke: #246b82"/>
+     <use xlink:href="#m05ed56366e" x="1196.78521" y="408.24" style="fill: #246b82; stroke: #246b82"/>
+     <use xlink:href="#m05ed56366e" x="1133.618824" y="325.08" style="fill: #246b82; stroke: #246b82"/>
+     <use xlink:href="#m05ed56366e" x="1196.78521" y="325.08" style="fill: #246b82; stroke: #246b82"/>
+    </g>
+   </g>
+   <g id="PathCollection_4">
+    <defs>
+     <path id="m0644e163bd" d="M 0 6.519202 C 1.728913 6.519202 3.387246 5.832298 4.609772 4.609772 C 5.832298 3.387246 6.519202 1.728913 6.519202 0 C 6.519202 -1.728913 5.832298 -3.387246 4.609772 -4.609772 C 3.387246 -5.832298 1.728913 -6.519202 0 -6.519202 C -1.728913 -6.519202 -3.387246 -5.832298 -4.609772 -4.609772 C -5.832298 -3.387246 -6.519202 -1.728913 -6.519202 0 C -6.519202 1.728913 -5.832298 3.387246 -4.609772 4.609772 C -3.387246 5.832298 -1.728913 6.519202 0 6.519202 z " style="stroke: #d47636"/>
+    </defs>
+    <g clip-path="url(#p6e9ecc14b8)">
+     <use xlink:href="#m0644e163bd" x="1007.28605" y="366.66" style="fill: #d47636; stroke: #d47636"/>
+    </g>
+   </g>
+   <g id="line2d_8">
+    <path d="M 880.953277 408.24 L 817.786891 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 817.786891 325.08 L 817.786891 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 817.786891 325.08 L 880.953277 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 880.953277 325.08 L 817.786891 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 880.953277 325.08 L 880.953277 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 880.953277 325.08 L 817.786891 325.08 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 1196.78521 408.24 L 1133.618824 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 1133.618824 325.08 L 1133.618824 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 1133.618824 325.08 L 1196.78521 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 1196.78521 325.08 L 1133.618824 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 1196.78521 325.08 L 1196.78521 408.24 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_19">
+    <path d="M 1196.78521 325.08 L 1133.618824 325.08 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke: #e5eef1; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_20">
+    <path d="M 880.953277 366.66 L 1007.28605 366.66 L 1133.618824 366.66 " clip-path="url(#p6e9ecc14b8)" style="fill: none; stroke-dasharray: 11.1,4.8; stroke-dashoffset: 0; stroke: #d47636; stroke-width: 3"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; fill: #d47636" transform="translate(948.697925 452.01675)">非核心点 0</text>
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; fill: #d47636" transform="translate(923.28605 481.005)">不传递核心连通</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 26px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #183944" x="1007.28605" y="138.76" transform="rotate(-0 1007.28605 138.76)">核心点图始终有两个分量</text>
+   </g>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #183944" x="71.28" y="729.54" transform="rotate(-0 71.28 729.54)">虚线是边界邻接，不是允许继续扩展的核心路径；两侧核心团内部均有至少四点。</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0b7319806d">
+   <rect x="116.64" y="158.76" width="473.747899" height="415.8"/>
+  </clipPath>
+  <clipPath id="p6e9ecc14b8">
+   <rect x="770.412101" y="158.76" width="473.747899" height="415.8"/>
+  </clipPath>
+ </defs>
 </svg>

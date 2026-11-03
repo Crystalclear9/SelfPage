@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
-<title id="title">IoU与GIoU的局部方向</title><desc id="desc">两个等高单位框水平间距d变化，IoU在d大于1时平坦，GIoU仍随距离变化；完全包含时固定大小平移仍可平坦。</desc>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1091" height="767" viewBox="26 60 1091 767" role="img" aria-labelledby="title desc">
+<rect x="26" y="60" width="1091" height="767" fill="#ffffff"/><title id="title">IoU与GIoU的局部方向</title><desc id="desc">两个等高单位框水平间距d变化，IoU在d大于1时平坦，GIoU仍随距离变化；完全包含时固定大小平移仍可平坦。</desc>
 <rect width="1200" height="850" fill="white"/>
 <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
-<text x="44" y="54" font-size="34" fill="#213447" text-anchor="start" font-weight="700">几何损失的梯度：看方向，也看退化情形</text>
 <text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">左、中：单位框只沿水平方向移动；右：固定大框完全包含小框</text>
 <text x="44" y="164" font-size="27" fill="#213447" text-anchor="start" font-weight="700">① 分离框：d = 2</text>
 <text x="430" y="164" font-size="27" fill="#213447" text-anchor="start" font-weight="700">② 损失随 d 的变化</text>

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="780" viewBox="0 0 1320 780" role="img" aria-labelledby="title desc"><title id="title">冻结参数并不等于截断输入梯度</title><desc id="desc">标量链 y=xafb 中固定 f=3，x=1,a=2,b=4，损失二分之一y平方。正确反传da288、db144；截断h后da缺失、db仍144。</desc><rect width="1320" height="780" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
-<text x="40" y="55" font-size="35" fill="#20343d" text-anchor="start" font-weight="700">冻结中间层：数值相同，梯度可能完全不同</text>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1276" height="692" viewBox="22 67 1276 692" role="img" aria-labelledby="title desc"><rect x="22" y="67" width="1276" height="692" fill="#ffffff"/><title id="title">冻结参数并不等于截断输入梯度</title><desc id="desc">标量链 y=xafb 中固定 f=3，x=1,a=2,b=4，损失二分之一y平方。正确反传da288、db144；截断h后da缺失、db仍144。</desc><rect width="1320" height="780" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
 <text x="40" y="108" font-size="28" fill="#647b88" text-anchor="start" font-weight="400">x = 1，a = 2，固定 f = 3，b = 4；L = 0.5 × y²</text>
 <text x="90" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">输入</text>
 <rect x="90" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="830" viewBox="0 0 1200 830" role="img" aria-labelledby="title desc">
-<title id="title">输入标准化折叠与边界填充</title><desc id="desc">一维切片x为2,4,6，均值2标准差2，卷积核1,2,1。标准化后补零得到1,4,5；折叠核和偏置但原空间补零得到0,4,4；原空间补均值2恢复1,4,5。</desc>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1047" height="732" viewBox="26 60 1047 732" role="img" aria-labelledby="title desc">
+<rect x="26" y="60" width="1047" height="732" fill="#ffffff"/><title id="title">输入标准化折叠与边界填充</title><desc id="desc">一维切片x为2,4,6，均值2标准差2，卷积核1,2,1。标准化后补零得到1,4,5；折叠核和偏置但原空间补零得到0,4,4；原空间补均值2恢复1,4,5。</desc>
 <rect width="1200" height="830" fill="white"/>
 <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
-<text x="44" y="54" font-size="32" fill="#213447" text-anchor="start" font-weight="700">标准化可以折叠，但填充的“零”属于哪个空间？</text>
 <text x="44" y="100" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">原输入 (2, 4, 6)，μ = 2，σ = 2；核 (1, 2, 1)，偏置 0</text>
 <text x="44" y="161" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 三条计算路径：只改边界就改变输出</text>
 <text x="55" y="234" font-size="27" fill="#2865a0" text-anchor="start" font-weight="700">先标准化，再补零</text>

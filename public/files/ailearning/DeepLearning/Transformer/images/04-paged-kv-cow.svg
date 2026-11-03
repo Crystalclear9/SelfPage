@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950" viewBox="0 0 1200 950" role="img" aria-labelledby="title desc">
-<title id="title">分页KV的块内碎片和写时复制</title><desc id="desc">每块4个token槽。长度5,9,17请求共31个有效槽，稠密填充51槽，独立分页40槽。三分支共享6token前缀后各缓存一个新token，共享满块加3个私有尾块，总16槽；不共享为24槽。</desc>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1148" height="846" viewBox="26 61 1148 846" role="img" aria-labelledby="title desc">
+<rect x="26" y="61" width="1148" height="846" fill="#ffffff"/><title id="title">分页KV的块内碎片和写时复制</title><desc id="desc">每块4个token槽。长度5,9,17请求共31个有效槽，稠密填充51槽，独立分页40槽。三分支共享6token前缀后各缓存一个新token，共享满块加3个私有尾块，总16槽；不共享为24槽。</desc>
 <rect width="1200" height="950" fill="white"/>
 <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#213447">
-<text x="44" y="54" font-size="33" fill="#213447" text-anchor="start" font-weight="700">分页 KV：减少空位，共享前缀，写入时再分开</text>
 <text x="44" y="101" font-size="26" fill="#63788c" text-anchor="start" font-weight="400">每块 4 个 token 槽；一个槽代表该位置所需的全部层 K、V</text>
 <text x="44" y="163" font-size="28" fill="#213447" text-anchor="start" font-weight="700">① 请求独立：分页仍保留末块空位</text>
 <text x="55" y="241" font-size="27" fill="#213447" text-anchor="start" font-weight="400">长度 5</text>

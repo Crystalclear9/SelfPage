@@ -1,1 +1,212 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1260" viewBox="0 0 1280 1260" role="img"><title>冻结测试：开发阶段读什么，选择噪声又会造成什么？</title><rect width="1280" height="1260" fill="white"/><g font-family="Microsoft YaHei, Arial, sans-serif"><text x="54" y="60" font-size="34" fill="#20343e" text-anchor="start">冻结测试：开发阶段读什么，选择噪声又会造成什么？</text><text x="54" y="105" font-size="25" fill="#627882" text-anchor="start">一表示此阶段允许读标签作对应选择；零表示不再用这些标签改变已冻结规则</text><text x="440" y="205" font-size="29" fill="#20343e" text-anchor="middle">训练标签</text><text x="695" y="205" font-size="29" fill="#20343e" text-anchor="middle">验证标签</text><text x="950" y="205" font-size="29" fill="#20343e" text-anchor="middle">测试标签</text><text x="65" y="289" font-size="29" fill="#20343e" text-anchor="start">候选比较</text><rect x="325" y="240" width="230" height="76" fill="#216983"/><text x="440" y="289" font-size="31" fill="white" text-anchor="middle">1</text><rect x="580" y="240" width="230" height="76" fill="#216983"/><text x="695" y="289" font-size="31" fill="white" text-anchor="middle">1</text><rect x="835" y="240" width="230" height="76" fill="#f1f5f7"/><text x="950" y="289" font-size="31" fill="#627882" text-anchor="middle">0</text><text x="65" y="379" font-size="29" fill="#20343e" text-anchor="start">冻结系统</text><rect x="325" y="330" width="230" height="76" fill="#f1f5f7"/><text x="440" y="379" font-size="31" fill="#627882" text-anchor="middle">0</text><rect x="580" y="330" width="230" height="76" fill="#f1f5f7"/><text x="695" y="379" font-size="31" fill="#627882" text-anchor="middle">0</text><rect x="835" y="330" width="230" height="76" fill="#f1f5f7"/><text x="950" y="379" font-size="31" fill="#627882" text-anchor="middle">0</text><text x="65" y="469" font-size="29" fill="#20343e" text-anchor="start">最终验收</text><rect x="325" y="420" width="230" height="76" fill="#f1f5f7"/><text x="440" y="469" font-size="31" fill="#627882" text-anchor="middle">0</text><rect x="580" y="420" width="230" height="76" fill="#f1f5f7"/><text x="695" y="469" font-size="31" fill="#627882" text-anchor="middle">0</text><rect x="835" y="420" width="230" height="76" fill="#216983"/><text x="950" y="469" font-size="31" fill="white" text-anchor="middle">1</text><text x="65" y="610" font-size="29" fill="#20343e" text-anchor="start">五个候选的真实风险都为 0.2</text><text x="720" y="610" font-size="28" fill="#20343e" text-anchor="start">反复用测试选择，已读误差也会下降</text><line x1="130.0" y1="921.3636363636364" x2="550.0" y2="921.3636363636364" stroke="#dee7eb" stroke-width="2"/><text x="118.0" y="929.3636363636364" font-size="24" fill="#627882" text-anchor="end">0.16</text><line x1="130.0" y1="823.1818181818181" x2="550.0" y2="823.1818181818181" stroke="#dee7eb" stroke-width="2"/><text x="118.0" y="831.1818181818181" font-size="24" fill="#627882" text-anchor="end">0.2</text><line x1="130.0" y1="725.0" x2="550.0" y2="725.0" stroke="#dee7eb" stroke-width="2"/><text x="118.0" y="733.0" font-size="24" fill="#627882" text-anchor="end">0.24</text><line x1="172.0" y1="995.0" x2="172.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="172.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">1</text><line x1="256.0" y1="995.0" x2="256.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="256.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">2</text><line x1="340.0" y1="995.0" x2="340.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="340.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">3</text><line x1="424.0" y1="995.0" x2="424.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="424.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">4</text><line x1="508.0" y1="995.0" x2="508.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="508.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">5</text><line x1="130" y1="995" x2="550" y2="995" stroke="#627882" stroke-width="2"/><line x1="130" y1="725" x2="130" y2="995" stroke="#627882" stroke-width="2"/><text x="340.0" y="1071" font-size="26" fill="#20343e" text-anchor="middle">候选编号</text><text x="130" y="705" font-size="26" fill="#20343e" text-anchor="start">验证观测误差 / 真实风险</text><path d="M130.00,823.18 L550.00,823.18" fill="none" stroke="#627882" stroke-width="3"/><circle cx="172.0" cy="823.1818181818181" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="256.0" cy="921.3636363636364" r="7" fill="#bc5b32" stroke="#bc5b32" stroke-width="2"/><circle cx="340.0" cy="872.2727272727273" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="424.0" cy="774.090909090909" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="508.0" cy="847.7272727272727" r="7" fill="#216983" stroke="#216983" stroke-width="2"/><text x="256.0" y="955.7272727272727" font-size="25" fill="#bc5b32" text-anchor="middle">最低 0.16</text><line x1="800.0" y1="921.3636363636364" x2="1175.0" y2="921.3636363636364" stroke="#dee7eb" stroke-width="2"/><text x="788.0" y="929.3636363636364" font-size="24" fill="#627882" text-anchor="end">0.16</text><line x1="800.0" y1="823.1818181818181" x2="1175.0" y2="823.1818181818181" stroke="#dee7eb" stroke-width="2"/><text x="788.0" y="831.1818181818181" font-size="24" fill="#627882" text-anchor="end">0.2</text><line x1="800.0" y1="725.0" x2="1175.0" y2="725.0" stroke="#dee7eb" stroke-width="2"/><text x="788.0" y="733.0" font-size="24" fill="#627882" text-anchor="end">0.24</text><line x1="800.0" y1="995.0" x2="800.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="800.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">1</text><line x1="893.75" y1="995.0" x2="893.75" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="893.75" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">2</text><line x1="987.5" y1="995.0" x2="987.5" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="987.5" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">3</text><line x1="1081.25" y1="995.0" x2="1081.25" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="1081.25" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">4</text><line x1="1175.0" y1="995.0" x2="1175.0" y2="1001.0" stroke="#627882" stroke-width="2"/><text x="1175.0" y="1032.0" font-size="24" fill="#627882" text-anchor="middle">5</text><line x1="800" y1="995" x2="1175" y2="995" stroke="#627882" stroke-width="2"/><line x1="800" y1="725" x2="800" y2="995" stroke="#627882" stroke-width="2"/><text x="987.5" y="1071" font-size="26" fill="#20343e" text-anchor="middle">尝试次数</text><text x="800" y="705" font-size="26" fill="#20343e" text-anchor="start">最好已读测试误差 / 真实风险</text><path d="M800.00,798.64 L893.75,872.27 L987.50,896.82 L1081.25,945.91 L1175.00,970.45" fill="none" stroke="#216983" stroke-width="4"/><path d="M800.00,823.18 L1175.00,823.18" fill="none" stroke="#627882" stroke-width="3"/><circle cx="800.0" cy="798.6363636363636" r="5" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="893.75" cy="872.2727272727273" r="5" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="987.5" cy="896.8181818181818" r="5" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="1081.25" cy="945.9090909090909" r="5" fill="#216983" stroke="#216983" stroke-width="2"/><circle cx="1175.0" cy="970.4545454545454" r="5" fill="#216983" stroke="#216983" stroke-width="2"/><text x="65" y="1140" font-size="27" fill="#20343e" text-anchor="start">灰线：固定真实风险；蓝点：有限样本观测；左图橙点标出被选中的最小值。</text><text x="65" y="1210" font-size="26" fill="#20343e" text-anchor="start">这两组数是明确构造的选择噪声反例；正式测试被用于选择后，必须重新安排独立证据。</text></g></svg>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1008pt" height="403.2pt" viewBox="0 0 1008 403.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 403.2
+L 1008 403.2
+L 1008 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 71.687469 379.576166
+L 430.272771 379.576166
+L 430.272771 20.990865
+L 71.687469 20.990865
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g clip-path="url(#pb35a0c8952)">
+    <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAfMAAAHzCAYAAAA0D/RLAAAIFUlEQVR4nO3XsQ3CQBBFQZuIlE5IqArKoSuKIXTg4GgACQmC40kzFXxt8rTrto+xAPDR6XJzJf7SYfYAAOA3Yg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBxYg4AcWIOAHFiDgBx67aPMXsEAPA9nzkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDEiTkAxIk5AMSJOQDErcfzdcweAVDwfNxnT4C3fOYAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gAQJ+YAECfmABAn5gCwtL0ANsAQZowIeMkAAAAASUVORK5CYII=" id="image5d456c7db6" transform="scale(1 -1) translate(0 -359.28)" x="71.687469" y="-20.296166" width="359.28" height="359.28"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m3e375cffb6" d="M 0 0
+L 0 3.5
+" style="stroke: #536879; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m3e375cffb6" x="131.451686" y="379.576166" style="fill: #536879; stroke: #536879; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536879" x="131.451686" y="396.968041" transform="rotate(-0 131.451686 396.968041)">训练标签</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m3e375cffb6" x="250.98012" y="379.576166" style="fill: #536879; stroke: #536879; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536879" x="250.98012" y="396.968041" transform="rotate(-0 250.98012 396.968041)">验证标签</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m3e375cffb6" x="370.508554" y="379.576166" style="fill: #536879; stroke: #536879; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536879" x="370.508554" y="396.968041" transform="rotate(-0 370.508554 396.968041)">测试标签</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="m6dcf1de209" d="M 0 0
+L -3.5 0
+" style="stroke: #536879; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m6dcf1de209" x="71.687469" y="80.755082" style="fill: #536879; stroke: #536879; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536879" x="64.687469" y="85.951019" transform="rotate(-0 64.687469 85.951019)">候选比较</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m6dcf1de209" x="71.687469" y="200.283516" style="fill: #536879; stroke: #536879; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536879" x="64.687469" y="205.479453" transform="rotate(-0 64.687469 205.479453)">冻结系统</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m6dcf1de209" x="71.687469" y="319.811949" style="fill: #536879; stroke: #536879; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536879" x="64.687469" y="325.007887" transform="rotate(-0 64.687469 325.007887)">最终验收</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 71.687469 379.576166
+L 71.687469 20.990865
+" style="fill: none; stroke: #94a3b8; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 71.687469 379.576166
+L 430.272771 379.576166
+" style="fill: none; stroke: #94a3b8; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="131.451686" y="87.364457" transform="rotate(-0 131.451686 87.364457)">1</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="250.98012" y="87.364457" transform="rotate(-0 250.98012 87.364457)">1</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #19718b" x="370.508554" y="87.364457" transform="rotate(-0 370.508554 87.364457)">0</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #19718b" x="131.451686" y="206.892891" transform="rotate(-0 131.451686 206.892891)">0</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #19718b" x="250.98012" y="206.892891" transform="rotate(-0 250.98012 206.892891)">0</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #19718b" x="370.508554" y="206.892891" transform="rotate(-0 370.508554 206.892891)">0</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #19718b" x="131.451686" y="326.421324" transform="rotate(-0 131.451686 326.421324)">0</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #19718b" x="250.98012" y="326.421324" transform="rotate(-0 250.98012 326.421324)">0</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 24px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="370.508554" y="326.421324" transform="rotate(-0 370.508554 326.421324)">1</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #17384a" x="250.98012" y="14.990865" transform="rotate(-0 250.98012 14.990865)">允许重新读取标签的阶段</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="text_17">
+    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #17384a" x="568.555171" y="115.04344" transform="rotate(-0 568.555171 115.04344)">拟合状态</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #17384a" x="771.898673" y="115.04344" transform="rotate(-0 771.898673 115.04344)">冻结系统</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #17384a" x="935.565394" y="115.04344" transform="rotate(-0 935.565394 115.04344)">测试结果</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 625.111657 110.63719
+Q 672.70614 110.63719 718.064555 110.63719
+" style="fill: none; stroke: #19718b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 712.864555 108.03719
+L 718.064555 110.63719
+L 712.864555 113.23719
+" style="fill: none; stroke: #19718b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 828.457277 110.63719
+Q 858.692241 110.63719 886.691137 110.63719
+" style="fill: none; stroke: #19718b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 881.491137 108.03719
+L 886.691137 110.63719
+L 881.491137 113.23719
+" style="fill: none; stroke: #19718b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #17384a" x="757.01988" y="42.505983" transform="rotate(-0 757.01988 42.505983)">权重、变换统计量、阈值和接口一起冻结</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 929.353586 148.058358
+Q 855.847079 239.005457 779.665551 153.25408
+" style="fill: none; stroke: #d36b32; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 781.175446 158.868367
+L 779.665551 153.25408
+L 785.062917 155.414737
+" style="fill: none; stroke: #d36b32; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; fill: #d36b32" transform="translate(781.211832 278.983891)">若测试反馈再次改选择</text>
+    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; fill: #d36b32" transform="translate(781.211832 297.101547)">该测试已进入开发流程</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #17384a" x="757.01988" y="14.990865" transform="rotate(-0 757.01988 14.990865)">零读权限不等于丢弃已学状态</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb35a0c8952">
+   <rect x="71.687469" y="20.990865" width="358.585301" height="358.585301"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -21,23 +21,13 @@
 
 可按三种方式练习读图：
 
-- **逐项复算**：[批量矩阵乘法](Programming/NumPy/03-高级索引批量运算与内存布局.md#visual-03-mechanism)、[一轮高斯 EM](MachineLearning/ProbabilisticModels/02-隐变量高斯混合与EM.md#visual-depth-probabilisticmodels-02)和[相关噪声下的融合系数](AI-Domains/MultimodalLearning/02-融合跨模态生成与评估.md#visual-correlated-fusion)，从输入追到每个中间量与最终结果。
-- **用反例检查保证**：[掩码的求值边界](Programming/NumPy/01-数组形状索引与广播.md#visual-mask-execution)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)和[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，固定条件后只改变一项，判断原结论是否仍成立。
+- **逐项复算**：[前门识别的两次平均](AdvancedStudies/CausalInference/01-潜在结果因果图与效应识别.md#causal-1-detail-26)、[LoRA 零增量的起始梯度](AI-Domains/LargeLanguageModels/02-指令微调偏好学习与LoRA.md#visual-local-largelanguagemodels-02)和[t-SNE 同一步的点对位移](MachineLearning/UnsupervisedLearning/02-降维可视化与结果验证.md#unsup-tsne-gradient-ledger)，从明确输入追到每个中间量与最终结果。
+- **用反例检查保证**：[一个桥接像素怎样改变连通性](AI-Domains/ComputerVision/02-检测分割与视觉评价.md#cv2-pixel-confusion-ledger)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)和[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，固定条件后只改变一项，判断原结论是否仍成立。
 - **连接几何与概率**：[对数坐标下的密度面积](Programming/Matplotlib/02-训练诊断分布比较与导出.md#visual-log-density-measure)、[动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)和[POMDP 策略上包络](ReinforcementLearning/MDP/04-部分可观测与奖励建模边界.md#visual-alpha-listening-region)，先读坐标、单位和模型假设，再解释峰、斜率、面积或行动区间。
 
-若希望跟着一套数字看完一个方法，可按以下连续图组学习：先复算前一图的输出，再把它作为后一图的输入；图中省略的条件与公式紧接在正文解释。
+同一章里的图组各有分工：机制图说明对象怎样变化，算例图给出可复算的数量，对照或反例图标出结论的边界。跨章节比较时，先重新确认变量、数据和假设，不能将不同算例的输出直接拼接。
 
-- **从数据到样本**：[历史事实、未知字段与标签成熟](Programming/Pandas/04-从原始表到训练样本的完整流程.md#pd4-visual-record-selection)；[阶段依赖、队列背压与训练前缀](ComputerScience/ComputerSystems/03-I_O缓存与数据加载流水线.md#visual-03-concept)。
-- **从坐标到统计对象**：[PCA 的中心化、正交坐标变换、重构与标签损失](Mathematics/LinearAlgebra/04-从协方差到PCA的完整实践.md#visual-linearalgebra-04)；[双峰密度、得分责任与去噪后验](AdvancedStudies/ContinuousGenerativeModels/01-得分匹配随机微分方程与概率流.md#visual-continuousgenerativemodels-01)。
-- **从前向到参数学习**：[批量 ReLU 的前向账本与共享梯度](DeepLearning/NeuralNetworkBasics/02-反向传播初始化与训练诊断.md#nnb-2-batch-ledger)；[交叉注意力的矩阵读取与双路径反向](DeepLearning/Transformer/03-编码器解码器的最小结构实践.md#transformer-3-cross-matrix-forward)。
-- **从递推到不确定性**：[同一 HMM 的前向、Viterbi 回溯与 EM 软计数](MachineLearning/ProbabilisticModels/04-隐马尔可夫模型与序列推断.md#visual-insight-probabilisticmodels-04)；[七位置 Q 学习的参照表、逐次更新与随机目标](ReinforcementLearning/ValueBasedMethods/02-一维导航的表格Q学习.md#visual-valuebasedmethods-02)。
-- **从观测到定位**：[CPU 时间预算、共享页计数与停顿位置](ComputerScience/Linux/04-服务器实验的监控与故障排查.md#linux-4-quota-timeline)；[同一优化实验的坐标轨迹、一步更新与成本剖面](Mathematics/Optimization/04-优化实验记录与故障定位.md#visual-optimization-04)。
-- **从概率到证据**：[自回归路径、可逆耦合、人工流几何与离散分箱](AI-Domains/GenerativeModels/04-自回归模型与归一化流.md#gm4-binary-ledger)；[RAG 的实际排名、装箱瓶颈与联合引用支持](AI-Domains/LargeLanguageModels/05-RAG系统拆解与评估集构建.md#visual-local-largelanguagemodels-05)。
-- **从实验协议到语言目标**：[真实划分、预处理依赖与验证选择偏差](DeepLearning/Projects/01-任务数据与实验设计.md#visual-local-projects-01)；[字节对齐、监督转移、完整路径概率与历史信息](AI-Domains/LargeLanguageModels/01-分词预训练与语言建模.md#llm-1-byte-alignment)。
-- **从区域到条件信息**：[检测匹配、AP 口径、像素统计与实例身份](AI-Domains/ComputerVision/02-检测分割与视觉评价.md#cv2-matching-ledger)；[跨注意力来源、缺失后验与条件生成评分](AI-Domains/MultimodalLearning/02-融合跨模态生成与评估.md#mm2-cross-source-ledger)。
-- **从对象到像素**：[共享引用、深复制、去重索引与清洗轨道](Programming/Python/01-变量容器与控制流程.md#visual-01-concept)；[换轴、采样相位、空间翻转与冻结状态](AI-Domains/ComputerVision/01-图像表示分类与迁移学习.md#visual-local-computervision-01)。
-- **从分母到概率质量**：[订单行流、三值逻辑与聚合权重](ComputerScience/Databases/01-关系模型筛选与聚合.md#db1-order-group-lineage)；[高斯搬运、支持与频率、筛选流量及条件尺度](AI-Domains/GenerativeModels/05-生成实验设计与可控性评价.md#geneval-gaussian-coupling)。
-- **从独立规格到可信评价**：[梯度检查、最小状态反例与发布失败路径](Programming/Python/05-调试测试与可复现小项目.md#py-5-first-valid-key)；[检索分数、来源隔离与实体跨度](AI-Domains/NLP/03-检索序列标注与文本分类实践.md#nlp3-retrieval-score-geometry)；[命题引用、来源自助抽样与风险覆盖](AI-Domains/NLP/04-生成任务数据质量与评价设计.md#nlp4-source-bootstrap)。
+例如，可从[三角形支持上的条件密度](Mathematics/Probability/03-联合分布边缘化与条件期望.md#triangle-conditioning-visual)看懂“切片后重新归一”，用[异方差置换检验](Mathematics/Statistics/04-重采样实验设计与报告实践.md#permutation-scale-counterexample)比较真实抽样与置换分布的尺度，再沿[有限步训练的计算图](Mathematics/Calculus/04-从导数到训练目标的推导实践.md#finite-training-derivative)追踪每条参数依赖。先预测图中哪一项会改变，再用相邻推导复算，有助于发现看似相同的公式实际上回答了不同问题。
 
 [线性变换](Mathematics/LinearAlgebra/01-向量矩阵与线性变换.md#visual-linearalgebra-01)另有本地网格动画，可连续观察同一批交点如何随基向量移动；旁边的静态图保留端点坐标和面积，便于暂停核对。部分章节还附有已下载的经典配图与卷积动画，均可离线查看。
 
