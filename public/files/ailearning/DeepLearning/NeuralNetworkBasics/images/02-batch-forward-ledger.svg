@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1206" height="723" viewBox="25 59 1206 723" role="img"><rect x="25" y="59" width="1206" height="723" fill="#ffffff"/><title>一批两条样本：先保留中间值，再汇总损失</title><rect width="1300" height="830" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1206" height="723" viewBox="25 59 1206 723" role="img"><rect x="25" y="59" width="1206" height="723" fill="#ffffff"/><title>一批两条样本：先保留中间值，再汇总损失</title><style>text{font-family:Microsoft YaHei,Noto Sans CJK SC,sans-serif;}</style><rect width="1300" height="830" fill="white"/>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#6c8295"/></marker></defs>
 <text x="42" y="99" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#6c8295" text-anchor="start" font-weight="normal">同一组参数 w1 = 2，b1 = 0，w2 = 3，b2 = 1；两行共享参数</text>
 <text x="155" y="167" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#20374d" text-anchor="middle" font-weight="bold">输入 x</text>
@@ -50,9 +50,9 @@
 <circle cx="430" cy="589" r="9" fill="#c87930"/>
 <text x="430" y="632" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#c87930" text-anchor="middle" font-weight="normal">z = 2</text>
 <text x="628" y="475" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#20374d" text-anchor="start" font-weight="bold">两个误差进入同一个批均值</text>
-<text x="638" y="536" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#24639b" text-anchor="start" font-weight="normal">A：49 ÷ 4 = 12.25</text>
+<text x="638" y="536" font-size="28" fill="#24639b" text-anchor="start">A：</text><text x="718" y="521" font-size="23" fill="#24639b" text-anchor="middle">49</text><line x1="699.0" y1="528" x2="737.0" y2="528" stroke="#24639b" stroke-width="1.6"/><text x="718" y="552" font-size="23" fill="#24639b" text-anchor="middle">4</text><text x="760" y="536" font-size="28" fill="#24639b" text-anchor="start">= 12.25</text>
 <rect x="638" y="561" width="490" height="38" rx="6" fill="#24639b" stroke="#d7e2eb"/>
-<text x="638" y="661" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#c87930" text-anchor="start" font-weight="normal">B：1 ÷ 4 = 0.25</text>
+<text x="638" y="661" font-size="28" fill="#c87930" text-anchor="start">B：</text><text x="718" y="646" font-size="23" fill="#c87930" text-anchor="middle">1</text><line x1="699.0" y1="653" x2="737.0" y2="653" stroke="#c87930" stroke-width="1.6"/><text x="718" y="677" font-size="23" fill="#c87930" text-anchor="middle">4</text><text x="760" y="661" font-size="28" fill="#c87930" text-anchor="start">= 0.25</text>
 <rect x="638" y="681" width="10" height="38" rx="6" fill="#c87930" stroke="#d7e2eb"/>
 <text x="890" y="763" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#20374d" text-anchor="middle" font-weight="bold">L = 12.25 + 0.25 = 12.5</text>
 <text x="545" y="702" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#6c8295">z</text>

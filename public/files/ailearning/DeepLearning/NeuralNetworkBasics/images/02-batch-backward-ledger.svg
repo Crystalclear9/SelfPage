@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1271" height="858" viewBox="6 59 1271 858" role="img"><rect x="6" y="59" width="1271" height="858" fill="#ffffff"/><title>同一批的反向：逐行传导，向共享参数汇合</title><rect width="1300" height="940" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1271" height="858" viewBox="6 59 1271 858" role="img"><rect x="6" y="59" width="1271" height="858" fill="#ffffff"/><title>同一批的反向：逐行传导，向共享参数汇合</title><style>text{font-family:Microsoft YaHei,Noto Sans CJK SC,sans-serif;}</style><rect width="1300" height="940" fill="white"/>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#6c8295"/></marker></defs>
 <text x="42" y="99" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#6c8295" text-anchor="start" font-weight="normal">橙色门表示负区 ReLU；批均值因子已经包含在输出梯度中</text>
 <text x="185" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#20374d" text-anchor="middle" font-weight="bold">g(z)</text>
 <text x="465" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#20374d" text-anchor="middle" font-weight="bold">ReLU 导数</text>
 <text x="745" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#20374d" text-anchor="middle" font-weight="bold">g(h) = 3g(预测)</text>
-<text x="1065" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#20374d" text-anchor="middle" font-weight="bold">g(预测) = 残差 ÷ 2</text>
+<text x="920" y="168" font-size="26" fill="#17374e" text-anchor="start">g(预测) =</text><text x="1130" y="151" font-size="22" fill="#17374e" text-anchor="middle">残差</text><line x1="1102.5" y1="158" x2="1157.5" y2="158" stroke="#17374e" stroke-width="1.6"/><text x="1130" y="181" font-size="22" fill="#17374e" text-anchor="middle">2</text>
 <text x="45" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#6c8295" text-anchor="start" font-weight="normal">A</text>
 <rect x="115" y="199" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
 <text x="185" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#24639b" text-anchor="middle" font-weight="bold">10.5</text>

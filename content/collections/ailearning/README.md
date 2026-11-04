@@ -15,23 +15,17 @@
 
 ## 图解与离线阅读
 
-配图与正文使用相同的对象和算例。先看像素、曲线、面积或计算路径发生了什么，再对照图下的推导：例如用方块面积区分导数的一阶项与余项，用密度下的阴影区分高度与概率，用卷积窗口追踪一个输出来自哪里。对照图会注明保持不变的条件；人工算例与实际实验结果分别说明，避免把示意图当作模型能力的证据。
+图是推导和实验的一部分。每组图尽量沿用正文的同一批输入，依次展示对象、中间变化和结果；图下给出计算步骤、假设与适用边界。先确认横纵轴、单位、颜色和线型分别表示什么，再解释曲线、面积或箭头。人工构造的算例用于说明机制，实际程序结果用于核对实现，两者在相邻正文中注明。
 
-图内保留简短标注，计算细节与适用条件放在相邻正文。局部标记、线型和空间位置帮助辨认对象；需要进一步学习时，可沿正文中的教材、论文及官方文档链接阅读。
+可以用下面三个问题练习读图：
 
-可按三种方式练习读图：
+- **结果是怎样算出来的？** 从[导数的一阶面积与余项](Mathematics/Calculus/01-导数偏导数与链式法则.md#visual-calculus-01)、[三节点 GCN 的逐通道贡献](AI-Domains/GraphMachineLearning/03-GCN手算GraphSAGE与图注意力.md#visual-local-graphmachinelearning-03)或[整数重定标](AdvancedStudies/EfficientModelSystems/02-量化误差校准与推理瓶颈.md#integer-requantization-worked)开始，遮住结果，自己完成中间计算。
+- **只改变一个条件，会发生什么？** 比较[动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)或[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，解释原结论在哪一步失去保证。
+- **图中的概率针对哪个重复实验？** 用[置信区间的抽样与反演](Mathematics/Statistics/01-参数估计与置信区间.md#visual-statistics-01)、[三角形支持上的条件密度](Mathematics/Probability/03-联合分布边缘化与条件期望.md#triangle-conditioning-visual)和[按独立单位重采样](Mathematics/Statistics/04-重采样实验设计与报告实践.md#visual-statistics-04)，区分密度高度、概率面积、条件分布与单次观察。
 
-- **逐项复算**：[前门识别的两次平均](AdvancedStudies/CausalInference/01-潜在结果因果图与效应识别.md#causal-1-detail-26)、[LoRA 零增量的起始梯度](AI-Domains/LargeLanguageModels/02-指令微调偏好学习与LoRA.md#visual-local-largelanguagemodels-02)和[t-SNE 同一步的点对位移](MachineLearning/UnsupervisedLearning/02-降维可视化与结果验证.md#unsup-tsne-gradient-ledger)，从明确输入追到每个中间量与最终结果。
-- **用反例检查保证**：[一个桥接像素怎样改变连通性](AI-Domains/ComputerVision/02-检测分割与视觉评价.md#cv2-pixel-confusion-ledger)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)和[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，固定条件后只改变一项，判断原结论是否仍成立。
-- **连接几何与概率**：[对数坐标下的密度面积](Programming/Matplotlib/02-训练诊断分布比较与导出.md#visual-log-density-measure)、[动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)和[POMDP 策略上包络](ReinforcementLearning/MDP/04-部分可观测与奖励建模边界.md#visual-alpha-listening-region)，先读坐标、单位和模型假设，再解释峰、斜率、面积或行动区间。
+不同图之间切换时，请重新核对数据与模型假设；同名变量未必来自同一个算例。[线性变换](Mathematics/LinearAlgebra/01-向量矩阵与线性变换.md#visual-linearalgebra-01)等章节还提供本地动画，静态图保留坐标和数值，便于暂停复算。教材、论文和官方文档链接放在相关解释旁，可继续追问证明条件或实现细节。
 
-同一章里的图组各有分工：机制图说明对象怎样变化，算例图给出可复算的数量，对照或反例图标出结论的边界。跨章节比较时，先重新确认变量、数据和假设，不能将不同算例的输出直接拼接。
-
-例如，可从[三角形支持上的条件密度](Mathematics/Probability/03-联合分布边缘化与条件期望.md#triangle-conditioning-visual)看懂“切片后重新归一”，用[异方差置换检验](Mathematics/Statistics/04-重采样实验设计与报告实践.md#permutation-scale-counterexample)比较真实抽样与置换分布的尺度，再沿[有限步训练的计算图](Mathematics/Calculus/04-从导数到训练目标的推导实践.md#finite-training-derivative)追踪每条参数依赖。先预测图中哪一项会改变，再用相邻推导复算，有助于发现看似相同的公式实际上回答了不同问题。
-
-[线性变换](Mathematics/LinearAlgebra/01-向量矩阵与线性变换.md#visual-linearalgebra-01)另有本地网格动画，可连续观察同一批交点如何随基向量移动；旁边的静态图保留端点坐标和面积，便于暂停核对。部分章节还附有已下载的经典配图与卷积动画，均可离线查看。
-
-离线阅读时，请保留完整仓库及各主题的 images 目录、assets 目录，并使用支持本地 SVG 和 GIF 的 Markdown 阅读器；图片均通过相对路径引用，显示图片无需联网。来源链接仅供追溯，不参与图片加载。
+离线阅读时，保留完整仓库及各主题的 images 目录、assets 目录，使用支持本地 SVG 和 GIF 的 Markdown 阅读器。图片使用相对路径，无需联网加载；参考链接仅用于进一步阅读。
 
 ## 分类目录
 
