@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title description">
+<title id="title">PPO 的单动作等比值线</title><desc id="description">旧策略为 (0.20,0.75,0.05)，新策略为 (0.20,0.05,0.75)。两点位于同一条 p(A)=0.20 水平线上。</desc>
+<rect width="1280" height="760" fill="#fff"/>
+<defs><linearGradient id="bluefill" x2="0" y2="1"><stop stop-color="#b4ddf5"/><stop offset="1" stop-color="#e6f4fa"/></linearGradient><linearGradient id="orangefill" x2="0" y2="1"><stop stop-color="#f8b49d"/><stop offset="1" stop-color="#ffebe3"/></linearGradient><linearGradient id="simplexfill" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#dbf4e7"/><stop offset=".55" stop-color="#d8e9fb"/><stop offset="1" stop-color="#e8dcfa"/></linearGradient><marker id="axis" orient="auto" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="10" refY="5"><path d="M0 0 11 5 0 10Z" fill="#14293b"/></marker><marker id="bluearrow" orient="auto" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="14" refX="13" refY="7"><path d="M0 0 15 7 0 14Z" fill="#236eab"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#14293b">
+<polygon points="628.000,88.000 317.000,550.000 939.000,550.000" fill="url(#simplexfill)" stroke="#14293b" stroke-width="2.8"/>
+<line x1="379.200" y1="457.600" x2="876.800" y2="457.600" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="565.800" y1="180.400" x2="814.600" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="690.200" y1="180.400" x2="441.400" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="441.400" y1="365.200" x2="814.600" y2="365.200" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="503.600" y1="272.800" x2="690.200" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="752.400" y1="272.800" x2="565.800" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="503.600" y1="272.800" x2="752.400" y2="272.800" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="441.400" y1="365.200" x2="565.800" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="814.600" y1="365.200" x2="690.200" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="565.800" y1="180.400" x2="690.200" y2="180.400" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="379.200" y1="457.600" x2="441.400" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="876.800" y1="457.600" x2="814.600" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
+<line x1="379.200" y1="457.600" x2="876.800" y2="457.600" stroke="#236eab" stroke-width="3"/>
+<line x1="410.300" y1="457.600" x2="832.700" y2="457.600" stroke="#236eab" stroke-width="5" marker-end="url(#bluearrow)"/>
+<circle cx="410.300" cy="457.600" r="10" fill="#236eab" stroke="white" stroke-width="2"/>
+<circle cx="845.700" cy="457.600" r="10" fill="#236eab" stroke="white" stroke-width="2"/>
+<circle cx="628.000" cy="88.000" r="9" fill="#236eab" stroke="white" stroke-width="2"/>
+<circle cx="317.000" cy="550.000" r="9" fill="#37836a" stroke="white" stroke-width="2"/>
+<circle cx="939.000" cy="550.000" r="9" fill="#7552ab" stroke="white" stroke-width="2"/>
+<text x="628" y="58" font-size="34" text-anchor="middle" fill="#14293b" font-weight="700">采样动作 A</text>
+<text x="292" y="558" font-size="31" text-anchor="middle" fill="#14293b">B</text>
+<text x="964" y="558" font-size="31" text-anchor="middle" fill="#14293b">C</text>
+<text x="628" y="432" font-size="27" text-anchor="middle" fill="#236eab" font-weight="700">p(A) = 0.20</text>
+<text x="436.3" y="495" font-size="24" text-anchor="middle" fill="#236eab">旧策略</text>
+<text x="819.7" y="495" font-size="24" text-anchor="middle" fill="#236eab">新策略</text>
+<text x="1044" y="372" font-size="28" text-anchor="middle" fill="#236eab">等比值线</text>
+<text x="1044" y="411" font-size="24" text-anchor="middle" fill="#14293b">比值 = 1</text>
+<line x1="999.000" y1="422.000" x2="879.000" y2="454.000" stroke="#708899" stroke-width="2"/>
+<rect x="274" y="591" width="708" height="50" rx="12" fill="#eef5fc"/>
+<text x="365" y="628" font-size="24" text-anchor="middle" fill="#14293b">旧策略</text>
+<text x="535" y="628" font-size="25" text-anchor="middle" fill="#236eab">A  0.20</text>
+<text x="705" y="628" font-size="25" text-anchor="middle" fill="#14293b">B  0.75</text>
+<text x="875" y="628" font-size="25" text-anchor="middle" fill="#14293b">C  0.05</text>
+<rect x="274" y="650" width="708" height="50" rx="12" fill="#f3eef9"/>
+<text x="365" y="687" font-size="24" text-anchor="middle" fill="#14293b">新策略</text>
+<text x="535" y="687" font-size="25" text-anchor="middle" fill="#236eab">A  0.20</text>
+<text x="705" y="687" font-size="25" text-anchor="middle" fill="#14293b">B  0.05</text>
+<text x="875" y="687" font-size="25" text-anchor="middle" fill="#14293b">C  0.75</text>
+</g>
+</svg>

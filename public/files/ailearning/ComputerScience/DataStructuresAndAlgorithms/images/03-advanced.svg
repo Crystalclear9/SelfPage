@@ -1,1 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1188.267" height="651.956" viewBox="18.133 64.022 1188.267 651.956"><defs><marker id="arr" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#516579" stroke-width="1.6" /></marker></defs><rect width="1188.267" height="651.956" fill="white" x="18.133" y="64.022" /><text x="44" y="112" font-family="Microsoft YaHei,Arial,sans-serif" font-size="26" fill="#253f52" text-anchor="start" font-weight="400">三件物品重量均为 2，价值依次为 4、5、6；容量 6，禁止选相邻物品。</text><text x="44" y="164" font-family="Microsoft YaHei,Arial,sans-serif" font-size="26" fill="#253f52" text-anchor="start" font-weight="400">已经处理前两件，正在决定第 3 件；蓝色是已选，空心是未选。</text><text x="44" y="245" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="#253f52" text-anchor="start" font-weight="400">历史 A：选了第 1 件</text><circle cx="410" cy="300" r="35" fill="#2676b5" stroke="#2676b5" /><text x="410" y="310" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="white" text-anchor="middle" font-weight="400">1</text><text x="410" y="367" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#253f52" text-anchor="middle" font-weight="400">价值 4</text><circle cx="590" cy="300" r="35" fill="white" stroke="#2676b5" /><text x="590" y="310" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="#253f52" text-anchor="middle" font-weight="400">2</text><text x="590" y="367" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#253f52" text-anchor="middle" font-weight="400">价值 5</text><circle cx="770" cy="300" r="35" fill="white" stroke="#cc661c" /><text x="770" y="310" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="#253f52" text-anchor="middle" font-weight="400">3</text><text x="770" y="367" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#253f52" text-anchor="middle" font-weight="400">价值 6</text><line x1="448" y1="300" x2="551" y2="300" stroke="#a8b8c6" stroke-width="2" stroke-dasharray="" /><line x1="628" y1="300" x2="731" y2="300" stroke="#a8b8c6" stroke-width="2" stroke-dasharray="" /><text x="905" y="287" font-family="Microsoft YaHei,Arial,sans-serif" font-size="26" fill="#253f52" text-anchor="start" font-weight="400">剩余容量 4</text><text x="905" y="342" font-family="Microsoft YaHei,Arial,sans-serif" font-size="25" fill="#2676b5" text-anchor="start" font-weight="400">可选第 3 件：未来收益 6</text><text x="44" y="475" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="#253f52" text-anchor="start" font-weight="400">历史 B：选了第 2 件</text><circle cx="410" cy="530" r="35" fill="white" stroke="#2676b5" /><text x="410" y="540" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="#253f52" text-anchor="middle" font-weight="400">1</text><text x="410" y="597" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#253f52" text-anchor="middle" font-weight="400">价值 4</text><circle cx="590" cy="530" r="35" fill="#2676b5" stroke="#2676b5" /><text x="590" y="540" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="white" text-anchor="middle" font-weight="400">2</text><text x="590" y="597" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#253f52" text-anchor="middle" font-weight="400">价值 5</text><circle cx="770" cy="530" r="35" fill="white" stroke="#cc661c" /><text x="770" y="540" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" fill="#253f52" text-anchor="middle" font-weight="400">3</text><text x="770" y="597" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#253f52" text-anchor="middle" font-weight="400">价值 6</text><line x1="448" y1="530" x2="551" y2="530" stroke="#a8b8c6" stroke-width="2" stroke-dasharray="" /><line x1="628" y1="530" x2="731" y2="530" stroke="#a8b8c6" stroke-width="2" stroke-dasharray="" /><text x="905" y="517" font-family="Microsoft YaHei,Arial,sans-serif" font-size="26" fill="#253f52" text-anchor="start" font-weight="400">剩余容量 4</text><text x="905" y="572" font-family="Microsoft YaHei,Arial,sans-serif" font-size="25" fill="#cc661c" text-anchor="start" font-weight="400">禁选第 3 件：未来收益 0</text><line x1="737" y1="501" x2="804" y2="560" stroke="#cc661c" stroke-width="4" stroke-dasharray="" /><line x1="737" y1="560" x2="804" y2="501" stroke="#cc661c" stroke-width="4" stroke-dasharray="" /><text x="44" y="686" font-family="Microsoft YaHei,Arial,sans-serif" font-size="26" fill="#253f52" text-anchor="start" font-weight="400">充分状态至少保留：当前物品 i、剩余容量 c、前一件是否已选 b。</text><desc> 剩余容量同为 4，为什么后续最优值仍不同？ 选择被禁止来自历史约束；容量足够，并不代表动作合法。</desc></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img"><title>状态压缩之前，先看两个历史能否拥有同一条未来</title><rect width="1440" height="900" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="55" y="65" font-size="38" fill="#203742" text-anchor="start">状态压缩之前，先看两个历史能否拥有同一条未来</text>
+<text x="60" y="130" font-size="29" fill="#203742" text-anchor="start">三件物品：重量都为 2；价值 4、5、6；总容量 6；禁止相邻同选</text>
+<text x="60" y="245" font-size="31" fill="#216c89" text-anchor="start">历史 A</text>
+<circle cx="260" cy="237" r="36" fill="#216c89" stroke="#216c89" stroke-width="2"/>
+<text x="260" y="248" font-size="29" fill="white" text-anchor="middle">1</text>
+<text x="260" y="305" font-size="27" fill="#203742" text-anchor="middle">价值 4</text>
+<circle cx="405" cy="237" r="36" fill="white" stroke="#7b8c95" stroke-width="2"/>
+<text x="405" y="248" font-size="29" fill="#203742" text-anchor="middle">2</text>
+<text x="405" y="305" font-size="27" fill="#203742" text-anchor="middle">价值 5</text>
+<circle cx="550" cy="237" r="36" fill="white" stroke="#7b8c95" stroke-width="2"/>
+<text x="550" y="248" font-size="29" fill="#203742" text-anchor="middle">3</text>
+<text x="550" y="305" font-size="27" fill="#203742" text-anchor="middle">价值 6</text>
+<text x="770" y="225" font-size="28" fill="#203742" text-anchor="start">同为：i=3，剩余容量 c=4</text>
+<text x="770" y="275" font-size="28" fill="#216c89" text-anchor="start">前一件是否已选 b=0</text>
+<text x="60" y="425" font-size="31" fill="#216c89" text-anchor="start">历史 B</text>
+<circle cx="260" cy="417" r="36" fill="white" stroke="#7b8c95" stroke-width="2"/>
+<text x="260" y="428" font-size="29" fill="#203742" text-anchor="middle">1</text>
+<text x="260" y="485" font-size="27" fill="#203742" text-anchor="middle">价值 4</text>
+<circle cx="405" cy="417" r="36" fill="#216c89" stroke="#216c89" stroke-width="2"/>
+<text x="405" y="428" font-size="29" fill="white" text-anchor="middle">2</text>
+<text x="405" y="485" font-size="27" fill="#203742" text-anchor="middle">价值 5</text>
+<circle cx="550" cy="417" r="36" fill="white" stroke="#7b8c95" stroke-width="2"/>
+<text x="550" y="428" font-size="29" fill="#203742" text-anchor="middle">3</text>
+<text x="550" y="485" font-size="27" fill="#203742" text-anchor="middle">价值 6</text>
+<text x="770" y="405" font-size="28" fill="#203742" text-anchor="start">同为：i=3，剩余容量 c=4</text>
+<text x="770" y="455" font-size="28" fill="#c96937" text-anchor="start">前一件是否已选 b=1</text>
+<line x1="60" y1="535" x2="1380" y2="535" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="590" font-size="31" fill="#203742" text-anchor="start">相同容量，两个不同的后续子问题</text>
+<rect x="60" y="615" width="320" height="70" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
+<text x="220" y="660" font-size="30" fill="#216c89" text-anchor="middle">G(3,4,0) = 6</text>
+<line x1="395" y1="650" x2="590" y2="650" stroke="#216c89" stroke-width="2" stroke-dasharray=""/>
+<path d="M578.95,654.67 L590.00,650.00 L578.95,645.33" fill="none" stroke="#216c89" stroke-width="2"/>
+<text x="615" y="658" font-size="29" fill="#216c89" text-anchor="start">可选第 3 件</text>
+<text x="1030" y="658" font-size="30" fill="#216c89" text-anchor="start">4 + 6 = 10</text>
+<rect x="60" y="725" width="320" height="70" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
+<text x="220" y="770" font-size="30" fill="#c96937" text-anchor="middle">G(3,4,1) = 0</text>
+<line x1="395" y1="760" x2="590" y2="760" stroke="#c96937" stroke-width="2" stroke-dasharray=""/>
+<path d="M578.95,764.67 L590.00,760.00 L578.95,755.33" fill="none" stroke="#c96937" stroke-width="2"/>
+<text x="615" y="768" font-size="29" fill="#c96937" text-anchor="start">第 3 件被约束禁止</text>
+<text x="1030" y="768" font-size="30" fill="#c96937" text-anchor="start">5 + 0 = 5</text>
+<text x="60" y="865" font-size="28" fill="#c96937" text-anchor="start">若把 A 的“未来收益 6”复用给 B，就会错误选择相邻的第 2、3 件。</text>
+</g></svg>

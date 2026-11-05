@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="950.4pt" height="338.4pt" viewBox="0 0 950.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="962.727" viewBox="0 0 1440 962.727" role="img"><title>03-时间序列窗口与数据质量检查</title><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="512.727" viewBox="0 0 950.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -395,3 +392,4 @@ L 921.888 284.256
   </clipPath>
  </defs>
 </svg>
+<g id="round-20261105c-teaching" transform="translate(0 512.727) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#203742" text-anchor="start">最近的历史版本仍可能太旧：方向、等号、容忍时长分别检查</text><text x="65" y="125" font-size="30" fill="#203742" text-anchor="start">可用记录：(t=2,v=10)、(t=4,v=40)、(t=8,v=80)</text><text x="65" y="180" font-size="29" fill="#c96937" text-anchor="start">t=7；向后；容忍 2</text><line x1="540" y1="170" x2="690" y2="170" stroke="#c96937" stroke-width="2" stroke-dasharray=""/><path d="M678.947,174.673 L690.000,170.000 L678.947,165.327" stroke="#c96937" stroke-width="2" fill="none"/><text x="740" y="180" font-size="30" fill="#c96937" text-anchor="start">t=4，年龄3 → 不匹配</text><text x="65" y="270" font-size="29" fill="#216c89" text-anchor="start">t=6；向后；容忍 2</text><line x1="540" y1="260" x2="690" y2="260" stroke="#216c89" stroke-width="2" stroke-dasharray=""/><path d="M678.947,264.673 L690.000,260.000 L678.947,255.327" stroke="#216c89" stroke-width="2" fill="none"/><text x="740" y="270" font-size="30" fill="#216c89" text-anchor="start">t=4，年龄2 → 40</text><text x="65" y="393" font-size="28" fill="#203742" text-anchor="start">容忍条件是 预测时刻−匹配时刻 ≤ 2；向后方向只保证不晚于预测时刻。</text></g></g></svg>

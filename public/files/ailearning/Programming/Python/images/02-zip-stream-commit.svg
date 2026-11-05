@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780" viewBox="0 0 1280 780" role="img"><title>严格配对：发现长度不同，不会撤销已处理的前缀</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="52" y="64" font-size="36" fill="#19333c" text-anchor="start">严格配对：发现长度不同，不会撤销已处理的前缀</text>
+<text x="60" y="125" font-size="28" fill="#19333c" text-anchor="start">输入一：标签</text>
+<rect x="315" y="90" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="349.0" y="127" font-size="27" fill="#206f91" text-anchor="middle">猫</text>
+<rect x="392" y="90" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="426.0" y="127" font-size="27" fill="#206f91" text-anchor="middle">狗</text>
+<rect x="469" y="90" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="503.0" y="127" font-size="27" fill="#206f91" text-anchor="middle">鸟</text>
+<text x="60" y="210" font-size="28" fill="#19333c" text-anchor="start">输入二：预测</text>
+<rect x="315" y="175" width="68" height="56" rx="3" fill="#fff2e8" stroke="#ce713e"/>
+<text x="349.0" y="212" font-size="27" fill="#ce713e" text-anchor="middle">猫</text>
+<rect x="392" y="175" width="68" height="56" rx="3" fill="#fff2e8" stroke="#ce713e"/>
+<text x="426.0" y="212" font-size="27" fill="#ce713e" text-anchor="middle">狗</text>
+<line x1="60" y1="265" x2="1220" y2="265" stroke="#dae4e9" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="320" font-size="29" fill="#206f91" text-anchor="start">普通 zip</text>
+<text x="340" y="320" font-size="27" fill="#19333c" text-anchor="start">(猫, 猫)</text>
+<text x="610" y="320" font-size="27" fill="#19333c" text-anchor="start">(狗, 狗)</text>
+<text x="920" y="320" font-size="28" fill="#ce713e" text-anchor="start">正常结束</text>
+<text x="60" y="425" font-size="29" fill="#206f91" text-anchor="start">strict=True</text>
+<text x="340" y="425" font-size="27" fill="#19333c" text-anchor="start">(猫, 猫)</text>
+<text x="610" y="425" font-size="27" fill="#19333c" text-anchor="start">(狗, 狗)</text>
+<text x="920" y="425" font-size="28" fill="#ce713e" text-anchor="start">ValueError</text>
+<line x1="495" y1="413" x2="570" y2="413" stroke="#70838c" stroke-width="2" stroke-dasharray=""/>
+<path d="M559.19,418.22 L570.00,413.00 L559.19,407.78" fill="none" stroke="#70838c" stroke-width="2"/>
+<line x1="765" y1="413" x2="890" y2="413" stroke="#ce713e" stroke-width="2" stroke-dasharray=""/>
+<path d="M879.19,418.22 L890.00,413.00 L879.19,407.78" fill="none" stroke="#ce713e" stroke-width="2"/>
+<text x="340" y="480" font-size="28" fill="#ce713e" text-anchor="start">两个配对已经被调用者消费</text>
+<line x1="60" y1="525" x2="1220" y2="525" stroke="#dae4e9" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="590" font-size="29" fill="#ce713e" text-anchor="start">边读边发布</text>
+<text x="400" y="590" font-size="29" fill="#ce713e" text-anchor="start">已发布 2 条 → 错误不能自动回滚</text>
+<text x="60" y="660" font-size="29" fill="#206f91" text-anchor="start">先验证再发布</text>
+<text x="400" y="660" font-size="29" fill="#206f91" text-anchor="start">先完成临时结果 → 不等长则发布 0 条</text>
+<text x="60" y="735" font-size="28" fill="#19333c" text-anchor="start">严格配对检查长度；完整验收后提交，才决定副作用边界。</text>
+</g></svg>

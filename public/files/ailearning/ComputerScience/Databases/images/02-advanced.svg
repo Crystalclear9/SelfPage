@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1064.000" height="637.000" viewBox="31.000 1.000 1064.000 637.000" role="img" aria-labelledby="title desc"><title id="title">丢失更新：旧读值留在应用端</title><desc id="desc">A和B分别读100，应用各计算90和80，随后常量回写90与80。最终80不同于串行扣减所得70。 </desc><rect width="1064.0" height="637.0" fill="white" x="31.0" y="1.0" /><defs><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#24679c" /></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#c66e30" /></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#7b8a96" /></marker></defs><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#23384b"><text x="55" y="50" fill="#24679c" font-size="30" text-anchor="start" font-weight="600">应用 A：扣 10</text><text x="475" y="50" fill="#23384b" font-size="30" text-anchor="start" font-weight="600">已提交余额</text><text x="875" y="50" fill="#c66e30" font-size="30" text-anchor="start" font-weight="600">应用 B：扣 20</text><line x1="210" y1="80" x2="210" y2="480" stroke="#d9e3eb" stroke-width="2" stroke-dasharray="5 6" /><line x1="600" y1="80" x2="600" y2="480" stroke="#d9e3eb" stroke-width="2" stroke-dasharray="5 6" /><line x1="1000" y1="80" x2="1000" y2="480" stroke="#d9e3eb" stroke-width="2" stroke-dasharray="5 6" /><circle cx="600" cy="110" r="29" fill="white" stroke="#24679c" stroke-width="2" /><text x="600" y="119" fill="#23384b" font-size="27" text-anchor="middle" font-weight="400">100</text><circle cx="600" cy="205" r="29" fill="white" stroke="#24679c" stroke-width="2" /><text x="600" y="214" fill="#23384b" font-size="27" text-anchor="middle" font-weight="400">100</text><circle cx="600" cy="315" r="29" fill="white" stroke="#24679c" stroke-width="2" /><text x="600" y="324" fill="#23384b" font-size="27" text-anchor="middle" font-weight="400">90</text><circle cx="600" cy="425" r="29" fill="white" stroke="#c66e30" stroke-width="2" /><text x="600" y="434" fill="#23384b" font-size="27" text-anchor="middle" font-weight="400">80</text><line x1="570" y1="110" x2="230" y2="110" stroke="#24679c" stroke-width="2" marker-end="url(#b)" /><text x="60" y="155" fill="#24679c" font-size="26" text-anchor="start" font-weight="400">保留读值 100 → 算出 90</text><line x1="630" y1="205" x2="980" y2="205" stroke="#c66e30" stroke-width="2" marker-end="url(#o)" /><text x="825" y="255" fill="#c66e30" font-size="26" text-anchor="start" font-weight="400">保留读值 100</text><text x="825" y="291" fill="#c66e30" font-size="26" text-anchor="start" font-weight="400">→ 算出 80</text><line x1="230" y1="315" x2="570" y2="315" stroke="#24679c" stroke-width="2" marker-end="url(#b)" /><text x="60" y="355" fill="#24679c" font-size="26" text-anchor="start" font-weight="400">写常量 90，提交</text><line x1="980" y1="425" x2="630" y2="425" stroke="#c66e30" stroke-width="2" marker-end="url(#o)" /><text x="825" y="470" fill="#c66e30" font-size="26" text-anchor="start" font-weight="400">仍写旧读值算出的 80</text><text x="55" y="550" fill="#24679c" font-size="30" text-anchor="start" font-weight="400">串行目标：100 − 10 − 20 = 70</text><text x="650" y="550" fill="#c66e30" font-size="30" text-anchor="start" font-weight="400">本次交错：100 → 90 → 80</text><text x="55" y="610" fill="#23384b" font-size="27" text-anchor="start" font-weight="400">图示允许旧值常量回写的协议；并非所有隔离级别都允许这条轨迹。</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img"><title>旧余额读进应用后，不会随数据库提交自动更新</title><rect width="1440" height="1120" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="55" y="65" font-size="38" fill="#203742" text-anchor="start">旧余额读进应用后，不会随数据库提交自动更新</text>
+<text x="250" y="140" font-size="30" fill="#216c89" text-anchor="middle">应用 A：扣 10</text>
+<text x="720" y="140" font-size="30" fill="#203742" text-anchor="middle">数据库已提交行</text>
+<line x1="720" y1="180" x2="720" y2="650" stroke="#203742" stroke-width="2" stroke-dasharray="7 7"/>
+<text x="1180" y="140" font-size="30" fill="#c96937" text-anchor="middle">应用 B：扣 20</text>
+<rect x="650" y="185" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b8c95" stroke-dasharray=""/>
+<text x="720" y="227" font-size="31" fill="#203742" text-anchor="middle">100</text>
+<rect x="650" y="335" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b8c95" stroke-dasharray=""/>
+<text x="720" y="377" font-size="31" fill="#203742" text-anchor="middle">100</text>
+<rect x="650" y="485" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b8c95" stroke-dasharray=""/>
+<text x="720" y="527" font-size="31" fill="#203742" text-anchor="middle">90</text>
+<rect x="650" y="620" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b8c95" stroke-dasharray=""/>
+<text x="720" y="662" font-size="31" fill="#203742" text-anchor="middle">80</text>
+<line x1="645" y1="215" x2="310" y2="215" stroke="#216c89" stroke-width="2" stroke-dasharray=""/>
+<path d="M321.05,210.33 L310.00,215.00 L321.05,219.67" fill="none" stroke="#216c89" stroke-width="2"/>
+<text x="250" y="275" font-size="28" fill="#216c89" text-anchor="middle">本地读值 100</text>
+<text x="250" y="320" font-size="28" fill="#216c89" text-anchor="middle">计算 100 − 10 = 90</text>
+<line x1="795" y1="365" x2="1120" y2="365" stroke="#c96937" stroke-width="2" stroke-dasharray=""/>
+<path d="M1108.95,369.67 L1120.00,365.00 L1108.95,360.33" fill="none" stroke="#c96937" stroke-width="2"/>
+<text x="1180" y="425" font-size="28" fill="#c96937" text-anchor="middle">本地读值 100</text>
+<text x="1180" y="470" font-size="28" fill="#c96937" text-anchor="middle">计算 100 − 20 = 80</text>
+<line x1="310" y1="515" x2="645" y2="515" stroke="#216c89" stroke-width="2" stroke-dasharray=""/>
+<path d="M633.95,519.67 L645.00,515.00 L633.95,510.33" fill="none" stroke="#216c89" stroke-width="2"/>
+<text x="250" y="565" font-size="28" fill="#216c89" text-anchor="middle">写常量 90，提交</text>
+<line x1="1120" y1="650" x2="795" y2="650" stroke="#c96937" stroke-width="2" stroke-dasharray=""/>
+<path d="M806.05,645.33 L795.00,650.00 L806.05,654.67" fill="none" stroke="#c96937" stroke-width="2"/>
+<text x="1180" y="605" font-size="28" fill="#c96937" text-anchor="middle">仍写常量 80，提交</text>
+<text x="55" y="735" font-size="30" fill="#c96937" text-anchor="start">丢失更新的结果</text>
+<text x="435" y="735" font-size="31" fill="#c96937" text-anchor="start">100 → 90 → 80</text>
+<text x="55" y="800" font-size="30" fill="#216c89" text-anchor="start">串行扣减的目标</text>
+<text x="435" y="800" font-size="31" fill="#216c89" text-anchor="start">100 − 10 − 20 = 70</text>
+<text x="55" y="865" font-size="28" fill="#203742" text-anchor="start">SET balance = 80 与 SET balance = balance − 20 是两种不同操作。</text>
+<line x1="60" y1="900" x2="1380" y2="900" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="955" font-size="29" fill="#216c89" text-anchor="start">对照：把减法放在行更新里，按两次成功提交追踪状态</text>
+<text x="60" y="1030" font-size="28" fill="#203742" text-anchor="start">本例依次扣 10、20</text>
+<rect x="520" y="985" width="150" height="75" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
+<text x="595" y="1035" font-size="32" fill="#216c89" text-anchor="middle">100</text>
+<line x1="680" y1="1022" x2="785" y2="1022" stroke="#216c89" stroke-width="2" stroke-dasharray=""/>
+<path d="M773.95,1026.67 L785.00,1022.00 L773.95,1017.33" fill="none" stroke="#216c89" stroke-width="2"/>
+<rect x="800" y="985" width="150" height="75" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
+<text x="875" y="1035" font-size="32" fill="#216c89" text-anchor="middle">90</text>
+<line x1="960" y1="1022" x2="1065" y2="1022" stroke="#216c89" stroke-width="2" stroke-dasharray=""/>
+<path d="M1053.95,1026.67 L1065.00,1022.00 L1053.95,1017.33" fill="none" stroke="#216c89" stroke-width="2"/>
+<rect x="1080" y="985" width="150" height="75" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
+<text x="1155" y="1035" font-size="32" fill="#216c89" text-anchor="middle">70</text>
+<text x="60" y="1090" font-size="27" fill="#203742" text-anchor="start">该对照仍须满足实际引擎对行更新、冲突等待与条件复查的约定。</text>
+</g></svg>

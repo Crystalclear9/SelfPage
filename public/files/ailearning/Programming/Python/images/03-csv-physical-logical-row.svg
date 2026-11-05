@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="950.4pt" height="338.4pt" viewBox="0 0 950.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="962.727" viewBox="0 0 1440 962.727" role="img"><title>03-文件异常环境与脚本组织</title><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="512.727" viewBox="0 0 950.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -115,3 +112,4 @@ z
   </clipPath>
  </defs>
 </svg>
+<g id="round-20261105c-teaching" transform="translate(0 512.727) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#203742" text-anchor="start">换行的身份取决于引号状态：文本行切分不能代替 CSV 解析</text><rect x="70" y="140" width="402" height="58" fill="#edf5f8" stroke="#216c89"/><text x="271.0" y="179" font-size="28" fill="#216c89" text-anchor="middle">id,note</text><rect x="480" y="140" width="402" height="58" fill="#edf5f8" stroke="#216c89"/><text x="681.0" y="179" font-size="28" fill="#216c89" text-anchor="middle">1,&quot;hello</text><rect x="890" y="140" width="402" height="58" fill="#edf5f8" stroke="#216c89"/><text x="1091.0" y="179" font-size="28" fill="#216c89" text-anchor="middle">world&quot;</text><text x="65" y="260" font-size="30" fill="#c96937" text-anchor="start">读到第二条物理行末：仍在引号内 → 记录尚未结束</text><line x1="220" y1="290" x2="440" y2="340" stroke="#c96937" stroke-width="2" stroke-dasharray=""/><path d="M428.186,342.107 L440.000,340.000 L430.258,332.994" stroke="#c96937" stroke-width="2" fill="none"/><text x="490" y="350" font-size="29" fill="#203742" text-anchor="start">第三行关闭引号后，才得到一条数据记录</text><text x="65" y="414" font-size="28" fill="#203742" text-anchor="start">表头也是一条逻辑记录；本例：3 个物理行，2 条逻辑记录，其中 1 条数据。</text></g></g></svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="630" viewBox="0 0 1440 630" role="img" aria-labelledby="title description">
+<title id="title">同一权重用共享或逐通道格点舍入</title><desc id="description">普通通道的权重 0.21、0.48、0.83，共享格点间隔 2 时全舍入到 0；本通道格点间隔 0.5 时分别舍入到 0、0.5、1。</desc>
+<rect width="1440" height="630" fill="#fff"/>
+<defs><linearGradient id="bluefill" x2="0" y2="1"><stop stop-color="#b4ddf5"/><stop offset="1" stop-color="#e6f4fa"/></linearGradient><linearGradient id="orangefill" x2="0" y2="1"><stop stop-color="#f8b49d"/><stop offset="1" stop-color="#ffebe3"/></linearGradient><linearGradient id="simplexfill" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#dbf4e7"/><stop offset=".55" stop-color="#d8e9fb"/><stop offset="1" stop-color="#e8dcfa"/></linearGradient><marker id="axis" orient="auto" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="10" refY="5"><path d="M0 0 11 5 0 10Z" fill="#14293b"/></marker><marker id="bluearrow" orient="auto" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="14" refX="13" refY="7"><path d="M0 0 15 7 0 14Z" fill="#236eab"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#14293b">
+<text x="718" y="59" font-size="34" text-anchor="middle" fill="#14293b" font-weight="700">相同格点数，比较量化精度</text>
+<text x="290" y="136" font-size="25" text-anchor="end" fill="#14293b" font-weight="700">原始权重</text>
+<line x1="342.000" y1="142.000" x2="1285.000" y2="142.000" stroke="#14293b" stroke-width="2" marker-end="url(#axis)"/>
+<circle cx="366.150" cy="142.000" r="7" fill="#207f80" stroke="white" stroke-width="2"/>
+<text x="337" y="96" font-size="22" text-anchor="middle" fill="#207f80">0.21</text>
+<line x1="337.000" y1="106.000" x2="366.150" y2="133.000" stroke="#207f80" stroke-width="1.6"/>
+<circle cx="397.200" cy="142.000" r="7" fill="#286eb4" stroke="white" stroke-width="2"/>
+<text x="431" y="96" font-size="22" text-anchor="middle" fill="#286eb4">0.48</text>
+<line x1="431.000" y1="106.000" x2="397.200" y2="133.000" stroke="#286eb4" stroke-width="1.6"/>
+<circle cx="437.450" cy="142.000" r="7" fill="#7a55a8" stroke="white" stroke-width="2"/>
+<text x="525" y="96" font-size="22" text-anchor="middle" fill="#7a55a8">0.83</text>
+<line x1="525.000" y1="106.000" x2="437.450" y2="133.000" stroke="#7a55a8" stroke-width="1.6"/>
+<circle cx="1262.000" cy="142.000" r="9" fill="#b14878" stroke="white" stroke-width="2"/>
+<text x="1262" y="105" font-size="23" text-anchor="middle" fill="#9e3e6a">另一通道的离群值 8</text>
+<text x="290" y="278" font-size="27" text-anchor="end" fill="#14293b" font-weight="700">共享尺度</text>
+<line x1="342.000" y1="271.000" x2="1298.000" y2="271.000" stroke="#14293b" stroke-width="2" marker-end="url(#axis)"/>
+<circle cx="342.000" cy="271.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="342" y="308" font-size="23" text-anchor="middle" fill="#14293b">0</text>
+<circle cx="572.000" cy="271.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="572" y="308" font-size="23" text-anchor="middle" fill="#14293b">2</text>
+<circle cx="802.000" cy="271.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="802" y="308" font-size="23" text-anchor="middle" fill="#14293b">4</text>
+<circle cx="1032.000" cy="271.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="1032" y="308" font-size="23" text-anchor="middle" fill="#14293b">6</text>
+<circle cx="1262.000" cy="271.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="1262" y="308" font-size="23" text-anchor="middle" fill="#14293b">8</text>
+<text x="290" y="310" font-size="20" text-anchor="end" fill="#5a6c79">同一数轴 · 格距 2</text>
+<circle cx="366.150" cy="253.000" r="6" fill="#207f80" stroke="white" stroke-width="2"/>
+<line x1="366.150" y1="253.000" x2="348.000" y2="253.000" stroke="#207f80" stroke-width="2"/>
+<line x1="342.000" y1="253.000" x2="342.000" y2="262.000" stroke="#207f80" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="397.200" cy="237.000" r="6" fill="#286eb4" stroke="white" stroke-width="2"/>
+<line x1="397.200" y1="237.000" x2="348.000" y2="237.000" stroke="#286eb4" stroke-width="2"/>
+<line x1="342.000" y1="237.000" x2="342.000" y2="262.000" stroke="#286eb4" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="437.450" cy="221.000" r="6" fill="#7a55a8" stroke="white" stroke-width="2"/>
+<line x1="437.450" y1="221.000" x2="348.000" y2="221.000" stroke="#7a55a8" stroke-width="2"/>
+<line x1="342.000" y1="221.000" x2="342.000" y2="262.000" stroke="#7a55a8" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="290" y="450" font-size="27" text-anchor="end" fill="#14293b" font-weight="700">本通道尺度</text>
+<line x1="342.000" y1="443.000" x2="1078.000" y2="443.000" stroke="#14293b" stroke-width="2" marker-end="url(#axis)"/>
+<circle cx="342.000" cy="443.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="342" y="480" font-size="23" text-anchor="middle" fill="#14293b">0</text>
+<circle cx="517.000" cy="443.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="517" y="480" font-size="23" text-anchor="middle" fill="#14293b">0.5</text>
+<circle cx="692.000" cy="443.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="692" y="480" font-size="23" text-anchor="middle" fill="#14293b">1</text>
+<circle cx="867.000" cy="443.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="867" y="480" font-size="23" text-anchor="middle" fill="#14293b">1.5</text>
+<circle cx="1042.000" cy="443.000" r="8" fill="#8294a2" stroke="white" stroke-width="2"/>
+<text x="1042" y="480" font-size="23" text-anchor="middle" fill="#14293b">2</text>
+<text x="290" y="482" font-size="20" text-anchor="end" fill="#5a6c79">局部放大 · 格距 0.5</text>
+<circle cx="415.500" cy="425.000" r="6" fill="#207f80" stroke="white" stroke-width="2"/>
+<line x1="415.500" y1="425.000" x2="348.000" y2="425.000" stroke="#207f80" stroke-width="2"/>
+<line x1="342.000" y1="425.000" x2="342.000" y2="434.000" stroke="#207f80" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="510.000" cy="409.000" r="6" fill="#286eb4" stroke="white" stroke-width="2"/>
+<line x1="517.000" y1="409.000" x2="517.000" y2="434.000" stroke="#286eb4" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="632.500" cy="393.000" r="6" fill="#7a55a8" stroke="white" stroke-width="2"/>
+<line x1="632.500" y1="393.000" x2="686.000" y2="393.000" stroke="#7a55a8" stroke-width="2"/>
+<line x1="692.000" y1="393.000" x2="692.000" y2="434.000" stroke="#7a55a8" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="510" y="570" font-size="27" text-anchor="middle" fill="#14293b" font-weight="700">共享尺度  0、0、0</text>
+<text x="962" y="570" font-size="27" text-anchor="middle" fill="#14293b" font-weight="700">本通道尺度  0、0.5、1</text>
+</g>
+</svg>

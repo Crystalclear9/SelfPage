@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780" viewBox="0 0 1280 780" role="img"><title>可迭代数据的尾批：每个 worker 分别组批、分别丢弃</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="52" y="64" font-size="36" fill="#19333c" text-anchor="start">可迭代数据的尾批：每个 worker 分别组批、分别丢弃</text>
+<text x="60" y="125" font-size="29" fill="#19333c" text-anchor="start">同一份 6 条记录；batch_size = 4；drop_last = True</text>
+<text x="60" y="200" font-size="30" fill="#206f91" text-anchor="start">全局组批</text>
+<rect x="330" y="165" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="364.0" y="202" font-size="27" fill="#206f91" text-anchor="middle">0</text>
+<rect x="407" y="165" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="441.0" y="202" font-size="27" fill="#206f91" text-anchor="middle">1</text>
+<rect x="484" y="165" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="518.0" y="202" font-size="27" fill="#206f91" text-anchor="middle">2</text>
+<rect x="561" y="165" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="595.0" y="202" font-size="27" fill="#206f91" text-anchor="middle">3</text>
+<rect x="638" y="165" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="672.0" y="202" font-size="27" fill="#206f91" text-anchor="middle">4</text>
+<rect x="715" y="165" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="749.0" y="202" font-size="27" fill="#206f91" text-anchor="middle">5</text>
+<line x1="635" y1="155" x2="635" y2="235" stroke="#ce713e" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="330" y="270" font-size="29" fill="#206f91" text-anchor="start">保留 4 条</text>
+<text x="650" y="270" font-size="29" fill="#ce713e" text-anchor="start">丢弃 2 条</text>
+<line x1="60" y1="320" x2="1220" y2="320" stroke="#dae4e9" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="390" font-size="30" fill="#206f91" text-anchor="start">worker 0</text>
+<rect x="330" y="355" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="364.0" y="392" font-size="27" fill="#206f91" text-anchor="middle">0</text>
+<rect x="407" y="355" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="441.0" y="392" font-size="27" fill="#206f91" text-anchor="middle">1</text>
+<rect x="484" y="355" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="518.0" y="392" font-size="27" fill="#206f91" text-anchor="middle">2</text>
+<text x="650" y="395" font-size="29" fill="#ce713e" text-anchor="start">不足 4 → 丢弃 3 条</text>
+<text x="60" y="505" font-size="30" fill="#206f91" text-anchor="start">worker 1</text>
+<rect x="330" y="470" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="364.0" y="507" font-size="27" fill="#206f91" text-anchor="middle">3</text>
+<rect x="407" y="470" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="441.0" y="507" font-size="27" fill="#206f91" text-anchor="middle">4</text>
+<rect x="484" y="470" width="68" height="56" rx="3" fill="#edf5fa" stroke="#206f91"/>
+<text x="518.0" y="507" font-size="27" fill="#206f91" text-anchor="middle">5</text>
+<text x="650" y="510" font-size="29" fill="#ce713e" text-anchor="start">不足 4 → 丢弃 3 条</text>
+<text x="60" y="610" font-size="30" fill="#ce713e" text-anchor="start">两个分片身份互不重叠，但最终没有任何完整批次。</text>
+<text x="60" y="680" font-size="28" fill="#206f91" text-anchor="start">全局预估：floor(6 ÷ 4) = 1 批</text>
+<text x="60" y="735" font-size="28" fill="#ce713e" text-anchor="start">逐 worker：floor(3 ÷ 4) + floor(3 ÷ 4) = 0 批</text>
+</g></svg>

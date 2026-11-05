@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1030.79952pt" height="634.79952pt" viewBox="0 0 1030.79952 634.79952" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1336.8" viewBox="0 0 1440 1336.8" role="img"><title>01-训练显存分解分片与重计算</title><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="886.798" viewBox="0 0 1030.79952 634.79952" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -3460,3 +3457,4 @@ z
   </clipPath>
  </defs>
 </svg>
+<g id="round-20261105c-teaching" transform="translate(0 886.798) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#203742" text-anchor="start">同一时刻相加才得到峰值：每卡2 GB持久量之外还有存活对象</text><text x="65" y="120" font-size="27" fill="#203742" text-anchor="start">教学账本：完整分片状态2 GB；另有完整权重缓冲2 GB；当前激活3 GB</text><text x="65" y="200" font-size="27" fill="#203742" text-anchor="start">持久状态</text><rect x="300" y="170" width="1080" height="45" fill="#edf5f8" stroke="#216c89"/><text x="65" y="270" font-size="27" fill="#203742" text-anchor="start">完整权重缓冲</text><rect x="650" y="240" width="500" height="45" fill="#fff1e7" stroke="#c96937"/><text x="65" y="340" font-size="27" fill="#203742" text-anchor="start">当前激活</text><rect x="850" y="310" width="430" height="45" fill="#edf5f8" stroke="#216c89"/><text x="65" y="410" font-size="27" fill="#203742" text-anchor="start">三者重叠时：2+2+3 = 7 GB；只看持久2 GB，会漏掉5 GB临时存活量。</text></g></g></svg>

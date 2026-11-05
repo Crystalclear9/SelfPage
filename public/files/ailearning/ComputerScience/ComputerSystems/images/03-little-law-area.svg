@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="950.4pt" height="338.4pt" viewBox="0 0 950.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="962.727" viewBox="0 0 1440 962.727" role="img"><title>03-I_O缓存与数据加载流水线</title><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="512.727" viewBox="0 0 950.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -362,3 +359,4 @@ L 921.888 284.256
   </clipPath>
  </defs>
 </svg>
+<g id="round-20261105c-teaching" transform="translate(0 512.727) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#203742" text-anchor="start">同一有限窗口内对账：三段驻留长度之和就是队列曲线面积</text><rect x="65" y="140" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="261.0" y="179" font-size="28" fill="#216c89" text-anchor="middle">A：2</text><rect x="465" y="140" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="661.0" y="179" font-size="28" fill="#216c89" text-anchor="middle">B：3</text><rect x="865" y="140" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="1061.0" y="179" font-size="28" fill="#216c89" text-anchor="middle">C：2</text><text x="65" y="265" font-size="31" fill="#203742" text-anchor="start">总驻留 7；窗口长度 5 → 平均在系统数 L = 1.4</text><g><text x="65.000" y="338" font-size="31" fill="#216c89">完成率 λ = 0.6；平均驻留 W = </text><text x="522.766" y="321" font-size="29" fill="#216c89" text-anchor="middle">7</text><line x1="510.266" x2="535.266" y1="329" y2="329" stroke="#216c89" stroke-width="1.5"/><text x="522.766" y="357" font-size="29" fill="#216c89" text-anchor="middle">3</text><text x="539.266" y="338" font-size="31" fill="#216c89">；λW = 1.4</text></g><text x="65" y="413" font-size="27" fill="#203742" text-anchor="start">本例窗口两端均为空且所有请求完整落在窗口内；截断在途请求要另计边界。</text></g></g></svg>
