@@ -1,46 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title description">
-<title id="title">PPO 的单动作等比值线</title><desc id="description">旧策略为 (0.20,0.75,0.05)，新策略为 (0.20,0.05,0.75)。两点位于同一条 p(A)=0.20 水平线上。</desc>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="940" viewBox="0 0 1440 940" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换</title><rect width="1440" height="940" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="798" viewBox="0 0 1280 760" role="img" aria-labelledby="title description" x="48" y="106" overflow="hidden">
+<defs><linearGradient id="book-wash-eef5fc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5fc"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-f3eef9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3eef9"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title id="title">PPO 的单动作等比值线</title><desc id="description">旧策略为 (0.20,0.75,0.05)，新策略为 (0.20,0.05,0.75)。两点位于同一条 p(A)=0.20 水平线上。</desc>
 <rect width="1280" height="760" fill="#fff"/>
-<defs><linearGradient id="bluefill" x2="0" y2="1"><stop stop-color="#b4ddf5"/><stop offset="1" stop-color="#e6f4fa"/></linearGradient><linearGradient id="orangefill" x2="0" y2="1"><stop stop-color="#f8b49d"/><stop offset="1" stop-color="#ffebe3"/></linearGradient><linearGradient id="simplexfill" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#dbf4e7"/><stop offset=".55" stop-color="#d8e9fb"/><stop offset="1" stop-color="#e8dcfa"/></linearGradient><marker id="axis" orient="auto" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="10" refY="5"><path d="M0 0 11 5 0 10Z" fill="#14293b"/></marker><marker id="bluearrow" orient="auto" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="14" refX="13" refY="7"><path d="M0 0 15 7 0 14Z" fill="#236eab"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#14293b">
-<polygon points="628.000,88.000 317.000,550.000 939.000,550.000" fill="url(#simplexfill)" stroke="#14293b" stroke-width="2.8"/>
-<line x1="379.200" y1="457.600" x2="876.800" y2="457.600" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="565.800" y1="180.400" x2="814.600" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="690.200" y1="180.400" x2="441.400" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="441.400" y1="365.200" x2="814.600" y2="365.200" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="503.600" y1="272.800" x2="690.200" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="752.400" y1="272.800" x2="565.800" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="503.600" y1="272.800" x2="752.400" y2="272.800" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="441.400" y1="365.200" x2="565.800" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="814.600" y1="365.200" x2="690.200" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="565.800" y1="180.400" x2="690.200" y2="180.400" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="379.200" y1="457.600" x2="441.400" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="876.800" y1="457.600" x2="814.600" y2="550.000" stroke="#b7c8d6" stroke-width="1.6"/>
-<line x1="379.200" y1="457.600" x2="876.800" y2="457.600" stroke="#236eab" stroke-width="3"/>
-<line x1="410.300" y1="457.600" x2="832.700" y2="457.600" stroke="#236eab" stroke-width="5" marker-end="url(#bluearrow)"/>
-<circle cx="410.300" cy="457.600" r="10" fill="#236eab" stroke="white" stroke-width="2"/>
-<circle cx="845.700" cy="457.600" r="10" fill="#236eab" stroke="white" stroke-width="2"/>
-<circle cx="628.000" cy="88.000" r="9" fill="#236eab" stroke="white" stroke-width="2"/>
-<circle cx="317.000" cy="550.000" r="9" fill="#37836a" stroke="white" stroke-width="2"/>
-<circle cx="939.000" cy="550.000" r="9" fill="#7552ab" stroke="white" stroke-width="2"/>
-<text x="628" y="58" font-size="34" text-anchor="middle" fill="#14293b" font-weight="700">采样动作 A</text>
-<text x="292" y="558" font-size="31" text-anchor="middle" fill="#14293b">B</text>
-<text x="964" y="558" font-size="31" text-anchor="middle" fill="#14293b">C</text>
-<text x="628" y="432" font-size="27" text-anchor="middle" fill="#236eab" font-weight="700">p(A) = 0.20</text>
-<text x="436.3" y="495" font-size="24" text-anchor="middle" fill="#236eab">旧策略</text>
-<text x="819.7" y="495" font-size="24" text-anchor="middle" fill="#236eab">新策略</text>
-<text x="1044" y="372" font-size="28" text-anchor="middle" fill="#236eab">等比值线</text>
-<text x="1044" y="411" font-size="24" text-anchor="middle" fill="#14293b">比值 = 1</text>
-<line x1="999.000" y1="422.000" x2="879.000" y2="454.000" stroke="#708899" stroke-width="2"/>
-<rect x="274" y="591" width="708" height="50" rx="12" fill="#eef5fc"/>
-<text x="365" y="628" font-size="24" text-anchor="middle" fill="#14293b">旧策略</text>
-<text x="535" y="628" font-size="25" text-anchor="middle" fill="#236eab">A  0.20</text>
-<text x="705" y="628" font-size="25" text-anchor="middle" fill="#14293b">B  0.75</text>
-<text x="875" y="628" font-size="25" text-anchor="middle" fill="#14293b">C  0.05</text>
-<rect x="274" y="650" width="708" height="50" rx="12" fill="#f3eef9"/>
-<text x="365" y="687" font-size="24" text-anchor="middle" fill="#14293b">新策略</text>
-<text x="535" y="687" font-size="25" text-anchor="middle" fill="#236eab">A  0.20</text>
-<text x="705" y="687" font-size="25" text-anchor="middle" fill="#14293b">B  0.05</text>
-<text x="875" y="687" font-size="25" text-anchor="middle" fill="#14293b">C  0.75</text>
+<defs><linearGradient id="bluefill" x2="0" y2="1"><stop stop-color="#b4ddf5"/><stop offset="1" stop-color="#e7f4f9"/></linearGradient><linearGradient id="orangefill" x2="0" y2="1"><stop stop-color="#f2bba3"/><stop offset="1" stop-color="#ffebe3"/></linearGradient><linearGradient id="simplexfill" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#dcf3e7"/><stop offset=".55" stop-color="#d9e9fa"/><stop offset="1" stop-color="#e8ddf9"/></linearGradient><marker id="axis" orient="auto" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="10" refY="5"><path d="M0 0 11 5 0 10Z" fill="#182737"/></marker><marker id="bluearrow" orient="auto" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="14" refX="13" refY="7"><path d="M0 0 15 7 0 14Z" fill="#1e7abd"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#182737">
+<polygon points="628.000,88.000 317.000,550.000 939.000,550.000" fill="url(#simplexfill)" stroke="#182737" stroke-width="2.8"/>
+<line x1="379.200" y1="457.600" x2="876.800" y2="457.600" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="565.800" y1="180.400" x2="814.600" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="690.200" y1="180.400" x2="441.400" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="441.400" y1="365.200" x2="814.600" y2="365.200" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="503.600" y1="272.800" x2="690.200" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="752.400" y1="272.800" x2="565.800" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="503.600" y1="272.800" x2="752.400" y2="272.800" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="441.400" y1="365.200" x2="565.800" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="814.600" y1="365.200" x2="690.200" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="565.800" y1="180.400" x2="690.200" y2="180.400" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="379.200" y1="457.600" x2="441.400" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="876.800" y1="457.600" x2="814.600" y2="550.000" stroke="#b4c9d9" stroke-width="1.6"/>
+<line x1="379.200" y1="457.600" x2="876.800" y2="457.600" stroke="#1e7abd" stroke-width="3"/>
+<line x1="410.300" y1="457.600" x2="832.700" y2="457.600" stroke="#1e7abd" stroke-width="5" marker-end="url(#bluearrow)"/>
+<circle cx="410.300" cy="457.600" r="10" fill="#1e7abd" stroke="white" stroke-width="2"/>
+<circle cx="845.700" cy="457.600" r="10" fill="#1e7abd" stroke="white" stroke-width="2"/>
+<circle cx="628.000" cy="88.000" r="9" fill="#1e7abd" stroke="white" stroke-width="2"/>
+<circle cx="317.000" cy="550.000" r="9" fill="#359289" stroke="white" stroke-width="2"/>
+<circle cx="939.000" cy="550.000" r="9" fill="#7652ab" stroke="white" stroke-width="2"/>
+<text x="628" y="58" font-size="34" text-anchor="middle" fill="#182737" font-weight="700">采样动作 A</text>
+<text x="292" y="558" font-size="31" text-anchor="middle" fill="#182737">B</text>
+<text x="964" y="558" font-size="31" text-anchor="middle" fill="#182737">C</text>
+<text x="628" y="432" font-size="27" text-anchor="middle" fill="#1e7abd" font-weight="700">p(A) = 0.20</text>
+<text x="436.3" y="495" font-size="24" text-anchor="middle" fill="#1e7abd">旧策略</text>
+<text x="819.7" y="495" font-size="24" text-anchor="middle" fill="#1e7abd">新策略</text>
+<text x="1044" y="372" font-size="28" text-anchor="middle" fill="#1e7abd">等比值线</text>
+<text x="1044" y="411" font-size="24" text-anchor="middle" fill="#182737">比值 = 1</text>
+<line x1="999.000" y1="422.000" x2="879.000" y2="454.000" stroke="#7290a4" stroke-width="2"/>
+<rect x="274" y="591" width="708" height="50" rx="12" fill="url(#book-wash-eef5fc)"/>
+<text x="365" y="628" font-size="24" text-anchor="middle" fill="#182737">旧策略</text>
+<text x="535" y="628" font-size="25" text-anchor="middle" fill="#1e7abd">A  0.20</text>
+<text x="705" y="628" font-size="25" text-anchor="middle" fill="#182737">B  0.75</text>
+<text x="875" y="628" font-size="25" text-anchor="middle" fill="#182737">C  0.05</text>
+<rect x="274" y="650" width="708" height="50" rx="12" fill="url(#book-wash-f3eef9)"/>
+<text x="365" y="687" font-size="24" text-anchor="middle" fill="#182737">新策略</text>
+<text x="535" y="687" font-size="25" text-anchor="middle" fill="#1e7abd">A  0.20</text>
+<text x="705" y="687" font-size="25" text-anchor="middle" fill="#182737">B  0.05</text>
+<text x="875" y="687" font-size="25" text-anchor="middle" fill="#182737">C  0.75</text>
 </g>
-</svg>
+</svg></svg>

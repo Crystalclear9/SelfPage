@@ -1,60 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 820" width="1500" height="820" role="img">
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="876.72" viewBox="0 0 1440 876.72" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">循环神经网络的折叠表示与时间展开表示</title><rect width="1440" height="876.72" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">循环神经网络的折叠表示与时间展开表示</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg viewBox="0 0 1500 820" width="1344" height="734.72" role="img" x="48" y="106" overflow="hidden">
 <rect width="1500" height="820" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#233c4b">
-<text x="65" y="60" font-size="32" fill="#233c4b" text-anchor="start" font-weight="normal">A  折叠：重复同一更新</text>
-<rect x="85" y="235" width="255" height="170" fill="#eaf2f6" stroke="#246d89" stroke-width="3"/>
-<text x="212" y="300" font-size="30" fill="#246d89" text-anchor="middle" font-weight="normal">h ← 0.5h + x</text>
-<text x="212" y="355" font-size="30" fill="#258c83" text-anchor="middle" font-weight="normal">o = 2h</text>
-<line x1="210" y1="520" x2="210" y2="410" stroke="#246d89" stroke-width="3"/>
-<path d="M215.655,421.706 L210.000,410.000 L204.345,421.706" fill="none" stroke="#246d89" stroke-width="3"/>
-<text x="210" y="560" font-size="27" fill="#233c4b" text-anchor="middle" font-weight="normal">输入 x</text>
-<line x1="340" y1="280" x2="420" y2="280" stroke="#246d89" stroke-width="3"/>
-<path d="M408.294,285.655 L420.000,280.000 L408.294,274.345" fill="none" stroke="#246d89" stroke-width="3"/>
-<path d="M420.000,280.000 L420.000,170.000 L210.000,170.000 L210.000,230.000" fill="none" stroke="#cf733b" stroke-width="3"/>
-<text x="300" y="140" font-size="26" fill="#cf733b" text-anchor="middle" font-weight="normal">V = 0.5</text>
-<line x1="210" y1="170" x2="210" y2="232" stroke="#cf733b" stroke-width="3"/>
-<path d="M204.345,220.294 L210.000,232.000 L215.655,220.294" fill="none" stroke="#cf733b" stroke-width="3"/>
-<text x="520" y="60" font-size="32" fill="#233c4b" text-anchor="start" font-weight="normal">B  展开：状态不同，参数相同</text>
-<circle cx="640" cy="320" r="57" fill="#eaf2f6" stroke="#246d89" stroke-width="3"/>
-<text x="640" y="330" font-size="31" fill="#246d89" text-anchor="middle" font-weight="normal">1</text>
-<text x="565" y="405" font-size="27" fill="#233c4b" text-anchor="middle" font-weight="normal">h1</text>
-<line x1="640" y1="510" x2="640" y2="382" stroke="#246d89" stroke-width="3"/>
-<path d="M645.655,393.706 L640.000,382.000 L634.345,393.706" fill="none" stroke="#246d89" stroke-width="3"/>
-<text x="640" y="555" font-size="28" fill="#246d89" text-anchor="middle" font-weight="normal">x1 = 1</text>
-<text x="654" y="465" font-size="25" fill="#246d89" text-anchor="start" font-weight="normal">U = 1</text>
-<line x1="640" y1="259" x2="640" y2="170" stroke="#258c83" stroke-width="3"/>
-<path d="M645.655,181.706 L640.000,170.000 L634.345,181.706" fill="none" stroke="#258c83" stroke-width="3"/>
-<text x="640" y="130" font-size="30" fill="#258c83" text-anchor="middle" font-weight="normal">o1 = 2</text>
-<text x="654" y="220" font-size="25" fill="#258c83" text-anchor="start" font-weight="normal">W = 2</text>
-<line x1="700" y1="320" x2="890" y2="320" stroke="#cf733b" stroke-width="3"/>
-<path d="M878.294,325.655 L890.000,320.000 L878.294,314.345" fill="none" stroke="#cf733b" stroke-width="3"/>
-<text x="798" y="293" font-size="25" fill="#cf733b" text-anchor="middle" font-weight="normal">V = 0.5</text>
-<circle cx="955" cy="320" r="57" fill="#eaf2f6" stroke="#246d89" stroke-width="3"/>
-<text x="955" y="330" font-size="31" fill="#246d89" text-anchor="middle" font-weight="normal">2.5</text>
-<text x="880" y="405" font-size="27" fill="#233c4b" text-anchor="middle" font-weight="normal">h2</text>
-<line x1="955" y1="510" x2="955" y2="382" stroke="#246d89" stroke-width="3"/>
-<path d="M960.655,393.706 L955.000,382.000 L949.345,393.706" fill="none" stroke="#246d89" stroke-width="3"/>
-<text x="955" y="555" font-size="28" fill="#246d89" text-anchor="middle" font-weight="normal">x2 = 2</text>
-<text x="969" y="465" font-size="25" fill="#246d89" text-anchor="start" font-weight="normal">U = 1</text>
-<line x1="955" y1="259" x2="955" y2="170" stroke="#258c83" stroke-width="3"/>
-<path d="M960.655,181.706 L955.000,170.000 L949.345,181.706" fill="none" stroke="#258c83" stroke-width="3"/>
-<text x="955" y="130" font-size="30" fill="#258c83" text-anchor="middle" font-weight="normal">o2 = 5</text>
-<text x="969" y="220" font-size="25" fill="#258c83" text-anchor="start" font-weight="normal">W = 2</text>
-<line x1="1015" y1="320" x2="1205" y2="320" stroke="#cf733b" stroke-width="3"/>
-<path d="M1193.294,325.655 L1205.000,320.000 L1193.294,314.345" fill="none" stroke="#cf733b" stroke-width="3"/>
-<text x="1113" y="293" font-size="25" fill="#cf733b" text-anchor="middle" font-weight="normal">V = 0.5</text>
-<circle cx="1270" cy="320" r="57" fill="#eaf2f6" stroke="#246d89" stroke-width="3"/>
-<text x="1270" y="330" font-size="31" fill="#246d89" text-anchor="middle" font-weight="normal">1.25</text>
-<text x="1195" y="405" font-size="27" fill="#233c4b" text-anchor="middle" font-weight="normal">h3</text>
-<line x1="1270" y1="510" x2="1270" y2="382" stroke="#246d89" stroke-width="3"/>
-<path d="M1275.655,393.706 L1270.000,382.000 L1264.345,393.706" fill="none" stroke="#246d89" stroke-width="3"/>
-<text x="1270" y="555" font-size="28" fill="#246d89" text-anchor="middle" font-weight="normal">x3 = 0</text>
-<text x="1284" y="465" font-size="25" fill="#246d89" text-anchor="start" font-weight="normal">U = 1</text>
-<line x1="1270" y1="259" x2="1270" y2="170" stroke="#258c83" stroke-width="3"/>
-<path d="M1275.655,181.706 L1270.000,170.000 L1264.345,181.706" fill="none" stroke="#258c83" stroke-width="3"/>
-<text x="1270" y="130" font-size="30" fill="#258c83" text-anchor="middle" font-weight="normal">o3 = 2.5</text>
-<text x="1284" y="220" font-size="25" fill="#258c83" text-anchor="start" font-weight="normal">W = 2</text>
-<text x="640" y="650" font-size="27" fill="#233c4b" text-anchor="start" font-weight="normal">初态 h0 = 0；无偏置、无非线性</text>
-<text x="640" y="710" font-size="30" fill="#233c4b" text-anchor="start" font-weight="normal">h3 = 0.5² × 1 + 0.5 × 2 + 0 = 1.25</text>
-<text x="640" y="770" font-size="29" fill="#cf733b" text-anchor="start" font-weight="normal">同一 V 的两次使用，都参与反向求导。</text>
-</g></svg>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#21374d">
+<text x="65" y="60" font-size="32" fill="#21374d" text-anchor="start" font-weight="normal">A  折叠：重复同一更新</text>
+<rect x="85" y="235" width="255" height="170" fill="#eaf2f6" stroke="#217599" stroke-width="3"/>
+<text x="212" y="300" font-size="30" fill="#217599" text-anchor="middle" font-weight="normal">h ← 0.5h + x</text>
+<text x="212" y="355" font-size="30" fill="#22959c" text-anchor="middle" font-weight="normal">o = 2h</text>
+<line x1="210" y1="520" x2="210" y2="410" stroke="#217599" stroke-width="3"/>
+<path d="M215.655,421.706 L210.000,410.000 L204.345,421.706" fill="none" stroke="#217599" stroke-width="3"/>
+<text x="210" y="560" font-size="27" fill="#21374d" text-anchor="middle" font-weight="normal">输入 x</text>
+<line x1="340" y1="280" x2="420" y2="280" stroke="#217599" stroke-width="3"/>
+<path d="M408.294,285.655 L420.000,280.000 L408.294,274.345" fill="none" stroke="#217599" stroke-width="3"/>
+<path d="M420.000,280.000 L420.000,170.000 L210.000,170.000 L210.000,230.000" fill="none" stroke="#cb753f" stroke-width="3"/>
+<text x="300" y="140" font-size="26" fill="#cb753f" text-anchor="middle" font-weight="normal">V = 0.5</text>
+<line x1="210" y1="170" x2="210" y2="232" stroke="#cb753f" stroke-width="3"/>
+<path d="M204.345,220.294 L210.000,232.000 L215.655,220.294" fill="none" stroke="#cb753f" stroke-width="3"/>
+<text x="520" y="60" font-size="32" fill="#21374d" text-anchor="start" font-weight="normal">B  展开：状态不同，参数相同</text>
+<circle cx="640" cy="320" r="57" fill="#eaf2f6" stroke="#217599" stroke-width="3"/>
+<text x="640" y="330" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">1</text>
+<text x="565" y="405" font-size="27" fill="#21374d" text-anchor="middle" font-weight="normal">h1</text>
+<line x1="640" y1="510" x2="640" y2="382" stroke="#217599" stroke-width="3"/>
+<path d="M645.655,393.706 L640.000,382.000 L634.345,393.706" fill="none" stroke="#217599" stroke-width="3"/>
+<text x="640" y="555" font-size="28" fill="#217599" text-anchor="middle" font-weight="normal">x1 = 1</text>
+<text x="654" y="465" font-size="25" fill="#217599" text-anchor="start" font-weight="normal">U = 1</text>
+<line x1="640" y1="259" x2="640" y2="170" stroke="#22959c" stroke-width="3"/>
+<path d="M645.655,181.706 L640.000,170.000 L634.345,181.706" fill="none" stroke="#22959c" stroke-width="3"/>
+<text x="640" y="130" font-size="30" fill="#22959c" text-anchor="middle" font-weight="normal">o1 = 2</text>
+<text x="654" y="220" font-size="25" fill="#22959c" text-anchor="start" font-weight="normal">W = 2</text>
+<line x1="700" y1="320" x2="890" y2="320" stroke="#cb753f" stroke-width="3"/>
+<path d="M878.294,325.655 L890.000,320.000 L878.294,314.345" fill="none" stroke="#cb753f" stroke-width="3"/>
+<text x="798" y="293" font-size="25" fill="#cb753f" text-anchor="middle" font-weight="normal">V = 0.5</text>
+<circle cx="955" cy="320" r="57" fill="#eaf2f6" stroke="#217599" stroke-width="3"/>
+<text x="955" y="330" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">2.5</text>
+<text x="880" y="405" font-size="27" fill="#21374d" text-anchor="middle" font-weight="normal">h2</text>
+<line x1="955" y1="510" x2="955" y2="382" stroke="#217599" stroke-width="3"/>
+<path d="M960.655,393.706 L955.000,382.000 L949.345,393.706" fill="none" stroke="#217599" stroke-width="3"/>
+<text x="955" y="555" font-size="28" fill="#217599" text-anchor="middle" font-weight="normal">x2 = 2</text>
+<text x="969" y="465" font-size="25" fill="#217599" text-anchor="start" font-weight="normal">U = 1</text>
+<line x1="955" y1="259" x2="955" y2="170" stroke="#22959c" stroke-width="3"/>
+<path d="M960.655,181.706 L955.000,170.000 L949.345,181.706" fill="none" stroke="#22959c" stroke-width="3"/>
+<text x="955" y="130" font-size="30" fill="#22959c" text-anchor="middle" font-weight="normal">o2 = 5</text>
+<text x="969" y="220" font-size="25" fill="#22959c" text-anchor="start" font-weight="normal">W = 2</text>
+<line x1="1015" y1="320" x2="1205" y2="320" stroke="#cb753f" stroke-width="3"/>
+<path d="M1193.294,325.655 L1205.000,320.000 L1193.294,314.345" fill="none" stroke="#cb753f" stroke-width="3"/>
+<text x="1113" y="293" font-size="25" fill="#cb753f" text-anchor="middle" font-weight="normal">V = 0.5</text>
+<circle cx="1270" cy="320" r="57" fill="#eaf2f6" stroke="#217599" stroke-width="3"/>
+<text x="1270" y="330" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">1.25</text>
+<text x="1195" y="405" font-size="27" fill="#21374d" text-anchor="middle" font-weight="normal">h3</text>
+<line x1="1270" y1="510" x2="1270" y2="382" stroke="#217599" stroke-width="3"/>
+<path d="M1275.655,393.706 L1270.000,382.000 L1264.345,393.706" fill="none" stroke="#217599" stroke-width="3"/>
+<text x="1270" y="555" font-size="28" fill="#217599" text-anchor="middle" font-weight="normal">x3 = 0</text>
+<text x="1284" y="465" font-size="25" fill="#217599" text-anchor="start" font-weight="normal">U = 1</text>
+<line x1="1270" y1="259" x2="1270" y2="170" stroke="#22959c" stroke-width="3"/>
+<path d="M1275.655,181.706 L1270.000,170.000 L1264.345,181.706" fill="none" stroke="#22959c" stroke-width="3"/>
+<text x="1270" y="130" font-size="30" fill="#22959c" text-anchor="middle" font-weight="normal">o3 = 2.5</text>
+<text x="1284" y="220" font-size="25" fill="#22959c" text-anchor="start" font-weight="normal">W = 2</text>
+<text x="640" y="650" font-size="27" fill="#21374d" text-anchor="start" font-weight="normal">初态 h0 = 0；无偏置、无非线性</text>
+<text x="640" y="710" font-size="30" fill="#21374d" text-anchor="start" font-weight="normal">h3 = 0.5² × 1 + 0.5 × 2 + 0 = 1.25</text>
+<text x="640" y="770" font-size="29" fill="#cb753f" text-anchor="start" font-weight="normal">同一 V 的两次使用，都参与反向求导。</text>
+</g></svg></svg>

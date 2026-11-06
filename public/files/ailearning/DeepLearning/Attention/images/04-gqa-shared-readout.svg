@@ -1,80 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1080" viewBox="0 0 1500 1080" role="img" aria-labelledby="title desc">
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1109.68" viewBox="0 0 1440 1109.68" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">共享键值的前向概率与反向梯度账本</title><rect width="1440" height="1109.68" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">共享键值的前向概率与反向梯度账本</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="967.68" viewBox="0 0 1500 1080" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden">
 <title id="title">同一组键值，两个不同读取；共享变量的梯度相加</title>
 <desc id="desc">两个查询共享键零、一与值零、二。查询正负ln3得到互换概率和输出一点五、零点五。损失为第一输出加两倍第二输出，共享两个值的梯度分别为七除以四、五除以四。</desc>
-<style>text{font-family:Microsoft YaHei, Noto Sans CJK SC, sans-serif;fill:#17324d} .muted{fill:#546a7b} .blue{fill:#2166a5} .orange{fill:#bb5d16}</style>
+<style>text{font-family:Microsoft YaHei, Noto Sans CJK SC, sans-serif;fill: #173c5b} .muted{fill: #547388} .blue{fill: #1c73b7} .orange{fill: #b65c1b}</style>
 <rect width="1500" height="1080" fill="white"/>
-<text x="55" y="60" font-size="38" text-anchor="start" font-weight="600">共享键值，不共享注意力分布</text>
-<text x="55" y="107" font-size="26" text-anchor="start" fill="#546a7b" style="fill:#546a7b">一个组内的两头 · 每头维度为一 · 无掩码与随机丢弃</text>
-<rect x="435" y="145" width="630" height="155" rx="14" fill="#f3f7fb" stroke="#d1dde6" stroke-width="2"/>
-<text x="750" y="185" font-size="30" text-anchor="middle" font-weight="600">只存一份的共享记忆</text>
-<text x="530" y="240" font-size="27" text-anchor="middle">候选一</text>
-<text x="840" y="240" font-size="27" text-anchor="middle">候选二</text>
-<text x="530" y="278" font-size="29" text-anchor="middle">k = 0，v = 0</text>
-<text x="840" y="278" font-size="29" text-anchor="middle">k = 1，v = 2</text>
-<path d="M520 300 L380 340 L380 362 M980 300 L1120 340 L1120 362" fill="none" stroke="#9aafbd" stroke-width="3"/>
-<rect x="55" y="362" width="650" height="335" rx="14" fill="#ffffff" stroke="#2166a5" stroke-width="2"/>
-<text x="83" y="407" font-size="30" text-anchor="start" fill="#2166a5" style="fill:#2166a5" font-weight="600">头一</text>
-<text x="235" y="407" font-size="30" text-anchor="start" fill="#2166a5" style="fill:#2166a5">q = ln 3</text>
-<text x="83" y="454" font-size="27" text-anchor="start">分数 (0, ln 3)</text>
-<text x="83" y="517" font-size="25" text-anchor="start">候选一</text>
+<text x="55" y="60" font-size="38" text-anchor="start" font-weight="600" fill="#142b45">共享键值，不共享注意力分布</text>
+<text x="55" y="107" font-size="26" text-anchor="start" fill="#547388" style="fill: #547388">一个组内的两头 · 每头维度为一 · 无掩码与随机丢弃</text>
+<rect x="435" y="145" width="630" height="155" rx="14" fill="#f3f7fb" stroke="#cfdee8" stroke-width="2"/>
+<text x="750" y="185" font-size="30" text-anchor="middle" font-weight="600" fill="#142b45">只存一份的共享记忆</text>
+<text x="530" y="240" font-size="27" text-anchor="middle" fill="#142b45">候选一</text>
+<text x="840" y="240" font-size="27" text-anchor="middle" fill="#142b45">候选二</text>
+<text x="530" y="278" font-size="29" text-anchor="middle" fill="#142b45">k = 0，v = 0</text>
+<text x="840" y="278" font-size="29" text-anchor="middle" fill="#142b45">k = 1，v = 2</text>
+<path d="M520 300 L380 340 L380 362 M980 300 L1120 340 L1120 362" fill="none" stroke="#9dabc1" stroke-width="3"/>
+<rect x="55" y="362" width="650" height="335" rx="14" fill="#ffffff" stroke="#1c73b7" stroke-width="2"/>
+<text x="83" y="407" font-size="30" text-anchor="start" fill="#1c73b7" style="fill: #1c73b7" font-weight="600">头一</text>
+<text x="235" y="407" font-size="30" text-anchor="start" fill="#1c73b7" style="fill: #1c73b7">q = ln 3</text>
+<text x="83" y="454" font-size="27" text-anchor="start" fill="#142b45">分数 (0, ln 3)</text>
+<text x="83" y="517" font-size="25" text-anchor="start" fill="#142b45">候选一</text>
 <rect x="205" y="489" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="205" y="489" width="83.75" height="38" rx="5" fill="#2166a5" stroke="#2166a5" stroke-width="2"/>
-<text x="605" y="498" font-size="26" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">1</text>
-<line x1="582" y1="508" x2="628" y2="508" stroke="#2166a5" stroke-width="2"/>
-<text x="605" y="541" font-size="26" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">4</text>
-<text x="83" y="585" font-size="25" text-anchor="start">候选二</text>
+<rect x="205" y="489" width="83.75" height="38" rx="5" fill="#1c73b7" stroke="#1c73b7" stroke-width="2"/>
+<text x="605" y="498" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">1</text>
+<line x1="582" y1="508" x2="628" y2="508" stroke="#1c73b7" stroke-width="2"/>
+<text x="605" y="541" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
+<text x="83" y="585" font-size="25" text-anchor="start" fill="#142b45">候选二</text>
 <rect x="205" y="557" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="205" y="557" width="251.25" height="38" rx="5" fill="#2166a5" stroke="#2166a5" stroke-width="2"/>
-<text x="605" y="574" font-size="26" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">3</text>
-<line x1="582" y1="584" x2="628" y2="584" stroke="#2166a5" stroke-width="2"/>
-<text x="605" y="617" font-size="26" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">4</text>
-<text x="83" y="659" font-size="32" text-anchor="start" fill="#2166a5" style="fill:#2166a5" font-weight="600">读取输出  o = 1.5</text>
-<rect x="795" y="362" width="650" height="335" rx="14" fill="#ffffff" stroke="#bb5d16" stroke-width="2"/>
-<text x="823" y="407" font-size="30" text-anchor="start" fill="#bb5d16" style="fill:#bb5d16" font-weight="600">头二</text>
-<text x="975" y="407" font-size="30" text-anchor="start" fill="#bb5d16" style="fill:#bb5d16">q = −ln 3</text>
-<text x="823" y="454" font-size="27" text-anchor="start">分数 (0, −ln 3)</text>
-<text x="823" y="517" font-size="25" text-anchor="start">候选一</text>
+<rect x="205" y="557" width="251.25" height="38" rx="5" fill="#1c73b7" stroke="#1c73b7" stroke-width="2"/>
+<text x="605" y="574" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">3</text>
+<line x1="582" y1="584" x2="628" y2="584" stroke="#1c73b7" stroke-width="2"/>
+<text x="605" y="617" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
+<text x="83" y="659" font-size="32" text-anchor="start" fill="#1c73b7" style="fill: #1c73b7" font-weight="600">读取输出  o = 1.5</text>
+<rect x="795" y="362" width="650" height="335" rx="14" fill="#ffffff" stroke="#b65c1b" stroke-width="2"/>
+<text x="823" y="407" font-size="30" text-anchor="start" fill="#b65c1b" style="fill: #b65c1b" font-weight="600">头二</text>
+<text x="975" y="407" font-size="30" text-anchor="start" fill="#b65c1b" style="fill: #b65c1b">q = −ln 3</text>
+<text x="823" y="454" font-size="27" text-anchor="start" fill="#142b45">分数 (0, −ln 3)</text>
+<text x="823" y="517" font-size="25" text-anchor="start" fill="#142b45">候选一</text>
 <rect x="945" y="489" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="945" y="489" width="251.25" height="38" rx="5" fill="#bb5d16" stroke="#bb5d16" stroke-width="2"/>
-<text x="1345" y="498" font-size="26" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">3</text>
-<line x1="1322" y1="508" x2="1368" y2="508" stroke="#bb5d16" stroke-width="2"/>
-<text x="1345" y="541" font-size="26" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">4</text>
-<text x="823" y="585" font-size="25" text-anchor="start">候选二</text>
+<rect x="945" y="489" width="251.25" height="38" rx="5" fill="#b65c1b" stroke="#b65c1b" stroke-width="2"/>
+<text x="1345" y="498" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">3</text>
+<line x1="1322" y1="508" x2="1368" y2="508" stroke="#b65c1b" stroke-width="2"/>
+<text x="1345" y="541" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
+<text x="823" y="585" font-size="25" text-anchor="start" fill="#142b45">候选二</text>
 <rect x="945" y="557" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="945" y="557" width="83.75" height="38" rx="5" fill="#bb5d16" stroke="#bb5d16" stroke-width="2"/>
-<text x="1345" y="574" font-size="26" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">1</text>
-<line x1="1322" y1="584" x2="1368" y2="584" stroke="#bb5d16" stroke-width="2"/>
-<text x="1345" y="617" font-size="26" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">4</text>
-<text x="823" y="659" font-size="32" text-anchor="start" fill="#bb5d16" style="fill:#bb5d16" font-weight="600">读取输出  o = 0.5</text>
-<rect x="55" y="742" width="1390" height="273" rx="14" fill="#f8fafb" stroke="#d1dde6" stroke-width="2"/>
-<text x="85" y="789" font-size="32" text-anchor="start" font-weight="600">反向：L = o1 + 2o2</text>
-<text x="85" y="832" font-size="27" text-anchor="start" fill="#546a7b" style="fill:#546a7b">对共享值求导，累加两条读取路径</text>
-<text x="550" y="787" font-size="26" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">头一贡献</text>
-<text x="820" y="787" font-size="26" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">头二贡献</text>
-<text x="1110" y="787" font-size="26" text-anchor="middle" font-weight="600">总梯度</text>
-<text x="380" y="874" font-size="28" text-anchor="middle">值一</text>
-<text x="550" y="855" font-size="28" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">1</text>
-<line x1="527" y1="865" x2="573" y2="865" stroke="#2166a5" stroke-width="2"/>
-<text x="550" y="898" font-size="28" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">4</text>
-<text x="685" y="876" font-size="33" text-anchor="middle">+</text>
-<text x="820" y="855" font-size="28" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">6</text>
-<line x1="797" y1="865" x2="843" y2="865" stroke="#bb5d16" stroke-width="2"/>
-<text x="820" y="898" font-size="28" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">4</text>
-<text x="960" y="876" font-size="33" text-anchor="middle">=</text>
-<text x="1110" y="855" font-size="31" text-anchor="middle" fill="#17324d" style="fill:#17324d">7</text>
-<line x1="1087" y1="865" x2="1133" y2="865" stroke="#17324d" stroke-width="2"/>
-<text x="1110" y="898" font-size="31" text-anchor="middle" fill="#17324d" style="fill:#17324d">4</text>
-<text x="380" y="958" font-size="28" text-anchor="middle">值二</text>
-<text x="550" y="939" font-size="28" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">3</text>
-<line x1="527" y1="949" x2="573" y2="949" stroke="#2166a5" stroke-width="2"/>
-<text x="550" y="982" font-size="28" text-anchor="middle" fill="#2166a5" style="fill:#2166a5">4</text>
-<text x="685" y="960" font-size="33" text-anchor="middle">+</text>
-<text x="820" y="939" font-size="28" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">2</text>
-<line x1="797" y1="949" x2="843" y2="949" stroke="#bb5d16" stroke-width="2"/>
-<text x="820" y="982" font-size="28" text-anchor="middle" fill="#bb5d16" style="fill:#bb5d16">4</text>
-<text x="960" y="960" font-size="33" text-anchor="middle">=</text>
-<text x="1110" y="939" font-size="31" text-anchor="middle" fill="#17324d" style="fill:#17324d">5</text>
-<line x1="1087" y1="949" x2="1133" y2="949" stroke="#17324d" stroke-width="2"/>
-<text x="1110" y="982" font-size="31" text-anchor="middle" fill="#17324d" style="fill:#17324d">4</text>
-<text x="55" y="1055" font-size="26" text-anchor="start" fill="#546a7b" style="fill:#546a7b">前向按头分别归一化；反向对同一个变量求和。</text>
-</svg>
+<rect x="945" y="557" width="83.75" height="38" rx="5" fill="#b65c1b" stroke="#b65c1b" stroke-width="2"/>
+<text x="1345" y="574" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">1</text>
+<line x1="1322" y1="584" x2="1368" y2="584" stroke="#b65c1b" stroke-width="2"/>
+<text x="1345" y="617" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
+<text x="823" y="659" font-size="32" text-anchor="start" fill="#b65c1b" style="fill: #b65c1b" font-weight="600">读取输出  o = 0.5</text>
+<rect x="55" y="742" width="1390" height="273" rx="14" fill="#f8fafb" stroke="#cfdee8" stroke-width="2"/>
+<text x="85" y="789" font-size="32" text-anchor="start" font-weight="600" fill="#142b45">反向：L = o1 + 2o2</text>
+<text x="85" y="832" font-size="27" text-anchor="start" fill="#547388" style="fill: #547388">对共享值求导，累加两条读取路径</text>
+<text x="550" y="787" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">头一贡献</text>
+<text x="820" y="787" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">头二贡献</text>
+<text x="1110" y="787" font-size="26" text-anchor="middle" font-weight="600" fill="#142b45">总梯度</text>
+<text x="380" y="874" font-size="28" text-anchor="middle" fill="#142b45">值一</text>
+<text x="550" y="855" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">1</text>
+<line x1="527" y1="865" x2="573" y2="865" stroke="#1c73b7" stroke-width="2"/>
+<text x="550" y="898" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
+<text x="685" y="876" font-size="33" text-anchor="middle" fill="#142b45">+</text>
+<text x="820" y="855" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">6</text>
+<line x1="797" y1="865" x2="843" y2="865" stroke="#b65c1b" stroke-width="2"/>
+<text x="820" y="898" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
+<text x="960" y="876" font-size="33" text-anchor="middle" fill="#142b45">=</text>
+<text x="1110" y="855" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">7</text>
+<line x1="1087" y1="865" x2="1133" y2="865" stroke="#173c5b" stroke-width="2"/>
+<text x="1110" y="898" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">4</text>
+<text x="380" y="958" font-size="28" text-anchor="middle" fill="#142b45">值二</text>
+<text x="550" y="939" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">3</text>
+<line x1="527" y1="949" x2="573" y2="949" stroke="#1c73b7" stroke-width="2"/>
+<text x="550" y="982" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
+<text x="685" y="960" font-size="33" text-anchor="middle" fill="#142b45">+</text>
+<text x="820" y="939" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">2</text>
+<line x1="797" y1="949" x2="843" y2="949" stroke="#b65c1b" stroke-width="2"/>
+<text x="820" y="982" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
+<text x="960" y="960" font-size="33" text-anchor="middle" fill="#142b45">=</text>
+<text x="1110" y="939" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">5</text>
+<line x1="1087" y1="949" x2="1133" y2="949" stroke="#173c5b" stroke-width="2"/>
+<text x="1110" y="982" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">4</text>
+<text x="55" y="1055" font-size="26" text-anchor="start" fill="#547388" style="fill: #547388">前向按头分别归一化；反向对同一个变量求和。</text>
+</svg></svg>

@@ -1,40 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1230.94" viewBox="0 0 1440 1230.94" role="img"><title>冻结参数并不等于截断输入梯度</title><svg xmlns="http://www.w3.org/2000/svg" width="1440" height="780.94" viewBox="22 67 1276 692" role="img" aria-labelledby="title desc"><rect x="22" y="67" width="1276" height="692" fill="#ffffff"/><title id="title">冻结参数并不等于截断输入梯度</title><desc id="desc">标量链 y=xafb 中固定 f=3，x=1,a=2,b=4，损失二分之一y平方。正确反传da288、db144；截断h后da缺失、db仍144。</desc><rect width="1320" height="780" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
-<text x="40" y="108" font-size="28" fill="#647b88" text-anchor="start" font-weight="400">x = 1，a = 2，固定 f = 3，b = 4；L = 0.5 × y²</text>
-<text x="90" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">输入</text>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1290.8773" viewBox="0 0 1440 1290.8773" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">冻结视觉编码器与训练连接器的梯度边界</title><rect width="1440" height="1290.8773" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">冻结视觉编码器与训练连接器的梯度边界</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1148.8773" viewBox="0 0 1440 1230.94" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>冻结参数并不等于截断输入梯度</title><svg width="1440" height="780.94" viewBox="22 67 1276 692" role="img" aria-labelledby="title desc"><rect x="22" y="67" width="1276" height="692" fill="#ffffff"/><title id="title">冻结参数并不等于截断输入梯度</title><desc id="desc">标量链 y=xafb 中固定 f=3，x=1,a=2,b=4，损失二分之一y平方。正确反传da288、db144；截断h后da缺失、db仍144。</desc><rect width="1320" height="780" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1c2e41">
+<text x="40" y="108" font-size="28" fill="#648496" text-anchor="start" font-weight="400">x = 1，a = 2，固定 f = 3，b = 4；L = 0.5 × y²</text>
+<text x="90" y="197" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">输入</text>
 <rect x="90" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
-<text x="190" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">x = 1</text>
-<text x="350" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">可训练 a</text>
+<text x="190" y="283" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">x = 1</text>
+<text x="350" y="197" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">可训练 a</text>
 <rect x="350" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
-<text x="450" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">xa = 2</text>
-<text x="650" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">固定 f</text>
+<text x="450" y="283" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">xa = 2</text>
+<text x="650" y="197" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">固定 f</text>
 <rect x="650" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
-<text x="750" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">h = 6</text>
-<text x="990" y="197" font-size="29" fill="#20343d" text-anchor="start" font-weight="700">可训练 b</text>
+<text x="750" y="283" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">h = 6</text>
+<text x="990" y="197" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">可训练 b</text>
 <rect x="990" y="230" width="200" height="85" fill="#eaf1f8" stroke="none" stroke-width="2"/>
-<text x="1090" y="283" font-size="30" fill="#20343d" text-anchor="middle" font-weight="400">y = 24</text>
-<line x1="300" y1="272" x2="340" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="328" y1="265" x2="340" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="328" y1="279" x2="340" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="560" y1="272" x2="640" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="628" y1="265" x2="640" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="628" y1="279" x2="640" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="860" y1="272" x2="980" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="968" y1="265" x2="980" y2="272" stroke="#2867ac" stroke-width="3"/>
-<line x1="968" y1="279" x2="980" y2="272" stroke="#2867ac" stroke-width="3"/>
-<text x="40" y="397" font-size="30" fill="#2867ac" text-anchor="start" font-weight="700">保留链式法则</text>
-<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" fill="#2867ac"><text x="330" y="452" font-size="25" text-anchor="middle">∂L</text><line x1="305" y1="460" x2="355" y2="460" stroke="#2867ac" stroke-width="1.7"/><text x="330" y="488" font-size="25" text-anchor="middle">∂a</text><text x="372" y="470" font-size="27">= 288</text></g>
-<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" fill="#2867ac"><text x="640" y="452" font-size="25" text-anchor="middle">∂L</text><line x1="615" y1="460" x2="665" y2="460" stroke="#2867ac" stroke-width="1.7"/><text x="640" y="488" font-size="25" text-anchor="middle">∂h</text><text x="682" y="470" font-size="27">= 96</text></g>
-<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" fill="#2867ac"><text x="960" y="452" font-size="25" text-anchor="middle">∂L</text><line x1="935" y1="460" x2="985" y2="460" stroke="#2867ac" stroke-width="1.7"/><text x="960" y="488" font-size="25" text-anchor="middle">∂b</text><text x="1002" y="470" font-size="27">= 144</text></g>
-<line x1="1080" y1="400" x2="370" y2="400" stroke="#2867ac" stroke-width="3"/>
-<line x1="385" y1="392" x2="370" y2="400" stroke="#2867ac" stroke-width="3"/>
-<line x1="385" y1="408" x2="370" y2="400" stroke="#2867ac" stroke-width="3"/>
-<line x1="40" y1="510" x2="1280" y2="510" stroke="#a9b8be" stroke-width="2"/>
-<text x="40" y="575" font-size="30" fill="#cd7c2a" text-anchor="start" font-weight="700">在 h 处 detach</text>
-<text x="370" y="646" font-size="28" fill="#cd7c2a" text-anchor="middle" font-weight="400">a 的梯度：缺失</text>
-<text x="730" y="646" font-size="28" fill="#20343d" text-anchor="middle" font-weight="400">h = 6 仍不变</text>
-<text x="1080" y="646" font-size="28" fill="#2867ac" text-anchor="middle" font-weight="400">b 的梯度：144</text>
-<line x1="1080" y1="570" x2="670" y2="570" stroke="#cd7c2a" stroke-width="3"/>
-<line x1="650" y1="547" x2="650" y2="594" stroke="#cd7c2a" stroke-width="5"/>
-<text x="490" y="580" font-size="26" fill="#cd7c2a" text-anchor="start" font-weight="400">截断</text>
-<text x="40" y="737" font-size="29" fill="#20343d" text-anchor="start" font-weight="400">固定 f 不更新；但早期参数 a 仍需要乘上 f 的输入导数。</text></g></svg>
-<g id="round-20261105c-teaching" transform="translate(0 780.94) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#203742" text-anchor="start">冻结中间编码器，不代表可以缓存依赖可训练前端的表示</text><text x="70" y="125" font-size="30" fill="#203742" text-anchor="start">x=1，冻结 f=3，后端 b=4；前端 a 从 2 改为 1</text><rect x="70" y="180" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="266.0" y="219" font-size="28" fill="#216c89" text-anchor="middle">表示 h=fax</text><rect x="470" y="180" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="666.0" y="219" font-size="28" fill="#216c89" text-anchor="middle">输出 y=bh</text><rect x="870" y="180" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="1066.0" y="219" font-size="28" fill="#216c89" text-anchor="middle">损失 ½y²</text><rect x="70" y="250" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="266.0" y="289" font-size="28" fill="#216c89" text-anchor="middle">重新计算 h=3</text><rect x="470" y="250" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="666.0" y="289" font-size="28" fill="#216c89" text-anchor="middle">y=12</text><rect x="870" y="250" width="392" height="58" fill="#edf5f8" stroke="#216c89"/><text x="1066.0" y="289" font-size="28" fill="#216c89" text-anchor="middle">L=72</text><rect x="70" y="320" width="392" height="58" fill="#fff1e7" stroke="#c96937"/><text x="266.0" y="359" font-size="28" fill="#c96937" text-anchor="middle">复用旧 h=6</text><rect x="470" y="320" width="392" height="58" fill="#fff1e7" stroke="#c96937"/><text x="666.0" y="359" font-size="28" fill="#c96937" text-anchor="middle">y=24</text><rect x="870" y="320" width="392" height="58" fill="#fff1e7" stroke="#c96937"/><text x="1066.0" y="359" font-size="28" fill="#c96937" text-anchor="middle">L=288</text><text x="70" y="435" font-size="29" fill="#203742" text-anchor="start">参数 f 不变，但 f 的输入随 a 更新；缓存依赖仍需逐项追踪。</text></g></g></svg>
+<text x="1090" y="283" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">y = 24</text>
+<line x1="300" y1="272" x2="340" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="328" y1="265" x2="340" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="328" y1="279" x2="340" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="560" y1="272" x2="640" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="628" y1="265" x2="640" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="628" y1="279" x2="640" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="860" y1="272" x2="980" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="968" y1="265" x2="980" y2="272" stroke="#2375be" stroke-width="3"/>
+<line x1="968" y1="279" x2="980" y2="272" stroke="#2375be" stroke-width="3"/>
+<text x="40" y="397" font-size="30" fill="#2375be" text-anchor="start" font-weight="700">保留链式法则</text>
+<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" fill="#2375be"><text x="330" y="452" font-size="25" text-anchor="middle">∂L</text><line x1="305" y1="460" x2="355" y2="460" stroke="#2375be" stroke-width="1.7"/><text x="330" y="488" font-size="25" text-anchor="middle">∂a</text><text x="372" y="470" font-size="27">= 288</text></g>
+<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" fill="#2375be"><text x="640" y="452" font-size="25" text-anchor="middle">∂L</text><line x1="615" y1="460" x2="665" y2="460" stroke="#2375be" stroke-width="1.7"/><text x="640" y="488" font-size="25" text-anchor="middle">∂h</text><text x="682" y="470" font-size="27">= 96</text></g>
+<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" fill="#2375be"><text x="960" y="452" font-size="25" text-anchor="middle">∂L</text><line x1="935" y1="460" x2="985" y2="460" stroke="#2375be" stroke-width="1.7"/><text x="960" y="488" font-size="25" text-anchor="middle">∂b</text><text x="1002" y="470" font-size="27">= 144</text></g>
+<line x1="1080" y1="400" x2="370" y2="400" stroke="#2375be" stroke-width="3"/>
+<line x1="385" y1="392" x2="370" y2="400" stroke="#2375be" stroke-width="3"/>
+<line x1="385" y1="408" x2="370" y2="400" stroke="#2375be" stroke-width="3"/>
+<line x1="40" y1="510" x2="1280" y2="510" stroke="#abb5c3" stroke-width="2"/>
+<text x="40" y="575" font-size="30" fill="#c9772e" text-anchor="start" font-weight="700">在 h 处 detach</text>
+<text x="370" y="646" font-size="28" fill="#c9772e" text-anchor="middle" font-weight="400">a 的梯度：缺失</text>
+<text x="730" y="646" font-size="28" fill="#1c2e41" text-anchor="middle" font-weight="400">h = 6 仍不变</text>
+<text x="1080" y="646" font-size="28" fill="#2375be" text-anchor="middle" font-weight="400">b 的梯度：144</text>
+<line x1="1080" y1="570" x2="670" y2="570" stroke="#c9772e" stroke-width="3"/>
+<line x1="650" y1="547" x2="650" y2="594" stroke="#c9772e" stroke-width="5"/>
+<text x="490" y="580" font-size="26" fill="#c9772e" text-anchor="start" font-weight="400">截断</text>
+<text x="40" y="737" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="400">固定 f 不更新；但早期参数 a 仍需要乘上 f 的输入导数。</text></g></svg>
+<g id="round-20261105c-teaching" transform="translate(0 780.94) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#1d3145" text-anchor="start">冻结中间编码器，不代表可以缓存依赖可训练前端的表示</text><text x="70" y="125" font-size="30" fill="#1d3145" text-anchor="start">x=1，冻结 f=3，后端 b=4；前端 a 从 2 改为 1</text><rect x="70" y="180" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="266.0" y="219" font-size="28" fill="#1e7499" text-anchor="middle">表示 h=fax</text><rect x="470" y="180" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="666.0" y="219" font-size="28" fill="#1e7499" text-anchor="middle">输出 y=bh</text><rect x="870" y="180" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="1066.0" y="219" font-size="28" fill="#1e7499" text-anchor="middle">损失 ½y²</text><rect x="70" y="250" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="266.0" y="289" font-size="28" fill="#1e7499" text-anchor="middle">重新计算 h=3</text><rect x="470" y="250" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="666.0" y="289" font-size="28" fill="#1e7499" text-anchor="middle">y=12</text><rect x="870" y="250" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="1066.0" y="289" font-size="28" fill="#1e7499" text-anchor="middle">L=72</text><rect x="70" y="320" width="392" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="266.0" y="359" font-size="28" fill="#c66d3a" text-anchor="middle">复用旧 h=6</text><rect x="470" y="320" width="392" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="666.0" y="359" font-size="28" fill="#c66d3a" text-anchor="middle">y=24</text><rect x="870" y="320" width="392" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="1066.0" y="359" font-size="28" fill="#c66d3a" text-anchor="middle">L=288</text><text x="70" y="435" font-size="29" fill="#1d3145" text-anchor="start">参数 f 不变，但 f 的输入随 a 更新；缓存依赖仍需逐项追踪。</text></g></g></svg></svg>

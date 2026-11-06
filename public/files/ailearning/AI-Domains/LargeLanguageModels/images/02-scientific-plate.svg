@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="608" viewBox="0 0 1440 608" role="img" aria-labelledby="title description">
+  <title id="title">DPO 比较的是各自相对参考策略的增益</title>
+  <desc id="description">两条回答的当前概率同为 0.3。偏好回答的参考概率为 0.1，增益为 ln 3。另一条参考概率为 0.3，增益为零。当 β 为一时，偏好比较模型给出 75%。</desc>
+  <defs>
+    <marker id="gain-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#168575"/>
+    </marker>
+    <marker id="axis-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#647e91"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="608" fill="#fff"/>
+  <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#142b45">
+    <rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/>
+    <text x="71" y="66" font-size="38" font-weight="700">DPO 比较的是各自相对参考策略的增益</text>
+    <path d="M48 89H1392" stroke="#d7e1ee" stroke-width="1.4"/>
+
+    <circle cx="257" cy="137" r="10" fill="#fff" stroke="#647e91" stroke-width="4"/>
+    <text x="282" y="146" font-size="29">冻结参考 q</text>
+    <circle cx="479" cy="137" r="10" fill="#168575"/>
+    <text x="504" y="146" font-size="29">当前策略 π</text>
+
+    <rect x="52" y="208" width="904" height="96" rx="18" fill="#eef7f6"/>
+    <rect x="52" y="363" width="904" height="96" rx="18" fill="#f5f7fa"/>
+    <text x="77" y="267" font-size="30" font-weight="700">偏好回答</text>
+    <text x="77" y="422" font-size="30" font-weight="700">另一回答</text>
+    <path d="M248 256H934M248 411H934" stroke="#b1c3ce" stroke-width="2"/>
+    <path d="M766.411 190V496" stroke="#168575" stroke-width="2.5" stroke-dasharray="8 8" opacity=".48"/>
+    <text x="766.411" y="186" text-anchor="middle" font-size="28" fill="#168575">两条回答的 π 都是 0.3</text>
+
+    <path d="M350 256H741" stroke="#168575" stroke-width="4" marker-end="url(#gain-tip)"/>
+    <circle cx="326.966" cy="256" r="12" fill="#fff" stroke="#647e91" stroke-width="4"/>
+    <circle cx="766.411" cy="256" r="12" fill="#168575"/>
+    <text x="326.966" y="288" text-anchor="middle" font-size="25">q = 0.1</text>
+    <text x="546.69" y="239" text-anchor="middle" font-size="30" font-weight="700" fill="#168575">增益 ln 3</text>
+    <circle cx="766.411" cy="411" r="15" fill="#fff" stroke="#647e91" stroke-width="4"/>
+    <circle cx="766.411" cy="411" r="8" fill="#168575"/>
+    <text x="799" y="402" font-size="25">q = π = 0.3</text>
+    <text x="799" y="435" font-size="25" fill="#168575">增益为零</text>
+
+    <path d="M248 496H948" fill="none" stroke="#647e91" stroke-width="2.6" marker-end="url(#axis-tip)"/>
+    <path d="M248 496v9m200-9v9m200-9v9m200-9v9" stroke="#647e91" stroke-width="2.6"/>
+    <g text-anchor="middle" font-size="24">
+      <text x="248" y="532">−2.5</text><text x="448" y="532">−2.0</text>
+      <text x="648" y="532">−1.5</text><text x="848" y="532">−1.0</text>
+      <text x="588" y="573" font-size="29">回复的序列对数概率</text>
+    </g>
+
+    <rect x="1000" y="208" width="380" height="251" rx="22" fill="#f0eef9" stroke="#d7cdec" stroke-width="2"/>
+    <g text-anchor="middle">
+      <text x="1190" y="264" font-size="30" font-weight="700">两条回答的增益差</text>
+      <text x="1190" y="313" font-size="35" fill="#563f88">ln 3 − 0 = ln 3</text>
+      <path d="M1040 340H1340" stroke="#d7cdec" stroke-width="2"/>
+      <text x="1190" y="388" font-size="26">β = 1 时的偏好概率</text>
+      <text x="1190" y="433" font-size="34" font-weight="700" fill="#563f88">σ(ln 3) = 75%</text>
+    </g>
+  </g>
+</svg>

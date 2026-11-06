@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="580" viewBox="0 0 1440 580" role="img" aria-labelledby="caption">
+<title id="caption">最佳时刻要与活存储分开</title><defs>
+<marker id="blue" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#286391"/></marker>
+<marker id="teal" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#167d71"/></marker>
+<marker id="red" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#bb5141"/></marker>
+<marker id="violet" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#7352a1"/></marker>
+<marker id="ink" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#172e46"/></marker>
+<marker id="muted" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#536a82"/></marker>
+</defs><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<rect x="0" y="0" width="1440" height="580" fill="white" rx="0" stroke-width="1.5"/>
+<rect x="45" y="35" width="5" height="36" fill="#526bab" rx="2" stroke-width="1.5"/>
+<text x="69" y="64" fill="#172e46" font-size="34" font-weight="700" text-anchor="start">最佳时刻要与活存储分开</text>
+<line x1="45" y1="88" x2="1395" y2="88" stroke="#cbd9e6" stroke-width="1.5" stroke-linecap="round"/>
+<text x="532" y="158" fill="#172e46" font-size="25" font-weight="700" text-anchor="middle">t1</text>
+<line x1="532" y1="172" x2="532" y2="506" stroke="#cbd9e6" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"/>
+<text x="861" y="158" fill="#172e46" font-size="25" font-weight="700" text-anchor="middle">t2（选中最佳）</text>
+<line x1="861" y1="172" x2="861" y2="506" stroke="#cbd9e6" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"/>
+<text x="1190" y="158" fill="#172e46" font-size="25" font-weight="700" text-anchor="middle">t3</text>
+<line x1="1190" y1="172" x2="1190" y2="506" stroke="#cbd9e6" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"/>
+<text x="325" y="245" fill="#172e46" font-size="24" font-weight="700" text-anchor="end">活状态</text>
+<text x="325" y="353" fill="#172e46" font-size="24" font-weight="700" text-anchor="end">浅引用读取</text>
+<text x="325" y="463" fill="#172e46" font-size="24" font-weight="700" text-anchor="end">独立快照读取</text>
+<rect x="428" y="209" width="208" height="56" fill="#e8f3fc" stroke="#286391" rx="8" stroke-width="1.5"/>
+<text x="532" y="245" fill="#286391" font-size="22" font-weight="700" text-anchor="middle">w = 1，b = 2</text>
+<line x1="647" y1="237" x2="746" y2="237" stroke="#286391" stroke-width="2.6" marker-end="url(#blue)" stroke-linecap="round"/>
+<rect x="757" y="209" width="208" height="56" fill="#e8f3fc" stroke="#286391" rx="8" stroke-width="1.5"/>
+<text x="861" y="245" fill="#286391" font-size="22" font-weight="700" text-anchor="middle">w = 2，b = 3</text>
+<line x1="976" y1="237" x2="1075" y2="237" stroke="#286391" stroke-width="2.6" marker-end="url(#blue)" stroke-linecap="round"/>
+<rect x="1086" y="209" width="208" height="56" fill="#e8f3fc" stroke="#286391" rx="8" stroke-width="1.5"/>
+<text x="1190" y="245" fill="#286391" font-size="22" font-weight="700" text-anchor="middle">w = 3，b = 4</text>
+<path d="M861 265 L861 285 L727 285 L727 455" stroke="#536a82" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="727" y1="345" x2="753" y2="345" stroke="#7352a1" stroke-width="2.4" marker-end="url(#violet)" stroke-linecap="round"/>
+<rect x="757" y="317" width="208" height="56" fill="#f0eafa" stroke="#7352a1" rx="8" stroke-width="1.5"/>
+<text x="861" y="353" fill="#7352a1" font-size="22" font-weight="700" text-anchor="middle">w = 2，b = 3</text>
+<line x1="976" y1="345" x2="1075" y2="345" stroke="#7352a1" stroke-width="2.6" marker-end="url(#violet)" stroke-linecap="round"/>
+<rect x="1086" y="317" width="208" height="56" fill="#f0eafa" stroke="#7352a1" rx="8" stroke-width="1.5"/>
+<text x="1190" y="353" fill="#7352a1" font-size="22" font-weight="700" text-anchor="middle">w = 3，b = 4</text>
+<line x1="727" y1="455" x2="753" y2="455" stroke="#167d71" stroke-width="2.4" marker-end="url(#teal)" stroke-linecap="round"/>
+<rect x="757" y="427" width="208" height="56" fill="#e6f4ef" stroke="#167d71" rx="8" stroke-width="1.5"/>
+<text x="861" y="463" fill="#167d71" font-size="22" font-weight="700" text-anchor="middle">w = 2，b = 3</text>
+<line x1="976" y1="455" x2="1075" y2="455" stroke="#167d71" stroke-width="2.6" marker-end="url(#teal)" stroke-linecap="round"/>
+<rect x="1086" y="427" width="208" height="56" fill="#e6f4ef" stroke="#167d71" rx="8" stroke-width="1.5"/>
+<text x="1190" y="463" fill="#167d71" font-size="22" font-weight="700" text-anchor="middle">w = 2，b = 3</text>
+<text x="720" y="541" fill="#536a82" font-size="20" font-weight="400" text-anchor="middle">w 代表参数，b 代表持久缓冲；数值只用于跟踪同一状态</text>
+</g></svg>

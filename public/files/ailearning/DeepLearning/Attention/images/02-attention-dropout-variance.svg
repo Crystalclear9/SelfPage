@@ -1,107 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 960" width="1500" height="960" role="img">
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1002.16" viewBox="0 0 1440 1002.16" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">注意力丢弃的均值与方差</title><rect width="1440" height="1002.16" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">注意力丢弃的均值与方差</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg viewBox="0 0 1500 960" width="1344" height="860.16" role="img" x="48" y="106" overflow="hidden">
 <rect width="1500" height="960" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#233c4b">
-<text x="65" y="55" font-size="32" fill="#233c4b" text-anchor="start" font-weight="normal">A  同样的权重，平移值会放大 Dropout 噪声</text>
-<text x="85" y="115" font-size="28" fill="#246d89" text-anchor="start" font-weight="normal">原值</text>
-<text x="85" y="165" font-size="27" fill="#246d89" text-anchor="start" font-weight="normal">值：(0, 1, 3)</text>
-<text x="85" y="220" font-size="26" fill="#246d89" text-anchor="start" font-weight="normal">原贡献：</text>
-<text x="220" y="220" font-size="27" fill="#246d89" text-anchor="start" font-weight="normal">0，</text>
-<text x="310" y="201" font-size="26" fill="#246d89" text-anchor="middle" font-weight="normal">1</text>
-<line x1="295.81" y1="210" x2="324.19" y2="210" stroke="#246d89" stroke-width="1.8"/>
-<text x="310" y="239" font-size="26" fill="#246d89" text-anchor="middle" font-weight="normal">3</text>
-<text x="350" y="220" font-size="27" fill="#246d89" text-anchor="start" font-weight="normal">，1.5</text>
-<text x="810" y="115" font-size="28" fill="#cf733b" text-anchor="start" font-weight="normal">每个值加 10</text>
-<text x="810" y="165" font-size="27" fill="#cf733b" text-anchor="start" font-weight="normal">值：(10, 11, 13)</text>
-<text x="810" y="220" font-size="26" fill="#cf733b" text-anchor="start" font-weight="normal">原贡献：</text>
-<text x="975" y="201" font-size="26" fill="#cf733b" text-anchor="middle" font-weight="normal">5</text>
-<line x1="960.81" y1="210" x2="989.19" y2="210" stroke="#cf733b" stroke-width="1.8"/>
-<text x="975" y="239" font-size="26" fill="#cf733b" text-anchor="middle" font-weight="normal">3</text>
-<text x="1020" y="220" font-size="27" fill="#cf733b" text-anchor="start" font-weight="normal">，</text>
-<text x="1080" y="201" font-size="26" fill="#cf733b" text-anchor="middle" font-weight="normal">11</text>
-<line x1="1057.62" y1="210" x2="1102.38" y2="210" stroke="#cf733b" stroke-width="1.8"/>
-<text x="1080" y="239" font-size="26" fill="#cf733b" text-anchor="middle" font-weight="normal">3</text>
-<text x="1120" y="220" font-size="27" fill="#cf733b" text-anchor="start" font-weight="normal">，6.5</text>
-<line x1="130" y1="670.0" x2="700" y2="670.0" stroke="#e4ebef" stroke-width="1"/>
-<text x="116" y="678.0" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">0</text>
-<line x1="130" y1="524.1666666666666" x2="700" y2="524.1666666666666" stroke="#e4ebef" stroke-width="1"/>
-<text x="116" y="532.1666666666666" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">0.125</text>
-<line x1="130" y1="378.3333333333333" x2="700" y2="378.3333333333333" stroke="#e4ebef" stroke-width="1"/>
-<text x="116" y="386.3333333333333" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">0.25</text>
-<line x1="130.0" y1="670" x2="130.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="130.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">0</text>
-<line x1="244.0" y1="670" x2="244.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="244.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">5</text>
-<line x1="358.0" y1="670" x2="358.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="358.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">10</text>
-<line x1="472.0" y1="670" x2="472.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="472.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">15</text>
-<line x1="586.0" y1="670" x2="586.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="586.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">20</text>
-<line x1="700.0" y1="670" x2="700.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="700.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">25</text>
-<line x1="130" y1="320" x2="130" y2="670" stroke="#8c9ca6" stroke-width="1.6"/>
-<line x1="130" y1="670" x2="700" y2="670" stroke="#8c9ca6" stroke-width="1.6"/>
-<text x="415.0" y="749" font-size="27" fill="#233c4b" text-anchor="middle" font-weight="normal">实际随机输出</text>
-<text x="130" y="293" font-size="27" fill="#233c4b" text-anchor="start" font-weight="normal">B  p = 0.5：概率质量</text>
-<line x1="130.0" y1="670.0" x2="130.0" y2="378.3333333333333" stroke="#246d89" stroke-width="7"/>
-<circle cx="130.0" cy="378.3333333333333" r="5" fill="#246d89" stroke="none" stroke-width="1"/>
-<line x1="145.2" y1="670.0" x2="145.2" y2="378.3333333333333" stroke="#246d89" stroke-width="7"/>
-<circle cx="145.2" cy="378.3333333333333" r="5" fill="#246d89" stroke="none" stroke-width="1"/>
-<line x1="198.39999999999998" y1="670.0" x2="198.39999999999998" y2="378.3333333333333" stroke="#246d89" stroke-width="7"/>
-<circle cx="198.39999999999998" cy="378.3333333333333" r="5" fill="#246d89" stroke="none" stroke-width="1"/>
-<line x1="213.6" y1="670.0" x2="213.6" y2="378.3333333333333" stroke="#246d89" stroke-width="7"/>
-<circle cx="213.6" cy="378.3333333333333" r="5" fill="#246d89" stroke="none" stroke-width="1"/>
-<line x1="130.0" y1="670.0" x2="130.0" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="130.0" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="206.0" y1="670.0" x2="206.0" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="206.0" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="297.2" y1="670.0" x2="297.2" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="297.2" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="373.2" y1="670.0" x2="373.2" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="373.2" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="426.40000000000003" y1="670.0" x2="426.40000000000003" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="426.40000000000003" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="502.4" y1="670.0" x2="502.4" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="502.4" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="593.5999999999999" y1="670.0" x2="593.5999999999999" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="593.5999999999999" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<line x1="669.5999999999999" y1="670.0" x2="669.5999999999999" y2="524.1666666666666" stroke="#cf733b" stroke-width="3"/>
-<circle cx="669.5999999999999" cy="524.1666666666666" r="5" fill="#cf733b" stroke="none" stroke-width="1"/>
-<text x="810" y="300" font-size="28" fill="#233c4b" text-anchor="start" font-weight="normal">C  方差保留原公式，条件是固定权重和值</text>
-<line x1="860" y1="670.0" x2="1400" y2="670.0" stroke="#e4ebef" stroke-width="1"/>
-<text x="846" y="678.0" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">0</text>
-<line x1="860" y1="596.25" x2="1400" y2="596.25" stroke="#e4ebef" stroke-width="1"/>
-<text x="846" y="604.25" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">60</text>
-<line x1="860" y1="522.5" x2="1400" y2="522.5" stroke="#e4ebef" stroke-width="1"/>
-<text x="846" y="530.5" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">120</text>
-<line x1="860" y1="448.75" x2="1400" y2="448.75" stroke="#e4ebef" stroke-width="1"/>
-<text x="846" y="456.75" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">180</text>
-<line x1="860" y1="375.0" x2="1400" y2="375.0" stroke="#e4ebef" stroke-width="1"/>
-<text x="846" y="383.0" font-size="23" fill="#8c9ca6" text-anchor="end" font-weight="normal">240</text>
-<line x1="860.0" y1="670" x2="860.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="860.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">0</text>
-<line x1="995.0" y1="670" x2="995.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="995.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">0.2</text>
-<line x1="1130.0" y1="670" x2="1130.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="1130.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">0.4</text>
-<line x1="1265.0" y1="670" x2="1265.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="1265.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">0.6</text>
-<line x1="1400.0" y1="670" x2="1400.0" y2="678" stroke="#8c9ca6" stroke-width="1.5"/>
-<text x="1400.0" y="707" font-size="23" fill="#8c9ca6" text-anchor="middle" font-weight="normal">0.8</text>
-<line x1="860" y1="375" x2="860" y2="670" stroke="#8c9ca6" stroke-width="1.6"/>
-<line x1="860" y1="670" x2="1400" y2="670" stroke="#8c9ca6" stroke-width="1.6"/>
-<text x="1130.0" y="749" font-size="27" fill="#233c4b" text-anchor="middle" font-weight="normal">独立丢弃概率 p</text>
-<text x="860" y="348" font-size="27" fill="#233c4b" text-anchor="start" font-weight="normal">输出方差</text>
-<path d="M860.000,670.000 L865.400,669.977 L870.800,669.953 L876.200,669.929 L881.600,669.904 L887.000,669.879 L892.400,669.854 L897.800,669.828 L903.200,669.802 L908.600,669.775 L914.000,669.748 L919.400,669.720 L924.800,669.692 L930.200,669.663 L935.600,669.634 L941.000,669.604 L946.400,669.574 L951.800,669.543 L957.200,669.512 L962.600,669.480 L968.000,669.447 L973.400,669.414 L978.800,669.380 L984.200,669.346 L989.600,669.310 L995.000,669.274 L1000.400,669.238 L1005.800,669.200 L1011.200,669.162 L1016.600,669.123 L1022.000,669.084 L1027.400,669.043 L1032.800,669.001 L1038.200,668.959 L1043.600,668.916 L1049.000,668.871 L1054.400,668.826 L1059.800,668.780 L1065.200,668.732 L1070.600,668.684 L1076.000,668.634 L1081.400,668.583 L1086.800,668.531 L1092.200,668.478 L1097.600,668.423 L1103.000,668.368 L1108.400,668.310 L1113.800,668.251 L1119.200,668.191 L1124.600,668.129 L1130.000,668.065 L1135.400,668.000 L1140.800,667.933 L1146.200,667.864 L1151.600,667.793 L1157.000,667.720 L1162.400,667.645 L1167.800,667.567 L1173.200,667.488 L1178.600,667.406 L1184.000,667.321 L1189.400,667.234 L1194.800,667.144 L1200.200,667.051 L1205.600,666.955 L1211.000,666.856 L1216.400,666.753 L1221.800,666.647 L1227.200,666.538 L1232.600,666.424 L1238.000,666.306 L1243.400,666.184 L1248.800,666.057 L1254.200,665.926 L1259.600,665.789 L1265.000,665.647 L1270.400,665.499 L1275.800,665.344 L1281.200,665.184 L1286.600,665.016 L1292.000,664.841 L1297.400,664.657 L1302.800,664.466 L1308.200,664.265 L1313.600,664.054 L1319.000,663.833 L1324.400,663.600 L1329.800,663.355 L1335.200,663.097 L1340.600,662.825 L1346.000,662.537 L1351.400,662.232 L1356.800,661.909 L1362.200,661.565 L1367.600,661.200 L1373.000,660.810 L1378.400,660.393 L1383.800,659.946 L1389.200,659.466 L1394.600,658.949 L1400.000,658.391" fill="none" stroke="#246d89" stroke-width="4"/>
-<path d="M860.000,670.000 L865.400,669.420 L870.800,668.831 L876.200,668.233 L881.600,667.624 L887.000,667.005 L892.400,666.376 L897.800,665.736 L903.200,665.086 L908.600,664.424 L914.000,663.750 L919.400,663.065 L924.800,662.368 L930.200,661.658 L935.600,660.935 L941.000,660.199 L946.400,659.450 L951.800,658.687 L957.200,657.909 L962.600,657.117 L968.000,656.310 L973.400,655.487 L978.800,654.649 L984.200,653.794 L989.600,652.921 L995.000,652.032 L1000.400,651.124 L1005.800,650.199 L1011.200,649.253 L1016.600,648.289 L1022.000,647.304 L1027.400,646.297 L1032.800,645.270 L1038.200,644.220 L1043.600,643.147 L1049.000,642.050 L1054.400,640.928 L1059.800,639.781 L1065.200,638.608 L1070.600,637.407 L1076.000,636.178 L1081.400,634.920 L1086.800,633.631 L1092.200,632.311 L1097.600,630.958 L1103.000,629.572 L1108.400,628.150 L1113.800,626.692 L1119.200,625.197 L1124.600,623.661 L1130.000,622.085 L1135.400,620.467 L1140.800,618.803 L1146.200,617.094 L1151.600,615.337 L1157.000,613.529 L1162.400,611.669 L1167.800,609.754 L1173.200,607.782 L1178.600,605.751 L1184.000,603.657 L1189.400,601.497 L1194.800,599.269 L1200.200,596.969 L1205.600,594.593 L1211.000,592.139 L1216.400,589.601 L1221.800,586.975 L1227.200,584.258 L1232.600,581.443 L1238.000,578.526 L1243.400,575.501 L1248.800,572.362 L1254.200,569.103 L1259.600,565.715 L1265.000,562.192 L1270.400,558.525 L1275.800,554.705 L1281.200,550.723 L1286.600,546.567 L1292.000,542.227 L1297.400,537.690 L1302.800,532.942 L1308.200,527.967 L1313.600,522.750 L1319.000,517.272 L1324.400,511.513 L1329.800,505.451 L1335.200,499.061 L1340.600,492.316 L1346.000,485.186 L1351.400,477.636 L1356.800,469.629 L1362.200,461.122 L1367.600,452.065 L1373.000,442.405 L1378.400,432.079 L1383.800,421.014 L1389.200,409.131 L1394.600,396.333 L1400.000,382.512" fill="none" stroke="#cf733b" stroke-width="4"/>
-<text x="100" y="805" font-size="28" fill="#233c4b" text-anchor="start" font-weight="normal">p = 0.5 时</text>
-<text x="385" y="786" font-size="29" fill="#246d89" text-anchor="middle" font-weight="normal">85</text>
-<line x1="360.73" y1="795" x2="409.27" y2="795" stroke="#246d89" stroke-width="1.8"/>
-<text x="385" y="827" font-size="29" fill="#246d89" text-anchor="middle" font-weight="normal">36</text>
-<text x="440" y="805" font-size="29" fill="#246d89" text-anchor="start" font-weight="normal">≈ 2.361</text>
-<text x="855" y="786" font-size="29" fill="#cf733b" text-anchor="middle" font-weight="normal">2105</text>
-<line x1="812.46" y1="795" x2="897.54" y2="795" stroke="#cf733b" stroke-width="1.8"/>
-<text x="855" y="827" font-size="29" fill="#cf733b" text-anchor="middle" font-weight="normal">36</text>
-<text x="925" y="805" font-size="29" fill="#cf733b" text-anchor="start" font-weight="normal">≈ 58.472</text>
-<text x="100" y="895" font-size="29" fill="#233c4b" text-anchor="start" font-weight="normal">确定性加权均值只加 10；随机行和不固定，单次输出不只是平移。</text>
-</g></svg>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#21374d">
+<text x="65" y="55" font-size="32" fill="#21374d" text-anchor="start" font-weight="normal">A  同样的权重，平移值会放大 Dropout 噪声</text>
+<text x="85" y="115" font-size="28" fill="#217599" text-anchor="start" font-weight="normal">原值</text>
+<text x="85" y="165" font-size="27" fill="#217599" text-anchor="start" font-weight="normal">值：(0, 1, 3)</text>
+<text x="85" y="220" font-size="26" fill="#217599" text-anchor="start" font-weight="normal">原贡献：</text>
+<text x="220" y="220" font-size="27" fill="#217599" text-anchor="start" font-weight="normal">0，</text>
+<text x="310" y="201" font-size="26" fill="#217599" text-anchor="middle" font-weight="normal">1</text>
+<line x1="295.81" y1="210" x2="324.19" y2="210" stroke="#217599" stroke-width="1.8"/>
+<text x="310" y="239" font-size="26" fill="#217599" text-anchor="middle" font-weight="normal">3</text>
+<text x="350" y="220" font-size="27" fill="#217599" text-anchor="start" font-weight="normal">，1.5</text>
+<text x="810" y="115" font-size="28" fill="#cb753f" text-anchor="start" font-weight="normal">每个值加 10</text>
+<text x="810" y="165" font-size="27" fill="#cb753f" text-anchor="start" font-weight="normal">值：(10, 11, 13)</text>
+<text x="810" y="220" font-size="26" fill="#cb753f" text-anchor="start" font-weight="normal">原贡献：</text>
+<text x="975" y="201" font-size="26" fill="#cb753f" text-anchor="middle" font-weight="normal">5</text>
+<line x1="960.81" y1="210" x2="989.19" y2="210" stroke="#cb753f" stroke-width="1.8"/>
+<text x="975" y="239" font-size="26" fill="#cb753f" text-anchor="middle" font-weight="normal">3</text>
+<text x="1020" y="220" font-size="27" fill="#cb753f" text-anchor="start" font-weight="normal">，</text>
+<text x="1080" y="201" font-size="26" fill="#cb753f" text-anchor="middle" font-weight="normal">11</text>
+<line x1="1057.62" y1="210" x2="1102.38" y2="210" stroke="#cb753f" stroke-width="1.8"/>
+<text x="1080" y="239" font-size="26" fill="#cb753f" text-anchor="middle" font-weight="normal">3</text>
+<text x="1120" y="220" font-size="27" fill="#cb753f" text-anchor="start" font-weight="normal">，6.5</text>
+<line x1="130" y1="670.0" x2="700" y2="670.0" stroke="#e8ecf2" stroke-width="1"/>
+<text x="116" y="678.0" font-size="23" fill="#8d99ac" text-anchor="end" font-weight="normal">0</text>
+<line x1="130" y1="524.1666666666666" x2="700" y2="524.1666666666666" stroke="#e8ecf2" stroke-width="1"/>
+<text x="116" y="532.1666666666666" font-size="23" fill="#64748b" text-anchor="end" font-weight="normal">0.125</text>
+<line x1="130" y1="378.3333333333333" x2="700" y2="378.3333333333333" stroke="#e8ecf2" stroke-width="1"/>
+<text x="116" y="386.3333333333333" font-size="23" fill="#64748b" text-anchor="end" font-weight="normal">0.25</text>
+<line x1="130.0" y1="670" x2="130.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="130.0" y="707" font-size="23" fill="#8d99ac" text-anchor="middle" font-weight="normal">0</text>
+<line x1="244.0" y1="670" x2="244.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="244.0" y="707" font-size="23" fill="#8d99ac" text-anchor="middle" font-weight="normal">5</text>
+<line x1="358.0" y1="670" x2="358.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="358.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">10</text>
+<line x1="472.0" y1="670" x2="472.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="472.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">15</text>
+<line x1="586.0" y1="670" x2="586.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="586.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">20</text>
+<line x1="700.0" y1="670" x2="700.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="700.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">25</text>
+<line x1="130" y1="320" x2="130" y2="670" stroke="#8d99ac" stroke-width="1.6"/>
+<line x1="130" y1="670" x2="700" y2="670" stroke="#8d99ac" stroke-width="1.6"/>
+<text x="415.0" y="749" font-size="27" fill="#21374d" text-anchor="middle" font-weight="normal">实际随机输出</text>
+<text x="130" y="293" font-size="27" fill="#21374d" text-anchor="start" font-weight="normal">B  p = 0.5：概率质量</text>
+<line x1="130.0" y1="670.0" x2="130.0" y2="378.3333333333333" stroke="#217599" stroke-width="7"/>
+<circle cx="130.0" cy="378.3333333333333" r="5" fill="#217599" stroke="none" stroke-width="1"/>
+<line x1="145.2" y1="670.0" x2="145.2" y2="378.3333333333333" stroke="#217599" stroke-width="7"/>
+<circle cx="145.2" cy="378.3333333333333" r="5" fill="#217599" stroke="none" stroke-width="1"/>
+<line x1="198.39999999999998" y1="670.0" x2="198.39999999999998" y2="378.3333333333333" stroke="#217599" stroke-width="7"/>
+<circle cx="198.39999999999998" cy="378.3333333333333" r="5" fill="#217599" stroke="none" stroke-width="1"/>
+<line x1="213.6" y1="670.0" x2="213.6" y2="378.3333333333333" stroke="#217599" stroke-width="7"/>
+<circle cx="213.6" cy="378.3333333333333" r="5" fill="#217599" stroke="none" stroke-width="1"/>
+<line x1="130.0" y1="670.0" x2="130.0" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="130.0" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="206.0" y1="670.0" x2="206.0" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="206.0" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="297.2" y1="670.0" x2="297.2" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="297.2" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="373.2" y1="670.0" x2="373.2" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="373.2" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="426.40000000000003" y1="670.0" x2="426.40000000000003" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="426.40000000000003" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="502.4" y1="670.0" x2="502.4" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="502.4" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="593.5999999999999" y1="670.0" x2="593.5999999999999" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="593.5999999999999" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<line x1="669.5999999999999" y1="670.0" x2="669.5999999999999" y2="524.1666666666666" stroke="#cb753f" stroke-width="3"/>
+<circle cx="669.5999999999999" cy="524.1666666666666" r="5" fill="#cb753f" stroke="none" stroke-width="1"/>
+<text x="810" y="300" font-size="28" fill="#21374d" text-anchor="start" font-weight="normal">C  方差保留原公式，条件是固定权重和值</text>
+<line x1="860" y1="670.0" x2="1400" y2="670.0" stroke="#e8ecf2" stroke-width="1"/>
+<text x="846" y="678.0" font-size="23" fill="#8d99ac" text-anchor="end" font-weight="normal">0</text>
+<line x1="860" y1="596.25" x2="1400" y2="596.25" stroke="#e8ecf2" stroke-width="1"/>
+<text x="846" y="604.25" font-size="23" fill="#64748b" text-anchor="end" font-weight="normal">60</text>
+<line x1="860" y1="522.5" x2="1400" y2="522.5" stroke="#e8ecf2" stroke-width="1"/>
+<text x="846" y="530.5" font-size="23" fill="#64748b" text-anchor="end" font-weight="normal">120</text>
+<line x1="860" y1="448.75" x2="1400" y2="448.75" stroke="#e8ecf2" stroke-width="1"/>
+<text x="846" y="456.75" font-size="23" fill="#64748b" text-anchor="end" font-weight="normal">180</text>
+<line x1="860" y1="375.0" x2="1400" y2="375.0" stroke="#e8ecf2" stroke-width="1"/>
+<text x="846" y="383.0" font-size="23" fill="#64748b" text-anchor="end" font-weight="normal">240</text>
+<line x1="860.0" y1="670" x2="860.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="860.0" y="707" font-size="23" fill="#8d99ac" text-anchor="middle" font-weight="normal">0</text>
+<line x1="995.0" y1="670" x2="995.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="995.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">0.2</text>
+<line x1="1130.0" y1="670" x2="1130.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="1130.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">0.4</text>
+<line x1="1265.0" y1="670" x2="1265.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="1265.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">0.6</text>
+<line x1="1400.0" y1="670" x2="1400.0" y2="678" stroke="#8d99ac" stroke-width="1.5"/>
+<text x="1400.0" y="707" font-size="23" fill="#64748b" text-anchor="middle" font-weight="normal">0.8</text>
+<line x1="860" y1="375" x2="860" y2="670" stroke="#8d99ac" stroke-width="1.6"/>
+<line x1="860" y1="670" x2="1400" y2="670" stroke="#8d99ac" stroke-width="1.6"/>
+<text x="1130.0" y="749" font-size="27" fill="#21374d" text-anchor="middle" font-weight="normal">独立丢弃概率 p</text>
+<text x="860" y="348" font-size="27" fill="#21374d" text-anchor="start" font-weight="normal">输出方差</text>
+<path d="M860.000,670.000 L865.400,669.977 L870.800,669.953 L876.200,669.929 L881.600,669.904 L887.000,669.879 L892.400,669.854 L897.800,669.828 L903.200,669.802 L908.600,669.775 L914.000,669.748 L919.400,669.720 L924.800,669.692 L930.200,669.663 L935.600,669.634 L941.000,669.604 L946.400,669.574 L951.800,669.543 L957.200,669.512 L962.600,669.480 L968.000,669.447 L973.400,669.414 L978.800,669.380 L984.200,669.346 L989.600,669.310 L995.000,669.274 L1000.400,669.238 L1005.800,669.200 L1011.200,669.162 L1016.600,669.123 L1022.000,669.084 L1027.400,669.043 L1032.800,669.001 L1038.200,668.959 L1043.600,668.916 L1049.000,668.871 L1054.400,668.826 L1059.800,668.780 L1065.200,668.732 L1070.600,668.684 L1076.000,668.634 L1081.400,668.583 L1086.800,668.531 L1092.200,668.478 L1097.600,668.423 L1103.000,668.368 L1108.400,668.310 L1113.800,668.251 L1119.200,668.191 L1124.600,668.129 L1130.000,668.065 L1135.400,668.000 L1140.800,667.933 L1146.200,667.864 L1151.600,667.793 L1157.000,667.720 L1162.400,667.645 L1167.800,667.567 L1173.200,667.488 L1178.600,667.406 L1184.000,667.321 L1189.400,667.234 L1194.800,667.144 L1200.200,667.051 L1205.600,666.955 L1211.000,666.856 L1216.400,666.753 L1221.800,666.647 L1227.200,666.538 L1232.600,666.424 L1238.000,666.306 L1243.400,666.184 L1248.800,666.057 L1254.200,665.926 L1259.600,665.789 L1265.000,665.647 L1270.400,665.499 L1275.800,665.344 L1281.200,665.184 L1286.600,665.016 L1292.000,664.841 L1297.400,664.657 L1302.800,664.466 L1308.200,664.265 L1313.600,664.054 L1319.000,663.833 L1324.400,663.600 L1329.800,663.355 L1335.200,663.097 L1340.600,662.825 L1346.000,662.537 L1351.400,662.232 L1356.800,661.909 L1362.200,661.565 L1367.600,661.200 L1373.000,660.810 L1378.400,660.393 L1383.800,659.946 L1389.200,659.466 L1394.600,658.949 L1400.000,658.391" fill="none" stroke="#217599" stroke-width="4"/>
+<path d="M860.000,670.000 L865.400,669.420 L870.800,668.831 L876.200,668.233 L881.600,667.624 L887.000,667.005 L892.400,666.376 L897.800,665.736 L903.200,665.086 L908.600,664.424 L914.000,663.750 L919.400,663.065 L924.800,662.368 L930.200,661.658 L935.600,660.935 L941.000,660.199 L946.400,659.450 L951.800,658.687 L957.200,657.909 L962.600,657.117 L968.000,656.310 L973.400,655.487 L978.800,654.649 L984.200,653.794 L989.600,652.921 L995.000,652.032 L1000.400,651.124 L1005.800,650.199 L1011.200,649.253 L1016.600,648.289 L1022.000,647.304 L1027.400,646.297 L1032.800,645.270 L1038.200,644.220 L1043.600,643.147 L1049.000,642.050 L1054.400,640.928 L1059.800,639.781 L1065.200,638.608 L1070.600,637.407 L1076.000,636.178 L1081.400,634.920 L1086.800,633.631 L1092.200,632.311 L1097.600,630.958 L1103.000,629.572 L1108.400,628.150 L1113.800,626.692 L1119.200,625.197 L1124.600,623.661 L1130.000,622.085 L1135.400,620.467 L1140.800,618.803 L1146.200,617.094 L1151.600,615.337 L1157.000,613.529 L1162.400,611.669 L1167.800,609.754 L1173.200,607.782 L1178.600,605.751 L1184.000,603.657 L1189.400,601.497 L1194.800,599.269 L1200.200,596.969 L1205.600,594.593 L1211.000,592.139 L1216.400,589.601 L1221.800,586.975 L1227.200,584.258 L1232.600,581.443 L1238.000,578.526 L1243.400,575.501 L1248.800,572.362 L1254.200,569.103 L1259.600,565.715 L1265.000,562.192 L1270.400,558.525 L1275.800,554.705 L1281.200,550.723 L1286.600,546.567 L1292.000,542.227 L1297.400,537.690 L1302.800,532.942 L1308.200,527.967 L1313.600,522.750 L1319.000,517.272 L1324.400,511.513 L1329.800,505.451 L1335.200,499.061 L1340.600,492.316 L1346.000,485.186 L1351.400,477.636 L1356.800,469.629 L1362.200,461.122 L1367.600,452.065 L1373.000,442.405 L1378.400,432.079 L1383.800,421.014 L1389.200,409.131 L1394.600,396.333 L1400.000,382.512" fill="none" stroke="#cb753f" stroke-width="4"/>
+<text x="100" y="805" font-size="28" fill="#21374d" text-anchor="start" font-weight="normal">p = 0.5 时</text>
+<text x="385" y="786" font-size="29" fill="#217599" text-anchor="middle" font-weight="normal">85</text>
+<line x1="360.73" y1="795" x2="409.27" y2="795" stroke="#217599" stroke-width="1.8"/>
+<text x="385" y="827" font-size="29" fill="#217599" text-anchor="middle" font-weight="normal">36</text>
+<text x="440" y="805" font-size="29" fill="#217599" text-anchor="start" font-weight="normal">≈ 2.361</text>
+<text x="855" y="786" font-size="29" fill="#cb753f" text-anchor="middle" font-weight="normal">2105</text>
+<line x1="812.46" y1="795" x2="897.54" y2="795" stroke="#cb753f" stroke-width="1.8"/>
+<text x="855" y="827" font-size="29" fill="#cb753f" text-anchor="middle" font-weight="normal">36</text>
+<text x="925" y="805" font-size="29" fill="#cb753f" text-anchor="start" font-weight="normal">≈ 58.472</text>
+<text x="100" y="895" font-size="29" fill="#21374d" text-anchor="start" font-weight="normal">确定性加权均值只加 10；随机行和不固定，单次输出不只是平移。</text>
+</g></svg></svg>

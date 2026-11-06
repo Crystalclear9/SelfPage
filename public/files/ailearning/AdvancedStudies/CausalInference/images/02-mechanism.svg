@@ -1,59 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img"><title>交叉拟合：每条得分只接收“没有用过自己”的那轮预测</title><rect width="1440" height="1000" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#203742" text-anchor="start">交叉拟合：每条得分只接收“没有用过自己”的那轮预测</text>
-<text x="60" y="125" font-size="29" fill="#203742" text-anchor="start">6000 个独立单位；5 折各 1200；每轮其余 4800 拟合全部辅助函数</text>
-<text x="400" y="190" font-size="28" fill="#203742" text-anchor="middle">折 1</text>
-<text x="555" y="190" font-size="28" fill="#203742" text-anchor="middle">折 2</text>
-<text x="710" y="190" font-size="28" fill="#203742" text-anchor="middle">折 3</text>
-<text x="865" y="190" font-size="28" fill="#203742" text-anchor="middle">折 4</text>
-<text x="1020" y="190" font-size="28" fill="#203742" text-anchor="middle">折 5</text>
-<text x="60" y="257" font-size="28" fill="#203742" text-anchor="start">拟合轮次 1</text>
-<rect x="330" y="220" width="140" height="49" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<rect x="485" y="220" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="640" y="220" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="795" y="220" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="950" y="220" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="1190" y="255" font-size="27" fill="#c96937" text-anchor="start">→ 本折得分</text>
-<text x="60" y="326" font-size="28" fill="#203742" text-anchor="start">拟合轮次 2</text>
-<rect x="330" y="289" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="485" y="289" width="140" height="49" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<rect x="640" y="289" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="795" y="289" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="950" y="289" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="1190" y="324" font-size="27" fill="#c96937" text-anchor="start">→ 本折得分</text>
-<text x="60" y="395" font-size="28" fill="#203742" text-anchor="start">拟合轮次 3</text>
-<rect x="330" y="358" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="485" y="358" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="640" y="358" width="140" height="49" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<rect x="795" y="358" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="950" y="358" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="1190" y="393" font-size="27" fill="#c96937" text-anchor="start">→ 本折得分</text>
-<text x="60" y="464" font-size="28" fill="#203742" text-anchor="start">拟合轮次 4</text>
-<rect x="330" y="427" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="485" y="427" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="640" y="427" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="795" y="427" width="140" height="49" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<rect x="950" y="427" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="1190" y="462" font-size="27" fill="#c96937" text-anchor="start">→ 本折得分</text>
-<text x="60" y="533" font-size="28" fill="#203742" text-anchor="start">拟合轮次 5</text>
-<rect x="330" y="496" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="485" y="496" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="640" y="496" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="795" y="496" width="140" height="49" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<rect x="950" y="496" width="140" height="49" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1190" y="531" font-size="27" fill="#c96937" text-anchor="start">→ 本折得分</text>
-<text x="340" y="630" font-size="27" fill="#216c89" text-anchor="start">蓝：训练输入</text>
-<text x="780" y="630" font-size="27" fill="#c96937" text-anchor="start">橙：只预测与评分</text>
-<line x1="60" y1="670" x2="1380" y2="670" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="725" font-size="30" fill="#203742" text-anchor="start">展开第 3 折中的一条记录：</text>
-<text x="60" y="775" font-size="29" fill="#203742" text-anchor="start">观察 A=1，Y=3</text>
-<text x="60" y="825" font-size="29" fill="#203742" text-anchor="start">折外预测 m1=2，m0=1，e=0.25</text>
-<text x="740" y="720" font-size="29" fill="#203742" text-anchor="start">该条增广得分</text>
-<rect x="745" y="755" width="105" height="64" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="797" y="796" font-size="30" fill="#216c89" text-anchor="middle">1</text>
-<rect x="850" y="755" width="420" height="64" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1060" y="796" font-size="30" fill="#c96937" text-anchor="middle">+ 4</text>
-<text x="745" y="860" font-size="27" fill="#216c89" text-anchor="start">回归差 2−1</text>
-<text x="1120" y="860" font-size="26" fill="#c96937" text-anchor="middle">残差修正 (3−2)÷0.25</text>
-<text x="1290" y="797" font-size="30" fill="#203742" text-anchor="start">= 5</text>
-<text x="60" y="930" font-size="28" fill="#203742" text-anchor="start">每条记录只计一次 → 平均 6000 条得分；训练集重叠仍会带来共享随机性。</text>
-</g></svg>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1075.3333" viewBox="0 0 1440 1075.3333" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">交叉拟合让打分使用未参与拟合的样本</title><rect width="1440" height="1075.3333" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">交叉拟合让打分使用未参与拟合的样本</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="933.3333" viewBox="0 0 1440 1000" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>交叉拟合：每条得分只接收“没有用过自己”的那轮预测</title><rect width="1440" height="1000" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">交叉拟合：每条得分只接收“没有用过自己”的那轮预测</text>
+<text x="60" y="125" font-size="29" fill="#1d3145" text-anchor="start">6000 个独立单位；5 折各 1200；每轮其余 4800 拟合全部辅助函数</text>
+<text x="400" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 1</text>
+<text x="555" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 2</text>
+<text x="710" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 3</text>
+<text x="865" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 4</text>
+<text x="1020" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 5</text>
+<text x="60" y="257" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 1</text>
+<rect x="330" y="220" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<rect x="485" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="640" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="795" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="950" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="1190" y="255" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
+<text x="60" y="326" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 2</text>
+<rect x="330" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="485" y="289" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<rect x="640" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="795" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="950" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="1190" y="324" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
+<text x="60" y="395" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 3</text>
+<rect x="330" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="485" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="640" y="358" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<rect x="795" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="950" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="1190" y="393" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
+<text x="60" y="464" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 4</text>
+<rect x="330" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="485" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="640" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="795" y="427" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<rect x="950" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="1190" y="462" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
+<text x="60" y="533" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 5</text>
+<rect x="330" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="485" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="640" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="795" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<rect x="950" y="496" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1190" y="531" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
+<text x="340" y="630" font-size="27" fill="#1e7499" text-anchor="start">蓝：训练输入</text>
+<text x="780" y="630" font-size="27" fill="#c66d3a" text-anchor="start">橙：只预测与评分</text>
+<line x1="60" y1="670" x2="1380" y2="670" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="725" font-size="30" fill="#1d3145" text-anchor="start">展开第 3 折中的一条记录：</text>
+<text x="60" y="775" font-size="29" fill="#1d3145" text-anchor="start">观察 A=1，Y=3</text>
+<text x="60" y="825" font-size="29" fill="#1d3145" text-anchor="start">折外预测 m1=2，m0=1，e=0.25</text>
+<text x="740" y="720" font-size="29" fill="#1d3145" text-anchor="start">该条增广得分</text>
+<rect x="745" y="755" width="105" height="64" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="797" y="796" font-size="30" fill="#1e7499" text-anchor="middle">1</text>
+<rect x="850" y="755" width="420" height="64" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1060" y="796" font-size="30" fill="#c66d3a" text-anchor="middle">+ 4</text>
+<text x="745" y="860" font-size="27" fill="#1e7499" text-anchor="start">回归差 2−1</text>
+<text x="1120" y="860" font-size="26" fill="#c66d3a" text-anchor="middle">残差修正 (3−2)÷0.25</text>
+<text x="1290" y="797" font-size="30" fill="#1d3145" text-anchor="start">= 5</text>
+<text x="60" y="930" font-size="28" fill="#1d3145" text-anchor="start">每条记录只计一次 → 平均 6000 条得分；训练集重叠仍会带来共享随机性。</text>
+</g></svg></svg>

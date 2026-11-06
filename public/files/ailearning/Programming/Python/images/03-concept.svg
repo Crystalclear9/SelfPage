@@ -1,78 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img"><title>原子发布切换的是名字，读者持有的是已打开的文件</title><rect width="1440" height="900" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#203742" text-anchor="start">原子发布切换的是名字，读者持有的是已打开的文件</text>
-<text x="260" y="135" font-size="28" fill="#203742" text-anchor="middle">① 准备</text>
-<text x="550" y="135" font-size="28" fill="#203742" text-anchor="middle">② 写临时文件</text>
-<text x="840" y="135" font-size="28" fill="#203742" text-anchor="middle">③ 关闭并校验</text>
-<text x="1130" y="135" font-size="28" fill="#203742" text-anchor="middle">④ replace 成功</text>
-<text x="25" y="240" font-size="25" fill="#203742" text-anchor="start">正式路径</text>
-<text x="25" y="420" font-size="25" fill="#203742" text-anchor="start">临时路径</text>
-<rect x="155" y="205" width="210" height="120" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="260" y="243" font-size="29" fill="#216c89" text-anchor="middle">旧版 V1</text>
-<rect x="180" y="262" width="65" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="212.5" y="298" font-size="27" fill="#216c89" text-anchor="middle">1</text>
-<rect x="255" y="262" width="65" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="287.5" y="298" font-size="27" fill="#216c89" text-anchor="middle">1</text>
-<text x="260" y="430" font-size="27" fill="#7b8c95" text-anchor="middle">不存在</text>
-<line x1="375" y1="255" x2="430" y2="255" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M418.95,259.67 L430.00,255.00 L418.95,250.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<rect x="445" y="205" width="210" height="120" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="550" y="243" font-size="29" fill="#216c89" text-anchor="middle">旧版 V1</text>
-<rect x="470" y="262" width="65" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="502.5" y="298" font-size="27" fill="#216c89" text-anchor="middle">1</text>
-<rect x="545" y="262" width="65" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="577.5" y="298" font-size="27" fill="#216c89" text-anchor="middle">1</text>
-<rect x="445" y="385" width="210" height="120" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="550" y="422" font-size="27" fill="#c96937" text-anchor="middle">写入中</text>
-<rect x="470" y="441" width="65" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="502.5" y="477" font-size="27" fill="#c96937" text-anchor="middle">2</text>
-<rect x="545" y="441" width="65" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="577.5" y="477" font-size="27" fill="#c96937" text-anchor="middle">…</text>
-<line x1="665" y1="255" x2="720" y2="255" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M708.95,259.67 L720.00,255.00 L708.95,250.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<rect x="735" y="205" width="210" height="120" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="840" y="243" font-size="29" fill="#216c89" text-anchor="middle">旧版 V1</text>
-<rect x="760" y="262" width="65" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="792.5" y="298" font-size="27" fill="#216c89" text-anchor="middle">1</text>
-<rect x="835" y="262" width="65" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="867.5" y="298" font-size="27" fill="#216c89" text-anchor="middle">1</text>
-<rect x="735" y="385" width="210" height="120" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="840" y="422" font-size="27" fill="#c96937" text-anchor="middle">完整 V2</text>
-<rect x="760" y="441" width="65" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="792.5" y="477" font-size="27" fill="#c96937" text-anchor="middle">2</text>
-<rect x="835" y="441" width="65" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="867.5" y="477" font-size="27" fill="#c96937" text-anchor="middle">2</text>
-<line x1="955" y1="255" x2="1010" y2="255" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M998.95,259.67 L1010.00,255.00 L998.95,250.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<rect x="1025" y="205" width="210" height="120" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1130" y="243" font-size="29" fill="#c96937" text-anchor="middle">新版 V2</text>
-<rect x="1050" y="262" width="65" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1082.5" y="298" font-size="27" fill="#c96937" text-anchor="middle">2</text>
-<rect x="1125" y="262" width="65" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1157.5" y="298" font-size="27" fill="#c96937" text-anchor="middle">2</text>
-<rect x="1025" y="385" width="210" height="120" rx="3" fill="#f5f7f8" stroke="#7b8c95" stroke-dasharray="7 5"/>
-<text x="1130" y="422" font-size="27" fill="#7b8c95" text-anchor="middle">名字已移走</text>
-<line x1="990" y1="165" x2="990" y2="520" stroke="#c96937" stroke-width="3" stroke-dasharray="7 7"/>
-<line x1="945" y1="438" x2="1040" y2="310" stroke="#c96937" stroke-width="2" stroke-dasharray=""/>
-<path d="M1037.17,321.66 L1040.00,310.00 L1029.66,316.09" fill="none" stroke="#c96937" stroke-width="2"/>
-<text x="55" y="575" font-size="30" fill="#203742" text-anchor="start">替换后，两种读者读到不同版本</text>
-<rect x="55" y="620" width="290" height="82" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="200" y="653" font-size="27" fill="#216c89" text-anchor="middle">已打开的旧读者 R1</text>
-<text x="200" y="687" font-size="27" fill="#216c89" text-anchor="middle">持有旧文件</text>
-<rect x="575" y="620" width="270" height="82" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="710" y="655" font-size="29" fill="#216c89" text-anchor="middle">旧文件 V1</text>
-<text x="710" y="688" font-size="27" fill="#216c89" text-anchor="middle">内容仍为 1, 1</text>
-<line x1="345" y1="660" x2="575" y2="660" stroke="#216c89" stroke-width="2" stroke-dasharray=""/>
-<path d="M563.95,664.67 L575.00,660.00 L563.95,655.33" fill="none" stroke="#216c89" stroke-width="2"/>
-<rect x="55" y="745" width="290" height="82" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="200" y="778" font-size="27" fill="#c96937" text-anchor="middle">重新打开路径的 R2</text>
-<text x="200" y="812" font-size="27" fill="#c96937" text-anchor="middle">解析正式名字</text>
-<rect x="575" y="745" width="270" height="82" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="710" y="780" font-size="29" fill="#c96937" text-anchor="middle">新文件 V2</text>
-<text x="710" y="813" font-size="27" fill="#c96937" text-anchor="middle">内容为 2, 2</text>
-<line x1="345" y1="785" x2="575" y2="785" stroke="#c96937" stroke-width="2" stroke-dasharray=""/>
-<path d="M563.95,789.67 L575.00,785.00 L563.95,780.33" fill="none" stroke="#c96937" stroke-width="2"/>
-<text x="925" y="655" font-size="27" fill="#203742" text-anchor="start">同文件系统的成功替换</text>
-<text x="925" y="710" font-size="27" fill="#203742" text-anchor="start">不是原文件逐字节改写</text>
-<text x="925" y="765" font-size="27" fill="#203742" text-anchor="start">持久性另需同步约定</text>
-<text x="925" y="820" font-size="27" fill="#203742" text-anchor="start">平台共享模式另行核对</text>
-</g></svg>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="982" viewBox="0 0 1440 982" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">临时文件与正式文件的发布边界</title><rect width="1440" height="982" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">临时文件与正式文件的发布边界</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="840" viewBox="0 0 1440 900" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>原子发布切换的是名字，读者持有的是已打开的文件</title><rect width="1440" height="900" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">原子发布切换的是名字，读者持有的是已打开的文件</text>
+<text x="260" y="135" font-size="28" fill="#1d3145" text-anchor="middle">① 准备</text>
+<text x="550" y="135" font-size="28" fill="#1d3145" text-anchor="middle">② 写临时文件</text>
+<text x="840" y="135" font-size="28" fill="#1d3145" text-anchor="middle">③ 关闭并校验</text>
+<text x="1130" y="135" font-size="28" fill="#1d3145" text-anchor="middle">④ replace 成功</text>
+<text x="25" y="240" font-size="25" fill="#1d3145" text-anchor="start">正式路径</text>
+<text x="25" y="420" font-size="25" fill="#1d3145" text-anchor="start">临时路径</text>
+<rect x="155" y="205" width="210" height="120" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="260" y="243" font-size="29" fill="#1e7499" text-anchor="middle">旧版 V1</text>
+<rect x="180" y="262" width="65" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="212.5" y="298" font-size="27" fill="#1e7499" text-anchor="middle">1</text>
+<rect x="255" y="262" width="65" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="287.5" y="298" font-size="27" fill="#1e7499" text-anchor="middle">1</text>
+<text x="260" y="430" font-size="27" fill="#7b889c" text-anchor="middle">不存在</text>
+<line x1="375" y1="255" x2="430" y2="255" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M418.95,259.67 L430.00,255.00 L418.95,250.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<rect x="445" y="205" width="210" height="120" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="550" y="243" font-size="29" fill="#1e7499" text-anchor="middle">旧版 V1</text>
+<rect x="470" y="262" width="65" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="502.5" y="298" font-size="27" fill="#1e7499" text-anchor="middle">1</text>
+<rect x="545" y="262" width="65" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="577.5" y="298" font-size="27" fill="#1e7499" text-anchor="middle">1</text>
+<rect x="445" y="385" width="210" height="120" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="550" y="422" font-size="27" fill="#c66d3a" text-anchor="middle">写入中</text>
+<rect x="470" y="441" width="65" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="502.5" y="477" font-size="27" fill="#c66d3a" text-anchor="middle">2</text>
+<rect x="545" y="441" width="65" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="577.5" y="477" font-size="27" fill="#c66d3a" text-anchor="middle">…</text>
+<line x1="665" y1="255" x2="720" y2="255" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M708.95,259.67 L720.00,255.00 L708.95,250.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<rect x="735" y="205" width="210" height="120" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="840" y="243" font-size="29" fill="#1e7499" text-anchor="middle">旧版 V1</text>
+<rect x="760" y="262" width="65" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="792.5" y="298" font-size="27" fill="#1e7499" text-anchor="middle">1</text>
+<rect x="835" y="262" width="65" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="867.5" y="298" font-size="27" fill="#1e7499" text-anchor="middle">1</text>
+<rect x="735" y="385" width="210" height="120" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="840" y="422" font-size="27" fill="#c66d3a" text-anchor="middle">完整 V2</text>
+<rect x="760" y="441" width="65" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="792.5" y="477" font-size="27" fill="#c66d3a" text-anchor="middle">2</text>
+<rect x="835" y="441" width="65" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="867.5" y="477" font-size="27" fill="#c66d3a" text-anchor="middle">2</text>
+<line x1="955" y1="255" x2="1010" y2="255" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M998.95,259.67 L1010.00,255.00 L998.95,250.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<rect x="1025" y="205" width="210" height="120" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1130" y="243" font-size="29" fill="#c66d3a" text-anchor="middle">新版 V2</text>
+<rect x="1050" y="262" width="65" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1082.5" y="298" font-size="27" fill="#c66d3a" text-anchor="middle">2</text>
+<rect x="1125" y="262" width="65" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1157.5" y="298" font-size="27" fill="#c66d3a" text-anchor="middle">2</text>
+<rect x="1025" y="385" width="210" height="120" rx="3" fill="#f5f7f8" stroke="#7b889c" stroke-dasharray="7 5"/>
+<text x="1130" y="422" font-size="27" fill="#7b889c" text-anchor="middle">名字已移走</text>
+<line x1="990" y1="165" x2="990" y2="520" stroke="#c66d3a" stroke-width="3" stroke-dasharray="7 7"/>
+<line x1="945" y1="438" x2="1040" y2="310" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
+<path d="M1037.17,321.66 L1040.00,310.00 L1029.66,316.09" fill="none" stroke="#c66d3a" stroke-width="2"/>
+<text x="55" y="575" font-size="30" fill="#1d3145" text-anchor="start">替换后，两种读者读到不同版本</text>
+<rect x="55" y="620" width="290" height="82" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="200" y="653" font-size="27" fill="#1e7499" text-anchor="middle">已打开的旧读者 R1</text>
+<text x="200" y="687" font-size="27" fill="#1e7499" text-anchor="middle">持有旧文件</text>
+<rect x="575" y="620" width="270" height="82" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="710" y="655" font-size="29" fill="#1e7499" text-anchor="middle">旧文件 V1</text>
+<text x="710" y="688" font-size="27" fill="#1e7499" text-anchor="middle">内容仍为 1, 1</text>
+<line x1="345" y1="660" x2="575" y2="660" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
+<path d="M563.95,664.67 L575.00,660.00 L563.95,655.33" fill="none" stroke="#1e7499" stroke-width="2"/>
+<rect x="55" y="745" width="290" height="82" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="200" y="778" font-size="27" fill="#c66d3a" text-anchor="middle">重新打开路径的 R2</text>
+<text x="200" y="812" font-size="27" fill="#c66d3a" text-anchor="middle">解析正式名字</text>
+<rect x="575" y="745" width="270" height="82" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="710" y="780" font-size="29" fill="#c66d3a" text-anchor="middle">新文件 V2</text>
+<text x="710" y="813" font-size="27" fill="#c66d3a" text-anchor="middle">内容为 2, 2</text>
+<line x1="345" y1="785" x2="575" y2="785" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
+<path d="M563.95,789.67 L575.00,785.00 L563.95,780.33" fill="none" stroke="#c66d3a" stroke-width="2"/>
+<text x="925" y="655" font-size="27" fill="#1d3145" text-anchor="start">同文件系统的成功替换</text>
+<text x="925" y="710" font-size="27" fill="#1d3145" text-anchor="start">不是原文件逐字节改写</text>
+<text x="925" y="765" font-size="27" fill="#1d3145" text-anchor="start">持久性另需同步约定</text>
+<text x="925" y="820" font-size="27" fill="#1d3145" text-anchor="start">平台共享模式另行核对</text>
+</g></svg></svg>

@@ -1,48 +1,48 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1346" height="778" viewBox="27 64 1346 778" role="img" aria-labelledby="title desc"><rect x="27" y="64" width="1346" height="778" fill="#ffffff"/><title id="title">LoRA：矩阵的四个数字，只沿一个方向移动</title><desc id="desc">正文二维增量的精确秩一分解，以及三个输入对应的共线输出增量。</desc><rect width="1400" height="870" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#20343d">
-<text x="45" y="105" font-size="27" fill="#6d7c84" text-anchor="start" font-weight="400">取正文实验的目标增量；缩放 s = 1</text>
-<line x1="45" y1="130" x2="1355" y2="130" stroke="#a9b8be" stroke-width="2"/>
-<text x="65" y="185" font-size="30" fill="#20343d" text-anchor="start" font-weight="700">① 因子乘积</text>
-<rect x="70" y="215" width="99" height="71" fill="#edf4f7" stroke="#2c6892" stroke-width="2"/>
-<text x="119" y="261" font-size="30" fill="#2c6892" text-anchor="middle" font-weight="400">0.4</text>
-<rect x="70" y="292" width="99" height="71" fill="#edf4f7" stroke="#2c6892" stroke-width="2"/>
-<text x="119" y="338" font-size="30" fill="#2c6892" text-anchor="middle" font-weight="400">0.8</text>
-<text x="115" y="420" font-size="32" fill="#2c6892" text-anchor="middle" font-weight="400">B</text>
-<text x="200" y="308" font-size="36" fill="#20343d" text-anchor="start" font-weight="400">×</text>
-<rect x="250" y="252" width="99" height="71" fill="#edf4f7" stroke="#c67630" stroke-width="2"/>
-<text x="299" y="298" font-size="30" fill="#c67630" text-anchor="middle" font-weight="400">1</text>
-<rect x="355" y="252" width="99" height="71" fill="#edf4f7" stroke="#c67630" stroke-width="2"/>
-<text x="404" y="298" font-size="30" fill="#c67630" text-anchor="middle" font-weight="400">-0.5</text>
-<text x="350" y="420" font-size="32" fill="#c67630" text-anchor="middle" font-weight="400">A</text>
-<text x="490" y="308" font-size="36" fill="#20343d" text-anchor="start" font-weight="400">=</text>
-<rect x="540" y="215" width="99" height="71" fill="#edf4f7" stroke="#237e74" stroke-width="2"/>
-<text x="589" y="261" font-size="30" fill="#237e74" text-anchor="middle" font-weight="400">0.4</text>
-<rect x="645" y="215" width="99" height="71" fill="#edf4f7" stroke="#237e74" stroke-width="2"/>
-<text x="694" y="261" font-size="30" fill="#237e74" text-anchor="middle" font-weight="400">-0.2</text>
-<rect x="540" y="292" width="99" height="71" fill="#edf4f7" stroke="#237e74" stroke-width="2"/>
-<text x="589" y="338" font-size="30" fill="#237e74" text-anchor="middle" font-weight="400">0.8</text>
-<rect x="645" y="292" width="99" height="71" fill="#edf4f7" stroke="#237e74" stroke-width="2"/>
-<text x="694" y="338" font-size="30" fill="#237e74" text-anchor="middle" font-weight="400">-0.4</text>
-<text x="640" y="420" font-size="30" fill="#237e74" text-anchor="middle" font-weight="400">ΔW = BA</text>
-<text x="70" y="480" font-size="30" fill="#20343d" text-anchor="start" font-weight="400">第二列 = −0.5 × 第一列</text>
-<text x="70" y="530" font-size="26" fill="#6d7c84" text-anchor="start" font-weight="400">四个因子参数；秩一矩阵只有三个自由度。</text>
-<text x="830" y="185" font-size="30" fill="#20343d" text-anchor="start" font-weight="700">② 输出增量始终共线</text>
-<line x1="900" y1="440" x2="1250" y2="440" stroke="#6d7c84" stroke-width="2"/>
-<line x1="1075" y1="580.0" x2="1075" y2="177.5" stroke="#6d7c84" stroke-width="2"/>
-<text x="1300" y="450" font-size="26" fill="#20343d" text-anchor="start" font-weight="400">Δy1</text>
-<text x="1107" y="216" font-size="26" fill="#20343d" text-anchor="start" font-weight="400">Δy2</text>
-<line x1="987.5" y1="615" x2="1197.5" y2="195.00000000000003" stroke="#237e74" stroke-width="2" stroke-dasharray="7 7"/>
-<line x1="1075" y1="440" x2="1145.0" y2="300.0" stroke="#2c6892" stroke-width="4"/>
-<circle cx="1145.0" cy="300.0" r="7" fill="#2c6892" stroke="none" stroke-width="3"/>
-<text x="1165.0" y="292.0" font-size="25" fill="#2c6892" text-anchor="start" font-weight="400">x = (1, 0)</text>
-<line x1="1075" y1="440" x2="1040.0" y2="510.0" stroke="#c67630" stroke-width="4"/>
-<circle cx="1040.0" cy="510.0" r="7" fill="#c67630" stroke="none" stroke-width="3"/>
-<text x="870.0" y="538.0" font-size="25" fill="#c67630" text-anchor="start" font-weight="400">x = (0, 1)</text>
-<line x1="1075" y1="440" x2="1110.0" y2="370.0" stroke="#237e74" stroke-width="4"/>
-<circle cx="1110.0" cy="370.0" r="7" fill="#237e74" stroke="none" stroke-width="3"/>
-<text x="945.0" y="360.0" font-size="25" fill="#237e74" text-anchor="start" font-weight="400">x = (1, 1)</text>
-<text x="870" y="610" font-size="29" fill="#237e74" text-anchor="start" font-weight="400">Δy = B (x1 − 0.5 x2)</text>
-<line x1="45" y1="650" x2="1355" y2="650" stroke="#a9b8be" stroke-width="2"/>
-<text x="60" y="710" font-size="30" fill="#20343d" text-anchor="start" font-weight="700">③ 部署可合并：W0x + B(Ax) = (W0 + BA)x</text>
-<text x="60" y="770" font-size="27" fill="#20343d" text-anchor="start" font-weight="400">相同确定性线性映射；低秩约束只施加在增量 BA 上。</text>
-<text x="60" y="820" font-size="26" fill="#6d7c84" text-anchor="start" font-weight="400">本例用于看清几何：2 × 2、秩一并不节省因子存储。</text></g></svg>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="918.844" viewBox="0 0 1440 918.844" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">LoRA：四个矩阵元素共用一个输出方向</title><rect width="1440" height="918.844" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">LoRA：四个矩阵元素共用一个输出方向</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="776.844" viewBox="27 64 1346 778" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden"><rect x="27" y="64" width="1346" height="778" fill="#ffffff"/><title id="title">LoRA：矩阵的四个数字，只沿一个方向移动</title><desc id="desc">正文二维增量的精确秩一分解，以及三个输入对应的共线输出增量。</desc><rect width="1400" height="870" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1c2e41">
+<text x="45" y="105" font-size="27" fill="#6d8491" text-anchor="start" font-weight="400">取正文实验的目标增量；缩放 s = 1</text>
+<line x1="45" y1="130" x2="1355" y2="130" stroke="#abb5c3" stroke-width="2"/>
+<text x="65" y="185" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="700">① 因子乘积</text>
+<rect x="70" y="215" width="99" height="71" fill="#edf4f7" stroke="#2972a2" stroke-width="2"/>
+<text x="119" y="261" font-size="30" fill="#2972a2" text-anchor="middle" font-weight="400">0.4</text>
+<rect x="70" y="292" width="99" height="71" fill="#edf4f7" stroke="#2972a2" stroke-width="2"/>
+<text x="119" y="338" font-size="30" fill="#2972a2" text-anchor="middle" font-weight="400">0.8</text>
+<text x="115" y="420" font-size="32" fill="#2972a2" text-anchor="middle" font-weight="400">B</text>
+<text x="200" y="308" font-size="36" fill="#1c2e41" text-anchor="start" font-weight="400">×</text>
+<rect x="250" y="252" width="99" height="71" fill="#edf4f7" stroke="#c27334" stroke-width="2"/>
+<text x="299" y="298" font-size="30" fill="#c27334" text-anchor="middle" font-weight="400">1</text>
+<rect x="355" y="252" width="99" height="71" fill="#edf4f7" stroke="#c27334" stroke-width="2"/>
+<text x="404" y="298" font-size="30" fill="#c27334" text-anchor="middle" font-weight="400">-0.5</text>
+<text x="350" y="420" font-size="32" fill="#c27334" text-anchor="middle" font-weight="400">A</text>
+<text x="490" y="308" font-size="36" fill="#1c2e41" text-anchor="start" font-weight="400">=</text>
+<rect x="540" y="215" width="99" height="71" fill="#edf4f7" stroke="#21898e" stroke-width="2"/>
+<text x="589" y="261" font-size="30" fill="#21898e" text-anchor="middle" font-weight="400">0.4</text>
+<rect x="645" y="215" width="99" height="71" fill="#edf4f7" stroke="#21898e" stroke-width="2"/>
+<text x="694" y="261" font-size="30" fill="#21898e" text-anchor="middle" font-weight="400">-0.2</text>
+<rect x="540" y="292" width="99" height="71" fill="#edf4f7" stroke="#21898e" stroke-width="2"/>
+<text x="589" y="338" font-size="30" fill="#21898e" text-anchor="middle" font-weight="400">0.8</text>
+<rect x="645" y="292" width="99" height="71" fill="#edf4f7" stroke="#21898e" stroke-width="2"/>
+<text x="694" y="338" font-size="30" fill="#21898e" text-anchor="middle" font-weight="400">-0.4</text>
+<text x="640" y="420" font-size="30" fill="#21898e" text-anchor="middle" font-weight="400">ΔW = BA</text>
+<text x="70" y="480" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="400">第二列 = −0.5 × 第一列</text>
+<text x="70" y="530" font-size="26" fill="#6d8491" text-anchor="start" font-weight="400">四个因子参数；秩一矩阵只有三个自由度。</text>
+<text x="830" y="185" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="700">② 输出增量始终共线</text>
+<line x1="900" y1="440" x2="1250" y2="440" stroke="#6d8491" stroke-width="2"/>
+<line x1="1075" y1="580.0" x2="1075" y2="177.5" stroke="#6d8491" stroke-width="2"/>
+<text x="1300" y="450" font-size="26" fill="#1c2e41" text-anchor="start" font-weight="400">Δy1</text>
+<text x="1107" y="216" font-size="26" fill="#1c2e41" text-anchor="start" font-weight="400">Δy2</text>
+<line x1="987.5" y1="615" x2="1197.5" y2="195.00000000000003" stroke="#21898e" stroke-width="2" stroke-dasharray="7 7"/>
+<line x1="1075" y1="440" x2="1145.0" y2="300.0" stroke="#2972a2" stroke-width="4"/>
+<circle cx="1145.0" cy="300.0" r="7" fill="#2972a2" stroke="none" stroke-width="3"/>
+<text x="1165.0" y="292.0" font-size="25" fill="#2972a2" text-anchor="start" font-weight="400">x = (1, 0)</text>
+<line x1="1075" y1="440" x2="1040.0" y2="510.0" stroke="#c27334" stroke-width="4"/>
+<circle cx="1040.0" cy="510.0" r="7" fill="#c27334" stroke="none" stroke-width="3"/>
+<text x="870.0" y="538.0" font-size="25" fill="#c27334" text-anchor="start" font-weight="400">x = (0, 1)</text>
+<line x1="1075" y1="440" x2="1110.0" y2="370.0" stroke="#21898e" stroke-width="4"/>
+<circle cx="1110.0" cy="370.0" r="7" fill="#21898e" stroke="none" stroke-width="3"/>
+<text x="945.0" y="360.0" font-size="25" fill="#21898e" text-anchor="start" font-weight="400">x = (1, 1)</text>
+<text x="870" y="610" font-size="29" fill="#21898e" text-anchor="start" font-weight="400">Δy = B (x1 − 0.5 x2)</text>
+<line x1="45" y1="650" x2="1355" y2="650" stroke="#abb5c3" stroke-width="2"/>
+<text x="60" y="710" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="700">③ 部署可合并：W0x + B(Ax) = (W0 + BA)x</text>
+<text x="60" y="770" font-size="27" fill="#1c2e41" text-anchor="start" font-weight="400">相同确定性线性映射；低秩约束只施加在增量 BA 上。</text>
+<text x="60" y="820" font-size="26" fill="#6d8491" text-anchor="start" font-weight="400">本例用于看清几何：2 × 2、秩一并不节省因子存储。</text></g></svg></svg>

@@ -1,1 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="853.8693" viewBox="56.1778 107.3778 1132.0889 755.2000" role="img"><title>零重构误差，也可能是离训练数据极远的点</title><rect width="1280" height="880" fill="white" /><g font-family="Microsoft YaHei, sans-serif"><text x="80" y="155" font-size="28" fill="#19333c" text-anchor="start">空间外：残差平方 Q</text><line x1="130.0" y1="670" x2="1090.010422546447" y2="670" stroke="#dbe5e8" stroke-width="2" /><text x="112.0" y="679" font-size="25" fill="#50636e" text-anchor="end">0</text><line x1="130.0" y1="580" x2="1090.010422546447" y2="580" stroke="#dbe5e8" stroke-width="2" /><text x="112.0" y="589" font-size="25" fill="#50636e" text-anchor="end">1</text><line x1="130.0" y1="490" x2="1090.010422546447" y2="490" stroke="#dbe5e8" stroke-width="2" /><text x="112.0" y="499" font-size="25" fill="#50636e" text-anchor="end">2</text><line x1="130.0" y1="400" x2="1090.010422546447" y2="400" stroke="#dbe5e8" stroke-width="2" /><text x="112.0" y="409" font-size="25" fill="#50636e" text-anchor="end">3</text><line x1="130.0" y1="310" x2="1090.010422546447" y2="310" stroke="#dbe5e8" stroke-width="2" /><text x="112.0" y="319" font-size="25" fill="#50636e" text-anchor="end">4</text><line x1="130.0" y1="220" x2="1090.010422546447" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="112.0" y="229" font-size="25" fill="#50636e" text-anchor="end">5</text><line x1="130.0" y1="670" x2="130.0" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="130.0" y="716" font-size="24" fill="#50636e" text-anchor="middle">0</text><line x1="202.2471989593555" y1="670" x2="202.2471989593555" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="202.2471989593555" y="716" font-size="24" fill="#50636e" text-anchor="middle">1</text><line x1="379.93424443797403" y1="670" x2="379.93424443797403" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="379.93424443797403" y="716" font-size="24" fill="#50636e" text-anchor="middle">10</text><line x1="611.0371297078343" y1="670" x2="611.0371297078343" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="611.0371297078343" y="716" font-size="24" fill="#50636e" text-anchor="middle">100</text><line x1="850.1041785950365" y1="670" x2="850.1041785950365" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="850.1041785950365" y="716" font-size="24" fill="#50636e" text-anchor="middle">1000</text><line x1="1090.010422546447" y1="670" x2="1090.010422546447" y2="220" stroke="#dbe5e8" stroke-width="2" /><text x="1090.010422546447" y="716" font-size="24" fill="#50636e" text-anchor="middle">10000</text><line x1="130.0" y1="670" x2="1090.010422546447" y2="670" stroke="#71858b" stroke-width="2" /><line x1="130.0" y1="670" x2="130.0" y2="220" stroke="#71858b" stroke-width="2" /><line x1="188.32913168471066" y1="625.0" x2="188.32913168471066" y2="265.0" stroke="#c0643c" stroke-width="2" /><line x1="188.32913168471066" y1="625.0" x2="975.5221633805355" y2="670" stroke="#256b82" stroke-width="2" /><circle cx="188.32913168471066" cy="625.0" r="9" fill="#19333c" /><text x="180" y="600" font-size="27" fill="#19333c" text-anchor="start">训练 A—D：D = 0.75，Q = 0.5</text><circle cx="188.32913168471066" cy="265.0" r="9" fill="#c0643c" /><text x="270" y="235" font-size="27" fill="#c0643c" text-anchor="start">新点 (13, 20)：D = 0.75，Q = 4.5</text><circle cx="975.5221633805355" cy="670" r="9" fill="#256b82" /><text x="690" y="615" font-size="27" fill="#256b82" text-anchor="start">新点 (110, 120)：D ≈ 3333.33，Q = 0</text><text x="1090" y="767" font-size="26" fill="#50636e" text-anchor="end">空间内：D（横轴按 log10(1 + D) 排布）</text><text x="80" y="835" font-size="29" fill="#19333c" text-anchor="start">只看竖向残差会漏掉右侧远点；两种偏离需要分别检查。</text></g><desc> 零重构误差，也可能是离训练数据极远的点</desc></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="933" viewBox="0 0 960 933" role="img" aria-labelledby="title desc">
+<title id="title">两个新点沿不同方向偏离训练数据</title><desc id="desc">训练点的 D 为 0.75、Q 为 0.5。新点 (13,20) 主要偏离训练直线；(110,120) 的残差为零但沿主轴很远。</desc>
+<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="933" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
+<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">两个新点沿不同方向偏离训练数据</text>
+<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">D 衡量沿主轴走了多远，Q 衡量离训练直线有多远</text>
+<rect x="44" y="143" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
+<text x="65" y="173" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
+<text x="101" y="173" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">保留方向与残差方向分开读</text>
+<rect x="44" y="203" width="419" height="257" rx="13" fill="#fff2e8" stroke="#cedae4" stroke-width="1.8"/>
+<text x="67" y="246" font-size="28" fill="#172a40" font-weight="700" text-anchor="start">新点 (13, 20)</text>
+<line x1="100" y1="342" x2="395" y2="342" stroke="#465d72" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="254" y1="340" x2="254" y2="279" stroke="#a85127" stroke-width="3" stroke-dasharray="5 5"/>
+<circle cx="254" cy="281" r="7" fill="#a85127" stroke="#fff" stroke-width="3"/>
+<circle cx="254" cy="342" r="7" fill="#fff" stroke="#a85127" stroke-width="3"/>
+<text x="67" y="389" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">偏离训练直线</text>
+<text x="67" y="431" font-size="26" fill="#172a40" font-weight="400" text-anchor="start">D = 0.75    Q = 4.5</text>
+<rect x="497" y="203" width="419" height="257" rx="13" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
+<text x="520" y="246" font-size="28" fill="#172a40" font-weight="700" text-anchor="start">新点 (110, 120)</text>
+<line x1="553" y1="342" x2="848" y2="342" stroke="#465d72" stroke-width="2.5" marker-end="url(#arrow)"/>
+<circle cx="812" cy="342" r="7" fill="#136d84" stroke="#fff" stroke-width="3"/>
+<text x="520" y="389" font-size="24" fill="#136d84" font-weight="700" text-anchor="start">沿训练直线走远</text>
+<text x="520" y="431" font-size="26" fill="#172a40" font-weight="400" text-anchor="start">D ≈ 3333    Q = 0</text>
+<rect x="44" y="496" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
+<text x="65" y="526" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
+<text x="101" y="526" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">同一张图保留两种距离的尺度</text>
+<line x1="130.0" y1="800" x2="902.0083814644345" y2="800" stroke="#cedae4" stroke-width="2"/>
+<text x="115.0" y="808" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
+<line x1="130.0" y1="752" x2="902.0083814644345" y2="752" stroke="#cedae4" stroke-width="2"/>
+<text x="115.0" y="760" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
+<line x1="130.0" y1="704" x2="902.0083814644345" y2="704" stroke="#cedae4" stroke-width="2"/>
+<text x="115.0" y="712" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">2</text>
+<line x1="130.0" y1="656" x2="902.0083814644345" y2="656" stroke="#cedae4" stroke-width="2"/>
+<text x="115.0" y="664" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">3</text>
+<line x1="130.0" y1="608" x2="902.0083814644345" y2="608" stroke="#cedae4" stroke-width="2"/>
+<text x="115.0" y="616" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">4</text>
+<line x1="130.0" y1="560" x2="902.0083814644345" y2="560" stroke="#cedae4" stroke-width="2"/>
+<text x="115.0" y="568" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">5</text>
+<line x1="130.0" y1="800" x2="902.0083814644345" y2="800" stroke="#465d72" stroke-width="2"/>
+<line x1="130.0" y1="800" x2="130.0" y2="560" stroke="#465d72" stroke-width="2"/>
+<line x1="130.0" y1="800" x2="130.0" y2="808" stroke="#465d72" stroke-width="2"/>
+<text x="130.0" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
+<line x1="188.09878916314835" y1="800" x2="188.09878916314835" y2="808" stroke="#465d72" stroke-width="2"/>
+<text x="188.09878916314835" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
+<line x1="330.9887882355374" y1="800" x2="330.9887882355374" y2="808" stroke="#465d72" stroke-width="2"/>
+<text x="330.9887882355374" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">10</text>
+<line x1="516.83402514005" y1="800" x2="516.83402514005" y2="808" stroke="#465d72" stroke-width="2"/>
+<text x="516.83402514005" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">100</text>
+<line x1="709.0837769535085" y1="800" x2="709.0837769535085" y2="808" stroke="#465d72" stroke-width="2"/>
+<text x="709.0837769535085" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1000</text>
+<line x1="902.0083814644345" y1="800" x2="902.0083814644345" y2="808" stroke="#465d72" stroke-width="2"/>
+<text x="902.0083814644345" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">10000</text>
+<text x="44" y="568" font-size="24" fill="#465d72" font-weight="400" text-anchor="start">Q</text>
+<line x1="176.90634339645482" y1="776.0" x2="176.90634339645482" y2="584.0" stroke="#a85127" stroke-width="2.5" stroke-dasharray="6 6"/>
+<circle cx="176.90634339645482" cy="776.0" r="9" fill="#465d72" stroke="#fff" stroke-width="3"/>
+<circle cx="176.90634339645482" cy="584.0" r="9" fill="#a85127" stroke="#fff" stroke-width="3"/>
+<circle cx="809.940739718514" cy="800" r="9" fill="#136d84" stroke="#fff" stroke-width="3"/>
+<text x="200.90634339645482" y="592.0" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">偏离直线</text>
+<text x="200.90634339645482" y="780.0" font-size="24" fill="#465d72" font-weight="650" text-anchor="start">4 个训练点重合</text>
+<text x="803.940739718514" y="777" font-size="24" fill="#136d84" font-weight="700" text-anchor="end">沿主轴走远</text>
+<text x="910" y="893" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">D 刻度按 log₁₀(1+D) 排列</text>
+</g>
+</svg>

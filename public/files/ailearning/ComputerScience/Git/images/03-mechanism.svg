@@ -1,128 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1590" viewBox="0 0 1440 1590" role="img"><title>二分定位缩小的是“首个坏的位置”，不是已测试版本集合</title><svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1140" viewBox="0 0 1440 1140" role="img"><title>二分定位缩小的是“首个坏的位置”，不是已测试版本集合</title><rect width="1440" height="1140" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#203742" text-anchor="start">二分定位缩小的是“首个坏的位置”，不是已测试版本集合</text>
-<text x="60" y="130" font-size="29" fill="#203742" text-anchor="start">线性祖先链：v1 已知好，v8 已知坏；假设只有一次好→坏切换</text>
-<circle cx="340" cy="205" r="25" fill="white" stroke="#216c89" stroke-width="2"/>
-<text x="340" y="215" font-size="25" fill="#203742" text-anchor="middle">v1</text>
-<line x1="370" y1="205" x2="428" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M416.95,209.67 L428.00,205.00 L416.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="465" cy="205" r="25" fill="white" stroke="#216c89" stroke-width="2"/>
-<text x="465" y="215" font-size="25" fill="#203742" text-anchor="middle">v2</text>
-<line x1="495" y1="205" x2="553" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M541.95,209.67 L553.00,205.00 L541.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="590" cy="205" r="25" fill="white" stroke="#216c89" stroke-width="2"/>
-<text x="590" y="215" font-size="25" fill="#203742" text-anchor="middle">v3</text>
-<line x1="620" y1="205" x2="678" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M666.95,209.67 L678.00,205.00 L666.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="715" cy="205" r="25" fill="white" stroke="#c96937" stroke-width="2"/>
-<text x="715" y="215" font-size="25" fill="#203742" text-anchor="middle">v4</text>
-<line x1="745" y1="205" x2="803" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M791.95,209.67 L803.00,205.00 L791.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="840" cy="205" r="25" fill="white" stroke="#c96937" stroke-width="2"/>
-<text x="840" y="215" font-size="25" fill="#203742" text-anchor="middle">v5</text>
-<line x1="870" y1="205" x2="928" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M916.95,209.67 L928.00,205.00 L916.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="965" cy="205" r="25" fill="white" stroke="#c96937" stroke-width="2"/>
-<text x="965" y="215" font-size="25" fill="#203742" text-anchor="middle">v6</text>
-<line x1="995" y1="205" x2="1053" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M1041.95,209.67 L1053.00,205.00 L1041.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="1090" cy="205" r="25" fill="white" stroke="#c96937" stroke-width="2"/>
-<text x="1090" y="215" font-size="25" fill="#203742" text-anchor="middle">v7</text>
-<line x1="1120" y1="205" x2="1178" y2="205" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M1166.95,209.67 L1178.00,205.00 L1166.95,200.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<circle cx="1215" cy="205" r="25" fill="white" stroke="#c96937" stroke-width="2"/>
-<text x="1215" y="215" font-size="25" fill="#203742" text-anchor="middle">v8</text>
-<text x="60" y="346" font-size="28" fill="#203742" text-anchor="start">初始：7 个候选</text>
-<rect x="300" y="310" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="340" y="349" font-size="29" fill="#7b8c95" text-anchor="middle">1</text>
-<rect x="425" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="465" y="349" font-size="29" fill="#216c89" text-anchor="middle">2</text>
-<rect x="550" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="590" y="349" font-size="29" fill="#216c89" text-anchor="middle">3</text>
-<rect x="675" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="715" y="349" font-size="29" fill="#216c89" text-anchor="middle">4</text>
-<rect x="800" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="840" y="349" font-size="29" fill="#216c89" text-anchor="middle">5</text>
-<rect x="925" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="965" y="349" font-size="29" fill="#216c89" text-anchor="middle">6</text>
-<rect x="1050" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="1090" y="349" font-size="29" fill="#216c89" text-anchor="middle">7</text>
-<rect x="1175" y="310" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="1215" y="349" font-size="29" fill="#216c89" text-anchor="middle">8</text>
-<line x1="465" y1="388" x2="1215" y2="388" stroke="#216c89" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="464" font-size="28" fill="#203742" text-anchor="start">测 v4 坏：3 个</text>
-<rect x="300" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="340" y="467" font-size="29" fill="#7b8c95" text-anchor="middle">1</text>
-<rect x="425" y="428" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="465" y="467" font-size="29" fill="#216c89" text-anchor="middle">2</text>
-<rect x="550" y="428" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="590" y="467" font-size="29" fill="#216c89" text-anchor="middle">3</text>
-<rect x="675" y="428" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="715" y="467" font-size="29" fill="#216c89" text-anchor="middle">4</text>
-<circle cx="715" cy="414" r="7" fill="#c96937" stroke="#c96937" stroke-width="2"/>
-<rect x="800" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="840" y="467" font-size="29" fill="#7b8c95" text-anchor="middle">5</text>
-<rect x="925" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="965" y="467" font-size="29" fill="#7b8c95" text-anchor="middle">6</text>
-<rect x="1050" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="1090" y="467" font-size="29" fill="#7b8c95" text-anchor="middle">7</text>
-<rect x="1175" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="1215" y="467" font-size="29" fill="#7b8c95" text-anchor="middle">8</text>
-<line x1="465" y1="506" x2="715" y2="506" stroke="#216c89" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="582" font-size="28" fill="#203742" text-anchor="start">测 v2 好：2 个</text>
-<rect x="300" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="340" y="585" font-size="29" fill="#7b8c95" text-anchor="middle">1</text>
-<rect x="425" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="465" y="585" font-size="29" fill="#7b8c95" text-anchor="middle">2</text>
-<circle cx="465" cy="532" r="7" fill="#216c89" stroke="#216c89" stroke-width="2"/>
-<rect x="550" y="546" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="590" y="585" font-size="29" fill="#216c89" text-anchor="middle">3</text>
-<rect x="675" y="546" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="715" y="585" font-size="29" fill="#216c89" text-anchor="middle">4</text>
-<rect x="800" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="840" y="585" font-size="29" fill="#7b8c95" text-anchor="middle">5</text>
-<rect x="925" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="965" y="585" font-size="29" fill="#7b8c95" text-anchor="middle">6</text>
-<rect x="1050" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="1090" y="585" font-size="29" fill="#7b8c95" text-anchor="middle">7</text>
-<rect x="1175" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="1215" y="585" font-size="29" fill="#7b8c95" text-anchor="middle">8</text>
-<line x1="590" y1="624" x2="715" y2="624" stroke="#216c89" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="700" font-size="28" fill="#203742" text-anchor="start">测 v3 好：1 个</text>
-<rect x="300" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="340" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">1</text>
-<rect x="425" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="465" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">2</text>
-<rect x="550" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="590" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">3</text>
-<circle cx="590" cy="650" r="7" fill="#216c89" stroke="#216c89" stroke-width="2"/>
-<rect x="675" y="664" width="80" height="58" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="715" y="703" font-size="29" fill="#216c89" text-anchor="middle">4</text>
-<rect x="800" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="840" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">5</text>
-<rect x="925" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="965" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">6</text>
-<rect x="1050" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="1090" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">7</text>
-<rect x="1175" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#d8e3e8" stroke-dasharray=""/>
-<text x="1215" y="703" font-size="29" fill="#7b8c95" text-anchor="middle">8</text>
-<line x1="715" y1="742" x2="715" y2="742" stroke="#216c89" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="825" font-size="29" fill="#203742" text-anchor="start">本例真实输出：v1–v3 为 2；v4–v8 为 3。首个坏是 v4。</text>
-<text x="60" y="875" font-size="26" fill="#203742" text-anchor="start">蓝格是边界候选，圆点才是本轮测试；跳过 v3 会保留 v3、v4 两种可能。</text>
-<line x1="60" y1="905" x2="1380" y2="905" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="950" font-size="28" fill="#203742" text-anchor="start">若 v3 不可测试：以下两种输出都符合“v2 好、v4 坏”</text>
-<text x="60" y="1015" font-size="28" fill="#203742" text-anchor="start">首坏可为 v3</text>
-<rect x="500" y="980" width="180" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="590" y="1016" font-size="27" fill="#216c89" text-anchor="middle">v2 输出 2</text>
-<rect x="750" y="980" width="180" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="840" y="1016" font-size="27" fill="#c96937" text-anchor="middle">v3 输出 3</text>
-<rect x="1000" y="980" width="180" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1090" y="1016" font-size="27" fill="#c96937" text-anchor="middle">v4 输出 3</text>
-<text x="60" y="1095" font-size="28" fill="#203742" text-anchor="start">首坏可为 v4</text>
-<rect x="500" y="1060" width="180" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="590" y="1096" font-size="27" fill="#216c89" text-anchor="middle">v2 输出 2</text>
-<rect x="750" y="1060" width="180" height="55" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="840" y="1096" font-size="27" fill="#216c89" text-anchor="middle">v3 输出 2</text>
-<rect x="1000" y="1060" width="180" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="1090" y="1096" font-size="27" fill="#c96937" text-anchor="middle">v4 输出 3</text>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1626" viewBox="0 0 1440 1626" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">历史二分需要可判定且具有边界的性质</title><rect width="1440" height="1626" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">历史二分需要可判定且具有边界的性质</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1484" viewBox="0 0 1440 1590" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>二分定位缩小的是“首个坏的位置”，不是已测试版本集合</title><svg width="1440" height="1140" viewBox="0 0 1440 1140" role="img"><title>二分定位缩小的是“首个坏的位置”，不是已测试版本集合</title><rect width="1440" height="1140" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">二分定位缩小的是“首个坏的位置”，不是已测试版本集合</text>
+<text x="60" y="130" font-size="29" fill="#1d3145" text-anchor="start">线性祖先链：v1 已知好，v8 已知坏；假设只有一次好→坏切换</text>
+<circle cx="340" cy="205" r="25" fill="white" stroke="#1e7499" stroke-width="2"/>
+<text x="340" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v1</text>
+<line x1="370" y1="205" x2="428" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M416.95,209.67 L428.00,205.00 L416.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="465" cy="205" r="25" fill="white" stroke="#1e7499" stroke-width="2"/>
+<text x="465" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v2</text>
+<line x1="495" y1="205" x2="553" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M541.95,209.67 L553.00,205.00 L541.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="590" cy="205" r="25" fill="white" stroke="#1e7499" stroke-width="2"/>
+<text x="590" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v3</text>
+<line x1="620" y1="205" x2="678" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M666.95,209.67 L678.00,205.00 L666.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="715" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
+<text x="715" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v4</text>
+<line x1="745" y1="205" x2="803" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M791.95,209.67 L803.00,205.00 L791.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="840" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
+<text x="840" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v5</text>
+<line x1="870" y1="205" x2="928" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M916.95,209.67 L928.00,205.00 L916.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="965" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
+<text x="965" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v6</text>
+<line x1="995" y1="205" x2="1053" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M1041.95,209.67 L1053.00,205.00 L1041.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="1090" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
+<text x="1090" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v7</text>
+<line x1="1120" y1="205" x2="1178" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M1166.95,209.67 L1178.00,205.00 L1166.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<circle cx="1215" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
+<text x="1215" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v8</text>
+<text x="60" y="346" font-size="28" fill="#1d3145" text-anchor="start">初始：7 个候选</text>
+<rect x="300" y="310" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="340" y="349" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
+<rect x="425" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="465" y="349" font-size="29" fill="#1e7499" text-anchor="middle">2</text>
+<rect x="550" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="590" y="349" font-size="29" fill="#1e7499" text-anchor="middle">3</text>
+<rect x="675" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="715" y="349" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
+<rect x="800" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="840" y="349" font-size="29" fill="#1e7499" text-anchor="middle">5</text>
+<rect x="925" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="965" y="349" font-size="29" fill="#1e7499" text-anchor="middle">6</text>
+<rect x="1050" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="1090" y="349" font-size="29" fill="#1e7499" text-anchor="middle">7</text>
+<rect x="1175" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="1215" y="349" font-size="29" fill="#1e7499" text-anchor="middle">8</text>
+<line x1="465" y1="388" x2="1215" y2="388" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
+<text x="60" y="464" font-size="28" fill="#1d3145" text-anchor="start">测 v4 坏：3 个</text>
+<rect x="300" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="340" y="467" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
+<rect x="425" y="428" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="465" y="467" font-size="29" fill="#1e7499" text-anchor="middle">2</text>
+<rect x="550" y="428" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="590" y="467" font-size="29" fill="#1e7499" text-anchor="middle">3</text>
+<rect x="675" y="428" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="715" y="467" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
+<circle cx="715" cy="414" r="7" fill="#c66d3a" stroke="#c66d3a" stroke-width="2"/>
+<rect x="800" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="840" y="467" font-size="29" fill="#7b889c" text-anchor="middle">5</text>
+<rect x="925" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="965" y="467" font-size="29" fill="#7b889c" text-anchor="middle">6</text>
+<rect x="1050" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="1090" y="467" font-size="29" fill="#7b889c" text-anchor="middle">7</text>
+<rect x="1175" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="1215" y="467" font-size="29" fill="#7b889c" text-anchor="middle">8</text>
+<line x1="465" y1="506" x2="715" y2="506" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
+<text x="60" y="582" font-size="28" fill="#1d3145" text-anchor="start">测 v2 好：2 个</text>
+<rect x="300" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="340" y="585" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
+<rect x="425" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="465" y="585" font-size="29" fill="#7b889c" text-anchor="middle">2</text>
+<circle cx="465" cy="532" r="7" fill="#1e7499" stroke="#1e7499" stroke-width="2"/>
+<rect x="550" y="546" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="590" y="585" font-size="29" fill="#1e7499" text-anchor="middle">3</text>
+<rect x="675" y="546" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="715" y="585" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
+<rect x="800" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="840" y="585" font-size="29" fill="#7b889c" text-anchor="middle">5</text>
+<rect x="925" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="965" y="585" font-size="29" fill="#7b889c" text-anchor="middle">6</text>
+<rect x="1050" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="1090" y="585" font-size="29" fill="#7b889c" text-anchor="middle">7</text>
+<rect x="1175" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="1215" y="585" font-size="29" fill="#7b889c" text-anchor="middle">8</text>
+<line x1="590" y1="624" x2="715" y2="624" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
+<text x="60" y="700" font-size="28" fill="#1d3145" text-anchor="start">测 v3 好：1 个</text>
+<rect x="300" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="340" y="703" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
+<rect x="425" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="465" y="703" font-size="29" fill="#7b889c" text-anchor="middle">2</text>
+<rect x="550" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="590" y="703" font-size="29" fill="#7b889c" text-anchor="middle">3</text>
+<circle cx="590" cy="650" r="7" fill="#1e7499" stroke="#1e7499" stroke-width="2"/>
+<rect x="675" y="664" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="715" y="703" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
+<rect x="800" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="840" y="703" font-size="29" fill="#7b889c" text-anchor="middle">5</text>
+<rect x="925" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="965" y="703" font-size="29" fill="#7b889c" text-anchor="middle">6</text>
+<rect x="1050" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="1090" y="703" font-size="29" fill="#7b889c" text-anchor="middle">7</text>
+<rect x="1175" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
+<text x="1215" y="703" font-size="29" fill="#7b889c" text-anchor="middle">8</text>
+<line x1="715" y1="742" x2="715" y2="742" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
+<text x="60" y="825" font-size="29" fill="#1d3145" text-anchor="start">本例真实输出：v1–v3 为 2；v4–v8 为 3。首个坏是 v4。</text>
+<text x="60" y="875" font-size="26" fill="#1d3145" text-anchor="start">蓝格是边界候选，圆点才是本轮测试；跳过 v3 会保留 v3、v4 两种可能。</text>
+<line x1="60" y1="905" x2="1380" y2="905" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="950" font-size="28" fill="#1d3145" text-anchor="start">若 v3 不可测试：以下两种输出都符合“v2 好、v4 坏”</text>
+<text x="60" y="1015" font-size="28" fill="#1d3145" text-anchor="start">首坏可为 v3</text>
+<rect x="500" y="980" width="180" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="590" y="1016" font-size="27" fill="#1e7499" text-anchor="middle">v2 输出 2</text>
+<rect x="750" y="980" width="180" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="840" y="1016" font-size="27" fill="#c66d3a" text-anchor="middle">v3 输出 3</text>
+<rect x="1000" y="980" width="180" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1090" y="1016" font-size="27" fill="#c66d3a" text-anchor="middle">v4 输出 3</text>
+<text x="60" y="1095" font-size="28" fill="#1d3145" text-anchor="start">首坏可为 v4</text>
+<rect x="500" y="1060" width="180" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="590" y="1096" font-size="27" fill="#1e7499" text-anchor="middle">v2 输出 2</text>
+<rect x="750" y="1060" width="180" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="840" y="1096" font-size="27" fill="#1e7499" text-anchor="middle">v3 输出 2</text>
+<rect x="1000" y="1060" width="180" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="1090" y="1096" font-size="27" fill="#c66d3a" text-anchor="middle">v4 输出 3</text>
 </g></svg>
-<g id="round-20261105c-teaching" transform="translate(0 1140) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#203742" text-anchor="start">提交图未必是一条链：两条分支可各自独立引入失败</text><circle cx="120" cy="250" r="40" fill="#edf5f8" stroke="#216c89" stroke-width="2"/><text x="120" y="259" font-size="25" fill="#216c89" text-anchor="middle">O：好</text><circle cx="600" cy="155" r="40" fill="#fff1e7" stroke="#c96937" stroke-width="2"/><text x="600" y="164" font-size="25" fill="#c96937" text-anchor="middle">A：坏</text><circle cx="600" cy="345" r="40" fill="#fff1e7" stroke="#c96937" stroke-width="2"/><text x="600" y="354" font-size="25" fill="#c96937" text-anchor="middle">B：坏</text><circle cx="1180" cy="250" r="40" fill="#fff1e7" stroke="#c96937" stroke-width="2"/><text x="1180" y="259" font-size="25" fill="#c96937" text-anchor="middle">M：坏</text><line x1="160" y1="240" x2="560" y2="160" stroke="#80939d" stroke-width="2" stroke-dasharray=""/><path d="M550.078,166.750 L560.000,160.000 L548.245,157.585" stroke="#80939d" stroke-width="2" fill="none"/><line x1="160" y1="260" x2="560" y2="340" stroke="#80939d" stroke-width="2" stroke-dasharray=""/><path d="M548.245,342.415 L560.000,340.000 L550.078,333.250" stroke="#80939d" stroke-width="2" fill="none"/><line x1="640" y1="160" x2="1140" y2="240" stroke="#80939d" stroke-width="2" stroke-dasharray=""/><path d="M1128.348,242.868 L1140.000,240.000 L1129.824,233.639" stroke="#80939d" stroke-width="2" fill="none"/><line x1="640" y1="340" x2="1140" y2="260" stroke="#80939d" stroke-width="2" stroke-dasharray=""/><path d="M1129.824,266.361 L1140.000,260.000 L1128.348,257.132" stroke="#80939d" stroke-width="2" fill="none"/><text x="65" y="415" font-size="27" fill="#203742" text-anchor="start">A 与 B 互非祖先，都是独立失败边界；按时间戳最早，不等于唯一因果来源。</text></g></g></svg>
+<g id="round-20261105c-teaching" transform="translate(0 1140) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#1d3145" text-anchor="start">提交图未必是一条链：两条分支可各自独立引入失败</text><circle cx="120" cy="250" r="40" fill="#edf5f8" stroke="#1e7499" stroke-width="2"/><text x="120" y="259" font-size="25" fill="#1e7499" text-anchor="middle">O：好</text><circle cx="600" cy="155" r="40" fill="#fff1e7" stroke="#c66d3a" stroke-width="2"/><text x="600" y="164" font-size="25" fill="#c66d3a" text-anchor="middle">A：坏</text><circle cx="600" cy="345" r="40" fill="#fff1e7" stroke="#c66d3a" stroke-width="2"/><text x="600" y="354" font-size="25" fill="#c66d3a" text-anchor="middle">B：坏</text><circle cx="1180" cy="250" r="40" fill="#fff1e7" stroke="#c66d3a" stroke-width="2"/><text x="1180" y="259" font-size="25" fill="#c66d3a" text-anchor="middle">M：坏</text><line x1="160" y1="240" x2="560" y2="160" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M550.078,166.750 L560.000,160.000 L548.245,157.585" stroke="#818fa4" stroke-width="2" fill="none"/><line x1="160" y1="260" x2="560" y2="340" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M548.245,342.415 L560.000,340.000 L550.078,333.250" stroke="#818fa4" stroke-width="2" fill="none"/><line x1="640" y1="160" x2="1140" y2="240" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M1128.348,242.868 L1140.000,240.000 L1129.824,233.639" stroke="#818fa4" stroke-width="2" fill="none"/><line x1="640" y1="340" x2="1140" y2="260" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M1129.824,266.361 L1140.000,260.000 L1128.348,257.132" stroke="#818fa4" stroke-width="2" fill="none"/><text x="65" y="415" font-size="27" fill="#1d3145" text-anchor="start">A 与 B 互非祖先，都是独立失败边界；按时间戳最早，不等于唯一因果来源。</text></g></g></svg></svg>

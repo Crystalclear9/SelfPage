@@ -1,38 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img"><title>重复键连接：每个格子是一对来源，不是一笔新订单</title><rect width="1440" height="900" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#203742" text-anchor="start">重复键连接：每个格子是一对来源，不是一笔新订单</text>
-<text x="65" y="135" font-size="30" fill="#216c89" text-anchor="start">订单表：O1=(u,10)，O2=(u,20)</text>
-<text x="65" y="185" font-size="30" fill="#c96937" text-anchor="start">属性表：同一 u 对应 A、B 两行</text>
-<text x="520" y="260" font-size="29" fill="#c96937" text-anchor="middle">属性 A</text>
-<text x="850" y="260" font-size="29" fill="#c96937" text-anchor="middle">属性 B</text>
-<text x="95" y="360" font-size="31" fill="#216c89" text-anchor="start">O1</text>
-<text x="95" y="410" font-size="27" fill="#216c89" text-anchor="start">金额 10</text>
-<rect x="370" y="300" width="300" height="135" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="520" y="344" font-size="30" fill="#216c89" text-anchor="middle">O1 × A</text>
-<text x="520" y="394" font-size="29" fill="#216c89" text-anchor="middle">u，金额 10</text>
-<rect x="700" y="300" width="300" height="135" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="850" y="344" font-size="30" fill="#216c89" text-anchor="middle">O1 × B</text>
-<text x="850" y="394" font-size="29" fill="#216c89" text-anchor="middle">u，金额 10</text>
-<text x="1110" y="375" font-size="31" fill="#c96937" text-anchor="middle">10 × 2 = 20</text>
-<text x="95" y="530" font-size="31" fill="#216c89" text-anchor="start">O2</text>
-<text x="95" y="580" font-size="27" fill="#216c89" text-anchor="start">金额 20</text>
-<rect x="370" y="470" width="300" height="135" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="520" y="514" font-size="30" fill="#216c89" text-anchor="middle">O2 × A</text>
-<text x="520" y="564" font-size="29" fill="#216c89" text-anchor="middle">u，金额 20</text>
-<rect x="700" y="470" width="300" height="135" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="850" y="514" font-size="30" fill="#216c89" text-anchor="middle">O2 × B</text>
-<text x="850" y="564" font-size="29" fill="#216c89" text-anchor="middle">u，金额 20</text>
-<text x="1110" y="545" font-size="31" fill="#c96937" text-anchor="middle">20 × 2 = 40</text>
-<text x="370" y="660" font-size="29" fill="#216c89" text-anchor="start">连接前：10 + 20 = 30</text>
-<text x="865" y="660" font-size="29" fill="#c96937" text-anchor="start">连接后：20 + 40 = 60</text>
-<line x1="60" y1="700" x2="1380" y2="700" stroke="#d8e3e8" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="760" font-size="29" fill="#203742" text-anchor="start">先按用户聚合，仍未解决右表重复：</text>
-<rect x="70" y="790" width="230" height="60" rx="3" fill="#edf5f8" stroke="#216c89" stroke-dasharray=""/>
-<text x="185" y="830" font-size="29" fill="#216c89" text-anchor="middle">u：30</text>
-<line x1="310" y1="820" x2="470" y2="820" stroke="#7b8c95" stroke-width="2" stroke-dasharray=""/>
-<path d="M458.95,824.67 L470.00,820.00 L458.95,815.33" fill="none" stroke="#7b8c95" stroke-width="2"/>
-<rect x="490" y="790" width="245" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="612.5" y="826" font-size="27" fill="#c96937" text-anchor="middle">u,A:30</text>
-<rect x="745" y="790" width="245" height="55" rx="3" fill="#fff1e7" stroke="#c96937" stroke-dasharray=""/>
-<text x="867.5" y="826" font-size="27" fill="#c96937" text-anchor="middle">u,B:30</text>
-<text x="1050" y="830" font-size="29" fill="#c96937" text-anchor="start">30 + 30 = 60</text>
-</g></svg>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="982" viewBox="0 0 1440 982" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">一对多连接使金额重复</title><rect width="1440" height="982" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">一对多连接使金额重复</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="840" viewBox="0 0 1440 900" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>重复键连接：每个格子是一对来源，不是一笔新订单</title><rect width="1440" height="900" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">重复键连接：每个格子是一对来源，不是一笔新订单</text>
+<text x="65" y="135" font-size="30" fill="#1e7499" text-anchor="start">订单表：O1=(u,10)，O2=(u,20)</text>
+<text x="65" y="185" font-size="30" fill="#c66d3a" text-anchor="start">属性表：同一 u 对应 A、B 两行</text>
+<text x="520" y="260" font-size="29" fill="#c66d3a" text-anchor="middle">属性 A</text>
+<text x="850" y="260" font-size="29" fill="#c66d3a" text-anchor="middle">属性 B</text>
+<text x="95" y="360" font-size="31" fill="#1e7499" text-anchor="start">O1</text>
+<text x="95" y="410" font-size="27" fill="#1e7499" text-anchor="start">金额 10</text>
+<rect x="370" y="300" width="300" height="135" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="520" y="344" font-size="30" fill="#1e7499" text-anchor="middle">O1 × A</text>
+<text x="520" y="394" font-size="29" fill="#1e7499" text-anchor="middle">u，金额 10</text>
+<rect x="700" y="300" width="300" height="135" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="850" y="344" font-size="30" fill="#1e7499" text-anchor="middle">O1 × B</text>
+<text x="850" y="394" font-size="29" fill="#1e7499" text-anchor="middle">u，金额 10</text>
+<text x="1110" y="375" font-size="31" fill="#c66d3a" text-anchor="middle">10 × 2 = 20</text>
+<text x="95" y="530" font-size="31" fill="#1e7499" text-anchor="start">O2</text>
+<text x="95" y="580" font-size="27" fill="#1e7499" text-anchor="start">金额 20</text>
+<rect x="370" y="470" width="300" height="135" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="520" y="514" font-size="30" fill="#1e7499" text-anchor="middle">O2 × A</text>
+<text x="520" y="564" font-size="29" fill="#1e7499" text-anchor="middle">u，金额 20</text>
+<rect x="700" y="470" width="300" height="135" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="850" y="514" font-size="30" fill="#1e7499" text-anchor="middle">O2 × B</text>
+<text x="850" y="564" font-size="29" fill="#1e7499" text-anchor="middle">u，金额 20</text>
+<text x="1110" y="545" font-size="31" fill="#c66d3a" text-anchor="middle">20 × 2 = 40</text>
+<text x="370" y="660" font-size="29" fill="#1e7499" text-anchor="start">连接前：10 + 20 = 30</text>
+<text x="865" y="660" font-size="29" fill="#c66d3a" text-anchor="start">连接后：20 + 40 = 60</text>
+<line x1="60" y1="700" x2="1380" y2="700" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="760" font-size="29" fill="#1d3145" text-anchor="start">先按用户聚合，仍未解决右表重复：</text>
+<rect x="70" y="790" width="230" height="60" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
+<text x="185" y="830" font-size="29" fill="#1e7499" text-anchor="middle">u：30</text>
+<line x1="310" y1="820" x2="470" y2="820" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
+<path d="M458.95,824.67 L470.00,820.00 L458.95,815.33" fill="none" stroke="#7b889c" stroke-width="2"/>
+<rect x="490" y="790" width="245" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="612.5" y="826" font-size="27" fill="#c66d3a" text-anchor="middle">u,A:30</text>
+<rect x="745" y="790" width="245" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
+<text x="867.5" y="826" font-size="27" fill="#c66d3a" text-anchor="middle">u,B:30</text>
+<text x="1050" y="830" font-size="29" fill="#c66d3a" text-anchor="start">30 + 30 = 60</text>
+</g></svg></svg>

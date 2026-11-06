@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="661" viewBox="0 0 1440 661" role="img" aria-labelledby="title">
+<title id="title">序列似然逐位置积累</title>
+<defs>
+<marker id="ink" markerWidth="11" markerHeight="11" refX="9.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L11 5.5 L0 11 Z" fill="#172e46"/></marker>
+<marker id="blue" markerWidth="11" markerHeight="11" refX="9.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L11 5.5 L0 11 Z" fill="#286391"/></marker>
+<marker id="teal" markerWidth="11" markerHeight="11" refX="9.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L11 5.5 L0 11 Z" fill="#167d71"/></marker>
+<marker id="red" markerWidth="11" markerHeight="11" refX="9.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L11 5.5 L0 11 Z" fill="#bb5141"/></marker>
+<marker id="purple" markerWidth="11" markerHeight="11" refX="9.5" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L11 5.5 L0 11 Z" fill="#7352a1"/></marker>
+</defs><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<rect x="0" y="0" width="1440" height="661" rx="10" fill="white" stroke-width="1.4"/>
+<rect x="44" y="35" width="5" height="37" rx="2" fill="#526bab" stroke-width="1.4"/>
+<text x="68" y="65" fill="#172e46" font-size="33" text-anchor="start" font-weight="700">序列似然逐位置积累</text>
+<line x1="44" y1="89" x2="1396" y2="89" stroke="#cbd9e6" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="157" y="127" width="134" height="61" rx="0" fill="#e8f3fc" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="224" y="166" fill="#172e46" font-size="25" text-anchor="middle" font-weight="700">位置</text>
+<rect x="291" y="127" width="460" height="61" rx="0" fill="#e8f3fc" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="521" y="166" fill="#172e46" font-size="25" text-anchor="middle" font-weight="700">条件上下文</text>
+<rect x="751" y="127" width="365" height="61" rx="0" fill="#e8f3fc" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="933.5" y="166" fill="#172e46" font-size="25" text-anchor="middle" font-weight="700">当前词元的条件概率</text>
+<rect x="1116" y="127" width="184" height="61" rx="0" fill="#e8f3fc" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="1208" y="166" fill="#172e46" font-size="25" text-anchor="middle" font-weight="700">本例数值</text>
+<rect x="157" y="188" width="134" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="224" y="229" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">1</text>
+<rect x="291" y="188" width="460" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="521" y="229" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">起始符</text>
+<rect x="751" y="188" width="365" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="933.5" y="229" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">p(w1 | 已有上下文)</text>
+<rect x="1116" y="188" width="184" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="1208" y="229" fill="#167d71" font-size="25" text-anchor="middle" font-weight="700">0.5</text>
+<rect x="157" y="252" width="134" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="224" y="293" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">2</text>
+<rect x="291" y="252" width="460" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="521" y="293" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">起始符、w1</text>
+<rect x="751" y="252" width="365" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="933.5" y="293" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">p(w2 | 已有上下文)</text>
+<rect x="1116" y="252" width="184" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="1208" y="293" fill="#167d71" font-size="25" text-anchor="middle" font-weight="700">0.25</text>
+<rect x="157" y="316" width="134" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="224" y="357" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">3</text>
+<rect x="291" y="316" width="460" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="521" y="357" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">起始符、w1、w2</text>
+<rect x="751" y="316" width="365" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="933.5" y="357" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">p(w3 | 已有上下文)</text>
+<rect x="1116" y="316" width="184" height="64" rx="0" fill="white" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="1208" y="357" fill="#167d71" font-size="25" text-anchor="middle" font-weight="700">0.5</text>
+<rect x="157" y="380" width="134" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="224" y="421" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">4</text>
+<rect x="291" y="380" width="460" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="521" y="421" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">起始符、w1、w2、w3</text>
+<rect x="751" y="380" width="365" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="933.5" y="421" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">p(w4 | 已有上下文)</text>
+<rect x="1116" y="380" width="184" height="64" rx="0" fill="#f7fbff" stroke="#cbd9e6" stroke-width="1.4"/>
+<text x="1208" y="421" fill="#167d71" font-size="25" text-anchor="middle" font-weight="700">0.25</text>
+<rect x="113" y="501" width="364" height="112" rx="12" fill="#e6f4ef" stroke="#167d71" stroke-width="1.4"/>
+<text x="295" y="543" fill="#167d71" font-size="25" text-anchor="middle" font-weight="700">链式连乘</text>
+<text x="295" y="584" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">序列概率 1/64</text>
+<rect x="538" y="501" width="364" height="112" rx="12" fill="#e8f3fc" stroke="#286391" stroke-width="1.4"/>
+<text x="720" y="543" fill="#286391" font-size="25" text-anchor="middle" font-weight="700">负对数求和后除以 4</text>
+<text x="720" y="584" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">平均损失约 1.040</text>
+<rect x="963" y="501" width="364" height="112" rx="12" fill="#f0eafa" stroke="#7352a1" stroke-width="1.4"/>
+<text x="1145" y="543" fill="#7352a1" font-size="25" text-anchor="middle" font-weight="700">指数化</text>
+<text x="1145" y="584" fill="#172e46" font-size="25" text-anchor="middle" font-weight="400">困惑度约 2.828</text>
+<line x1="485" y1="557" x2="528" y2="557" stroke="#546b83" stroke-width="2.4" marker-end="url(#ink)" stroke-linecap="round"/>
+<line x1="910" y1="557" x2="952" y2="557" stroke="#546b83" stroke-width="2.4" marker-end="url(#ink)" stroke-linecap="round"/>
+</g></svg>

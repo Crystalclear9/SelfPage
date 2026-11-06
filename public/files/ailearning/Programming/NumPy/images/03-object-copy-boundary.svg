@@ -1,29 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780" viewBox="0 0 1280 780" role="img"><title>object 数组：缓冲区不共享，里面的 Python 对象仍可共享</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="52" y="64" font-size="36" fill="#19333c" text-anchor="start">object 数组：缓冲区不共享，里面的 Python 对象仍可共享</text>
-<text x="80" y="135" font-size="30" fill="#206f91" text-anchor="start">a：object 数组</text>
-<text x="490" y="135" font-size="30" fill="#ce713e" text-anchor="start">b = a.copy()</text>
-<text x="900" y="135" font-size="30" fill="#206f91" text-anchor="start">c = deepcopy(a)</text>
-<rect x="110" y="185" width="180" height="74" rx="3" fill="#edf5fa" stroke="#206f91"/>
-<text x="200" y="232" font-size="27" fill="#206f91" text-anchor="middle">引用槽 [0]</text>
-<rect x="520" y="185" width="180" height="74" rx="3" fill="#fff2e8" stroke="#ce713e"/>
-<text x="610" y="232" font-size="27" fill="#ce713e" text-anchor="middle">引用槽 [0]</text>
-<rect x="950" y="185" width="180" height="74" rx="3" fill="#edf5fa" stroke="#206f91"/>
-<text x="1040" y="232" font-size="27" fill="#206f91" text-anchor="middle">引用槽 [0]</text>
-<rect x="350" y="345" width="255" height="85" rx="3" fill="#edf5fa" stroke="#206f91"/>
-<text x="477" y="400" font-size="29" fill="#206f91" text-anchor="middle">列表 L：[1, 9]</text>
-<rect x="910" y="345" width="255" height="85" rx="3" fill="#edf5fa" stroke="#206f91"/>
-<text x="1037" y="400" font-size="29" fill="#206f91" text-anchor="middle">列表 L′：[1]</text>
-<line x1="200" y1="259" x2="420" y2="345" stroke="#206f91" stroke-width="2" stroke-dasharray=""/>
-<path d="M408.04,345.93 L420.00,345.00 L411.84,336.20" fill="none" stroke="#206f91" stroke-width="2"/>
-<line x1="610" y1="259" x2="540" y2="345" stroke="#ce713e" stroke-width="2" stroke-dasharray=""/>
-<path d="M542.77,333.32 L540.00,345.00 L550.87,339.91" fill="none" stroke="#ce713e" stroke-width="2"/>
-<line x1="1040" y1="259" x2="1040" y2="345" stroke="#206f91" stroke-width="2" stroke-dasharray=""/>
-<path d="M1034.78,334.19 L1040.00,345.00 L1045.22,334.19" fill="none" stroke="#206f91" stroke-width="2"/>
-<text x="80" y="505" font-size="29" fill="#ce713e" text-anchor="start">b[0].append(9)</text>
-<text x="560" y="505" font-size="29" fill="#ce713e" text-anchor="start">a[0] 也成为 [1, 9]</text>
-<text x="80" y="565" font-size="29" fill="#206f91" text-anchor="start">b[0] = [7]</text>
-<text x="560" y="565" font-size="29" fill="#206f91" text-anchor="start">只改 b 的引用槽；a[0] 不变</text>
-<line x1="60" y1="610" x2="1220" y2="610" stroke="#dae4e9" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="675" font-size="28" fill="#19333c" text-anchor="start">shares_memory(a, b) 为 False：只证明数组缓冲没有重叠。</text>
-<text x="60" y="730" font-size="28" fill="#19333c" text-anchor="start">对象是否相同，另查 a[0] is b[0]；数值数组没有这一层引用。</text>
-</g></svg>
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="961" viewBox="0 0 1440 961" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">图解：独立数组缓冲不等于递归复制对象</title><rect width="1440" height="961" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">图解：独立数组缓冲不等于递归复制对象</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="819" viewBox="0 0 1280 780" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5fa"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>object 数组：缓冲区不共享，里面的 Python 对象仍可共享</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
+<text x="52" y="64" font-size="36" fill="#1a2a3b" text-anchor="start">object 数组：缓冲区不共享，里面的 Python 对象仍可共享</text>
+<text x="80" y="135" font-size="30" fill="#1c77a2" text-anchor="start">a：object 数组</text>
+<text x="490" y="135" font-size="30" fill="#ca7542" text-anchor="start">b = a.copy()</text>
+<text x="900" y="135" font-size="30" fill="#1c77a2" text-anchor="start">c = deepcopy(a)</text>
+<rect x="110" y="185" width="180" height="74" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
+<text x="200" y="232" font-size="27" fill="#1c77a2" text-anchor="middle">引用槽 [0]</text>
+<rect x="520" y="185" width="180" height="74" rx="3" fill="#fff2e8" stroke="#ca7542"/>
+<text x="610" y="232" font-size="27" fill="#ca7542" text-anchor="middle">引用槽 [0]</text>
+<rect x="950" y="185" width="180" height="74" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
+<text x="1040" y="232" font-size="27" fill="#1c77a2" text-anchor="middle">引用槽 [0]</text>
+<rect x="350" y="345" width="255" height="85" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
+<text x="477" y="400" font-size="29" fill="#1c77a2" text-anchor="middle">列表 L：[1, 9]</text>
+<rect x="910" y="345" width="255" height="85" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
+<text x="1037" y="400" font-size="29" fill="#1c77a2" text-anchor="middle">列表 L′：[1]</text>
+<line x1="200" y1="259" x2="420" y2="345" stroke="#1c77a2" stroke-width="2" stroke-dasharray=""/>
+<path d="M408.04,345.93 L420.00,345.00 L411.84,336.20" fill="none" stroke="#1c77a2" stroke-width="2"/>
+<line x1="610" y1="259" x2="540" y2="345" stroke="#ca7542" stroke-width="2" stroke-dasharray=""/>
+<path d="M542.77,333.32 L540.00,345.00 L550.87,339.91" fill="none" stroke="#ca7542" stroke-width="2"/>
+<line x1="1040" y1="259" x2="1040" y2="345" stroke="#1c77a2" stroke-width="2" stroke-dasharray=""/>
+<path d="M1034.78,334.19 L1040.00,345.00 L1045.22,334.19" fill="none" stroke="#1c77a2" stroke-width="2"/>
+<text x="80" y="505" font-size="29" fill="#ca7542" text-anchor="start">b[0].append(9)</text>
+<text x="560" y="505" font-size="29" fill="#ca7542" text-anchor="start">a[0] 也成为 [1, 9]</text>
+<text x="80" y="565" font-size="29" fill="#1c77a2" text-anchor="start">b[0] = [7]</text>
+<text x="560" y="565" font-size="29" fill="#1c77a2" text-anchor="start">只改 b 的引用槽；a[0] 不变</text>
+<line x1="60" y1="610" x2="1220" y2="610" stroke="#dee4ec" stroke-width="2" stroke-dasharray=""/>
+<text x="60" y="675" font-size="28" fill="#1a2a3b" text-anchor="start">shares_memory(a, b) 为 False：只证明数组缓冲没有重叠。</text>
+<text x="60" y="730" font-size="28" fill="#1a2a3b" text-anchor="start">对象是否相同，另查 a[0] is b[0]；数值数组没有这一层引用。</text>
+</g></svg></svg>

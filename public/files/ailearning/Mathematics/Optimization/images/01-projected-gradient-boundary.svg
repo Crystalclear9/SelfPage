@@ -1,1 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780.3717" viewBox="36.2667 73.2444 1147.7333 699.7333" role="img"><title>约束后的移动，才是边界处应检查的残差</title><rect width="1280" height="800" fill="white" /><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="120" font-size="29" fill="#50636e" text-anchor="start">f(x, y) = x + 0.5y²，约束 x ≥ 0，步长 η = 1</text><rect x="300" y="240" width="230" height="380" fill="#edf4f6" /><line x1="100.0" y1="550" x2="500.0" y2="550" stroke="#71858b" stroke-width="2" /><line x1="300" y1="620" x2="300" y2="240" stroke="#256b82" stroke-width="3" /><text x="496.8" y="588" font-size="25" fill="#19333c" text-anchor="start">x</text><text x="312" y="252" font-size="25" fill="#19333c" text-anchor="start">y</text><text x="360" y="290" font-size="25" fill="#256b82" text-anchor="start">可行半平面</text><text x="60" y="188" font-size="28" fill="#19333c" text-anchor="start">从内部出发：先试探，再投影</text><line x1="396.0" y1="340" x2="236.0" y2="550" stroke="#71858b" stroke-width="4" /><path d="M236.0,550 L250.65867026917036,542.3108267063525 L239.52262618871535,533.8262216926724 Z" fill="#71858b" /><line x1="236.0" y1="550" x2="300" y2="550" stroke="#c0643c" stroke-width="4" /><path d="M300,550 L285.0,543.0 L285.0,557.0 Z" fill="#c0643c" /><line x1="396.0" y1="340" x2="300" y2="550" stroke="#256b82" stroke-width="4" /><path d="M300,550 L312.6027177331175,539.2682011880876 L299.87007507491626,533.4475645443384 Z" fill="#256b82" /><circle cx="396.0" cy="340" r="7" fill="#256b82" /><circle cx="236.0" cy="550" r="7" fill="#c0643c" /><circle cx="300" cy="550" r="7" fill="#19333c" /><text x="411.0" y="320" font-size="26" fill="#256b82" text-anchor="start">起点 (0.6, 1)</text><text x="216.0" y="617" font-size="25" fill="#c0643c" text-anchor="middle">试探 (−0.4, 0)</text><text x="330" y="598" font-size="26" fill="#19333c" text-anchor="start">投影 (0, 0)</text><text x="60" y="697" font-size="28" fill="#50636e" text-anchor="start">普通梯度 (1, 1)</text><text x="60" y="744" font-size="28" fill="#256b82" text-anchor="start">梯度映射 (0.6, 1)</text><rect x="930" y="240" width="230" height="380" fill="#edf4f6" /><line x1="730.0" y1="550" x2="1130.0" y2="550" stroke="#71858b" stroke-width="2" /><line x1="930" y1="620" x2="930" y2="240" stroke="#256b82" stroke-width="3" /><text x="1126.8" y="588" font-size="25" fill="#19333c" text-anchor="start">x</text><text x="942" y="252" font-size="25" fill="#19333c" text-anchor="start">y</text><text x="990" y="290" font-size="25" fill="#256b82" text-anchor="start">可行半平面</text><text x="690" y="188" font-size="28" fill="#19333c" text-anchor="start">到达最优：负梯度指向不可行侧</text><line x1="930" y1="550" x2="770" y2="550" stroke="#71858b" stroke-width="4" /><path d="M770,550 L785.0,557.0 L785.0,543.0 Z" fill="#71858b" /><line x1="770" y1="595" x2="930" y2="595" stroke="#c0643c" stroke-width="4" /><path d="M930,595 L915.0,588.0 L915.0,602.0 Z" fill="#c0643c" /><circle cx="930" cy="550" r="8" fill="#19333c" /><circle cx="770" cy="550" r="7" fill="#c0643c" /><text x="770" y="522" font-size="25" fill="#c0643c" text-anchor="middle">试探 (−1, 0)</text><text x="948" y="525" font-size="26" fill="#19333c" text-anchor="start">最优 (0, 0)</text><text x="690" y="697" font-size="28" fill="#50636e" text-anchor="start">普通梯度 (1, 0)，并非零</text><text x="690" y="744" font-size="28" fill="#256b82" text-anchor="start">投影回原点：梯度映射为零</text></g><desc> 约束后的移动，才是边界处应检查的残差</desc></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1033" viewBox="0 0 960 1033" role="img" aria-labelledby="title desc">
+<title id="title">投影把越界试探拉回可行域</title><desc id="desc">先作无约束梯度试探，再投影到非负半平面。最优点仍有非零普通梯度，但投影后的实际步长为零。</desc>
+<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="1033" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
+<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">投影把越界试探拉回可行域</text>
+<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">可行域是 x ≥ 0，两个面板使用相同横纵比例</text>
+<rect x="44" y="143" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
+<text x="65" y="173" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
+<text x="101" y="173" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">走一步，试探点落在边界外</text>
+<rect x="482" y="242.65000000000003" width="315.9000000000001" height="220.34999999999997" rx="0" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
+<line x1="228.5" y1="463" x2="797.9000000000001" y2="463" stroke="#465d72" stroke-width="2"/>
+<line x1="482" y1="463" x2="482" y2="242.65000000000003" stroke="#465d72" stroke-width="2"/>
+<line x1="287" y1="463" x2="287" y2="471" stroke="#465d72" stroke-width="2"/>
+<text x="287" y="497" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">-1</text>
+<line x1="482" y1="463" x2="482" y2="471" stroke="#465d72" stroke-width="2"/>
+<text x="482" y="497" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
+<line x1="677" y1="463" x2="677" y2="471" stroke="#465d72" stroke-width="2"/>
+<text x="677" y="497" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
+<text x="812.9000000000001" y="471" font-size="24" fill="#465d72" font-weight="400" text-anchor="start">x</text>
+<text x="468" y="276" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
+<text x="482" y="227.65000000000003" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">y</text>
+<text x="675.05" y="328.45000000000005" font-size="26" fill="#136d84" font-weight="700" text-anchor="start">可行域</text>
+<line x1="599.0" y1="268" x2="404.0" y2="463" stroke="#465d72" stroke-width="2.8" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<line x1="404.0" y1="463" x2="482" y2="463" stroke="#a85127" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="599.0" y1="268" x2="482" y2="463" stroke="#136d84" stroke-width="4" marker-end="url(#arrow)"/>
+<circle cx="599.0" cy="268" r="8" fill="#172a40" stroke="#fff" stroke-width="3"/>
+<circle cx="404.0" cy="463" r="8" fill="#a85127" stroke="#fff" stroke-width="3"/>
+<circle cx="482" cy="463" r="8" fill="#136d84" stroke="#fff" stroke-width="3"/>
+<text x="613.0" y="275" font-size="24" fill="#172a40" font-weight="700" text-anchor="start">起点 u</text>
+<text x="384.0" y="446" font-size="24" fill="#465d72" font-weight="650" text-anchor="end">试探 z</text>
+<text x="497" y="448" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">投影 p</text>
+<text x="697" y="377" font-size="24" fill="#136d84" font-weight="700" text-anchor="start">实际更新 ↙</text>
+<rect x="44" y="551" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
+<text x="65" y="581" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
+<text x="101" y="581" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">到达最优点后，试探再被投影回来</text>
+<rect x="482" y="646.6500000000001" width="315.9000000000001" height="220.3499999999999" rx="0" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
+<line x1="228.5" y1="867" x2="797.9000000000001" y2="867" stroke="#465d72" stroke-width="2"/>
+<line x1="482" y1="867" x2="482" y2="646.6500000000001" stroke="#465d72" stroke-width="2"/>
+<line x1="287" y1="867" x2="287" y2="875" stroke="#465d72" stroke-width="2"/>
+<text x="287" y="901" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">-1</text>
+<line x1="482" y1="867" x2="482" y2="875" stroke="#465d72" stroke-width="2"/>
+<text x="482" y="901" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
+<line x1="677" y1="867" x2="677" y2="875" stroke="#465d72" stroke-width="2"/>
+<text x="677" y="901" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
+<text x="812.9000000000001" y="875" font-size="24" fill="#465d72" font-weight="400" text-anchor="start">x</text>
+<text x="468" y="680" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
+<text x="482" y="631.6500000000001" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">y</text>
+<text x="675.05" y="732.45" font-size="26" fill="#136d84" font-weight="700" text-anchor="start">可行域</text>
+<line x1="482" y1="859" x2="287" y2="859" stroke="#465d72" stroke-width="2.8" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<line x1="287" y1="875" x2="482" y2="875" stroke="#a85127" stroke-width="4" marker-end="url(#arrow)"/>
+<circle cx="287" cy="867" r="8" fill="#a85127" stroke="#fff" stroke-width="3"/>
+<circle cx="482" cy="867" r="8" fill="#136d84" stroke="#fff" stroke-width="3"/>
+<text x="287" y="841" font-size="25" fill="#465d72" font-weight="650" text-anchor="middle">试探 (−1, 0)</text>
+<text x="501" y="844" font-size="26" fill="#136d84" font-weight="700" text-anchor="start">投影回原点</text>
+<rect x="44" y="938" width="872" height="60" rx="9" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
+<text x="480" y="977" font-size="26" fill="#172a40" font-weight="650" text-anchor="middle">普通梯度仍为 (1, 0)，梯度映射已经为零</text>
+</g>
+</svg>
