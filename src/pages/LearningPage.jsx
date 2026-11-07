@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, CaretRight } from '@phosphor-icons/react';
 import PageNavigation from '../components/PageNavigation';
 import { href, learning, writing } from '../data/routes';
-import useExerciseNotes from '../lib/useExerciseNotes';
+import useAnswerMotion from '../lib/useAnswerMotion';
 
 const rootRoute = '/articles/ailearning/';
 
@@ -17,7 +17,7 @@ function Contents({ entries, label }) {
 }
 
 export default function LearningPage({ page, html = '' }) {
-  useExerciseNotes(page.route, html);
+  useAnswerMotion(page.route, html);
   const isIndex = ['collection', 'category', 'topic'].includes(page.kind);
   const isRoot = page.kind === 'collection';
   const children = learning.pages.filter(p => p.parent === page.route);

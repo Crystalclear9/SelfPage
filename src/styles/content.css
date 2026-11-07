@@ -249,18 +249,12 @@
 .learning-topic-table th:nth-child(3), .learning-topic-table td:nth-child(3) { width: 28%; }
 .learning-topic-table td { vertical-align: top; }
 
-/* Exercises remain ordinary reading content, with optional local notes. */
-.prose .exercise-answer, .prose .exercise-notes { margin: 16px 0 28px; border: 1px solid var(--line); border-radius: 14px; background: var(--elevated); overflow: hidden; }
-.prose .exercise-answer summary, .prose .exercise-notes summary { padding: 16px 20px; cursor: pointer; color: var(--accent); font-size: 16px; font-weight: 500; transition: background .18s ease; }
-.prose .exercise-answer summary:hover, .prose .exercise-notes summary:hover { background: var(--soft); }
-.prose .exercise-answer summary:focus-visible, .prose .exercise-notes summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+/* Native answer disclosures with progressively enhanced motion. */
+.prose .exercise-answer{ margin: 16px 0 28px; border: 1px solid var(--line); border-radius: 14px; background: var(--elevated); overflow: hidden; }
+.prose .exercise-answer summary{ padding: 16px 20px; cursor: pointer; color: var(--accent); font-size: 16px; font-weight: 500; transition: background .18s ease; }
+.prose .exercise-answer summary:hover{ background: var(--soft); }
+.prose .exercise-answer summary:focus-visible{ outline: 2px solid var(--accent); outline-offset: -3px; }
 .prose .exercise-solution { padding: 4px 22px 20px; }
-.prose .exercise-notes { background: var(--surface); }
-.prose .exercise-notes textarea { display: block; width: calc(100% - 40px); margin: 0 20px 12px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; resize: vertical; min-height: 130px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; line-height: 1.7; }
-.prose .exercise-notes textarea:focus-visible { outline: 2px solid var(--accent); }
-.prose .exercise-notes label { display: flex; align-items: center; gap: 9px; margin: 12px 20px; font-size: 14px; }
-.prose .exercise-notes input { accent-color: var(--accent); width: 17px; height: 17px; }
-.prose .exercise-notes small { display: block; margin: 12px 20px 18px; color: var(--muted); font-size: 13px; }
-@media (prefers-reduced-motion: reduce) { .prose .exercise-answer summary, .prose .exercise-notes summary { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .prose .exercise-answer summary{ transition: none; } }
 .prose .learning-disclosure { margin: 20px 0; }
 .prose .learning-disclosure summary { cursor: pointer; color: var(--accent); padding: 12px 0; }
