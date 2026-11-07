@@ -8,6 +8,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import GithubSlugger from 'github-slugger';
 import codeHighlight from '../src/lib/code-highlight.js';
+import learningExercises from './learning-exercises.mjs';
 
 const directory = path.resolve('content/collections/ailearning');
 export const loadLearning = () => JSON.parse(readFileSync(path.join(directory, 'manifest.json'), 'utf8'));
@@ -98,7 +99,7 @@ export function renderLearning(page, base = '/') {
   const { pages } = loadLearning();
   const markdown = normalizeLearningMath(readFileSync(path.join(directory, page.file), 'utf8'));
   return renderToStaticMarkup(createElement(ReactMarkdown, {
-    remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, base }]],
+    remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, base }], learningExercises],
     rehypePlugins: [[rehypeKatex, { strict: false, trust: false }], codeHighlight],
     components: {
       table: ({ node, children, ...props }) => props.className === 'learning-topic-table'
