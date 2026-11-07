@@ -1,2 +1,63 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="906.1472" viewBox="0 0 1440 906.1472" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">两个头的独立分布与读取后拼接</title><rect width="1440" height="906.1472" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">两个头的独立分布与读取后拼接</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="764.1472" viewBox="42 72 1196 680" role="img" x="48" y="106" overflow="hidden"><rect x="42" y="72" width="1196" height="680" fill="#ffffff"/><title>两次独立归一化，保留的是两条不同的读取通路</title><rect width="1280" height="760" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="112" font-size="26" fill="#769099" text-anchor="start">同一查询、三个候选，两个头各自形成概率；本例两头标量值都为 (0, 1, 3)</text><text x="100" y="185" font-size="28" fill="#257190" text-anchor="start">头 1：分数 (0, ln 2, ln 3)</text><rect x="100" y="395.0" width="90" height="55.0" fill="#257190"/><text x="145" y="377.0" font-size="25" fill="#257190" text-anchor="middle">0.1667</text><text x="145" y="490" font-size="26" fill="#769099" text-anchor="middle">值 0</text><rect x="240" y="340.0" width="90" height="110.0" fill="#257190"/><text x="285" y="322.0" font-size="25" fill="#257190" text-anchor="middle">0.3333</text><text x="285" y="490" font-size="26" fill="#769099" text-anchor="middle">值 1</text><rect x="380" y="285.0" width="90" height="165.0" fill="#257190"/><text x="425" y="267.0" font-size="25" fill="#257190" text-anchor="middle">0.5</text><text x="425" y="490" font-size="26" fill="#769099" text-anchor="middle">值 3</text><line x1="100" y1="450" x2="510" y2="450" stroke="#769099" stroke-width="2"/><text x="100" y="565" font-size="29" fill="#257190" text-anchor="start">读取 = 1.8333</text><text x="720" y="185" font-size="28" fill="#bf6d42" text-anchor="start">头 2：分数 (ln 3, ln 2, 0)</text><rect x="720" y="285.0" width="90" height="165.0" fill="#bf6d42"/><text x="765" y="267.0" font-size="25" fill="#bf6d42" text-anchor="middle">0.5</text><text x="765" y="490" font-size="26" fill="#769099" text-anchor="middle">值 0</text><rect x="860" y="340.0" width="90" height="110.0" fill="#bf6d42"/><text x="905" y="322.0" font-size="25" fill="#bf6d42" text-anchor="middle">0.3333</text><text x="905" y="490" font-size="26" fill="#769099" text-anchor="middle">值 1</text><rect x="1000" y="395.0" width="90" height="55.0" fill="#bf6d42"/><text x="1045" y="377.0" font-size="25" fill="#bf6d42" text-anchor="middle">0.1667</text><text x="1045" y="490" font-size="26" fill="#769099" text-anchor="middle">值 3</text><line x1="720" y1="450" x2="1130" y2="450" stroke="#769099" stroke-width="2"/><text x="720" y="565" font-size="29" fill="#bf6d42" text-anchor="start">读取 = 0.8333</text><line x1="60" y1="620" x2="1220" y2="620" stroke="#dfe4eb" stroke-width="2"/><text x="60" y="674" font-size="28" fill="#1a2b3d" text-anchor="start">拼接保留 (1.8333, 0.8333)；输出投影取两头之差，可得到 1。</text><text x="60" y="730" font-size="26" fill="#769099" text-anchor="start">先平均只留下 1.3333，头之间的差异已被抹去；两种接口的表示约束不同。</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="601" viewBox="0 0 1200 601" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">两个头分别读取并保留差异</title>
+<desc id="fig-desc">两个头使用同一组标量值但权重不同。拼接后可得到头间差分，先平均则无法保留这个信息。</desc>
+<rect x="0" y="0" width="1200" height="601" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">同一组值，两套读取比例</text>
+<path d="M335 163 L362 117 L502 117 L475 163 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="418.5" y="148.4" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">值 0</text>
+<path d="M566 163 L593 117 L733 117 L706 163 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="649.5" y="148.4" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">值 1</text>
+<path d="M797 163 L824 117 L964 117 L937 163 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="880.5" y="148.4" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">值 3</text>
+<text x="76" y="225" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">头 1</text>
+<text x="418" y="210" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M398 216 L438 216" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="418" y="241" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<text x="649" y="210" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M629 216 L669 216" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="649" y="241" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<text x="880" y="210" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M860 216 L900 216" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="880" y="241" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M944 216 L997 216" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M997 216 L986 221 L986 211 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1052" y="210" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">11</text>
+<path d="M1032 216 L1072 216" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1052" y="241" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<text x="76" y="333" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">头 2</text>
+<text x="418" y="318" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M398 324 L438 324" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="418" y="349" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<text x="649" y="318" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M629 324 L669 324" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="649" y="349" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<text x="880" y="318" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M860 324 L900 324" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="880" y="349" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M944 324 L997 324" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M997 324 L986 329 L986 319 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1052" y="318" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M1032 324 L1072 324" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1052" y="349" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M75 405 L1125 405" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="76" y="451" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="600">先拼接，再相减</text>
+<text x="327" y="439" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">11</text>
+<path d="M307 445 L347 445" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="327" y="470" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<text x="375" y="452" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">−</text>
+<text x="434" y="439" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M414 445 L454 445" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="434" y="470" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<text x="490" y="452" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">= 1</text>
+<text x="652" y="451" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="600">若先平均</text>
+<text x="869" y="439" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M849 445 L889 445" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="869" y="470" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<text x="76" y="548" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">交换两头会让差值反号，平均值仍保持相同。</text>
+</svg>

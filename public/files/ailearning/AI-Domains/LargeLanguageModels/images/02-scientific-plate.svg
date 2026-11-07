@@ -1,58 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="608" viewBox="0 0 1440 608" role="img" aria-labelledby="title description">
-  <title id="title">DPO 比较的是各自相对参考策略的增益</title>
-  <desc id="description">两条回答的当前概率同为 0.3。偏好回答的参考概率为 0.1，增益为 ln 3。另一条参考概率为 0.3，增益为零。当 β 为一时，偏好比较模型给出 75%。</desc>
-  <defs>
-    <marker id="gain-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse">
-      <path d="M0 0L10 5L0 10Z" fill="#168575"/>
-    </marker>
-    <marker id="axis-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#647e91"/>
-    </marker>
-  </defs>
-  <rect width="1440" height="608" fill="#fff"/>
-  <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#142b45">
-    <rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/>
-    <text x="71" y="66" font-size="38" font-weight="700">DPO 比较的是各自相对参考策略的增益</text>
-    <path d="M48 89H1392" stroke="#d7e1ee" stroke-width="1.4"/>
-
-    <circle cx="257" cy="137" r="10" fill="#fff" stroke="#647e91" stroke-width="4"/>
-    <text x="282" y="146" font-size="29">冻结参考 q</text>
-    <circle cx="479" cy="137" r="10" fill="#168575"/>
-    <text x="504" y="146" font-size="29">当前策略 π</text>
-
-    <rect x="52" y="208" width="904" height="96" rx="18" fill="#eef7f6"/>
-    <rect x="52" y="363" width="904" height="96" rx="18" fill="#f5f7fa"/>
-    <text x="77" y="267" font-size="30" font-weight="700">偏好回答</text>
-    <text x="77" y="422" font-size="30" font-weight="700">另一回答</text>
-    <path d="M248 256H934M248 411H934" stroke="#b1c3ce" stroke-width="2"/>
-    <path d="M766.411 190V496" stroke="#168575" stroke-width="2.5" stroke-dasharray="8 8" opacity=".48"/>
-    <text x="766.411" y="186" text-anchor="middle" font-size="28" fill="#168575">两条回答的 π 都是 0.3</text>
-
-    <path d="M350 256H741" stroke="#168575" stroke-width="4" marker-end="url(#gain-tip)"/>
-    <circle cx="326.966" cy="256" r="12" fill="#fff" stroke="#647e91" stroke-width="4"/>
-    <circle cx="766.411" cy="256" r="12" fill="#168575"/>
-    <text x="326.966" y="288" text-anchor="middle" font-size="25">q = 0.1</text>
-    <text x="546.69" y="239" text-anchor="middle" font-size="30" font-weight="700" fill="#168575">增益 ln 3</text>
-    <circle cx="766.411" cy="411" r="15" fill="#fff" stroke="#647e91" stroke-width="4"/>
-    <circle cx="766.411" cy="411" r="8" fill="#168575"/>
-    <text x="799" y="402" font-size="25">q = π = 0.3</text>
-    <text x="799" y="435" font-size="25" fill="#168575">增益为零</text>
-
-    <path d="M248 496H948" fill="none" stroke="#647e91" stroke-width="2.6" marker-end="url(#axis-tip)"/>
-    <path d="M248 496v9m200-9v9m200-9v9m200-9v9" stroke="#647e91" stroke-width="2.6"/>
-    <g text-anchor="middle" font-size="24">
-      <text x="248" y="532">−2.5</text><text x="448" y="532">−2.0</text>
-      <text x="648" y="532">−1.5</text><text x="848" y="532">−1.0</text>
-      <text x="588" y="573" font-size="29">回复的序列对数概率</text>
-    </g>
-
-    <rect x="1000" y="208" width="380" height="251" rx="22" fill="#f0eef9" stroke="#d7cdec" stroke-width="2"/>
-    <g text-anchor="middle">
-      <text x="1190" y="264" font-size="30" font-weight="700">两条回答的增益差</text>
-      <text x="1190" y="313" font-size="35" fill="#563f88">ln 3 − 0 = ln 3</text>
-      <path d="M1040 340H1340" stroke="#d7cdec" stroke-width="2"/>
-      <text x="1190" y="388" font-size="26">β = 1 时的偏好概率</text>
-      <text x="1190" y="433" font-size="34" font-weight="700" fill="#563f88">σ(ln 3) = 75%</text>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="661" viewBox="0 0 1200 661" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">同一当前概率可以对应不同的相对增益</title>
+<desc id="fig-desc">两条回答在当前策略下概率都为零点三。相对冻结参考的对数位移不同。</desc>
+<rect x="0" y="0" width="1200" height="661" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">终点相同，起点不同，偏好增益也不同</text>
+<path d="M872.12 158 L872.12 458" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5"/>
+<text x="74" y="231" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">偏好回答</text>
+<path d="M325 224 L1016 224" fill="none" stroke="#dbe8eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="425.567" cy="224" r="8" fill="#ffffff" stroke="#166d75" stroke-width="3"/>
+<path d="M435.567 224 L863.12 224" fill="none" stroke="#166d75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M863.12 224 L852.12 229 L852.12 219 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425.567" y="194" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">参考 q = 0.1</text>
+<circle cx="872.12" cy="224" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<text x="887.12" y="232" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">当前 π = 0.3</text>
+<text x="74" y="371" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">另一回答</text>
+<path d="M325 364 L1016 364" fill="none" stroke="#dbe8eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="872.12" cy="364" r="11" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<text x="837.12" y="340" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="end" font-weight="400">参考与当前重合</text>
+<circle cx="872.12" cy="364" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<text x="887.12" y="372" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">当前 π = 0.3</text>
+<path d="M325 456 L1030 456" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1030 456 L1019 461 L1019 451 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M345.324 452 L345.324 461" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="345.324" y="489" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">-2.5</text>
+<path d="M548.559 452 L548.559 461" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="548.559" y="489" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">-2</text>
+<path d="M751.794 452 L751.794 461" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="751.794" y="489" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">-1.5</text>
+<path d="M955.029 452 L955.029 461" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="955.029" y="489" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">-1</text>
+<text x="74" y="465" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">序列对数概率</text>
+<path d="M75 525 L1125 525" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="574" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">两条对数位移的差为 ln 3。β = 1 时偏好比较概率为 0.75。</text>
 </svg>

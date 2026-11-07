@@ -1,53 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="819" viewBox="0 0 960 819" role="img" aria-labelledby="title description">
-<title id="title">请求字节相同，缓存填充量可以不同</title>
-<desc id="description">A 请求 0 到 64 字节，填充一条线。B 请求 4 到 68 字节，填充两条线。C 每隔 64 字节读取 4 字节，填充十六条线。区间均为左闭右开。</desc>
-<rect x="0" y="0" width="960" height="819" rx="0" fill="#fff" stroke="none"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="36" y="26" width="5" height="32" rx="2" fill="#526bab" stroke="none"/>
-<text x="57.00" y="53.00" font-size="35" fill="#172e46" text-anchor="start" font-weight="700">请求字节相同，缓存填充量可以不同</text>
-<path d="M36.00 72.00L924.00 72.00" stroke="#d7e1ee" stroke-width="2" />
-<text x="53.00" y="144.00" font-size="30" fill="#172e46" text-anchor="start" font-weight="700">A  从缓存线边界开始</text>
-<text x="905.00" y="144.00" font-size="26" fill="#286391" text-anchor="end">触及 1 条线，填充 64 B</text>
-<rect x="202" y="180" width="336" height="46" rx="0" fill="#e8f0f7" stroke="#9fb8cc"/>
-<rect x="538" y="180" width="336" height="46" rx="0" fill="#eef4f8" stroke="#9fb8cc"/>
-<rect x="202.0" y="186" width="336.0" height="34" rx="0" fill="#286391" stroke="none"/>
-<path d="M202.00 170.00L202.00 233.00" stroke="#496477" stroke-width="2" />
-<text x="202.00" y="263.00" font-size="25" fill="#496477" text-anchor="middle">0 B</text>
-<path d="M538.00 170.00L538.00 233.00" stroke="#496477" stroke-width="2" />
-<text x="538.00" y="263.00" font-size="25" fill="#496477" text-anchor="middle">64 B</text>
-<path d="M874.00 170.00L874.00 233.00" stroke="#496477" stroke-width="2" />
-<text x="874.00" y="263.00" font-size="25" fill="#496477" text-anchor="middle">128 B</text>
-<text x="53.00" y="331.00" font-size="30" fill="#172e46" text-anchor="start" font-weight="700">B  起点后移 4 B</text>
-<text x="905.00" y="331.00" font-size="26" fill="#136e64" text-anchor="end">触及 2 条线，填充 128 B</text>
-<rect x="202" y="367" width="336" height="46" rx="0" fill="#e8f0f7" stroke="#9fb8cc"/>
-<rect x="538" y="367" width="336" height="46" rx="0" fill="#eef4f8" stroke="#9fb8cc"/>
-<rect x="223.0" y="373" width="336.0" height="34" rx="0" fill="#136e64" stroke="none"/>
-<path d="M202.00 357.00L202.00 420.00" stroke="#496477" stroke-width="2" />
-<text x="202.00" y="450.00" font-size="25" fill="#496477" text-anchor="middle">0 B</text>
-<path d="M538.00 357.00L538.00 420.00" stroke="#496477" stroke-width="2" />
-<text x="538.00" y="450.00" font-size="25" fill="#496477" text-anchor="middle">64 B</text>
-<path d="M874.00 357.00L874.00 420.00" stroke="#496477" stroke-width="2" />
-<text x="874.00" y="450.00" font-size="25" fill="#496477" text-anchor="middle">128 B</text>
-<path d="M223.00 407.00L223.00 477.00" stroke="#136e64" stroke-width="2.3" />
-<text x="245.00" y="485.00" font-size="24" fill="#136e64" text-anchor="start">4 B</text>
-<path d="M559.00 407.00L559.00 477.00" stroke="#136e64" stroke-width="2.3" />
-<text x="581.00" y="485.00" font-size="24" fill="#136e64" text-anchor="start">68 B</text>
-<path d="M53.00 508.00L905.00 508.00" stroke="#d7e1ee" stroke-width="2" />
-<text x="53.00" y="562.00" font-size="30" fill="#172e46" text-anchor="start" font-weight="700">C  每隔一条缓存线取 4 B</text>
-<text x="905.00" y="562.00" font-size="26" fill="#b55532" text-anchor="end">触及 16 条线，填充 1024 B</text>
-<rect x="72" y="627" width="146" height="55" rx="4" fill="#f3f6fa" stroke="#a5b9c9"/>
-<rect x="72" y="627" width="9.125" height="55" rx="0" fill="#b55532" stroke="none"/>
-<text x="145.00" y="717.00" font-size="26" fill="#496477" text-anchor="middle">线 0</text>
-<rect x="259" y="627" width="146" height="55" rx="4" fill="#f3f6fa" stroke="#a5b9c9"/>
-<rect x="259" y="627" width="9.125" height="55" rx="0" fill="#b55532" stroke="none"/>
-<text x="332.00" y="717.00" font-size="26" fill="#496477" text-anchor="middle">线 1</text>
-<rect x="446" y="627" width="146" height="55" rx="4" fill="#f3f6fa" stroke="#a5b9c9"/>
-<rect x="446" y="627" width="9.125" height="55" rx="0" fill="#b55532" stroke="none"/>
-<text x="519.00" y="717.00" font-size="26" fill="#496477" text-anchor="middle">线 2</text>
-<rect x="742" y="627" width="146" height="55" rx="4" fill="#f3f6fa" stroke="#a5b9c9"/>
-<rect x="742" y="627" width="9.125" height="55" rx="0" fill="#b55532" stroke="none"/>
-<text x="815.00" y="717.00" font-size="26" fill="#496477" text-anchor="middle">线 15</text>
-<text x="655.00" y="668.00" font-size="40" fill="#496477" text-anchor="middle">...</text>
-<text x="480.00" y="774.00" font-size="29" fill="#172e46" text-anchor="middle" font-weight="700">三个例子的总请求量均为 64 B</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="637" viewBox="0 0 1200 637" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">相同请求量，不同缓存线填充量</title>
+<desc id="fig-desc">每条缓存线六十四字节。连续对齐读取只填充一条线，偏移四字节触及两条，跨线取四字节则触及十六条。</desc>
+<rect x="0" y="0" width="1200" height="637" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="76" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">每种读法都请求 64 B</text>
+<text x="78" y="169" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">A · 从边界开始</text>
+<rect x="380" y="145" width="291" height="45" fill="#ecf6f6" opacity="1"/>
+<path d="M380 190 L671 190" fill="none" stroke="#526976" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="672" y="145" width="291" height="45" fill="#f0f3f4" opacity="1"/>
+<path d="M672 190 L963 190" fill="none" stroke="#526976" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="380" y="158" width="292" height="20" fill="#166d75" opacity="0.74"/>
+<text x="380" y="221" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0 B</text>
+<text x="672" y="221" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">64 B</text>
+<text x="964" y="221" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">128 B</text>
+<text x="1030" y="175" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">64 B</text>
+<text x="78" y="298" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">B · 起点偏移 4 B</text>
+<rect x="380" y="274" width="291" height="45" fill="#ecf6f6" opacity="1"/>
+<path d="M380 319 L671 319" fill="none" stroke="#526976" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="672" y="274" width="291" height="45" fill="#ecf6f6" opacity="1"/>
+<path d="M672 319 L963 319" fill="none" stroke="#526976" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="398.25" y="287" width="292" height="20" fill="#a74d3a" opacity="0.74"/>
+<text x="380" y="350" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0 B</text>
+<text x="672" y="350" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">64 B</text>
+<text x="964" y="350" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">128 B</text>
+<text x="1030" y="304" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">128 B</text>
+<path d="M75 387 L1125 387" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="458" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">C · 每线取 4 B</text>
+<rect x="380" y="436" width="125" height="49" fill="#fbede8" opacity="1"/>
+<rect x="380" y="451" width="7.812" height="20" fill="#a74d3a" opacity="1"/>
+<text x="380" y="515" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">线 0</text>
+<rect x="540" y="436" width="125" height="49" fill="#fbede8" opacity="1"/>
+<rect x="540" y="451" width="7.812" height="20" fill="#a74d3a" opacity="1"/>
+<text x="540" y="515" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">线 1</text>
+<rect x="700" y="436" width="125" height="49" fill="#fbede8" opacity="1"/>
+<rect x="700" y="451" width="7.812" height="20" fill="#a74d3a" opacity="1"/>
+<text x="700" y="515" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">线 2</text>
+<rect x="890" y="436" width="125" height="49" fill="#fbede8" opacity="1"/>
+<rect x="890" y="451" width="7.812" height="20" fill="#a74d3a" opacity="1"/>
+<text x="890" y="515" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">线 15</text>
+<text x="831" y="465" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">…</text>
+<text x="1072" y="465" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">1024 B</text>
+<text x="77" y="558" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">白底上的浅色带是缓存线，深色短段是实际读取。</text>
+<text x="77" y="601" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">右端数字为冷缓存假设下的整线填充量。</text>
 </svg>

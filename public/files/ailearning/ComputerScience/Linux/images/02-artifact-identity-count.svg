@@ -1,59 +1,68 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="961" viewBox="0 0 1440 961" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">图解：计数通过后还要检查身份和重数</title><rect width="1440" height="961" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">图解：计数通过后还要检查身份和重数</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="819" viewBox="0 0 1280 780" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5fa"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>总条数完全相同，仍可能同时存在重复与缺失</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="52" y="64" font-size="36" fill="#1a2a3b" text-anchor="start">总条数完全相同，仍可能同时存在重复与缺失</text>
-<text x="60" y="140" font-size="29" fill="#1c77a2" text-anchor="start">预期身份</text>
-<rect x="300" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="335.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">1</text>
-<rect x="379" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="414.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">2</text>
-<rect x="458" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="493.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">3</text>
-<rect x="537" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="572.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">4</text>
-<rect x="616" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="651.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">5</text>
-<rect x="695" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="730.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">6</text>
-<rect x="774" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="809.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">7</text>
-<rect x="853" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="888.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">8</text>
-<rect x="932" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="967.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">9</text>
-<rect x="1011" y="105" width="70" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="1046.0" y="142" font-size="27" fill="#1c77a2" text-anchor="middle">10</text>
-<text x="60" y="250" font-size="29" fill="#ca7542" text-anchor="start">实际输出</text>
-<rect x="300" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="335.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">1</text>
-<rect x="379" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="414.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">2</text>
-<rect x="458" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="493.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">3</text>
-<rect x="537" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="572.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">4</text>
-<rect x="616" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="651.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">5</text>
-<rect x="695" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="730.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">6</text>
-<rect x="774" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="809.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">7</text>
-<rect x="853" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="888.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">8</text>
-<rect x="932" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="967.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">9</text>
-<rect x="1011" y="215" width="70" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="1046.0" y="252" font-size="27" fill="#ca7542" text-anchor="middle">9</text>
-<line x1="60" y1="320" x2="1220" y2="320" stroke="#dee4ec" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="390" font-size="30" fill="#1a2a3b" text-anchor="start">行数检查</text>
-<text x="485" y="390" font-size="30" fill="#1c77a2" text-anchor="start">10 = 10</text>
-<text x="900" y="390" font-size="30" fill="#1c77a2" text-anchor="start">通过</text>
-<text x="60" y="470" font-size="30" fill="#1a2a3b" text-anchor="start">不同身份数</text>
-<text x="485" y="470" font-size="30" fill="#ca7542" text-anchor="start">9 ≠ 10</text>
-<text x="900" y="470" font-size="30" fill="#ca7542" text-anchor="start">失败</text>
-<text x="60" y="550" font-size="30" fill="#1a2a3b" text-anchor="start">身份逐项核对</text>
-<text x="485" y="550" font-size="30" fill="#ca7542" text-anchor="start">ID 9 出现 2 次</text>
-<text x="900" y="550" font-size="30" fill="#ca7542" text-anchor="start">ID 10 缺失</text>
-<line x1="60" y1="610" x2="1220" y2="610" stroke="#dee4ec" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="675" font-size="29" fill="#1a2a3b" text-anchor="start">退出码为 0、日志写“完成”，都不能修复身份集合。</text>
-<text x="60" y="735" font-size="28" fill="#1a2a3b" text-anchor="start">内容验收：预期身份 + 每项次数 + 模式与值域 + 输入版本。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="601" viewBox="0 0 1200 601" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">行数一致不代表身份完整</title>
+<desc id="fig-desc">十条输出中第九项重复、第十项缺失。总行数检查无法发现这类抵消。</desc>
+<rect x="0" y="0" width="1200" height="601" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+<linearGradient id="blue" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9f1f8"/></linearGradient>
+<linearGradient id="ochre" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f7f0d9"/></linearGradient>
+<linearGradient id="green" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf4e9"/></linearGradient>
+</defs>
+<text x="76" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">同样十条记录，仍可能重复和缺失</text>
+<text x="77" y="168" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">预期身份</text>
+<path d="M309 186 L325.2 139 L383 139 L366.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="346" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M390 186 L406.2 139 L464 139 L447.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="427" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M471 186 L487.2 139 L545 139 L528.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="508" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M552 186 L568.2 139 L626 139 L609.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="589" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M633 186 L649.2 139 L707 139 L690.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="670" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M714 186 L730.2 139 L788 139 L771.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="751" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M795 186 L811.2 139 L869 139 L852.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="832" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M876 186 L892.2 139 L950 139 L933.8 186 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="913" y="170.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<path d="M957 186 L973.2 139 L1031 139 L1014.8 186 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="994" y="170.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<path d="M1038 186 L1054.2 139 L1112 139 L1095.8 186 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1075" y="170.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">10</text>
+<text x="77" y="268" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">实际输出</text>
+<path d="M309 286 L325.2 239 L383 239 L366.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="346" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M390 286 L406.2 239 L464 239 L447.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="427" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M471 286 L487.2 239 L545 239 L528.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="508" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M552 286 L568.2 239 L626 239 L609.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="589" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M633 286 L649.2 239 L707 239 L690.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="670" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M714 286 L730.2 239 L788 239 L771.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="751" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M795 286 L811.2 239 L869 239 L852.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="832" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M876 286 L892.2 239 L950 239 L933.8 286 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="913" y="270.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<path d="M957 286 L973.2 239 L1031 239 L1014.8 286 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="994" y="270.55" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<path d="M1038 286 L1054.2 239 L1112 239 L1095.8 286 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1075" y="270.55" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<path d="M75 331 L1125 331" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="387" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">总行数</text>
+<path d="M78 464 L105 412 L382 412 L355 464 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="230" y="446.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">10 = 10</text>
+<text x="449" y="387" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">不同身份</text>
+<path d="M449 464 L476 412 L753 412 L726 464 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="601" y="446.4" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">9 ≠ 10</text>
+<text x="823" y="387" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">按身份核对</text>
+<path d="M823 464 L850 412 L1127 412 L1100 464 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="975" y="446.4" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">9 重复，10 缺失</text>
+<text x="76" y="542" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">验收应同时核对身份、每项出现次数、值域和输入版本。</text>
+</svg>

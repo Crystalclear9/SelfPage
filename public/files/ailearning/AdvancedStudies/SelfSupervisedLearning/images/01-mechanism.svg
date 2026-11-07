@@ -1,59 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1058" viewBox="0 0 960 1058" role="img" aria-labelledby="title desc">
-<title id="title">降低温度，梯度集中到哪一个负例</title><desc id="desc">固定三个相似度。比较温度一和零点一的归一化概率，以及每个分数的带符号梯度。</desc>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0.000" y="0.000" width="960.000" height="1058.000" rx="0" fill="#ffffff" stroke="none" stroke-width="1.6"/>
-<text x="44.000" y="61.000" fill="#172a40" font-size="38" font-weight="700" text-anchor="start">降低温度，梯度集中到哪一个负例</text>
-<text x="46.000" y="106.000" fill="#465d72" font-size="26" font-weight="400" text-anchor="start">固定相似度 1、0.8、0，只有第一项是正例</text>
-<line x1="138.000" y1="147.000" x2="174.000" y2="147.000" stroke="#136d84" stroke-width="4" stroke-dasharray="none"/>
-<text x="187.000" y="155.000" fill="#136d84" font-size="24" font-weight="650" text-anchor="start">正例</text>
-<line x1="398.000" y1="147.000" x2="434.000" y2="147.000" stroke="#a85127" stroke-width="4" stroke-dasharray="none"/>
-<text x="447.000" y="155.000" fill="#a85127" font-size="24" font-weight="650" text-anchor="start">近负例</text>
-<line x1="658.000" y1="147.000" x2="694.000" y2="147.000" stroke="#5c7188" stroke-width="4" stroke-dasharray="none"/>
-<text x="707.000" y="155.000" fill="#5c7188" font-size="24" font-weight="650" text-anchor="start">远负例</text>
-<rect x="44.000" y="196.000" width="44.000" height="41.000" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.6"/>
-<text x="66.000" y="225.000" fill="#136d84" font-size="26" font-weight="700" text-anchor="middle">A</text>
-<text x="103.000" y="225.000" fill="#172a40" font-size="31" font-weight="700" text-anchor="start">同一组分数，低温将概率推向正例</text>
-<rect x="44.000" y="262.000" width="872.000" height="104.000" rx="11" fill="#f7fafc" stroke="#cedae4" stroke-width="1.6"/>
-<text x="64.000" y="320.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">温度 1</text>
-<text x="253.000" y="301.000" fill="#136d84" font-size="27" font-weight="700" text-anchor="start">0.457329</text>
-<rect x="253.000" y="321.000" width="176.000" height="16.000" rx="5" fill="#e0e7ee" stroke="none" stroke-width="1.6"/>
-<rect x="253.000" y="321.000" width="80.490" height="16.000" rx="4" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="475.000" y="301.000" fill="#a85127" font-size="27" font-weight="700" text-anchor="start">0.374429</text>
-<rect x="475.000" y="321.000" width="176.000" height="16.000" rx="5" fill="#e0e7ee" stroke="none" stroke-width="1.6"/>
-<rect x="475.000" y="321.000" width="65.900" height="16.000" rx="4" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="697.000" y="301.000" fill="#5c7188" font-size="27" font-weight="700" text-anchor="start">0.168242</text>
-<rect x="697.000" y="321.000" width="176.000" height="16.000" rx="5" fill="#e0e7ee" stroke="none" stroke-width="1.6"/>
-<rect x="697.000" y="321.000" width="29.611" height="16.000" rx="4" fill="#5c7188" stroke="none" stroke-width="1.6"/>
-<rect x="44.000" y="390.000" width="872.000" height="104.000" rx="11" fill="#f7fafc" stroke="#cedae4" stroke-width="1.6"/>
-<text x="64.000" y="448.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">温度 0.1</text>
-<text x="253.000" y="429.000" fill="#136d84" font-size="27" font-weight="700" text-anchor="start">0.880762</text>
-<rect x="253.000" y="449.000" width="176.000" height="16.000" rx="5" fill="#e0e7ee" stroke="none" stroke-width="1.6"/>
-<rect x="253.000" y="449.000" width="155.014" height="16.000" rx="4" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="475.000" y="429.000" fill="#a85127" font-size="27" font-weight="700" text-anchor="start">0.119198</text>
-<rect x="475.000" y="449.000" width="176.000" height="16.000" rx="5" fill="#e0e7ee" stroke="none" stroke-width="1.6"/>
-<rect x="475.000" y="449.000" width="20.979" height="16.000" rx="4" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="697.000" y="429.000" fill="#5c7188" font-size="27" font-weight="700" text-anchor="start">0.000040</text>
-<rect x="697.000" y="449.000" width="176.000" height="16.000" rx="5" fill="#e0e7ee" stroke="none" stroke-width="1.6"/>
-<rect x="44.000" y="534.000" width="44.000" height="41.000" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.6"/>
-<text x="66.000" y="563.000" fill="#136d84" font-size="26" font-weight="700" text-anchor="middle">B</text>
-<text x="103.000" y="563.000" fill="#172a40" font-size="31" font-weight="700" text-anchor="start">近负例的排斥变强，远负例几乎消失</text>
-<text x="441.000" y="618.000" fill="#136d84" font-size="24" font-weight="650" text-anchor="end">升高相似度</text>
-<text x="531.000" y="618.000" fill="#a85127" font-size="24" font-weight="650" text-anchor="start">降低相似度</text>
-<line x1="478.000" y1="633.000" x2="478.000" y2="982.000" stroke="#465d72" stroke-width="2" stroke-dasharray="6 5"/>
-<text x="64.000" y="726.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">温度 1</text>
-<rect x="330.393" y="660.000" width="147.607" height="19.000" rx="4" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="318.393" y="680.000" fill="#136d84" font-size="24" font-weight="700" text-anchor="end">-0.54267</text>
-<rect x="478.000" y="704.000" width="101.845" height="19.000" rx="4" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="591.845" y="724.000" fill="#a85127" font-size="24" font-weight="700" text-anchor="start">+0.37443</text>
-<rect x="478.000" y="748.000" width="45.762" height="19.000" rx="4" fill="#5c7188" stroke="none" stroke-width="1.6"/>
-<text x="535.762" y="768.000" fill="#5c7188" font-size="24" font-weight="700" text-anchor="start">+0.16824</text>
-<text x="64.000" y="891.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">温度 0.1</text>
-<rect x="153.672" y="825.000" width="324.328" height="19.000" rx="4" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="141.672" y="845.000" fill="#136d84" font-size="24" font-weight="700" text-anchor="end">-1.19238</text>
-<rect x="478.000" y="869.000" width="324.219" height="19.000" rx="4" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="814.219" y="889.000" fill="#a85127" font-size="24" font-weight="700" text-anchor="start">+1.19198</text>
-<circle cx="478.000" cy="923.000" r="4" fill="#5c7188" stroke="#ffffff" stroke-width="2.2"/>
-<text x="490.109" y="933.000" fill="#5c7188" font-size="24" font-weight="700" text-anchor="start">+0.00040</text>
-<text x="478.000" y="1020.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">0</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="778" viewBox="0 0 1200 778" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">降低温度改变概率和梯度的尺度</title>
+<desc id="fig-desc">相似度为一、零点八和零。只有第一项是正例。</desc>
+<rect x="0" y="0" width="1200" height="778" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">低温强化近负例的排斥，远负例几乎退出竞争</text>
+<text x="75" y="112" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" font-weight="600">A  归一化概率</text>
+<text x="75" y="178" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">温度 1</text>
+<path d="M278 194 L290 150 L616.423 150 L604.423 194 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="447.212" y="179.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.457329</text>
+<path d="M616.423 194 L628.423 150 L893.501 150 L881.501 194 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="754.962" y="179.7" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.374429</text>
+<path d="M893.501 194 L905.501 150 L1018 150 L1006 194 Z" fill="url(#v)" stroke="#6e618e" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="955.75" y="179.7" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.168242</text>
+<text x="75" y="276" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">温度 0.1</text>
+<path d="M278 292 L290 248 L929.764 248 L917.764 292 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="603.882" y="277.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.880762</text>
+<rect x="929.764" y="248" width="88.207" height="44" fill="#fbede8" opacity="1"/>
+<text x="973.8675" y="277.7" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle">0.119198</text>
+<rect x="1017.97" y="248" width="0.03" height="44" fill="#e8e6f2" opacity="1"/>
+<text x="1043" y="277" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="start" font-weight="400">0.000040</text>
+<path d="M75 344 L1125 344" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="388" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">B  相似度梯度（正例、近负例、远负例）</text>
+<text x="75" y="469" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">温度 1</text>
+<path d="M658 434 L658 483" fill="none" stroke="#dbe8eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M658 445 L524.503 445" fill="none" stroke="#166d75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M524.503 445 L535.503 440 L535.503 450 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="294" y="519" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">−0.54267</text>
+<path d="M658 458 L750.11 458" fill="none" stroke="#a74d3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M750.11 458 L739.11 463 L739.11 453 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="538" y="519" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">+0.37443</text>
+<path d="M658 471 L699.388 471" fill="none" stroke="#6e618e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M699.388 471 L688.388 476 L688.388 466 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="782" y="519" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">+0.16824</text>
+<text x="75" y="577" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">温度 0.1</text>
+<path d="M658 542 L658 591" fill="none" stroke="#dbe8eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M658 553 L364.674 553" fill="none" stroke="#166d75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M364.674 553 L375.674 548 L375.674 558 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="294" y="627" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">−1.19238</text>
+<path d="M658 566 L951.227 566" fill="none" stroke="#a74d3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M951.227 566 L940.227 571 L940.227 561 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="538" y="627" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">+1.19198</text>
+<path d="M658 579 L658.098 579" fill="none" stroke="#6e618e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M658.098 579 L647.098 584 L647.098 574 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="782" y="627" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">+0.00040</text>
+<text x="75" y="726" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">箭头是损失对分数的导数。梯度下降会沿反向改变分数。</text>
 </svg>

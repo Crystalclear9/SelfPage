@@ -1,79 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1128" viewBox="0 0 960 1128" role="img" aria-labelledby="title desc">
-<title id="title">岭回归对参数和预测做了什么</title><desc id="desc">使用相同奇异值。参数增益在 0.1 和 10 时相同，预测保留比例却分别约为百分之一和百分之九十九。</desc>
-<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0" y="0" width="960" height="1128" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
-<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">岭回归对参数和预测做了什么</text>
-<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">固定 λ = 1，沿同一个奇异方向跟踪两次变换</text>
-<rect x="44" y="134" width="240" height="67" rx="10" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="164" y="178" font-size="27" fill="#172a40" font-weight="650" text-anchor="middle">观测投影</text>
-<rect x="360" y="134" width="240" height="67" rx="10" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="480" y="178" font-size="27" fill="#172a40" font-weight="650" text-anchor="middle">参数坐标</text>
-<rect x="676" y="134" width="240" height="67" rx="10" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="796" y="178" font-size="27" fill="#172a40" font-weight="650" text-anchor="middle">预测坐标</text>
-<line x1="291" y1="166" x2="350" y2="166" stroke="#465d72" stroke-width="3" marker-end="url(#arrow)"/>
-<line x1="606" y1="166" x2="667" y2="166" stroke="#465d72" stroke-width="3" marker-end="url(#arrow)"/>
-<rect x="44" y="237" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="267" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
-<text x="101" y="267" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">参数增益：弱方向的噪声被压住</text>
-<line x1="145.0" y1="530.0" x2="869.0" y2="530.0" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="538.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0.01</text>
-<line x1="145.0" y1="479.0" x2="869.0" y2="479.0" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="487.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0.1</text>
-<line x1="145.0" y1="428.0" x2="869.0" y2="428.0" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="436.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
-<line x1="145.0" y1="377.0" x2="869.0" y2="377.0" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="385.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">10</text>
-<line x1="145.0" y1="326.0" x2="869.0" y2="326.0" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="334.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">100</text>
-<line x1="145.0" y1="530.0" x2="869.0" y2="530.0" stroke="#465d72" stroke-width="2"/>
-<line x1="145.0" y1="530.0" x2="145.0" y2="326.0" stroke="#465d72" stroke-width="2"/>
-<line x1="145.0" y1="530.0" x2="145.0" y2="538.0" stroke="#465d72" stroke-width="2"/>
-<text x="145.0" y="566.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.01</text>
-<line x1="326.0" y1="530.0" x2="326.0" y2="538.0" stroke="#465d72" stroke-width="2"/>
-<text x="326.0" y="566.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.1</text>
-<line x1="507.0" y1="530.0" x2="507.0" y2="538.0" stroke="#465d72" stroke-width="2"/>
-<text x="507.0" y="566.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
-<line x1="688.0" y1="530.0" x2="688.0" y2="538.0" stroke="#465d72" stroke-width="2"/>
-<text x="688.0" y="566.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">10</text>
-<line x1="869.0" y1="530.0" x2="869.0" y2="538.0" stroke="#465d72" stroke-width="2"/>
-<text x="869.0" y="566.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">100</text>
-<path d="M145.000 326.000 L151.033 327.700 L157.067 329.400 L163.100 331.100 L169.133 332.800 L175.167 334.500 L181.200 336.200 L187.233 337.900 L193.267 339.600 L199.300 341.300 L205.333 343.000 L211.367 344.700 L217.400 346.400 L223.433 348.100 L229.467 349.800 L235.500 351.500 L241.533 353.200 L247.567 354.900 L253.600 356.600 L259.633 358.300 L265.667 360.000 L271.700 361.700 L277.733 363.400 L283.767 365.100 L289.800 366.800 L295.833 368.500 L301.867 370.200 L307.900 371.900 L313.933 373.600 L319.967 375.300 L326.000 377.000 L332.033 378.700 L338.067 380.400 L344.100 382.100 L350.133 383.800 L356.167 385.500 L362.200 387.200 L368.233 388.900 L374.267 390.600 L380.300 392.300 L386.333 394.000 L392.367 395.700 L398.400 397.400 L404.433 399.100 L410.467 400.800 L416.500 402.500 L422.533 404.200 L428.567 405.900 L434.600 407.600 L440.633 409.300 L446.667 411.000 L452.700 412.700 L458.733 414.400 L464.767 416.100 L470.800 417.800 L476.833 419.500 L482.867 421.200 L488.900 422.900 L494.933 424.600 L500.967 426.300 L507.000 428.000 L513.033 429.700 L519.067 431.400 L525.100 433.100 L531.133 434.800 L537.167 436.500 L543.200 438.200 L549.233 439.900 L555.267 441.600 L561.300 443.300 L567.333 445.000 L573.367 446.700 L579.400 448.400 L585.433 450.100 L591.467 451.800 L597.500 453.500 L603.533 455.200 L609.567 456.900 L615.600 458.600 L621.633 460.300 L627.667 462.000 L633.700 463.700 L639.733 465.400 L645.767 467.100 L651.800 468.800 L657.833 470.500 L663.867 472.200 L669.900 473.900 L675.933 475.600 L681.967 477.300 L688.000 479.000 L694.033 480.700 L700.067 482.400 L706.100 484.100 L712.133 485.800 L718.167 487.500 L724.200 489.200 L730.233 490.900 L736.267 492.600 L742.300 494.300 L748.333 496.000 L754.367 497.700 L760.400 499.400 L766.433 501.100 L772.467 502.800 L778.500 504.500 L784.533 506.200 L790.567 507.900 L796.600 509.600 L802.633 511.300 L808.667 513.000 L814.700 514.700 L820.733 516.400 L826.767 518.100 L832.800 519.800 L838.833 521.500 L844.867 523.200 L850.900 524.900 L856.933 526.600 L862.967 528.300 L869.000 530.000" fill="none" stroke="#a85127" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M145.000 530.002 L151.033 528.303 L157.067 526.603 L163.100 524.904 L169.133 523.204 L175.167 521.505 L181.200 519.806 L187.233 518.106 L193.267 516.408 L199.300 514.709 L205.333 513.010 L211.367 511.312 L217.400 509.614 L223.433 507.916 L229.467 506.219 L235.500 504.522 L241.533 502.826 L247.567 501.130 L253.600 499.435 L259.633 497.741 L265.667 496.048 L271.700 494.356 L277.733 492.665 L283.767 490.976 L289.800 489.288 L295.833 487.603 L301.867 485.920 L307.900 484.239 L313.933 482.562 L319.967 480.889 L326.000 479.220 L332.033 477.557 L338.067 475.899 L344.100 474.248 L350.133 472.606 L356.167 470.972 L362.200 469.349 L368.233 467.739 L374.267 466.144 L380.300 464.565 L386.333 463.005 L392.367 461.467 L398.400 459.955 L404.433 458.472 L410.467 457.023 L416.500 455.611 L422.533 454.243 L428.567 452.923 L434.600 451.658 L440.633 450.456 L446.667 449.321 L452.700 448.263 L458.733 447.289 L464.767 446.406 L470.800 445.623 L476.833 444.945 L482.867 444.380 L488.900 443.935 L494.933 443.612 L500.967 443.418 L507.000 443.353 L513.033 443.418 L519.067 443.612 L525.100 443.935 L531.133 444.380 L537.167 444.945 L543.200 445.623 L549.233 446.406 L555.267 447.289 L561.300 448.263 L567.333 449.321 L573.367 450.456 L579.400 451.658 L585.433 452.923 L591.467 454.243 L597.500 455.611 L603.533 457.023 L609.567 458.472 L615.600 459.955 L621.633 461.467 L627.667 463.005 L633.700 464.565 L639.733 466.144 L645.767 467.739 L651.800 469.349 L657.833 470.972 L663.867 472.606 L669.900 474.248 L675.933 475.899 L681.967 477.557 L688.000 479.220 L694.033 480.889 L700.067 482.562 L706.100 484.239 L712.133 485.920 L718.167 487.603 L724.200 489.288 L730.233 490.976 L736.267 492.665 L742.300 494.356 L748.333 496.048 L754.367 497.741 L760.400 499.435 L766.433 501.130 L772.467 502.826 L778.500 504.522 L784.533 506.219 L790.567 507.916 L796.600 509.614 L802.633 511.312 L808.667 513.010 L814.700 514.709 L820.733 516.408 L826.767 518.106 L832.800 519.806 L838.833 521.505 L844.867 523.204 L850.900 524.904 L856.933 526.603 L862.967 528.303 L869.000 530.002" fill="none" stroke="#136d84" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="326.0" cy="479.22039006291476" r="7" fill="#136d84" stroke="#fff" stroke-width="3"/>
-<circle cx="688.0" cy="479.22039006291476" r="7" fill="#136d84" stroke="#fff" stroke-width="3"/>
-<line x1="326.0" y1="479.22039006291476" x2="688.0" y2="479.22039006291476" stroke="#136d84" stroke-width="2" stroke-dasharray="5 7"/>
-<text x="497" y="509" font-size="24" fill="#136d84" font-weight="700" text-anchor="middle">两处岭增益相同</text>
-<text x="240" y="337" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">无正则</text>
-<text x="553" y="427" font-size="24" fill="#136d84" font-weight="700" text-anchor="start">岭回归</text>
-<text x="866" y="604" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">奇异值 σ（对数刻度）</text>
-<rect x="44" y="642" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="672" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
-<text x="101" y="672" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">预测比例：再乘回一次奇异值</text>
-<line x1="145.0" y1="966" x2="869.0" y2="966" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="974" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
-<line x1="145.0" y1="860.5" x2="869.0" y2="860.5" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="868.5" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0.5</text>
-<line x1="145.0" y1="755" x2="869.0" y2="755" stroke="#cedae4" stroke-width="2"/>
-<text x="130.0" y="763" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
-<line x1="145.0" y1="966" x2="869.0" y2="966" stroke="#465d72" stroke-width="2"/>
-<line x1="145.0" y1="966" x2="145.0" y2="755" stroke="#465d72" stroke-width="2"/>
-<line x1="145.0" y1="966" x2="145.0" y2="974" stroke="#465d72" stroke-width="2"/>
-<text x="145.0" y="1002" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.01</text>
-<line x1="326.0" y1="966" x2="326.0" y2="974" stroke="#465d72" stroke-width="2"/>
-<text x="326.0" y="1002" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.1</text>
-<line x1="507.0" y1="966" x2="507.0" y2="974" stroke="#465d72" stroke-width="2"/>
-<text x="507.0" y="1002" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
-<line x1="688.0" y1="966" x2="688.0" y2="974" stroke="#465d72" stroke-width="2"/>
-<text x="688.0" y="1002" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">10</text>
-<line x1="869.0" y1="966" x2="869.0" y2="974" stroke="#465d72" stroke-width="2"/>
-<text x="869.0" y="1002" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">100</text>
-<path d="M145.000 965.979 L151.033 965.975 L157.067 965.971 L163.100 965.967 L169.133 965.961 L175.167 965.955 L181.200 965.947 L187.233 965.938 L193.267 965.928 L199.300 965.916 L205.333 965.902 L211.367 965.886 L217.400 965.867 L223.433 965.845 L229.467 965.819 L235.500 965.789 L241.533 965.754 L247.567 965.714 L253.600 965.666 L259.633 965.611 L265.667 965.546 L271.700 965.471 L277.733 965.384 L283.767 965.282 L289.800 965.163 L295.833 965.025 L301.867 964.864 L307.900 964.677 L313.933 964.459 L319.967 964.206 L326.000 963.911 L332.033 963.568 L338.067 963.170 L344.100 962.708 L350.133 962.172 L356.167 961.550 L362.200 960.830 L368.233 959.996 L374.267 959.033 L380.300 957.922 L386.333 956.641 L392.367 955.168 L398.400 953.477 L404.433 951.542 L410.467 949.332 L416.500 946.818 L422.533 943.968 L428.567 940.750 L434.600 937.134 L440.633 933.091 L446.667 928.599 L452.700 923.640 L458.733 918.203 L464.767 912.292 L470.800 905.918 L476.833 899.110 L482.867 891.909 L488.900 884.372 L494.933 876.569 L500.967 868.582 L507.000 860.500 L513.033 852.418 L519.067 844.431 L525.100 836.628 L531.133 829.091 L537.167 821.890 L543.200 815.082 L549.233 808.708 L555.267 802.797 L561.300 797.360 L567.333 792.401 L573.367 787.909 L579.400 783.866 L585.433 780.250 L591.467 777.032 L597.500 774.182 L603.533 771.668 L609.567 769.458 L615.600 767.523 L621.633 765.832 L627.667 764.359 L633.700 763.078 L639.733 761.967 L645.767 761.004 L651.800 760.170 L657.833 759.450 L663.867 758.828 L669.900 758.292 L675.933 757.830 L681.967 757.432 L688.000 757.089 L694.033 756.794 L700.067 756.541 L706.100 756.323 L712.133 756.136 L718.167 755.975 L724.200 755.837 L730.233 755.718 L736.267 755.616 L742.300 755.529 L748.333 755.454 L754.367 755.389 L760.400 755.334 L766.433 755.286 L772.467 755.246 L778.500 755.211 L784.533 755.181 L790.567 755.155 L796.600 755.133 L802.633 755.114 L808.667 755.098 L814.700 755.084 L820.733 755.072 L826.767 755.062 L832.800 755.053 L838.833 755.045 L844.867 755.039 L850.900 755.033 L856.933 755.029 L862.967 755.025 L869.000 755.021" fill="none" stroke="#136d84" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="326.0" cy="963.9108910891089" r="7" fill="#136d84" stroke="#fff" stroke-width="3"/>
-<circle cx="688.0" cy="757.0891089108911" r="7" fill="#136d84" stroke="#fff" stroke-width="3"/>
-<text x="233" y="933" font-size="25" fill="#136d84" font-weight="700" text-anchor="start">约 1%</text>
-<text x="699" y="812" font-size="25" fill="#136d84" font-weight="700" text-anchor="start">约 99%</text>
-<text x="866" y="1040" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">奇异值 σ（对数刻度）</text>
-<line x1="44" y1="1087" x2="916" y2="1087" stroke="#cedae4" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="plate-caption" aria-describedby="plate-alt" viewBox="0 0 1360 1520" width="1360" height="1520"><title id="plate-caption">岭回归对参数和预测做了什么</title><desc id="plate-alt">使用相同奇异值。参数增益在 0.1 和 10 时相同，预测保留比例却分别约为百分之一和百分之九十九。</desc><defs><clipPath id="plate-view-0"><rect x="-18.24" y="78.547653" width="996.48" height="1014.0692"/></clipPath><g id="plate-scene"><defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#537184"/></marker></defs>
+<rect id="edition-paper" x="-18.24" y="51.4" width="996.48" height="1094.84" fill="#ffffff"/><svg id="scientific-layout" x="0" y="69.64" width="960" height="1058.36" viewBox="0 69.64 960 1058.36" overflow="hidden"><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="1128" rx="0" fill="#ffffff" stroke="none" stroke-width="1.8"/>
+<text x="46" y="106" font-size="26" fill="#476072" font-weight="400" text-anchor="start">固定 λ = 1，沿同一个奇异方向跟踪两次变换</text>
+<rect x="44" y="134" width="240" height="67" rx="10" fill="#ffffff" stroke="#d4e0e7" stroke-width="1.8"/>
+<text x="164" y="178" font-size="27" fill="#283341" font-weight="650" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">观测投影</text>
+<rect x="360" y="134" width="240" height="67" rx="10" fill="#ecf5f7" stroke="#d4e0e7" stroke-width="1.8"/>
+<text x="480" y="178" font-size="27" fill="#283341" font-weight="650" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">参数坐标</text>
+<rect x="676" y="134" width="240" height="67" rx="10" fill="#ffffff" stroke="#d4e0e7" stroke-width="1.8"/>
+<text x="796" y="178" font-size="27" fill="#283341" font-weight="650" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">预测坐标</text>
+<line x1="291" y1="166" x2="350" y2="166" stroke="#476072" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="606" y1="166" x2="667" y2="166" stroke="#476072" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="44" y="237" width="42" height="41" rx="10" fill="#ecf5f7" stroke="none" stroke-width="1.8"/>
+<text x="65" y="267" font-size="25" fill="#1c687e" font-weight="700" text-anchor="middle">A</text>
+<text x="101" y="267" font-size="31" fill="#283341" font-weight="700" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">参数增益：弱方向的噪声被压住</text>
+<line x1="140" y1="530" x2="145" y2="530" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="479" x2="145" y2="479" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="428" x2="145" y2="428" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="377" x2="145" y2="377" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="326" x2="145" y2="326" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="966" x2="145" y2="966" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="860.5" x2="145" y2="860.5" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="140" y1="755" x2="145" y2="755" stroke="#657682" stroke-width="1.15" stroke-linecap="round"/><line x1="145.0" y1="530.0" x2="869.0" y2="530.0" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="538.0" font-size="24" fill="#476072" font-weight="400" text-anchor="end">0.01</text>
+<line x1="145.0" y1="479.0" x2="869.0" y2="479.0" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="487.0" font-size="24" fill="#476072" font-weight="400" text-anchor="end">0.1</text>
+<line x1="145.0" y1="428.0" x2="869.0" y2="428.0" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="436.0" font-size="24" fill="#476072" font-weight="400" text-anchor="end">1</text>
+<line x1="145.0" y1="377.0" x2="869.0" y2="377.0" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="385.0" font-size="24" fill="#476072" font-weight="400" text-anchor="end">10</text>
+<line x1="145.0" y1="326.0" x2="869.0" y2="326.0" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="334.0" font-size="24" fill="#476072" font-weight="400" text-anchor="end">100</text>
+<line x1="145.0" y1="530.0" x2="869.0" y2="530.0" stroke="#476072" stroke-width="2"/>
+<line x1="145.0" y1="530.0" x2="145.0" y2="326.0" stroke="#476072" stroke-width="2"/>
+<line x1="145.0" y1="530.0" x2="145.0" y2="538.0" stroke="#476072" stroke-width="2"/>
+<text x="145.0" y="566.0" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="326.0" y1="530.0" x2="326.0" y2="538.0" stroke="#476072" stroke-width="2"/>
+<text x="326.0" y="566.0" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="507.0" y1="530.0" x2="507.0" y2="538.0" stroke="#476072" stroke-width="2"/>
+<text x="507.0" y="566.0" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">1</text>
+<line x1="688.0" y1="530.0" x2="688.0" y2="538.0" stroke="#476072" stroke-width="2"/>
+<text x="688.0" y="566.0" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">10</text>
+<line x1="869.0" y1="530.0" x2="869.0" y2="538.0" stroke="#476072" stroke-width="2"/>
+<text x="869.0" y="566.0" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">100</text>
+<path d="M145.000 326.000 L151.033 327.700 L157.067 329.400 L163.100 331.100 L169.133 332.800 L175.167 334.500 L181.200 336.200 L187.233 337.900 L193.267 339.600 L199.300 341.300 L205.333 343.000 L211.367 344.700 L217.400 346.400 L223.433 348.100 L229.467 349.800 L235.500 351.500 L241.533 353.200 L247.567 354.900 L253.600 356.600 L259.633 358.300 L265.667 360.000 L271.700 361.700 L277.733 363.400 L283.767 365.100 L289.800 366.800 L295.833 368.500 L301.867 370.200 L307.900 371.900 L313.933 373.600 L319.967 375.300 L326.000 377.000 L332.033 378.700 L338.067 380.400 L344.100 382.100 L350.133 383.800 L356.167 385.500 L362.200 387.200 L368.233 388.900 L374.267 390.600 L380.300 392.300 L386.333 394.000 L392.367 395.700 L398.400 397.400 L404.433 399.100 L410.467 400.800 L416.500 402.500 L422.533 404.200 L428.567 405.900 L434.600 407.600 L440.633 409.300 L446.667 411.000 L452.700 412.700 L458.733 414.400 L464.767 416.100 L470.800 417.800 L476.833 419.500 L482.867 421.200 L488.900 422.900 L494.933 424.600 L500.967 426.300 L507.000 428.000 L513.033 429.700 L519.067 431.400 L525.100 433.100 L531.133 434.800 L537.167 436.500 L543.200 438.200 L549.233 439.900 L555.267 441.600 L561.300 443.300 L567.333 445.000 L573.367 446.700 L579.400 448.400 L585.433 450.100 L591.467 451.800 L597.500 453.500 L603.533 455.200 L609.567 456.900 L615.600 458.600 L621.633 460.300 L627.667 462.000 L633.700 463.700 L639.733 465.400 L645.767 467.100 L651.800 468.800 L657.833 470.500 L663.867 472.200 L669.900 473.900 L675.933 475.600 L681.967 477.300 L688.000 479.000 L694.033 480.700 L700.067 482.400 L706.100 484.100 L712.133 485.800 L718.167 487.500 L724.200 489.200 L730.233 490.900 L736.267 492.600 L742.300 494.300 L748.333 496.000 L754.367 497.700 L760.400 499.400 L766.433 501.100 L772.467 502.800 L778.500 504.500 L784.533 506.200 L790.567 507.900 L796.600 509.600 L802.633 511.300 L808.667 513.000 L814.700 514.700 L820.733 516.400 L826.767 518.100 L832.800 519.800 L838.833 521.500 L844.867 523.200 L850.900 524.900 L856.933 526.600 L862.967 528.300 L869.000 530.000" fill="none" stroke="#9e5230" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M145.000 530.002 L151.033 528.303 L157.067 526.603 L163.100 524.904 L169.133 523.204 L175.167 521.505 L181.200 519.806 L187.233 518.106 L193.267 516.408 L199.300 514.709 L205.333 513.010 L211.367 511.312 L217.400 509.614 L223.433 507.916 L229.467 506.219 L235.500 504.522 L241.533 502.826 L247.567 501.130 L253.600 499.435 L259.633 497.741 L265.667 496.048 L271.700 494.356 L277.733 492.665 L283.767 490.976 L289.800 489.288 L295.833 487.603 L301.867 485.920 L307.900 484.239 L313.933 482.562 L319.967 480.889 L326.000 479.220 L332.033 477.557 L338.067 475.899 L344.100 474.248 L350.133 472.606 L356.167 470.972 L362.200 469.349 L368.233 467.739 L374.267 466.144 L380.300 464.565 L386.333 463.005 L392.367 461.467 L398.400 459.955 L404.433 458.472 L410.467 457.023 L416.500 455.611 L422.533 454.243 L428.567 452.923 L434.600 451.658 L440.633 450.456 L446.667 449.321 L452.700 448.263 L458.733 447.289 L464.767 446.406 L470.800 445.623 L476.833 444.945 L482.867 444.380 L488.900 443.935 L494.933 443.612 L500.967 443.418 L507.000 443.353 L513.033 443.418 L519.067 443.612 L525.100 443.935 L531.133 444.380 L537.167 444.945 L543.200 445.623 L549.233 446.406 L555.267 447.289 L561.300 448.263 L567.333 449.321 L573.367 450.456 L579.400 451.658 L585.433 452.923 L591.467 454.243 L597.500 455.611 L603.533 457.023 L609.567 458.472 L615.600 459.955 L621.633 461.467 L627.667 463.005 L633.700 464.565 L639.733 466.144 L645.767 467.739 L651.800 469.349 L657.833 470.972 L663.867 472.606 L669.900 474.248 L675.933 475.899 L681.967 477.557 L688.000 479.220 L694.033 480.889 L700.067 482.562 L706.100 484.239 L712.133 485.920 L718.167 487.603 L724.200 489.288 L730.233 490.976 L736.267 492.665 L742.300 494.356 L748.333 496.048 L754.367 497.741 L760.400 499.435 L766.433 501.130 L772.467 502.826 L778.500 504.522 L784.533 506.219 L790.567 507.916 L796.600 509.614 L802.633 511.312 L808.667 513.010 L814.700 514.709 L820.733 516.408 L826.767 518.106 L832.800 519.806 L838.833 521.505 L844.867 523.204 L850.900 524.904 L856.933 526.603 L862.967 528.303 L869.000 530.002" fill="none" stroke="#1c687e" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="326.0" cy="479.22039006291476" r="7" fill="#1c687e" stroke="#ffffff" stroke-width="3"/>
+<circle cx="688.0" cy="479.22039006291476" r="7" fill="#1c687e" stroke="#ffffff" stroke-width="3"/>
+<line x1="326.0" y1="479.22039006291476" x2="688.0" y2="479.22039006291476" stroke="#1c687e" stroke-width="2" stroke-dasharray="5 7"/>
+<text x="497" y="509" font-size="24" fill="#1c687e" font-weight="700" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">两处岭增益相同</text>
+<text x="240" y="337" font-size="24" fill="#9e5230" font-weight="700" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">无正则</text>
+<text x="553" y="427" font-size="24" fill="#1c687e" font-weight="700" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">岭回归</text>
+<text x="866" y="604" font-size="24" fill="#476072" font-weight="400" text-anchor="end" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">奇异值 σ（对数刻度）</text>
+<rect x="44" y="642" width="42" height="41" rx="10" fill="#ecf5f7" stroke="none" stroke-width="1.8"/>
+<text x="65" y="672" font-size="25" fill="#1c687e" font-weight="700" text-anchor="middle">B</text>
+<text x="101" y="672" font-size="31" fill="#283341" font-weight="700" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif">预测比例：再乘回一次奇异值</text>
+<line x1="145.0" y1="966" x2="869.0" y2="966" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="974" font-size="24" fill="#476072" font-weight="400" text-anchor="end">0</text>
+<line x1="145.0" y1="860.5" x2="869.0" y2="860.5" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="868.5" font-size="24" fill="#476072" font-weight="400" text-anchor="end">0.5</text>
+<line x1="145.0" y1="755" x2="869.0" y2="755" stroke="#d6e2e6" stroke-width="1.3"/>
+<text x="130.0" y="763" font-size="24" fill="#476072" font-weight="400" text-anchor="end">1</text>
+<line x1="145.0" y1="966" x2="869.0" y2="966" stroke="#476072" stroke-width="2"/>
+<line x1="145.0" y1="966" x2="145.0" y2="755" stroke="#476072" stroke-width="2"/>
+<line x1="145.0" y1="966" x2="145.0" y2="974" stroke="#476072" stroke-width="2"/>
+<text x="145.0" y="1002" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">0.01</text>
+<line x1="326.0" y1="966" x2="326.0" y2="974" stroke="#476072" stroke-width="2"/>
+<text x="326.0" y="1002" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">0.1</text>
+<line x1="507.0" y1="966" x2="507.0" y2="974" stroke="#476072" stroke-width="2"/>
+<text x="507.0" y="1002" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">1</text>
+<line x1="688.0" y1="966" x2="688.0" y2="974" stroke="#476072" stroke-width="2"/>
+<text x="688.0" y="1002" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">10</text>
+<line x1="869.0" y1="966" x2="869.0" y2="974" stroke="#476072" stroke-width="2"/>
+<text x="869.0" y="1002" font-size="24" fill="#476072" font-weight="400" text-anchor="middle">100</text>
+<path d="M145.000 965.979 L151.033 965.975 L157.067 965.971 L163.100 965.967 L169.133 965.961 L175.167 965.955 L181.200 965.947 L187.233 965.938 L193.267 965.928 L199.300 965.916 L205.333 965.902 L211.367 965.886 L217.400 965.867 L223.433 965.845 L229.467 965.819 L235.500 965.789 L241.533 965.754 L247.567 965.714 L253.600 965.666 L259.633 965.611 L265.667 965.546 L271.700 965.471 L277.733 965.384 L283.767 965.282 L289.800 965.163 L295.833 965.025 L301.867 964.864 L307.900 964.677 L313.933 964.459 L319.967 964.206 L326.000 963.911 L332.033 963.568 L338.067 963.170 L344.100 962.708 L350.133 962.172 L356.167 961.550 L362.200 960.830 L368.233 959.996 L374.267 959.033 L380.300 957.922 L386.333 956.641 L392.367 955.168 L398.400 953.477 L404.433 951.542 L410.467 949.332 L416.500 946.818 L422.533 943.968 L428.567 940.750 L434.600 937.134 L440.633 933.091 L446.667 928.599 L452.700 923.640 L458.733 918.203 L464.767 912.292 L470.800 905.918 L476.833 899.110 L482.867 891.909 L488.900 884.372 L494.933 876.569 L500.967 868.582 L507.000 860.500 L513.033 852.418 L519.067 844.431 L525.100 836.628 L531.133 829.091 L537.167 821.890 L543.200 815.082 L549.233 808.708 L555.267 802.797 L561.300 797.360 L567.333 792.401 L573.367 787.909 L579.400 783.866 L585.433 780.250 L591.467 777.032 L597.500 774.182 L603.533 771.668 L609.567 769.458 L615.600 767.523 L621.633 765.832 L627.667 764.359 L633.700 763.078 L639.733 761.967 L645.767 761.004 L651.800 760.170 L657.833 759.450 L663.867 758.828 L669.900 758.292 L675.933 757.830 L681.967 757.432 L688.000 757.089 L694.033 756.794 L700.067 756.541 L706.100 756.323 L712.133 756.136 L718.167 755.975 L724.200 755.837 L730.233 755.718 L736.267 755.616 L742.300 755.529 L748.333 755.454 L754.367 755.389 L760.400 755.334 L766.433 755.286 L772.467 755.246 L778.500 755.211 L784.533 755.181 L790.567 755.155 L796.600 755.133 L802.633 755.114 L808.667 755.098 L814.700 755.084 L820.733 755.072 L826.767 755.062 L832.800 755.053 L838.833 755.045 L844.867 755.039 L850.900 755.033 L856.933 755.029 L862.967 755.025 L869.000 755.021" fill="none" stroke="#1c687e" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="326.0" cy="963.9108910891089" r="7" fill="#1c687e" stroke="#ffffff" stroke-width="3"/>
+<circle cx="688.0" cy="757.0891089108911" r="7" fill="#1c687e" stroke="#ffffff" stroke-width="3"/>
+<text x="233" y="933" font-size="25" fill="#1c687e" font-weight="700" text-anchor="start">约 1%</text>
+<text x="699" y="812" font-size="25" fill="#1c687e" font-weight="700" text-anchor="start">约 99%</text>
+<text x="866" y="1040" font-size="24" fill="#476072" font-weight="400" text-anchor="end" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">奇异值 σ（对数刻度）</text>
+<line x1="44" y1="1087" x2="916" y2="1087" stroke="#d4e0e7" stroke-width="2"/>
 </g>
-</svg>
+</svg></g></defs><g id="paper-and-content"><rect x="0" y="0" width="1360" height="1520" fill="white"/><g transform="translate(8.5746611 -59.467887) scale(1.3988028)"><use xmlns:ns0="http://www.w3.org/1999/xlink" href="#plate-scene" clip-path="url(#plate-view-0)" ns0:href="#plate-scene"/></g></g></svg>

@@ -1,30 +1,76 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="961" viewBox="0 0 1440 961" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">图解：独立数组缓冲不等于递归复制对象</title><rect width="1440" height="961" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">图解：独立数组缓冲不等于递归复制对象</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="819" viewBox="0 0 1280 780" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5fa"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>object 数组：缓冲区不共享，里面的 Python 对象仍可共享</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="52" y="64" font-size="36" fill="#1a2a3b" text-anchor="start">object 数组：缓冲区不共享，里面的 Python 对象仍可共享</text>
-<text x="80" y="135" font-size="30" fill="#1c77a2" text-anchor="start">a：object 数组</text>
-<text x="490" y="135" font-size="30" fill="#ca7542" text-anchor="start">b = a.copy()</text>
-<text x="900" y="135" font-size="30" fill="#1c77a2" text-anchor="start">c = deepcopy(a)</text>
-<rect x="110" y="185" width="180" height="74" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="200" y="232" font-size="27" fill="#1c77a2" text-anchor="middle">引用槽 [0]</text>
-<rect x="520" y="185" width="180" height="74" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="610" y="232" font-size="27" fill="#ca7542" text-anchor="middle">引用槽 [0]</text>
-<rect x="950" y="185" width="180" height="74" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="1040" y="232" font-size="27" fill="#1c77a2" text-anchor="middle">引用槽 [0]</text>
-<rect x="350" y="345" width="255" height="85" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="477" y="400" font-size="29" fill="#1c77a2" text-anchor="middle">列表 L：[1, 9]</text>
-<rect x="910" y="345" width="255" height="85" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="1037" y="400" font-size="29" fill="#1c77a2" text-anchor="middle">列表 L′：[1]</text>
-<line x1="200" y1="259" x2="420" y2="345" stroke="#1c77a2" stroke-width="2" stroke-dasharray=""/>
-<path d="M408.04,345.93 L420.00,345.00 L411.84,336.20" fill="none" stroke="#1c77a2" stroke-width="2"/>
-<line x1="610" y1="259" x2="540" y2="345" stroke="#ca7542" stroke-width="2" stroke-dasharray=""/>
-<path d="M542.77,333.32 L540.00,345.00 L550.87,339.91" fill="none" stroke="#ca7542" stroke-width="2"/>
-<line x1="1040" y1="259" x2="1040" y2="345" stroke="#1c77a2" stroke-width="2" stroke-dasharray=""/>
-<path d="M1034.78,334.19 L1040.00,345.00 L1045.22,334.19" fill="none" stroke="#1c77a2" stroke-width="2"/>
-<text x="80" y="505" font-size="29" fill="#ca7542" text-anchor="start">b[0].append(9)</text>
-<text x="560" y="505" font-size="29" fill="#ca7542" text-anchor="start">a[0] 也成为 [1, 9]</text>
-<text x="80" y="565" font-size="29" fill="#1c77a2" text-anchor="start">b[0] = [7]</text>
-<text x="560" y="565" font-size="29" fill="#1c77a2" text-anchor="start">只改 b 的引用槽；a[0] 不变</text>
-<line x1="60" y1="610" x2="1220" y2="610" stroke="#dee4ec" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="675" font-size="28" fill="#1a2a3b" text-anchor="start">shares_memory(a, b) 为 False：只证明数组缓冲没有重叠。</text>
-<text x="60" y="730" font-size="28" fill="#1a2a3b" text-anchor="start">对象是否相同，另查 a[0] is b[0]；数值数组没有这一层引用。</text>
-</g></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="715" viewBox="0 0 1360 715" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">独立数组缓冲与独立 Python 对象是两层问题</title>
+  <desc id="plate-desc">a 与 b 各有独立的 ndarray 缓冲，但浅复制保留同一列表引用。c 深复制出的列表在本例中有独立身份。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="715" fill="white" stroke="none" stroke-width="0"/>
+  <text x="680" y="57" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">分别追踪缓冲地址和对象身份</text>
+  <polygon points="162,163.5 287.8,163.5 310,100.5 184.2,100.5" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="236" y="141.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">a</text>
+  <polyline points="236,169 236,234" fill="none" stroke="#196f77" stroke-width="1.65" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="109.5,307.5 327.85,307.5 362.5,244.5 144.15,244.5" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="236" y="285.24" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="middle">原缓冲</text>
+  <polyline points="236,315 236,355 446,355 446,421" fill="none" stroke="#196f77" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="602,163.5 727.8,163.5 750,100.5 624.2,100.5" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="676" y="141.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">b</text>
+  <polyline points="676,169 676,234" fill="none" stroke="#655184" stroke-width="1.65" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <polygon points="549.5,307.5 767.85,307.5 802.5,244.5 584.15,244.5" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="676" y="285.24" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#655184" text-anchor="middle">浅复制缓冲</text>
+  <polyline points="676,315 676,355 446,355 446,421" fill="none" stroke="#655184" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <polygon points="1042,163.5 1167.8,163.5 1190,100.5 1064.2,100.5" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1116" y="141.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">c</text>
+  <polyline points="1116,169 1116,234" fill="none" stroke="#a84b3b" stroke-width="1.65" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="989.5,307.5 1207.85,307.5 1242.5,244.5 1024.15,244.5" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1116" y="285.24" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">深复制缓冲</text>
+  <polyline points="1116,315 1116,355 1116,355 1116,421" fill="none" stroke="#a84b3b" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="328,498.5 529.35,498.5 564,435.5 362.65,435.5" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="446" y="476.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">L : [1]</text>
+  <polygon points="998,498.5 1199.35,498.5 1234,435.5 1032.65,435.5" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1116" y="476.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">L′ : [1]</text>
+  <text x="448" y="585" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="middle">通过 b 追加 9，a 也读到 [1, 9]</text>
+  <text x="1118" y="585" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">c 仍读到 [1]</text>
+  <text x="682" y="661" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">给 b[0] 换一个对象时，只会改写 b 的引用槽。</text>
+</svg>

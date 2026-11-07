@@ -1,60 +1,82 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1075.3333" viewBox="0 0 1440 1075.3333" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">交叉拟合让打分使用未参与拟合的样本</title><rect width="1440" height="1075.3333" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">交叉拟合让打分使用未参与拟合的样本</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="933.3333" viewBox="0 0 1440 1000" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>交叉拟合：每条得分只接收“没有用过自己”的那轮预测</title><rect width="1440" height="1000" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">交叉拟合：每条得分只接收“没有用过自己”的那轮预测</text>
-<text x="60" y="125" font-size="29" fill="#1d3145" text-anchor="start">6000 个独立单位；5 折各 1200；每轮其余 4800 拟合全部辅助函数</text>
-<text x="400" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 1</text>
-<text x="555" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 2</text>
-<text x="710" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 3</text>
-<text x="865" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 4</text>
-<text x="1020" y="190" font-size="28" fill="#1d3145" text-anchor="middle">折 5</text>
-<text x="60" y="257" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 1</text>
-<rect x="330" y="220" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<rect x="485" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="640" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="795" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="950" y="220" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1190" y="255" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
-<text x="60" y="326" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 2</text>
-<rect x="330" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="485" y="289" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<rect x="640" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="795" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="950" y="289" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1190" y="324" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
-<text x="60" y="395" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 3</text>
-<rect x="330" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="485" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="640" y="358" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<rect x="795" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="950" y="358" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1190" y="393" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
-<text x="60" y="464" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 4</text>
-<rect x="330" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="485" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="640" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="795" y="427" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<rect x="950" y="427" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1190" y="462" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
-<text x="60" y="533" font-size="28" fill="#1d3145" text-anchor="start">拟合轮次 5</text>
-<rect x="330" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="485" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="640" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="795" y="496" width="140" height="49" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<rect x="950" y="496" width="140" height="49" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="1190" y="531" font-size="27" fill="#c66d3a" text-anchor="start">→ 本折得分</text>
-<text x="340" y="630" font-size="27" fill="#1e7499" text-anchor="start">蓝：训练输入</text>
-<text x="780" y="630" font-size="27" fill="#c66d3a" text-anchor="start">橙：只预测与评分</text>
-<line x1="60" y1="670" x2="1380" y2="670" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="725" font-size="30" fill="#1d3145" text-anchor="start">展开第 3 折中的一条记录：</text>
-<text x="60" y="775" font-size="29" fill="#1d3145" text-anchor="start">观察 A=1，Y=3</text>
-<text x="60" y="825" font-size="29" fill="#1d3145" text-anchor="start">折外预测 m1=2，m0=1，e=0.25</text>
-<text x="740" y="720" font-size="29" fill="#1d3145" text-anchor="start">该条增广得分</text>
-<rect x="745" y="755" width="105" height="64" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="797" y="796" font-size="30" fill="#1e7499" text-anchor="middle">1</text>
-<rect x="850" y="755" width="420" height="64" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="1060" y="796" font-size="30" fill="#c66d3a" text-anchor="middle">+ 4</text>
-<text x="745" y="860" font-size="27" fill="#1e7499" text-anchor="start">回归差 2−1</text>
-<text x="1120" y="860" font-size="26" fill="#c66d3a" text-anchor="middle">残差修正 (3−2)÷0.25</text>
-<text x="1290" y="797" font-size="30" fill="#1d3145" text-anchor="start">= 5</text>
-<text x="60" y="930" font-size="28" fill="#1d3145" text-anchor="start">每条记录只计一次 → 平均 6000 条得分；训练集重叠仍会带来共享随机性。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="782" viewBox="0 0 1200 782" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">每一折的单位只在留出时打分</title>
+<desc id="fig-desc">五轮拟合，各用其他四折。下面追踪一条第三折记录的增广得分。</desc>
+<rect x="0" y="0" width="1200" height="782" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">给每条记录打分的模型，没有用这条记录拟合</text>
+<text x="74" y="109" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">6,000 个独立单位；每折 1,200，每轮 4,800 用于拟合辅助函数。</text>
+<rect x="275" y="173" width="143" height="53" fill="#fbede8" opacity="1"/>
+<text x="346.5" y="207.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">只预测</text>
+<rect x="422" y="173" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="493.5" y="207.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="569" y="173" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="640.5" y="207.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="716" y="173" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="787.5" y="207.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="863" y="173" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="934.5" y="207.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<text x="259" y="207.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">第 1 轮</text>
+<rect x="275" y="230" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="346.5" y="264.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="422" y="230" width="143" height="53" fill="#fbede8" opacity="1"/>
+<text x="493.5" y="264.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">只预测</text>
+<rect x="569" y="230" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="640.5" y="264.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="716" y="230" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="787.5" y="264.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="863" y="230" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="934.5" y="264.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<text x="259" y="264.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">第 2 轮</text>
+<rect x="275" y="287" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="346.5" y="321.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="422" y="287" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="493.5" y="321.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="569" y="287" width="143" height="53" fill="#fbede8" opacity="1"/>
+<text x="640.5" y="321.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">只预测</text>
+<rect x="716" y="287" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="787.5" y="321.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="863" y="287" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="934.5" y="321.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<text x="259" y="321.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">第 3 轮</text>
+<rect x="275" y="344" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="346.5" y="378.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="422" y="344" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="493.5" y="378.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="569" y="344" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="640.5" y="378.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="716" y="344" width="143" height="53" fill="#fbede8" opacity="1"/>
+<text x="787.5" y="378.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">只预测</text>
+<rect x="863" y="344" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="934.5" y="378.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<text x="259" y="378.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">第 4 轮</text>
+<rect x="275" y="401" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="346.5" y="435.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="422" y="401" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="493.5" y="435.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="569" y="401" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="640.5" y="435.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="716" y="401" width="143" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="787.5" y="435.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">拟合</text>
+<rect x="863" y="401" width="143" height="53" fill="#fbede8" opacity="1"/>
+<text x="934.5" y="435.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">只预测</text>
+<text x="259" y="435.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">第 5 轮</text>
+<text x="346.5" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">折 1</text>
+<text x="493.5" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">折 2</text>
+<text x="640.5" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">折 3</text>
+<text x="787.5" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">折 4</text>
+<text x="934.5" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">折 5</text>
+<path d="M75 484 L1125 484" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="534" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">展开第 3 折的一条手算记录：A = 1，Y = 3。</text>
+<text x="74" y="581" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">折外辅助预测：m₁ = 2，m₀ = 1，e = 0.25。</text>
+<text x="74" y="651" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">回归差 2 − 1 = 1；处理残差修正</text>
+<text x="542" y="638" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3 − 2</text>
+<path d="M522 644 L562 644" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="542" y="669" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0.25</text>
+<text x="597" y="650" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">= 4。总得分 1 + 4 = 5。</text>
+<text x="74" y="731" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">每一列只在对角线评分一次。单条得分并非该人的真实处理效应。</text>
+</svg>

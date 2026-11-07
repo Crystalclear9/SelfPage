@@ -1,56 +1,51 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1391.7707" viewBox="0 0 1440 1391.7707" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">规范token路径汇聚为解码文本的完整概率图</title><rect width="1440" height="1391.7707" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">规范token路径汇聚为解码文本的完整概率图</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1249.7707" viewBox="0 0 1440 1339.04" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-eef4f9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4f9"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>规范分词与解码文本概率</title><svg width="1440" height="889.043" viewBox="25 60 1150 710" role="img" aria-labelledby="title desc">
-<rect x="25" y="60" width="1150" height="710" fill="#ffffff"/><title id="title">规范分词与解码文本概率</title><desc id="desc">四条完整token路径总概率一，其中aa和a,a都解码为aa，合计0.5；规范路径概率0.3。ab路径0.4，b路径0.1。</desc>
-<rect width="1200" height="780" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1f3449">
-<text x="44" y="100" font-size="26" fill="#62819a" text-anchor="start" font-weight="400">以下四条完整路径合计概率 1；EOS 结束生成，不追加到显示文本</text>
-<text x="44" y="165" font-size="28" fill="#1f3449" text-anchor="start" font-weight="700">① 完整 token 序列</text>
-<text x="590" y="165" font-size="28" fill="#1f3449" text-anchor="start" font-weight="700">② 解码并汇总</text>
-<rect x="44" y="193" width="345" height="78" rx="12" fill="#f3f6f9" stroke="#dce5ed"/>
-<text x="66" y="241" font-size="28" fill="#2472b1" text-anchor="start" font-weight="700">[aa, EOS]</text>
-<text x="363" y="241" font-size="28" fill="#2472b1" text-anchor="end" font-weight="400">0.3</text>
-<line x1="401" y1="232" x2="568" y2="272" stroke="#2472b1" stroke-width="3"/>
-<path d="M 568 272 L 555 265 L 555 279 Z" fill="#2472b1"/>
-<rect x="44" y="301" width="345" height="78" rx="12" fill="#f3f6f9" stroke="#dce5ed"/>
-<text x="66" y="349" font-size="28" fill="#c57439" text-anchor="start" font-weight="700">[a, a, EOS]</text>
-<text x="363" y="349" font-size="28" fill="#c57439" text-anchor="end" font-weight="400">0.2</text>
-<line x1="401" y1="340" x2="568" y2="272" stroke="#c57439" stroke-width="3"/>
-<path d="M 568 272 L 555 265 L 555 279 Z" fill="#c57439"/>
-<rect x="44" y="409" width="345" height="78" rx="12" fill="#f3f6f9" stroke="#dce5ed"/>
-<text x="66" y="457" font-size="28" fill="#2472b1" text-anchor="start" font-weight="700">[ab, EOS]</text>
-<text x="363" y="457" font-size="28" fill="#2472b1" text-anchor="end" font-weight="400">0.4</text>
-<line x1="401" y1="448" x2="568" y2="448" stroke="#2472b1" stroke-width="3"/>
-<path d="M 568 448 L 555 441 L 555 455 Z" fill="#2472b1"/>
-<rect x="44" y="517" width="345" height="78" rx="12" fill="#f3f6f9" stroke="#dce5ed"/>
-<text x="66" y="565" font-size="28" fill="#2472b1" text-anchor="start" font-weight="700">[b, EOS]</text>
-<text x="363" y="565" font-size="28" fill="#2472b1" text-anchor="end" font-weight="400">0.1</text>
-<line x1="401" y1="556" x2="568" y2="556" stroke="#2472b1" stroke-width="3"/>
-<path d="M 568 556 L 555 549 L 555 563 Z" fill="#2472b1"/>
-<rect x="590" y="233" width="183" height="78" rx="12" fill="#eaf2f9" stroke="none"/>
-<text x="680" y="282" font-size="29" fill="#2472b1" text-anchor="middle" font-weight="700">aa：0.5</text>
-<rect x="590" y="409" width="183" height="78" rx="12" fill="#eaf2f9" stroke="none"/>
-<text x="680" y="458" font-size="29" fill="#2472b1" text-anchor="middle" font-weight="700">ab：0.4</text>
-<rect x="590" y="517" width="183" height="78" rx="12" fill="#eaf2f9" stroke="none"/>
-<text x="680" y="566" font-size="29" fill="#2472b1" text-anchor="middle" font-weight="700">b：0.1</text>
-<text x="832" y="165" font-size="28" fill="#1f3449" text-anchor="start" font-weight="700">③ 两种评分</text>
-<text x="832" y="224" font-size="24" fill="#62819a" text-anchor="start" font-weight="400">文本</text>
-<text x="915" y="224" font-size="24" fill="#62819a" text-anchor="start" font-weight="400">规范</text>
-<text x="1050" y="224" font-size="24" fill="#62819a" text-anchor="start" font-weight="400">边缘</text>
-<text x="832" y="292" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">aa</text>
-<text x="940" y="292" font-size="27" fill="#c57439" text-anchor="middle" font-weight="400">0.3</text>
-<text x="1080" y="292" font-size="27" fill="#2472b1" text-anchor="middle" font-weight="400">0.5</text>
-<line x1="825" y1="318" x2="1130" y2="318" stroke="#dce5ed" stroke-width="2"/>
-<text x="832" y="387" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">ab</text>
-<text x="940" y="387" font-size="27" fill="#c57439" text-anchor="middle" font-weight="400">0.4</text>
-<text x="1080" y="387" font-size="27" fill="#2472b1" text-anchor="middle" font-weight="400">0.4</text>
-<line x1="825" y1="413" x2="1130" y2="413" stroke="#dce5ed" stroke-width="2"/>
-<text x="832" y="482" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">b</text>
-<text x="940" y="482" font-size="27" fill="#c57439" text-anchor="middle" font-weight="400">0.1</text>
-<text x="1080" y="482" font-size="27" fill="#2472b1" text-anchor="middle" font-weight="400">0.1</text>
-<line x1="825" y1="508" x2="1130" y2="508" stroke="#dce5ed" stroke-width="2"/>
-<text x="832" y="601" font-size="26" fill="#1f3449" text-anchor="start" font-weight="700">最高分：ab → aa</text>
-<text x="44" y="653" font-size="26" fill="#62819a" text-anchor="start" font-weight="400">蓝：编码器选用的规范路径　橙：可解码为同文的非规范路径</text>
-<rect x="44" y="692" width="1112" height="57" rx="12" fill="url(#book-wash-eef4f9)" stroke="none"/>
-<text x="65" y="729" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">只计算规范路径时总质量是 0.8；按解码文本求和时总质量仍是 1。</text>
-</g></svg>
-<g id="round-20261105c-teaching" transform="translate(0 889.043) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#1d3145" text-anchor="start">单一路径似然是文本似然的下界：差值来自路径后验</text><text x="70" y="130" font-size="32" fill="#1d3145" text-anchor="start">文本 aa：两条路径质量 0.3 + 0.2 = 0.5</text><rect x="70" y="190" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="266.0" y="229" font-size="28" fill="#1e7499" text-anchor="middle">规范路径 NLL</text><rect x="470" y="190" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="666.0" y="229" font-size="28" fill="#1e7499" text-anchor="middle">文本 NLL</text><rect x="870" y="190" width="392" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="1066.0" y="229" font-size="28" fill="#1e7499" text-anchor="middle">差值</text><rect x="70" y="265" width="392" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="266.0" y="304" font-size="28" fill="#c66d3a" text-anchor="middle">−log .3 = 1.203973</text><rect x="470" y="265" width="392" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="666.0" y="304" font-size="28" fill="#c66d3a" text-anchor="middle">−log .5 = .693147</text><rect x="870" y="265" width="392" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="1066.0" y="304" font-size="28" fill="#c66d3a" text-anchor="middle">.510826</text><text x="70" y="380" font-size="30" fill="#1d3145">给定文本 aa，规范路径的后验质量为 </text><text x="598.695" y="363" font-size="28" fill="#1d3145" text-anchor="middle">0.3</text><line x1="573.906" y1="371" x2="623.484" y2="371" stroke="#1d3145" stroke-width="1.6"/><text x="598.695" y="399" font-size="28" fill="#1d3145" text-anchor="middle">0.5</text><text x="626.484" y="380" font-size="30" fill="#1d3145"> = 0.6。</text><text x="70" y="435" font-size="29" fill="#1d3145" text-anchor="start">NLL 差值 = −log 0.6；不是另一份语言模型额外出错。</text></g></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="704" viewBox="0 0 1200 704" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">四条生成路径解码为三个文本</title>
+<desc id="fig-desc">规范序列与其他合法序列都要计入对应文本；合并后最高分从 ab 变为 aa。</desc>
+<rect x="0" y="0" width="1200" height="704" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="72" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">把能解码为同一文本的路径相加</text>
+<text x="74" y="116" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">完整 token 路径</text>
+<text x="612" y="116" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">解码文本的总质量</text>
+<path d="M73 202 L100 147 L395 147 L368 202 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="234" y="182.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">[aa, EOS]</text>
+<text x="436" y="181" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.3</text>
+<path d="M73 280 L100 225 L395 225 L368 280 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="234" y="260.9" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">[a, a, EOS]</text>
+<text x="436" y="259" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.2</text>
+<path d="M73 371 L100 316 L395 316 L368 371 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="234" y="351.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">[ab, EOS]</text>
+<text x="436" y="350" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.4</text>
+<path d="M73 449 L100 394 L395 394 L368 449 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="234" y="429.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">[b, EOS]</text>
+<text x="436" y="428" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.1</text>
+<path d="M496 174 L611 215" fill="none" stroke="#166d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M611 215 L598.96 216.016 L602.318 206.596 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M496 252 L611 215" fill="none" stroke="#a74d3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M611 215 L602.06 223.129 L598.997 213.609 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M496 343 L611 343" fill="none" stroke="#166d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M611 343 L600 348 L600 338 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M496 421 L611 421" fill="none" stroke="#166d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M611 421 L600 426 L600 416 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M616 242 L643 187 L842 187 L815 242 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="729" y="222.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">aa · 0.5</text>
+<path d="M616 371 L643 316 L842 316 L815 371 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="729" y="351.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">ab · 0.4</text>
+<path d="M616 449 L643 394 L842 394 L815 449 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="729" y="429.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">b · 0.1</text>
+<text x="903" y="228" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.3 + 0.2</text>
+<text x="903" y="350" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">只有一条路径</text>
+<text x="903" y="429" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">只有一条路径</text>
+<path d="M75 487 L1125 487" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="73" y="534" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">最高分从规范路径的 ab 变成边缘化后的 aa。</text>
+<text x="73" y="599" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">给定 aa，规范路径的后验质量为</text>
+<text x="510" y="586" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0.3</text>
+<path d="M490 592 L530 592" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="510" y="617" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0.5</text>
+<text x="552" y="600" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">= 0.6</text>
+<text x="73" y="659" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">两种负对数似然的差为 −ln(0.6) ≈ 0.510826。</text>
+</svg>

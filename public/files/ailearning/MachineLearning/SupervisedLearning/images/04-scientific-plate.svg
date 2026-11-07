@@ -1,125 +1,111 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="580" viewBox="0 0 1440 580" role="img" aria-labelledby="caption">
-<title id="caption">提升方法怎样逐步拟合残差</title><defs>
-<marker id="blue" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#286391"/></marker>
-<marker id="teal" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#167d71"/></marker>
-<marker id="red" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#bb5141"/></marker>
-<marker id="violet" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#7352a1"/></marker>
-<marker id="ink" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#172e46"/></marker>
-<marker id="muted" orient="auto" markerWidth="9" markerHeight="9" refX="8" refY="4.5" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#536a82"/></marker>
-</defs><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0" y="0" width="1440" height="580" fill="white" rx="0" stroke-width="1.5"/>
-<rect x="45" y="35" width="5" height="36" fill="#526bab" rx="2" stroke-width="1.5"/>
-<text x="69" y="64" fill="#172e46" font-size="34" font-weight="700" text-anchor="start">提升方法怎样逐步拟合残差</text>
-<line x1="45" y1="88" x2="1395" y2="88" stroke="#cbd9e6" stroke-width="1.5" stroke-linecap="round"/>
-<text x="247" y="143" fill="#172e46" font-size="26" font-weight="700" text-anchor="middle">初始预测</text>
-<line x1="122.875" y1="182" x2="122.875" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="122.875" y1="462" x2="122.875" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="122.875" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">1</text>
-<line x1="212.625" y1="182" x2="212.625" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="212.625" y1="462" x2="212.625" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="212.625" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">2</text>
-<line x1="302.375" y1="182" x2="302.375" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="302.375" y1="462" x2="302.375" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="302.375" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">3</text>
-<line x1="392.125" y1="182" x2="392.125" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="392.125" y1="462" x2="392.125" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="392.125" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">4</text>
-<line x1="78" y1="425.7037" x2="437" y2="425.7037" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="73" y1="425.7037" x2="78" y2="425.7037" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="68" y="431.7037" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">1</text>
-<line x1="78" y1="373.8519" x2="437" y2="373.8519" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="73" y1="373.8519" x2="78" y2="373.8519" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="68" y="379.8519" fill="#536a82" font-size="21.6" font-weight="400" text-anchor="end">1.5</text>
-<line x1="78" y1="322" x2="437" y2="322" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="73" y1="322" x2="78" y2="322" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="68" y="328" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">2</text>
-<line x1="78" y1="270.1481" x2="437" y2="270.1481" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="73" y1="270.1481" x2="78" y2="270.1481" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="68" y="276.1481" fill="#536a82" font-size="21.74" font-weight="400" text-anchor="end">2.5</text>
-<line x1="78" y1="218.2963" x2="437" y2="218.2963" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="73" y1="218.2963" x2="78" y2="218.2963" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="68" y="224.2963" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">3</text>
-<line x1="78" y1="462" x2="445" y2="462" stroke="#172e46" stroke-width="2" stroke-linecap="round"/>
-<line x1="78" y1="462" x2="78" y2="175" stroke="#172e46" stroke-width="2" stroke-linecap="round"/>
-<line x1="257.5" y1="462" x2="257.5" y2="182" stroke="#536a82" stroke-width="1.2" stroke-dasharray="5 5" stroke-linecap="round"/>
-<line x1="88.77" y1="322" x2="426.23" y2="322" stroke="#7352a1" stroke-width="3" stroke-linecap="round"/>
-<line x1="122.875" y1="322" x2="122.875" y2="425.7037" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="122.875" cy="425.7037" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<line x1="212.625" y1="322" x2="212.625" y2="425.7037" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="212.625" cy="425.7037" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<line x1="302.375" y1="322" x2="302.375" y2="218.2963" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="302.375" cy="218.2963" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<line x1="392.125" y1="322" x2="392.125" y2="218.2963" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="392.125" cy="218.2963" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<text x="709" y="143" fill="#172e46" font-size="26" font-weight="700" text-anchor="middle">拟合伪残差</text>
-<line x1="584.875" y1="182" x2="584.875" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="584.875" y1="462" x2="584.875" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="584.875" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">1</text>
-<line x1="674.625" y1="182" x2="674.625" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="674.625" y1="462" x2="674.625" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="674.625" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">2</text>
-<line x1="764.375" y1="182" x2="764.375" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="764.375" y1="462" x2="764.375" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="764.375" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">3</text>
-<line x1="854.125" y1="182" x2="854.125" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="854.125" y1="462" x2="854.125" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="854.125" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">4</text>
-<line x1="540" y1="434" x2="899" y2="434" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="535" y1="434" x2="540" y2="434" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="530" y="440" fill="#536a82" font-size="22.02" font-weight="400" text-anchor="end">-1</text>
-<line x1="540" y1="322" x2="899" y2="322" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="535" y1="322" x2="540" y2="322" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="530" y="328" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">0</text>
-<line x1="540" y1="210" x2="899" y2="210" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="535" y1="210" x2="540" y2="210" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="530" y="216" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">1</text>
-<line x1="540" y1="462" x2="907" y2="462" stroke="#172e46" stroke-width="2" stroke-linecap="round"/>
-<line x1="540" y1="462" x2="540" y2="175" stroke="#172e46" stroke-width="2" stroke-linecap="round"/>
-<line x1="719.5" y1="462" x2="719.5" y2="182" stroke="#536a82" stroke-width="1.2" stroke-dasharray="5 5" stroke-linecap="round"/>
-<path d="M550.77 434 L719.5 434 L719.5 210 L888.23 210" stroke="#286391" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="584.875" cy="434" r="6" fill="#286391" stroke="white" stroke-width="1.5"/>
-<circle cx="674.625" cy="434" r="6" fill="#286391" stroke="white" stroke-width="1.5"/>
-<circle cx="764.375" cy="210" r="6" fill="#286391" stroke="white" stroke-width="1.5"/>
-<circle cx="854.125" cy="210" r="6" fill="#286391" stroke="white" stroke-width="1.5"/>
-<text x="1171" y="143" fill="#172e46" font-size="26" font-weight="700" text-anchor="middle">缩减更新</text>
-<line x1="1046.875" y1="182" x2="1046.875" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="1046.875" y1="462" x2="1046.875" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="1046.875" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">1</text>
-<line x1="1136.625" y1="182" x2="1136.625" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="1136.625" y1="462" x2="1136.625" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="1136.625" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">2</text>
-<line x1="1226.375" y1="182" x2="1226.375" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="1226.375" y1="462" x2="1226.375" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="1226.375" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">3</text>
-<line x1="1316.125" y1="182" x2="1316.125" y2="462" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="1316.125" y1="462" x2="1316.125" y2="467" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="1316.125" y="489" fill="#536a82" font-size="18" font-weight="400" text-anchor="middle">4</text>
-<line x1="1002" y1="425.7037" x2="1361" y2="425.7037" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="997" y1="425.7037" x2="1002" y2="425.7037" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="992" y="431.7037" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">1</text>
-<line x1="1002" y1="373.8519" x2="1361" y2="373.8519" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="997" y1="373.8519" x2="1002" y2="373.8519" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="992" y="379.8519" fill="#536a82" font-size="21.6" font-weight="400" text-anchor="end">1.5</text>
-<line x1="1002" y1="322" x2="1361" y2="322" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="997" y1="322" x2="1002" y2="322" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="992" y="328" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">2</text>
-<line x1="1002" y1="270.1481" x2="1361" y2="270.1481" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="997" y1="270.1481" x2="1002" y2="270.1481" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="992" y="276.1481" fill="#536a82" font-size="21.74" font-weight="400" text-anchor="end">2.5</text>
-<line x1="1002" y1="218.2963" x2="1361" y2="218.2963" stroke="#cbd9e6" stroke-width="1" stroke-linecap="round"/>
-<line x1="997" y1="218.2963" x2="1002" y2="218.2963" stroke="#536a82" stroke-width="1.5" stroke-linecap="round"/>
-<text x="992" y="224.2963" fill="#536a82" font-size="18" font-weight="400" text-anchor="end">3</text>
-<line x1="1002" y1="462" x2="1369" y2="462" stroke="#172e46" stroke-width="2" stroke-linecap="round"/>
-<line x1="1002" y1="462" x2="1002" y2="175" stroke="#172e46" stroke-width="2" stroke-linecap="round"/>
-<line x1="1181.5" y1="462" x2="1181.5" y2="182" stroke="#536a82" stroke-width="1.2" stroke-dasharray="5 5" stroke-linecap="round"/>
-<path d="M1012.77 373.8519 L1181.5 373.8519 L1181.5 270.1481 L1350.23 270.1481" stroke="#167d71" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="1046.875" y1="373.8519" x2="1046.875" y2="425.7037" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="1046.875" cy="425.7037" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<line x1="1136.625" y1="373.8519" x2="1136.625" y2="425.7037" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="1136.625" cy="425.7037" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<line x1="1226.375" y1="270.1481" x2="1226.375" y2="218.2963" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="1226.375" cy="218.2963" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<line x1="1316.125" y1="270.1481" x2="1316.125" y2="218.2963" stroke="#bb5141" stroke-width="2.6" marker-end="url(#red)" stroke-linecap="round"/>
-<circle cx="1316.125" cy="218.2963" r="6" fill="#172e46" stroke="white" stroke-width="1.5"/>
-<text x="720" y="547" fill="#536a82" font-size="20" font-weight="400" text-anchor="middle">三图使用相同横坐标，切分位置均为 x = 2.5</text>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="705" viewBox="0 0 1200 705" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">平方损失下用树桩拟合负梯度</title>
+<desc id="fig-desc">当前预测都为二，四个残差用树桩恰好拟合，再用半步更新。</desc>
+<rect x="0" y="0" width="1200" height="705" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">先拟合伪残差，再走半步</text>
+<text x="102" y="134" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">A　初始预测</text>
+<path d="M102 461.115 L345 461.115" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M102 351.5 L345 351.5" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M102 241.885 L345 241.885" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M102 494 L357 494" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M357 494 L346 499 L346 489 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M102 494 L102 197" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M102 197 L107 208 L97 208 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119.357 490 L119.357 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119.357" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M188.786 490 L188.786 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="188.786" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M258.214 490 L258.214 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="258.214" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">3</text>
+<path d="M327.643 490 L327.643 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="327.643" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">4</text>
+<path d="M97 461.115 L106 461.115" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="92" y="467.115" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<path d="M97 351.5 L106 351.5" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="92" y="357.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">2</text>
+<path d="M97 241.885 L106 241.885" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="92" y="247.885" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">3</text>
+<text x="364" y="500" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="102" y="187" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">响应</text>
+<path d="M105.471 351.5 L223.5 351.5 L223.5 351.5 L341.529 351.5" fill="none" stroke="#526976" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119.357 461.115 L119.357 351.5" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="119.357" cy="461.115" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M188.786 461.115 L188.786 351.5" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="188.786" cy="461.115" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M258.214 241.885 L258.214 351.5" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="258.214" cy="241.885" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M327.643 241.885 L327.643 351.5" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="327.643" cy="241.885" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<text x="468" y="134" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">B　拟合伪残差</text>
+<path d="M468 457.056 L711 457.056" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M468 351.5 L711 351.5" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M468 245.944 L711 245.944" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M468 494 L723 494" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M723 494 L712 499 L712 489 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M468 494 L468 197" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M468 197 L473 208 L463 208 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M485.357 490 L485.357 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="485.357" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M554.786 490 L554.786 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="554.786" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M624.214 490 L624.214 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="624.214" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">3</text>
+<path d="M693.643 490 L693.643 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="693.643" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">4</text>
+<path d="M463 457.056 L472 457.056" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="458" y="463.056" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">−1</text>
+<path d="M463 351.5 L472 351.5" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="458" y="357.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0</text>
+<path d="M463 245.944 L472 245.944" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="458" y="251.944" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<text x="730" y="500" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="468" y="187" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">伪残差</text>
+<path d="M471.471 457.056 L589.5 457.056 L589.5 245.944 L707.529 245.944" fill="none" stroke="#a74d3a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="485.357" cy="457.056" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<circle cx="554.786" cy="457.056" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<circle cx="624.214" cy="245.944" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<circle cx="693.643" cy="245.944" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M589.5 494 L589.5 209" fill="none" stroke="#6e618e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 5"/>
+<text x="831" y="134" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">C　缩减更新</text>
+<path d="M831 461.115 L1074 461.115" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M831 351.5 L1074 351.5" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M831 241.885 L1074 241.885" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M831 494 L1086 494" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1086 494 L1075 499 L1075 489 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M831 494 L831 197" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M831 197 L836 208 L826 208 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.357 490 L848.357 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="848.357" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M917.786 490 L917.786 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="917.786" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M987.214 490 L987.214 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="987.214" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">3</text>
+<path d="M1056.643 490 L1056.643 499" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1056.643" y="523" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">4</text>
+<path d="M826 461.115 L835 461.115" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="821" y="467.115" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<path d="M826 351.5 L835 351.5" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="821" y="357.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">2</text>
+<path d="M826 241.885 L835 241.885" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="821" y="247.885" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">3</text>
+<text x="1093" y="500" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="831" y="187" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">响应</text>
+<path d="M834.471 406.308 L952.5 406.308 L952.5 296.692 L1070.529 296.692" fill="none" stroke="#166d75" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.357 461.115 L848.357 406.308" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="848.357" cy="461.115" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M917.786 461.115 L917.786 406.308" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="917.786" cy="461.115" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M987.214 241.885 L987.214 296.692" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="987.214" cy="241.885" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M1056.643 241.885 L1056.643 296.692" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<circle cx="1056.643" cy="241.885" r="5.5" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<path d="M75 548 L1125 548" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="605" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">叶值为 −1 与 1，更新后的两段预测为 1.5 与 2.5。</text>
+<text x="74" y="649" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">训练均方误差从 1 变为 0.25。</text>
+</svg>

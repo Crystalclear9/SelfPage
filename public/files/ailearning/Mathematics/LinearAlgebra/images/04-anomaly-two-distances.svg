@@ -1,64 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="933" viewBox="0 0 960 933" role="img" aria-labelledby="title desc">
-<title id="title">两个新点沿不同方向偏离训练数据</title><desc id="desc">训练点的 D 为 0.75、Q 为 0.5。新点 (13,20) 主要偏离训练直线；(110,120) 的残差为零但沿主轴很远。</desc>
-<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0" y="0" width="960" height="933" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
-<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">两个新点沿不同方向偏离训练数据</text>
-<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">D 衡量沿主轴走了多远，Q 衡量离训练直线有多远</text>
-<rect x="44" y="143" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="173" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
-<text x="101" y="173" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">保留方向与残差方向分开读</text>
-<rect x="44" y="203" width="419" height="257" rx="13" fill="#fff2e8" stroke="#cedae4" stroke-width="1.8"/>
-<text x="67" y="246" font-size="28" fill="#172a40" font-weight="700" text-anchor="start">新点 (13, 20)</text>
-<line x1="100" y1="342" x2="395" y2="342" stroke="#465d72" stroke-width="2.5" marker-end="url(#arrow)"/>
-<line x1="254" y1="340" x2="254" y2="279" stroke="#a85127" stroke-width="3" stroke-dasharray="5 5"/>
-<circle cx="254" cy="281" r="7" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="254" cy="342" r="7" fill="#fff" stroke="#a85127" stroke-width="3"/>
-<text x="67" y="389" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">偏离训练直线</text>
-<text x="67" y="431" font-size="26" fill="#172a40" font-weight="400" text-anchor="start">D = 0.75    Q = 4.5</text>
-<rect x="497" y="203" width="419" height="257" rx="13" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="520" y="246" font-size="28" fill="#172a40" font-weight="700" text-anchor="start">新点 (110, 120)</text>
-<line x1="553" y1="342" x2="848" y2="342" stroke="#465d72" stroke-width="2.5" marker-end="url(#arrow)"/>
-<circle cx="812" cy="342" r="7" fill="#136d84" stroke="#fff" stroke-width="3"/>
-<text x="520" y="389" font-size="24" fill="#136d84" font-weight="700" text-anchor="start">沿训练直线走远</text>
-<text x="520" y="431" font-size="26" fill="#172a40" font-weight="400" text-anchor="start">D ≈ 3333    Q = 0</text>
-<rect x="44" y="496" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="526" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
-<text x="101" y="526" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">同一张图保留两种距离的尺度</text>
-<line x1="130.0" y1="800" x2="902.0083814644345" y2="800" stroke="#cedae4" stroke-width="2"/>
-<text x="115.0" y="808" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
-<line x1="130.0" y1="752" x2="902.0083814644345" y2="752" stroke="#cedae4" stroke-width="2"/>
-<text x="115.0" y="760" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
-<line x1="130.0" y1="704" x2="902.0083814644345" y2="704" stroke="#cedae4" stroke-width="2"/>
-<text x="115.0" y="712" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">2</text>
-<line x1="130.0" y1="656" x2="902.0083814644345" y2="656" stroke="#cedae4" stroke-width="2"/>
-<text x="115.0" y="664" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">3</text>
-<line x1="130.0" y1="608" x2="902.0083814644345" y2="608" stroke="#cedae4" stroke-width="2"/>
-<text x="115.0" y="616" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">4</text>
-<line x1="130.0" y1="560" x2="902.0083814644345" y2="560" stroke="#cedae4" stroke-width="2"/>
-<text x="115.0" y="568" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">5</text>
-<line x1="130.0" y1="800" x2="902.0083814644345" y2="800" stroke="#465d72" stroke-width="2"/>
-<line x1="130.0" y1="800" x2="130.0" y2="560" stroke="#465d72" stroke-width="2"/>
-<line x1="130.0" y1="800" x2="130.0" y2="808" stroke="#465d72" stroke-width="2"/>
-<text x="130.0" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
-<line x1="188.09878916314835" y1="800" x2="188.09878916314835" y2="808" stroke="#465d72" stroke-width="2"/>
-<text x="188.09878916314835" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
-<line x1="330.9887882355374" y1="800" x2="330.9887882355374" y2="808" stroke="#465d72" stroke-width="2"/>
-<text x="330.9887882355374" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">10</text>
-<line x1="516.83402514005" y1="800" x2="516.83402514005" y2="808" stroke="#465d72" stroke-width="2"/>
-<text x="516.83402514005" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">100</text>
-<line x1="709.0837769535085" y1="800" x2="709.0837769535085" y2="808" stroke="#465d72" stroke-width="2"/>
-<text x="709.0837769535085" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1000</text>
-<line x1="902.0083814644345" y1="800" x2="902.0083814644345" y2="808" stroke="#465d72" stroke-width="2"/>
-<text x="902.0083814644345" y="836" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">10000</text>
-<text x="44" y="568" font-size="24" fill="#465d72" font-weight="400" text-anchor="start">Q</text>
-<line x1="176.90634339645482" y1="776.0" x2="176.90634339645482" y2="584.0" stroke="#a85127" stroke-width="2.5" stroke-dasharray="6 6"/>
-<circle cx="176.90634339645482" cy="776.0" r="9" fill="#465d72" stroke="#fff" stroke-width="3"/>
-<circle cx="176.90634339645482" cy="584.0" r="9" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="809.940739718514" cy="800" r="9" fill="#136d84" stroke="#fff" stroke-width="3"/>
-<text x="200.90634339645482" y="592.0" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">偏离直线</text>
-<text x="200.90634339645482" y="780.0" font-size="24" fill="#465d72" font-weight="650" text-anchor="start">4 个训练点重合</text>
-<text x="803.940739718514" y="777" font-size="24" fill="#136d84" font-weight="700" text-anchor="end">沿主轴走远</text>
-<text x="910" y="893" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">D 刻度按 log₁₀(1+D) 排列</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 534" role="img" aria-labelledby="title description">
+<title id="title">两个新点沿不同方向偏离训练数据</title>
+<desc id="description">训练点重合在 D 为 0.75、Q 为 0.5；偏离直线的点 Q 为 4.5，沿主轴走远的点 Q 为零但 D 约为 3333。右图横向位置按 log10(1+D) 排列。</desc>
+<defs>
+<linearGradient id="wash-t" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#eef8f8"/><stop offset="1" stop-color="#c9e6e7"/></linearGradient>
+<linearGradient id="wash-c" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#fdf2ef"/><stop offset="1" stop-color="#f3d5cd"/></linearGradient>
+<linearGradient id="wash-v" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#f7f4fb"/><stop offset="1" stop-color="#e4dbee"/></linearGradient>
+<linearGradient id="wash-n" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#f8fafb"/><stop offset="1" stop-color="#e9eef2"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="534" rx="0" fill="white" stroke="none" stroke-width="1.6"/>
+<text x="270" y="57" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="33">从两个方向观察偏离</text>
+<text x="934" y="57" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="33">比较两种距离</text>
+<path d="M55 255l39 -116h441l-39 116Z" fill="url(#wash-c)" stroke="#a54938" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M55 444l39 -116h441l-39 116Z" fill="url(#wash-t)" stroke="#176f76" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<text x="273" y="180" text-anchor="middle" fill="#a54938" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="31">偏离训练直线</text>
+<text x="273" y="223" text-anchor="middle" fill="#232b37" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">(13, 20)</text>
+<text x="273" y="369" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="31">沿主轴走远</text>
+<text x="273" y="411" text-anchor="middle" fill="#232b37" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">(110, 120)</text>
+<path d="M576 288L612.0 288.0" fill="none" stroke="#625481" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M624 288L609.0 282.0L609.0 294.0Z" fill="#625481" stroke="#625481" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M704 394.6637168141593L1136 394.6637168141593" fill="none" stroke="#e1e9ec" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="689" y="403.6637168141593" text-anchor="end" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">0</text>
+<path d="M704 342.27433628318585L1136 342.27433628318585" fill="none" stroke="#e1e9ec" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="689" y="351.27433628318585" text-anchor="end" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">1</text>
+<path d="M704 289.88495575221236L1136 289.88495575221236" fill="none" stroke="#e1e9ec" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="689" y="298.88495575221236" text-anchor="end" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">2</text>
+<path d="M704 237.4955752212389L1136 237.4955752212389" fill="none" stroke="#e1e9ec" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="689" y="246.4955752212389" text-anchor="end" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">3</text>
+<path d="M704 185.10619469026548L1136 185.10619469026548" fill="none" stroke="#e1e9ec" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="689" y="194.10619469026548" text-anchor="end" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">4</text>
+<path d="M704 132.71681415929203L1136 132.71681415929203" fill="none" stroke="#e1e9ec" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="689" y="141.71681415929203" text-anchor="end" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">5</text>
+<path d="M704.0 413L704.0 419" fill="none" stroke="#546677" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="704.0" y="444" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">0</text>
+<path d="M736.5104267710407 413L736.5104267710407 419" fill="none" stroke="#546677" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="736.5104267710407" y="444" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">1</text>
+<path d="M816.4675983071306 413L816.4675983071306 419" fill="none" stroke="#546677" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="816.4675983071306" y="444" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">10</text>
+<path d="M920.4612968361046 413L920.4612968361046 419" fill="none" stroke="#546677" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="920.4612968361046" y="444" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">100</text>
+<path d="M1028.0387793982816 413L1028.0387793982816 419" fill="none" stroke="#546677" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1028.0387793982816" y="444" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">1000</text>
+<path d="M1135.9938902986437 413L1135.9938902986437 419" fill="none" stroke="#546677" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1135.9938902986437" y="444" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23">10000</text>
+<path d="M704 413L1139.0 413.0" fill="none" stroke="#232b37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1151 413L1136.0 407.0L1136.0 419.0Z" fill="#232b37" stroke="#232b37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M704 413L704.0 116.0" fill="none" stroke="#232b37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M704 104L698.0 119.0L710.0 119.0Z" fill="#232b37" stroke="#232b37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1174" y="445" text-anchor="middle" fill="#232b37" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28"></text>
+<text x="689" y="97" text-anchor="start" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="29">Q</text>
+<circle cx="730.247453071793" cy="368.46902654867256" r="8" fill="#546677" stroke="none" stroke-width="2.5"/>
+<path d="M739.247453071793 366.46902654867256L811 328" fill="none" stroke="#546677" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<text x="820" y="347" text-anchor="start" fill="#546677" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="27">四个训练点</text>
+<circle cx="730.247453071793" cy="158.91150442477874" r="8" fill="#a54938" stroke="none" stroke-width="2.5"/>
+<path d="M739.247453071793 156.91150442477874L811 159" fill="none" stroke="#a54938" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<text x="820" y="178" text-anchor="start" fill="#a54938" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="27">偏离直线</text>
+<circle cx="1084.4754616347002" cy="394.6637168141593" r="8" fill="#176f76" stroke="none" stroke-width="2.5"/>
+<path d="M1084.4754616347002 392.6637168141593L1072 322" fill="none" stroke="#176f76" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1072" y="341" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="27">沿主轴走远</text>
+<text x="846" y="504" text-anchor="middle" fill="#546677" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="28">横向位置</text>
+<text x="1014" y="504" text-anchor="middle" fill="#546677" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">log₁₀(1 + D)</text>
 </svg>

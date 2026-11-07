@@ -1,464 +1,111 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="2500" viewBox="0 0 960 2500" role="img" aria-labelledby="diagram-title"><title id="diagram-title">交叉验证的拟合边界：验证集不能参与变换估计</title><defs><style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- <path id="mc27ac53681" d="M 0 4.1833 C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 C 3.742521 2.173559 4.1833 1.109424 4.1833 0 C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 z " style="stroke: #15779c"/>
-    <path id="maf6f6023a9" d="M 0 4.1833 C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 C 3.742521 2.173559 4.1833 1.109424 4.1833 0 C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 z " style="stroke: #cf6f36"/>
-    <path id="m1bde48a609" d="M 0 0 L 0 3.5 " style="stroke: #537186; stroke-width: 0.8"/>
-      <path id="C0_0_fd7e478683" d="M 0 4.1833 C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 C 3.742521 2.173559 4.1833 1.109424 4.1833 -0 C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 z "/>
-    <path id="C1_0_72657f9dbe" d="M 0 4.1833 C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 C 3.742521 2.173559 4.1833 1.109424 4.1833 -0 C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 z "/>
-    <clipPath id="p30f805424d">
-   <rect x="3.00024" y="20.990865" width="495.95976" height="223.265301"/>
-  </clipPath>
-  <clipPath id="p807c20717e">
-   <rect x="509.04" y="20.990865" width="495.95976" height="223.265301"/>
-  </clipPath>
-  <clipPath id="p3cd3c41c37">
-   <rect x="3.00024" y="308.990865" width="495.95976" height="223.265301"/>
-  </clipPath>
-  <clipPath id="p0c3eaecbf5">
-   <rect x="509.04" y="308.990865" width="495.95976" height="223.265301"/>
-  </clipPath>
- </defs><rect x="0" y="0" width="960" height="2500" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><text x="48" y="61" font-size="37" font-weight="700" fill="#172a40">交叉验证的拟合边界：验证集不能参与变换估计</text></g><path d="M44 94.000 H916" stroke="#cddae5" stroke-width="1.5"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="106" width="46" height="36" rx="8" fill="#e9f5f7"/><text x="71" y="132" font-size="26" font-weight="700" fill="#136d84" text-anchor="middle">A</text></g><g transform="translate(56.388305 161.872844) scale(1.68384530)"><g id="axes_1">
-   <g id="patch_2">
-    <path d="M 3.00024 244.256166 L 498.96 244.256166 L 498.96 20.990865 L 3.00024 20.990865 z " style="fill: #ffffff"/>
-   </g>
-   <g id="PathCollection_1">
-    <g clip-path="url(#p30f805424d)">
-     <use xlink:href="#mc27ac53681" x="37.204361" y="132.623516" style="fill: #15779c; stroke: #15779c"/>
-     <use xlink:href="#mc27ac53681" x="45.755392" y="132.623516" style="fill: #15779c; stroke: #15779c"/>
-    </g>
-   </g>
-   <g id="PathCollection_2">
-    <g clip-path="url(#p30f805424d)">
-     <use xlink:href="#maf6f6023a9" x="464.755879" y="132.623516" style="fill: #cf6f36; stroke: #cf6f36"/>
-    </g>
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <g>
-       <use xlink:href="#m1bde48a609" x="37.204361" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_1">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="37.204361" y="261.648041" transform="rotate(-0 37.204361 261.648041)">0</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use xlink:href="#m1bde48a609" x="122.714665" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_2">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="122.714665" y="261.648041" transform="rotate(-0 122.714665 261.648041)">20</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3">
-      <g>
-       <use xlink:href="#m1bde48a609" x="208.224968" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_3">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="208.224968" y="261.648041" transform="rotate(-0 208.224968 261.648041)">40</text>
-     </g>
-    </g>
-    <g id="xtick_4">
-     <g id="line2d_4">
-      <g>
-       <use xlink:href="#m1bde48a609" x="293.735272" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_4">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="293.735272" y="261.648041" transform="rotate(-0 293.735272 261.648041)">60</text>
-     </g>
-    </g>
-    <g id="xtick_5">
-     <g id="line2d_5">
-      <g>
-       <use xlink:href="#m1bde48a609" x="379.245575" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_5">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="379.245575" y="261.648041" transform="rotate(-0 379.245575 261.648041)">80</text>
-     </g>
-    </g>
-    <g id="xtick_6">
-     <g id="line2d_6">
-      <g>
-       <use xlink:href="#m1bde48a609" x="464.755879" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_6">
-      <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="464.755879" y="261.648041" transform="rotate(-0 464.755879 261.648041)">100</text>
-     </g>
-    </g>
-    <g id="text_7">
-     <text style="font-size: 17.46px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="250.98012" y="279.271635" transform="rotate(-0 250.98012 279.271635)">原始输入 x</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2"/>
-   <g id="line2d_7">
-    <path d="M 41.479877 244.256166 L 41.479877 20.990865 " clip-path="url(#p30f805424d)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #6790a1; stroke-width: 1.5"/>
-   </g>
-   <g id="patch_3">
-    <path d="M 3.00024 244.256166 L 3.00024 20.990865 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_4">
-    <path d="M 3.00024 244.256166 L 498.96 244.256166 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_8">
-    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="37.204361" y="117.623516" transform="rotate(-0 37.204361 117.623516)">0</text>
-   </g>
-   <g id="text_9">
-    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="45.755392" y="155.623516" transform="rotate(-0 45.755392 155.623516)">2</text>
-   </g>
-   <g id="text_10">
-    <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="464.755879" y="117.623516" transform="rotate(-0 464.755879 117.623516)">100</text>
-   </g>
-   <g id="text_11">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="250.98012" y="14.990865" transform="rotate(-0 250.98012 14.990865)">只拟合训练点：μ=1，σ=1</text>
-   </g>
-  </g>
-  </g><path d="M44 690.116 H916" stroke="#cddae5" stroke-width="1.5"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="702.12" width="46" height="36" rx="8" fill="#e9f5f7"/><text x="71" y="728.12" font-size="26" font-weight="700" fill="#136d84" text-anchor="middle">B</text></g><g transform="translate(-795.704366 759.504135) scale(1.68384530)"><g id="axes_2">
-   <g id="patch_5">
-    <path d="M 509.04 244.256166 L 1004.99976 244.256166 L 1004.99976 20.990865 L 509.04 20.990865 z " style="fill: #ffffff"/>
-   </g>
-   <g id="PathCollection_3">
-    <g clip-path="url(#p807c20717e)">
-     <use xlink:href="#C0_0_fd7e478683" x="518.310276" y="132.623516" style="fill: #15779c; stroke: #15779c"/>
-    </g>
-    <g clip-path="url(#p807c20717e)">
-     <use xlink:href="#C0_0_fd7e478683" x="527.580552" y="132.623516" style="fill: #15779c; stroke: #15779c"/>
-    </g>
-    <g clip-path="url(#p807c20717e)">
-     <use xlink:href="#C0_0_fd7e478683" x="981.82407" y="132.623516" style="fill: #cf6f36; stroke: #cf6f36"/>
-    </g>
-   </g>
-   <g id="matplotlib.axis_3">
-    <g id="xtick_7">
-     <g id="line2d_8">
-      <g>
-       <use xlink:href="#m1bde48a609" x="522.945414" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_12">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="522.945414" y="261.648041" transform="rotate(-0 522.945414 261.648041)">0</text>
-     </g>
-    </g>
-    <g id="xtick_8">
-     <g id="line2d_9">
-      <g>
-       <use xlink:href="#m1bde48a609" x="615.648173" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_13">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="615.648173" y="261.648041" transform="rotate(-0 615.648173 261.648041)">20</text>
-     </g>
-    </g>
-    <g id="xtick_9">
-     <g id="line2d_10">
-      <g>
-       <use xlink:href="#m1bde48a609" x="708.350932" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_14">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="708.350932" y="261.648041" transform="rotate(-0 708.350932 261.648041)">40</text>
-     </g>
-    </g>
-    <g id="xtick_10">
-     <g id="line2d_11">
-      <g>
-       <use xlink:href="#m1bde48a609" x="801.05369" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_15">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="801.05369" y="261.648041" transform="rotate(-0 801.05369 261.648041)">60</text>
-     </g>
-    </g>
-    <g id="xtick_11">
-     <g id="line2d_12">
-      <g>
-       <use xlink:href="#m1bde48a609" x="893.756449" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_16">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="893.756449" y="261.648041" transform="rotate(-0 893.756449 261.648041)">80</text>
-     </g>
-    </g>
-    <g id="xtick_12">
-     <g id="line2d_13">
-      <g>
-       <use xlink:href="#m1bde48a609" x="986.459208" y="244.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_17">
-      <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="986.459208" y="261.648041" transform="rotate(-0 986.459208 261.648041)">100</text>
-     </g>
-    </g>
-    <g id="text_18">
-     <!-- 实际输出 $z=\frac{x-\mu}{\sigma}$ -->
-     <g style="fill: #174057" transform="translate(705.66988 281.48976)">
-      <text>
-       <tspan x="0" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">实</tspan>
-       <tspan x="13" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">际</tspan>
-       <tspan x="26" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">输</tspan>
-       <tspan x="39" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">出</tspan>
-       <tspan x="52" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057"> </tspan>
-       <tspan x="55.84668" y="-0.435937" style="font-style: oblique; font-size: 13px; font-family: 'DejaVu Sans'; fill: #174057">z</tspan>
-       <tspan x="65.203125" y="-0.435937" style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #174057">=</tspan>
-       <tspan x="78.628418" y="-8.023438" style="font-style: oblique; font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">x</tspan>
-       <tspan x="86.628418" y="2.907813" style="font-style: oblique; font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">σ</tspan>
-       <tspan x="95.184375" y="-8.023438" style="font-style: oblique; font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">μ</tspan>
-       <tspan x="85.78667" y="-8.023438" style="font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">−</tspan>
-      </text>
-      <rect x="78.628418" y="-3.88125" width="22.345654" height="0.8125"/>
-     </g>
-    </g>
-   </g>
-   <g id="matplotlib.axis_4"/>
-   <g id="line2d_14">
-    <path d="M 522.945414 244.256166 L 522.945414 20.990865 " clip-path="url(#p807c20717e)" style="fill: none; stroke: #6790a1; stroke-linecap: square"/>
-   </g>
-   <g id="patch_6">
-    <path d="M 509.04 244.256166 L 509.04 20.990865 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_7">
-    <path d="M 509.04 244.256166 L 1004.99976 244.256166 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_19">
-    <text style="font-size: 16.49px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #15779c" x="518.310276" y="117.623516" transform="rotate(-0 518.310276 117.623516)">-1</text>
-   </g>
-   <g id="text_20">
-    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #15779c" x="527.580552" y="155.623516" transform="rotate(-0 527.580552 155.623516)">1</text>
-   </g>
-   <g id="text_21">
-    <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf6f36" x="981.82407" y="117.623516" transform="rotate(-0 981.82407 117.623516)">99</text>
-   </g>
-   <g id="text_22">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="757.01988" y="14.990865" transform="rotate(-0 757.01988 14.990865)">对象没变，坐标变换已经改变</text>
-   </g>
-  </g>
-  </g><path d="M44 1293.809 H916" stroke="#cddae5" stroke-width="1.5"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="1305.81" width="46" height="36" rx="8" fill="#e9f5f7"/><text x="71" y="1331.81" font-size="26" font-weight="700" fill="#136d84" text-anchor="middle">C</text></g><g transform="translate(56.388305 876.734363) scale(1.68384530)"><g id="axes_3">
-   <g id="patch_8">
-    <path d="M 3.00024 532.256166 L 498.96 532.256166 L 498.96 308.990865 L 3.00024 308.990865 z " style="fill: #ffffff"/>
-   </g>
-   <g id="PathCollection_4">
-    <g clip-path="url(#p3cd3c41c37)">
-     <use xlink:href="#mc27ac53681" x="37.204361" y="420.623516" style="fill: #15779c; stroke: #15779c"/>
-     <use xlink:href="#mc27ac53681" x="45.755392" y="420.623516" style="fill: #15779c; stroke: #15779c"/>
-    </g>
-   </g>
-   <g id="PathCollection_5">
-    <g clip-path="url(#p3cd3c41c37)">
-     <use xlink:href="#maf6f6023a9" x="464.755879" y="420.623516" style="fill: #cf6f36; stroke: #cf6f36"/>
-    </g>
-   </g>
-   <g id="matplotlib.axis_5">
-    <g id="xtick_13">
-     <g id="line2d_15">
-      <g>
-       <use xlink:href="#m1bde48a609" x="37.204361" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_23">
-      <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="37.204361" y="549.648041" transform="rotate(-0 37.204361 549.648041)">0</text>
-     </g>
-    </g>
-    <g id="xtick_14">
-     <g id="line2d_16">
-      <g>
-       <use xlink:href="#m1bde48a609" x="122.714665" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_24">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="122.714665" y="549.648041" transform="rotate(-0 122.714665 549.648041)">20</text>
-     </g>
-    </g>
-    <g id="xtick_15">
-     <g id="line2d_17">
-      <g>
-       <use xlink:href="#m1bde48a609" x="208.224968" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_25">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="208.224968" y="549.648041" transform="rotate(-0 208.224968 549.648041)">40</text>
-     </g>
-    </g>
-    <g id="xtick_16">
-     <g id="line2d_18">
-      <g>
-       <use xlink:href="#m1bde48a609" x="293.735272" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_26">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="293.735272" y="549.648041" transform="rotate(-0 293.735272 549.648041)">60</text>
-     </g>
-    </g>
-    <g id="xtick_17">
-     <g id="line2d_19">
-      <g>
-       <use xlink:href="#m1bde48a609" x="379.245575" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_27">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="379.245575" y="549.648041" transform="rotate(-0 379.245575 549.648041)">80</text>
-     </g>
-    </g>
-    <g id="xtick_18">
-     <g id="line2d_20">
-      <g>
-       <use xlink:href="#m1bde48a609" x="464.755879" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_28">
-      <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="464.755879" y="549.648041" transform="rotate(-0 464.755879 549.648041)">100</text>
-     </g>
-    </g>
-    <g id="text_29">
-     <text style="font-size: 17.46px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="250.98012" y="567.271635" transform="rotate(-0 250.98012 567.271635)">原始输入 x</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_6"/>
-   <g id="line2d_21">
-    <path d="M 182.571877 532.256166 L 182.571877 308.990865 " clip-path="url(#p3cd3c41c37)" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #6790a1; stroke-width: 1.5"/>
-   </g>
-   <g id="patch_9">
-    <path d="M 3.00024 532.256166 L 3.00024 308.990865 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_10">
-    <path d="M 3.00024 532.256166 L 498.96 532.256166 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_30">
-    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="37.204361" y="405.623516" transform="rotate(-0 37.204361 405.623516)">0</text>
-   </g>
-   <g id="text_31">
-    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="45.755392" y="443.623516" transform="rotate(-0 45.755392 443.623516)">2</text>
-   </g>
-   <g id="text_32">
-    <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="464.755879" y="405.623516" transform="rotate(-0 464.755879 405.623516)">100</text>
-   </g>
-   <g id="text_33">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="250.98012" y="302.990865" transform="rotate(-0 250.98012 302.990865)">错误地拟合全部点：μ=34，σ=46.68</text>
-   </g>
-  </g>
-  </g><path d="M44 1889.925 H916" stroke="#cddae5" stroke-width="1.5"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="1901.92" width="46" height="36" rx="8" fill="#e9f5f7"/><text x="71" y="1927.92" font-size="26" font-weight="700" fill="#136d84" text-anchor="middle">D</text></g><g transform="translate(-795.704366 1474.365654) scale(1.68384530)"><g id="axes_4">
-   <g id="patch_11">
-    <path d="M 509.04 532.256166 L 1004.99976 532.256166 L 1004.99976 308.990865 L 509.04 308.990865 z " style="fill: #ffffff"/>
-   </g>
-   <g id="PathCollection_6">
-    <g clip-path="url(#p0c3eaecbf5)">
-     <use xlink:href="#C1_0_72657f9dbe" x="587.001107" y="420.623516" style="fill: #15779c; stroke: #15779c"/>
-    </g>
-    <g clip-path="url(#p0c3eaecbf5)">
-     <use xlink:href="#C1_0_72657f9dbe" x="594.084801" y="420.623516" style="fill: #15779c; stroke: #15779c"/>
-    </g>
-    <g clip-path="url(#p0c3eaecbf5)">
-     <use xlink:href="#C1_0_72657f9dbe" x="941.185803" y="420.623516" style="fill: #cf6f36; stroke: #cf6f36"/>
-    </g>
-   </g>
-   <g id="matplotlib.axis_7">
-    <g id="xtick_19">
-     <g id="line2d_22">
-      <g>
-       <use xlink:href="#m1bde48a609" x="542.103984" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_34">
-      <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="542.103984" y="549.648041" transform="rotate(-0 542.103984 549.648041)">−1.0</text>
-     </g>
-    </g>
-    <g id="xtick_20">
-     <g id="line2d_23">
-      <g>
-       <use xlink:href="#m1bde48a609" x="624.763944" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_35">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="624.763944" y="549.648041" transform="rotate(-0 624.763944 549.648041)">−0.5</text>
-     </g>
-    </g>
-    <g id="xtick_21">
-     <g id="line2d_24">
-      <g>
-       <use xlink:href="#m1bde48a609" x="707.423904" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_36">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="707.423904" y="549.648041" transform="rotate(-0 707.423904 549.648041)">0.0</text>
-     </g>
-    </g>
-    <g id="xtick_22">
-     <g id="line2d_25">
-      <g>
-       <use xlink:href="#m1bde48a609" x="790.083864" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_37">
-      <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="790.083864" y="549.648041" transform="rotate(-0 790.083864 549.648041)">0.5</text>
-     </g>
-    </g>
-    <g id="xtick_23">
-     <g id="line2d_26">
-      <g>
-       <use xlink:href="#m1bde48a609" x="872.743824" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_38">
-      <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="872.743824" y="549.648041" transform="rotate(-0 872.743824 549.648041)">1.0</text>
-     </g>
-    </g>
-    <g id="xtick_24">
-     <g id="line2d_27">
-      <g>
-       <use xlink:href="#m1bde48a609" x="955.403784" y="532.256166" style="fill: #537186; stroke: #537186; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_39">
-      <text style="font-size: 16.22px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #537186" x="955.403784" y="549.648041" transform="rotate(-0 955.403784 549.648041)">1.5</text>
-     </g>
-    </g>
-    <g id="text_40">
-     <!-- 实际输出 $z=\frac{x-\mu}{\sigma}$ -->
-     <g style="fill: #174057" transform="translate(705.66988 569.48976)">
-      <text>
-       <tspan x="0" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">实</tspan>
-       <tspan x="13" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">际</tspan>
-       <tspan x="26" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">输</tspan>
-       <tspan x="39" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057">出</tspan>
-       <tspan x="52" y="-0.435937" style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #174057"> </tspan>
-       <tspan x="55.84668" y="-0.435937" style="font-style: oblique; font-size: 13px; font-family: 'DejaVu Sans'; fill: #174057">z</tspan>
-       <tspan x="65.203125" y="-0.435937" style="font-size: 13px; font-family: 'DejaVu Sans'; fill: #174057">=</tspan>
-       <tspan x="78.628418" y="-8.023438" style="font-style: oblique; font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">x</tspan>
-       <tspan x="86.628418" y="2.907813" style="font-style: oblique; font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">σ</tspan>
-       <tspan x="95.184375" y="-8.023438" style="font-style: oblique; font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">μ</tspan>
-       <tspan x="85.78667" y="-8.023438" style="font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #174057">−</tspan>
-      </text>
-      <rect x="78.628418" y="-3.88125" width="22.345654" height="0.8125"/>
-     </g>
-    </g>
-   </g>
-   <g id="matplotlib.axis_8"/>
-   <g id="line2d_28">
-    <path d="M 707.423904 532.256166 L 707.423904 308.990865 " clip-path="url(#p0c3eaecbf5)" style="fill: none; stroke: #6790a1; stroke-linecap: square"/>
-   </g>
-   <g id="patch_12">
-    <path d="M 509.04 532.256166 L 509.04 308.990865 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_13">
-    <path d="M 509.04 532.256166 L 1004.99976 532.256166 " style="fill: none; stroke: #96a6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_41">
-    <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #15779c" x="587.001107" y="405.623516" transform="rotate(-0 587.001107 405.623516)">-0.7284</text>
-   </g>
-   <g id="text_42">
-    <text style="font-size: 16.33px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #15779c" x="594.084801" y="443.623516" transform="rotate(-0 594.084801 443.623516)">-0.6856</text>
-   </g>
-   <g id="text_43">
-    <text style="font-size: 16.27px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf6f36" x="941.185803" y="405.623516" transform="rotate(-0 941.185803 405.623516)">1.414</text>
-   </g>
-   <g id="text_44">
-    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #174057" x="757.01988" y="302.990865" transform="rotate(-0 757.01988 302.990865)">对象没变，坐标变换已经改变</text>
-   </g>
-  </g>
- </g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="923" viewBox="0 0 1200 923" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">两条相同的训练记录在泄漏时得到不同的表示</title>
+<desc id="fig-desc">原始训练点是零和二，验证点是一百。对照两个变换估计范围。</desc>
+<rect x="0" y="0" width="1200" height="923" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">验证样本参与拟合后，连训练样本的坐标也变了</text>
+<text x="119" y="135" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">A · 训练点确定均值与尺度</text>
+<path d="M111 237 L553 237" fill="none" stroke="#233b4a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M553 237 L542 242 L542 232 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119 232 L119 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M200.373 232 L200.373 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="200.373" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">20</text>
+<path d="M281.745 232 L281.745 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="281.745" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">40</text>
+<path d="M363.118 232 L363.118 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="363.118" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">60</text>
+<path d="M444.49 232 L444.49 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="444.49" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">80</text>
+<path d="M525.863 232 L525.863 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="525.863" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">100</text>
+<text x="119" y="308" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="start" font-weight="400">原始输入 x</text>
+<path d="M123.069 179 L123.069 240" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 5"/>
+<text x="194" y="168" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="middle" font-weight="400">拟合均值 1</text>
+<path d="M119 196 L119 237" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="119" cy="196" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M127.137 221 L127.137 237" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="127.137" cy="221" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M525.863 205 L525.863 237" fill="none" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="525.863" cy="205" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="681" y="135" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">B · 使用训练变换</text>
+<path d="M673 237 L1115 237" fill="none" stroke="#233b4a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1115 237 L1104 242 L1104 232 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M692.857 232 L692.857 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="692.857" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M771.905 232 L771.905 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="771.905" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">20</text>
+<path d="M850.952 232 L850.952 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="850.952" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">40</text>
+<path d="M930 232 L930 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="930" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">60</text>
+<path d="M1009.048 232 L1009.048 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1009.048" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">80</text>
+<path d="M1088.095 232 L1088.095 242" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1088.095" y="267" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">100</text>
+<text x="681" y="308" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="start" font-weight="400">变换后 z</text>
+<path d="M688.905 196 L688.905 237" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="688.905" cy="196" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M696.81 221 L696.81 237" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="696.81" cy="221" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M1084.143 205 L1084.143 237" fill="none" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1084.143" cy="205" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="681" y="350" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">两个训练点：-1, 1</text>
+<text x="681" y="392" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">验证点：99</text>
+<text x="119" y="435" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">C · 验证点也参与拟合</text>
+<path d="M111 537 L553 537" fill="none" stroke="#233b4a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M553 537 L542 542 L542 532 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119 532 L119 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M200.373 532 L200.373 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="200.373" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">20</text>
+<path d="M281.745 532 L281.745 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="281.745" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">40</text>
+<path d="M363.118 532 L363.118 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="363.118" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">60</text>
+<path d="M444.49 532 L444.49 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="444.49" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">80</text>
+<path d="M525.863 532 L525.863 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="525.863" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">100</text>
+<text x="119" y="608" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="start" font-weight="400">原始输入 x</text>
+<path d="M257.333 479 L257.333 540" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 5"/>
+<text x="257.333" y="468" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="middle" font-weight="400">拟合均值 34</text>
+<path d="M119 496 L119 537" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="119" cy="496" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M127.137 521 L127.137 537" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="127.137" cy="521" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M525.863 505 L525.863 537" fill="none" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="525.863" cy="505" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="681" y="435" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">D · 使用泄漏变换</text>
+<path d="M673 537 L1115 537" fill="none" stroke="#233b4a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1115 537 L1104 542 L1104 532 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M681 532 L681 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="681" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">−1</text>
+<path d="M757.852 532 L757.852 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="757.852" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">−0.5</text>
+<path d="M834.704 532 L834.704 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="834.704" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M911.556 532 L911.556 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="911.556" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.5</text>
+<path d="M988.407 532 L988.407 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="988.407" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M1065.259 532 L1065.259 542" fill="none" stroke="#526976" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1065.259" y="567" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1.5</text>
+<text x="681" y="608" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="start" font-weight="400">变换后 z</text>
+<path d="M722.742 496 L722.742 537" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="722.742" cy="496" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M729.328 521 L729.328 537" fill="none" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="729.328" cy="521" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M1052.04 505 L1052.04 537" fill="none" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1052.04" cy="505" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="681" y="650" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">两个训练点：-0.7284, -0.6856</text>
+<text x="681" y="692" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">验证点：1.414</text>
+<path d="M75 756 L1125 756" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="808" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">青色为两条训练记录，橙色为验证记录。右侧两条数轴的范围不同。</text>
+<text x="75" y="864" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">正确流程只在本折训练数据上估计均值和尺度，再把冻结变换应用到验证数据。</text>
+</svg>

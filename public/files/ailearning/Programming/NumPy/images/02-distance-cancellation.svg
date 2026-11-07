@@ -1,2 +1,70 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="819.4194" viewBox="0 0 1440 819.4194" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">数学等价的距离公式，浮点结果可能不同</title><rect width="1440" height="819.4194" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">数学等价的距离公式，浮点结果可能不同</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg aria-labelledby="figure-title figure-desc" width="1344" height="677.4194" viewBox="15 64 992 500" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-eaf2fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf2fa"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title id="figure-title">数学等价的距离公式，浮点结果可能不同</title><desc id="figure-desc">图中坐标均能在 float64 中精确表示，先求差得到 (−1,1)，平方距离是 2。改用范数展开时，真实的第二个平方范数为 20000000000000002，在本例浮点计算中舍入为 2e16；于是三个大项按图示顺序运算得到 0。e16 表示乘以十的十六次方。这个例子展示的是大数相减丢掉小差异，既不是输出只需裁成非负数就能修好的问题，也不说明直接差法在所有极端尺度下都不会失效。 数学等价的距离公式，浮点结果可能不同 2</desc><rect width="992.0" height="500.0" fill="white" x="15.0" y="64.0"/><defs><marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#2472b1"/></marker><marker id="arrow-orange" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#c57439"/></marker></defs><g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><text x="40" y="110" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">x=(100000000,100000000)</text><text x="40" y="155" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">y=(100000001, 99999999)</text><text x="40" y="235" font-size="29" fill="#2472b1" text-anchor="start" font-weight="600">先求差，再平方求和</text><rect x="55" y="285" width="130" height="75" rx="6" fill="url(#book-wash-eaf2fa)" stroke="#2472b1" stroke-width="1.5"/><text x="120.0" y="332.3" font-size="28" fill="#2472b1" text-anchor="middle" font-weight="400">−1</text><rect x="193" y="285" width="130" height="75" rx="6" fill="url(#book-wash-eaf2fa)" stroke="#2472b1" stroke-width="1.5"/><text x="258.0" y="332.3" font-size="28" fill="#2472b1" text-anchor="middle" font-weight="400">1</text><path d="M345 325 L430 325" fill="none" stroke="#2472b1" stroke-width="2.8" marker-end="url(#arrow-blue)"/><text x="70" y="430" font-size="32" fill="#2472b1" text-anchor="start" font-weight="600">(−1)² + 1² = 2</text><text x="650" y="235" font-size="28" fill="#c57439" text-anchor="start" font-weight="600">float64 展开式的三个大项</text><text x="680" y="315" font-size="31" fill="#c57439" text-anchor="start" font-weight="400">2e16 + 2e16 − 4e16</text><text x="680" y="405" font-size="32" fill="#c57439" text-anchor="start" font-weight="600">本例计算结果：0</text><text x="40" y="535" font-size="29" fill="#1f3449" text-anchor="start" font-weight="400">把 0 裁为非负数，无法恢复丢失的距离 2。</text><rect x="455" y="285" width="100" height="75" rx="6" fill="url(#book-wash-eaf2fa)" stroke="#2472b1" stroke-width="1.5"/><text x="505.0" y="332.3" font-size="28" fill="#2472b1" text-anchor="middle" font-weight="400">2</text></g></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="697" viewBox="0 0 1360 697" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">两种平方距离公式的浮点结果</title>
+  <desc id="plate-desc">输入坐标完全可表示。先作差保留两项 ±1，展开式则因大数相减丢掉结果。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="697" fill="white" stroke="none" stroke-width="0"/>
+  <text x="682" y="62" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">两个输入点的每个坐标都可精确表示</text>
+  <polygon points="87,163.5 600.35,163.5 635,100.5 121.65,100.5" fill="url(#wash-gray)" stroke="#657682" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="361" y="141.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">x = (100000000, 100000000)</text>
+  <polygon points="717,163.5 1230.35,163.5 1265,100.5 751.65,100.5" fill="url(#wash-gray)" stroke="#657682" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="991" y="141.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">y = (100000001, 99999999)</text>
+  <text x="333" y="254" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">先对坐标做差</text>
+  <polygon points="53,364.5 578.35,364.5 613,301.5 87.65,301.5" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="333" y="342.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">x − y = (−1, 1)</text>
+  <polyline points="333,374 333,441" fill="none" stroke="#196f77" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="167,514.5 464.35,514.5 499,451.5 201.65,451.5" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="333" y="492.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">(−1)² + 1² = 2</text>
+  <text x="333" y="585" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="middle">两项小差都保留下来</text>
+  <text x="1013" y="254" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">先展开平方范数</text>
+  <polygon points="733,364.5 1258.35,364.5 1293,301.5 767.65,301.5" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1013" y="342.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">2 × 10¹⁶ + 2 × 10¹⁶ − 4 × 10¹⁶</text>
+  <polyline points="1013,374 1013,441" fill="none" stroke="#a84b3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="847,514.5 1144.35,514.5 1179,451.5 881.65,451.5" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1013" y="492.24" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">0</text>
+  <text x="1013" y="585" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">第二个平方范数先舍入</text>
+  <text x="680" y="658" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">在此例中，把负结果裁成零也无法找回真实距离。</text>
+</svg>

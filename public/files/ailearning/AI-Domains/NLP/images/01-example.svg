@@ -1,58 +1,70 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="931.9687" viewBox="0 0 1440 931.9687" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">TF-IDF 拟合只能使用训练文档集合</title><rect width="1440" height="931.9687" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">TF-IDF 拟合只能使用训练文档集合</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="789.9687" viewBox="22 61 1276 750" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden"><rect x="22" y="61" width="1276" height="750" fill="#ffffff"/><title id="title">TF-IDF：训练文档决定每个坐标</title><desc id="desc">三篇训练文档的计数、文档频率和 IDF；冻结词表之后，测试中的新词没有新坐标。</desc><rect width="1320" height="820" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1c2e41">
-<text x="40" y="103" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="400">训练：猫 猫 鱼 ｜ 狗 鱼 ｜ 狗</text>
-<text x="370" y="163" font-size="32" fill="#1c2e41" text-anchor="middle" font-weight="700">猫</text>
-<text x="520" y="163" font-size="32" fill="#1c2e41" text-anchor="middle" font-weight="700">狗</text>
-<text x="670" y="163" font-size="32" fill="#1c2e41" text-anchor="middle" font-weight="700">鱼</text>
-<text x="65" y="233" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="400">文档 1</text>
-<rect x="312" y="188" width="116" height="60" fill="#e4eff8" stroke="none" stroke-width="2"/>
-<text x="370" y="230" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">2</text>
-<rect x="462" y="188" width="116" height="60" fill="#f4f6f8" stroke="none" stroke-width="2"/>
-<text x="520" y="230" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">0</text>
-<rect x="612" y="188" width="116" height="60" fill="#e4eff8" stroke="none" stroke-width="2"/>
-<text x="670" y="230" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">1</text>
-<text x="65" y="313" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="400">文档 2</text>
-<rect x="312" y="268" width="116" height="60" fill="#f4f6f8" stroke="none" stroke-width="2"/>
-<text x="370" y="310" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">0</text>
-<rect x="462" y="268" width="116" height="60" fill="#e4eff8" stroke="none" stroke-width="2"/>
-<text x="520" y="310" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">1</text>
-<rect x="612" y="268" width="116" height="60" fill="#e4eff8" stroke="none" stroke-width="2"/>
-<text x="670" y="310" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">1</text>
-<text x="65" y="393" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="400">文档 3</text>
-<rect x="312" y="348" width="116" height="60" fill="#f4f6f8" stroke="none" stroke-width="2"/>
-<text x="370" y="390" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">0</text>
-<rect x="462" y="348" width="116" height="60" fill="#e4eff8" stroke="none" stroke-width="2"/>
-<text x="520" y="390" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">1</text>
-<rect x="612" y="348" width="116" height="60" fill="#f4f6f8" stroke="none" stroke-width="2"/>
-<text x="670" y="390" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">0</text>
-<line x1="55" y1="435" x2="735" y2="435" stroke="#abb5c3" stroke-width="2"/>
-<text x="55" y="490" font-size="26" fill="#1c2e41" text-anchor="start" font-weight="400">出现于几篇文档</text>
-<text x="370" y="490" font-size="30" fill="#2375be" text-anchor="middle" font-weight="400">1</text>
-<text x="520" y="490" font-size="30" fill="#2375be" text-anchor="middle" font-weight="400">2</text>
-<text x="670" y="490" font-size="30" fill="#2375be" text-anchor="middle" font-weight="400">2</text>
-<text x="55" y="557" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="400">平滑 IDF</text>
-<text x="370" y="557" font-size="29" fill="#2375be" text-anchor="middle" font-weight="400">1.6931</text>
-<text x="520" y="557" font-size="29" fill="#2375be" text-anchor="middle" font-weight="400">1.2877</text>
-<text x="670" y="557" font-size="29" fill="#2375be" text-anchor="middle" font-weight="400">1.2877</text>
-<line x1="790" y1="145" x2="790" y2="570" stroke="#d9dfe9" stroke-width="2"/>
-<text x="840" y="175" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">一篇出现两次</text>
-<text x="840" y="221" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="400">文档频率仍只加 1</text>
-<text x="840" y="321" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="400">IDF = 1 + ln</text>
-<line x1="1090" y1="311" x2="1222" y2="311" stroke="#1c2e41" stroke-width="1.8"/>
-<text x="1156" y="299" font-size="27" fill="#1c2e41" text-anchor="middle" font-weight="400">3 + 1</text>
-<text x="1156" y="346" font-size="27" fill="#1c2e41" text-anchor="middle" font-weight="400">df + 1</text>
-<text x="840" y="425" font-size="27" fill="#1c2e41" text-anchor="start" font-weight="400">“猫”只在一篇出现</text>
-<text x="840" y="470" font-size="27" fill="#2375be" text-anchor="start" font-weight="400">因此得到更高权重</text>
-<line x1="40" y1="610" x2="1280" y2="610" stroke="#abb5c3" stroke-width="2"/>
-<text x="40" y="662" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">测试只做变换</text>
-<text x="45" y="725" font-size="32" fill="#c7772d" text-anchor="start" font-weight="400">猫 新词</text>
-<text x="290" y="725" font-size="36" fill="#1c2e41" text-anchor="start" font-weight="400">→</text>
-<rect x="405" y="682" width="110" height="67" fill="#edf3f8" stroke="none" stroke-width="2"/>
-<text x="460" y="725" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">1</text>
-<rect x="565" y="682" width="110" height="67" fill="#edf3f8" stroke="none" stroke-width="2"/>
-<text x="620" y="725" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">0</text>
-<rect x="725" y="682" width="110" height="67" fill="#edf3f8" stroke="none" stroke-width="2"/>
-<text x="780" y="725" font-size="30" fill="#1c2e41" text-anchor="middle" font-weight="400">0</text>
-<text x="990" y="705" font-size="27" fill="#1c2e41" text-anchor="start" font-weight="400">仍按 猫、狗、鱼</text>
-<text x="990" y="750" font-size="27" fill="#c7772d" text-anchor="start" font-weight="400">新词不扩充词表</text>
-<text x="450" y="789" font-size="26" fill="#658596" text-anchor="start" font-weight="400">L2 归一化后的向量</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="677" viewBox="0 0 1200 677" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">词频、文档频率和测试向量</title>
+<desc id="fig-desc">训练文本内逐词计数，再只计有该词的文档。测试不扩充词表。</desc>
+<rect x="0" y="0" width="1200" height="677" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">先在训练集拟合，再在测试集变换</text>
+<text x="75" y="103" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">训练文本：猫 猫 鱼 ｜ 狗 鱼 ｜ 狗</text>
+<text x="366" y="165" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">猫</text>
+<text x="520" y="165" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">狗</text>
+<text x="674" y="165" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">鱼</text>
+<text x="74" y="217" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">文档 1</text>
+<path d="M304 228 L315 184 L427 184 L416 228 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365.5" y="213.7" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<path d="M458 228 L469 184 L581 184 L570 228 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="519.5" y="213.7" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<path d="M612 228 L623 184 L735 184 L724 228 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="673.5" y="213.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<text x="74" y="274" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">文档 2</text>
+<path d="M304 285 L315 241 L427 241 L416 285 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365.5" y="270.7" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<path d="M458 285 L469 241 L581 241 L570 285 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="519.5" y="270.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<path d="M612 285 L623 241 L735 241 L724 285 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="673.5" y="270.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<text x="74" y="331" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">文档 3</text>
+<path d="M304 342 L315 298 L427 298 L416 342 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365.5" y="327.7" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<path d="M458 342 L469 298 L581 298 L570 342 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="519.5" y="327.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<path d="M612 342 L623 298 L735 298 L724 342 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="673.5" y="327.7" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="74" y="388" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">文档频率</text>
+<path d="M304 399 L315 355 L427 355 L416 399 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365.5" y="384.7" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<path d="M458 399 L469 355 L581 355 L570 399 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="519.5" y="384.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<path d="M612 399 L623 355 L735 355 L724 399 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="673.5" y="384.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<text x="74" y="445" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">平滑 IDF</text>
+<path d="M304 456 L315 412 L427 412 L416 456 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365.5" y="441.7" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1.6931</text>
+<path d="M458 456 L469 412 L581 412 L570 456 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="519.5" y="441.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1.2877</text>
+<path d="M612 456 L623 412 L735 412 L724 456 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="673.5" y="441.7" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1.2877</text>
+<text x="844" y="207" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">一篇出现两次</text>
+<text x="844" y="251" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">文档频率仍只加一。</text>
+<text x="844" y="390" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">平滑 IDF</text>
+<text x="844" y="434" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">1 + ln</text>
+<text x="961" y="423" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3 + 1</text>
+<path d="M941 429 L981 429" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="961" y="454" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">df + 1</text>
+<path d="M75 488 L1125 488" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74 584 L101 527 L305 527 L278 584 Z" fill="url(#v)" stroke="#6e618e" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="189.5" y="563.9" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">猫 新词</text>
+<path d="M402 584 L429 527 L678 527 L651 584 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="540" y="563.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">只留下「猫」坐标</text>
+<path d="M775 584 L802 527 L1053 527 L1026 584 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="914" y="563.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">L2 后 (1, 0, 0)</text>
+<path d="M308 555 L393 555" fill="none" stroke="#6e618e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M393 555 L382 560 L382 550 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M682 555 L768 555" fill="none" stroke="#166d75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M768 555 L757 560 L757 550 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="638" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">冻结词表：列顺序始终为猫、狗、鱼。</text>
+</svg>

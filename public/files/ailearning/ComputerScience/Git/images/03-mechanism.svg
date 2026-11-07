@@ -1,129 +1,112 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1626" viewBox="0 0 1440 1626" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">历史二分需要可判定且具有边界的性质</title><rect width="1440" height="1626" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">历史二分需要可判定且具有边界的性质</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1484" viewBox="0 0 1440 1590" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>二分定位缩小的是“首个坏的位置”，不是已测试版本集合</title><svg width="1440" height="1140" viewBox="0 0 1440 1140" role="img"><title>二分定位缩小的是“首个坏的位置”，不是已测试版本集合</title><rect width="1440" height="1140" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">二分定位缩小的是“首个坏的位置”，不是已测试版本集合</text>
-<text x="60" y="130" font-size="29" fill="#1d3145" text-anchor="start">线性祖先链：v1 已知好，v8 已知坏；假设只有一次好→坏切换</text>
-<circle cx="340" cy="205" r="25" fill="white" stroke="#1e7499" stroke-width="2"/>
-<text x="340" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v1</text>
-<line x1="370" y1="205" x2="428" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M416.95,209.67 L428.00,205.00 L416.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="465" cy="205" r="25" fill="white" stroke="#1e7499" stroke-width="2"/>
-<text x="465" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v2</text>
-<line x1="495" y1="205" x2="553" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M541.95,209.67 L553.00,205.00 L541.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="590" cy="205" r="25" fill="white" stroke="#1e7499" stroke-width="2"/>
-<text x="590" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v3</text>
-<line x1="620" y1="205" x2="678" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M666.95,209.67 L678.00,205.00 L666.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="715" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
-<text x="715" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v4</text>
-<line x1="745" y1="205" x2="803" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M791.95,209.67 L803.00,205.00 L791.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="840" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
-<text x="840" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v5</text>
-<line x1="870" y1="205" x2="928" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M916.95,209.67 L928.00,205.00 L916.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="965" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
-<text x="965" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v6</text>
-<line x1="995" y1="205" x2="1053" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M1041.95,209.67 L1053.00,205.00 L1041.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="1090" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
-<text x="1090" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v7</text>
-<line x1="1120" y1="205" x2="1178" y2="205" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<path d="M1166.95,209.67 L1178.00,205.00 L1166.95,200.33" fill="none" stroke="#7b889c" stroke-width="2"/>
-<circle cx="1215" cy="205" r="25" fill="white" stroke="#c66d3a" stroke-width="2"/>
-<text x="1215" y="215" font-size="25" fill="#1d3145" text-anchor="middle">v8</text>
-<text x="60" y="346" font-size="28" fill="#1d3145" text-anchor="start">初始：7 个候选</text>
-<rect x="300" y="310" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="340" y="349" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
-<rect x="425" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="465" y="349" font-size="29" fill="#1e7499" text-anchor="middle">2</text>
-<rect x="550" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="590" y="349" font-size="29" fill="#1e7499" text-anchor="middle">3</text>
-<rect x="675" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="715" y="349" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
-<rect x="800" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="840" y="349" font-size="29" fill="#1e7499" text-anchor="middle">5</text>
-<rect x="925" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="965" y="349" font-size="29" fill="#1e7499" text-anchor="middle">6</text>
-<rect x="1050" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1090" y="349" font-size="29" fill="#1e7499" text-anchor="middle">7</text>
-<rect x="1175" y="310" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1215" y="349" font-size="29" fill="#1e7499" text-anchor="middle">8</text>
-<line x1="465" y1="388" x2="1215" y2="388" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="464" font-size="28" fill="#1d3145" text-anchor="start">测 v4 坏：3 个</text>
-<rect x="300" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="340" y="467" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
-<rect x="425" y="428" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="465" y="467" font-size="29" fill="#1e7499" text-anchor="middle">2</text>
-<rect x="550" y="428" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="590" y="467" font-size="29" fill="#1e7499" text-anchor="middle">3</text>
-<rect x="675" y="428" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="715" y="467" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
-<circle cx="715" cy="414" r="7" fill="#c66d3a" stroke="#c66d3a" stroke-width="2"/>
-<rect x="800" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="840" y="467" font-size="29" fill="#7b889c" text-anchor="middle">5</text>
-<rect x="925" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="965" y="467" font-size="29" fill="#7b889c" text-anchor="middle">6</text>
-<rect x="1050" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="1090" y="467" font-size="29" fill="#7b889c" text-anchor="middle">7</text>
-<rect x="1175" y="428" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="1215" y="467" font-size="29" fill="#7b889c" text-anchor="middle">8</text>
-<line x1="465" y1="506" x2="715" y2="506" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="582" font-size="28" fill="#1d3145" text-anchor="start">测 v2 好：2 个</text>
-<rect x="300" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="340" y="585" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
-<rect x="425" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="465" y="585" font-size="29" fill="#7b889c" text-anchor="middle">2</text>
-<circle cx="465" cy="532" r="7" fill="#1e7499" stroke="#1e7499" stroke-width="2"/>
-<rect x="550" y="546" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="590" y="585" font-size="29" fill="#1e7499" text-anchor="middle">3</text>
-<rect x="675" y="546" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="715" y="585" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
-<rect x="800" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="840" y="585" font-size="29" fill="#7b889c" text-anchor="middle">5</text>
-<rect x="925" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="965" y="585" font-size="29" fill="#7b889c" text-anchor="middle">6</text>
-<rect x="1050" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="1090" y="585" font-size="29" fill="#7b889c" text-anchor="middle">7</text>
-<rect x="1175" y="546" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="1215" y="585" font-size="29" fill="#7b889c" text-anchor="middle">8</text>
-<line x1="590" y1="624" x2="715" y2="624" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="700" font-size="28" fill="#1d3145" text-anchor="start">测 v3 好：1 个</text>
-<rect x="300" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="340" y="703" font-size="29" fill="#7b889c" text-anchor="middle">1</text>
-<rect x="425" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="465" y="703" font-size="29" fill="#7b889c" text-anchor="middle">2</text>
-<rect x="550" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="590" y="703" font-size="29" fill="#7b889c" text-anchor="middle">3</text>
-<circle cx="590" cy="650" r="7" fill="#1e7499" stroke="#1e7499" stroke-width="2"/>
-<rect x="675" y="664" width="80" height="58" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="715" y="703" font-size="29" fill="#1e7499" text-anchor="middle">4</text>
-<rect x="800" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="840" y="703" font-size="29" fill="#7b889c" text-anchor="middle">5</text>
-<rect x="925" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="965" y="703" font-size="29" fill="#7b889c" text-anchor="middle">6</text>
-<rect x="1050" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="1090" y="703" font-size="29" fill="#7b889c" text-anchor="middle">7</text>
-<rect x="1175" y="664" width="80" height="58" rx="3" fill="#f5f7f8" stroke="#dce2eb" stroke-dasharray=""/>
-<text x="1215" y="703" font-size="29" fill="#7b889c" text-anchor="middle">8</text>
-<line x1="715" y1="742" x2="715" y2="742" stroke="#1e7499" stroke-width="5" stroke-dasharray=""/>
-<text x="60" y="825" font-size="29" fill="#1d3145" text-anchor="start">本例真实输出：v1–v3 为 2；v4–v8 为 3。首个坏是 v4。</text>
-<text x="60" y="875" font-size="26" fill="#1d3145" text-anchor="start">蓝格是边界候选，圆点才是本轮测试；跳过 v3 会保留 v3、v4 两种可能。</text>
-<line x1="60" y1="905" x2="1380" y2="905" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="950" font-size="28" fill="#1d3145" text-anchor="start">若 v3 不可测试：以下两种输出都符合“v2 好、v4 坏”</text>
-<text x="60" y="1015" font-size="28" fill="#1d3145" text-anchor="start">首坏可为 v3</text>
-<rect x="500" y="980" width="180" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="590" y="1016" font-size="27" fill="#1e7499" text-anchor="middle">v2 输出 2</text>
-<rect x="750" y="980" width="180" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="840" y="1016" font-size="27" fill="#c66d3a" text-anchor="middle">v3 输出 3</text>
-<rect x="1000" y="980" width="180" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="1090" y="1016" font-size="27" fill="#c66d3a" text-anchor="middle">v4 输出 3</text>
-<text x="60" y="1095" font-size="28" fill="#1d3145" text-anchor="start">首坏可为 v4</text>
-<rect x="500" y="1060" width="180" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="590" y="1096" font-size="27" fill="#1e7499" text-anchor="middle">v2 输出 2</text>
-<rect x="750" y="1060" width="180" height="55" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="840" y="1096" font-size="27" fill="#1e7499" text-anchor="middle">v3 输出 2</text>
-<rect x="1000" y="1060" width="180" height="55" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="1090" y="1096" font-size="27" fill="#c66d3a" text-anchor="middle">v4 输出 3</text>
-</g></svg>
-<g id="round-20261105c-teaching" transform="translate(0 1140) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#1d3145" text-anchor="start">提交图未必是一条链：两条分支可各自独立引入失败</text><circle cx="120" cy="250" r="40" fill="#edf5f8" stroke="#1e7499" stroke-width="2"/><text x="120" y="259" font-size="25" fill="#1e7499" text-anchor="middle">O：好</text><circle cx="600" cy="155" r="40" fill="#fff1e7" stroke="#c66d3a" stroke-width="2"/><text x="600" y="164" font-size="25" fill="#c66d3a" text-anchor="middle">A：坏</text><circle cx="600" cy="345" r="40" fill="#fff1e7" stroke="#c66d3a" stroke-width="2"/><text x="600" y="354" font-size="25" fill="#c66d3a" text-anchor="middle">B：坏</text><circle cx="1180" cy="250" r="40" fill="#fff1e7" stroke="#c66d3a" stroke-width="2"/><text x="1180" y="259" font-size="25" fill="#c66d3a" text-anchor="middle">M：坏</text><line x1="160" y1="240" x2="560" y2="160" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M550.078,166.750 L560.000,160.000 L548.245,157.585" stroke="#818fa4" stroke-width="2" fill="none"/><line x1="160" y1="260" x2="560" y2="340" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M548.245,342.415 L560.000,340.000 L550.078,333.250" stroke="#818fa4" stroke-width="2" fill="none"/><line x1="640" y1="160" x2="1140" y2="240" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M1128.348,242.868 L1140.000,240.000 L1129.824,233.639" stroke="#818fa4" stroke-width="2" fill="none"/><line x1="640" y1="340" x2="1140" y2="260" stroke="#818fa4" stroke-width="2" stroke-dasharray=""/><path d="M1129.824,266.361 L1140.000,260.000 L1128.348,257.132" stroke="#818fa4" stroke-width="2" fill="none"/><text x="65" y="415" font-size="27" fill="#1d3145" text-anchor="start">A 与 B 互非祖先，都是独立失败边界；按时间戳最早，不等于唯一因果来源。</text></g></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="779" viewBox="0 0 1200 779" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">二分定位需要可解释的好坏边界</title>
+<desc id="fig-desc">二分沿祖先链缩小边界。若失败后来消失又出现，或中点不可测试，结论需要额外解释。</desc>
+<rect x="0" y="0" width="1200" height="779" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+<linearGradient id="blue" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9f1f8"/></linearGradient>
+<linearGradient id="ochre" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f7f0d9"/></linearGradient>
+<linearGradient id="green" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf4e9"/></linearGradient>
+</defs>
+<text x="76" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">沿单次好坏切换缩小候选范围</text>
+<text x="385" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v1</text>
+<text x="474" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v2</text>
+<text x="563" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v3</text>
+<text x="652" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v4</text>
+<text x="741" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v5</text>
+<text x="830" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v6</text>
+<text x="919" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v7</text>
+<text x="1008" y="112" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">v8</text>
+<text x="77" y="161" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">初始候选</text>
+<path d="M344 177 L361.8 130 L426 130 L408.2 177 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="385" y="161.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M433 177 L450.8 130 L515 130 L497.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="474" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M522 177 L539.8 130 L604 130 L586.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="563" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M611 177 L628.8 130 L693 130 L675.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="652" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M700 177 L717.8 130 L782 130 L764.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="741" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M789 177 L806.8 130 L871 130 L853.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="830" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M878 177 L895.8 130 L960 130 L942.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="919" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M967 177 L984.8 130 L1049 130 L1031.2 177 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1008" y="161.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<text x="77" y="243" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">测 v4：坏</text>
+<path d="M344 259 L361.8 212 L426 212 L408.2 259 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="385" y="243.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M433 259 L450.8 212 L515 212 L497.2 259 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="474" y="243.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M522 259 L539.8 212 L604 212 L586.2 259 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="563" y="243.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M611 259 L628.8 212 L693 212 L675.2 259 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="652" y="243.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M700 259 L717.8 212 L782 212 L764.2 259 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="741" y="243.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M789 259 L806.8 212 L871 212 L853.2 259 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="830" y="243.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M878 259 L895.8 212 L960 212 L942.2 259 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="919" y="243.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M967 259 L984.8 212 L1049 212 L1031.2 259 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1008" y="243.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<circle cx="652" cy="273" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<text x="77" y="325" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">测 v2：好</text>
+<path d="M344 341 L361.8 294 L426 294 L408.2 341 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="385" y="325.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M433 341 L450.8 294 L515 294 L497.2 341 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="474" y="325.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M522 341 L539.8 294 L604 294 L586.2 341 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="563" y="325.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M611 341 L628.8 294 L693 294 L675.2 341 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="652" y="325.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M700 341 L717.8 294 L782 294 L764.2 341 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="741" y="325.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M789 341 L806.8 294 L871 294 L853.2 341 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="830" y="325.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M878 341 L895.8 294 L960 294 L942.2 341 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="919" y="325.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M967 341 L984.8 294 L1049 294 L1031.2 341 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1008" y="325.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<circle cx="474" cy="355" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<text x="77" y="407" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">测 v3：好</text>
+<path d="M344 423 L361.8 376 L426 376 L408.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="385" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M433 423 L450.8 376 L515 376 L497.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="474" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M522 423 L539.8 376 L604 376 L586.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="563" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M611 423 L628.8 376 L693 376 L675.2 423 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="652" y="407.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M700 423 L717.8 376 L782 376 L764.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="741" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M789 423 L806.8 376 L871 376 L853.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="830" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M878 423 L895.8 376 L960 376 L942.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="919" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M967 423 L984.8 376 L1049 376 L1031.2 423 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1008" y="407.55" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<circle cx="563" cy="437" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M75 461 L1125 461" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="76" y="509" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">若 v3 不可测试，首坏可为 v3 或 v4。</text>
+<text x="78" y="568" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">可能一 · v2、v3、v4</text>
+<path d="M78 633 L97 586 L182 586 L163 633 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="617.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M189 633 L208 586 L293 586 L274 633 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="241" y="617.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M300 633 L319 586 L404 586 L385 633 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="352" y="617.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<text x="638" y="568" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">可能二 · v2、v3、v4</text>
+<path d="M638 633 L657 586 L742 586 L723 633 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="690" y="617.55" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M749 633 L768 586 L853 586 L834 633 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="801" y="617.55" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M860 633 L879 586 L964 586 L945 633 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="912" y="617.55" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<text x="76" y="686" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">若两条分支独立引入失败，它们可各有一个最早失败边界。</text>
+<text x="76" y="732" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">因此按时间戳排序不能替代祖先关系。</text>
+</svg>

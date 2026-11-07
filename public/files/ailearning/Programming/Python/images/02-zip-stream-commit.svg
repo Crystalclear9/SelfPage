@@ -1,36 +1,64 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="961" viewBox="0 0 1440 961" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">图解：严格配对检查与副作用提交是两条边界</title><rect width="1440" height="961" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">图解：严格配对检查与副作用提交是两条边界</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="819" viewBox="0 0 1280 780" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5fa"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>严格配对：发现长度不同，不会撤销已处理的前缀</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="52" y="64" font-size="36" fill="#1a2a3b" text-anchor="start">严格配对：发现长度不同，不会撤销已处理的前缀</text>
-<text x="60" y="125" font-size="28" fill="#1a2a3b" text-anchor="start">输入一：标签</text>
-<rect x="315" y="90" width="68" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="349.0" y="127" font-size="27" fill="#1c77a2" text-anchor="middle">猫</text>
-<rect x="392" y="90" width="68" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="426.0" y="127" font-size="27" fill="#1c77a2" text-anchor="middle">狗</text>
-<rect x="469" y="90" width="68" height="56" rx="3" fill="url(#book-wash-edf5fa)" stroke="#1c77a2"/>
-<text x="503.0" y="127" font-size="27" fill="#1c77a2" text-anchor="middle">鸟</text>
-<text x="60" y="210" font-size="28" fill="#1a2a3b" text-anchor="start">输入二：预测</text>
-<rect x="315" y="175" width="68" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="349.0" y="212" font-size="27" fill="#ca7542" text-anchor="middle">猫</text>
-<rect x="392" y="175" width="68" height="56" rx="3" fill="#fff2e8" stroke="#ca7542"/>
-<text x="426.0" y="212" font-size="27" fill="#ca7542" text-anchor="middle">狗</text>
-<line x1="60" y1="265" x2="1220" y2="265" stroke="#dee4ec" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="320" font-size="29" fill="#1c77a2" text-anchor="start">普通 zip</text>
-<text x="340" y="320" font-size="27" fill="#1a2a3b" text-anchor="start">(猫, 猫)</text>
-<text x="610" y="320" font-size="27" fill="#1a2a3b" text-anchor="start">(狗, 狗)</text>
-<text x="920" y="320" font-size="28" fill="#ca7542" text-anchor="start">正常结束</text>
-<text x="60" y="425" font-size="29" fill="#1c77a2" text-anchor="start">strict=True</text>
-<text x="340" y="425" font-size="27" fill="#1a2a3b" text-anchor="start">(猫, 猫)</text>
-<text x="610" y="425" font-size="27" fill="#1a2a3b" text-anchor="start">(狗, 狗)</text>
-<text x="920" y="425" font-size="28" fill="#ca7542" text-anchor="start">ValueError</text>
-<line x1="495" y1="413" x2="570" y2="413" stroke="#718b98" stroke-width="2" stroke-dasharray=""/>
-<path d="M559.19,418.22 L570.00,413.00 L559.19,407.78" fill="none" stroke="#718b98" stroke-width="2"/>
-<line x1="765" y1="413" x2="890" y2="413" stroke="#ca7542" stroke-width="2" stroke-dasharray=""/>
-<path d="M879.19,418.22 L890.00,413.00 L879.19,407.78" fill="none" stroke="#ca7542" stroke-width="2"/>
-<text x="340" y="480" font-size="28" fill="#ca7542" text-anchor="start">两个配对已经被调用者消费</text>
-<line x1="60" y1="525" x2="1220" y2="525" stroke="#dee4ec" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="590" font-size="29" fill="#ca7542" text-anchor="start">边读边发布</text>
-<text x="400" y="590" font-size="29" fill="#ca7542" text-anchor="start">已发布 2 条 → 错误不能自动回滚</text>
-<text x="60" y="660" font-size="29" fill="#1c77a2" text-anchor="start">先验证再发布</text>
-<text x="400" y="660" font-size="29" fill="#1c77a2" text-anchor="start">先完成临时结果 → 不等长则发布 0 条</text>
-<text x="60" y="735" font-size="28" fill="#1a2a3b" text-anchor="start">严格配对检查长度；完整验收后提交，才决定副作用边界。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="659" viewBox="0 0 1200 659" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">严格配对与副作用提交</title>
+<desc id="fig-desc">前两项先产出。第三项在严格模式下出错。只有把两条结果留在临时区，才能让失败时公开结果仍为空。</desc>
+<rect x="0" y="0" width="1200" height="659" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="70" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">配对随读取推进</text>
+<text x="462" y="105" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 1 次读取</text>
+<text x="699" y="105" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 2 次读取</text>
+<text x="936" y="105" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 3 次读取</text>
+<text x="79" y="158" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">标签</text>
+<path d="M369 171 L388 128 L596 128 L577 171 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="482.5" y="157.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">猫</text>
+<path d="M606 171 L625 128 L833 128 L814 171 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="719.5" y="157.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">狗</text>
+<path d="M843 171 L862 128 L1070 128 L1051 171 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="956.5" y="157.9" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">鸟</text>
+<text x="79" y="214" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">预测</text>
+<path d="M369 227 L388 184 L596 184 L577 227 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="482.5" y="213.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">猫</text>
+<path d="M606 227 L625 184 L833 184 L814 227 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="719.5" y="213.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">狗</text>
+<path d="M843 227 L862 184 L1070 184 L1051 227 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="956.5" y="213.9" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">耗尽</text>
+<path d="M75 248 L1120 248" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="79" y="304" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">普通 zip</text>
+<path d="M369 316 L388 273 L596 273 L577 316 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="482.5" y="302.9" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">(猫, 猫)</text>
+<path d="M606 316 L625 273 L833 273 L814 316 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="719.5" y="302.9" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">(狗, 狗)</text>
+<path d="M843 316 L862 273 L1070 273 L1051 316 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="956.5" y="302.9" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">正常结束</text>
+<text x="79" y="368" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">strict=True</text>
+<path d="M369 380 L388 337 L596 337 L577 380 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="482.5" y="366.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">(猫, 猫)</text>
+<path d="M606 380 L625 337 L833 337 L814 380 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="719.5" y="366.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">(狗, 狗)</text>
+<path d="M843 380 L862 337 L1070 337 L1051 380 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="956.5" y="366.9" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">ValueError</text>
+<text x="600" y="425" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">前两对已经交给调用者</text>
+<path d="M386 386 L386 397" fill="none" stroke="#166d75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M386 397 L814 397" fill="none" stroke="#166d75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M814 386 L814 397" fill="none" stroke="#166d75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75 445 L1125 445" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="484" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="29" text-anchor="start" font-weight="600">同一次失败，两种提交方式</text>
+<text x="79" y="537" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">边读边发布</text>
+<path d="M360 554 L387 501 L667 501 L640 554 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="513.5" y="535.9" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">发布前两对</text>
+<path d="M680 528 L775 528" fill="none" stroke="#a74d3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M775 528 L764 533 L764 523 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M792 554 L819 501 L1101 501 L1074 554 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="946.5" y="535.9" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">已有 2 条公开</text>
+<text x="79" y="608" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">整批验收后发布</text>
+<path d="M360 625 L387 572 L667 572 L640 625 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="513.5" y="606.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">前两对留在临时区</text>
+<path d="M680 599 L775 599" fill="none" stroke="#166d75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M775 599 L764 604 L764 594 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M792 625 L819 572 L1101 572 L1074 625 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="946.5" y="606.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">报错后公开 0 条</text>
+</svg>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="658" viewBox="0 0 1360 658" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">同一个目标索引收到两次更新</title>
+  <desc id="plate-desc">两次更新 +2 和 +3 都写到索引 1。散射累加得到 5，先读再缓冲写回可能只留下最后一项。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="658" fill="white" stroke="none" stroke-width="0"/>
+  <text x="680" y="62" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">两次请求都指向索引 1</text>
+  <text x="339" y="183" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">逐次散射累加</text>
+  <polygon points="47,360 179.6,360 203,286 70.4,286" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="125" y="332.9" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0</text>
+  <polyline points="211,323 244,323" fill="none" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <text x="125" y="434" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">+2</text>
+  <polygon points="255,360 387.6,360 411,286 278.4,286" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="333" y="332.9" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">2</text>
+  <polyline points="419,323 452,323" fill="none" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <text x="333" y="434" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">+3</text>
+  <polygon points="463,360 595.6,360 619,286 486.4,286" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="541" y="332.9" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">5</text>
+  <text x="336" y="520" font-size="27" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="middle">每次都在最新值上累加</text>
+  <text x="1019" y="183" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">先读取，再缓冲写回</text>
+  <polygon points="727,360 859.6,360 883,286 750.4,286" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="805" y="332.9" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">0, 0</text>
+  <polyline points="891,323 924,323" fill="none" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <text x="805" y="434" font-size="24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">读到两份旧值</text>
+  <polygon points="935,360 1067.6,360 1091,286 958.4,286" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1013" y="332.9" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">2, 3</text>
+  <polyline points="1099,323 1132,323" fill="none" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <text x="1013" y="434" font-size="24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">计算两个结果</text>
+  <polygon points="1143,360 1275.6,360 1299,286 1166.4,286" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1221" y="332.9" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">3</text>
+  <text x="1221" y="434" font-size="24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">示例中的最后写入</text>
+  <text x="1016" y="520" font-size="27" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">缓冲回写没有把两份增量合并</text>
+  <text x="682" y="610" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">正确性来自累加语义。右图的回写顺序只作演示。</text>
+</svg>

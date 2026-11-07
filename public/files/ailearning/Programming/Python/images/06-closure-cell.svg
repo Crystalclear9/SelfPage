@@ -1,2 +1,82 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="883.5914" viewBox="0 0 1440 883.5914" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">三个闭包共享最终为二的单元，三个默认参数函数则各自保存零一二</title><rect width="1440" height="883.5914" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">三个闭包共享最终为二的单元，三个默认参数函数则各自保存零一二</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="741.5914" viewBox="13.867 59.714 1252.267 690.975" x="48" y="106" overflow="hidden"><rect width="1252.267" height="690.975" fill="white" x="13.867" y="59.714"/><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6" fill="none" stroke="#527087" stroke-width="1.5"/></marker></defs><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#173c58"><text x="40" y="108" font-size="27" fill="#527087">左：外层局部变量由单元共享；右：默认参数在每轮定义时分别求值</text><text x="55" y="185" font-size="30" fill="#1f81c7">闭包：调用时读取同一绑定</text><text x="690" y="185" font-size="30" fill="#148f94">默认参数：本次调用未传值</text><text x="55" y="285" font-size="29" fill="#1f81c7">delayed[0]</text><path d="M235 275 L435 425" stroke="#527087" stroke-width="3" marker-end="url(#arrow)" fill="none"/><text x="690" y="285" font-size="29" fill="#148f94">captured[0]</text><path d="M895 275 L1060 275" stroke="#527087" stroke-width="3" marker-end="url(#arrow)" fill="none"/><circle cx="1110" cy="275" r="40" fill="#eef8f5" stroke="#148f94" stroke-width="3"/><text x="1100" y="285" font-size="32" fill="#148f94">0</text><text x="55" y="435" font-size="29" fill="#1f81c7">delayed[1]</text><path d="M235 425 L435 425" stroke="#527087" stroke-width="3" marker-end="url(#arrow)" fill="none"/><text x="690" y="435" font-size="29" fill="#148f94">captured[1]</text><path d="M895 425 L1060 425" stroke="#527087" stroke-width="3" marker-end="url(#arrow)" fill="none"/><circle cx="1110" cy="425" r="40" fill="#eef8f5" stroke="#148f94" stroke-width="3"/><text x="1100" y="435" font-size="32" fill="#148f94">1</text><text x="55" y="585" font-size="29" fill="#1f81c7">delayed[2]</text><path d="M235 575 L435 425" stroke="#527087" stroke-width="3" marker-end="url(#arrow)" fill="none"/><text x="690" y="585" font-size="29" fill="#148f94">captured[2]</text><path d="M895 575 L1060 575" stroke="#527087" stroke-width="3" marker-end="url(#arrow)" fill="none"/><circle cx="1110" cy="575" r="40" fill="#eef8f5" stroke="#148f94" stroke-width="3"/><text x="1100" y="585" font-size="32" fill="#148f94">2</text><rect x="450" y="380" width="175" height="100" rx="6" fill="#f2f7fb" stroke="#1f81c7" stroke-width="3"/><text x="470" y="418" font-size="28" fill="#1f81c7">共享 cell</text><text x="518" y="458" font-size="32" fill="#1f81c7">2</text><text x="55" y="685" font-size="28" fill="#173c58">返回后仍保留外层单元</text><text x="690" y="685" font-size="28" fill="#173c58">各自的 __defaults__ 元组</text><path d="M40 724 H1240" stroke="#dce2eb" stroke-width="2"/></g><desc> 三个函数对象，不一定拥有三份被引用的状态 模块顶层的 index 是全局绑定；不要把它误称为捕获的局部单元。</desc></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="659" viewBox="0 0 1360 659" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">三个闭包可以读同一个单元</title>
+  <desc id="plate-desc">左边三个函数对象各自独立，都读取最终为 2 的闭包单元。右边在定义时分别记下三个默认参数值。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="659" fill="white" stroke="none" stroke-width="1.6"/>
+  <text x="334" y="60" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="36" fill="#202a37" text-anchor="middle">调用时读取共享单元</text>
+  <polygon points="49.5,204 169.85,204 194.5,144 74.15,144" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="122" y="183.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">f0</text>
+  <line x1="122" y1="214" x2="334" y2="281" stroke="#a84b3b" stroke-width="1.9" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="260.5,204 380.85,204 405.5,144 285.15,144" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="333" y="183.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">f1</text>
+  <line x1="333" y1="214" x2="334" y2="281" stroke="#a84b3b" stroke-width="1.9" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="471.5,204 591.85,204 616.5,144 496.15,144" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="544" y="183.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">f2</text>
+  <line x1="544" y1="214" x2="334" y2="281" stroke="#a84b3b" stroke-width="1.9" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="200,353 436,353 468,287 232,287" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="334" y="329.24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#a84b3b" text-anchor="middle">共享单元，值为 2</text>
+  <text x="334" y="498" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="32" fill="#a84b3b" text-anchor="middle">依次调用：2、2、2</text>
+  <text x="1014" y="60" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="36" fill="#202a37" text-anchor="middle">定义时保存默认值</text>
+  <polygon points="729.5,204 849.85,204 874.5,144 754.15,144" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="802" y="183.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">f0</text>
+  <line x1="802" y1="214" x2="802" y2="281" stroke="#196f77" stroke-width="1.9" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="714,349.5 860.08,349.5 890,290.5 743.92,290.5" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="802" y="329.24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#196f77" text-anchor="middle">默认值 0</text>
+  <polygon points="940.5,204 1060.85,204 1085.5,144 965.15,144" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="1013" y="183.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">f1</text>
+  <line x1="1013" y1="214" x2="1013" y2="281" stroke="#196f77" stroke-width="1.9" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="925,349.5 1071.08,349.5 1101,290.5 954.92,290.5" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="1013" y="329.24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#196f77" text-anchor="middle">默认值 1</text>
+  <polygon points="1151.5,204 1271.85,204 1296.5,144 1176.15,144" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="1224" y="183.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">f2</text>
+  <line x1="1224" y1="214" x2="1224" y2="281" stroke="#196f77" stroke-width="1.9" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="1136,349.5 1282.08,349.5 1312,290.5 1165.92,290.5" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="1224" y="329.24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#196f77" text-anchor="middle">默认值 2</text>
+  <text x="1014" y="498" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="32" fill="#196f77" text-anchor="middle">依次调用：0、1、2</text>
+  <line x1="680" y1="91" x2="680" y2="553" stroke="#d4e0e4" stroke-width="1.35" stroke-linecap="round"/>
+  <text x="680" y="615" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="29" fill="#202a37" text-anchor="middle">函数对象数量相同，保存的名字绑定却不同。</text>
+</svg>

@@ -1,292 +1,72 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="2963" viewBox="0 0 1440 2963" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">实体隔离：单一字段与关联图</title><rect width="1440" height="2963" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">实体隔离：单一字段与关联图</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="2841" viewBox="0 0 1344 2841" version="1.1" x="48" y="105" overflow="hidden">
- <metadata>
-  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-   <cc:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-05T09:48:27.478427</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <cc:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
-     </cc:Agent>
-    </dc:creator>
-   </cc:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g transform="translate(295.4205 19.0287) scale(2.6500)"><g id="axes_1">
-   <g id="line2d_1">
-    <path d="M 72.832721 130.579429 L 260.354779 130.579429 " clip-path="url(#p8d271e5e8d)" style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_2">
-    <path d="M 72.832721 130.579429 L 260.354779 220.770734 " clip-path="url(#p8d271e5e8d)" style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_3">
-    <path d="M 72.832721 220.770734 L 260.354779 220.770734 " clip-path="url(#p8d271e5e8d)" style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_4">
-    <path d="M 72.832721 310.962038 L 260.354779 310.962038 " clip-path="url(#p8d271e5e8d)" style="fill: none; stroke: #cf7d44; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="text_1">
-    <g id="patch_2">
-     <path d="M 156.9275 140.883179 L 176.26 140.883179 L 176.26 120.275679 L 156.9275 120.275679 z " style="fill: #ffffff"/>
-    </g>
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="166.59375" y="134.985679" transform="rotate(-0 166.59375 134.985679)">r1</text>
-   </g>
-   <g id="text_2">
-    <g id="patch_3">
-     <path d="M 138.175294 185.978832 L 157.507794 185.978832 L 157.507794 165.371332 L 138.175294 165.371332 z " style="fill: #ffffff"/>
-    </g>
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="147.841544" y="180.081332" transform="rotate(-0 147.841544 180.081332)">r2</text>
-   </g>
-   <g id="text_3">
-    <g id="patch_4">
-     <path d="M 156.9275 231.074484 L 176.26 231.074484 L 176.26 210.466984 L 156.9275 210.466984 z " style="fill: #ffffff"/>
-    </g>
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="166.59375" y="225.176984" transform="rotate(-0 166.59375 225.176984)">r3</text>
-   </g>
-   <g id="text_4">
-    <g id="patch_5">
-     <path d="M 156.9275 321.265788 L 176.26 321.265788 L 176.26 300.658288 L 156.9275 300.658288 z " style="fill: #ffffff"/>
-    </g>
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="166.59375" y="315.368288" transform="rotate(-0 166.59375 315.368288)">r4</text>
-   </g>
-   <g id="PathCollection_1">
-    <defs>
-     <path id="m6b6cbc5c95" d="M 0 12.747549 C 3.380689 12.747549 6.62337 11.404387 9.013878 9.013878 C 11.404387 6.62337 12.747549 3.380689 12.747549 0 C 12.747549 -3.380689 11.404387 -6.62337 9.013878 -9.013878 C 6.62337 -11.404387 3.380689 -12.747549 0 -12.747549 C -3.380689 -12.747549 -6.62337 -11.404387 -9.013878 -9.013878 C -11.404387 -6.62337 -12.747549 -3.380689 -12.747549 0 C -12.747549 3.380689 -11.404387 6.62337 -9.013878 9.013878 C -6.62337 11.404387 -3.380689 12.747549 0 12.747549 z " style="stroke: #2182a1; stroke-width: 2.3"/>
-    </defs>
-    <g clip-path="url(#p8d271e5e8d)">
-     <use xlink:href="#m6b6cbc5c95" x="72.832721" y="130.579429" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_2">
-    <g clip-path="url(#p8d271e5e8d)">
-     <use xlink:href="#m6b6cbc5c95" x="72.832721" y="220.770734" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_3">
-    <defs>
-     <path id="mb8f7d3fd79" d="M 0 12.747549 C 3.380689 12.747549 6.62337 11.404387 9.013878 9.013878 C 11.404387 6.62337 12.747549 3.380689 12.747549 0 C 12.747549 -3.380689 11.404387 -6.62337 9.013878 -9.013878 C 6.62337 -11.404387 3.380689 -12.747549 0 -12.747549 C -3.380689 -12.747549 -6.62337 -11.404387 -9.013878 -9.013878 C -11.404387 -6.62337 -12.747549 -3.380689 -12.747549 0 C -12.747549 3.380689 -11.404387 6.62337 -9.013878 9.013878 C -6.62337 11.404387 -3.380689 12.747549 0 12.747549 z " style="stroke: #cf7d44; stroke-width: 2.3"/>
-    </defs>
-    <g clip-path="url(#p8d271e5e8d)">
-     <use xlink:href="#mb8f7d3fd79" x="72.832721" y="310.962038" style="fill: #ffffff; stroke: #cf7d44; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_4">
-    <g clip-path="url(#p8d271e5e8d)">
-     <use xlink:href="#m6b6cbc5c95" x="260.354779" y="130.579429" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_5">
-    <g clip-path="url(#p8d271e5e8d)">
-     <use xlink:href="#m6b6cbc5c95" x="260.354779" y="220.770734" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_6">
-    <g clip-path="url(#p8d271e5e8d)">
-     <use xlink:href="#mb8f7d3fd79" x="260.354779" y="310.962038" style="fill: #ffffff; stroke: #cf7d44; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="text_5">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="72.832721" y="76.464647" transform="rotate(-0 72.832721 76.464647)">设备</text>
-   </g>
-   <g id="text_6">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="260.354779" y="76.464647" transform="rotate(-0 260.354779 76.464647)">现场</text>
-   </g>
-   <g id="text_7">
-    <text style="font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="7.2" y="22.388125" transform="rotate(-0 7.2 22.388125)">A 共享的设备与现场</text>
-   </g>
-   <g id="text_8">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="72.832721" y="134.985679" transform="rotate(-0 72.832721 134.985679)">A</text>
-   </g>
-   <g id="text_9">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="72.832721" y="225.176984" transform="rotate(-0 72.832721 225.176984)">B</text>
-   </g>
-   <g id="text_10">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf7d44" x="72.832721" y="315.368288" transform="rotate(-0 72.832721 315.368288)">C</text>
-   </g>
-   <g id="text_11">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="260.354779" y="134.985679" transform="rotate(-0 260.354779 134.985679)">X</text>
-   </g>
-   <g id="text_12">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="260.354779" y="225.176984" transform="rotate(-0 260.354779 225.176984)">Y</text>
-   </g>
-   <g id="text_13">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf7d44" x="260.354779" y="315.368288" transform="rotate(-0 260.354779 315.368288)">Z</text>
-   </g>
-  </g>
-  </g><path d="M68 921.4787H1276" stroke="#dce5ee" stroke-width="1.8"/><g transform="translate(-852.4798 951.4143) scale(2.6500)"><g id="axes_2">
-   <g id="line2d_5">
-    <path d="M 491.55875 170.038125 L 597.82125 170.038125 " clip-path="url(#pdafbfdd7d6)" style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_6">
-    <path d="M 597.82125 170.038125 L 704.08375 170.038125 " clip-path="url(#pdafbfdd7d6)" style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="PathCollection_7">
-    <g clip-path="url(#pdafbfdd7d6)">
-     <use xlink:href="#m6b6cbc5c95" x="491.55875" y="170.038125" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_8">
-    <g clip-path="url(#pdafbfdd7d6)">
-     <use xlink:href="#m6b6cbc5c95" x="597.82125" y="170.038125" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="PathCollection_9">
-    <g clip-path="url(#pdafbfdd7d6)">
-     <use xlink:href="#m6b6cbc5c95" x="704.08375" y="170.038125" style="fill: #ffffff; stroke: #2182a1; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="text_14">
-    <g id="patch_6">
-     <path d="M 537.14125 158.733542 L 552.23875 158.733542 L 552.23875 138.126042 L 537.14125 138.126042 z " style="fill: #ffffff"/>
-    </g>
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="544.69" y="152.836042" transform="rotate(-0 544.69 152.836042)">A</text>
-   </g>
-   <g id="text_15">
-    <g id="patch_7">
-     <path d="M 644.20375 158.733542 L 657.70125 158.733542 L 657.70125 138.126042 L 644.20375 138.126042 z " style="fill: #ffffff"/>
-    </g>
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="650.9525" y="152.836042" transform="rotate(-0 650.9525 152.836042)">Y</text>
-   </g>
-   <g id="PathCollection_10">
-    <g clip-path="url(#pdafbfdd7d6)">
-     <use xlink:href="#mb8f7d3fd79" x="597.82125" y="286.723125" style="fill: #ffffff; stroke: #cf7d44; stroke-width: 2.3"/>
-    </g>
-   </g>
-   <g id="text_16">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="597.82125" y="96.569792" transform="rotate(-0 597.82125 96.569792)">同一个连通分量</text>
-   </g>
-   <g id="text_17">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf7d44" x="597.82125" y="329.939792" transform="rotate(-0 597.82125 329.939792)">独立分量</text>
-   </g>
-   <g id="text_18">
-    <text style="font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="438.4275" y="22.388125" transform="rotate(-0 438.4275 22.388125)">B 沿路径合并记录</text>
-   </g>
-   <g id="text_19">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="491.55875" y="174.444375" transform="rotate(-0 491.55875 174.444375)">r1</text>
-   </g>
-   <g id="text_20">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="597.82125" y="174.444375" transform="rotate(-0 597.82125 174.444375)">r2</text>
-   </g>
-   <g id="text_21">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #2182a1" x="704.08375" y="174.444375" transform="rotate(-0 704.08375 174.444375)">r3</text>
-   </g>
-   <g id="text_22">
-    <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf7d44" x="597.82125" y="291.129375" transform="rotate(-0 597.82125 291.129375)">r4</text>
-   </g>
-  </g>
-  </g><path d="M68 1875.7889H1276" stroke="#dce5ee" stroke-width="1.8"/><g transform="translate(-2032.8167 1905.4242) scale(2.6500)"><g id="axes_3">
-   <g id="patch_8">
-    <path d="M 869.655 351.548125 L 1252.2 351.548125 L 1252.2 40.388125 L 869.655 40.388125 z " style="fill: #ffffff"/>
-   </g>
-   <g id="patch_9">
-    <path d="M 874.320183 175.800347 L 967.623841 175.800347 L 967.623841 112.415903 L 874.320183 112.415903 z " clip-path="url(#p92279325b0)" style="fill: #2182a1; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_10">
-    <path d="M 967.623841 175.800347 L 1060.9275 175.800347 L 1060.9275 112.415903 L 967.623841 112.415903 z " clip-path="url(#p92279325b0)" style="fill: #2182a1; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_11">
-    <path d="M 1060.9275 175.800347 L 1154.231159 175.800347 L 1154.231159 112.415903 L 1060.9275 112.415903 z " clip-path="url(#p92279325b0)" style="fill: #cf7d44; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_12">
-    <path d="M 1154.231159 175.800347 L 1247.534817 175.800347 L 1247.534817 112.415903 L 1154.231159 112.415903 z " clip-path="url(#p92279325b0)" style="fill: #cf7d44; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_13">
-    <path d="M 874.320183 291.044792 L 967.623841 291.044792 L 967.623841 227.660347 L 874.320183 227.660347 z " clip-path="url(#p92279325b0)" style="fill: #2182a1; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_14">
-    <path d="M 967.623841 291.044792 L 1060.9275 291.044792 L 1060.9275 227.660347 L 967.623841 227.660347 z " clip-path="url(#p92279325b0)" style="fill: #2182a1; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_15">
-    <path d="M 1060.9275 291.044792 L 1154.231159 291.044792 L 1154.231159 227.660347 L 1060.9275 227.660347 z " clip-path="url(#p92279325b0)" style="fill: #2182a1; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_16">
-    <path d="M 1154.231159 291.044792 L 1247.534817 291.044792 L 1247.534817 227.660347 L 1154.231159 227.660347 z " clip-path="url(#p92279325b0)" style="fill: #cf7d44; stroke: #ffffff; stroke-linejoin: miter"/>
-   </g>
-   <g id="matplotlib.axis_1"/>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_7">
-      <path d="M 869.655 144.108125 L 1252.2 144.108125 " clip-path="url(#p92279325b0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.12; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_8">
-      <defs>
-       <path id="m6d25842c99" d="M 0 0 L -3.5 0 " style="stroke: #233b53; stroke-width: 0.8"/>
-      </defs>
-      <g>
-       <use xlink:href="#m6d25842c99" x="869.655" y="144.108125" style="fill: #233b53; stroke: #233b53; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_23">
-      <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #233b53" x="862.655" y="150.902812" transform="rotate(-0 862.655 150.902812)">设备隔离</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_9">
-      <path d="M 869.655 259.352569 L 1252.2 259.352569 " clip-path="url(#p92279325b0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.12; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_10">
-      <g>
-       <use xlink:href="#m6d25842c99" x="869.655" y="259.352569" style="fill: #233b53; stroke: #233b53; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_24">
-      <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #233b53" x="862.655" y="266.147257" transform="rotate(-0 862.655 266.147257)">双重隔离</text>
-     </g>
-    </g>
-   </g>
-   <g id="text_25">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="920.972012" y="148.789766" transform="rotate(-0 920.972012 148.789766)">r1</text>
-   </g>
-   <g id="text_26">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="1014.275671" y="148.789766" transform="rotate(-0 1014.275671 148.789766)">r2</text>
-   </g>
-   <g id="text_27">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="1107.579329" y="148.789766" transform="rotate(-0 1107.579329 148.789766)">r3</text>
-   </g>
-   <g id="text_28">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="1200.882988" y="148.789766" transform="rotate(-0 1200.882988 148.789766)">r4</text>
-   </g>
-   <g id="text_29">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="920.972012" y="264.03421" transform="rotate(-0 920.972012 264.03421)">r1</text>
-   </g>
-   <g id="text_30">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="1014.275671" y="264.03421" transform="rotate(-0 1014.275671 264.03421)">r2</text>
-   </g>
-   <g id="text_31">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="1107.579329" y="264.03421" transform="rotate(-0 1107.579329 264.03421)">r3</text>
-   </g>
-   <g id="text_32">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="1200.882988" y="264.03421" transform="rotate(-0 1200.882988 264.03421)">r4</text>
-   </g>
-   <g id="text_33">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #cf7d44" x="1014.275671" y="94.553014" transform="rotate(-0 1014.275671 94.553014)">Y 跨集合</text>
-   </g>
-   <g id="text_34">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #2182a1" x="902.31128" y="334.261458" transform="rotate(-0 902.31128 334.261458)">蓝：训练</text>
-   </g>
-   <g id="text_35">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #cf7d44" x="1079.588232" y="334.261458" transform="rotate(-0 1079.588232 334.261458)">橙：测试</text>
-   </g>
-   <g id="text_36">
-    <text style="font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="869.655" y="22.388125" transform="rotate(-0 869.655 22.388125)">C 按整个分量留出</text>
-   </g>
-  </g>
- </g></g>
- <defs>
-  <clipPath id="p8d271e5e8d">
-   <rect x="7.2" y="40.388125" width="318.7875" height="311.16"/>
-  </clipPath>
-  <clipPath id="pdafbfdd7d6">
-   <rect x="438.4275" y="40.388125" width="318.7875" height="311.16"/>
-  </clipPath>
-  <clipPath id="p92279325b0">
-   <rect x="869.655" y="40.388125" width="382.545" height="311.16"/>
-  </clipPath>
- </defs>
-</svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 753" role="img" aria-labelledby="title description">
+<title id="title">实体隔离：单一字段与关联图</title>
+<desc id="description">设备与现场构成二部图，共享身份把前三条记录连成分量。只分开设备时 Y 仍跨集合，分开完整连通分量后不再共享。</desc>
+<defs>
+<linearGradient id="wash-t" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#eef8f8"/><stop offset="1" stop-color="#c9e6e7"/></linearGradient>
+<linearGradient id="wash-c" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#fdf2ef"/><stop offset="1" stop-color="#f3d5cd"/></linearGradient>
+<linearGradient id="wash-v" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#f7f4fb"/><stop offset="1" stop-color="#e4dbee"/></linearGradient>
+<linearGradient id="wash-n" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#f8fafb"/><stop offset="1" stop-color="#e9eef2"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="753" rx="0" fill="white" stroke="none" stroke-width="1.6"/>
+<text x="286" y="52" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="33">A  记录连接设备与现场</text>
+<text x="910" y="52" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="33">B  共享身份串联记录</text>
+<text x="127" y="98" text-anchor="middle" fill="#546677" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="26">设备</text>
+<text x="436" y="98" text-anchor="middle" fill="#546677" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="26">现场</text>
+<path d="M153 137L410 137" fill="none" stroke="#176f76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="280" y="126.0" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₁</text>
+<path d="M153 137L410 236" fill="none" stroke="#176f76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="262" y="167.98832684824902" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₂</text>
+<path d="M153 236L410 236" fill="none" stroke="#176f76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="280" y="225.0" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₃</text>
+<path d="M153 335L410 335" fill="none" stroke="#a54938" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="280" y="324.0" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₄</text>
+<circle cx="127" cy="137" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="127" y="146" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28">A</text>
+<circle cx="127" cy="236" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="127" y="245" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28">B</text>
+<circle cx="127" cy="335" r="24" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="127" y="344" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28">C</text>
+<circle cx="436" cy="137" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="436" y="146" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28">X</text>
+<circle cx="436" cy="236" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="436" y="245" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28">Y</text>
+<circle cx="436" cy="335" r="24" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="436" y="344" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28">Z</text>
+<path d="M675 233l37 -94h412l-37 94Z" fill="url(#wash-t)" stroke="#176f76" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M828 368l30 -72h125l-30 72Z" fill="url(#wash-c)" stroke="#a54938" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M745 190L1042 190" fill="none" stroke="#176f76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="745" cy="190" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="745" y="199" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₁</text>
+<circle cx="893" cy="190" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="893" y="199" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₂</text>
+<circle cx="1041" cy="190" r="24" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="1041" y="199" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₃</text>
+<circle cx="909" cy="330" r="24" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="909" y="339" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">r₄</text>
+<text x="819" y="173" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="25">设备 A</text>
+<text x="967" y="173" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="25">现场 Y</text>
+<path d="M576 226L612.0 226.0" fill="none" stroke="#625481" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M624 226L609.0 220.0L609.0 232.0Z" fill="#625481" stroke="#625481" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<text x="600" y="416" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="33">C  哪些记录可以放在不同集合？</text>
+<text x="173" y="516" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="28">只按设备</text>
+<path d="M301 525l25 -56h308l-25 56Z" fill="url(#wash-t)" stroke="#176f76" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M625 525l25 -56h308l-25 56Z" fill="url(#wash-c)" stroke="#a54938" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<text x="464" y="456" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="24">训练</text>
+<text x="790" y="456" text-anchor="middle" fill="#a54938" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="24">测试</text>
+<text x="388" y="509" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₁</text>
+<text x="542" y="509" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₂</text>
+<text x="712" y="509" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₃</text>
+<text x="866" y="509" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₄</text>
+<path d="M542 531 V545 H712 V531" fill="none" stroke="#a54938" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6"/>
+<text x="627" y="575" text-anchor="middle" fill="#a54938" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="28">现场 Y 跨集合</text>
+<text x="173" y="669" text-anchor="middle" fill="#232b37" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="28">按关联分量</text>
+<path d="M301 678l25 -56h462l-25 56Z" fill="url(#wash-t)" stroke="#176f76" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M779 678l25 -56h154l-25 56Z" fill="url(#wash-c)" stroke="#a54938" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<text x="541" y="609" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="24">训练</text>
+<text x="867" y="609" text-anchor="middle" fill="#a54938" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="24">测试</text>
+<text x="388" y="662" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₁</text>
+<text x="542" y="662" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₂</text>
+<text x="696" y="662" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₃</text>
+<text x="866" y="662" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="31">r₄</text>
+<text x="626" y="719" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="28">设备与现场均隔离</text>
+</svg>

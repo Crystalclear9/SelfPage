@@ -1,2 +1,79 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="935.3645" viewBox="0 0 1440 935.3645" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">两通道特征的类别激活图及正负分数贡献</title><rect width="1440" height="935.3645" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">两通道特征的类别激活图及正负分数贡献</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="793.3645" viewBox="42 72 1196 706" role="img" x="48" y="106" overflow="hidden"><rect x="42" y="72" width="1196" height="706" fill="#ffffff"/><title>类别激活图：同一特征，因类别权重不同而改变</title><rect width="1280" height="780" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="112" font-size="26" fill="#1a2b3d" text-anchor="start">两通道、2 × 2 特征；全局平均后接线性分类头；两类偏置都为 0.25</text><text x="105" y="185" font-size="29" fill="#1a2b3d" text-anchor="start">通道 F1</text><rect x="105" y="215" width="87" height="87" fill="#257190"/><text x="150.0" y="269.0" font-size="30" fill="white" text-anchor="middle">4</text><rect x="195" y="215" width="87" height="87" fill="#eef2f3"/><text x="240.0" y="269.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="105" y="305" width="87" height="87" fill="#eef2f3"/><text x="150.0" y="359.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="195" y="305" width="87" height="87" fill="#eef2f3"/><text x="240.0" y="359.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><text x="105" y="440" font-size="27" fill="#1a2b3d" text-anchor="start">空间均值 = 1</text><text x="405" y="185" font-size="29" fill="#1a2b3d" text-anchor="start">通道 F2</text><rect x="405" y="215" width="87" height="87" fill="#eef2f3"/><text x="450.0" y="269.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="495" y="215" width="87" height="87" fill="#eef2f3"/><text x="540.0" y="269.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="405" y="305" width="87" height="87" fill="#eef2f3"/><text x="450.0" y="359.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="495" y="305" width="87" height="87" fill="#257190"/><text x="540.0" y="359.0" font-size="30" fill="white" text-anchor="middle">4</text><text x="405" y="440" font-size="27" fill="#1a2b3d" text-anchor="start">空间均值 = 1</text><text x="790" y="185" font-size="29" fill="#1a2b3d" text-anchor="start">线性权重</text><text x="790" y="255" font-size="29" fill="#257190" text-anchor="start">类 A：(1, −0.5)</text><text x="790" y="330" font-size="29" fill="#bf6d42" text-anchor="start">类 B：(−0.5, 1)</text><line x1="60" y1="475" x2="1220" y2="475" stroke="#dfe4eb" stroke-width="2"/><text x="105" y="525" font-size="29" fill="#1a2b3d" text-anchor="start">CAM A</text><rect x="105" y="550" width="67" height="67" fill="#257190"/><text x="140.0" y="592.0" font-size="30" fill="white" text-anchor="middle">4</text><rect x="175" y="550" width="67" height="67" fill="#eef2f3"/><text x="210.0" y="592.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="105" y="620" width="67" height="67" fill="#eef2f3"/><text x="140.0" y="662.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="175" y="620" width="67" height="67" fill="#bf6d42"/><text x="210.0" y="662.0" font-size="30" fill="white" text-anchor="middle">-2</text><text x="405" y="525" font-size="29" fill="#1a2b3d" text-anchor="start">CAM B</text><rect x="405" y="550" width="67" height="67" fill="#bf6d42"/><text x="440.0" y="592.0" font-size="30" fill="white" text-anchor="middle">-2</text><rect x="475" y="550" width="67" height="67" fill="#eef2f3"/><text x="510.0" y="592.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="405" y="620" width="67" height="67" fill="#eef2f3"/><text x="440.0" y="662.0" font-size="30" fill="#1a2b3d" text-anchor="middle">0</text><rect x="475" y="620" width="67" height="67" fill="#257190"/><text x="510.0" y="662.0" font-size="30" fill="white" text-anchor="middle">4</text><text x="790" y="565" font-size="29" fill="#1a2b3d" text-anchor="start">两类 logit 均为 0.75</text><text x="790" y="625" font-size="27" fill="#257190" text-anchor="start">正值：增加该类分数</text><text x="790" y="680" font-size="27" fill="#bf6d42" text-anchor="start">负值：降低该类分数</text><text x="60" y="752" font-size="28" fill="#1a2b3d" text-anchor="start">空间贡献不是像素因果效应；概率还取决于其他类别的 logit</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 544" role="img" aria-labelledby="title description">
+<title id="title">两通道特征的类别激活图及正负分数贡献</title>
+<desc id="description">两个特征通道中非零值分别位于左上和右下。类别权重交换使热图位置互换，两个均值相同，两个分数均为四分之三。</desc>
+<defs>
+<linearGradient id="wash-t" x1="0%" y1="0%" x2="90%" y2="100%"><stop offset="0" stop-color="#eff9f8"/><stop offset="1" stop-color="#c4e3e3"/></linearGradient>
+<linearGradient id="wash-c" x1="0%" y1="0%" x2="90%" y2="100%"><stop offset="0" stop-color="#fdf4f1"/><stop offset="1" stop-color="#f1d2c9"/></linearGradient>
+<linearGradient id="wash-v" x1="0%" y1="0%" x2="90%" y2="100%"><stop offset="0" stop-color="#f8f5fa"/><stop offset="1" stop-color="#e3d9ef"/></linearGradient>
+<linearGradient id="wash-g" x1="0%" y1="0%" x2="90%" y2="100%"><stop offset="0" stop-color="#f2f8f3"/><stop offset="1" stop-color="#d7eadc"/></linearGradient>
+<linearGradient id="wash-n" x1="0%" y1="0%" x2="90%" y2="100%"><stop offset="0" stop-color="#f7fafb"/><stop offset="1" stop-color="#e8eef0"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="544" fill="white" stroke="none" stroke-width="1.6" rx="0"/>
+<rect x="232" y="107" width="62" height="62" fill="#a4d1d3" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="263.0" y="147.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">4</text>
+<rect x="294" y="107" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="325.0" y="147.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="232" y="169" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="263.0" y="209.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="294" y="169" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="325.0" y="209.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<path d="M223 249l18 -14h122l-18 14Z" stroke="#1a7077" stroke-width="1.9" fill="url(#wash-t)" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="721" y="107" width="62" height="62" fill="#a4d1d3" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="752.0" y="147.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">4</text>
+<rect x="783" y="107" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="814.0" y="147.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="721" y="169" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="752.0" y="209.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="783" y="169" width="62" height="62" fill="#eabeb3" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="814.0" y="209.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">-2</text>
+<path d="M712 249l18 -14h122l-18 14Z" stroke="#655185" stroke-width="1.9" fill="url(#wash-v)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="154" fill="#222d39" font-size="31" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">通道 1</text>
+<path d="M589 183 L672 183" stroke="#655185" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M683 183L669 177.2L669 188.8Z" stroke="#655185" stroke-width="1" fill="#655185" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="445" y="139" fill="#655185" font-size="28" text-anchor="start" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">F₁ −</text>
+<text x="533" y="120" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">1</text>
+<path d="M515 129 L551 129" stroke="#655185" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="533" y="157" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">2</text>
+<text x="554" y="139" fill="#655185" font-size="28" text-anchor="start" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">F₂</text>
+<text x="902" y="158" fill="#222d39" font-size="29" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">类别 A</text>
+<text x="902" y="210" fill="#655185" font-size="26" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">分数</text>
+<text x="1029" y="195" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">3</text>
+<path d="M1011 204 L1047 204" stroke="#655185" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1029" y="232" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">4</text>
+<rect x="232" y="303" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="263.0" y="343.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="294" y="303" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="325.0" y="343.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="232" y="365" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="263.0" y="405.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="294" y="365" width="62" height="62" fill="#a4d1d3" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="325.0" y="405.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">4</text>
+<path d="M223 445l18 -14h122l-18 14Z" stroke="#1a7077" stroke-width="1.9" fill="url(#wash-t)" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="721" y="303" width="62" height="62" fill="#eabeb3" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="752.0" y="343.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">-2</text>
+<rect x="783" y="303" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="814.0" y="343.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="721" y="365" width="62" height="62" fill="#f2f6f7" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="752.0" y="405.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">0</text>
+<rect x="783" y="365" width="62" height="62" fill="#a4d1d3" stroke="#c3d3d6" stroke-width="1.2" rx="0"/>
+<text x="814.0" y="405.57" fill="#222d39" font-size="29" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">4</text>
+<path d="M712 445l18 -14h122l-18 14Z" stroke="#655185" stroke-width="1.9" fill="url(#wash-v)" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="350" fill="#222d39" font-size="31" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">通道 2</text>
+<path d="M589 379 L672 379" stroke="#655185" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M683 379L669 373.2L669 384.8Z" stroke="#655185" stroke-width="1" fill="#655185" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="445" y="335" fill="#655185" font-size="28" text-anchor="start" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">F₂ −</text>
+<text x="533" y="316" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">1</text>
+<path d="M515 325 L551 325" stroke="#655185" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="533" y="353" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">2</text>
+<text x="554" y="335" fill="#655185" font-size="28" text-anchor="start" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">F₁</text>
+<text x="902" y="354" fill="#222d39" font-size="29" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">类别 B</text>
+<text x="902" y="406" fill="#655185" font-size="26" text-anchor="start" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">分数</text>
+<text x="1029" y="391" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">3</text>
+<path d="M1011 400 L1047 400" stroke="#655185" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1029" y="428" fill="#655185" font-size="27" text-anchor="middle" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif">4</text>
+<path d="M376 183 H428 V379 H376" stroke="#1a7077" stroke-width="2.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M428 281 H552 V183 H580 M552 281 V379 H580" stroke="#655185" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="294" y="61" fill="#222d39" font-size="33" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">输入特征</text>
+<text x="782" y="61" fill="#222d39" font-size="33" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">类别激活图</text>
+<text x="600" y="506" fill="#536979" font-size="29" text-anchor="middle" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif">两图的空间均值和偏置相同</text>
+</svg>

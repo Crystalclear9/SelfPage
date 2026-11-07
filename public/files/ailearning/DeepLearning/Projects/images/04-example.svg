@@ -1,2 +1,51 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="981.4381" viewBox="0 0 1440 981.4381" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">检查点与日志应对应同一提交边界</title><rect width="1440" height="981.4381" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">检查点与日志应对应同一提交边界</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="839.4381" viewBox="42 70 1196 747" role="img" x="48" y="106" overflow="hidden"><rect x="42" y="70" width="1196" height="747" fill="#ffffff"/><title>崩溃后恢复的是哪一步：状态与日志对齐</title><rect width="1280" height="830" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="110" font-size="26" fill="#769099" text-anchor="start">手算一次动量更新：m新 = 0.9m旧 + g，θ新 = θ旧 − 0.1m新，g = 0.2。</text><text x="80" y="175" font-size="29" fill="#1a2b3d" text-anchor="start">持久状态</text><text x="400" y="175" font-size="29" fill="#257190" text-anchor="start">更新前：id 17</text><text x="850" y="175" font-size="29" fill="#257190" text-anchor="start">更新后：id 18</text><text x="80" y="225" font-size="27" fill="#1a2b3d" text-anchor="start">参数 θ</text><text x="470" y="225" font-size="28" fill="#257190" text-anchor="middle">1.000</text><text x="950" y="225" font-size="28" fill="#257190" text-anchor="middle">0.962</text><text x="80" y="282" font-size="27" fill="#1a2b3d" text-anchor="start">动量 m</text><text x="470" y="282" font-size="28" fill="#257190" text-anchor="middle">0.200</text><text x="950" y="282" font-size="28" fill="#257190" text-anchor="middle">0.380</text><text x="80" y="339" font-size="27" fill="#1a2b3d" text-anchor="start">成功更新数</text><text x="470" y="339" font-size="28" fill="#257190" text-anchor="middle">17</text><text x="950" y="339" font-size="28" fill="#257190" text-anchor="middle">18</text><text x="80" y="396" font-size="27" fill="#1a2b3d" text-anchor="start">采样游标</text><text x="470" y="396" font-size="28" fill="#257190" text-anchor="middle">201</text><text x="950" y="396" font-size="28" fill="#257190" text-anchor="middle">202</text><line x1="570" y1="280" x2="785" y2="280" stroke="#bf6d42" stroke-width="4"/><path d="M774.47,285.75 L785.00,280.00 L774.47,274.25" fill="none" stroke="#bf6d42" stroke-width="4"/><text x="615" y="255" font-size="25" fill="#bf6d42" text-anchor="start">完整更新</text><line x1="60" y1="435" x2="1220" y2="435" stroke="#dfe4eb" stroke-width="2"/><text x="60" y="485" font-size="29" fill="#1a2b3d" text-anchor="start">一次允许的故障：新检查点已替换，日志尚未来得及追加。</text><line x1="240" y1="600" x2="1140" y2="600" stroke="#769099" stroke-width="3"/><circle cx="350" cy="600" r="11" fill="#257190"/><text x="350" y="560" font-size="27" fill="#257190" text-anchor="middle">保存 id 18</text><circle cx="640" cy="600" r="11" fill="#bf6d42"/><text x="640" y="560" font-size="27" fill="#bf6d42" text-anchor="middle">进程崩溃</text><circle cx="1000" cy="600" r="9" fill="#769099"/><text x="1000" y="560" font-size="27" fill="#769099" text-anchor="middle">日志仍到 id 17</text><text x="85" y="655" font-size="27" fill="#257190" text-anchor="start">检查点：id 18 / θ 0.962 / m 0.380 / 游标 202</text><line x1="420" y1="675" x2="420" y2="735" stroke="#257190" stroke-width="4"/><path d="M414.25,724.47 L420.00,735.00 L425.75,724.47" fill="none" stroke="#257190" stroke-width="4"/><text x="465" y="725" font-size="27" fill="#257190" text-anchor="start">按检查点恢复，再核对或补齐相同 id 的日志。</text><text x="60" y="795" font-size="27" fill="#bf6d42" text-anchor="start">单文件原子替换不能自动使检查点与外部日志成为同一个事务。</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="826" viewBox="0 0 1200 826" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">检查点与日志使用同一更新身份</title>
+<desc id="fig-desc">一次合法故障发生在新检查点替换后、日志追加前。恢复后按更新号对账。</desc>
+<rect x="0" y="0" width="1200" height="826" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">权重、动量和游标必须来自同一次更新</text>
+<rect x="287" y="163" width="198" height="53" fill="#f1f5f6" opacity="1"/>
+<text x="386" y="197.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1.000</text>
+<rect x="489" y="163" width="198" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="588" y="197.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.962</text>
+<text x="271" y="197.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">参数 θ</text>
+<rect x="287" y="220" width="198" height="53" fill="#f1f5f6" opacity="1"/>
+<text x="386" y="254.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.200</text>
+<rect x="489" y="220" width="198" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="588" y="254.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.380</text>
+<text x="271" y="254.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">动量 m</text>
+<rect x="287" y="277" width="198" height="53" fill="#f1f5f6" opacity="1"/>
+<text x="386" y="311.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">17</text>
+<rect x="489" y="277" width="198" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="588" y="311.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">18</text>
+<text x="271" y="311.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">成功更新数</text>
+<rect x="287" y="334" width="198" height="53" fill="#f1f5f6" opacity="1"/>
+<text x="386" y="368.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">201</text>
+<rect x="489" y="334" width="198" height="53" fill="#ecf6f6" opacity="1"/>
+<text x="588" y="368.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">202</text>
+<text x="271" y="368.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">采样游标</text>
+<text x="386" y="149" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">更新前 id 17</text>
+<text x="588" y="149" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">更新后 id 18</text>
+<text x="779" y="184" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">m 新 = 0.9 × 0.2 + 0.2</text>
+<text x="779" y="237" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">θ 新 = 1 − 0.1 × 0.38</text>
+<path d="M75 429 L1125 429" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="482" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">检查点替换已经完成，日志追加尚未执行</text>
+<path d="M74 565 L89 522 L404 522 L389 565 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="239" y="551.2" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">持久化 id 18</text>
+<path d="M406 543 L428 543" fill="none" stroke="#a74d3a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M428 543 L417 548 L417 538 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M434 565 L449 522 L764 522 L749 565 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="599" y="551.2" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">进程崩溃</text>
+<path d="M766 543 L788 543" fill="none" stroke="#a74d3a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M788 543 L777 548 L777 538 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M794 565 L809 522 L1124 522 L1109 565 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="959" y="551.2" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">日志仍在 id 17</text>
+<text x="74" y="646" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">恢复检查点 id 18：θ 0.962，m 0.380，游标 202。</text>
+<text x="74" y="710" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">按同一个更新标识核对或补齐日志。</text>
+<text x="74" y="772" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">单文件原子替换不会自动把日志也纳入同一事务。</text>
+</svg>

@@ -1,2 +1,84 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="997.334" viewBox="0 0 1440 997.334" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">信念更新用新观察重新分配隐状态概率</title><rect width="1440" height="997.334" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">信念更新用新观察重新分配隐状态概率</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="855.334" viewBox="0 71.9058 1280 814.6039" role="img" x="48" y="106" overflow="hidden"><rect id="offline-white-background" x="0" y="71.905782" width="1280" height="814.603854" fill="#ffffff"/><title>先让状态转移，再用新观察筛选，最后归一化</title><rect width="1280" height="920" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="115" font-size="26" fill="#1c2e40" text-anchor="start">蓝色：状态 0；橙色：状态 1；动作后以 0.1 概率翻转，收到报告 1</text><text x="155.0" y="190" font-size="27" fill="#1c2e40" text-anchor="middle">旧状态先验</text><text x="465.0" y="190" font-size="27" fill="#1c2e40" text-anchor="middle">动作后预测</text><text x="775.0" y="190" font-size="27" fill="#1c2e40" text-anchor="middle">观测联合质量</text><text x="1085.0" y="190" font-size="27" fill="#1c2e40" text-anchor="middle">新状态后验</text><path d="M225,255 C295,255 325,255 395,255 L395,390 C325,390 295,390 225,390 Z" fill="#217292" opacity=".25"/><path d="M225,390 C295,390 325,412.5 395,412.5 L395,427.5 C325,427.5 295,405 225,405 Z" fill="#217292" opacity=".25"/><path d="M225,405 C295,405 325,390 395,390 L395,412.5 C325,412.5 295,427.5 225,427.5 Z" fill="#bd6c41" opacity=".25"/><path d="M225,427.5 C295,427.5 325,427.5 395,427.5 L395,630 C325,630 295,630 225,630 Z" fill="#bd6c41" opacity=".25"/><path d="M535,255 C605,255 635,255 705,255 L705,286.5 C635,286.5 605,286.5 535,286.5 Z" fill="#217292" opacity=".25"/><path d="M535,412.5 C605,412.5 635,286.5 705,286.5 L705,460.5 C635,460.5 605,586.5 535,586.5 Z" fill="#bd6c41" opacity=".25"/><path d="M845,255 C915,255 945,255 1015,255 L1015,312.48175182481754 C945,312.48175182481754 915,286.5 845,286.5 Z" fill="#217292" opacity=".25"/><path d="M845,286.5 C915,286.5 945,312.48175182481754 1015,312.48175182481754 L1015,630 C945,630 915,460.5 845,460.5 Z" fill="#bd6c41" opacity=".25"/><rect x="85" y="255" width="140" height="150.0" fill="#217292"/><text x="155.0" y="339.0" font-size="25" fill="white" text-anchor="middle">0.4</text><rect x="85" y="405.0" width="140" height="225.0" fill="#bd6c41"/><text x="155.0" y="526.5" font-size="25" fill="white" text-anchor="middle">0.6</text><rect x="395" y="255" width="140" height="157.50000000000003" fill="#217292"/><text x="465.0" y="342.75" font-size="25" fill="white" text-anchor="middle">0.42</text><rect x="395" y="412.5" width="140" height="217.50000000000003" fill="#bd6c41"/><text x="465.0" y="530.25" font-size="25" fill="white" text-anchor="middle">0.58</text><rect x="705" y="255" width="140" height="31.500000000000007" fill="#217292"/><text x="775.0" y="279.75" font-size="25" fill="white" text-anchor="middle">0.084</text><rect x="705" y="286.5" width="140" height="174.00000000000003" fill="#bd6c41"/><text x="775.0" y="382.5" font-size="25" fill="white" text-anchor="middle">0.464</text><rect x="705" y="460.5" width="140" height="169.5" fill="#edf1f2"/><text x="775.0" y="553" font-size="25" fill="#728d97" text-anchor="middle">排除</text><text x="775.0" y="590" font-size="25" fill="#728d97" text-anchor="middle">0.452</text><rect x="1015" y="255" width="140" height="57.48175182481753" fill="#217292"/><text x="1085.0" y="292.74087591240874" font-size="25" fill="white" text-anchor="middle">0.153</text><rect x="1015" y="312.48175182481754" width="140" height="317.5182481751825" fill="#bd6c41"/><text x="1085.0" y="480.2408759124088" font-size="25" fill="white" text-anchor="middle">0.847</text><text x="325" y="690" font-size="26" fill="#1c2e40" text-anchor="middle">按转移加权</text><text x="635" y="690" font-size="25" fill="#1c2e40" text-anchor="middle">乘似然 0.2、0.8</text><text x="945" y="690" font-size="26" fill="#1c2e40" text-anchor="middle">除以 0.548</text><text x="85" y="750" font-size="28" fill="#1c2e40" text-anchor="start">联合质量 0.084 + 0.464 = 0.548，才是本次证据的总概率。</text><text x="85" y="802" font-size="28" fill="#1c2e40" text-anchor="start">归一化后：状态 0 约 0.153285，状态 1 约 0.846715。</text><text x="85" y="860" font-size="26" fill="#1c2e40" text-anchor="start">前三列同用原概率尺度；最后一列重新缩放为总质量 1。</text></g></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="743" viewBox="0 0 1360 743" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">信念更新先传播，再用证据筛选</title>
+  <desc id="plate-desc">旧信念为 0.4、0.6。状态以 0.1 概率翻转。预测信念乘报告似然后剩 0.548，总质量重新归一化。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="743" fill="white" stroke="none" stroke-width="0"/>
+  <path d="M220 171 C339.5 171 339.5 171 459 171 L459 297.0 C339.5 297.0 339.5 297.0 220 297.0 Z" fill="url(#wash-teal)" stroke="#196f77" stroke-width="0.8" opacity="0.8"/>
+  <path d="M220 297.0 C339.5 297.0 339.5 318.0 459 318.0 L459 332.0 C339.5 332.0 339.5 311.0 220 311.0 Z" fill="url(#wash-teal)" stroke="#196f77" stroke-width="0.8" opacity="0.8"/>
+  <path d="M220 311.0 C339.5 311.0 339.5 297.0 459 297.0 L459 318.0 C339.5 318.0 339.5 332.0 220 332.0 Z" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="0.8" opacity="0.8"/>
+  <path d="M220 332.0 C339.5 332.0 339.5 332.0 459 332.0 L459 521 C339.5 521 339.5 521 220 521 Z" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="0.8" opacity="0.8"/>
+  <path d="M552 171 C680.0 171 680.0 171 808 171 L808 200.4 C680.0 200.4 680.0 200.4 552 200.4 Z" fill="url(#wash-teal)" stroke="#196f77" stroke-width="0.8" opacity="0.8"/>
+  <path d="M552 318.0 C680.0 318.0 680.0 200.4 808 200.4 L808 362.8 C680.0 362.8 680.0 480.4 552 480.4 Z" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="0.8" opacity="0.8"/>
+  <path d="M901 171 C1010.5 171 1010.5 171 1120 171 L1120 224.64963503649636 C1010.5 224.64963503649636 1010.5 200.4 901 200.4 Z" fill="url(#wash-teal)" stroke="#196f77" stroke-width="0.8" opacity="0.8"/>
+  <path d="M901 200.4 C1010.5 200.4 1010.5 224.64963503649636 1120 224.64963503649636 L1120 521 C1010.5 521 1010.5 362.8 901 362.8 Z" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="0.8" opacity="0.8"/>
+  <text x="173.5" y="77" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">旧信念</text>
+  <rect x="127" y="171" width="93" height="140" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.25"/>
+  <rect x="127" y="311" width="93" height="210" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.25"/>
+  <text x="173.5" y="248" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.4</text>
+  <text x="173.5" y="423" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">0.6</text>
+  <text x="505.5" y="77" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">预测信念</text>
+  <rect x="459" y="171" width="93" height="147" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.25"/>
+  <rect x="459" y="318" width="93" height="203" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.25"/>
+  <text x="505.5" y="251.5" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.42</text>
+  <text x="505.5" y="426.5" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">0.58</text>
+  <text x="854.5" y="77" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">联合质量</text>
+  <rect x="808" y="171" width="93" height="29.4" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.25"/>
+  <rect x="808" y="200.4" width="93" height="162.4" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.25"/>
+  <rect x="808" y="362.8" width="93" height="158.2" fill="url(#wash-gray)" stroke="#657682" stroke-width="1.25"/>
+  <text x="854.5" y="192.7" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.084</text>
+  <text x="854.5" y="288.6" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">0.464</text>
+  <text x="854.5" y="448.9" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">0.452</text>
+  <text x="1166.5" y="77" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">后验信念</text>
+  <rect x="1120" y="171" width="93" height="53.649635" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.25"/>
+  <rect x="1120" y="224.64964" width="93" height="296.35036" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.25"/>
+  <text x="1166.5" y="204.82482" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.153</text>
+  <text x="1166.5" y="379.82482" font-size="21" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">0.847</text>
+  <text x="330" y="608" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">状态转移</text>
+  <text x="670" y="608" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">乘观察似然</text>
+  <text x="1004" y="608" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">除以 0.548</text>
+  <text x="679" y="687" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">青和珊瑚分别表示状态 0 和 1。灰色部分属于其他观察。</text>
+</svg>

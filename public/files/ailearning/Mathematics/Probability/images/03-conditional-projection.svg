@@ -1,4 +1,90 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="792.3742" viewBox="0 0 1440 792.3742" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">条件均值与三个候选预测器的平方风险</title><rect width="1440" height="792.3742" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">条件均值与三个候选预测器的平方风险</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg aria-labelledby="extra-title extra-desc" width="1344" height="650.3742" viewBox="23.3333 64.6667 1118.6667 541.3333" role="img" x="48" y="106" overflow="hidden"><title id="extra-title">条件均值：先消除组内残差，再比较可避免的误差</title><desc id="extra-desc">令四种 (X,Y) 取值 (0,0),(0,2),(1,4),(1,6) 各以 \frac14 概率发生。于是 m(0)=1、m(1)=5；每组两个观测相对组均值的残差分别为 -1,+1，与只由该组决定的函数正交，最小均方风险为 1。若始终预测总体均值 3，四个平方误差为 9,1,1,9，均方风险为 5。若改成 g(0)=0,g(1)=6，平方误差为 0,4,4,0，风险为 2。
-
-最后一个候选的风险可独立拆成 1+E[(m(X)-g(X))^2]=1+1=2。左图中的竖直残差箭头解释了交叉项为什么在每组内抵消；右图把同一分布下的三个候选放在共同分母上比较。该算例使用平方损失和有限二阶矩，换成绝对损失时最优动作的定义也会变化。 条件均值：先消除组内残差，再比较可避免的误差</desc><rect width="1200" height="635" fill="white"/><defs><marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#2472b1"/></marker><marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#cb7436"/></marker></defs><g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><text x="45" y="112" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">每组观测与条件均值</text><text x="685" y="112" font-size="28" fill="#cb7436" text-anchor="start" font-weight="400">全体样本的均方风险</text><line x1="80" y1="495.0" x2="490" y2="495.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="503.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">0</text><line x1="80" y1="440.0" x2="490" y2="440.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="448.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">1</text><line x1="80" y1="385.0" x2="490" y2="385.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="393.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">2</text><line x1="80" y1="330.0" x2="490" y2="330.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="338.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">3</text><line x1="80" y1="275.0" x2="490" y2="275.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="283.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">4</text><line x1="80" y1="220.0" x2="490" y2="220.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="228.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">5</text><line x1="80" y1="165.0" x2="490" y2="165.0" stroke="#dce5ed" stroke-width="2"/><text x="68" y="173.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">6</text><line x1="80" y1="165" x2="80" y2="495" stroke="#617f97" stroke-width="2"/><line x1="80" y1="495" x2="490" y2="495" stroke="#617f97" stroke-width="2"/><line x1="156.875" y1="495.0" x2="156.875" y2="501.0" stroke="#617f97" stroke-width="2"/><text x="156.875" y="527.0" font-size="24" fill="#617f97" text-anchor="middle" font-weight="400">0</text><line x1="413.125" y1="495.0" x2="413.125" y2="501.0" stroke="#617f97" stroke-width="2"/><text x="413.125" y="527.0" font-size="24" fill="#617f97" text-anchor="middle" font-weight="400">1</text><circle cx="156.875" cy="495.0" r="9" fill="#2472b1"/><path d="M156.875,495.0 L156.875,440.0" stroke="#cb7436" stroke-width="3" fill="none" marker-end="url(#arrow-orange)"/><circle cx="156.875" cy="385.0" r="9" fill="#2472b1"/><path d="M156.875,385.0 L156.875,440.0" stroke="#cb7436" stroke-width="3" fill="none" marker-end="url(#arrow-orange)"/><line x1="128.875" y1="440.0" x2="184.875" y2="440.0" stroke="#cb7436" stroke-width="5"/><text x="196.875" y="448.0" font-size="25" fill="#cb7436" text-anchor="start" font-weight="400">均值 1</text><circle cx="413.125" cy="275.0" r="9" fill="#2472b1"/><path d="M413.125,275.0 L413.125,220.0" stroke="#cb7436" stroke-width="3" fill="none" marker-end="url(#arrow-orange)"/><circle cx="413.125" cy="165.0" r="9" fill="#2472b1"/><path d="M413.125,165.0 L413.125,220.0" stroke="#cb7436" stroke-width="3" fill="none" marker-end="url(#arrow-orange)"/><line x1="385.125" y1="220.0" x2="441.125" y2="220.0" stroke="#cb7436" stroke-width="5"/><text x="453.125" y="228.0" font-size="25" fill="#cb7436" text-anchor="start" font-weight="400">均值 5</text><text x="230" y="562" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">输入 X</text><line x1="705" y1="495.0" x2="1120" y2="495.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="503.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">0</text><line x1="705" y1="440.0" x2="1120" y2="440.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="448.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">1</text><line x1="705" y1="385.0" x2="1120" y2="385.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="393.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">2</text><line x1="705" y1="330.0" x2="1120" y2="330.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="338.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">3</text><line x1="705" y1="275.0" x2="1120" y2="275.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="283.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">4</text><line x1="705" y1="220.0" x2="1120" y2="220.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="228.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">5</text><line x1="705" y1="165.0" x2="1120" y2="165.0" stroke="#dce5ed" stroke-width="2"/><text x="693" y="173.0" font-size="24" fill="#617f97" text-anchor="end" font-weight="400">6</text><line x1="705" y1="165" x2="705" y2="495" stroke="#617f97" stroke-width="2"/><line x1="705" y1="495" x2="1120" y2="495" stroke="#617f97" stroke-width="2"/><rect x="739.1666666666666" y="220.0" width="70" height="275.0" fill="#2472b1"/><text x="774.1666666666666" y="205.0" font-size="28" fill="#1f3449" text-anchor="middle" font-weight="400">5</text><rect x="877.5" y="440.0" width="70" height="55.0" fill="#cb7436"/><text x="912.5" y="425.0" font-size="28" fill="#1f3449" text-anchor="middle" font-weight="400">1</text><rect x="1015.8333333333335" y="385.0" width="70" height="110.0" fill="#2472b1"/><text x="1050.8333333333335" y="370.0" font-size="28" fill="#1f3449" text-anchor="middle" font-weight="400">2</text><text x="774.1666666666666" y="540" font-size="25" fill="#1f3449" text-anchor="middle" font-weight="400">常数预测</text><text x="774.1666666666666" y="578" font-size="25" fill="#1f3449" text-anchor="middle" font-weight="400">3</text><text x="912.5" y="540" font-size="25" fill="#1f3449" text-anchor="middle" font-weight="400">条件均值</text><text x="912.5" y="578" font-size="25" fill="#1f3449" text-anchor="middle" font-weight="400">(1,5)</text><text x="1050.8333333333335" y="540" font-size="25" fill="#1f3449" text-anchor="middle" font-weight="400">另一预测</text><text x="1050.8333333333335" y="578" font-size="25" fill="#1f3449" text-anchor="middle" font-weight="400">(0,6)</text></g></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="710" viewBox="0 0 1360 710" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">条件均值同时让两组残差抵消</title>
+  <desc id="plate-desc">每组有两个等概率取值。左图显示两个条件均值和各组残差，右图在同一分布上比较三个候选的平方风险。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="710" fill="white" stroke="none" stroke-width="0"/>
+  <text x="358" y="58" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">按 X 分组，对 Y 取平均</text>
+  <polyline points="121,475 664,475" fill="none" stroke="#202a37" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+  <polyline points="124,478 124,135" fill="none" stroke="#202a37" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+  <text x="123" y="118" font-size="25" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="start">观测值 Y</text>
+  <text x="394" y="540" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">条件 X</text>
+  <polyline points="118,475 124,475" fill="none" stroke="#657682" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="112" y="482" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="end">0</text>
+  <polyline points="118,377 124,377" fill="none" stroke="#657682" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="112" y="384" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="end">2</text>
+  <polyline points="118,279 124,279" fill="none" stroke="#657682" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="112" y="286" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="end">4</text>
+  <polyline points="118,181 124,181" fill="none" stroke="#657682" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="112" y="188" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="end">6</text>
+  <polyline points="285,475 285,481" fill="none" stroke="#657682" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="285" y="508" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <polyline points="285,426 285,475" fill="none" stroke="#196f77" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <circle cx="285" cy="475" r="6" fill="#196f77" stroke="#196f77" stroke-width="1.6"/>
+  <polyline points="285,426 285,377" fill="none" stroke="#196f77" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <circle cx="285" cy="377" r="6" fill="#196f77" stroke="#196f77" stroke-width="1.6"/>
+  <circle cx="285" cy="426" r="8" fill="white" stroke="#196f77" stroke-width="1.6"/>
+  <text x="322" y="434" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">1</text>
+  <polyline points="507,475 507,481" fill="none" stroke="#657682" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="507" y="508" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1</text>
+  <polyline points="507,230 507,279" fill="none" stroke="#655184" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <circle cx="507" cy="279" r="6" fill="#655184" stroke="#655184" stroke-width="1.6"/>
+  <polyline points="507,230 507,181" fill="none" stroke="#655184" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <circle cx="507" cy="181" r="6" fill="#655184" stroke="#655184" stroke-width="1.6"/>
+  <circle cx="507" cy="230" r="8" fill="white" stroke="#655184" stroke-width="1.6"/>
+  <text x="544" y="238" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">5</text>
+  <text x="1011" y="58" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">三个候选共享同一风险刻度</text>
+  <text x="814" y="145" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="start">用条件均值</text>
+  <rect x="811" y="157" width="78" height="46" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.4"/>
+  <text x="922" y="186" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">1</text>
+  <text x="814" y="284" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="start">用总体均值</text>
+  <rect x="811" y="296" width="390" height="46" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.4"/>
+  <text x="1234" y="325" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">5</text>
+  <text x="814" y="423" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#655184" text-anchor="start">用两个端点</text>
+  <rect x="811" y="435" width="156" height="46" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.4"/>
+  <text x="1000" y="464" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">2</text>
+  <text x="680" y="650" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">空心点是条件均值；同一组内，一正一负的残差相加为零。</text>
+</svg>

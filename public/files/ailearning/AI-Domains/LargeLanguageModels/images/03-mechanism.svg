@@ -1,42 +1,64 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1331.9347" viewBox="0 0 1440 1331.9347" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">工具调用中失败请求与预算耗尽的具体轨迹</title><rect width="1440" height="1331.9347" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">工具调用中失败请求与预算耗尽的具体轨迹</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1189.9347" viewBox="0 0 1440 1274.93" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>工具调用：一次成功、两次拒绝，预算已经用完</title><svg width="1440" height="764.933" viewBox="27 65 1346 715" role="img" aria-labelledby="title desc"><rect x="27" y="65" width="1346" height="715" fill="#ffffff"/><title id="title">工具调用：一次成功、两次拒绝，预算已经用完</title><desc id="desc">严格对应本章 LocalExecutor 的四次请求与三条 trace；进入解析前扣预算，耗尽时不追加 trace。</desc><rect width="1400" height="790" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1c2e41">
-<text x="45" y="105" font-size="26" fill="#6d8491" text-anchor="start" font-weight="400">正文 LocalExecutor，max_calls = 3；只允许 add，参数须为范围内的严格整数。</text>
-<line x1="45" y1="130" x2="1355" y2="130" stroke="#abb5c3" stroke-width="2"/>
-<text x="60" y="185" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">请求</text>
-<text x="500" y="185" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">处理结果</text>
-<text x="1020" y="185" font-size="29" fill="#1c2e41" text-anchor="start" font-weight="700">剩余次数</text>
-<text x="60" y="245" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="400">1   add(2, 3)</text>
-<line x1="400" y1="235" x2="460" y2="235" stroke="#21898e" stroke-width="2"/>
-<text x="500" y="245" font-size="29" fill="#21898e" text-anchor="start" font-weight="400">ok：5</text>
-<rect x="1040" y="205" width="60" height="50" fill="#21898e" stroke="#21898e" stroke-width="2"/>
-<rect x="1115" y="205" width="60" height="50" fill="#21898e" stroke="#21898e" stroke-width="2"/>
-<rect x="1190" y="205" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<text x="1305" y="245" font-size="30" fill="#21898e" text-anchor="start" font-weight="400">2</text>
-<line x1="55" y1="280" x2="1345" y2="280" stroke="#e5e8ed" stroke-width="1"/>
-<text x="60" y="350" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="400">2   add(true, 3)</text>
-<line x1="400" y1="340" x2="460" y2="340" stroke="#c27334" stroke-width="2"/>
-<text x="500" y="350" font-size="29" fill="#c27334" text-anchor="start" font-weight="400">invalid：整数类型不符</text>
-<rect x="1040" y="310" width="60" height="50" fill="#c27334" stroke="#c27334" stroke-width="2"/>
-<rect x="1115" y="310" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<rect x="1190" y="310" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<text x="1305" y="350" font-size="30" fill="#c27334" text-anchor="start" font-weight="400">1</text>
-<line x1="55" y1="385" x2="1345" y2="385" stroke="#e5e8ed" stroke-width="1"/>
-<text x="60" y="455" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="400">3   send(1, 2)</text>
-<line x1="400" y1="445" x2="460" y2="445" stroke="#c27334" stroke-width="2"/>
-<text x="500" y="455" font-size="29" fill="#c27334" text-anchor="start" font-weight="400">invalid：工具名不允许</text>
-<rect x="1040" y="415" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<rect x="1115" y="415" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<rect x="1190" y="415" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<text x="1305" y="455" font-size="30" fill="#c27334" text-anchor="start" font-weight="400">0</text>
-<line x1="55" y1="490" x2="1345" y2="490" stroke="#e5e8ed" stroke-width="1"/>
-<text x="60" y="560" font-size="30" fill="#1c2e41" text-anchor="start" font-weight="400">4   add(1, 2)</text>
-<line x1="400" y1="550" x2="460" y2="550" stroke="#6d8491" stroke-width="2"/>
-<text x="500" y="560" font-size="29" fill="#6d8491" text-anchor="start" font-weight="400">budget-exhausted</text>
-<rect x="1040" y="520" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<rect x="1115" y="520" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<rect x="1190" y="520" width="60" height="50" fill="#edf1f3" stroke="#ced4de" stroke-width="2"/>
-<text x="1305" y="560" font-size="30" fill="#6d8491" text-anchor="start" font-weight="400">0</text>
-<line x1="45" y1="650" x2="1355" y2="650" stroke="#abb5c3" stroke-width="2"/>
-<text x="60" y="705" font-size="28" fill="#1c2e41" text-anchor="start" font-weight="700">trace 只有前三条；第四次在解析前返回，不再执行、不再增加 calls。</text>
-<text x="60" y="755" font-size="26" fill="#6d8491" text-anchor="start" font-weight="400">JSON 的 true 会变成 Python bool；这里用 type(v) is int 显式排除。</text></g></svg>
-<g id="round-20261105c-teaching" transform="translate(0 764.933) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="510" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#1d3145" text-anchor="start">工具参数校验：整数类型与数值范围是两道独立的门</text><rect x="70" y="130" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="226.0" y="169" font-size="28" fill="#1e7499" text-anchor="middle">JSON 值</text><rect x="390" y="130" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="546.0" y="169" font-size="28" fill="#1e7499" text-anchor="middle">严格 int</text><rect x="710" y="130" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="866.0" y="169" font-size="28" fill="#1e7499" text-anchor="middle">在 ±1000 内</text><rect x="1030" y="130" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="1186.0" y="169" font-size="28" fill="#1e7499" text-anchor="middle">接受</text><rect x="70" y="200" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="226.0" y="239" font-size="28" fill="#c66d3a" text-anchor="middle">true</text><rect x="390" y="200" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="546.0" y="239" font-size="28" fill="#c66d3a" text-anchor="middle">否</text><rect x="710" y="200" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="866.0" y="239" font-size="28" fill="#c66d3a" text-anchor="middle">不再检查</text><rect x="1030" y="200" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="1186.0" y="239" font-size="28" fill="#c66d3a" text-anchor="middle">否</text><rect x="70" y="255" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="226.0" y="294" font-size="28" fill="#c66d3a" text-anchor="middle">2.0</text><rect x="390" y="255" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="546.0" y="294" font-size="28" fill="#c66d3a" text-anchor="middle">否</text><rect x="710" y="255" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="866.0" y="294" font-size="28" fill="#c66d3a" text-anchor="middle">不再检查</text><rect x="1030" y="255" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="1186.0" y="294" font-size="28" fill="#c66d3a" text-anchor="middle">否</text><rect x="70" y="310" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="226.0" y="349" font-size="28" fill="#1e7499" text-anchor="middle">2</text><rect x="390" y="310" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="546.0" y="349" font-size="28" fill="#1e7499" text-anchor="middle">是</text><rect x="710" y="310" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="866.0" y="349" font-size="28" fill="#1e7499" text-anchor="middle">是</text><rect x="1030" y="310" width="312" height="58" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><text x="1186.0" y="349" font-size="28" fill="#1e7499" text-anchor="middle">是</text><rect x="70" y="365" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="226.0" y="404" font-size="28" fill="#c66d3a" text-anchor="middle">1001</text><rect x="390" y="365" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="546.0" y="404" font-size="28" fill="#c66d3a" text-anchor="middle">是</text><rect x="710" y="365" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="866.0" y="404" font-size="28" fill="#c66d3a" text-anchor="middle">否</text><rect x="1030" y="365" width="312" height="58" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="1186.0" y="404" font-size="28" fill="#c66d3a" text-anchor="middle">否</text><text x="70" y="490" font-size="27" fill="#1d3145" text-anchor="start">Python 中 bool 是 int 的子类；严格契约应使用 type(v) is int。</text></g></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="798" viewBox="0 0 1200 798" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">工具白名单、整数契约与尝试预算</title>
+<desc id="fig-desc">LocalExecutor 只允许 add，最多三个调用尝试。</desc>
+<rect x="0" y="0" width="1200" height="798" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">先消耗尝试预算，再区分工具名与参数错误</text>
+<rect x="209" y="153" width="268" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="343" y="190" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">add(2, 3)</text>
+<rect x="481" y="153" width="268" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="615" y="190" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">成功：5</text>
+<rect x="753" y="153" width="268" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="887" y="190" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<text x="193" y="190" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">尝试 1</text>
+<rect x="209" y="215" width="268" height="58" fill="#f1f5f6" opacity="1"/>
+<text x="343" y="252" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">add(true, 3)</text>
+<rect x="481" y="215" width="268" height="58" fill="#fbede8" opacity="1"/>
+<text x="615" y="252" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">整数类型不符</text>
+<rect x="753" y="215" width="268" height="58" fill="#f1f5f6" opacity="1"/>
+<text x="887" y="252" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<text x="193" y="252" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">尝试 2</text>
+<rect x="209" y="277" width="268" height="58" fill="#f1f5f6" opacity="1"/>
+<text x="343" y="314" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">send(1, 2)</text>
+<rect x="481" y="277" width="268" height="58" fill="#fbede8" opacity="1"/>
+<text x="615" y="314" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">工具名不允许</text>
+<rect x="753" y="277" width="268" height="58" fill="#f1f5f6" opacity="1"/>
+<text x="887" y="314" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="193" y="314" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">尝试 3</text>
+<rect x="209" y="339" width="268" height="58" fill="#f1f5f6" opacity="1"/>
+<text x="343" y="376" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">add(1, 2)</text>
+<rect x="481" y="339" width="268" height="58" fill="#fbede8" opacity="1"/>
+<text x="615" y="376" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">预算耗尽</text>
+<rect x="753" y="339" width="268" height="58" fill="#f1f5f6" opacity="1"/>
+<text x="887" y="376" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="193" y="376" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">尝试 4</text>
+<text x="343" y="139" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">请求</text>
+<text x="615" y="139" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">处理结果</text>
+<text x="887" y="139" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">剩余次数</text>
+<path d="M75 428 L1125 428" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="479" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">严格整数检查与 ±1000 范围检查是两道门。</text>
+<rect x="199" y="536" width="214" height="61" fill="#f1f5f6" opacity="1"/>
+<text x="306" y="574.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">true</text>
+<rect x="417" y="536" width="214" height="61" fill="#f1f5f6" opacity="1"/>
+<text x="524" y="574.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2.0</text>
+<rect x="635" y="536" width="214" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="742" y="574.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<rect x="853" y="536" width="214" height="61" fill="#f1f5f6" opacity="1"/>
+<text x="960" y="574.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1001</text>
+<text x="183" y="574.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">JSON</text>
+<rect x="199" y="601" width="214" height="61" fill="#fbede8" opacity="1"/>
+<text x="306" y="639.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">类型失败</text>
+<rect x="417" y="601" width="214" height="61" fill="#fbede8" opacity="1"/>
+<text x="524" y="639.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">类型失败</text>
+<rect x="635" y="601" width="214" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="742" y="639.5" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">接受</text>
+<rect x="853" y="601" width="214" height="61" fill="#fbede8" opacity="1"/>
+<text x="960" y="639.5" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">超出范围</text>
+<text x="183" y="639.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">判定</text>
+<text x="75" y="730" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">第四次在解析前返回，不增加调用计数，也不会写入执行轨迹。</text>
+</svg>

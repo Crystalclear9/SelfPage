@@ -1,93 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="924" viewBox="0 0 960 924" role="img" aria-labelledby="title desc">
-<title id="title">把梯形切细，误差面积如何缩小</title><desc id="desc">比较二段和四段梯形规则。对 x 平方，各段的弦在曲线上方。总误差从二十四分之一减到九十六分之一。</desc>
-<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0" y="0" width="960" height="924" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
-<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">把梯形切细，误差面积如何缩小</text>
-<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">两张图共用刻度，橙色部分是积分多算的面积</text>
-<rect x="44" y="145" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="175" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
-<text x="101" y="175" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">节点增加，弦与曲线间的间隙变小</text>
-<line x1="105" y1="539" x2="425" y2="539" stroke="#cedae4" stroke-width="2"/>
-<text x="90" y="547" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
-<line x1="105" y1="400.0" x2="425" y2="400.0" stroke="#cedae4" stroke-width="2"/>
-<text x="90" y="408.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0.5</text>
-<line x1="105" y1="261" x2="425" y2="261" stroke="#cedae4" stroke-width="2"/>
-<text x="90" y="269" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
-<line x1="105" y1="539" x2="425" y2="539" stroke="#465d72" stroke-width="2"/>
-<line x1="105" y1="539" x2="105" y2="261" stroke="#465d72" stroke-width="2"/>
-<line x1="105" y1="539" x2="105" y2="547" stroke="#465d72" stroke-width="2"/>
-<text x="105" y="575" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
-<line x1="265.0" y1="539" x2="265.0" y2="547" stroke="#465d72" stroke-width="2"/>
-<text x="265.0" y="575" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.5</text>
-<line x1="425" y1="539" x2="425" y2="547" stroke="#465d72" stroke-width="2"/>
-<text x="425" y="575" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
-<text x="105" y="231" font-size="28" fill="#172a40" font-weight="700" text-anchor="start">2 等分</text>
-<path d="M105.000 539.000 L265.000 469.500 L265.000 469.500 L259.667 474.056 L254.333 478.458 L249.000 482.705 L243.667 486.798 L238.333 490.736 L233.000 494.520 L227.667 498.149 L222.333 501.624 L217.000 504.945 L211.667 508.111 L206.333 511.123 L201.000 513.980 L195.667 516.683 L190.333 519.231 L185.000 521.625 L179.667 523.864 L174.333 525.949 L169.000 527.880 L163.667 529.656 L158.333 531.278 L153.000 532.745 L147.667 534.058 L142.333 535.216 L137.000 536.220 L131.667 537.069 L126.333 537.764 L121.000 538.305 L115.667 538.691 L110.333 538.923 L105.000 539.000" fill="#f9d9c4" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M105.000 539.000 L265.000 469.500" fill="none" stroke="#a85127" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M265.000 469.500 L425.000 261.000 L425.000 261.000 L419.667 270.189 L414.333 279.224 L409.000 288.105 L403.667 296.831 L398.333 305.403 L393.000 313.820 L387.667 322.083 L382.333 330.191 L377.000 338.145 L371.667 345.944 L366.333 353.589 L361.000 361.080 L355.667 368.416 L350.333 375.598 L345.000 382.625 L339.667 389.498 L334.333 396.216 L329.000 402.780 L323.667 409.189 L318.333 415.444 L313.000 421.545 L307.667 427.491 L302.333 433.283 L297.000 438.920 L291.667 444.403 L286.333 449.731 L281.000 454.905 L275.667 459.924 L270.333 464.789 L265.000 469.500" fill="#f9d9c4" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M265.000 469.500 L425.000 261.000" fill="none" stroke="#a85127" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="265.0" y1="539" x2="265.0" y2="469.5" stroke="#465d72" stroke-width="1.8" stroke-dasharray="4 5"/>
-<path d="M105.000 539.000 L107.667 538.981 L110.333 538.923 L113.000 538.826 L115.667 538.691 L118.333 538.517 L121.000 538.305 L123.667 538.054 L126.333 537.764 L129.000 537.436 L131.667 537.069 L134.333 536.664 L137.000 536.220 L139.667 535.737 L142.333 535.216 L145.000 534.656 L147.667 534.058 L150.333 533.421 L153.000 532.745 L155.667 532.031 L158.333 531.278 L161.000 530.486 L163.667 529.656 L166.333 528.787 L169.000 527.880 L171.667 526.934 L174.333 525.949 L177.000 524.926 L179.667 523.864 L182.333 522.764 L185.000 521.625 L187.667 520.447 L190.333 519.231 L193.000 517.976 L195.667 516.683 L198.333 515.351 L201.000 513.980 L203.667 512.571 L206.333 511.123 L209.000 509.636 L211.667 508.111 L214.333 506.547 L217.000 504.945 L219.667 503.304 L222.333 501.624 L225.000 499.906 L227.667 498.149 L230.333 496.354 L233.000 494.520 L235.667 492.647 L238.333 490.736 L241.000 488.786 L243.667 486.798 L246.333 484.771 L249.000 482.705 L251.667 480.601 L254.333 478.458 L257.000 476.276 L259.667 474.056 L262.333 471.797 L265.000 469.500 L267.667 467.164 L270.333 464.789 L273.000 462.376 L275.667 459.924 L278.333 457.434 L281.000 454.905 L283.667 452.337 L286.333 449.731 L289.000 447.086 L291.667 444.403 L294.333 441.681 L297.000 438.920 L299.667 436.121 L302.333 433.283 L305.000 430.406 L307.667 427.491 L310.333 424.537 L313.000 421.545 L315.667 418.514 L318.333 415.444 L321.000 412.336 L323.667 409.189 L326.333 406.004 L329.000 402.780 L331.667 399.517 L334.333 396.216 L337.000 392.876 L339.667 389.498 L342.333 386.081 L345.000 382.625 L347.667 379.131 L350.333 375.598 L353.000 372.026 L355.667 368.416 L358.333 364.767 L361.000 361.080 L363.667 357.354 L366.333 353.589 L369.000 349.786 L371.667 345.944 L374.333 342.064 L377.000 338.145 L379.667 334.187 L382.333 330.191 L385.000 326.156 L387.667 322.083 L390.333 317.971 L393.000 313.820 L395.667 309.631 L398.333 305.403 L401.000 301.136 L403.667 296.831 L406.333 292.487 L409.000 288.105 L411.667 283.684 L414.333 279.224 L417.000 274.726 L419.667 270.189 L422.333 265.614 L425.000 261.000" fill="none" stroke="#136d84" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="105.0" cy="539.0" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="265.0" cy="469.5" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="425.0" cy="261.0" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<text x="165.8" y="352.74" font-size="24" fill="#136d84" font-weight="650" text-anchor="start">f(x) = x²</text>
-<line x1="570" y1="539" x2="890" y2="539" stroke="#cedae4" stroke-width="2"/>
-<text x="555" y="547" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
-<line x1="570" y1="400.0" x2="890" y2="400.0" stroke="#cedae4" stroke-width="2"/>
-<text x="555" y="408.0" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0.5</text>
-<line x1="570" y1="261" x2="890" y2="261" stroke="#cedae4" stroke-width="2"/>
-<text x="555" y="269" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
-<line x1="570" y1="539" x2="890" y2="539" stroke="#465d72" stroke-width="2"/>
-<line x1="570" y1="539" x2="570" y2="261" stroke="#465d72" stroke-width="2"/>
-<line x1="570" y1="539" x2="570" y2="547" stroke="#465d72" stroke-width="2"/>
-<text x="570" y="575" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
-<line x1="730.0" y1="539" x2="730.0" y2="547" stroke="#465d72" stroke-width="2"/>
-<text x="730.0" y="575" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.5</text>
-<line x1="890" y1="539" x2="890" y2="547" stroke="#465d72" stroke-width="2"/>
-<text x="890" y="575" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
-<text x="570" y="231" font-size="28" fill="#172a40" font-weight="700" text-anchor="start">4 等分</text>
-<path d="M570.000 539.000 L650.000 521.625 L650.000 521.625 L647.333 522.764 L644.667 523.864 L642.000 524.926 L639.333 525.949 L636.667 526.934 L634.000 527.880 L631.333 528.787 L628.667 529.656 L626.000 530.486 L623.333 531.278 L620.667 532.031 L618.000 532.745 L615.333 533.421 L612.667 534.058 L610.000 534.656 L607.333 535.216 L604.667 535.737 L602.000 536.220 L599.333 536.664 L596.667 537.069 L594.000 537.436 L591.333 537.764 L588.667 538.054 L586.000 538.305 L583.333 538.517 L580.667 538.691 L578.000 538.826 L575.333 538.923 L572.667 538.981 L570.000 539.000" fill="#f9d9c4" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M570.000 539.000 L650.000 521.625" fill="none" stroke="#a85127" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M650.000 521.625 L730.000 469.500 L730.000 469.500 L727.333 471.797 L724.667 474.056 L722.000 476.276 L719.333 478.458 L716.667 480.601 L714.000 482.705 L711.333 484.771 L708.667 486.798 L706.000 488.786 L703.333 490.736 L700.667 492.647 L698.000 494.520 L695.333 496.354 L692.667 498.149 L690.000 499.906 L687.333 501.624 L684.667 503.304 L682.000 504.945 L679.333 506.547 L676.667 508.111 L674.000 509.636 L671.333 511.123 L668.667 512.571 L666.000 513.980 L663.333 515.351 L660.667 516.683 L658.000 517.976 L655.333 519.231 L652.667 520.447 L650.000 521.625" fill="#f9d9c4" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M650.000 521.625 L730.000 469.500" fill="none" stroke="#a85127" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="650.0" y1="539" x2="650.0" y2="521.625" stroke="#465d72" stroke-width="1.8" stroke-dasharray="4 5"/>
-<path d="M730.000 469.500 L810.000 382.625 L810.000 382.625 L807.333 386.081 L804.667 389.498 L802.000 392.876 L799.333 396.216 L796.667 399.517 L794.000 402.780 L791.333 406.004 L788.667 409.189 L786.000 412.336 L783.333 415.444 L780.667 418.514 L778.000 421.545 L775.333 424.537 L772.667 427.491 L770.000 430.406 L767.333 433.283 L764.667 436.121 L762.000 438.920 L759.333 441.681 L756.667 444.403 L754.000 447.086 L751.333 449.731 L748.667 452.337 L746.000 454.905 L743.333 457.434 L740.667 459.924 L738.000 462.376 L735.333 464.789 L732.667 467.164 L730.000 469.500" fill="#f9d9c4" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M730.000 469.500 L810.000 382.625" fill="none" stroke="#a85127" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="730.0" y1="539" x2="730.0" y2="469.5" stroke="#465d72" stroke-width="1.8" stroke-dasharray="4 5"/>
-<path d="M810.000 382.625 L890.000 261.000 L890.000 261.000 L887.333 265.614 L884.667 270.189 L882.000 274.726 L879.333 279.224 L876.667 283.684 L874.000 288.105 L871.333 292.487 L868.667 296.831 L866.000 301.136 L863.333 305.403 L860.667 309.631 L858.000 313.820 L855.333 317.971 L852.667 322.083 L850.000 326.156 L847.333 330.191 L844.667 334.187 L842.000 338.145 L839.333 342.064 L836.667 345.944 L834.000 349.786 L831.333 353.589 L828.667 357.354 L826.000 361.080 L823.333 364.767 L820.667 368.416 L818.000 372.026 L815.333 375.598 L812.667 379.131 L810.000 382.625" fill="#f9d9c4" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M810.000 382.625 L890.000 261.000" fill="none" stroke="#a85127" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="810.0" y1="539" x2="810.0" y2="382.625" stroke="#465d72" stroke-width="1.8" stroke-dasharray="4 5"/>
-<path d="M570.000 539.000 L572.667 538.981 L575.333 538.923 L578.000 538.826 L580.667 538.691 L583.333 538.517 L586.000 538.305 L588.667 538.054 L591.333 537.764 L594.000 537.436 L596.667 537.069 L599.333 536.664 L602.000 536.220 L604.667 535.737 L607.333 535.216 L610.000 534.656 L612.667 534.058 L615.333 533.421 L618.000 532.745 L620.667 532.031 L623.333 531.278 L626.000 530.486 L628.667 529.656 L631.333 528.787 L634.000 527.880 L636.667 526.934 L639.333 525.949 L642.000 524.926 L644.667 523.864 L647.333 522.764 L650.000 521.625 L652.667 520.447 L655.333 519.231 L658.000 517.976 L660.667 516.683 L663.333 515.351 L666.000 513.980 L668.667 512.571 L671.333 511.123 L674.000 509.636 L676.667 508.111 L679.333 506.547 L682.000 504.945 L684.667 503.304 L687.333 501.624 L690.000 499.906 L692.667 498.149 L695.333 496.354 L698.000 494.520 L700.667 492.647 L703.333 490.736 L706.000 488.786 L708.667 486.798 L711.333 484.771 L714.000 482.705 L716.667 480.601 L719.333 478.458 L722.000 476.276 L724.667 474.056 L727.333 471.797 L730.000 469.500 L732.667 467.164 L735.333 464.789 L738.000 462.376 L740.667 459.924 L743.333 457.434 L746.000 454.905 L748.667 452.337 L751.333 449.731 L754.000 447.086 L756.667 444.403 L759.333 441.681 L762.000 438.920 L764.667 436.121 L767.333 433.283 L770.000 430.406 L772.667 427.491 L775.333 424.537 L778.000 421.545 L780.667 418.514 L783.333 415.444 L786.000 412.336 L788.667 409.189 L791.333 406.004 L794.000 402.780 L796.667 399.517 L799.333 396.216 L802.000 392.876 L804.667 389.498 L807.333 386.081 L810.000 382.625 L812.667 379.131 L815.333 375.598 L818.000 372.026 L820.667 368.416 L823.333 364.767 L826.000 361.080 L828.667 357.354 L831.333 353.589 L834.000 349.786 L836.667 345.944 L839.333 342.064 L842.000 338.145 L844.667 334.187 L847.333 330.191 L850.000 326.156 L852.667 322.083 L855.333 317.971 L858.000 313.820 L860.667 309.631 L863.333 305.403 L866.000 301.136 L868.667 296.831 L871.333 292.487 L874.000 288.105 L876.667 283.684 L879.333 279.224 L882.000 274.726 L884.667 270.189 L887.333 265.614 L890.000 261.000" fill="none" stroke="#136d84" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="570.0" cy="539.0" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="650.0" cy="521.625" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="730.0" cy="469.5" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="810.0" cy="382.625" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<circle cx="890.0" cy="261.0" r="5" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<text x="630.8" y="352.74" font-size="24" fill="#136d84" font-weight="650" text-anchor="start">f(x) = x²</text>
-<rect x="44" y="639" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="669" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
-<text x="101" y="669" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">精确面积给出四分之一的倍率</text>
-<rect x="44" y="704" width="420" height="157" rx="12" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="66" y="746" font-size="25" fill="#465d72" font-weight="650" text-anchor="start">2 段合计</text>
-<text x="66" y="815" font-size="24" fill="#172a40" font-weight="650" text-anchor="start">多算面积</text>
-<text x="206" y="798" font-size="26" fill="#a85127" font-weight="650" text-anchor="middle">1</text>
-<line x1="185" y1="806" x2="227" y2="806" stroke="#a85127" stroke-width="1.8"/>
-<text x="206" y="835" font-size="26" fill="#a85127" font-weight="650" text-anchor="middle">24</text>
-<text x="277" y="815" font-size="24" fill="#172a40" font-weight="650" text-anchor="start">总面积</text>
-<text x="397" y="798" font-size="26" fill="#136d84" font-weight="650" text-anchor="middle">3</text>
-<line x1="376" y1="806" x2="418" y2="806" stroke="#136d84" stroke-width="1.8"/>
-<text x="397" y="835" font-size="26" fill="#136d84" font-weight="650" text-anchor="middle">8</text>
-<rect x="496" y="704" width="420" height="157" rx="12" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="518" y="746" font-size="25" fill="#465d72" font-weight="650" text-anchor="start">4 段合计</text>
-<text x="518" y="815" font-size="24" fill="#172a40" font-weight="650" text-anchor="start">多算面积</text>
-<text x="658" y="798" font-size="26" fill="#a85127" font-weight="650" text-anchor="middle">1</text>
-<line x1="637" y1="806" x2="679" y2="806" stroke="#a85127" stroke-width="1.8"/>
-<text x="658" y="835" font-size="26" fill="#a85127" font-weight="650" text-anchor="middle">96</text>
-<text x="729" y="815" font-size="24" fill="#172a40" font-weight="650" text-anchor="start">总面积</text>
-<text x="849" y="798" font-size="26" fill="#136d84" font-weight="650" text-anchor="middle">11</text>
-<line x1="828" y1="806" x2="870" y2="806" stroke="#136d84" stroke-width="1.8"/>
-<text x="849" y="835" font-size="26" fill="#136d84" font-weight="650" text-anchor="middle">32</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">梯形公式多算的面积</title>
+<desc id="fig-desc">同一条抛物线上比较两等分和四等分。四等分的总误差为两等分的四分之一。</desc>
+<rect x="0" y="0" width="1200" height="620" fill="#ffffff" opacity="1"/>
+<text x="95" y="61" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="32" text-anchor="start" font-weight="600">2 等分</text>
+<path d="M95 430 L300 358 L300 358 L294.143 362.056 L288.286 365.993 L282.429 369.814 L276.571 373.517 L270.714 377.102 L264.857 380.57 L259 383.92 L253.143 387.153 L247.286 390.268 L241.429 393.265 L235.571 396.145 L229.714 398.908 L223.857 401.553 L218 404.08 L212.143 406.49 L206.286 408.782 L200.429 410.957 L194.571 413.014 L188.714 414.953 L182.857 416.776 L177 418.48 L171.143 420.067 L165.286 421.536 L159.429 422.888 L153.571 424.122 L147.714 425.239 L141.857 426.238 L136 427.12 L130.143 427.884 L124.286 428.531 L118.429 429.06 L112.571 429.471 L106.714 429.765 L100.857 429.941 L95 430 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M300 358 L505 142 L505 142 L499.143 150.17 L493.286 158.222 L487.429 166.157 L481.571 173.974 L475.714 181.673 L469.857 189.256 L464 196.72 L458.143 204.067 L452.286 211.296 L446.429 218.408 L440.571 225.402 L434.714 232.279 L428.857 239.038 L423 245.68 L417.143 252.204 L411.286 258.611 L405.429 264.9 L399.571 271.071 L393.714 277.125 L387.857 283.061 L382 288.88 L376.143 294.581 L370.286 300.165 L364.429 305.631 L358.571 310.98 L352.714 316.211 L346.857 321.324 L341 326.32 L335.143 331.198 L329.286 335.959 L323.429 340.602 L317.571 345.128 L311.714 349.536 L305.857 353.827 L300 358 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 286 L505 286" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 142 L505 142" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 430 L517 430" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M517 430 L506 435 L506 425 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 430 L95 130" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 130 L100 141 L90 141 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 426 L95 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="95" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M300 426 L300 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="300" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.5</text>
+<path d="M505 426 L505 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M90 286 L99 286" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="85" y="292" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.5</text>
+<path d="M90 142 L99 142" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="85" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<text x="524" y="436" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="95" y="120" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y</text>
+<path d="M95 430 L99.1 429.971 L103.2 429.885 L107.3 429.741 L111.4 429.539 L115.5 429.28 L119.6 428.963 L123.7 428.589 L127.8 428.157 L131.9 427.667 L136 427.12 L140.1 426.515 L144.2 425.853 L148.3 425.133 L152.4 424.355 L156.5 423.52 L160.6 422.627 L164.7 421.677 L168.8 420.669 L172.9 419.603 L177 418.48 L181.1 417.299 L185.2 416.061 L189.3 414.765 L193.4 413.411 L197.5 412 L201.6 410.531 L205.7 409.005 L209.8 407.421 L213.9 405.779 L218 404.08 L222.1 402.323 L226.2 400.509 L230.3 398.637 L234.4 396.707 L238.5 394.72 L242.6 392.675 L246.7 390.573 L250.8 388.413 L254.9 386.195 L259 383.92 L263.1 381.587 L267.2 379.197 L271.3 376.749 L275.4 374.243 L279.5 371.68 L283.6 369.059 L287.7 366.381 L291.8 363.645 L295.9 360.851 L300 358 L304.1 355.091 L308.2 352.125 L312.3 349.101 L316.4 346.019 L320.5 342.88 L324.6 339.683 L328.7 336.429 L332.8 333.117 L336.9 329.747 L341 326.32 L345.1 322.835 L349.2 319.293 L353.3 315.693 L357.4 312.035 L361.5 308.32 L365.6 304.547 L369.7 300.717 L373.8 296.829 L377.9 292.883 L382 288.88 L386.1 284.819 L390.2 280.701 L394.3 276.525 L398.4 272.291 L402.5 268 L406.6 263.651 L410.7 259.245 L414.8 254.781 L418.9 250.259 L423 245.68 L427.1 241.043 L431.2 236.349 L435.3 231.597 L439.4 226.787 L443.5 221.92 L447.6 216.995 L451.7 212.013 L455.8 206.973 L459.9 201.875 L464 196.72 L468.1 191.507 L472.2 186.237 L476.3 180.909 L480.4 175.523 L484.5 170.08 L488.6 164.579 L492.7 159.021 L496.8 153.405 L500.9 147.731 L505 142" fill="none" stroke="#166d75" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 430 L300 358 L505 142" fill="none" stroke="#a74d3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="95" cy="430" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="300" cy="358" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="505" cy="142" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="119" y="516" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">多算面积</text>
+<text x="255" y="504" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M235 510 L275 510" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="255" y="535" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">24</text>
+<text x="323" y="516" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">梯形和</text>
+<text x="439" y="504" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M419 510 L459 510" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="439" y="535" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">8</text>
+<text x="670" y="61" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="32" text-anchor="start" font-weight="600">4 等分</text>
+<path d="M670 430 L772.5 412 L772.5 412 L769.571 413.014 L766.643 413.998 L763.714 414.953 L760.786 415.879 L757.857 416.776 L754.929 417.642 L752 418.48 L749.071 419.288 L746.143 420.067 L743.214 420.816 L740.286 421.536 L737.357 422.227 L734.429 422.888 L731.5 423.52 L728.571 424.122 L725.643 424.696 L722.714 425.239 L719.786 425.753 L716.857 426.238 L713.929 426.694 L711 427.12 L708.071 427.517 L705.143 427.884 L702.214 428.222 L699.286 428.531 L696.357 428.81 L693.429 429.06 L690.5 429.28 L687.571 429.471 L684.643 429.633 L681.714 429.765 L678.786 429.868 L675.857 429.941 L672.929 429.985 L670 430 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M772.5 412 L875 358 L875 358 L872.071 360.042 L869.143 362.056 L866.214 364.039 L863.286 365.993 L860.357 367.918 L857.429 369.814 L854.5 371.68 L851.571 373.517 L848.643 375.324 L845.714 377.102 L842.786 378.851 L839.857 380.57 L836.929 382.26 L834 383.92 L831.071 385.551 L828.143 387.153 L825.214 388.725 L822.286 390.268 L819.357 391.781 L816.429 393.265 L813.5 394.72 L810.571 396.145 L807.643 397.541 L804.714 398.908 L801.786 400.245 L798.857 401.553 L795.929 402.831 L793 404.08 L790.071 405.3 L787.143 406.49 L784.214 407.651 L781.286 408.782 L778.357 409.884 L775.429 410.957 L772.5 412 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M875 358 L977.5 268 L977.5 268 L974.571 271.071 L971.643 274.113 L968.714 277.125 L965.786 280.108 L962.857 283.061 L959.929 285.985 L957 288.88 L954.071 291.745 L951.143 294.581 L948.214 297.388 L945.286 300.165 L942.357 302.913 L939.429 305.631 L936.5 308.32 L933.571 310.98 L930.643 313.61 L927.714 316.211 L924.786 318.782 L921.857 321.324 L918.929 323.837 L916 326.32 L913.071 328.774 L910.143 331.198 L907.214 333.593 L904.286 335.959 L901.357 338.296 L898.429 340.602 L895.5 342.88 L892.571 345.128 L889.643 347.347 L886.714 349.536 L883.786 351.696 L880.857 353.827 L877.929 355.928 L875 358 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M977.5 268 L1080 142 L1080 142 L1077.071 146.1 L1074.143 150.17 L1071.214 154.211 L1068.286 158.222 L1065.357 162.204 L1062.429 166.157 L1059.5 170.08 L1056.571 173.974 L1053.643 177.838 L1050.714 181.673 L1047.786 185.479 L1044.857 189.256 L1041.929 193.002 L1039 196.72 L1036.071 200.408 L1033.143 204.067 L1030.214 207.696 L1027.286 211.296 L1024.357 214.867 L1021.429 218.408 L1018.5 221.92 L1015.571 225.402 L1012.643 228.856 L1009.714 232.279 L1006.786 235.673 L1003.857 239.038 L1000.929 242.374 L998 245.68 L995.071 248.957 L992.143 252.204 L989.214 255.422 L986.286 258.611 L983.357 261.77 L980.429 264.9 L977.5 268 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 286 L1080 286" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 142 L1080 142" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 430 L1092 430" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1092 430 L1081 435 L1081 425 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 430 L670 130" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 130 L675 141 L665 141 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 426 L670 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="670" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M875 426 L875 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="875" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.5</text>
+<path d="M1080 426 L1080 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1080" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M665 286 L674 286" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="660" y="292" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.5</text>
+<path d="M665 142 L674 142" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="660" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<text x="1099" y="436" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="670" y="120" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y</text>
+<path d="M670 430 L674.1 429.971 L678.2 429.885 L682.3 429.741 L686.4 429.539 L690.5 429.28 L694.6 428.963 L698.7 428.589 L702.8 428.157 L706.9 427.667 L711 427.12 L715.1 426.515 L719.2 425.853 L723.3 425.133 L727.4 424.355 L731.5 423.52 L735.6 422.627 L739.7 421.677 L743.8 420.669 L747.9 419.603 L752 418.48 L756.1 417.299 L760.2 416.061 L764.3 414.765 L768.4 413.411 L772.5 412 L776.6 410.531 L780.7 409.005 L784.8 407.421 L788.9 405.779 L793 404.08 L797.1 402.323 L801.2 400.509 L805.3 398.637 L809.4 396.707 L813.5 394.72 L817.6 392.675 L821.7 390.573 L825.8 388.413 L829.9 386.195 L834 383.92 L838.1 381.587 L842.2 379.197 L846.3 376.749 L850.4 374.243 L854.5 371.68 L858.6 369.059 L862.7 366.381 L866.8 363.645 L870.9 360.851 L875 358 L879.1 355.091 L883.2 352.125 L887.3 349.101 L891.4 346.019 L895.5 342.88 L899.6 339.683 L903.7 336.429 L907.8 333.117 L911.9 329.747 L916 326.32 L920.1 322.835 L924.2 319.293 L928.3 315.693 L932.4 312.035 L936.5 308.32 L940.6 304.547 L944.7 300.717 L948.8 296.829 L952.9 292.883 L957 288.88 L961.1 284.819 L965.2 280.701 L969.3 276.525 L973.4 272.291 L977.5 268 L981.6 263.651 L985.7 259.245 L989.8 254.781 L993.9 250.259 L998 245.68 L1002.1 241.043 L1006.2 236.349 L1010.3 231.597 L1014.4 226.787 L1018.5 221.92 L1022.6 216.995 L1026.7 212.013 L1030.8 206.973 L1034.9 201.875 L1039 196.72 L1043.1 191.507 L1047.2 186.237 L1051.3 180.909 L1055.4 175.523 L1059.5 170.08 L1063.6 164.579 L1067.7 159.021 L1071.8 153.405 L1075.9 147.731 L1080 142" fill="none" stroke="#166d75" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M670 430 L772.5 412 L875 358 L977.5 268 L1080 142" fill="none" stroke="#a74d3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="670" cy="430" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="772.5" cy="412" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="875" cy="358" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="977.5" cy="268" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="1080" cy="142" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="694" y="516" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">多算面积</text>
+<text x="830" y="504" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M810 510 L850 510" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="830" y="535" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">96</text>
+<text x="898" y="516" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">梯形和</text>
+<text x="1014" y="504" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">11</text>
+<path d="M994 510 L1034 510" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1014" y="535" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">32</text>
+<path d="M75 557 L1125 557" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M311 587 L351 587" fill="none" stroke="#166d75" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="366" y="595" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">真实曲线 y = x²</text>
+<rect x="674" y="574" width="41" height="22" fill="#fbede8" opacity="1"/>
+<text x="731" y="595" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">弦与曲线间的多算面积</text>
 </svg>

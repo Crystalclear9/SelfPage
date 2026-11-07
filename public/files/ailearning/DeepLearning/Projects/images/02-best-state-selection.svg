@@ -1,2 +1,51 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1136.7617" viewBox="0 0 1440 1136.7617" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">最佳模型选择与最终评估</title><rect width="1440" height="1136.7617" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">最佳模型选择与最终评估</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="994.7617" viewBox="42 83 1066 789" role="img" x="48" y="106" overflow="hidden"><rect x="42" y="83" width="1066" height="789" fill="#ffffff"/><title>选择的是一个真实参数状态，不只是曲线上的最低值</title><rect width="1280" height="880" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="125" font-size="28" fill="#1a2b3d" text-anchor="start">固定 digits 实验：三十轮预算，按验证交叉熵选快照</text><text x="350" y="205" font-size="31" fill="#257190" text-anchor="middle">第 28 轮</text><line x1="190" y1="500" x2="510" y2="500" stroke="#769099" stroke-width="2"/><rect x="285" y="294.848" width="130" height="205.152" fill="#257190"/><text x="350" y="272.848" font-size="30" fill="#257190" text-anchor="middle">0.085480</text><text x="350" y="555" font-size="27" fill="#1a2b3d" text-anchor="middle">验证 CE</text><text x="930" y="205" font-size="31" fill="#bf6d42" text-anchor="middle">第 30 轮</text><line x1="770" y1="500" x2="1090" y2="500" stroke="#769099" stroke-width="2"/><rect x="865" y="274.72159999999997" width="130" height="225.27840000000003" fill="#bf6d42"/><text x="930" y="252.72159999999997" font-size="30" fill="#bf6d42" text-anchor="middle">0.093866</text><text x="930" y="555" font-size="27" fill="#1a2b3d" text-anchor="middle">验证 CE</text><text x="60" y="625" font-size="29" fill="#257190" text-anchor="start">0.085480 &lt; 0.093866：恢复第 28 轮，再核对验证损失</text><line x1="350" y1="660" x2="350" y2="700" stroke="#257190" stroke-width="4"/><path d="M344.25,689.47 L350.00,700.00 L355.75,689.47" fill="none" stroke="#257190" stroke-width="4"/><line x1="350" y1="700" x2="855" y2="700" stroke="#257190" stroke-width="4"/><path d="M844.47,705.75 L855.00,700.00 L844.47,694.25" fill="none" stroke="#257190" stroke-width="4"/><text x="880" y="710" font-size="30" fill="#257190" text-anchor="start">冻结预测</text><text x="60" y="790" font-size="29" fill="#1a2b3d" text-anchor="start">同一份测试预测 → 344 张正确，16 张错误；共 360 张</text><text x="60" y="850" font-size="27" fill="#769099" text-anchor="start">验证用于选择；测试用于评价已选择的状态，不能反向挑轮次。</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="749" viewBox="0 0 1200 749" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">验证决定轮次，测试只评价恢复后的状态</title>
+<desc id="fig-desc">在零基线的同一尺度上比较二十八和三十轮。恢复二十八轮后得到固定测试计数。</desc>
+<rect x="0" y="0" width="1200" height="749" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">训练结束的那一轮，未必是应该交付的那一轮</text>
+<text x="74" y="110" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">同一次固定实验，只对照已记录的两轮验证损失。</text>
+<path d="M129 441.524 L713 441.524" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 387.048 L713 387.048" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 332.571 L713 332.571" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 278.095 L713 278.095" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 223.619 L713 223.619" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 496 L725 496" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M725 496 L714 501 L714 491 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 496 L129 198" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M129 198 L134 209 L124 209 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M323.667 492 L323.667 501" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="323.667" y="525" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">第 28 轮</text>
+<path d="M518.333 492 L518.333 501" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="518.333" y="525" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">第 30 轮</text>
+<path d="M124 441.524 L133 441.524" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="447.524" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.02</text>
+<path d="M124 387.048 L133 387.048" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="393.048" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.04</text>
+<path d="M124 332.571 L133 332.571" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="338.571" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.06</text>
+<path d="M124 278.095 L133 278.095" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="284.095" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.08</text>
+<path d="M124 223.619 L133 223.619" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="229.619" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.1</text>
+<text x="732" y="502" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400"></text>
+<text x="129" y="188" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">验证 CE</text>
+<rect x="276.667" y="263.168" width="94" height="232.832" fill="#ecf6f6" opacity="1"/>
+<path d="M276.667 263.168 L370.667 263.168" fill="none" stroke="#166d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="323.667" y="247.168" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.085480</text>
+<rect x="471.333" y="240.326" width="94" height="255.674" fill="#fbede8" opacity="1"/>
+<path d="M471.333 240.326 L565.333 240.326" fill="none" stroke="#a74d3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="518.333" y="224.326" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.093866</text>
+<text x="819" y="242" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">按较低验证损失选择</text>
+<path d="M820 328 L847 276 L1071 276 L1044 328 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="945.5" y="310.4" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">恢复第 28 轮</text>
+<text x="819" y="381" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">加载后重算验证值。</text>
+<path d="M75 564 L1125 564" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="621" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">随后冻结测试预测：360 张中 344 张正确，16 张错误。</text>
+<text x="74" y="681" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">测试用于评价已经选定的状态，不参与挑轮次。</text>
+</svg>

@@ -1,81 +1,71 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1109.68" viewBox="0 0 1440 1109.68" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">共享键值的前向概率与反向梯度账本</title><rect width="1440" height="1109.68" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">共享键值的前向概率与反向梯度账本</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="967.68" viewBox="0 0 1500 1080" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden">
-<title id="title">同一组键值，两个不同读取；共享变量的梯度相加</title>
-<desc id="desc">两个查询共享键零、一与值零、二。查询正负ln3得到互换概率和输出一点五、零点五。损失为第一输出加两倍第二输出，共享两个值的梯度分别为七除以四、五除以四。</desc>
-<style>text{font-family:Microsoft YaHei, Noto Sans CJK SC, sans-serif;fill: #173c5b} .muted{fill: #547388} .blue{fill: #1c73b7} .orange{fill: #b65c1b}</style>
-<rect width="1500" height="1080" fill="white"/>
-<text x="55" y="60" font-size="38" text-anchor="start" font-weight="600" fill="#142b45">共享键值，不共享注意力分布</text>
-<text x="55" y="107" font-size="26" text-anchor="start" fill="#547388" style="fill: #547388">一个组内的两头 · 每头维度为一 · 无掩码与随机丢弃</text>
-<rect x="435" y="145" width="630" height="155" rx="14" fill="#f3f7fb" stroke="#cfdee8" stroke-width="2"/>
-<text x="750" y="185" font-size="30" text-anchor="middle" font-weight="600" fill="#142b45">只存一份的共享记忆</text>
-<text x="530" y="240" font-size="27" text-anchor="middle" fill="#142b45">候选一</text>
-<text x="840" y="240" font-size="27" text-anchor="middle" fill="#142b45">候选二</text>
-<text x="530" y="278" font-size="29" text-anchor="middle" fill="#142b45">k = 0，v = 0</text>
-<text x="840" y="278" font-size="29" text-anchor="middle" fill="#142b45">k = 1，v = 2</text>
-<path d="M520 300 L380 340 L380 362 M980 300 L1120 340 L1120 362" fill="none" stroke="#9dabc1" stroke-width="3"/>
-<rect x="55" y="362" width="650" height="335" rx="14" fill="#ffffff" stroke="#1c73b7" stroke-width="2"/>
-<text x="83" y="407" font-size="30" text-anchor="start" fill="#1c73b7" style="fill: #1c73b7" font-weight="600">头一</text>
-<text x="235" y="407" font-size="30" text-anchor="start" fill="#1c73b7" style="fill: #1c73b7">q = ln 3</text>
-<text x="83" y="454" font-size="27" text-anchor="start" fill="#142b45">分数 (0, ln 3)</text>
-<text x="83" y="517" font-size="25" text-anchor="start" fill="#142b45">候选一</text>
-<rect x="205" y="489" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="205" y="489" width="83.75" height="38" rx="5" fill="#1c73b7" stroke="#1c73b7" stroke-width="2"/>
-<text x="605" y="498" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">1</text>
-<line x1="582" y1="508" x2="628" y2="508" stroke="#1c73b7" stroke-width="2"/>
-<text x="605" y="541" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
-<text x="83" y="585" font-size="25" text-anchor="start" fill="#142b45">候选二</text>
-<rect x="205" y="557" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="205" y="557" width="251.25" height="38" rx="5" fill="#1c73b7" stroke="#1c73b7" stroke-width="2"/>
-<text x="605" y="574" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">3</text>
-<line x1="582" y1="584" x2="628" y2="584" stroke="#1c73b7" stroke-width="2"/>
-<text x="605" y="617" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
-<text x="83" y="659" font-size="32" text-anchor="start" fill="#1c73b7" style="fill: #1c73b7" font-weight="600">读取输出  o = 1.5</text>
-<rect x="795" y="362" width="650" height="335" rx="14" fill="#ffffff" stroke="#b65c1b" stroke-width="2"/>
-<text x="823" y="407" font-size="30" text-anchor="start" fill="#b65c1b" style="fill: #b65c1b" font-weight="600">头二</text>
-<text x="975" y="407" font-size="30" text-anchor="start" fill="#b65c1b" style="fill: #b65c1b">q = −ln 3</text>
-<text x="823" y="454" font-size="27" text-anchor="start" fill="#142b45">分数 (0, −ln 3)</text>
-<text x="823" y="517" font-size="25" text-anchor="start" fill="#142b45">候选一</text>
-<rect x="945" y="489" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="945" y="489" width="251.25" height="38" rx="5" fill="#b65c1b" stroke="#b65c1b" stroke-width="2"/>
-<text x="1345" y="498" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">3</text>
-<line x1="1322" y1="508" x2="1368" y2="508" stroke="#b65c1b" stroke-width="2"/>
-<text x="1345" y="541" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
-<text x="823" y="585" font-size="25" text-anchor="start" fill="#142b45">候选二</text>
-<rect x="945" y="557" width="335" height="38" rx="5" fill="#edf2f6" stroke="#edf2f6" stroke-width="2"/>
-<rect x="945" y="557" width="83.75" height="38" rx="5" fill="#b65c1b" stroke="#b65c1b" stroke-width="2"/>
-<text x="1345" y="574" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">1</text>
-<line x1="1322" y1="584" x2="1368" y2="584" stroke="#b65c1b" stroke-width="2"/>
-<text x="1345" y="617" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
-<text x="823" y="659" font-size="32" text-anchor="start" fill="#b65c1b" style="fill: #b65c1b" font-weight="600">读取输出  o = 0.5</text>
-<rect x="55" y="742" width="1390" height="273" rx="14" fill="#f8fafb" stroke="#cfdee8" stroke-width="2"/>
-<text x="85" y="789" font-size="32" text-anchor="start" font-weight="600" fill="#142b45">反向：L = o1 + 2o2</text>
-<text x="85" y="832" font-size="27" text-anchor="start" fill="#547388" style="fill: #547388">对共享值求导，累加两条读取路径</text>
-<text x="550" y="787" font-size="26" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">头一贡献</text>
-<text x="820" y="787" font-size="26" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">头二贡献</text>
-<text x="1110" y="787" font-size="26" text-anchor="middle" font-weight="600" fill="#142b45">总梯度</text>
-<text x="380" y="874" font-size="28" text-anchor="middle" fill="#142b45">值一</text>
-<text x="550" y="855" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">1</text>
-<line x1="527" y1="865" x2="573" y2="865" stroke="#1c73b7" stroke-width="2"/>
-<text x="550" y="898" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
-<text x="685" y="876" font-size="33" text-anchor="middle" fill="#142b45">+</text>
-<text x="820" y="855" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">6</text>
-<line x1="797" y1="865" x2="843" y2="865" stroke="#b65c1b" stroke-width="2"/>
-<text x="820" y="898" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
-<text x="960" y="876" font-size="33" text-anchor="middle" fill="#142b45">=</text>
-<text x="1110" y="855" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">7</text>
-<line x1="1087" y1="865" x2="1133" y2="865" stroke="#173c5b" stroke-width="2"/>
-<text x="1110" y="898" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">4</text>
-<text x="380" y="958" font-size="28" text-anchor="middle" fill="#142b45">值二</text>
-<text x="550" y="939" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">3</text>
-<line x1="527" y1="949" x2="573" y2="949" stroke="#1c73b7" stroke-width="2"/>
-<text x="550" y="982" font-size="28" text-anchor="middle" fill="#1c73b7" style="fill: #1c73b7">4</text>
-<text x="685" y="960" font-size="33" text-anchor="middle" fill="#142b45">+</text>
-<text x="820" y="939" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">2</text>
-<line x1="797" y1="949" x2="843" y2="949" stroke="#b65c1b" stroke-width="2"/>
-<text x="820" y="982" font-size="28" text-anchor="middle" fill="#b65c1b" style="fill: #b65c1b">4</text>
-<text x="960" y="960" font-size="33" text-anchor="middle" fill="#142b45">=</text>
-<text x="1110" y="939" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">5</text>
-<line x1="1087" y1="949" x2="1133" y2="949" stroke="#173c5b" stroke-width="2"/>
-<text x="1110" y="982" font-size="31" text-anchor="middle" fill="#173c5b" style="fill: #173c5b">4</text>
-<text x="55" y="1055" font-size="26" text-anchor="start" fill="#547388" style="fill: #547388">前向按头分别归一化；反向对同一个变量求和。</text>
-</svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="768" viewBox="0 0 1200 768" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">键值共享，查询头分别归一化</title>
+<desc id="fig-desc">两个头读取同一组键和值。用不同查询得到不同输出，反向对同一个共享值累加贡献。</desc>
+<rect x="0" y="0" width="1200" height="768" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">同一份键值记忆，两套查询分布</text>
+<path d="M450 166 L471 116 L687 116 L666 166 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="568.5" y="149.4" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">k = 0，v = 0</text>
+<path d="M711 166 L732 116 L948 116 L927 166 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="829.5" y="149.4" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">k = 1，v = 2</text>
+<path d="M75 252 L102 199 L330 199 L303 252 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="202.5" y="233.55" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">头一 · q = ln 3</text>
+<text x="569" y="215" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M549 221 L589 221" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="569" y="246" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="829" y="215" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M809 221 L849 221" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="829" y="246" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M910 221 L972 221" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M972 221 L961 226 L961 216 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="994" y="229" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">1.5</text>
+<text x="79" y="291" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">分别沿两个候选归一化</text>
+<path d="M75 374 L102 321 L330 321 L303 374 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="202.5" y="355.55" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">头二 · q = −ln 3</text>
+<text x="569" y="337" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M549 343 L589 343" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="569" y="368" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="829" y="337" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M809 343 L849 343" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="829" y="368" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M910 343 L972 343" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M972 343 L961 348 L961 338 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="994" y="351" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">0.5</text>
+<text x="79" y="413" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">分别沿两个候选归一化</text>
+<text x="994" y="151" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">读取值</text>
+<path d="M75 444 L1125 444" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="77" y="489" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="27" text-anchor="start" font-weight="600">反向 · L = o₁ + 2o₂</text>
+<text x="482" y="531" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">头一贡献</text>
+<text x="695" y="531" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">头二贡献</text>
+<text x="982" y="531" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">共享值梯度</text>
+<text x="78" y="585" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">共享值 1</text>
+<text x="482" y="570" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M462 576 L502 576" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="482" y="601" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="568" y="584" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">+</text>
+<text x="695" y="570" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M675 576 L715 576" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="695" y="601" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<text x="801" y="584" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">=</text>
+<text x="982" y="570" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">7</text>
+<path d="M962 576 L1002 576" fill="none" stroke="#6e618e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="982" y="601" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="78" y="666" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">共享值 2</text>
+<text x="482" y="651" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M462 657 L502 657" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="482" y="682" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="568" y="665" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">+</text>
+<text x="695" y="651" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M675 657 L715 657" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="695" y="682" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<text x="801" y="665" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">=</text>
+<text x="982" y="651" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M962 657 L1002 657" fill="none" stroke="#6e618e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="982" y="682" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="77" y="737" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">同一个共享值收到两头的梯度贡献。</text>
+</svg>

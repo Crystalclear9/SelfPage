@@ -1,32 +1,30 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1495.604" viewBox="0 0 1440 1495.604" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">额外证据可能使单次预测更不确定</title><rect width="1440" height="1495.604" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">额外证据可能使单次预测更不确定</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1353.604" viewBox="0 0 1440 1450.29" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>新证据的两个分支：一次更不确定，平均信息仍然增加</title><svg width="1440" height="1000.29" viewBox="29 69 1382 960" role="img"><rect x="29" y="69" width="1382" height="960" fill="#ffffff"/><title>新证据的两个分支：一次更不确定，平均信息仍然增加</title><rect width="1440" height="1060" fill="white"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#1f3348">
-<text x="50" y="110" font-size="27" fill="#1f3348" text-anchor="start">固定同一个联合模型：P(Z=1)=0.9，P(E|Z=1)=0.1，P(E|Z=2)=0.9。</text>
-<rect x="48" y="180" width="380" height="375" fill="#f7f9fc" stroke="#dce4ec" stroke-width="2" rx="12"/>
-<text x="78" y="230" font-size="30" fill="#1f3348" text-anchor="start" font-weight="700">观测前</text>
-<text x="78" y="285" font-size="27" fill="#1f3348" text-anchor="start">类别概率 = [0.9,0.1]</text>
-<text x="78" y="340" font-size="27" fill="#1f3348" text-anchor="start">联合分支权重：</text>
-<text x="78" y="395" font-size="27" fill="#d37125" text-anchor="start">E：[0.09,0.09]</text>
-<text x="78" y="450" font-size="27" fill="#2171b8" text-anchor="start">非 E：[0.81,0.01]</text>
-<text x="78" y="510" font-size="26" fill="#1f3348" text-anchor="start">原熵 H(Z)=0.325083 nat</text>
-<line x1="440" y1="360" x2="680" y2="310" stroke="#d37125" stroke-width="3"/>
-<polyline points="669.310,317.398 680.000,310.000 667.245,307.486" fill="none" stroke="#d37125" stroke-width="3" opacity="1"/>
-<text x="525" y="275" font-size="27" fill="#d37125" text-anchor="middle">概率 0.18</text>
-<rect x="695" y="185" width="695" height="260" fill="white" stroke="#d37125" stroke-width="2" rx="12"/>
-<text x="725" y="235" font-size="30" fill="#d37125" text-anchor="start" font-weight="700">E 出现</text>
-<text x="725" y="293" font-size="27" fill="#1f3348" text-anchor="start">分支内归一化 → [0.5,0.5]</text>
-<text x="725" y="349" font-size="28" fill="#d37125" text-anchor="start">分支熵 = 0.693147 nat</text>
-<text x="725" y="402" font-size="27" fill="#d37125" text-anchor="start">比观测前更不确定</text>
-<line x1="440" y1="360" x2="680" y2="660" stroke="#2171b8" stroke-width="3"/>
-<polyline points="668.567,653.813 680.000,660.000 676.473,647.488" fill="none" stroke="#2171b8" stroke-width="3" opacity="1"/>
-<text x="525" y="595" font-size="27" fill="#2171b8" text-anchor="middle">概率 0.82</text>
-<rect x="695" y="535" width="695" height="260" fill="white" stroke="#2171b8" stroke-width="2" rx="12"/>
-<text x="725" y="585" font-size="30" fill="#2171b8" text-anchor="start" font-weight="700">E 未出现</text>
-<text x="725" y="643" font-size="27" fill="#1f3348" text-anchor="start">分支内归一化 → [0.987805,0.012195]</text>
-<text x="725" y="699" font-size="28" fill="#2171b8" text-anchor="start">分支熵 = 0.065861 nat</text>
-<text x="725" y="752" font-size="27" fill="#2171b8" text-anchor="start">比观测前更集中</text>
-<rect x="48" y="850" width="1344" height="160" fill="#edf4fc" stroke="#2171b8" stroke-width="2" rx="12"/>
-<text x="78" y="900" font-size="29" fill="#1f3348" text-anchor="start">平均条件熵 = 0.18×0.693147 + 0.82×0.065861 = 0.178772 nat</text>
-<text x="78" y="955" font-size="29" fill="#25918d" text-anchor="start">证据信息增量 = 0.325083 − 0.178772 = 0.146311 nat ≥ 0</text>
-<text x="78" y="994" font-size="26" fill="#1f3348" text-anchor="start">互信息约束的是加权平均；它不要求每一条实际证据都降低后验熵。</text>
-</g></svg>
-<g id="round-20261105c-teaching" transform="translate(0 1000.29) scale(1)"><g font-family="Microsoft YaHei, sans-serif"><rect width="1440" height="450" fill="white"/><line x1="55" y1="5" x2="1385" y2="5" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/><text x="55" y="62" font-size="32" fill="#1d3145" text-anchor="start">观测可在某分支增大不确定性；平均分解仍严格成立</text><text x="70" y="125" font-size="31" fill="#1d3145" text-anchor="start">指示变量 Y=1{Z=1}：先验方差 0.9×0.1 = 0.09</text><rect x="70" y="185" width="658.5366" height="62" fill="url(#book-wash-edf5f8)" stroke="#1e7499"/><rect x="728.5366" y="185" width="421.4634" height="62" fill="url(#book-wash-fff1e7)" stroke="#c66d3a"/><text x="70" y="305" font-size="30" fill="#1e7499" text-anchor="start">平均后验方差 0.054878</text><text x="770" y="305" font-size="30" fill="#c66d3a" text-anchor="start">后验均值的方差 0.035122</text><text x="70" y="380" font-size="30" fill="#1d3145" text-anchor="start">两项相加仍为 0.09；E 分支的后验方差却为 0.25。</text></g></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="783" viewBox="0 0 1200 783" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">观察一个分支可以增大后验熵</title>
+<desc id="fig-desc">分支概率必须计入平均。另用全方差验证信息增益。</desc>
+<rect x="0" y="0" width="1200" height="783" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">某条证据让预测更难，平均仍带来信息</text>
+<path d="M72 349 L99 287 L322 287 L295 349 Z" fill="url(#n)" stroke="#526976" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="197" y="326.4" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">先验 (0.9, 0.1)</text>
+<path d="M312 318 L585 220" fill="none" stroke="#a74d3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M585 220 L576.336 228.422 L572.958 219.011 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="392" y="244" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">概率 0.18</text>
+<path d="M588 251 L615 189 L1002 189 L975 251 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="795" y="227.7" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">观测到 E  ·  0.5, 0.5</text>
+<text x="600" y="299" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分支熵 0.693147 nat</text>
+<path d="M312 318 L585 430" fill="none" stroke="#166d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M585 430 L572.925 430.451 L576.721 421.199 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="392" y="454" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">概率 0.82</text>
+<path d="M588 461 L615 399 L1002 399 L975 461 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="795" y="437.7" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">没有观测到 E  ·  0.987805, 0.0121951</text>
+<text x="600" y="509" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分支熵 0.065861 nat</text>
+<path d="M75 548 L1125 548" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="603" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">平均条件熵 0.178772 nat；从先验熵 0.325083 nat 中减去它，得到互信息 0.146311。</text>
+<text x="75" y="659" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">对于 Z=1 的指示量，先验方差 0.09 = 平均后验方差 0.054878 + 后验均值方差 0.035122。</text>
+<text x="75" y="716" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">上支提高不确定性；两条分支按概率加权，才得到平均结果。</text>
+</svg>

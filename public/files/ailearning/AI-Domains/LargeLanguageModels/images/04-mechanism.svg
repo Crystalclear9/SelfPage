@@ -1,2 +1,70 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="935.4188" viewBox="0 0 1440 935.4188" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">适配器产物依赖基座、分词器与任务配置</title><rect width="1440" height="935.4188" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">适配器产物依赖基座、分词器与任务配置</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="793.4188" viewBox="37 83 1201 709" role="img" x="48" y="106" overflow="hidden"><rect x="37" y="83" width="1201" height="709" fill="#ffffff"/><title>适配器相同，也不能替代完整模型身份</title><rect width="1280" height="850" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="125" font-size="28" fill="#1a2b3d" text-anchor="start">ΔW = [[0.4, −0.2], [0.8, −0.4]]，三个配置共用它</text><text x="60" y="210" font-size="28" fill="#1a2b3d" text-anchor="start">基座 W0</text><text x="290" y="210" font-size="28" fill="#1a2b3d" text-anchor="start">“甲”的输入 x</text><text x="560" y="210" font-size="28" fill="#1a2b3d" text-anchor="start">输出 y</text><text x="60" y="310" font-size="28" fill="#257190" text-anchor="start">I</text><text x="315" y="310" font-size="28" fill="#257190" text-anchor="start">(1, 0)</text><text x="560" y="310" font-size="28" fill="#257190" text-anchor="start">(1.4, 0.8)</text><line x1="55" y1="342" x2="730" y2="342" stroke="#dfe4eb" stroke-width="2"/><text x="60" y="435" font-size="28" fill="#bf6d42" text-anchor="start">diag(2, 1)</text><text x="315" y="435" font-size="28" fill="#bf6d42" text-anchor="start">(1, 0)</text><text x="560" y="435" font-size="28" fill="#bf6d42" text-anchor="start">(2.4, 0.8)</text><line x1="55" y1="467" x2="730" y2="467" stroke="#dfe4eb" stroke-width="2"/><text x="60" y="560" font-size="28" fill="#5c9a91" text-anchor="start">I</text><text x="315" y="560" font-size="28" fill="#5c9a91" text-anchor="start">(0, 1)</text><text x="560" y="560" font-size="28" fill="#5c9a91" text-anchor="start">(−0.2, 0.6)</text><line x1="55" y1="592" x2="730" y2="592" stroke="#dfe4eb" stroke-width="2"/><line x1="800" y1="600" x2="1220" y2="600" stroke="#769099" stroke-width="2"/><line x1="850" y1="640" x2="850" y2="265" stroke="#769099" stroke-width="2"/><line x1="850" y1="600" x2="1025.0" y2="424.0" stroke="#257190" stroke-width="4"/><path d="M1021.65,435.52 L1025.00,424.00 L1013.50,427.41" fill="none" stroke="#257190" stroke-width="4"/><circle cx="1025.0" cy="424.0" r="7" fill="#257190"/><text x="1025.0" y="402.0" font-size="24" fill="#257190" text-anchor="middle">(1.4, 0.8)</text><line x1="850" y1="600" x2="1150.0" y2="424.0" stroke="#bf6d42" stroke-width="4"/><path d="M1143.83,434.29 L1150.00,424.00 L1138.01,424.37" fill="none" stroke="#bf6d42" stroke-width="4"/><circle cx="1150.0" cy="424.0" r="7" fill="#bf6d42"/><text x="1150.0" y="402.0" font-size="24" fill="#bf6d42" text-anchor="middle">(2.4, 0.8)</text><line x1="850" y1="600" x2="825.0" y2="468.0" stroke="#5c9a91" stroke-width="4"/><path d="M832.61,477.28 L825.00,468.00 L821.31,479.42" fill="none" stroke="#5c9a91" stroke-width="4"/><circle cx="825.0" cy="468.0" r="7" fill="#5c9a91"/><text x="825.0" y="446.0" font-size="24" fill="#5c9a91" text-anchor="middle">(-0.2, 0.6)</text><text x="60" y="705" font-size="28" fill="#1a2b3d" text-anchor="start">第二行只换基座；第三行交换词表到嵌入坐标的对应</text><text x="60" y="770" font-size="28" fill="#1a2b3d" text-anchor="start">同形状、可加载、同一适配文件，都不足以证明同一函数</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="743" viewBox="0 0 1200 743" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">同一个增量文件可以定义不同函数</title>
+<desc id="fig-desc">比较只换基座与只换词表到嵌入的对应。</desc>
+<rect x="0" y="0" width="1200" height="743" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">能加载同一个适配器，输出仍可能不同</text>
+<rect x="181" y="166" width="146" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="254" y="204.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">I</text>
+<rect x="331" y="166" width="146" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="404" y="204.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">(1, 0)</text>
+<rect x="481" y="166" width="146" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="554" y="204.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">(1.4, 0.8)</text>
+<text x="165" y="204.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">配置 1</text>
+<rect x="181" y="231" width="146" height="61" fill="#fbede8" opacity="1"/>
+<text x="254" y="269.5" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">diag(2, 1)</text>
+<rect x="331" y="231" width="146" height="61" fill="#fbede8" opacity="1"/>
+<text x="404" y="269.5" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">(1, 0)</text>
+<rect x="481" y="231" width="146" height="61" fill="#fbede8" opacity="1"/>
+<text x="554" y="269.5" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">(2.4, 0.8)</text>
+<text x="165" y="269.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">配置 2</text>
+<rect x="181" y="296" width="146" height="61" fill="#e8e6f2" opacity="1"/>
+<text x="254" y="334.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">I</text>
+<rect x="331" y="296" width="146" height="61" fill="#e8e6f2" opacity="1"/>
+<text x="404" y="334.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">(0, 1)</text>
+<rect x="481" y="296" width="146" height="61" fill="#e8e6f2" opacity="1"/>
+<text x="554" y="334.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">(−0.2, 0.6)</text>
+<text x="165" y="334.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">配置 3</text>
+<text x="254" y="152" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">基座</text>
+<text x="404" y="152" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">甲的输入</text>
+<text x="554" y="152" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">输出</text>
+<path d="M778 410.242 L1052 410.242" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M778 327.212 L1052 327.212" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M778 244.182 L1052 244.182" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M778 161.152 L1052 161.152" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M778 410.242 L1064 410.242" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1064 410.242 L1053 415.242 L1053 405.242 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827.818 431 L827.818 145" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827.818 145 L832.818 156 L822.818 156 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827.818 406.242 L827.818 415.242" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="827.818" y="439.242" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M910.848 406.242 L910.848 415.242" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="910.848" y="439.242" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M993.879 406.242 L993.879 415.242" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="993.879" y="439.242" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M822.818 410.242 L831.818 410.242" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="817.818" y="416.242" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0</text>
+<path d="M822.818 327.212 L831.818 327.212" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="817.818" y="333.212" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<path d="M822.818 244.182 L831.818 244.182" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="817.818" y="250.182" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">2</text>
+<path d="M822.818 161.152 L831.818 161.152" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="817.818" y="167.152" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">3</text>
+<text x="1071" y="416.242" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">y₁</text>
+<text x="827.818" y="135" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y₂</text>
+<path d="M827.818 410.242 L944.061 343.818" fill="none" stroke="#166d75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944.061 343.818 L936.991 353.617 L932.029 344.934 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827.818 410.242 L1027.091 343.818" fill="none" stroke="#a74d3a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1027.091 343.818 L1018.237 352.04 L1015.074 342.553 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827.818 410.242 L811.212 360.424" fill="none" stroke="#6e618e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M811.212 360.424 L819.434 369.279 L809.947 372.441 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75 509 L1125 509" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="564" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">三组增量相同：第一列 (0.4, 0.8)，第二列 (−0.2, −0.4)。</text>
+<text x="75" y="617" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">第二组只换基座；第三组只换「甲」对应的输入坐标。</text>
+<text x="75" y="674" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">适配器的身份需要与基座、词表、模板和缩放一起确定。</text>
+</svg>

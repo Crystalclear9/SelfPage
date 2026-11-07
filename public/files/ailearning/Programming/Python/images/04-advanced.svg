@@ -1,44 +1,57 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="982" viewBox="0 0 1440 982" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">循环导入会访问尚未初始化的模块</title><rect width="1440" height="982" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">循环导入会访问尚未初始化的模块</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="840" viewBox="0 0 1440 900" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-fff1e7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e7"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>循环导入：模块已在缓存里，属性却还没有执行出来</title><rect width="1440" height="900" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">循环导入：模块已在缓存里，属性却还没有执行出来</text>
-<text x="65" y="132" font-size="31" fill="#1e7499" text-anchor="start">a.py</text>
-<text x="770" y="132" font-size="31" fill="#c66d3a" text-anchor="start">b.py</text>
-<rect x="65" y="158" width="530" height="130" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="95" y="207" font-size="30" fill="#1e7499" text-anchor="start">1  import b</text>
-<text x="95" y="255" font-size="30" fill="#1e7499" text-anchor="start">2  x = 1</text>
-<rect x="770" y="158" width="530" height="130" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="800" y="207" font-size="30" fill="#c66d3a" text-anchor="start">1  import a</text>
-<text x="800" y="255" font-size="30" fill="#c66d3a" text-anchor="start">2  y = a.x</text>
-<text x="65" y="355" font-size="29" fill="#1d3145" text-anchor="start">新进程执行 import a；时间向下</text>
-<line x1="250" y1="400" x2="250" y2="750" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<line x1="700" y1="400" x2="700" y2="750" stroke="#7b889c" stroke-width="2" stroke-dasharray=""/>
-<line x1="1140" y1="400" x2="1140" y2="750" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
-<text x="250" y="390" font-size="27" fill="#1e7499" text-anchor="middle">A 的顶层执行</text>
-<text x="700" y="390" font-size="27" fill="#1d3145" text-anchor="middle">sys.modules</text>
-<text x="1140" y="390" font-size="27" fill="#c66d3a" text-anchor="middle">B 的顶层执行</text>
-<rect x="580" y="420" width="240" height="60" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="700" y="460" font-size="27" fill="#1e7499" text-anchor="middle">"a" → 对象 A</text>
-<line x1="260" y1="450" x2="575" y2="450" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M563.95,454.67 L575.00,450.00 L563.95,445.33" fill="none" stroke="#1e7499" stroke-width="2"/>
-<text x="70" y="525" font-size="27" fill="#1e7499" text-anchor="start">停在第 1 行</text>
-<line x1="265" y1="520" x2="1135" y2="520" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M1123.95,524.67 L1135.00,520.00 L1123.95,515.33" fill="none" stroke="#1e7499" stroke-width="2"/>
-<text x="720" y="510" font-size="27" fill="#1e7499" text-anchor="middle">import b</text>
-<rect x="580" y="550" width="240" height="60" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="700" y="590" font-size="27" fill="#c66d3a" text-anchor="middle">"b" → 对象 B</text>
-<line x1="1135" y1="580" x2="825" y2="580" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
-<path d="M836.05,575.33 L825.00,580.00 L836.05,584.67" fill="none" stroke="#c66d3a" stroke-width="2"/>
-<line x1="1135" y1="645" x2="825" y2="645" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
-<path d="M836.05,640.33 L825.00,645.00 L836.05,649.67" fill="none" stroke="#c66d3a" stroke-width="2"/>
-<text x="1060" y="630" font-size="27" fill="#c66d3a" text-anchor="end">import a</text>
-<line x1="825" y1="665" x2="1135" y2="665" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M1123.95,669.67 L1135.00,665.00 L1123.95,660.33" fill="none" stroke="#1e7499" stroke-width="2"/>
-<text x="735" y="700" font-size="27" fill="#1e7499" text-anchor="middle">取回同一个 A</text>
-<text x="70" y="760" font-size="27" fill="#c66d3a" text-anchor="start">第 2 行尚未运行</text>
-<text x="1030" y="750" font-size="29" fill="#c66d3a" text-anchor="start">读取 a.x</text>
-<line x1="1065" y1="770" x2="850" y2="800" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
-<path d="M860.30,793.84 L850.00,800.00 L861.59,803.10" fill="none" stroke="#c66d3a" stroke-width="2"/>
-<rect x="580" y="785" width="270" height="62" rx="3" fill="url(#book-wash-fff1e7)" stroke="#c66d3a" stroke-dasharray=""/>
-<text x="715" y="825" font-size="28" fill="#c66d3a" text-anchor="middle">A 中尚无属性 x</text>
-<text x="900" y="830" font-size="30" fill="#c66d3a" text-anchor="start">AttributeError</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">循环导入中的半初始化对象</title>
+<desc id="fig-desc">a 在执行前先进入缓存，导入 b 暂停 a 的第二行，b 从缓存取回 a 后访问尚未初始化的 x。</desc>
+<rect x="0" y="0" width="1200" height="720" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="76" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">模块对象先登记，顶层代码随后执行</text>
+<path d="M77 182 L100 99 L514 99 L491 182 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="111" y="151" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">a.py</text>
+<text x="271" y="129" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">1   import b</text>
+<text x="271" y="163" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">2   x = 1</text>
+<path d="M689 182 L712 99 L1126 99 L1103 182 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="723" y="151" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="400">b.py</text>
+<text x="883" y="129" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">1   import a</text>
+<text x="883" y="163" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">2   y = a.x</text>
+<path d="M75 210 L1125 210" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107" y="259" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="600">A 的执行位置</text>
+<text x="507" y="259" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="start" font-weight="600">sys.modules</text>
+<text x="885" y="259" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="600">B 的执行位置</text>
+<path d="M211 274 L211 641" fill="none" stroke="#dbe8eb" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M606 274 L606 641" fill="none" stroke="#dbe8eb" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1001 274 L1001 641" fill="none" stroke="#dbe8eb" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74 307 L74 640" fill="none" stroke="#526976" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74 640 L69 629 L79 629 Z" fill="#526976" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="70" y="291" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="18" text-anchor="start" font-weight="400">时间</text>
+<path d="M484 336 L501 290 L721 290 L704 336 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602.5" y="321.05" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">&quot;a&quot; → A</text>
+<path d="M94 409 L113 361 L342 361 L323 409 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="218" y="392.7" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 1 行 import b</text>
+<path d="M353 385 L860 385" fill="none" stroke="#6e618e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M860 385 L849 390 L849 380 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="595" y="369" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="middle" font-weight="400">创建 B</text>
+<path d="M484 456 L501 410 L721 410 L704 456 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602.5" y="441.05" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">&quot;b&quot; → B</text>
+<path d="M866 523 L883 475 L1118 475 L1101 523 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="992" y="506.7" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 1 行 import a</text>
+<path d="M861 497 L727 497" fill="none" stroke="#6e618e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M727 497 L738 492 L738 502 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="790" y="483" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">查缓存</text>
+<path d="M484 522 L501 474 L721 474 L704 522 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602.5" y="505.7" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">取回同一个 A</text>
+<path d="M728 535 L859 535" fill="none" stroke="#166d75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M859 535 L848 540 L848 530 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="792" y="558" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">返回 A</text>
+<path d="M866 620 L883 572 L1118 572 L1101 620 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="992" y="603.7" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 2 行读取 a.x</text>
+<path d="M864 596 L348 596" fill="none" stroke="#a74d3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M348 596 L359 591 L359 601 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M94 620 L111 572 L342 572 L325 620 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="218" y="603.7" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">第 2 行尚未执行</text>
+<text x="883" y="665" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="start" font-weight="400">AttributeError</text>
+<text x="100" y="665" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">A 中尚无 x</text>
+</svg>

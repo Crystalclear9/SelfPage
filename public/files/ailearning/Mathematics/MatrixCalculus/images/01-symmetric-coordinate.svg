@@ -1,60 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="867" viewBox="0 0 960 867" role="img" aria-labelledby="title desc">
-<title id="title">改变一个参数，矩阵里动两个位置</title><desc id="desc">原梯度非对角项是二和四，对称投影后各为三，两种矩阵内积都给出坐标导数六。</desc>
-<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0" y="0" width="960" height="867" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
-<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">改变一个参数，矩阵里动两个位置</text>
-<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">对称条件把非对角位置绑定到同一个坐标 c</text>
-<rect x="44" y="147" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="177" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
-<text x="101" y="177" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">对称扰动同时进入两个非对角位置</text>
-<rect x="170" y="217" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="215" y="262" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">a</text>
-<rect x="260" y="217" width="90" height="68" rx="0" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="305" y="262" font-size="31" fill="#136d84" font-weight="650" text-anchor="middle">c</text>
-<rect x="170" y="285" width="90" height="68" rx="0" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="215" y="330" font-size="31" fill="#136d84" font-weight="650" text-anchor="middle">c</text>
-<rect x="260" y="285" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="305" y="330" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">b</text>
-<rect x="609" y="217" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="654" y="262" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">0</text>
-<rect x="699" y="217" width="90" height="68" rx="0" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="744" y="262" font-size="31" fill="#136d84" font-weight="650" text-anchor="middle">δc</text>
-<rect x="609" y="285" width="90" height="68" rx="0" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="654" y="330" font-size="31" fill="#136d84" font-weight="650" text-anchor="middle">δc</text>
-<rect x="699" y="285" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="744" y="330" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">0</text>
-<line x1="368" y1="283" x2="590" y2="283" stroke="#465d72" stroke-width="3" marker-end="url(#arrow)"/>
-<text x="481" y="260" font-size="26" fill="#136d84" font-weight="700" text-anchor="middle">只改变 c</text>
-<text x="260" y="393" font-size="25" fill="#465d72" font-weight="600" text-anchor="middle">原矩阵 A</text>
-<text x="699" y="393" font-size="25" fill="#465d72" font-weight="600" text-anchor="middle">扰动 δA</text>
-<rect x="44" y="445" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="475" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
-<text x="101" y="475" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">两种矩阵梯度给出同一个坐标导数</text>
-<rect x="170" y="550" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="215" y="595" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">0</text>
-<rect x="260" y="550" width="90" height="68" rx="0" fill="#fff2e8" stroke="#cedae4" stroke-width="1.8"/>
-<text x="305" y="595" font-size="31" fill="#a85127" font-weight="650" text-anchor="middle">2</text>
-<rect x="170" y="618" width="90" height="68" rx="0" fill="#fff2e8" stroke="#cedae4" stroke-width="1.8"/>
-<text x="215" y="663" font-size="31" fill="#a85127" font-weight="650" text-anchor="middle">4</text>
-<rect x="260" y="618" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="305" y="663" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">0</text>
-<rect x="609" y="550" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="654" y="595" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">0</text>
-<rect x="699" y="550" width="90" height="68" rx="0" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="744" y="595" font-size="31" fill="#136d84" font-weight="650" text-anchor="middle">3</text>
-<rect x="609" y="618" width="90" height="68" rx="0" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.8"/>
-<text x="654" y="663" font-size="31" fill="#136d84" font-weight="650" text-anchor="middle">3</text>
-<rect x="699" y="618" width="90" height="68" rx="0" fill="#f7fafc" stroke="#cedae4" stroke-width="1.8"/>
-<text x="744" y="663" font-size="31" fill="#465d72" font-weight="650" text-anchor="middle">0</text>
-<text x="260" y="524" font-size="26" fill="#a85127" font-weight="700" text-anchor="middle">环境空间梯度</text>
-<text x="699" y="524" font-size="26" fill="#136d84" font-weight="700" text-anchor="middle">对称空间梯度</text>
-<line x1="368" y1="617" x2="590" y2="617" stroke="#465d72" stroke-width="3" marker-end="url(#arrow)"/>
-<text x="480" y="593" font-size="24" fill="#465d72" font-weight="600" text-anchor="middle">转置后平均</text>
-<text x="260" y="731" font-size="28" fill="#a85127" font-weight="700" text-anchor="middle">2δc + 4δc</text>
-<text x="699" y="731" font-size="28" fill="#136d84" font-weight="700" text-anchor="middle">3δc + 3δc</text>
-<line x1="260" y1="749" x2="480" y2="788" stroke="#465d72" stroke-width="2.5" marker-end="url(#arrow)"/>
-<line x1="699" y1="749" x2="480" y2="788" stroke="#465d72" stroke-width="2.5" marker-end="url(#arrow)"/>
-<text x="480" y="832" font-size="30" fill="#172a40" font-weight="700" text-anchor="middle">同一方向导数 6δc</text>
-</g>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="730" viewBox="0 0 1360 730" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">一次对称坐标扰动同时改变两个元素</title>
+  <desc id="plate-desc">完整矩阵梯度是 2、4 两个非对角分量。限制为对称矩阵时梯度的对应元素各为 3，独立参数 c 的导数为 6。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="730" fill="white" stroke="none" stroke-width="0"/>
+  <text x="237" y="65" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">完整矩阵梯度</text>
+  <rect x="147" y="147" width="90" height="90" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="192" y="206.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="237" y="147" width="90" height="90" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="282" y="206.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">2</text>
+  <rect x="147" y="237" width="90" height="90" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="192" y="296.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">4</text>
+  <rect x="237" y="237" width="90" height="90" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="282" y="296.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <text x="237" y="386" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="middle">允许扰动两格都改变</text>
+  <rect x="157" y="421" width="80" height="80" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="197" y="473.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="237" y="421" width="80" height="80" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="277" y="473.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">δc</text>
+  <rect x="157" y="501" width="80" height="80" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="197" y="553.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">δc</text>
+  <rect x="237" y="501" width="80" height="80" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="277" y="553.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <text x="683" y="65" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">对称空间的梯度</text>
+  <rect x="593" y="147" width="90" height="90" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="638" y="206.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="683" y="147" width="90" height="90" fill="#e7e0f1" stroke="white" stroke-width="1.6"/>
+  <text x="728" y="206.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">3</text>
+  <rect x="593" y="237" width="90" height="90" fill="#e7e0f1" stroke="white" stroke-width="1.6"/>
+  <text x="638" y="296.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">3</text>
+  <rect x="683" y="237" width="90" height="90" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="728" y="296.4" font-size="30" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <text x="683" y="386" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#655184" text-anchor="middle">允许扰动两格都改变</text>
+  <rect x="603" y="421" width="80" height="80" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="643" y="473.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="683" y="421" width="80" height="80" fill="#e7e0f1" stroke="white" stroke-width="1.6"/>
+  <text x="723" y="473.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">δc</text>
+  <rect x="603" y="501" width="80" height="80" fill="#e7e0f1" stroke="white" stroke-width="1.6"/>
+  <text x="643" y="553.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">δc</text>
+  <rect x="683" y="501" width="80" height="80" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="723" y="553.8" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <text x="1122" y="65" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">独立坐标导数</text>
+  <polygon points="986,262 1218,262 1254,156 1022,156" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.7" stroke-linejoin="round"/>
+  <text x="1091" y="196" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">df</text>
+  <polyline points="1065.5,203 1116.5,203" fill="none" stroke="#a84b3b" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="1091" y="232" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">dc</text>
+  <text x="1171" y="215" font-size="29" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">= 6</text>
+  <text x="1118" y="393" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">只与一个 δc 配对</text>
+  <text x="1063" y="515" font-size="26" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">同样得到</text>
+  <text x="1206" y="515" font-size="29" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">6δc</text>
+  <text x="686" y="675" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">方向导数相同。若直接用同一学习率，两种步长几何不同。</text>
 </svg>

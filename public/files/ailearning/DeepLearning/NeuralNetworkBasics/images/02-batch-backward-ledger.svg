@@ -1,72 +1,80 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1049.2793" viewBox="0 0 1440 1049.2793" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">从输出梯度逆序经过激活门并向四个共享参数归约</title><rect width="1440" height="1049.2793" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">从输出梯度逆序经过激活门并向四个共享参数归约</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="907.2793" viewBox="6 59 1271 858" role="img" x="48" y="106" overflow="hidden"><rect x="6" y="59" width="1271" height="858" fill="#ffffff"/><title>同一批的反向：逐行传导，向共享参数汇合</title><style>text{font-family:Microsoft YaHei,Noto Sans CJK SC,sans-serif;}</style><rect width="1300" height="940" fill="white"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#6e8ba0"/></marker></defs>
-<text x="42" y="99" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#6e8ba0" text-anchor="start" font-weight="normal">橙色门表示负区 ReLU；批均值因子已经包含在输出梯度中</text>
-<text x="185" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#21364c" text-anchor="middle" font-weight="bold">g(z)</text>
-<text x="465" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#21364c" text-anchor="middle" font-weight="bold">ReLU 导数</text>
-<text x="745" y="168" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#21364c" text-anchor="middle" font-weight="bold">g(h) = 3g(预测)</text>
-<text x="920" y="168" font-size="26" fill="#17405c" text-anchor="start">g(预测) =</text><text x="1130" y="151" font-size="22" fill="#17405c" text-anchor="middle">残差</text><line x1="1102.5" y1="158" x2="1157.5" y2="158" stroke="#17405c" stroke-width="1.6"/><text x="1130" y="181" font-size="22" fill="#17405c" text-anchor="middle">2</text>
-<text x="45" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#6e8ba0" text-anchor="start" font-weight="normal">A</text>
-<rect x="115" y="199" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="185" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="middle" font-weight="bold">10.5</text>
-<line x1="390" y1="235" x2="260" y2="235" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="395" y="199" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="465" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="middle" font-weight="bold">1</text>
-<line x1="670" y1="235" x2="540" y2="235" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="675" y="199" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="745" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="middle" font-weight="bold">10.5</text>
-<line x1="990" y1="235" x2="820" y2="235" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="995" y="199" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="1065" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="middle" font-weight="bold">3.5</text>
-<text x="45" y="355" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#6e8ba0" text-anchor="start" font-weight="normal">B</text>
-<rect x="115" y="309" width="140" height="70" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="185" y="355" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#c47534" text-anchor="middle" font-weight="bold">0</text>
-<line x1="390" y1="345" x2="260" y2="345" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="395" y="309" width="140" height="70" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="465" y="355" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#c47534" text-anchor="middle" font-weight="bold">0</text>
-<line x1="670" y1="345" x2="540" y2="345" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="675" y="309" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="745" y="355" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="middle" font-weight="bold">-1.5</text>
-<line x1="990" y1="345" x2="820" y2="345" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="995" y="309" width="140" height="70" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="1065" y="355" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="middle" font-weight="bold">-0.5</text>
-<text x="44" y="454" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#21364c" text-anchor="start" font-weight="bold">每行的贡献相加：一组参数，只接收一组总梯度</text>
-<text x="110" y="517" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#21364c" text-anchor="middle" font-weight="bold">贡献来源</text>
-<text x="355" y="517" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#21364c" text-anchor="middle" font-weight="bold">w1：x g(z)</text>
-<text x="620" y="517" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#21364c" text-anchor="middle" font-weight="bold">b1：g(z)</text>
-<text x="860" y="517" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#21364c" text-anchor="middle" font-weight="bold">w2：h g(预测)</text>
-<text x="1125" y="517" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" fill="#21364c" text-anchor="middle" font-weight="bold">b2：g(预测)</text>
-<rect x="25" y="560" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="110" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">A</text>
-<rect x="270" y="560" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="355" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">10.5</text>
-<rect x="535" y="560" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="620" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">10.5</text>
-<rect x="775" y="560" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="860" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">7</text>
-<rect x="1040" y="560" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="1125" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">3.5</text>
-<rect x="25" y="638" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="110" y="678" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">B</text>
-<rect x="270" y="638" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="355" y="678" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="535" y="638" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="620" y="678" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="775" y="638" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="860" y="678" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="1040" y="638" width="170" height="60" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="1125" y="678" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="normal">-0.5</text>
-<rect x="25" y="716" width="170" height="60" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="110" y="756" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="bold">总计</text>
-<rect x="270" y="716" width="170" height="60" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="355" y="756" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="bold">10.5</text>
-<rect x="535" y="716" width="170" height="60" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="620" y="756" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="bold">10.5</text>
-<rect x="775" y="716" width="170" height="60" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="860" y="756" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="bold">7</text>
-<rect x="1040" y="716" width="170" height="60" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="1125" y="756" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="middle" font-weight="bold">3</text>
-<rect x="42" y="823" width="1216" height="75" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="64" y="856" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="normal">B 的隐藏路径梯度为 0，但仍给输出偏置贡献 −0.5；</text>
-<text x="64" y="889" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="normal">激活门关闭，不等于这条样本的损失或全部参数梯度都为 0。</text>
-</svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="815" viewBox="0 0 1200 815" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">先通过激活门，再按参数汇总样本贡献</title>
+<desc id="fig-desc">输出梯度已除以批大小。B 的隐藏梯度被截断，但输出偏置仍收到负零点五。</desc>
+<rect x="0" y="0" width="1200" height="815" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">隐藏支路断开，输出偏置还可以收到梯度</text>
+<text x="226" y="149" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">到预激活</text>
+<text x="484" y="149" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">ReLU 导数</text>
+<text x="744" y="149" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">到隐藏值</text>
+<text x="1003" y="149" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="middle" font-weight="400">到预测</text>
+<text x="74" y="214" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">A</text>
+<path d="M143 233 L154 183 L309 183 L298 233 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="226" y="216.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">10.5</text>
+<path d="M401 233 L412 183 L567 183 L556 233 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="484" y="216.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">1</text>
+<path d="M391 208 L320 208" fill="none" stroke="#166d75" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M320 208 L331 203 L331 213 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M661 233 L672 183 L827 183 L816 233 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="744" y="216.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">10.5</text>
+<path d="M651 208 L580 208" fill="none" stroke="#166d75" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M580 208 L591 203 L591 213 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M920 233 L931 183 L1086 183 L1075 233 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1003" y="216.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">3.5</text>
+<path d="M910 208 L839 208" fill="none" stroke="#166d75" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M839 208 L850 203 L850 213 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="301" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">B</text>
+<path d="M143 320 L154 270 L309 270 L298 320 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="226" y="303.4" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">−0</text>
+<path d="M401 320 L412 270 L567 270 L556 320 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="484" y="303.4" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">0</text>
+<path d="M391 295 L320 295" fill="none" stroke="#a74d3a" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M320 295 L331 290 L331 300 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M661 320 L672 270 L827 270 L816 320 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="744" y="303.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">−1.5</text>
+<path d="M651 295 L580 295" fill="none" stroke="#166d75" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M580 295 L591 290 L591 300 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M920 320 L931 270 L1086 270 L1075 320 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1003" y="303.4" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">−0.5</text>
+<path d="M910 295 L839 295" fill="none" stroke="#166d75" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M839 295 L850 290 L850 300 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="372" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">从右向左读。预测梯度已经包含除以批大小 2。</text>
+<path d="M75 413 L1125 413" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="208" y="487" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="319" y="527" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">10.5</text>
+<rect x="434" y="487" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="545" y="527" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">10.5</text>
+<rect x="660" y="487" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="771" y="527" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">7</text>
+<rect x="886" y="487" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="997" y="527" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">3.5</text>
+<text x="192" y="527" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">A</text>
+<rect x="208" y="555" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="319" y="595" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="434" y="555" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="545" y="595" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">−0</text>
+<rect x="660" y="555" width="222" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="771" y="595" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">−0</text>
+<rect x="886" y="555" width="222" height="64" fill="#fbede8" opacity="1"/>
+<text x="997" y="595" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">−0.5</text>
+<text x="192" y="595" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">B</text>
+<rect x="208" y="623" width="222" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="319" y="663" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">10.5</text>
+<rect x="434" y="623" width="222" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="545" y="663" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">10.5</text>
+<rect x="660" y="623" width="222" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="771" y="663" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">7</text>
+<rect x="886" y="623" width="222" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="997" y="663" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">3</text>
+<text x="192" y="663" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">总计</text>
+<text x="319" y="473" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">对 w₁</text>
+<text x="545" y="473" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">对 b₁</text>
+<text x="771" y="473" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">对 w₂</text>
+<text x="997" y="473" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">对 b₂</text>
+<text x="74" y="747" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">B 给输出偏置贡献 −0.5，尽管它的隐藏梯度为 0。</text>
+</svg>

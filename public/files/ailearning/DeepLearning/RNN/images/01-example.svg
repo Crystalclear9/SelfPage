@@ -1,2 +1,62 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="925.2508" viewBox="0 0 1440 925.2508" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">截断反向传播切断梯度而不必清空状态</title><rect width="1440" height="925.2508" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">截断反向传播切断梯度而不必清空状态</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="783.2508" viewBox="42 75 1196 697" role="img" x="48" y="106" overflow="hidden"><rect x="42" y="75" width="1196" height="697" fill="#ffffff"/><title>前向值完全相同：截断改变的是哪一项导数？</title><rect width="1280" height="800" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="115" font-size="27" fill="#769099" text-anchor="start">h(t) = w × h(t−1) + x(t)，w = 0.5，输入 (1, 2, 3)，h(0) = 0</text><circle cx="110" cy="245" r="28" fill="#257190"/><text x="110" y="255" font-size="26" fill="white" text-anchor="middle">0</text><text x="110" y="185" font-size="28" fill="#257190" text-anchor="middle">h0</text><line x1="148" y1="245" x2="352" y2="245" stroke="#257190" stroke-width="4"/><path d="M341.47,250.75 L352.00,245.00 L341.47,239.25" fill="none" stroke="#257190" stroke-width="4"/><text x="250.0" y="300" font-size="26" fill="#769099" text-anchor="middle">×0.5，+1</text><circle cx="390" cy="245" r="28" fill="#257190"/><text x="390" y="255" font-size="26" fill="white" text-anchor="middle">1</text><text x="390" y="185" font-size="28" fill="#257190" text-anchor="middle">h1</text><line x1="428" y1="245" x2="632" y2="245" stroke="#257190" stroke-width="4"/><path d="M621.47,250.75 L632.00,245.00 L621.47,239.25" fill="none" stroke="#257190" stroke-width="4"/><text x="530.0" y="300" font-size="26" fill="#769099" text-anchor="middle">×0.5，+2</text><circle cx="670" cy="245" r="28" fill="#257190"/><text x="670" y="255" font-size="26" fill="white" text-anchor="middle">2.5</text><text x="670" y="185" font-size="28" fill="#257190" text-anchor="middle">h2</text><line x1="708" y1="245" x2="912" y2="245" stroke="#257190" stroke-width="4"/><path d="M901.47,250.75 L912.00,245.00 L901.47,239.25" fill="none" stroke="#257190" stroke-width="4"/><text x="810.0" y="300" font-size="26" fill="#769099" text-anchor="middle">×0.5，+3</text><circle cx="950" cy="245" r="28" fill="#257190"/><text x="950" y="255" font-size="26" fill="white" text-anchor="middle">4.25</text><text x="950" y="185" font-size="28" fill="#257190" text-anchor="middle">h3</text><text x="60" y="365" font-size="29" fill="#1a2b3d" text-anchor="start">损失 L = 0.5 × h3²；反向伴随从末步 4.25 开始</text><text x="390" y="440" font-size="27" fill="#257190" text-anchor="middle">g(h1) = 1.0625</text><line x1="625" y1="468" x2="455" y2="468" stroke="#bf6d42" stroke-width="4"/><path d="M465.53,462.25 L455.00,468.00 L465.53,473.75" fill="none" stroke="#bf6d42" stroke-width="4"/><text x="670" y="440" font-size="27" fill="#257190" text-anchor="middle">g(h2) = 2.125</text><line x1="905" y1="468" x2="735" y2="468" stroke="#bf6d42" stroke-width="4"/><path d="M745.53,462.25 L735.00,468.00 L745.53,473.75" fill="none" stroke="#bf6d42" stroke-width="4"/><text x="950" y="440" font-size="27" fill="#257190" text-anchor="middle">g(h3) = 4.25</text><line x1="60" y1="490" x2="1220" y2="490" stroke="#dfe4eb" stroke-width="2"/><text x="60" y="545" font-size="29" fill="#1a2b3d" text-anchor="start">共享 w 的贡献</text><text x="60" y="599" font-size="27" fill="#257190" text-anchor="start">第 2 步：2.125 × 1 = 2.125</text><text x="60" y="648" font-size="27" fill="#bf6d42" text-anchor="start">第 3 步：4.25 × 2.5 = 10.625</text><rect x="670" y="570" width="74.375" height="38" fill="#257190"/><rect x="744.375" y="570" width="371.875" height="38" fill="#bf6d42"/><text x="670" y="658" font-size="29" fill="#1a2b3d" text-anchor="start">完整梯度 12.75</text><text x="60" y="750" font-size="29" fill="#bf6d42" text-anchor="start">若在 h2 后 detach：h3 仍是 4.25，但只留下第 3 步的 10.625。</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="754" viewBox="0 0 1200 754" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">保持前向状态与切断梯度可以同时发生</title>
+<desc id="fig-desc">三个前向状态保持，完整反向通过二三两步，截断后只留下第三步。</desc>
+<rect x="0" y="0" width="1200" height="754" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">截断的是反向路径，前向状态仍传递</text>
+<text x="74" y="112" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">循环系数 w = 0.5，输入为 (1, 2, 3)。</text>
+<circle cx="124" cy="186" r="25" fill="url(#t)" stroke="#166d75" stroke-width="1.55"/>
+<text x="124" y="194" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0</text>
+<text x="124" y="238" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">h0</text>
+<path d="M153 186 L395 186" fill="none" stroke="#166d75" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M395 186 L384 191 L384 181 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="274.5" y="169" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">× 0.5，+1</text>
+<circle cx="425" cy="186" r="25" fill="url(#t)" stroke="#166d75" stroke-width="1.55"/>
+<text x="425" y="194" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<text x="425" y="238" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">h1</text>
+<path d="M454 186 L694 186" fill="none" stroke="#166d75" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M694 186 L683 191 L683 181 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="574.5" y="169" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">× 0.5，+2</text>
+<circle cx="724" cy="186" r="25" fill="url(#t)" stroke="#166d75" stroke-width="1.55"/>
+<text x="724" y="194" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2.5</text>
+<text x="724" y="238" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">h2</text>
+<path d="M753 186 L993 186" fill="none" stroke="#166d75" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M993 186 L982 191 L982 181 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="873.5" y="169" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">× 0.5，+3</text>
+<circle cx="1023" cy="186" r="25" fill="url(#t)" stroke="#166d75" stroke-width="1.55"/>
+<text x="1023" y="194" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4.25</text>
+<text x="1023" y="238" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">h3</text>
+<path d="M349 346 L361 296 L501 296 L489 346 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425" y="329.05" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1.0625</text>
+<path d="M648 346 L660 296 L800 296 L788 346 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="724" y="329.05" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2.125</text>
+<path d="M643 321 L508 321" fill="none" stroke="#a74d3a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M508 321 L519 316 L519 326 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M947 346 L959 296 L1099 296 L1087 346 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1023" y="329.05" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4.25</text>
+<path d="M942 321 L807 321" fill="none" stroke="#a74d3a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M807 321 L818 316 L818 326 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="328" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">反向伴随</text>
+<path d="M870 281 L870 361" fill="none" stroke="#6e618e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5"/>
+<text x="870" y="398" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">在 h₂ 后截断</text>
+<path d="M75 439 L1125 439" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="526" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">完整梯度</text>
+<rect x="331" y="495" width="99.875" height="47" fill="#ecf6f6" opacity="1"/>
+<path d="M331 495 L430.875 495" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="380.938" y="526" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">2.125</text>
+<rect x="430.875" y="495" width="499.375" height="47" fill="#fbede8" opacity="1"/>
+<path d="M430.875 495 L930.25 495" fill="none" stroke="#a74d3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="680.562" y="526" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">10.625</text>
+<text x="948.25" y="526" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">合计 12.75</text>
+<text x="74" y="630" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">截断后</text>
+<rect x="331" y="599" width="499.375" height="47" fill="#fbede8" opacity="1"/>
+<path d="M331 599 L830.375 599" fill="none" stroke="#a74d3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="580.688" y="630" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">10.625</text>
+<text x="848.375" y="630" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">合计 10.625</text>
+<text x="74" y="710" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">第 2 步贡献 2.125；第 3 步贡献 10.625。两种前向的 h₃ 均为 4.25。</text>
+</svg>

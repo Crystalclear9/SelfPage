@@ -1,98 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1220" viewBox="0 0 960 1220" role="img" aria-labelledby="title desc">
-<title id="title">多数票稳定后，新标签仍然会出错</title><desc id="desc">五个邻居时，预测为正的概率为 0.05792，独立新标签的错误率为 0.234752。邻居数增大，错误率趋近 0.2。</desc>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0.000" y="0.000" width="960.000" height="1220.000" rx="0" fill="#ffffff" stroke="none" stroke-width="1.6"/>
-<text x="44.000" y="61.000" fill="#172a40" font-size="38" font-weight="700" text-anchor="start">多数票稳定后，新标签仍然会出错</text>
-<text x="46.000" y="106.000" fill="#465d72" font-size="26" font-weight="400" text-anchor="start">每个标签独立，正例概率 0.2，输入不提供额外信息</text>
-<rect x="44.000" y="145.000" width="44.000" height="41.000" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.6"/>
-<text x="66.000" y="174.000" fill="#136d84" font-size="26" font-weight="700" text-anchor="middle">A</text>
-<text x="103.000" y="174.000" fill="#172a40" font-size="31" font-weight="700" text-anchor="start">五个邻居中，三张正票才会预测为正</text>
-<text x="138.000" y="254.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="end">0 票</text>
-<rect x="171.000" y="234.000" width="455.475" height="22.000" rx="3" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="641.475" y="255.000" fill="#136d84" font-size="25" font-weight="650" text-anchor="start">0.32768</text>
-<text x="138.000" y="304.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="end">1 票</text>
-<rect x="171.000" y="284.000" width="569.344" height="22.000" rx="3" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="755.344" y="305.000" fill="#136d84" font-size="25" font-weight="650" text-anchor="start">0.40960</text>
-<text x="138.000" y="354.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="end">2 票</text>
-<rect x="171.000" y="334.000" width="284.672" height="22.000" rx="3" fill="#136d84" stroke="none" stroke-width="1.6"/>
-<text x="470.672" y="355.000" fill="#136d84" font-size="25" font-weight="650" text-anchor="start">0.20480</text>
-<text x="138.000" y="404.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="end">3 票</text>
-<rect x="171.000" y="384.000" width="71.168" height="22.000" rx="3" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="257.168" y="405.000" fill="#a85127" font-size="25" font-weight="650" text-anchor="start">0.05120</text>
-<text x="138.000" y="454.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="end">4 票</text>
-<rect x="171.000" y="434.000" width="8.896" height="22.000" rx="3" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="194.896" y="455.000" fill="#a85127" font-size="25" font-weight="650" text-anchor="start">0.00640</text>
-<text x="138.000" y="504.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="end">5 票</text>
-<rect x="171.000" y="484.000" width="0.445" height="22.000" rx="3" fill="#a85127" stroke="none" stroke-width="1.6"/>
-<text x="186.445" y="505.000" fill="#a85127" font-size="25" font-weight="650" text-anchor="start">0.00032</text>
-<text x="873.000" y="541.000" fill="#a85127" font-size="26" font-weight="700" text-anchor="end">三票及以上合计 0.05792</text>
-<rect x="44.000" y="594.000" width="44.000" height="41.000" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.6"/>
-<text x="66.000" y="623.000" fill="#136d84" font-size="26" font-weight="700" text-anchor="middle">B</text>
-<text x="103.000" y="623.000" fill="#172a40" font-size="31" font-weight="700" text-anchor="start">把投正概率换算为新标签错误率</text>
-<line x1="123.000" y1="670.000" x2="159.000" y2="670.000" stroke="#136d84" stroke-width="4" stroke-dasharray="none"/>
-<text x="172.000" y="678.000" fill="#136d84" font-size="24" font-weight="650" text-anchor="start">新标签错误率</text>
-<line x1="465.000" y1="670.000" x2="501.000" y2="670.000" stroke="#a85127" stroke-width="4" stroke-dasharray="none"/>
-<text x="514.000" y="678.000" fill="#a85127" font-size="24" font-weight="650" text-anchor="start">投票预测为正的概率</text>
-<line x1="145.000" y1="1049.000" x2="856.000" y2="1049.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="132.000" y="1057.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">0</text>
-<line x1="145.000" y1="961.000" x2="856.000" y2="961.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="132.000" y="969.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">0.1</text>
-<line x1="145.000" y1="873.000" x2="856.000" y2="873.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="132.000" y="881.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">0.2</text>
-<line x1="145.000" y1="785.000" x2="856.000" y2="785.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="132.000" y="793.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">0.3</text>
-<line x1="145.000" y1="741.000" x2="856.000" y2="741.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="132.000" y="749.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end"></text>
-<line x1="145.000" y1="1049.000" x2="856.000" y2="1049.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<line x1="145.000" y1="1049.000" x2="145.000" y2="741.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<line x1="145.000" y1="1049.000" x2="145.000" y2="1057.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="145.000" y="1085.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">1</text>
-<line x1="239.800" y1="1049.000" x2="239.800" y2="1057.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="239.800" y="1085.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">5</text>
-<line x1="382.000" y1="1049.000" x2="382.000" y2="1057.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="382.000" y="1085.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">11</text>
-<line x1="619.000" y1="1049.000" x2="619.000" y2="1057.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="619.000" y="1085.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">21</text>
-<line x1="856.000" y1="1049.000" x2="856.000" y2="1057.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="856.000" y="1085.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">31</text>
-<line x1="145.000" y1="873.000" x2="856.000" y2="873.000" stroke="#465d72" stroke-width="2.5" stroke-dasharray="6 6"/>
-<polyline points="145.000,767.400 192.400,818.088 239.800,842.418 287.200,855.394 334.600,862.661 382.000,866.847 429.400,869.302 476.800,870.761 524.200,871.637 571.600,872.166 619.000,872.488 666.400,872.685 713.800,872.805 761.200,872.879 808.600,872.925 856.000,872.953" fill="none" stroke="#136d84" stroke-width="4" stroke-dasharray="none" stroke-linecap="round"/>
-<circle cx="145.000" cy="767.400" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="192.400" cy="818.088" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="239.800" cy="842.418" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="287.200" cy="855.394" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="334.600" cy="862.661" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="382.000" cy="866.847" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="429.400" cy="869.302" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="476.800" cy="870.761" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="524.200" cy="871.637" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="571.600" cy="872.166" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="619.000" cy="872.488" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="666.400" cy="872.685" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="713.800" cy="872.805" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="761.200" cy="872.879" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="808.600" cy="872.925" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="856.000" cy="872.953" r="4.5" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<polyline points="145.000,873.000 192.400,957.480 239.800,998.030 287.200,1019.657 334.600,1031.768 382.000,1038.744 429.400,1042.837 476.800,1045.269 524.200,1046.728 571.600,1047.610 619.000,1048.147 666.400,1048.474 713.800,1048.675 761.200,1048.799 808.600,1048.875 856.000,1048.922" fill="none" stroke="#a85127" stroke-width="4" stroke-dasharray="none" stroke-linecap="round"/>
-<circle cx="145.000" cy="873.000" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="192.400" cy="957.480" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="239.800" cy="998.030" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="287.200" cy="1019.657" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="334.600" cy="1031.768" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="382.000" cy="1038.744" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="429.400" cy="1042.837" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="476.800" cy="1045.269" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="524.200" cy="1046.728" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="571.600" cy="1047.610" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="619.000" cy="1048.147" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="666.400" cy="1048.474" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="713.800" cy="1048.675" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="761.200" cy="1048.799" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="808.600" cy="1048.875" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="856.000" cy="1048.922" r="4.5" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<text x="862.000" y="815.000" fill="#136d84" font-size="24" font-weight="650" text-anchor="end">Bayes 错误下限 0.2</text>
-<line x1="732.000" y1="825.000" x2="732.000" y2="872.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="866.000" y="1119.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">邻居数 k（奇数）</text>
-<text x="48.000" y="1170.000" fill="#172a40" font-size="25" font-weight="650" text-anchor="start">五个邻居时，新标签错误率为 0.234752。</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="599" viewBox="0 0 1200 599" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">多数投正与新标签错误是两个概率</title>
+<desc id="fig-desc">左图为五张邻居票的精确二项质量函数；右图把奇数邻居规模的投正概率换算为新标签错误率。</desc>
+<rect x="0" y="0" width="1200" height="599" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="77" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">五张票，至少三张正票才投正</text>
+<text x="652" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">用独立新标签核算错误率</text>
+<rect x="105.769" y="233.661" width="34" height="199.339" fill="#ecf6f6" opacity="1"/>
+<path d="M122.769 233.661 L122.769 433" fill="none" stroke="#166d75" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="122.769" cy="233.661" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<text x="122.769" y="216.661" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle" font-weight="400">0.32768</text>
+<rect x="172.659" y="183.827" width="34" height="249.173" fill="#ecf6f6" opacity="1"/>
+<path d="M189.659 183.827 L189.659 433" fill="none" stroke="#166d75" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="189.659" cy="183.827" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<text x="189.659" y="166.827" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle" font-weight="400">0.40960</text>
+<rect x="239.548" y="308.413" width="34" height="124.587" fill="#ecf6f6" opacity="1"/>
+<path d="M256.548 308.413 L256.548 433" fill="none" stroke="#166d75" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="256.548" cy="308.413" r="6" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<text x="256.548" y="291.413" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle" font-weight="400">0.20480</text>
+<rect x="306.438" y="401.853" width="34" height="31.147" fill="#fbede8" opacity="1"/>
+<path d="M323.438 401.853 L323.438 433" fill="none" stroke="#a74d3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="323.438" cy="401.853" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="323.438" y="384.853" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle" font-weight="400">0.05120</text>
+<rect x="373.328" y="429.107" width="34" height="3.893" fill="#fbede8" opacity="1"/>
+<path d="M390.328 429.107 L390.328 433" fill="none" stroke="#a74d3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="390.328" cy="429.107" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="390.328" y="412.107" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle" font-weight="400">0.00640</text>
+<rect x="440.217" y="432.805" width="34" height="0.195" fill="#fbede8" opacity="1"/>
+<path d="M457.217 432.805 L457.217 433" fill="none" stroke="#a74d3a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="457.217" cy="432.805" r="6" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="457.217" y="415.805" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle" font-weight="400">0.00032</text>
+<path d="M92 433 L504 433" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M504 433 L493 438 L493 428 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M92 433 L92 129" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M92 129 L97 140 L87 140 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122.769 429 L122.769 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="122.769" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M189.659 429 L189.659 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="189.659" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M256.548 429 L256.548 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="256.548" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M323.438 429 L323.438 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="323.438" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">3</text>
+<path d="M390.328 429 L390.328 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="390.328" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">4</text>
+<path d="M457.217 429 L457.217 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="457.217" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">5</text>
+<path d="M87 372.167 L96 372.167" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="378.167" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.1</text>
+<path d="M87 311.333 L96 311.333" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="317.333" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.2</text>
+<path d="M87 250.5 L96 250.5" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="256.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.3</text>
+<path d="M87 189.667 L96 189.667" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="195.667" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.4</text>
+<text x="511" y="439" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="start" font-weight="400">票数</text>
+<text x="92" y="119" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">概率</text>
+<text x="100" y="515" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">三票及以上概率 = 0.05792</text>
+<path d="M671 348.362 L1078 348.362" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 263.725 L1078 263.725" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 179.087 L1078 179.087" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 433 L1090 433" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1090 433 L1079 438 L1079 428 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 433 L671 129" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 129 L676 140 L666 140 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M671 429 L671 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="671" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M725.267 429 L725.267 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="725.267" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">5</text>
+<path d="M806.667 429 L806.667 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="806.667" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">11</text>
+<path d="M942.333 429 L942.333 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="942.333" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">21</text>
+<path d="M1078 429 L1078 438" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1078" y="462" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">31</text>
+<path d="M666 348.362 L675 348.362" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="661" y="354.362" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.1</text>
+<path d="M666 263.725 L675 263.725" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="661" y="269.725" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.2</text>
+<path d="M666 179.087 L675 179.087" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="661" y="185.087" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.3</text>
+<text x="1097" y="439" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">k</text>
+<text x="671" y="119" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">概率</text>
+<path d="M671 263.725 L1078 263.725" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5"/>
+<path d="M671 162.159 L698.133 210.911 L725.267 234.311 L752.4 246.792 L779.533 253.781 L806.667 257.806 L833.8 260.168 L860.933 261.572 L888.067 262.414 L915.2 262.923 L942.333 263.232 L969.467 263.421 L996.6 263.537 L1023.733 263.609 L1050.867 263.653 L1078 263.68" fill="none" stroke="#166d75" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="671" cy="162.159" r="5" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="725.267" cy="234.311" r="5" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="806.667" cy="257.806" r="5" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="942.333" cy="263.232" r="5" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="1078" cy="263.68" r="5" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M671 263.725 L698.133 344.977 L725.267 383.978 L752.4 404.778 L779.533 416.427 L806.667 423.136 L833.8 427.072 L860.933 429.412 L888.067 430.815 L915.2 431.663 L942.333 432.179 L969.467 432.494 L996.6 432.688 L1023.733 432.807 L1050.867 432.88 L1078 432.925" fill="none" stroke="#a74d3a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="671" cy="263.725" r="5" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="725.267" cy="383.978" r="5" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="806.667" cy="423.136" r="5" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="942.333" cy="432.179" r="5" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="1078" cy="432.925" r="5" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<text x="1055" y="225" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="end" font-weight="400">新标签错误率</text>
+<text x="1055" y="283" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="end" font-weight="400">Bayes 错误下限 0.2</text>
+<text x="1060" y="370" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">多数投正概率</text>
+<text x="677" y="515" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">五邻居时，新标签错误率 = 0.234752</text>
+<path d="M75 547 L1125 547" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="77" y="579" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">每个标签正例概率为 0.2，邻居标签与新标签独立。</text>
 </svg>

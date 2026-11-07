@@ -1,2 +1,84 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1217.2" viewBox="0 0 1440 1217.2" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">连续两次省略参数调用时，同一默认列表被再次追加，而None方案创建两份列表</title><rect width="1440" height="1217.2" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="35" font-weight="700" fill="#142b45">连续两次省略参数调用时，同一默认列表被再次追加，而None方案创建两份列表</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1075.2" viewBox="0 0 1800 1440" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-eaf4fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf4fa"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient><linearGradient id="book-wash-eaf6f2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf6f2"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>默认参数对象与返回引用在第二次调用后仍共享</title><rect width="1800" height="1440" fill="white"/><defs><marker id="b" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#1672a0" stroke-width="2"/></marker><marker id="o" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#d37537" stroke-width="2"/></marker><marker id="g" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#818fa4" stroke-width="2"/></marker><marker id="t" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#1e9195" stroke-width="2"/></marker></defs><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif"><text x="460" y="80" font-size="34" fill="#20354a" text-anchor="middle" font-weight="400">out = []：定义时创建一次</text><text x="70" y="180" font-size="31" fill="#20354a" text-anchor="start" font-weight="400">第一次返回后</text><text x="70" y="300" font-size="28" fill="#1672a0" text-anchor="start" font-weight="400">collect.__defaults__[0]</text><line x1="420" y1="290" x2="610" y2="390" stroke="#1672a0" stroke-width="3" marker-end="url(#b)"/><text x="70" y="405" font-size="28" fill="#1672a0" text-anchor="start" font-weight="400">第一次返回 r1</text><line x1="420" y1="395" x2="610" y2="390" stroke="#1672a0" stroke-width="3" marker-end="url(#b)"/><rect x="630" y="330" width="250" height="130" rx="4" fill="url(#book-wash-eaf4fa)" stroke="#1672a0" stroke-width="2"/><text x="755" y="300" font-size="30" fill="#1672a0" text-anchor="middle" font-weight="400">同一个 L</text><text x="755" y="410" font-size="38" fill="#1672a0" text-anchor="middle" font-weight="400">[1]</text><text x="70" y="730" font-size="31" fill="#20354a" text-anchor="start" font-weight="400">第二次返回后</text><text x="70" y="850" font-size="28" fill="#1672a0" text-anchor="start" font-weight="400">collect.__defaults__[0]</text><line x1="420" y1="840" x2="610" y2="940" stroke="#1672a0" stroke-width="3" marker-end="url(#b)"/><text x="70" y="955" font-size="28" fill="#1672a0" text-anchor="start" font-weight="400">第一次返回 r1</text><line x1="420" y1="945" x2="610" y2="940" stroke="#1672a0" stroke-width="3" marker-end="url(#b)"/><text x="70" y="1060" font-size="28" fill="#1672a0" text-anchor="start" font-weight="400">第二次返回 r2</text><line x1="420" y1="1050" x2="610" y2="940" stroke="#1672a0" stroke-width="3" marker-end="url(#b)"/><rect x="630" y="880" width="250" height="130" rx="4" fill="url(#book-wash-eaf4fa)" stroke="#1672a0" stroke-width="2"/><text x="755" y="850" font-size="30" fill="#1672a0" text-anchor="middle" font-weight="400">同一个 L</text><text x="755" y="960" font-size="38" fill="#1672a0" text-anchor="middle" font-weight="400">[1, 2]</text><text x="1360" y="80" font-size="34" fill="#20354a" text-anchor="middle" font-weight="400">out = None：每次创建新列表</text><text x="970" y="180" font-size="31" fill="#20354a" text-anchor="start" font-weight="400">第一次返回后</text><text x="970" y="395" font-size="30" fill="#1e9195" text-anchor="start" font-weight="400">第一次返回 r1</text><line x1="1250" y1="385" x2="1470" y2="385" stroke="#1e9195" stroke-width="3" marker-end="url(#t)"/><rect x="1490" y="330" width="270" height="110" rx="4" fill="url(#book-wash-eaf6f2)" stroke="#1e9195" stroke-width="2"/><text x="1625" y="400" font-size="38" fill="#1e9195" text-anchor="middle" font-weight="400">[1]</text><text x="970" y="730" font-size="31" fill="#20354a" text-anchor="start" font-weight="400">第二次返回后</text><text x="970" y="945" font-size="30" fill="#1e9195" text-anchor="start" font-weight="400">第一次返回 r1</text><line x1="1250" y1="935" x2="1470" y2="935" stroke="#1e9195" stroke-width="3" marker-end="url(#t)"/><rect x="1490" y="880" width="270" height="110" rx="4" fill="url(#book-wash-eaf6f2)" stroke="#1e9195" stroke-width="2"/><text x="1625" y="950" font-size="38" fill="#1e9195" text-anchor="middle" font-weight="400">[1]</text><text x="970" y="1125" font-size="30" fill="#1e9195" text-anchor="start" font-weight="400">第二次返回 r2</text><line x1="1250" y1="1115" x2="1470" y2="1115" stroke="#1e9195" stroke-width="3" marker-end="url(#t)"/><rect x="1490" y="1060" width="270" height="110" rx="4" fill="url(#book-wash-eaf6f2)" stroke="#1e9195" stroke-width="2"/><text x="1625" y="1130" font-size="38" fill="#1e9195" text-anchor="middle" font-weight="400">[2]</text><text x="900" y="1370" font-size="34" fill="#20354a" text-anchor="middle" font-weight="400">返回引用不是内容快照；检查对象身份与内容变化</text></g></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="702" viewBox="0 0 1360 702" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">两次省略参数，返回值可能共享同一对象</title>
+  <desc id="plate-desc">左侧默认列表在定义时创建，调用两次后 r1 和 r2 共享 [1,2]。右侧 None 分支在每次调用时创建新列表。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="702" fill="white" stroke="none" stroke-width="1.6"/>
+  <text x="335" y="64" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="36" fill="#202a37" text-anchor="middle">默认列表只创建一次</text>
+  <text x="149" y="135" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#a84b3b" text-anchor="middle">第一次调用后</text>
+  <text x="498" y="135" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#a84b3b" text-anchor="middle">第二次调用后</text>
+  <polygon points="71.5,241 200.15,241 226.5,179 97.85,179" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="149" y="219.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">r1</text>
+  <line x1="149" y1="251" x2="149" y2="323" stroke="#a84b3b" stroke-width="1.85" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="59,401.5 208.4,401.5 239,336.5 89.6,336.5" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="149" y="378.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">L : [1]</text>
+  <polygon points="354.5,240.5 466.55,240.5 489.5,179.5 377.45,179.5" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="422" y="219.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">r1</text>
+  <line x1="422" y1="248" x2="500" y2="327" stroke="#a84b3b" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="512.5,240.5 624.55,240.5 647.5,179.5 535.45,179.5" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="580" y="219.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">r2</text>
+  <line x1="580" y1="248" x2="500" y2="327" stroke="#a84b3b" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <polygon points="407,401.5 561.38,401.5 593,336.5 438.62,336.5" stroke="#a84b3b" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-coral)"/>
+  <text x="500" y="378.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#a84b3b" text-anchor="middle">L : [1, 2]</text>
+  <line x1="251" y1="369" x2="393" y2="369" stroke="#657682" stroke-width="1.7" stroke-linecap="round" marker-end="url(#arrow-gray)" stroke-dasharray="5 5"/>
+  <text x="335" y="492" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#a84b3b" text-anchor="middle">第二次追加改变的是同一份 L</text>
+  <text x="1015" y="64" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="36" fill="#202a37" text-anchor="middle">每次调用创建新列表</text>
+  <text x="829" y="135" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#196f77" text-anchor="middle">第一次调用后</text>
+  <text x="1178" y="135" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#196f77" text-anchor="middle">第二次调用后</text>
+  <polygon points="751.5,241 880.15,241 906.5,179 777.85,179" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="829" y="219.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">r1</text>
+  <line x1="829" y1="251" x2="829" y2="323" stroke="#196f77" stroke-width="1.85" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="732,401.5 894,401.5 926,336.5 764,336.5" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="829" y="378.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">L1 : [1]</text>
+  <polygon points="1100.5,241 1229.15,241 1255.5,179 1126.85,179" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="1178" y="219.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">r2</text>
+  <line x1="1178" y1="251" x2="1178" y2="323" stroke="#196f77" stroke-width="1.85" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <polygon points="1081,401.5 1243,401.5 1275,336.5 1113,336.5" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <text x="1178" y="378.24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="28" fill="#196f77" text-anchor="middle">L2 : [2]</text>
+  <text x="1015" y="492" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="28" fill="#196f77" text-anchor="middle">两个返回引用指向不同对象</text>
+  <line x1="680" y1="89" x2="680" y2="553" stroke="#d4e0e4" stroke-width="1.4" stroke-linecap="round"/>
+  <text x="680" y="632" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="29" fill="#202a37" text-anchor="middle">旧引用读的是对象当前内容；打印过的文本才是当时的记录。</text>
+</svg>

@@ -1,53 +1,40 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="999.0089" viewBox="0 0 1440 999.0089" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">RAG 检索先验、联合质量、后验责任度及两种损失的对照</title><rect width="1440" height="999.0089" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">RAG 检索先验、联合质量、后验责任度及两种损失的对照</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="857.0089" viewBox="27 60 1126 718" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden">
-<defs><linearGradient id="book-wash-eef4f9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4f9"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><rect x="27" y="60" width="1126" height="718" fill="#ffffff"/><title id="title">检索先验与答案后验的责任度不同</title><desc id="desc">两个候选先验0.8和0.2，目标答案似然0.1和0.9，联合质量0.08和0.18，边缘答案概率0.26；后验责任度4/13与9/13。平均负对数似然1.8631不同于边缘负对数似然1.3471。</desc>
-<rect width="1200" height="810" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1f3449">
-<text x="44" y="100" font-size="26" fill="#62819a" text-anchor="start" font-weight="400">固定问题 q 与训练答案 y；两份候选组成完整的教学候选集合</text>
-<text x="70" y="169" font-size="27" fill="#1f3449" text-anchor="start" font-weight="700">检索先验 π</text>
-<text x="355" y="169" font-size="27" fill="#1f3449" text-anchor="start" font-weight="700">答案似然 l</text>
-<text x="640" y="169" font-size="27" fill="#1f3449" text-anchor="start" font-weight="700">联合质量 πl</text>
-<text x="925" y="169" font-size="27" fill="#1f3449" text-anchor="start" font-weight="700">后验责任度 r</text>
-<text x="70" y="243" font-size="28" fill="#2472b1" text-anchor="start" font-weight="700">z1</text>
-<text x="170" y="243" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">0.8</text>
-<rect x="70" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="70" y="266" width="168.0" height="27" rx="4" fill="#2472b1" stroke="none"/>
-<text x="311" y="286" font-size="30" fill="#62819a" text-anchor="start" font-weight="400">→</text>
-<text x="455" y="243" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">0.1</text>
-<rect x="355" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="355" y="266" width="21.0" height="27" rx="4" fill="#2472b1" stroke="none"/>
-<text x="596" y="286" font-size="30" fill="#62819a" text-anchor="start" font-weight="400">→</text>
-<text x="740" y="243" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">0.08</text>
-<rect x="640" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="640" y="266" width="16.8" height="27" rx="4" fill="#2472b1" stroke="none"/>
-<text x="881" y="286" font-size="30" fill="#62819a" text-anchor="start" font-weight="400">→</text>
-<text x="1025" y="243" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">0.3077</text>
-<rect x="925" y="266" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="925" y="266" width="64.61538461538461" height="27" rx="4" fill="#2472b1" stroke="none"/>
-<text x="70" y="391" font-size="28" fill="#c57439" text-anchor="start" font-weight="700">z2</text>
-<text x="170" y="391" font-size="28" fill="#c57439" text-anchor="start" font-weight="400">0.2</text>
-<rect x="70" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="70" y="414" width="42.0" height="27" rx="4" fill="#c57439" stroke="none"/>
-<text x="311" y="434" font-size="30" fill="#62819a" text-anchor="start" font-weight="400">→</text>
-<text x="455" y="391" font-size="28" fill="#c57439" text-anchor="start" font-weight="400">0.9</text>
-<rect x="355" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="355" y="414" width="189.0" height="27" rx="4" fill="#c57439" stroke="none"/>
-<text x="596" y="434" font-size="30" fill="#62819a" text-anchor="start" font-weight="400">→</text>
-<text x="740" y="391" font-size="28" fill="#c57439" text-anchor="start" font-weight="400">0.18</text>
-<rect x="640" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="640" y="414" width="37.8" height="27" rx="4" fill="#c57439" stroke="none"/>
-<text x="881" y="434" font-size="30" fill="#62819a" text-anchor="start" font-weight="400">→</text>
-<text x="1025" y="391" font-size="28" fill="#c57439" text-anchor="start" font-weight="400">0.6923</text>
-<rect x="925" y="414" width="210" height="27" rx="5" fill="#edf1f5" stroke="none"/>
-<rect x="925" y="414" width="145.3846153846154" height="27" rx="4" fill="#c57439" stroke="none"/>
-<text x="640" y="503" font-size="27" fill="#1f3449" text-anchor="start" font-weight="700">总质量 = 0.26</text>
-<text x="925" y="503" font-size="27" fill="#1f3449" text-anchor="start" font-weight="700">后验和 = 1</text>
-<text x="70" y="577" font-size="27" fill="#2472b1" text-anchor="start" font-weight="400">边缘负对数似然</text>
-<text x="70" y="653" font-size="27" fill="#c57439" text-anchor="start" font-weight="400">逐证据平均损失</text>
-<rect x="365" y="548" width="431.06356734931495" height="39" rx="5" fill="#2472b1" stroke="none"/>
-<rect x="365" y="624" width="596.2048568085766" height="39" rx="5" fill="#c57439" stroke="none"/>
-<text x="814.063567349315" y="578" font-size="27" fill="#2472b1" text-anchor="start" font-weight="400">1.3471</text>
-<text x="979.2048568085766" y="654" font-size="27" fill="#c57439" text-anchor="start" font-weight="400">1.8631</text>
-<rect x="44" y="714" width="1112" height="62" rx="12" fill="url(#book-wash-eef4f9)" stroke="none"/>
-<text x="65" y="753" font-size="26" fill="#1f3449" text-anchor="start" font-weight="400">差距 0.5161 = KL(先验 ‖ 后验)；后验责任度不是引用支持率。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="721" viewBox="0 0 1200 721" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">检索先验乘以答案似然后得到后验责任</title>
+<desc id="fig-desc">两个候选文档，检索排序可以与后验责任排序相反。</desc>
+<rect x="0" y="0" width="1200" height="721" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">第二条证据的检索先验更低，却承担更多责任</text>
+<rect x="209" y="173" width="216" height="65" fill="#f1f5f6" opacity="1"/>
+<text x="317" y="213.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.8</text>
+<rect x="429" y="173" width="216" height="65" fill="#f1f5f6" opacity="1"/>
+<text x="537" y="213.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.1</text>
+<rect x="649" y="173" width="216" height="65" fill="#ecf6f6" opacity="1"/>
+<text x="757" y="213.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.08</text>
+<rect x="869" y="173" width="216" height="65" fill="#e8e6f2" opacity="1"/>
+<text x="977" y="213.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.3077</text>
+<text x="193" y="213.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">文档 1</text>
+<rect x="209" y="242" width="216" height="65" fill="#f1f5f6" opacity="1"/>
+<text x="317" y="282.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.2</text>
+<rect x="429" y="242" width="216" height="65" fill="#f1f5f6" opacity="1"/>
+<text x="537" y="282.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.9</text>
+<rect x="649" y="242" width="216" height="65" fill="#ecf6f6" opacity="1"/>
+<text x="757" y="282.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.18</text>
+<rect x="869" y="242" width="216" height="65" fill="#e8e6f2" opacity="1"/>
+<text x="977" y="282.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.6923</text>
+<text x="193" y="282.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">文档 2</text>
+<text x="317" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">检索先验</text>
+<text x="537" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">答案似然</text>
+<text x="757" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">联合质量</text>
+<text x="977" y="159" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">后验责任</text>
+<text x="664" y="359" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">联合质量求和 = 0.26</text>
+<text x="664" y="407" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">责任归一后求和 = 1</text>
+<path d="M75 449 L1125 449" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="504" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">边缘 NLL 约 1.3471；逐证据平均损失约 1.8631。</text>
+<text x="75" y="561" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">两者差约 0.5161，等于从检索先验到后验责任的 KL。</text>
+<text x="75" y="619" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">责任度描述模型内部的归因，引用是否支持答案仍需另行判断。</text>
+</svg>

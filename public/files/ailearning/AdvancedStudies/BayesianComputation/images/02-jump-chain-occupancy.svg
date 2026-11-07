@@ -1,44 +1,51 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1011.12" viewBox="0 0 1440 1011.12" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">保留拒绝时的等待长度，才能保留目标平稳占据比例</title><rect width="1440" height="1011.12" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">保留拒绝时的等待长度，才能保留目标平稳占据比例</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg viewBox="0 0 1500 970" width="1344" height="869.12" role="img" x="48" y="106" overflow="hidden">
-<rect width="1500" height="970" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#21374d">
-<text x="65" y="55" font-size="32" fill="#21374d" text-anchor="start" font-weight="normal">A  每次都提议换状态，接受率决定停留</text>
-<circle cx="290" cy="225" r="63" fill="#eaf2f6" stroke="#217599" stroke-width="3"/>
-<text x="290" y="237" font-size="36" fill="#217599" text-anchor="middle" font-weight="normal">A</text>
-<circle cx="1050" cy="225" r="63" fill="#f9eee6" stroke="#cb753f" stroke-width="3"/>
-<text x="1050" y="237" font-size="36" fill="#cb753f" text-anchor="middle" font-weight="normal">B</text>
-<line x1="360" y1="200" x2="975" y2="200" stroke="#217599" stroke-width="4"/>
-<path d="M963.294,205.655 L975.000,200.000 L963.294,194.345" fill="none" stroke="#217599" stroke-width="4"/>
-<text x="670" y="165" font-size="30" fill="#217599" text-anchor="middle" font-weight="normal">A → B：0.25</text>
-<line x1="975" y1="270" x2="360" y2="270" stroke="#cb753f" stroke-width="4"/>
-<path d="M371.706,264.345 L360.000,270.000 L371.706,275.655" fill="none" stroke="#cb753f" stroke-width="4"/>
-<text x="670" y="320" font-size="30" fill="#cb753f" text-anchor="middle" font-weight="normal">B → A：1</text>
-<path d="M230.000,205.000 L170.000,205.000 L170.000,110.000 L290.000,110.000 L290.000,158.000" fill="none" stroke="#217599" stroke-width="3"/>
-<line x1="290" y1="110" x2="290" y2="159" stroke="#217599" stroke-width="3"/>
-<path d="M284.345,147.294 L290.000,159.000 L295.655,147.294" fill="none" stroke="#217599" stroke-width="3"/>
-<text x="105" y="85" font-size="26" fill="#217599" text-anchor="start" font-weight="normal">A 原地：0.75</text>
-<text x="65" y="425" font-size="31" fill="#21374d" text-anchor="start" font-weight="normal">B  停留长度是随机的；以下画它们的期望</text>
-<rect x="120" y="485" width="155" height="80" fill="#eaf2f6" stroke="#217599" stroke-width="1"/>
-<text x="197" y="537" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">A</text>
-<rect x="280" y="485" width="155" height="80" fill="#eaf2f6" stroke="#217599" stroke-width="1"/>
-<text x="357" y="537" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">A</text>
-<rect x="440" y="485" width="155" height="80" fill="#eaf2f6" stroke="#217599" stroke-width="1"/>
-<text x="517" y="537" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">A</text>
-<rect x="600" y="485" width="155" height="80" fill="#eaf2f6" stroke="#217599" stroke-width="1"/>
-<text x="677" y="537" font-size="31" fill="#217599" text-anchor="middle" font-weight="normal">A</text>
-<rect x="760" y="485" width="155" height="80" fill="#f9eee6" stroke="#cb753f" stroke-width="1"/>
-<text x="837" y="537" font-size="31" fill="#cb753f" text-anchor="middle" font-weight="normal">B</text>
-<text x="120" y="620" font-size="28" fill="#217599" text-anchor="start" font-weight="normal">A：平均停留 4 次</text>
-<text x="760" y="620" font-size="28" fill="#cb753f" text-anchor="start" font-weight="normal">B：平均停留 1 次</text>
-<text x="65" y="725" font-size="31" fill="#21374d" text-anchor="start" font-weight="normal">C  按迭代计数与按跳跃计数，得到不同目标</text>
-<text x="100" y="785" font-size="29" fill="#21374d" text-anchor="start" font-weight="normal">完整链的平稳质量</text>
-<rect x="100" y="820" width="448.0" height="60" fill="#217599" stroke="none" stroke-width="1"/>
-<rect x="548.0" y="820" width="111.99999999999997" height="60" fill="#cb753f" stroke="none" stroke-width="1"/>
-<text x="324.0" y="862" font-size="28" fill="white" text-anchor="middle" font-weight="normal">A：0.8</text>
-<text x="604.0" y="862" font-size="28" fill="white" text-anchor="middle" font-weight="normal">B：0.2</text>
-<text x="820" y="785" font-size="29" fill="#21374d" text-anchor="start" font-weight="normal">只记接受后的状态</text>
-<rect x="820" y="820" width="280.0" height="60" fill="#217599" stroke="none" stroke-width="1"/>
-<rect x="1100.0" y="820" width="280.0" height="60" fill="#cb753f" stroke="none" stroke-width="1"/>
-<text x="960.0" y="862" font-size="28" fill="white" text-anchor="middle" font-weight="normal">A：0.5</text>
-<text x="1240.0" y="862" font-size="28" fill="white" text-anchor="middle" font-weight="normal">B：0.5</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="787" viewBox="0 0 1200 787" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">拒绝步携带驻留时间</title>
+<desc id="fig-desc">完整马尔可夫链的占据比例不同于只保留接受转移的跳链。</desc>
+<rect x="0" y="0" width="1200" height="787" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">删掉原地停留，改变了时间平均所用的分母</text>
+<circle cx="248" cy="222" r="34" fill="url(#t)" stroke="#166d75" stroke-width="1.55"/>
+<text x="248" y="230" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">A</text>
+<circle cx="586" cy="222" r="34" fill="url(#r)" stroke="#a74d3a" stroke-width="1.55"/>
+<text x="586" y="230" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">B</text>
+<path d="M282 210 L550 210" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M550 210 L539 215 L539 205 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M550 239 L282 239" fill="none" stroke="#a74d3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M282 239 L293 234 L293 244 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="414" y="184" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.25</text>
+<text x="414" y="276" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<path d="M218 211 L145 192 L145 119 L248 119" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M248 119 L248 185" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M248 185 L243 174 L253 174 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="283" y="130" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">A 原地 0.75</text>
+<text x="752" y="184" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">期望驻留长度</text>
+<path d="M754 254 L766.4 207 L809 207 L796.6 254 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="781.5" y="238.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">A</text>
+<path d="M816 254 L828.4 207 L871 207 L858.6 254 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="843.5" y="238.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">A</text>
+<path d="M878 254 L890.4 207 L933 207 L920.6 254 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="905.5" y="238.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">A</text>
+<path d="M940 254 L952.4 207 L995 207 L982.6 254 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="967.5" y="238.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">A</text>
+<path d="M1002 254 L1014.4 207 L1057 207 L1044.6 254 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1029.5" y="238.55" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">B</text>
+<text x="752" y="295" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">A：4 次；B：1 次</text>
+<path d="M75 347 L1125 347" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="451" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">按迭代计数</text>
+<path d="M279 481 L294 424 L842.2 424 L827.2 481 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="560.6" y="460.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">A · 0.8</text>
+<path d="M842.2 481 L857.2 424 L983 424 L968 481 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="912.6" y="460.9" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">B · 0.2</text>
+<text x="75" y="564" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">只记跳跃</text>
+<path d="M279 594 L294 537 L631 537 L616 594 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="455" y="573.9" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">A · 0.5</text>
+<path d="M631 594 L646 537 L983 537 L968 594 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="807" y="573.9" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" text-anchor="middle" font-weight="400">B · 0.5</text>
+<text x="75" y="693" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">只记接受转移后，A 与 B 严格交替。中间五格画的是驻留期望。</text>
+<text x="75" y="743" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">估计 B 的长期占据比例时，完整链为 0.2，跳链不加权为 0.5。</text>
+</svg>

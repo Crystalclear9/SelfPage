@@ -1,67 +1,75 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="730" viewBox="0 0 1440 730" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">三个权重在共享尺度下都舍入为零，在本通道尺度下得到三个不同的格点</title><rect width="1440" height="730" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">三个权重在共享尺度下都舍入为零，在本通道尺度下得到三个不同的格点</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="588" viewBox="0 0 1440 630" role="img" aria-labelledby="title description" x="48" y="106" overflow="hidden">
-<title id="title">同一权重用共享或逐通道格点舍入</title><desc id="description">普通通道的权重 0.21、0.48、0.83，共享格点间隔 2 时全舍入到 0；本通道格点间隔 0.5 时分别舍入到 0、0.5、1。</desc>
-<rect width="1440" height="630" fill="#fff"/>
-<defs><linearGradient id="bluefill" x2="0" y2="1"><stop stop-color="#b4ddf5"/><stop offset="1" stop-color="#e7f4f9"/></linearGradient><linearGradient id="orangefill" x2="0" y2="1"><stop stop-color="#f2bba3"/><stop offset="1" stop-color="#ffebe3"/></linearGradient><linearGradient id="simplexfill" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#dcf3e7"/><stop offset=".55" stop-color="#d9e9fa"/><stop offset="1" stop-color="#e8ddf9"/></linearGradient><marker id="axis" orient="auto" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="10" refY="5"><path d="M0 0 11 5 0 10Z" fill="#182737"/></marker><marker id="bluearrow" orient="auto" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="14" refX="13" refY="7"><path d="M0 0 15 7 0 14Z" fill="#1e7abd"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#182737">
-<text x="718" y="59" font-size="34" text-anchor="middle" fill="#182737" font-weight="700">相同格点数，比较量化精度</text>
-<text x="290" y="136" font-size="25" text-anchor="end" fill="#182737" font-weight="700">原始权重</text>
-<line x1="342.000" y1="142.000" x2="1285.000" y2="142.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<circle cx="366.150" cy="142.000" r="7" fill="#1d8290" stroke="white" stroke-width="2"/>
-<text x="337" y="96" font-size="22" text-anchor="middle" fill="#1d8290">0.21</text>
-<line x1="337.000" y1="106.000" x2="366.150" y2="133.000" stroke="#1d8290" stroke-width="1.6"/>
-<circle cx="397.200" cy="142.000" r="7" fill="#237cc6" stroke="white" stroke-width="2"/>
-<text x="431" y="96" font-size="22" text-anchor="middle" fill="#237cc6">0.48</text>
-<line x1="431.000" y1="106.000" x2="397.200" y2="133.000" stroke="#237cc6" stroke-width="1.6"/>
-<circle cx="437.450" cy="142.000" r="7" fill="#7a55a8" stroke="white" stroke-width="2"/>
-<text x="525" y="96" font-size="22" text-anchor="middle" fill="#7a55a8">0.83</text>
-<line x1="525.000" y1="106.000" x2="437.450" y2="133.000" stroke="#7a55a8" stroke-width="1.6"/>
-<circle cx="1262.000" cy="142.000" r="9" fill="#af4a78" stroke="white" stroke-width="2"/>
-<text x="1262" y="105" font-size="23" text-anchor="middle" fill="#9c406a">另一通道的离群值 8</text>
-<text x="290" y="278" font-size="27" text-anchor="end" fill="#182737" font-weight="700">共享尺度</text>
-<line x1="342.000" y1="271.000" x2="1298.000" y2="271.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<circle cx="342.000" cy="271.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="342" y="308" font-size="23" text-anchor="middle" fill="#182737">0</text>
-<circle cx="572.000" cy="271.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="572" y="308" font-size="23" text-anchor="middle" fill="#182737">2</text>
-<circle cx="802.000" cy="271.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="802" y="308" font-size="23" text-anchor="middle" fill="#182737">4</text>
-<circle cx="1032.000" cy="271.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="1032" y="308" font-size="23" text-anchor="middle" fill="#182737">6</text>
-<circle cx="1262.000" cy="271.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="1262" y="308" font-size="23" text-anchor="middle" fill="#182737">8</text>
-<text x="290" y="310" font-size="24.64" text-anchor="end" fill="#5a7586">同一数轴 · 格距 2</text>
-<circle cx="366.150" cy="253.000" r="6" fill="#1d8290" stroke="white" stroke-width="2"/>
-<line x1="366.150" y1="253.000" x2="348.000" y2="253.000" stroke="#1d8290" stroke-width="2"/>
-<line x1="342.000" y1="253.000" x2="342.000" y2="262.000" stroke="#1d8290" stroke-width="2" stroke-dasharray="4 3"/>
-<circle cx="397.200" cy="237.000" r="6" fill="#237cc6" stroke="white" stroke-width="2"/>
-<line x1="397.200" y1="237.000" x2="348.000" y2="237.000" stroke="#237cc6" stroke-width="2"/>
-<line x1="342.000" y1="237.000" x2="342.000" y2="262.000" stroke="#237cc6" stroke-width="2" stroke-dasharray="4 3"/>
-<circle cx="437.450" cy="221.000" r="6" fill="#7a55a8" stroke="white" stroke-width="2"/>
-<line x1="437.450" y1="221.000" x2="348.000" y2="221.000" stroke="#7a55a8" stroke-width="2"/>
-<line x1="342.000" y1="221.000" x2="342.000" y2="262.000" stroke="#7a55a8" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="290" y="450" font-size="27" text-anchor="end" fill="#182737" font-weight="700">本通道尺度</text>
-<line x1="342.000" y1="443.000" x2="1078.000" y2="443.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<circle cx="342.000" cy="443.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="342" y="480" font-size="23" text-anchor="middle" fill="#182737">0</text>
-<circle cx="517.000" cy="443.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="517" y="480" font-size="23" text-anchor="middle" fill="#182737">0.5</text>
-<circle cx="692.000" cy="443.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="692" y="480" font-size="23" text-anchor="middle" fill="#182737">1</text>
-<circle cx="867.000" cy="443.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="867" y="480" font-size="23" text-anchor="middle" fill="#182737">1.5</text>
-<circle cx="1042.000" cy="443.000" r="8" fill="#8392a8" stroke="white" stroke-width="2"/>
-<text x="1042" y="480" font-size="23" text-anchor="middle" fill="#182737">2</text>
-<text x="290" y="482" font-size="24.69" text-anchor="end" fill="#5a7586">局部放大 · 格距 0.5</text>
-<circle cx="415.500" cy="425.000" r="6" fill="#1d8290" stroke="white" stroke-width="2"/>
-<line x1="415.500" y1="425.000" x2="348.000" y2="425.000" stroke="#1d8290" stroke-width="2"/>
-<line x1="342.000" y1="425.000" x2="342.000" y2="434.000" stroke="#1d8290" stroke-width="2" stroke-dasharray="4 3"/>
-<circle cx="510.000" cy="409.000" r="6" fill="#237cc6" stroke="white" stroke-width="2"/>
-<line x1="517.000" y1="409.000" x2="517.000" y2="434.000" stroke="#237cc6" stroke-width="2" stroke-dasharray="4 3"/>
-<circle cx="632.500" cy="393.000" r="6" fill="#7a55a8" stroke="white" stroke-width="2"/>
-<line x1="632.500" y1="393.000" x2="686.000" y2="393.000" stroke="#7a55a8" stroke-width="2"/>
-<line x1="692.000" y1="393.000" x2="692.000" y2="434.000" stroke="#7a55a8" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="510" y="570" font-size="27" text-anchor="middle" fill="#182737" font-weight="700">共享尺度  0、0、0</text>
-<text x="962" y="570" font-size="27" text-anchor="middle" fill="#182737" font-weight="700">本通道尺度  0、0.5、1</text>
-</g>
-</svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="736" viewBox="0 0 1200 736" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">相同权重在两种网格上舍入</title>
+<desc id="fig-desc">用三色追踪三个权重；上排共享范围含另一通道的离群值八。</desc>
+<rect x="0" y="0" width="1200" height="736" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">同一组权重，换一个刻度就能保留差异</text>
+<text x="75" y="132" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">共享尺度 · 格距 2</text>
+<path d="M212 287 L1050 287" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1050 287 L1039 292 L1039 282 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226 281 L226 293" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="226" y="322" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<path d="M425 281 L425 293" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425" y="322" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<path d="M624 281 L624 293" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="624" y="322" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<path d="M823 281 L823 293" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="823" y="322" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">6</text>
+<path d="M1022 281 L1022 293" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1022" y="322" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">8</text>
+<text x="255.895" y="200" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.21</text>
+<path d="M255.895 209 L246.895 222" fill="none" stroke="#166d75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="246.895" cy="222" r="4" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M246.895 227 L219 277" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M219 277 L219.993 264.958 L228.726 269.83 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="307.76" y="171" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.48</text>
+<path d="M307.76 180 L273.76 193" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="273.76" cy="193" r="4" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M273.76 198 L226 277" fill="none" stroke="#6e618e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226 277 L227.412 265 L235.97 270.173 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="351.585" y="200" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.83</text>
+<path d="M351.585 209 L308.585 222" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="308.585" cy="222" r="4" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M308.585 227 L233 277" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M233 277 L239.416 266.761 L244.933 275.101 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="226" cy="287" r="6" fill="#ffffff" stroke="#233b4a" stroke-width="3"/>
+<text x="1022" y="258" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="middle" font-weight="400">离群值 8</text>
+<text x="75" y="403" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">单通道尺度 · 格距 0.5</text>
+<path d="M212 558 L1050 558" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1050 558 L1039 563 L1039 553 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226 552 L226 564" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="226" y="593" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<path d="M425 552 L425 564" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425" y="593" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.5</text>
+<path d="M624 552 L624 564" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="624" y="593" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<path d="M823 552 L823 564" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="823" y="593" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1.5</text>
+<path d="M1022 552 L1022 564" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1022" y="593" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<text x="309.58" y="471" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.21</text>
+<path d="M309.58 480 L309.58 493" fill="none" stroke="#166d75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="309.58" cy="493" r="4" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M309.58 498 L226 548" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226 548 L232.873 538.062 L238.007 546.644 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="226" cy="558" r="6" fill="#ffffff" stroke="#166d75" stroke-width="3"/>
+<text x="417.04" y="442" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.48</text>
+<path d="M417.04 451 L417.04 464" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="417.04" cy="464" r="4" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M417.04 469 L425 548" fill="none" stroke="#6e618e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M425 548 L418.922 537.557 L428.872 536.554 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="425" cy="558" r="6" fill="#ffffff" stroke="#6e618e" stroke-width="3"/>
+<text x="556.34" y="471" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.83</text>
+<path d="M556.34 480 L556.34 493" fill="none" stroke="#a74d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="556.34" cy="493" r="4" fill="#a74d3a" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M556.34 498 L624 548" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M624 548 L612.182 545.484 L618.125 537.441 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="624" cy="558" r="6" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<path d="M75 627 L1125 627" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="684" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">上排三者都舍入到 0；下排依次舍入到 0、0.5、1。两排长度单位不同。</text>
+</svg>

@@ -1,100 +1,148 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1132.439" viewBox="0 0 1440 1132.439" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">分页 KV 缓存的槽位账本与共享前缀写时复制</title><rect width="1440" height="1132.439" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">分页 KV 缓存的槽位账本与共享前缀写时复制</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="990.439" viewBox="26 61 1148 846" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden">
-<defs><linearGradient id="book-wash-eef4f9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4f9"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><rect x="26" y="61" width="1148" height="846" fill="#ffffff"/><title id="title">分页KV的块内碎片和写时复制</title><desc id="desc">每块4个token槽。长度5,9,17请求共31个有效槽，稠密填充51槽，独立分页40槽。三分支共享6token前缀后各缓存一个新token，共享满块加3个私有尾块，总16槽；不共享为24槽。</desc>
-<rect width="1200" height="950" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1f3449">
-<text x="44" y="101" font-size="26" fill="#62819a" text-anchor="start" font-weight="400">每块 4 个 token 槽；一个槽代表该位置所需的全部层 K、V</text>
-<text x="44" y="163" font-size="28" fill="#1f3449" text-anchor="start" font-weight="700">① 请求独立：分页仍保留末块空位</text>
-<text x="55" y="241" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">长度 5</text>
-<rect x="220" y="209" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="258" y="209" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="296" y="209" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="334" y="209" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="385" y="209" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="423" y="209" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<rect x="461" y="209" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<rect x="499" y="209" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<text x="1085" y="240" font-size="26" fill="#1f3449" text-anchor="middle" font-weight="400">8 槽</text>
-<text x="55" y="307" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">长度 9</text>
-<rect x="220" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="258" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="296" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="334" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="385" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="423" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="461" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="499" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="550" y="275" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="588" y="275" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<rect x="626" y="275" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<rect x="664" y="275" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<text x="1085" y="306" font-size="26" fill="#1f3449" text-anchor="middle" font-weight="400">12 槽</text>
-<text x="55" y="373" font-size="27" fill="#1f3449" text-anchor="start" font-weight="400">长度 17</text>
-<rect x="220" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="258" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="296" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="334" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="385" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="423" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="461" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="499" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="550" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="588" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="626" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="664" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="715" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="753" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="791" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="829" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="880" y="341" width="34" height="41" rx="4" fill="#2472b1" stroke="#dce5ed"/>
-<rect x="918" y="341" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<rect x="956" y="341" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<rect x="994" y="341" width="34" height="41" rx="4" fill="#eef2f6" stroke="#dce5ed"/>
-<text x="1085" y="372" font-size="26" fill="#1f3449" text-anchor="middle" font-weight="400">20 槽</text>
-<text x="55" y="445" font-size="28" fill="#1f3449" text-anchor="start" font-weight="700">有效内容 31 槽　　稠密批量 51 槽　　独立分页 40 槽</text>
-<line x1="44" y1="478" x2="1156" y2="478" stroke="#dce5ed" stroke-width="2"/>
-<text x="44" y="531" font-size="28" fill="#1f3449" text-anchor="start" font-weight="700">② 三分支：6 项共同前缀，各缓存 1 项不同续写</text>
-<text x="55" y="591" font-size="26" fill="#2472b1" text-anchor="start" font-weight="700">共享满块 A</text>
-<rect x="55" y="614" width="58" height="50" rx="5" fill="#2472b1" stroke="none"/>
-<text x="84" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">1</text>
-<rect x="120" y="614" width="58" height="50" rx="5" fill="#2472b1" stroke="none"/>
-<text x="149" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">2</text>
-<rect x="185" y="614" width="58" height="50" rx="5" fill="#2472b1" stroke="none"/>
-<text x="214" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">3</text>
-<rect x="250" y="614" width="58" height="50" rx="5" fill="#2472b1" stroke="none"/>
-<text x="279" y="649" font-size="27" fill="white" text-anchor="middle" font-weight="400">4</text>
-<text x="55" y="708" font-size="25" fill="#62819a" text-anchor="start" font-weight="400">引用数 3</text>
-<line x1="337" y1="639" x2="670" y2="605" stroke="#62819a" stroke-width="2"/>
-<text x="690" y="614" font-size="25" fill="#1f3449" text-anchor="start" font-weight="400">分支 1</text>
-<rect x="815" y="580" width="65" height="50" rx="5" fill="#2472b1" stroke="#dce5ed"/>
-<text x="847.5" y="614" font-size="27" fill="white" text-anchor="middle" font-weight="400">5</text>
-<rect x="890" y="580" width="65" height="50" rx="5" fill="#2472b1" stroke="#dce5ed"/>
-<text x="922.5" y="614" font-size="27" fill="white" text-anchor="middle" font-weight="400">6</text>
-<rect x="965" y="580" width="65" height="50" rx="5" fill="#c57439" stroke="#dce5ed"/>
-<text x="997.5" y="614" font-size="27" fill="white" text-anchor="middle" font-weight="400">a</text>
-<rect x="1040" y="580" width="65" height="50" rx="5" fill="#edf1f5" stroke="#dce5ed"/>
-<text x="1072.5" y="614" font-size="27" fill="#62819a" text-anchor="middle" font-weight="400">空</text>
-<line x1="337" y1="639" x2="670" y2="688" stroke="#62819a" stroke-width="2"/>
-<text x="690" y="697" font-size="25" fill="#1f3449" text-anchor="start" font-weight="400">分支 2</text>
-<rect x="815" y="663" width="65" height="50" rx="5" fill="#2472b1" stroke="#dce5ed"/>
-<text x="847.5" y="697" font-size="27" fill="white" text-anchor="middle" font-weight="400">5</text>
-<rect x="890" y="663" width="65" height="50" rx="5" fill="#2472b1" stroke="#dce5ed"/>
-<text x="922.5" y="697" font-size="27" fill="white" text-anchor="middle" font-weight="400">6</text>
-<rect x="965" y="663" width="65" height="50" rx="5" fill="#c57439" stroke="#dce5ed"/>
-<text x="997.5" y="697" font-size="27" fill="white" text-anchor="middle" font-weight="400">b</text>
-<rect x="1040" y="663" width="65" height="50" rx="5" fill="#edf1f5" stroke="#dce5ed"/>
-<text x="1072.5" y="697" font-size="27" fill="#62819a" text-anchor="middle" font-weight="400">空</text>
-<line x1="337" y1="639" x2="670" y2="771" stroke="#62819a" stroke-width="2"/>
-<text x="690" y="780" font-size="25" fill="#1f3449" text-anchor="start" font-weight="400">分支 3</text>
-<rect x="815" y="746" width="65" height="50" rx="5" fill="#2472b1" stroke="#dce5ed"/>
-<text x="847.5" y="780" font-size="27" fill="white" text-anchor="middle" font-weight="400">5</text>
-<rect x="890" y="746" width="65" height="50" rx="5" fill="#2472b1" stroke="#dce5ed"/>
-<text x="922.5" y="780" font-size="27" fill="white" text-anchor="middle" font-weight="400">6</text>
-<rect x="965" y="746" width="65" height="50" rx="5" fill="#c57439" stroke="#dce5ed"/>
-<text x="997.5" y="780" font-size="27" fill="white" text-anchor="middle" font-weight="400">c</text>
-<rect x="1040" y="746" width="65" height="50" rx="5" fill="#edf1f5" stroke="#dce5ed"/>
-<text x="1072.5" y="780" font-size="27" fill="#62819a" text-anchor="middle" font-weight="400">空</text>
-<text x="380" y="758" font-size="26" fill="#c57439" text-anchor="start" font-weight="700">尾块写时复制</text>
-<rect x="44" y="842" width="1112" height="70" rx="12" fill="url(#book-wash-eef4f9)" stroke="none"/>
-<text x="65" y="885" font-size="25" fill="#1f3449" text-anchor="start" font-weight="400">最终 1 个共享满块 + 3 个私有尾块 = 16 槽；完全不共享则需 24 槽。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="731" viewBox="0 0 1200 731" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">分页缓存与共享前缀写时复制</title>
+<desc id="fig-desc">每块四个槽。独立分页仍有尾部空位；共享前缀可复用满块，分支写入分开保存。</desc>
+<rect x="0" y="0" width="1200" height="731" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="76" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">独立分页仍按整块分配</text>
+<text x="78" y="134" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">长度 5</text>
+<rect x="229" y="108" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M229 143 L262 143" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="265" y="108" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M265 143 L298 143" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="301" y="108" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M301 143 L334 143" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="337" y="108" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M337 143 L370 143" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="381" y="108" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M381 143 L414 143" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="417" y="108" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<rect x="453" y="108" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<rect x="489" y="108" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<text x="1030" y="135" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">8 槽</text>
+<text x="78" y="197" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">长度 9</text>
+<rect x="229" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M229 206 L262 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="265" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M265 206 L298 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="301" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M301 206 L334 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="337" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M337 206 L370 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="381" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M381 206 L414 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="417" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M417 206 L450 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="453" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M453 206 L486 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="489" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M489 206 L522 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="533" y="171" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M533 206 L566 206" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="569" y="171" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<rect x="605" y="171" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<rect x="641" y="171" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<text x="1030" y="198" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">12 槽</text>
+<text x="78" y="260" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">长度 17</text>
+<rect x="229" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M229 269 L262 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="265" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M265 269 L298 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="301" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M301 269 L334 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="337" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M337 269 L370 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="381" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M381 269 L414 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="417" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M417 269 L450 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="453" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M453 269 L486 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="489" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M489 269 L522 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="533" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M533 269 L566 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="569" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M569 269 L602 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="605" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M605 269 L638 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="641" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M641 269 L674 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="685" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M685 269 L718 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="721" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M721 269 L754 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="757" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M757 269 L790 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="793" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M793 269 L826 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="837" y="234" width="33" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M837 269 L870 269" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="873" y="234" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<rect x="909" y="234" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<rect x="945" y="234" width="33" height="36" fill="#f1f5f6" opacity="1"/>
+<text x="1030" y="261" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">20 槽</text>
+<text x="78" y="318" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">有效 31 槽　稠密填齐 51 槽　独立分页 40 槽</text>
+<path d="M75 353 L1125 353" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="77" y="397" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="26" text-anchor="start" font-weight="600">三个分支 · 共享已满的前缀块</text>
+<rect x="92" y="504" width="60" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M92 539 L152 539" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="122.5" y="529" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">1</text>
+<rect x="155" y="504" width="60" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M155 539 L215 539" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="185.5" y="529" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">2</text>
+<rect x="218" y="504" width="60" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M218 539 L278 539" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="248.5" y="529" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">3</text>
+<rect x="281" y="504" width="60" height="36" fill="#ecf6f6" opacity="1"/>
+<path d="M281 539 L341 539" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="311.5" y="529" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">4</text>
+<text x="94" y="475" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">共享满块 · 三份引用</text>
+<path d="M365 521 L455 521 L522 462" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M522 462 L615 462" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M615 462 L604 467 L604 457 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="650" y="444" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M650 479 L711 479" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="681" y="469" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">5</text>
+<rect x="714" y="444" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M714 479 L775 479" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="745" y="469" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">6</text>
+<rect x="778" y="444" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M778 479 L839 479" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="809" y="469" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">a</text>
+<rect x="842" y="444" width="61" height="36" fill="#f1f5f6" opacity="1"/>
+<text x="931" y="470" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分支 1</text>
+<path d="M365 521 L455 521 L522 526" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M522 526 L615 526" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M615 526 L604 531 L604 521 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="650" y="508" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M650 543 L711 543" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="681" y="533" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">5</text>
+<rect x="714" y="508" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M714 543 L775 543" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="745" y="533" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">6</text>
+<rect x="778" y="508" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M778 543 L839 543" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="809" y="533" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">b</text>
+<rect x="842" y="508" width="61" height="36" fill="#f1f5f6" opacity="1"/>
+<text x="931" y="534" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分支 2</text>
+<path d="M365 521 L455 521 L522 590" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M522 590 L615 590" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M615 590 L604 595 L604 585 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="650" y="572" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M650 607 L711 607" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="681" y="597" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">5</text>
+<rect x="714" y="572" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M714 607 L775 607" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="745" y="597" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">6</text>
+<rect x="778" y="572" width="61" height="36" fill="#fbede8" opacity="1"/>
+<path d="M778 607 L839 607" fill="none" stroke="#a74d3a" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="809" y="597" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">c</text>
+<rect x="842" y="572" width="61" height="36" fill="#f1f5f6" opacity="1"/>
+<text x="931" y="598" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分支 3</text>
+<text x="78" y="670" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">1 个共享满块 + 3 个私有尾块，共 16 槽。完全不共享时需 24 槽。</text>
+</svg>

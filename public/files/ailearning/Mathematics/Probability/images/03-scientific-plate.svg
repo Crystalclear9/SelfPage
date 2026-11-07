@@ -1,63 +1,76 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="641.3333" viewBox="0 0 1440 641.3333" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">固定 x = 0.75 时，切片和条件密度的 y 区间均从 0.75 到 1，高度由 2 变为 4</title><rect width="1440" height="641.3333" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="35" font-weight="700" fill="#142b45">固定 x = 0.75 时，切片和条件密度的 y 区间均从 0.75 到 1，高度由 2 变为 4</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="499.3333" viewBox="0 0 1440 535" role="img" aria-labelledby="title description" x="48" y="106" overflow="hidden">
-<title id="title">联合支持、固定坐标的切片与条件密度</title><desc id="description">支持为 0&lt;x&lt;y&lt;1；固定 x=0.75 后，y 从 0.75 到 1，宽 0.25；密度高度由 2 变为 4。</desc>
-<rect width="1440" height="535" fill="#fff"/>
-<defs><linearGradient id="bluefill" x2="0" y2="1"><stop stop-color="#b4ddf5"/><stop offset="1" stop-color="#e7f4f9"/></linearGradient><linearGradient id="orangefill" x2="0" y2="1"><stop stop-color="#f2bba3"/><stop offset="1" stop-color="#ffebe3"/></linearGradient><linearGradient id="simplexfill" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#dcf3e7"/><stop offset=".55" stop-color="#d9e9fa"/><stop offset="1" stop-color="#e8ddf9"/></linearGradient><marker id="axis" orient="auto" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="10" refY="5"><path d="M0 0 11 5 0 10Z" fill="#182737"/></marker><marker id="bluearrow" orient="auto" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="14" refX="13" refY="7"><path d="M0 0 15 7 0 14Z" fill="#1e7abd"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#182737">
-<text x="247" y="69" font-size="34" text-anchor="middle" fill="#182737" font-weight="700">联合支持</text>
-<text x="711" y="69" font-size="34" text-anchor="middle" fill="#182737" font-weight="700">固定 x = 0.75</text>
-<text x="1175" y="69" font-size="34" text-anchor="middle" fill="#182737" font-weight="700">条件密度</text>
-<polygon points="86.000,430.000 86.000,110.000 406.000,110.000" fill="url(#bluefill)" stroke="none" stroke-width="1"/>
-<line x1="86.000" y1="110.000" x2="406.000" y2="110.000" stroke="#dce7ed" stroke-width="2"/>
-<line x1="406.000" y1="430.000" x2="406.000" y2="110.000" stroke="#dce7ed" stroke-width="2"/>
-<line x1="86.000" y1="430.000" x2="406.000" y2="110.000" stroke="#1e7abd" stroke-width="3" stroke-dasharray="9 7"/>
-<line x1="326.000" y1="430.000" x2="326.000" y2="190.000" stroke="#ba5935" stroke-width="2" stroke-dasharray="5 6"/>
-<line x1="326.000" y1="190.000" x2="326.000" y2="110.000" stroke="#ba5935" stroke-width="7"/>
-<circle cx="326.000" cy="190.000" r="6" fill="#ba5935" stroke="white" stroke-width="2"/>
-<circle cx="326.000" cy="110.000" r="6" fill="#ba5935" stroke="white" stroke-width="2"/>
-<text x="246" y="308.4" font-size="23" text-anchor="middle" fill="#1e7abd">y = x</text>
-<line x1="86.000" y1="430.000" x2="432.000" y2="430.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<line x1="86.000" y1="430.000" x2="86.000" y2="89.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<text x="86" y="465" font-size="21" text-anchor="middle" fill="#182737">0</text>
-<text x="326" y="465" font-size="21" text-anchor="middle" fill="#ba5935">0.75</text>
-<text x="406" y="465" font-size="21" text-anchor="middle" fill="#182737">1</text>
-<text x="58" y="118" font-size="21" text-anchor="middle" fill="#182737">1</text>
-<text x="443" y="439" font-size="23" text-anchor="middle" fill="#182737">x</text>
-<text x="86" y="76" font-size="23" text-anchor="middle" fill="#182737">y</text>
-<text x="246" y="512" font-size="23" text-anchor="middle" fill="#ba5935">截线从 y = 0.75 到 y = 1</text>
-<polygon points="789.000,430.000 789.000,292.000 869.000,292.000 869.000,430.000" fill="url(#orangefill)" stroke="none" stroke-width="1"/>
-<line x1="549.000" y1="292.000" x2="869.000" y2="292.000" stroke="#dce7ed" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="525" y="300" font-size="22" text-anchor="middle" fill="#182737">2</text>
-<line x1="549.000" y1="154.000" x2="869.000" y2="154.000" stroke="#dce7ed" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="525" y="162" font-size="22" text-anchor="middle" fill="#182737">4</text>
-<polyline points="549.000,430.000 789.000,430.000 789.000,292.000 869.000,292.000 869.000,430.000 885.000,430.000" fill="none" stroke="#ba5935" stroke-width="4" stroke-linejoin="round"/>
-<line x1="549.000" y1="430.000" x2="894.000" y2="430.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<line x1="549.000" y1="430.000" x2="549.000" y2="125.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<line x1="549.000" y1="430.000" x2="549.000" y2="437.000" stroke="#182737" stroke-width="2"/>
-<text x="549" y="465" font-size="21" text-anchor="middle" fill="#182737">0</text>
-<line x1="789.000" y1="430.000" x2="789.000" y2="437.000" stroke="#182737" stroke-width="2"/>
-<text x="789" y="465" font-size="21" text-anchor="middle" fill="#ba5935">0.75</text>
-<line x1="869.000" y1="430.000" x2="869.000" y2="437.000" stroke="#182737" stroke-width="2"/>
-<text x="869" y="465" font-size="21" text-anchor="middle" fill="#182737">1</text>
-<text x="911" y="438" font-size="23" text-anchor="middle" fill="#182737">y</text>
-<text x="549" y="113" font-size="22" text-anchor="middle" fill="#182737">密度</text>
-<text x="709" y="512" font-size="23" text-anchor="middle" fill="#ba5935">切片面积 0.25 × 2 = 0.5</text>
-<polygon points="1253.000,430.000 1253.000,154.000 1333.000,154.000 1333.000,430.000" fill="url(#orangefill)" stroke="none" stroke-width="1"/>
-<line x1="1013.000" y1="292.000" x2="1333.000" y2="292.000" stroke="#dce7ed" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="989" y="300" font-size="22" text-anchor="middle" fill="#182737">2</text>
-<line x1="1013.000" y1="154.000" x2="1333.000" y2="154.000" stroke="#dce7ed" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="989" y="162" font-size="22" text-anchor="middle" fill="#182737">4</text>
-<polyline points="1013.000,430.000 1253.000,430.000 1253.000,154.000 1333.000,154.000 1333.000,430.000 1349.000,430.000" fill="none" stroke="#ba5935" stroke-width="4" stroke-linejoin="round"/>
-<line x1="1013.000" y1="430.000" x2="1358.000" y2="430.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<line x1="1013.000" y1="430.000" x2="1013.000" y2="125.000" stroke="#182737" stroke-width="2" marker-end="url(#axis)"/>
-<line x1="1013.000" y1="430.000" x2="1013.000" y2="437.000" stroke="#182737" stroke-width="2"/>
-<text x="1013" y="465" font-size="21" text-anchor="middle" fill="#182737">0</text>
-<line x1="1253.000" y1="430.000" x2="1253.000" y2="437.000" stroke="#182737" stroke-width="2"/>
-<text x="1253" y="465" font-size="21" text-anchor="middle" fill="#ba5935">0.75</text>
-<line x1="1333.000" y1="430.000" x2="1333.000" y2="437.000" stroke="#182737" stroke-width="2"/>
-<text x="1333" y="465" font-size="21" text-anchor="middle" fill="#182737">1</text>
-<text x="1375" y="438" font-size="23" text-anchor="middle" fill="#182737">y</text>
-<text x="1013" y="113" font-size="22" text-anchor="middle" fill="#182737">密度</text>
-<text x="1173" y="512" font-size="23" text-anchor="middle" fill="#ba5935">归一化后面积 0.25 × 4 = 1</text>
-</g>
-</svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="681" viewBox="0 0 1200 681" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">固定横坐标后先积分，再归一化</title>
+<desc id="fig-desc">相同的 y 区间宽四分之一，联合切片高度二，条件密度高度四。</desc>
+<rect x="0" y="0" width="1200" height="681" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="73" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">固定 x = 0.75，条件密度从切片得到</text>
+<text x="74" y="137" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">A　联合支持</text>
+<path d="M106 463 L106 223 L346 223 Z" fill="#ecf6f6" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M106 463 L370 463" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M370 463 L359 468 L359 458 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M106 463 L106 199" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M106 199 L111 210 L101 210 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M106 459 L106 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="106" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M346 459 L346 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="346" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M101 223 L110 223" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="96" y="229" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<text x="377" y="469" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="106" y="189" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y</text>
+<path d="M106 463 L346 223" fill="none" stroke="#166d75" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M286 463 L286 283" fill="none" stroke="#a74d3a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 5"/>
+<path d="M286 283 L286 223" fill="none" stroke="#a74d3a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="286" cy="283" r="5" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<circle cx="286" cy="223" r="5" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<text x="286" y="493" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">0.75</text>
+<text x="460" y="137" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">B　沿 y 的联合切片</text>
+<path d="M637.143 463 L637.143 348.455 L696.19 348.455 L696.19 463 Z" fill="#fbede8" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M460 463 L720 463" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M720 463 L709 468 L709 458 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M460 463 L460 199" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M460 199 L465 210 L455 210 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M460 459 L460 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="460" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M637.143 459 L637.143 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="637.143" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.75</text>
+<path d="M696.19 459 L696.19 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="696.19" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M455 348.455 L464 348.455" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="450" y="354.455" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">2</text>
+<path d="M455 233.909 L464 233.909" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="450" y="239.909" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">4</text>
+<text x="727" y="469" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">y</text>
+<text x="460" y="189" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">密度</text>
+<path d="M460 463 L637.143 463" fill="none" stroke="#526976" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M637.143 463 L637.143 348.455 L696.19 348.455 L696.19 463" fill="none" stroke="#a74d3a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="460" y="536" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.25 × 2 = 0.5</text>
+<text x="827" y="137" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">C　条件密度</text>
+<path d="M1004.143 463 L1004.143 233.909 L1063.19 233.909 L1063.19 463 Z" fill="#ecf6f6" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827 463 L1087 463" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1087 463 L1076 468 L1076 458 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827 463 L827 199" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827 199 L832 210 L822 210 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M827 459 L827 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="827" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M1004.143 459 L1004.143 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1004.143" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.75</text>
+<path d="M1063.19 459 L1063.19 468" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1063.19" y="492" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M822 348.455 L831 348.455" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="817" y="354.455" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">2</text>
+<path d="M822 233.909 L831 233.909" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="817" y="239.909" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">4</text>
+<text x="1094" y="469" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">y</text>
+<text x="827" y="189" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">密度</text>
+<path d="M827 463 L1004.143 463" fill="none" stroke="#526976" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1004.143 463 L1004.143 233.909 L1063.19 233.909 L1063.19 463" fill="none" stroke="#166d75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="827" y="536" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">0.25 × 4 = 1</text>
+<path d="M75 573 L1125 573" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="623" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">两张右图使用同一密度尺度。切片除以 0.5 后，区间不变。</text>
+</svg>

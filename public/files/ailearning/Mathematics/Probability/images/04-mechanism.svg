@@ -1,2 +1,82 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="979.0819" viewBox="0 0 1440 979.0819" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">权重不均匀如何缩小有效样本量</title><rect width="1440" height="979.0819" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">权重不均匀如何缩小有效样本量</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="837.0819" viewBox="29.1556 59.0222 1146.3111 713.9556" role="img" x="48" y="106" overflow="hidden"><title>权重看起来一样，也可能完全漏掉一半目标概率</title><rect width="1280" height="850" fill="white"/><g font-family="Microsoft YaHei, Arial, sans-serif"><text x="54" y="105" font-size="25" fill="#516b7b" text-anchor="start">五状态模型；提议分布只覆盖前四个状态，未覆盖状态 5</text><line x1="110.0" y1="550.0" x2="1130.0" y2="550.0" stroke="#e2e7ee" stroke-width="2"/><text x="98.0" y="558.0" font-size="24" fill="#516b7b" text-anchor="end">0</text><line x1="110.0" y1="475.0" x2="1130.0" y2="475.0" stroke="#e2e7ee" stroke-width="2"/><text x="98.0" y="483.0" font-size="24" fill="#516b7b" text-anchor="end">0.2</text><line x1="110.0" y1="400.0" x2="1130.0" y2="400.0" stroke="#e2e7ee" stroke-width="2"/><text x="98.0" y="408.0" font-size="24" fill="#516b7b" text-anchor="end">0.4</text><line x1="110.0" y1="325.0" x2="1130.0" y2="325.0" stroke="#e2e7ee" stroke-width="2"/><text x="98.0" y="333.0" font-size="24" fill="#516b7b" text-anchor="end">0.6</text><line x1="110.0" y1="250.0" x2="1130.0" y2="250.0" stroke="#e2e7ee" stroke-width="2"/><text x="98.0" y="258.0" font-size="24" fill="#516b7b" text-anchor="end">0.8</text><line x1="212.0" y1="550.0" x2="212.0" y2="556.0" stroke="#62808f" stroke-width="2"/><text x="212.0" y="587.0" font-size="24" fill="#516b7b" text-anchor="middle">1</text><line x1="416.0" y1="550.0" x2="416.0" y2="556.0" stroke="#62808f" stroke-width="2"/><text x="416.0" y="587.0" font-size="24" fill="#516b7b" text-anchor="middle">2</text><line x1="620.0" y1="550.0" x2="620.0" y2="556.0" stroke="#62808f" stroke-width="2"/><text x="620.0" y="587.0" font-size="24" fill="#516b7b" text-anchor="middle">3</text><line x1="824.0" y1="550.0" x2="824.0" y2="556.0" stroke="#62808f" stroke-width="2"/><text x="824.0" y="587.0" font-size="24" fill="#516b7b" text-anchor="middle">4</text><line x1="1028.0" y1="550.0" x2="1028.0" y2="556.0" stroke="#62808f" stroke-width="2"/><text x="1028.0" y="587.0" font-size="24" fill="#516b7b" text-anchor="middle">5</text><line x1="110" y1="550" x2="1130" y2="550" stroke="#62808f" stroke-width="2"/><line x1="110" y1="250" x2="110" y2="550" stroke="#62808f" stroke-width="2"/><text x="620.0" y="626" font-size="26" fill="#1c2f42" text-anchor="middle">状态</text><text x="110" y="230" font-size="26" fill="#1c2f42" text-anchor="start">目标概率</text><rect x="926.0" y="250" width="204.0" height="300" fill="#f4e5dd"/><rect x="170.48" y="287.5" width="30" height="262.5" fill="#1e7093"/><rect x="223.51999999999998" y="418.75" width="30" height="131.25" fill="#b96235"/><rect x="374.48" y="512.5" width="30" height="37.5" fill="#1e7093"/><rect x="427.52" y="531.25" width="30" height="18.75" fill="#b96235"/><rect x="578.48" y="512.5" width="30" height="37.5" fill="#1e7093"/><rect x="631.52" y="531.25" width="30" height="18.75" fill="#b96235"/><rect x="782.48" y="512.5" width="30" height="37.5" fill="#1e7093"/><rect x="835.52" y="531.25" width="30" height="18.75" fill="#b96235"/><rect x="986.4800000000001" y="550.0" width="30" height="0.0" fill="#1e7093"/><rect x="1039.52" y="362.5" width="30" height="187.5" fill="#b96235"/><text x="110" y="175" font-size="28" fill="#1c2f42" text-anchor="start">蓝：目标 A；橙：目标 B</text><text x="930" y="175" font-size="25" fill="#b96235" text-anchor="start">状态 5：从未被采到</text><text x="75" y="690" font-size="26" fill="#1c2f42" text-anchor="start">相同的四个观测，归一化权重都是 (0.7, 0.1, 0.1, 0.1)，ESS ≈ 1.923。</text><text x="75" y="745" font-size="28" fill="#1c2f42" text-anchor="start">估计“是否为状态 5”：样本估计都为 0，目标真值却分别为 0 与 0.5。</text></g><desc> 权重看起来一样，也可能完全漏掉一半目标概率 B 违反支持覆盖条件；权重诊断不能替代对目标与提议分布的核对。</desc></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="720" viewBox="0 0 1360 720" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">权重集中时，平方和揭示样本退化</title>
+  <desc id="plate-desc">四条记录权重之和为一。左侧显示权重，右侧显示权重平方。其和为 0.52，对应有效样本量 25/13。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="720" fill="white" stroke="none" stroke-width="0"/>
+  <text x="378" y="62" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">四条记录的归一化权重</text>
+  <text x="1011" y="62" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">平方后，头部权重更突出</text>
+  <text x="124" y="183" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">1</text>
+  <rect x="165" y="150" width="392" height="46" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.4"/>
+  <text x="595" y="182" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.70</text>
+  <text x="790" y="183" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">1</text>
+  <rect x="831" y="150" width="274.4" height="46" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.4"/>
+  <text x="1143.4" y="182" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">0.49</text>
+  <text x="124" y="288" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">2</text>
+  <rect x="165" y="255" width="56" height="46" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.4"/>
+  <text x="259" y="287" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.10</text>
+  <text x="790" y="288" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">2</text>
+  <rect x="831" y="255" width="5.6" height="46" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.4"/>
+  <text x="874.6" y="287" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">0.01</text>
+  <text x="124" y="393" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">3</text>
+  <rect x="165" y="360" width="56" height="46" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.4"/>
+  <text x="259" y="392" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.10</text>
+  <text x="790" y="393" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">3</text>
+  <rect x="831" y="360" width="5.6" height="46" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.4"/>
+  <text x="874.6" y="392" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">0.01</text>
+  <text x="124" y="498" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">4</text>
+  <rect x="165" y="465" width="56" height="46" fill="url(#wash-teal)" stroke="#196f77" stroke-width="1.4"/>
+  <text x="259" y="497" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">0.10</text>
+  <text x="790" y="498" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">4</text>
+  <rect x="831" y="465" width="5.6" height="46" fill="url(#wash-violet)" stroke="#655184" stroke-width="1.4"/>
+  <text x="874.6" y="497" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">0.01</text>
+  <text x="948" y="614" font-size="27" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">有效样本量 =</text>
+  <text x="1103" y="595" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">25</text>
+  <polyline points="1075.5,602 1130.5,602" fill="none" stroke="#a84b3b" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="1103" y="631" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">13</text>
+  <text x="1216" y="614" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">≈ 1.923</text>
+  <text x="681" y="677" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">它衡量权重集中程度。估计误差还取决于被积函数。</text>
+</svg>

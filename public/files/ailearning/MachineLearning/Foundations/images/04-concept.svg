@@ -1,2 +1,78 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1036.8667" viewBox="0 0 1440 1036.8667" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">上线监测：真实性能变化与总体组成变化需要区分</title><rect width="1440" height="1036.8667" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">上线监测：真实性能变化与总体组成变化需要区分</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="894.8667" viewBox="0 77.746 1280 852.254" role="img" x="48" y="106" overflow="hidden"><rect id="offline-white-background" x="0" y="77.746032" width="1280" height="852.253968" fill="#ffffff"/><title>两组错误率都上升，总体错误率为什么反而下降？</title><rect width="1280" height="930" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="70" y="120" font-size="25" fill="#1c2e40" text-anchor="start">同一批次定义与成熟标签；容易组占比由 0.2 变为 0.8，困难组由 0.8 变为 0.2</text><text x="85" y="185" font-size="27" fill="#1c2e40" text-anchor="start">组内错误率与实际总体错误率</text><line x1="160" y1="580" x2="500" y2="580" stroke="#e0e5ec" stroke-width="2" stroke-dasharray=""/><text x="140" y="588" font-size="24" fill="#1c2e40" text-anchor="end">0</text><line x1="160" y1="440.0" x2="500" y2="440.0" stroke="#e0e5ec" stroke-width="2" stroke-dasharray=""/><text x="140" y="448.0" font-size="24" fill="#1c2e40" text-anchor="end">0.2</text><line x1="160" y1="300.0" x2="500" y2="300.0" stroke="#e0e5ec" stroke-width="2" stroke-dasharray=""/><text x="140" y="308.0" font-size="24" fill="#1c2e40" text-anchor="end">0.4</text><path d="M160.00,510.00 L500.00,475.00" fill="none" stroke="#217292" stroke-width="4"/><circle cx="160" cy="510.0" r="7" fill="#217292"/><text x="172" y="535.0" font-size="24" fill="#217292" text-anchor="start">0.1</text><circle cx="500" cy="475.0" r="7" fill="#217292"/><text x="440" y="500" font-size="24" fill="#217292" text-anchor="start">0.15</text><text x="520" y="485.0" font-size="24" fill="#217292" text-anchor="start">容易组</text><path d="M160.00,300.00 L500.00,265.00" fill="none" stroke="#bd6c41" stroke-width="4"/><circle cx="160" cy="300.0" r="7" fill="#bd6c41"/><text x="172" y="285.0" font-size="24" fill="#bd6c41" text-anchor="start">0.4</text><circle cx="500" cy="265.0" r="7" fill="#bd6c41"/><text x="512" y="250.0" font-size="24" fill="#bd6c41" text-anchor="start">0.45</text><text x="520" y="275.0" font-size="24" fill="#bd6c41" text-anchor="start">困难组</text><path d="M160.00,342.00 L500.00,433.00" fill="none" stroke="#1c2e40" stroke-width="4"/><circle cx="160" cy="342.0" r="7" fill="#1c2e40"/><text x="172" y="377.0" font-size="24" fill="#1c2e40" text-anchor="start">0.34</text><circle cx="500" cy="433.0" r="7" fill="#1c2e40"/><text x="440" y="410" font-size="24" fill="#1c2e40" text-anchor="start">0.21</text><text x="520" y="443.0" font-size="24" fill="#1c2e40" text-anchor="start">实际总体</text><text x="160" y="625" font-size="25" fill="#1c2e40" text-anchor="middle">旧环境</text><text x="500" y="625" font-size="25" fill="#1c2e40" text-anchor="middle">新环境</text><text x="735" y="185" font-size="25" fill="#1c2e40" text-anchor="start">错误率贡献 = 组占比 × 组内率</text><text x="735" y="360" font-size="26" fill="#1c2e40" text-anchor="start">旧</text><rect x="790" y="330" width="17.0" height="50" fill="#217292"/><text x="798.5" y="318" font-size="24" fill="#217292" text-anchor="middle">0.02</text><rect x="807.0" y="330" width="272.0" height="50" fill="#bd6c41"/><text x="943.0" y="318" font-size="24" fill="#bd6c41" text-anchor="middle">0.32</text><text x="1099.0" y="363" font-size="24" fill="#1c2e40" text-anchor="start">总和 0.34</text><text x="735" y="530" font-size="26" fill="#1c2e40" text-anchor="start">新</text><rect x="790" y="500" width="102.0" height="50" fill="#217292"/><text x="841.0" y="488" font-size="24" fill="#217292" text-anchor="middle">0.12</text><rect x="892.0" y="500" width="76.5" height="50" fill="#bd6c41"/><text x="930.25" y="488" font-size="24" fill="#bd6c41" text-anchor="middle">0.09</text><text x="988.5" y="533" font-size="24" fill="#1c2e40" text-anchor="start">总和 0.21</text><text x="70" y="700" font-size="27" fill="#1c2e40" text-anchor="start">固定旧组成后：总体 0.34 → 0.39，显示同类对象确实退化</text><line x1="160" y1="804.0" x2="600" y2="784.0" stroke="#bd6c41" stroke-width="4" stroke-dasharray=""/><line x1="600" y1="784.0" x2="1040" y2="856.0" stroke="#217292" stroke-width="4" stroke-dasharray=""/><circle cx="160" cy="804.0" r="7" fill="#1c2e40"/><text x="160" y="784.0" font-size="25" fill="#1c2e40" text-anchor="middle">0.34</text><text x="160" y="906" font-size="24" fill="#1c2e40" text-anchor="middle">旧结果</text><circle cx="600" cy="784.0" r="7" fill="#1c2e40"/><text x="600" y="764.0" font-size="25" fill="#1c2e40" text-anchor="middle">0.39</text><text x="600" y="906" font-size="24" fill="#1c2e40" text-anchor="middle">仅换组内率</text><circle cx="1040" cy="856.0" r="7" fill="#1c2e40"/><text x="1040" y="836.0" font-size="25" fill="#1c2e40" text-anchor="middle">0.21</text><text x="1040" y="906" font-size="24" fill="#1c2e40" text-anchor="middle">再换组占比</text><text x="360" y="826" font-size="25" fill="#bd6c41" text-anchor="start">+0.05</text><text x="820" y="806" font-size="25" fill="#217292" text-anchor="start">−0.18</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="739" viewBox="0 0 1200 739" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">总体变好可同时发生于组内退化</title>
+<desc id="fig-desc">两个组错误率都上升，服务流量向容易组迁移。固定旧组成再逐步替换。</desc>
+<rect x="0" y="0" width="1200" height="739" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">总体错误下降，组内错误却上升</text>
+<rect x="255" y="158" width="177" height="61" fill="#f1f5f6" opacity="1"/>
+<text x="343.5" y="196.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.10</text>
+<rect x="436" y="158" width="177" height="61" fill="#fbede8" opacity="1"/>
+<text x="524.5" y="196.5" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.15</text>
+<text x="239" y="196.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">容易组</text>
+<rect x="255" y="223" width="177" height="61" fill="#f1f5f6" opacity="1"/>
+<text x="343.5" y="261.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.40</text>
+<rect x="436" y="223" width="177" height="61" fill="#fbede8" opacity="1"/>
+<text x="524.5" y="261.5" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.45</text>
+<text x="239" y="261.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">困难组</text>
+<rect x="255" y="288" width="177" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="343.5" y="326.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.34</text>
+<rect x="436" y="288" width="177" height="61" fill="#ecf6f6" opacity="1"/>
+<text x="524.5" y="326.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0.21</text>
+<text x="239" y="326.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">实际总体</text>
+<text x="343.5" y="144" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">旧错误率</text>
+<text x="524.5" y="144" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">新错误率</text>
+<text x="690" y="145" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">贡献 = 组占比 × 组内错误率</text>
+<text x="690" y="202" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">旧组成</text>
+<rect x="800" y="172" width="19.1" height="41" fill="#ecf6f6" opacity="1"/>
+<path d="M800 172 L819.1 172" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="809.55" y="238" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.02</text>
+<rect x="819.1" y="172" width="305.6" height="41" fill="#fbede8" opacity="1"/>
+<path d="M819.1 172 L1124.7 172" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="971.9" y="201" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">0.32</text>
+<text x="690" y="281" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">新组成</text>
+<rect x="800" y="251" width="114.6" height="41" fill="#ecf6f6" opacity="1"/>
+<path d="M800 251 L914.6 251" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="857.3" y="280" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">0.12</text>
+<rect x="914.6" y="251" width="85.95" height="41" fill="#fbede8" opacity="1"/>
+<path d="M914.6 251 L1000.55 251" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="957.575" y="280" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" text-anchor="middle" font-weight="400">0.09</text>
+<text x="690" y="334" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">蓝绿：容易组</text>
+<text x="918" y="334" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">橙色：困难组</text>
+<path d="M75 381 L1125 381" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="427" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">依次替换组内率与组占比</text>
+<path d="M174 622.815 L962 622.815" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 559.852 L962 559.852" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 496.889 L962 496.889" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 648 L974 648" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M974 648 L963 653 L963 643 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 648 L174 466" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 466 L179 477 L169 477 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M239.667 644 L239.667 653" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="239.667" y="677" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">旧结果</text>
+<path d="M568 644 L568 653" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="568" y="677" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">只换组内率</text>
+<path d="M896.333 644 L896.333 653" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="896.333" y="677" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="19" text-anchor="middle" font-weight="400">再换组成</text>
+<path d="M169 622.815 L178 622.815" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="164" y="628.815" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.2</text>
+<path d="M169 559.852 L178 559.852" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="164" y="565.852" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.3</text>
+<path d="M169 496.889 L178 496.889" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="164" y="502.889" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.4</text>
+<text x="981" y="654" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400"></text>
+<text x="174" y="456" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">错误率</text>
+<circle cx="239.667" cy="534.667" r="6.3" fill="#ffffff" stroke="#526976" stroke-width="3"/>
+<text x="239.667" y="520.667" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">0.34</text>
+<circle cx="568" cy="503.185" r="6.3" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<text x="568" y="489.185" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">0.39</text>
+<path d="M239.667 534.667 L568 503.185" fill="none" stroke="#a74d3a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="896.333" cy="616.519" r="6.3" fill="#ffffff" stroke="#166d75" stroke-width="3"/>
+<text x="896.333" y="602.519" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">0.21</text>
+<path d="M568 503.185 L896.333 616.519" fill="none" stroke="#166d75" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="711" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">按这一路径，总体变化 −0.13 = 组内 +0.05 加上组成 −0.18。</text>
+</svg>

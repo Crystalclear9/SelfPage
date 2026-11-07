@@ -1,649 +1,102 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="3182" viewBox="0 0 960 3182" role="img" aria-labelledby="diagram-title"><title id="diagram-title">固定分量质量下的密度尖峰收缩与四点观察似然</title><defs><style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- <path id="mefd9e03c66" d="M 0 0 L 0 3.5 " style="stroke: #536f80; stroke-width: 0.8"/>
-      <path id="m6547f4b9e3" d="M 0 0 L -3.5 0 " style="stroke: #536f80; stroke-width: 0.8"/>
-      <path id="mb20a731c30" d="M 0 7.5 L 0 -7.5 " style="stroke: #233b53; stroke-width: 2"/>
-    <path id="m90efa653f3" d="M 511.266799 -192.893328 L 511.266799 -52.8875 L 511.693353 -52.8875 L 512.119906 -52.8875 L 512.546459 -52.8875 L 512.973012 -52.8875 L 513.399565 -52.8875 L 513.826118 -52.8875 L 514.252671 -52.8875 L 514.679224 -52.8875 L 515.105777 -52.8875 L 515.53233 -52.8875 L 515.958883 -52.8875 L 516.385436 -52.8875 L 516.811989 -52.8875 L 517.238542 -52.8875 L 517.665095 -52.8875 L 518.091648 -52.8875 L 518.518201 -52.8875 L 518.944754 -52.8875 L 519.371307 -52.8875 L 519.79786 -52.8875 L 520.224413 -52.8875 L 520.650966 -52.8875 L 521.077519 -52.8875 L 521.504072 -52.8875 L 521.930625 -52.8875 L 522.357178 -52.8875 L 522.783731 -52.8875 L 523.210284 -52.8875 L 523.636837 -52.8875 L 524.06339 -52.8875 L 524.489943 -52.8875 L 524.916496 -52.8875 L 525.343049 -52.8875 L 525.769602 -52.8875 L 526.196155 -52.8875 L 526.622708 -52.8875 L 527.049261 -52.8875 L 527.475815 -52.8875 L 527.902368 -52.8875 L 528.328921 -52.8875 L 528.755474 -52.8875 L 529.182027 -52.8875 L 529.60858 -52.8875 L 530.035133 -52.8875 L 530.461686 -52.8875 L 530.888239 -52.8875 L 531.314792 -52.8875 L 531.741345 -52.8875 L 532.167898 -52.8875 L 532.594451 -52.8875 L 533.021004 -52.8875 L 533.447557 -52.8875 L 533.87411 -52.8875 L 534.300663 -52.8875 L 534.727216 -52.8875 L 535.153769 -52.8875 L 535.580322 -52.8875 L 536.006875 -52.8875 L 536.433428 -52.8875 L 536.859981 -52.8875 L 537.286534 -52.8875 L 537.713087 -52.8875 L 538.13964 -52.8875 L 538.566193 -52.8875 L 538.992746 -52.8875 L 539.419299 -52.8875 L 539.845852 -52.8875 L 540.272405 -52.8875 L 540.698958 -52.8875 L 541.125511 -52.8875 L 541.552064 -52.8875 L 541.978617 -52.8875 L 542.40517 -52.8875 L 542.831723 -52.8875 L 543.258277 -52.8875 L 543.68483 -52.8875 L 544.111383 -52.8875 L 544.537936 -52.8875 L 544.964489 -52.8875 L 545.391042 -52.8875 L 545.817595 -52.8875 L 546.244148 -52.8875 L 546.670701 -52.8875 L 547.097254 -52.8875 L 547.523807 -52.8875 L 547.95036 -52.8875 L 548.376913 -52.8875 L 548.803466 -52.8875 L 549.230019 -52.8875 L 549.656572 -52.8875 L 550.083125 -52.8875 L 550.509678 -52.8875 L 550.936231 -52.8875 L 551.362784 -52.8875 L 551.789337 -52.8875 L 552.21589 -52.8875 L 552.642443 -52.8875 L 553.068996 -52.8875 L 553.495549 -52.8875 L 553.922102 -52.8875 L 554.348655 -52.8875 L 554.775208 -52.8875 L 555.201761 -52.8875 L 555.628314 -52.8875 L 556.054867 -52.8875 L 556.48142 -52.8875 L 556.907973 -52.8875 L 557.334526 -52.8875 L 557.761079 -52.8875 L 558.187632 -52.8875 L 558.614185 -52.8875 L 559.040739 -52.8875 L 559.467292 -52.8875 L 559.893845 -52.8875 L 560.320398 -52.8875 L 560.746951 -52.8875 L 561.173504 -52.8875 L 561.600057 -52.8875 L 562.02661 -52.8875 L 562.453163 -52.8875 L 562.879716 -52.8875 L 563.306269 -52.8875 L 563.732822 -52.8875 L 564.159375 -52.8875 L 564.585928 -52.8875 L 565.012481 -52.8875 L 565.439034 -52.8875 L 565.865587 -52.8875 L 566.29214 -52.8875 L 566.718693 -52.8875 L 567.145246 -52.8875 L 567.571799 -52.8875 L 567.998352 -52.8875 L 568.424905 -52.8875 L 568.851458 -52.8875 L 569.278011 -52.8875 L 569.704564 -52.8875 L 570.131117 -52.8875 L 570.55767 -52.8875 L 570.984223 -52.8875 L 571.410776 -52.8875 L 571.837329 -52.8875 L 572.263882 -52.8875 L 572.690435 -52.8875 L 573.116988 -52.8875 L 573.543541 -52.8875 L 573.970094 -52.8875 L 574.396647 -52.8875 L 574.823201 -52.8875 L 574.823201 -192.893328 L 574.823201 -192.893328 L 574.396647 -194.753587 L 573.970094 -196.612925 L 573.543541 -198.470662 L 573.116988 -200.32611 L 572.690435 -202.178574 L 572.263882 -204.027351 L 571.837329 -205.871732 L 571.410776 -207.711002 L 570.984223 -209.54444 L 570.55767 -211.371317 L 570.131117 -213.190903 L 569.704564 -215.00246 L 569.278011 -216.805248 L 568.851458 -218.598524 L 568.424905 -220.381539 L 567.998352 -222.153544 L 567.571799 -223.913787 L 567.145246 -225.661514 L 566.718693 -227.395972 L 566.29214 -229.116404 L 565.865587 -230.822056 L 565.439034 -232.512174 L 565.012481 -234.186004 L 564.585928 -235.842795 L 564.159375 -237.481796 L 563.732822 -239.102262 L 563.306269 -240.70345 L 562.879716 -242.284619 L 562.453163 -243.845035 L 562.02661 -245.383969 L 561.600057 -246.900695 L 561.173504 -248.394495 L 560.746951 -249.864659 L 560.320398 -251.310482 L 559.893845 -252.731268 L 559.467292 -254.126328 L 559.040739 -255.494984 L 558.614185 -256.836567 L 558.187632 -258.150417 L 557.761079 -259.435884 L 557.334526 -260.692333 L 556.907973 -261.919136 L 556.48142 -263.115679 L 556.054867 -264.281361 L 555.628314 -265.415595 L 555.201761 -266.517805 L 554.775208 -267.587431 L 554.348655 -268.623929 L 553.922102 -269.626766 L 553.495549 -270.595429 L 553.068996 -271.529418 L 552.642443 -272.428251 L 552.21589 -273.291461 L 551.789337 -274.1186 L 551.362784 -274.909237 L 550.936231 -275.66296 L 550.509678 -276.379373 L 550.083125 -277.058101 L 549.656572 -277.698786 L 549.230019 -278.301092 L 548.803466 -278.8647 L 548.376913 -279.389311 L 547.95036 -279.874649 L 547.523807 -280.320456 L 547.097254 -280.726494 L 546.670701 -281.092548 L 546.244148 -281.418424 L 545.817595 -281.703946 L 545.391042 -281.948964 L 544.964489 -282.153346 L 544.537936 -282.316982 L 544.111383 -282.439786 L 543.68483 -282.521692 L 543.258277 -282.562656 L 542.831723 -282.562656 L 542.40517 -282.521692 L 541.978617 -282.439786 L 541.552064 -282.316982 L 541.125511 -282.153346 L 540.698958 -281.948964 L 540.272405 -281.703946 L 539.845852 -281.418424 L 539.419299 -281.092548 L 538.992746 -280.726494 L 538.566193 -280.320456 L 538.13964 -279.874649 L 537.713087 -279.389311 L 537.286534 -278.8647 L 536.859981 -278.301092 L 536.433428 -277.698786 L 536.006875 -277.058101 L 535.580322 -276.379373 L 535.153769 -275.66296 L 534.727216 -274.909237 L 534.300663 -274.1186 L 533.87411 -273.291461 L 533.447557 -272.428251 L 533.021004 -271.529418 L 532.594451 -270.595429 L 532.167898 -269.626766 L 531.741345 -268.623929 L 531.314792 -267.587431 L 530.888239 -266.517805 L 530.461686 -265.415595 L 530.035133 -264.281361 L 529.60858 -263.115679 L 529.182027 -261.919136 L 528.755474 -260.692333 L 528.328921 -259.435884 L 527.902368 -258.150417 L 527.475815 -256.836567 L 527.049261 -255.494984 L 526.622708 -254.126328 L 526.196155 -252.731268 L 525.769602 -251.310482 L 525.343049 -249.864659 L 524.916496 -248.394495 L 524.489943 -246.900695 L 524.06339 -245.383969 L 523.636837 -243.845035 L 523.210284 -242.284619 L 522.783731 -240.70345 L 522.357178 -239.102262 L 521.930625 -237.481796 L 521.504072 -235.842795 L 521.077519 -234.186004 L 520.650966 -232.512174 L 520.224413 -230.822056 L 519.79786 -229.116404 L 519.371307 -227.395972 L 518.944754 -225.661514 L 518.518201 -223.913787 L 518.091648 -222.153544 L 517.665095 -220.381539 L 517.238542 -218.598524 L 516.811989 -216.805248 L 516.385436 -215.00246 L 515.958883 -213.190903 L 515.53233 -211.371317 L 515.105777 -209.54444 L 514.679224 -207.711002 L 514.252671 -205.871732 L 513.826118 -204.027351 L 513.399565 -202.178574 L 512.973012 -200.32611 L 512.546459 -198.470662 L 512.119906 -196.612925 L 511.693353 -194.753587 L 511.266799 -192.893328 z " style="stroke: #2182a1; stroke-opacity: 0.15"/>
-    <path id="m1e724d5da3" d="M 0 4 C 1.060812 4 2.078319 3.578535 2.828427 2.828427 C 3.578535 2.078319 4 1.060812 4 0 C 4 -1.060812 3.578535 -2.078319 2.828427 -2.828427 C 2.078319 -3.578535 1.060812 -4 0 -4 C -1.060812 -4 -2.078319 -3.578535 -2.828427 -2.828427 C -3.578535 -2.078319 -4 -1.060812 -4 0 C -4 1.060812 -3.578535 2.078319 -2.828427 2.828427 C -2.078319 3.578535 -1.060812 4 0 4 z " style="stroke: #233b53"/>
-    <clipPath id="pe17feb58f0">
-   <rect x="57.585" y="37.388125" width="255.505263" height="299.376"/>
-  </clipPath>
-  <clipPath id="paeed11d937">
-   <rect x="415.292368" y="37.388125" width="255.505263" height="299.376"/>
-  </clipPath>
-  <clipPath id="p59ebd65db9">
-   <rect x="772.999737" y="37.388125" width="255.505263" height="299.376"/>
-  </clipPath>
- </defs><rect x="0" y="0" width="960" height="3182" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><text x="48" y="61" font-size="37" font-weight="700" fill="#172a40">固定分量质量下的密度尖峰收缩与四点观察似然</text></g><path d="M 44 96.00 H 916" stroke="#cedae4" stroke-width="1.5"/><g transform="translate(76.02096 110.72896) scale(2.51029820)"><g id="axes_1">
-   <g id="patch_2">
-    <path d="M 57.585 336.764125 L 313.090263 336.764125 L 313.090263 37.388125 L 57.585 37.388125 z " style="fill: #ffffff"/>
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="116.832597" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_1">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="116.832597" y="356.554125" transform="rotate(-0 116.832597 356.554125)">0</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="190.892094" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_2">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="190.892094" y="356.554125" transform="rotate(-0 190.892094 356.554125)">2</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="264.95159" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_3">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="264.95159" y="356.554125" transform="rotate(-0 264.95159 356.554125)">4</text>
-     </g>
-    </g>
-    <g id="text_4">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="185.337632" y="377.321625" transform="rotate(-0 185.337632 377.321625)">观察 x</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_4">
-      <path d="M 57.585 336.764125 L 313.090263 336.764125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_5">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_5">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="343.159125" transform="rotate(-0 50.585 343.159125)">0.0</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_6">
-      <path d="M 57.585 303.500125 L 313.090263 303.500125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_7">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="303.500125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_6">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="309.895125" transform="rotate(-0 50.585 309.895125)">0.1</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_8">
-      <path d="M 57.585 270.236125 L 313.090263 270.236125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_9">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="270.236125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_7">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="276.631125" transform="rotate(-0 50.585 276.631125)">0.2</text>
-     </g>
-    </g>
-    <g id="ytick_4">
-     <g id="line2d_10">
-      <path d="M 57.585 236.972125 L 313.090263 236.972125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_11">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="236.972125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_8">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="243.367125" transform="rotate(-0 50.585 243.367125)">0.3</text>
-     </g>
-    </g>
-    <g id="ytick_5">
-     <g id="line2d_12">
-      <path d="M 57.585 203.708125 L 313.090263 203.708125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_13">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="203.708125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_9">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="210.103125" transform="rotate(-0 50.585 210.103125)">0.4</text>
-     </g>
-    </g>
-    <g id="ytick_6">
-     <g id="line2d_14">
-      <path d="M 57.585 170.444125 L 313.090263 170.444125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_15">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="170.444125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_10">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="176.839125" transform="rotate(-0 50.585 176.839125)">0.5</text>
-     </g>
-    </g>
-    <g id="ytick_7">
-     <g id="line2d_16">
-      <path d="M 57.585 137.180125 L 313.090263 137.180125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_17">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="137.180125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_11">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="143.575125" transform="rotate(-0 50.585 143.575125)">0.6</text>
-     </g>
-    </g>
-    <g id="ytick_8">
-     <g id="line2d_18">
-      <path d="M 57.585 103.916125 L 313.090263 103.916125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_19">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="103.916125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_12">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="110.311125" transform="rotate(-0 50.585 110.311125)">0.7</text>
-     </g>
-    </g>
-    <g id="ytick_9">
-     <g id="line2d_20">
-      <path d="M 57.585 70.652125 L 313.090263 70.652125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_21">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="70.652125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_13">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="77.047125" transform="rotate(-0 50.585 77.047125)">0.8</text>
-     </g>
-    </g>
-    <g id="ytick_10">
-     <g id="line2d_22">
-      <path d="M 57.585 37.388125 L 313.090263 37.388125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_23">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="57.585" y="37.388125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_14">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="50.585" y="43.783125" transform="rotate(-0 50.585 43.783125)">0.9</text>
-     </g>
-    </g>
-    <g id="text_15">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="19.99" y="187.076125" transform="rotate(-90 19.99 187.076125)">加权分量密度</text>
-    </g>
-   </g>
-   <g id="line2d_24">
-    <path d="M 57.585 327.539948 L 62.357613 325.521194 L 67.641578 323.035549 L 73.777795 319.888295 L 93.3796 309.617349 L 97.640862 307.757581 L 101.390772 306.350865 L 104.970232 305.247447 L 108.208791 304.475681 L 111.44735 303.937073 L 114.515459 303.652974 L 117.583567 303.594907 L 120.651676 303.764062 L 123.719785 304.156972 L 126.958344 304.805543 L 130.196903 305.679886 L 133.776363 306.88554 L 137.526273 308.384335 L 141.787535 310.3276 L 147.0715 312.994676 L 156.105375 317.859254 L 164.457448 322.255108 L 170.082314 324.966839 L 175.195828 327.183385 L 179.968442 329.009343 L 184.570604 330.538437 L 189.343218 331.886741 L 194.115831 333.005992 L 199.229345 333.973735 L 204.683761 334.775243 L 210.649527 335.424519 L 217.467546 335.938042 L 225.649169 336.321898 L 236.217099 336.580583 L 252.068993 336.721999 L 289.056746 336.763459 L 313.090263 336.764099 L 313.090263 336.764099 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #8d9aad; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_25">
-    <path d="M 57.585 336.367603 L 61.675811 335.979385 L 64.91437 335.462797 L 67.641578 334.818504 L 70.198335 333.982779 L 72.414191 333.03111 L 74.459597 331.927837 L 76.505003 330.5745 L 78.550409 328.938552 L 80.595814 326.99023 L 82.64122 324.704914 L 84.686626 322.065735 L 86.732031 319.066282 L 88.947888 315.418419 L 91.334194 311.05988 L 94.231852 305.265474 L 98.322664 296.508815 L 103.095277 286.377699 L 105.652034 281.471138 L 107.69744 278.016219 L 109.401945 275.54617 L 110.935999 273.69315 L 112.299603 272.371167 L 113.492756 271.48284 L 114.685909 270.856535 L 115.879063 270.499981 L 116.901766 270.412508 L 117.924468 270.527323 L 118.947171 270.843379 L 120.140325 271.46251 L 121.333478 272.343914 L 122.697082 273.658395 L 124.060686 275.28046 L 125.59474 277.441375 L 127.469695 280.506556 L 129.685551 284.619507 L 132.412759 290.195885 L 142.639787 311.64703 L 145.196545 316.241404 L 147.412401 319.801253 L 149.628257 322.943002 L 151.673663 325.468536 L 153.719068 327.64456 L 155.764474 329.490698 L 157.80988 331.033478 L 159.855285 332.303785 L 162.071142 333.410756 L 164.457448 334.336909 L 167.014205 335.078725 L 169.911864 335.67478 L 173.320873 336.132352 L 177.582135 336.459265 L 183.377451 336.660182 L 193.434029 336.751393 L 237.580702 336.764125 L 313.090263 336.764125 L 313.090263 336.764125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_26">
-    <path d="M 57.585 336.764125 L 81.959418 336.654116 L 85.027527 336.401227 L 87.072932 336.007547 L 88.606987 335.492843 L 89.97059 334.793631 L 91.163744 333.923674 L 92.186447 332.929085 L 93.209149 331.649048 L 94.231852 330.024524 L 95.254555 327.991776 L 96.277258 325.484432 L 97.299961 322.436364 L 98.493114 318.114338 L 99.686268 312.888479 L 100.879421 306.701836 L 102.243025 298.433104 L 103.777079 287.672591 L 105.652034 272.769048 L 111.617801 223.52929 L 112.810954 216.009494 L 113.833657 210.84363 L 114.685909 207.580313 L 115.367711 205.711032 L 115.879063 204.762058 L 116.390414 204.211262 L 116.731315 204.067907 L 117.072216 204.104412 L 117.413117 204.320628 L 117.924468 204.979792 L 118.43582 206.035153 L 119.117622 208.041555 L 119.969874 211.465712 L 120.822127 215.828107 L 121.844829 222.152372 L 123.208433 232.079667 L 125.083388 247.558032 L 129.515101 284.844352 L 131.219606 297.097719 L 132.75366 306.521766 L 134.117264 313.542829 L 135.310417 318.660366 L 136.50357 322.882613 L 137.696724 326.295481 L 138.889877 328.999333 L 140.08303 331.099713 L 141.276184 332.700014 L 142.469337 333.896238 L 143.66249 334.773708 L 145.026094 335.479334 L 146.560148 335.999068 L 148.435104 336.372988 L 150.82141 336.607184 L 154.741771 336.733818 L 165.650602 336.764004 L 313.090263 336.764125 L 313.090263 336.764125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #419e95; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_27">
-    <path d="M 57.585 336.764125 L 98.493114 336.660594 L 99.856718 336.445599 L 100.879421 336.065145 L 101.561223 335.615356 L 102.243025 334.916653 L 102.924827 333.856754 L 103.606628 332.28699 L 104.28843 330.017647 L 104.970232 326.816228 L 105.652034 322.410465 L 106.333836 316.497976 L 107.015638 308.764189 L 107.86789 296.083416 L 108.720143 279.629828 L 109.742846 254.639679 L 110.935999 218.863919 L 114.685909 98.417636 L 115.367711 84.319878 L 115.879063 76.928129 L 116.390414 72.56411 L 116.731315 71.419334 L 116.901766 71.385436 L 117.072216 71.711202 L 117.413117 73.434976 L 117.754018 76.562756 L 118.265369 83.771064 L 118.947171 97.655238 L 119.799424 120.639718 L 121.163027 165.426507 L 123.378884 239.134507 L 124.572037 271.175836 L 125.59474 292.527467 L 126.446992 306.070355 L 127.299245 316.17703 L 128.151497 323.416106 L 128.833299 327.55383 L 129.515101 330.545311 L 130.196903 332.65529 L 130.878705 334.107641 L 131.560506 335.083492 L 132.242308 335.723688 L 133.094561 336.209955 L 134.117264 336.515284 L 135.651318 336.695799 L 138.719426 336.76042 L 171.616368 336.764125 L 313.090263 336.764125 L 313.090263 336.764125 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke: #cf7d44; stroke-width: 2.5; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_28">
-    <path d="M 57.585 336.761595 L 92.527348 336.639704 L 104.28843 336.386259 L 112.299603 336.004019 L 118.60627 335.489071 L 123.890235 334.840794 L 128.492398 334.058058 L 132.583209 333.145734 L 136.33312 332.091924 L 139.91258 330.857666 L 143.321589 329.444108 L 146.560148 327.859236 L 149.628257 326.117773 L 152.696365 324.122826 L 155.764474 321.85675 L 158.832583 319.304729 L 161.900691 316.455719 L 164.9688 313.303422 L 168.207359 309.646408 L 171.616368 305.439373 L 175.195828 300.648724 L 179.116189 295.007322 L 183.547902 288.221603 L 189.513668 278.643386 L 199.058895 263.309582 L 203.149706 257.191227 L 206.388265 252.718746 L 209.285923 249.074775 L 211.842681 246.190279 L 214.228987 243.813202 L 216.444843 241.903489 L 218.490249 240.412585 L 220.535655 239.196394 L 222.41061 238.332253 L 224.285565 237.714725 L 225.99007 237.371346 L 227.694575 237.237879 L 229.39908 237.315172 L 231.103584 237.602732 L 232.97854 238.159692 L 234.853495 238.964583 L 236.72845 240.011274 L 238.773856 241.41954 L 240.819261 243.093544 L 243.035118 245.18974 L 245.421424 247.751922 L 248.148632 251.029552 L 251.04629 254.868079 L 254.455299 259.770525 L 258.546111 266.063047 L 264.852779 276.236183 L 273.204852 289.643061 L 277.807015 296.598411 L 281.727376 302.131909 L 285.306836 306.810346 L 288.715845 310.902755 L 291.954404 314.447315 L 295.022513 317.492519 L 298.090621 320.23605 L 301.15873 322.685987 L 304.226838 324.854812 L 307.294947 326.75844 L 310.533506 328.500508 L 313.090263 329.697096 L 313.090263 329.697096 " clip-path="url(#pe17feb58f0)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #84956d; stroke-width: 2"/>
-   </g>
-   <g id="line2d_29">
-    <g clip-path="url(#pe17feb58f0)">
-     <use xlink:href="#mb20a731c30" x="116.832597" y="336.764125" style="fill: #233b53; stroke: #233b53; stroke-width: 2"/>
-     <use xlink:href="#mb20a731c30" x="190.892094" y="336.764125" style="fill: #233b53; stroke: #233b53; stroke-width: 2"/>
-     <use xlink:href="#mb20a731c30" x="227.921842" y="336.764125" style="fill: #233b53; stroke: #233b53; stroke-width: 2"/>
-     <use xlink:href="#mb20a731c30" x="264.95159" y="336.764125" style="fill: #233b53; stroke: #233b53; stroke-width: 2"/>
-    </g>
-   </g>
-   <g id="patch_3">
-    <path d="M 57.585 336.764125 L 57.585 37.388125 " style="fill: none; stroke: #9da8ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_4">
-    <path d="M 57.585 336.764125 L 313.090263 336.764125 " style="fill: none; stroke: #9da8ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_16">
-    <text style="font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="57.585" y="22.388125" transform="rotate(-0 57.585 22.388125)">A  同一质量，压向训练点零</text>
-   </g>
-   <g id="legend_1">
-    <g id="line2d_30">
-     <path d="M 205.899169 54.93 L 218.899169 54.93 L 231.899169 54.93 " style="fill: none; stroke: #8d9aad; stroke-width: 2.5; stroke-linecap: square"/>
-    </g>
-    <g id="text_17">
-     <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="242.299169" y="59.48" transform="rotate(-0 242.299169 59.48)">σ = 1</text>
-    </g>
-    <g id="line2d_31">
-     <path d="M 205.899169 75.053594 L 218.899169 75.053594 L 231.899169 75.053594 " style="fill: none; stroke: #2182a1; stroke-width: 2.5; stroke-linecap: square"/>
-    </g>
-    <g id="text_18">
-     <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="242.299169" y="79.603594" transform="rotate(-0 242.299169 79.603594)">σ = 0.5</text>
-    </g>
-    <g id="line2d_32">
-     <path d="M 205.899169 95.177187 L 218.899169 95.177187 L 231.899169 95.177187 " style="fill: none; stroke: #419e95; stroke-width: 2.5; stroke-linecap: square"/>
-    </g>
-    <g id="text_19">
-     <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="242.299169" y="99.727187" transform="rotate(-0 242.299169 99.727187)">σ = 0.25</text>
-    </g>
-    <g id="line2d_33">
-     <path d="M 205.899169 115.300781 L 218.899169 115.300781 L 231.899169 115.300781 " style="fill: none; stroke: #cf7d44; stroke-width: 2.5; stroke-linecap: square"/>
-    </g>
-    <g id="text_20">
-     <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="242.299169" y="119.850781" transform="rotate(-0 242.299169 119.850781)">σ = 0.125</text>
-    </g>
-    <g id="line2d_34">
-     <path d="M 205.899169 135.424375 L 218.899169 135.424375 L 231.899169 135.424375 " style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #84956d; stroke-width: 2"/>
-    </g>
-    <g id="text_21">
-     <text style="font-size: 18.11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="242.299169" y="139.974375" transform="rotate(-0 242.299169 139.974375)">固定背景</text>
-    </g>
-   </g>
-  </g>
-  </g><path d="M 44 1119.17 H 916" stroke="#cedae4" stroke-width="1.5"/><g transform="translate(-821.93120 1136.25288) scale(2.51029820)"><g id="axes_2">
-   <g id="patch_5">
-    <path d="M 415.292368 336.764125 L 670.797632 336.764125 L 670.797632 37.388125 L 415.292368 37.388125 z " style="fill: #ffffff"/>
-   </g>
-   <g id="FillBetweenPolyCollection_1">
-    <g clip-path="url(#paeed11d937)">
-     <use xlink:href="#m90efa653f3" x="0" y="389.651625" style="fill: #2182a1; fill-opacity: 0.15; stroke: #2182a1; stroke-opacity: 0.15"/>
-    </g>
-   </g>
-   <g id="matplotlib.axis_3">
-    <g id="xtick_4">
-     <g id="line2d_35">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="415.292368" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_22">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="415.292368" y="356.554125" transform="rotate(-0 415.292368 356.554125)">−4</text>
-     </g>
-    </g>
-    <g id="xtick_5">
-     <g id="line2d_36">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="479.168684" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_23">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="479.168684" y="356.554125" transform="rotate(-0 479.168684 356.554125)">−2</text>
-     </g>
-    </g>
-    <g id="xtick_6">
-     <g id="line2d_37">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="543.045" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_24">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="543.045" y="356.554125" transform="rotate(-0 543.045 356.554125)">0</text>
-     </g>
-    </g>
-    <g id="xtick_7">
-     <g id="line2d_38">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="606.921316" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_25">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="606.921316" y="356.554125" transform="rotate(-0 606.921316 356.554125)">2</text>
-     </g>
-    </g>
-    <g id="xtick_8">
-     <g id="line2d_39">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="670.797632" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_26">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="670.797632" y="356.554125" transform="rotate(-0 670.797632 356.554125)">4</text>
-     </g>
-    </g>
-    <g id="text_27">
-     <!-- 自身尺度 $u=\frac{x}{\sigma}$ -->
-     <g style="fill: #233b53" transform="translate(489.205 378.131625)">
-      <text>
-       <tspan x="0" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">自</tspan>
-       <tspan x="16" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">身</tspan>
-       <tspan x="32" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">尺</tspan>
-       <tspan x="48" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">度</tspan>
-       <tspan x="64" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53"> </tspan>
-       <tspan x="68.734375" y="-0.515625" style="font-style: oblique; font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">u</tspan>
-       <tspan x="81.992188" y="-0.515625" style="font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">=</tspan>
-       <tspan x="98.515625" y="-7.523438" style="font-style: oblique; font-size: 11.2px; font-family: 'DejaVu Sans'; fill: #233b53">x</tspan>
-       <tspan x="98.515625" y="3.6125" style="font-style: oblique; font-size: 11.2px; font-family: 'DejaVu Sans'; fill: #233b53">σ</tspan>
-      </text>
-      <rect x="98.515625" y="-4.523438" width="7.098438" height="1"/>
-     </g>
-    </g>
-   </g>
-   <g id="matplotlib.axis_4">
-    <g id="ytick_11">
-     <g id="line2d_40">
-      <path d="M 415.292368 336.764125 L 670.797632 336.764125 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_41">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_28">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="343.159125" transform="rotate(-0 408.292368 343.159125)">0.00</text>
-     </g>
-    </g>
-    <g id="ytick_12">
-     <g id="line2d_42">
-      <path d="M 415.292368 290.706279 L 670.797632 290.706279 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_43">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="290.706279" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_29">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="297.101279" transform="rotate(-0 408.292368 297.101279)">0.02</text>
-     </g>
-    </g>
-    <g id="ytick_13">
-     <g id="line2d_44">
-      <path d="M 415.292368 244.648433 L 670.797632 244.648433 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_45">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="244.648433" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_30">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="251.043433" transform="rotate(-0 408.292368 251.043433)">0.04</text>
-     </g>
-    </g>
-    <g id="ytick_14">
-     <g id="line2d_46">
-      <path d="M 415.292368 198.590587 L 670.797632 198.590587 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_47">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="198.590587" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_31">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="204.985587" transform="rotate(-0 408.292368 204.985587)">0.06</text>
-     </g>
-    </g>
-    <g id="ytick_15">
-     <g id="line2d_48">
-      <path d="M 415.292368 152.53274 L 670.797632 152.53274 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_49">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="152.53274" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_32">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="158.92774" transform="rotate(-0 408.292368 158.92774)">0.08</text>
-     </g>
-    </g>
-    <g id="ytick_16">
-     <g id="line2d_50">
-      <path d="M 415.292368 106.474894 L 670.797632 106.474894 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_51">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="106.474894" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_33">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="112.869894" transform="rotate(-0 408.292368 112.869894)">0.10</text>
-     </g>
-    </g>
-    <g id="ytick_17">
-     <g id="line2d_52">
-      <path d="M 415.292368 60.417048 L 670.797632 60.417048 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_53">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="415.292368" y="60.417048" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_34">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="408.292368" y="66.812048" transform="rotate(-0 408.292368 66.812048)">0.12</text>
-     </g>
-    </g>
-    <g id="text_35">
-     <!-- 换坐标后的密度 $\sigma\,q_\sigma(\sigma u)$ -->
-     <g style="fill: #233b53" transform="translate(368.314868 277.076125) rotate(-90)">
-      <text>
-       <tspan x="0" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">换</tspan>
-       <tspan x="16" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">坐</tspan>
-       <tspan x="32" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">标</tspan>
-       <tspan x="48" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">后</tspan>
-       <tspan x="64" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">的</tspan>
-       <tspan x="80" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">密</tspan>
-       <tspan x="96" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53">度</tspan>
-       <tspan x="112" y="-0.515625" style="font-size: 16px; font-family: 'Microsoft YaHei'; fill: #233b53"> </tspan>
-       <tspan x="116.734375" y="-0.515625" style="font-style: oblique; font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">σ</tspan>
-       <tspan x="129.472708" y="-0.515625" style="font-style: oblique; font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">q</tspan>
-       <tspan x="153.407083" y="-0.515625" style="font-style: oblique; font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">σ</tspan>
-       <tspan x="163.547708" y="-0.515625" style="font-style: oblique; font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">u</tspan>
-       <tspan x="139.628958" y="2.109375" style="font-style: oblique; font-size: 11.2px; font-family: 'DejaVu Sans'; fill: #233b53">σ</tspan>
-       <tspan x="147.164896" y="-0.515625" style="font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">(</tspan>
-       <tspan x="173.688333" y="-0.515625" style="font-size: 16px; font-family: 'DejaVu Sans'; fill: #233b53">)</tspan>
-      </text>
-     </g>
-    </g>
-   </g>
-   <g id="line2d_54">
-    <path d="M 415.292368 336.687076 L 426.382747 336.47318 L 433.207596 336.143418 L 438.326232 335.700769 L 442.591762 335.131132 L 446.430739 334.39801 L 449.843164 333.513812 L 452.829035 332.512926 L 455.388353 331.450128 L 457.947671 330.164149 L 460.506989 328.619433 L 463.066307 326.777512 L 465.199073 324.986054 L 467.331838 322.935038 L 469.464603 320.599108 L 471.597368 317.952678 L 473.730133 314.970394 L 475.862898 311.627654 L 477.995663 307.901197 L 480.128429 303.769756 L 482.261194 299.214759 L 484.820512 293.168633 L 487.37983 286.472951 L 489.939148 279.120246 L 492.498466 271.115468 L 495.484337 260.978662 L 498.470209 250.037961 L 501.882633 236.664435 L 506.148163 218.918343 L 513.399565 187.473051 L 518.518201 165.737838 L 521.930625 152.169829 L 524.916496 141.25713 L 527.475815 132.815058 L 529.60858 126.535946 L 531.741345 121.027696 L 533.447557 117.223374 L 535.153769 113.988665 L 536.433428 111.952839 L 537.713087 110.262314 L 538.992746 108.925131 L 540.272405 107.947679 L 541.552064 107.334643 L 542.40517 107.129933 L 543.258277 107.088969 L 544.111383 107.211839 L 544.964489 107.498279 L 546.244148 108.233201 L 547.523807 109.331169 L 548.803466 110.786925 L 550.083125 112.593524 L 551.362784 114.742388 L 553.068996 118.122207 L 554.775208 122.064194 L 556.48142 126.535946 L 558.614185 132.815058 L 560.746951 139.786966 L 563.306269 148.948175 L 566.29214 160.535221 L 570.131117 176.460722 L 576.955966 206.050236 L 582.501155 229.682526 L 586.340132 245.123698 L 589.752556 257.93152 L 592.738428 268.305158 L 595.724299 277.831068 L 598.283617 285.293156 L 600.842935 292.098137 L 603.402253 298.251531 L 605.961571 303.769756 L 608.52089 308.67824 L 610.653655 312.326179 L 612.78642 315.594916 L 614.919185 318.508028 L 617.05195 321.090315 L 619.184715 323.367217 L 621.31748 325.364307 L 623.876799 327.426992 L 626.436117 329.165405 L 628.995435 330.619738 L 631.554753 331.827526 L 634.540624 332.970882 L 637.526495 333.874791 L 640.93892 334.669775 L 644.777897 335.325638 L 649.043427 335.832424 L 654.588617 336.24833 L 661.413465 336.5251 L 670.797632 336.687076 L 670.797632 336.687076 " clip-path="url(#paeed11d937)" style="fill: none; stroke: #8d9aad; stroke-width: 3; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_55">
-    <path d="M 415.292368 336.687076 L 426.382747 336.47318 L 433.207596 336.143418 L 438.326232 335.700769 L 442.591762 335.131132 L 446.430739 334.39801 L 449.843164 333.513812 L 452.829035 332.512926 L 455.388353 331.450128 L 457.947671 330.164149 L 460.506989 328.619433 L 463.066307 326.777512 L 465.199073 324.986054 L 467.331838 322.935038 L 469.464603 320.599108 L 471.597368 317.952678 L 473.730133 314.970394 L 475.862898 311.627654 L 477.995663 307.901197 L 480.128429 303.769756 L 482.261194 299.214759 L 484.820512 293.168633 L 487.37983 286.472951 L 489.939148 279.120246 L 492.498466 271.115468 L 495.484337 260.978662 L 498.470209 250.037961 L 501.882633 236.664435 L 506.148163 218.918343 L 513.399565 187.473051 L 518.518201 165.737838 L 521.930625 152.169829 L 524.916496 141.25713 L 527.475815 132.815058 L 529.60858 126.535946 L 531.741345 121.027696 L 533.447557 117.223374 L 535.153769 113.988665 L 536.433428 111.952839 L 537.713087 110.262314 L 538.992746 108.925131 L 540.272405 107.947679 L 541.552064 107.334643 L 542.40517 107.129933 L 543.258277 107.088969 L 544.111383 107.211839 L 544.964489 107.498279 L 546.244148 108.233201 L 547.523807 109.331169 L 548.803466 110.786925 L 550.083125 112.593524 L 551.362784 114.742388 L 553.068996 118.122207 L 554.775208 122.064194 L 556.48142 126.535946 L 558.614185 132.815058 L 560.746951 139.786966 L 563.306269 148.948175 L 566.29214 160.535221 L 570.131117 176.460722 L 576.955966 206.050236 L 582.501155 229.682526 L 586.340132 245.123698 L 589.752556 257.93152 L 592.738428 268.305158 L 595.724299 277.831068 L 598.283617 285.293156 L 600.842935 292.098137 L 603.402253 298.251531 L 605.961571 303.769756 L 608.52089 308.67824 L 610.653655 312.326179 L 612.78642 315.594916 L 614.919185 318.508028 L 617.05195 321.090315 L 619.184715 323.367217 L 621.31748 325.364307 L 623.876799 327.426992 L 626.436117 329.165405 L 628.995435 330.619738 L 631.554753 331.827526 L 634.540624 332.970882 L 637.526495 333.874791 L 640.93892 334.669775 L 644.777897 335.325638 L 649.043427 335.832424 L 654.588617 336.24833 L 661.413465 336.5251 L 670.797632 336.687076 L 670.797632 336.687076 " clip-path="url(#paeed11d937)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #2182a1; stroke-width: 2"/>
-   </g>
-   <g id="line2d_56">
-    <path d="M 415.292368 336.687076 L 426.382747 336.47318 L 433.207596 336.143418 L 438.326232 335.700769 L 442.591762 335.131132 L 446.430739 334.39801 L 449.843164 333.513812 L 452.829035 332.512926 L 455.388353 331.450128 L 457.947671 330.164149 L 460.506989 328.619433 L 463.066307 326.777512 L 465.199073 324.986054 L 467.331838 322.935038 L 469.464603 320.599108 L 471.597368 317.952678 L 473.730133 314.970394 L 475.862898 311.627654 L 477.995663 307.901197 L 480.128429 303.769756 L 482.261194 299.214759 L 484.820512 293.168633 L 487.37983 286.472951 L 489.939148 279.120246 L 492.498466 271.115468 L 495.484337 260.978662 L 498.470209 250.037961 L 501.882633 236.664435 L 506.148163 218.918343 L 513.399565 187.473051 L 518.518201 165.737838 L 521.930625 152.169829 L 524.916496 141.25713 L 527.475815 132.815058 L 529.60858 126.535946 L 531.741345 121.027696 L 533.447557 117.223374 L 535.153769 113.988665 L 536.433428 111.952839 L 537.713087 110.262314 L 538.992746 108.925131 L 540.272405 107.947679 L 541.552064 107.334643 L 542.40517 107.129933 L 543.258277 107.088969 L 544.111383 107.211839 L 544.964489 107.498279 L 546.244148 108.233201 L 547.523807 109.331169 L 548.803466 110.786925 L 550.083125 112.593524 L 551.362784 114.742388 L 553.068996 118.122207 L 554.775208 122.064194 L 556.48142 126.535946 L 558.614185 132.815058 L 560.746951 139.786966 L 563.306269 148.948175 L 566.29214 160.535221 L 570.131117 176.460722 L 576.955966 206.050236 L 582.501155 229.682526 L 586.340132 245.123698 L 589.752556 257.93152 L 592.738428 268.305158 L 595.724299 277.831068 L 598.283617 285.293156 L 600.842935 292.098137 L 603.402253 298.251531 L 605.961571 303.769756 L 608.52089 308.67824 L 610.653655 312.326179 L 612.78642 315.594916 L 614.919185 318.508028 L 617.05195 321.090315 L 619.184715 323.367217 L 621.31748 325.364307 L 623.876799 327.426992 L 626.436117 329.165405 L 628.995435 330.619738 L 631.554753 331.827526 L 634.540624 332.970882 L 637.526495 333.874791 L 640.93892 334.669775 L 644.777897 335.325638 L 649.043427 335.832424 L 654.588617 336.24833 L 661.413465 336.5251 L 670.797632 336.687076 L 670.797632 336.687076 " clip-path="url(#paeed11d937)" style="fill: none; stroke-dasharray: 2,3.3; stroke-dashoffset: 0; stroke: #419e95; stroke-width: 2"/>
-   </g>
-   <g id="line2d_57">
-    <path d="M 415.292368 336.687076 L 426.382747 336.47318 L 433.207596 336.143418 L 438.326232 335.700769 L 442.591762 335.131132 L 446.430739 334.39801 L 449.843164 333.513812 L 452.829035 332.512926 L 455.388353 331.450128 L 457.947671 330.164149 L 460.506989 328.619433 L 463.066307 326.777512 L 465.199073 324.986054 L 467.331838 322.935038 L 469.464603 320.599108 L 471.597368 317.952678 L 473.730133 314.970394 L 475.862898 311.627654 L 477.995663 307.901197 L 480.128429 303.769756 L 482.261194 299.214759 L 484.820512 293.168633 L 487.37983 286.472951 L 489.939148 279.120246 L 492.498466 271.115468 L 495.484337 260.978662 L 498.470209 250.037961 L 501.882633 236.664435 L 506.148163 218.918343 L 513.399565 187.473051 L 518.518201 165.737838 L 521.930625 152.169829 L 524.916496 141.25713 L 527.475815 132.815058 L 529.60858 126.535946 L 531.741345 121.027696 L 533.447557 117.223374 L 535.153769 113.988665 L 536.433428 111.952839 L 537.713087 110.262314 L 538.992746 108.925131 L 540.272405 107.947679 L 541.552064 107.334643 L 542.40517 107.129933 L 543.258277 107.088969 L 544.111383 107.211839 L 544.964489 107.498279 L 546.244148 108.233201 L 547.523807 109.331169 L 548.803466 110.786925 L 550.083125 112.593524 L 551.362784 114.742388 L 553.068996 118.122207 L 554.775208 122.064194 L 556.48142 126.535946 L 558.614185 132.815058 L 560.746951 139.786966 L 563.306269 148.948175 L 566.29214 160.535221 L 570.131117 176.460722 L 576.955966 206.050236 L 582.501155 229.682526 L 586.340132 245.123698 L 589.752556 257.93152 L 592.738428 268.305158 L 595.724299 277.831068 L 598.283617 285.293156 L 600.842935 292.098137 L 603.402253 298.251531 L 605.961571 303.769756 L 608.52089 308.67824 L 610.653655 312.326179 L 612.78642 315.594916 L 614.919185 318.508028 L 617.05195 321.090315 L 619.184715 323.367217 L 621.31748 325.364307 L 623.876799 327.426992 L 626.436117 329.165405 L 628.995435 330.619738 L 631.554753 331.827526 L 634.540624 332.970882 L 637.526495 333.874791 L 640.93892 334.669775 L 644.777897 335.325638 L 649.043427 335.832424 L 654.588617 336.24833 L 661.413465 336.5251 L 670.797632 336.687076 L 670.797632 336.687076 " clip-path="url(#paeed11d937)" style="fill: none; stroke-dasharray: 12.8,3.2,2,3.2; stroke-dashoffset: 0; stroke: #cf7d44; stroke-width: 2"/>
-   </g>
-   <g id="patch_6">
-    <path d="M 415.292368 336.764125 L 415.292368 37.388125 " style="fill: none; stroke: #9da8ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_7">
-    <path d="M 415.292368 336.764125 L 670.797632 336.764125 " style="fill: none; stroke: #9da8ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_36">
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="543.045" y="78.840187" transform="rotate(-0 543.045 78.840187)">全部曲线面积 0.25</text>
-   </g>
-   <g id="text_37">
-    <text style="font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="415.292368" y="22.388125" transform="rotate(-0 415.292368 22.388125)">B  换回自身尺度，四线重合</text>
-   </g>
-  </g>
-  </g><path d="M 44 2149.40 H 916" stroke="#cedae4" stroke-width="1.5"/><g transform="translate(-1719.88337 2166.48244) scale(2.51029820)"><g id="axes_3">
-   <g id="patch_8">
-    <path d="M 772.999737 336.764125 L 1028.505 336.764125 L 1028.505 37.388125 L 772.999737 37.388125 z " style="fill: #ffffff"/>
-   </g>
-   <g id="matplotlib.axis_5">
-    <g id="xtick_9">
-     <g id="line2d_58">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="784.613612" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_38">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="784.613612" y="356.554125" transform="rotate(-0 784.613612 356.554125)">1</text>
-     </g>
-    </g>
-    <g id="xtick_10">
-     <g id="line2d_59">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="862.03945" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_39">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="862.03945" y="356.554125" transform="rotate(-0 862.03945 356.554125)">0.5</text>
-     </g>
-    </g>
-    <g id="xtick_11">
-     <g id="line2d_60">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="939.465287" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_40">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="939.465287" y="356.554125" transform="rotate(-0 939.465287 356.554125)">0.25</text>
-     </g>
-    </g>
-    <g id="xtick_12">
-     <g id="line2d_61">
-      <g>
-       <use xlink:href="#mefd9e03c66" x="1016.891124" y="336.764125" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_41">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #536f80" x="1016.891124" y="356.554125" transform="rotate(-0 1016.891124 356.554125)">0.125</text>
-     </g>
-    </g>
-    <g id="text_42">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="900.752368" y="377.321625" transform="rotate(-0 900.752368 377.321625)">收缩分量标准差 σ</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_6">
-    <g id="ytick_18">
-     <g id="line2d_62">
-      <path d="M 772.999737 315.668956 L 1028.505 315.668956 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_63">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="772.999737" y="315.668956" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_43">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="765.999737" y="322.063956" transform="rotate(-0 765.999737 322.063956)">−7.0</text>
-     </g>
-    </g>
-    <g id="ytick_19">
-     <g id="line2d_64">
-      <path d="M 772.999737 266.993001 L 1028.505 266.993001 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_65">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="772.999737" y="266.993001" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_44">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="765.999737" y="273.388001" transform="rotate(-0 765.999737 273.388001)">−6.5</text>
-     </g>
-    </g>
-    <g id="ytick_20">
-     <g id="line2d_66">
-      <path d="M 772.999737 218.317046 L 1028.505 218.317046 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_67">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="772.999737" y="218.317046" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_45">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="765.999737" y="224.712046" transform="rotate(-0 765.999737 224.712046)">−6.0</text>
-     </g>
-    </g>
-    <g id="ytick_21">
-     <g id="line2d_68">
-      <path d="M 772.999737 169.64109 L 1028.505 169.64109 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_69">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="772.999737" y="169.64109" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_46">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="765.999737" y="176.03609" transform="rotate(-0 765.999737 176.03609)">−5.5</text>
-     </g>
-    </g>
-    <g id="ytick_22">
-     <g id="line2d_70">
-      <path d="M 772.999737 120.965135 L 1028.505 120.965135 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_71">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="772.999737" y="120.965135" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_47">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="765.999737" y="127.360135" transform="rotate(-0 765.999737 127.360135)">−5.0</text>
-     </g>
-    </g>
-    <g id="ytick_23">
-     <g id="line2d_72">
-      <path d="M 772.999737 72.289179 L 1028.505 72.289179 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.13; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_73">
-      <g>
-       <use xlink:href="#m6547f4b9e3" x="772.999737" y="72.289179" style="fill: #536f80; stroke: #536f80; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_48">
-      <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #536f80" x="765.999737" y="78.684179" transform="rotate(-0 765.999737 78.684179)">−4.5</text>
-     </g>
-    </g>
-    <g id="text_49">
-     <text style="font-size: 16px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="723.537237" y="187.076125" transform="rotate(-90 723.537237 187.076125)">四点观察总对数似然</text>
-    </g>
-   </g>
-   <g id="line2d_74">
-    <path d="M 784.613612 297.823361 L 862.03945 239.252835 L 939.465287 172.610627 L 1016.891124 105.534463 " clip-path="url(#p59ebd65db9)" style="fill: none; stroke: #233b53; stroke-width: 3; stroke-linecap: square"/>
-    <g clip-path="url(#p59ebd65db9)">
-     <use xlink:href="#m1e724d5da3" x="784.613612" y="297.823361" style="fill: #233b53; stroke: #233b53"/>
-     <use xlink:href="#m1e724d5da3" x="862.03945" y="239.252835" style="fill: #233b53; stroke: #233b53"/>
-     <use xlink:href="#m1e724d5da3" x="939.465287" y="172.610627" style="fill: #233b53; stroke: #233b53"/>
-     <use xlink:href="#m1e724d5da3" x="1016.891124" y="105.534463" style="fill: #233b53; stroke: #233b53"/>
-    </g>
-   </g>
-   <g id="patch_9">
-    <path d="M 772.999737 336.764125 L 772.999737 37.388125 " style="fill: none; stroke: #9da8ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_10">
-    <path d="M 772.999737 336.764125 L 1028.505 336.764125 " style="fill: none; stroke: #9da8ba; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="text_50">
-    <g id="patch_11">
-     <path d="M 747.947128 287.069454 L 811.280097 287.069454 L 811.280097 267.213986 L 747.947128 267.213986 z " style="fill: #ffffff; opacity: 0.85"/>
-    </g>
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="798.614" y="285.823">-6.8167</text>
-   </g>
-   <g id="text_51">
-    <g id="patch_12">
-     <path d="M 825.372965 228.498929 L 888.705934 228.498929 L 888.705934 208.64346 L 825.372965 208.64346 z " style="fill: #ffffff; opacity: 0.85"/>
-    </g>
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="857.03945" y="223.252835" transform="rotate(-0 857.03945 223.252835)">-6.2151</text>
-   </g>
-   <g id="text_52">
-    <g id="patch_13">
-     <path d="M 902.798803 161.856721 L 966.131771 161.856721 L 966.131771 142.001252 L 902.798803 142.001252 z " style="fill: #ffffff; opacity: 0.85"/>
-    </g>
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="934.465287" y="156.610627" transform="rotate(-0 934.465287 156.610627)">-5.5305</text>
-   </g>
-   <g id="text_53">
-    <g id="patch_14">
-     <path d="M 980.22464 94.780556 L 1043.557609 94.780556 L 1043.557609 74.925088 L 980.22464 74.925088 z " style="fill: #ffffff; opacity: 0.85"/>
-    </g>
-    <text style="font-size: 17px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #233b53" x="1011.891124" y="89.534463" transform="rotate(-0 1011.891124 89.534463)">-4.8415</text>
-   </g>
-   <g id="text_54">
-    <text style="font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #233b53" x="772.999737" y="22.388125" transform="rotate(-0 772.999737 22.388125)">C  固定四点的总似然仍上升</text>
-   </g>
-  </g>
- </g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="818" viewBox="0 0 1200 818" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">固定分量质量下的似然退化</title>
+<desc id="fig-desc">四个观察 0、2、3、4；收缩分量权重为 0.25。</desc>
+<rect x="0" y="0" width="1200" height="818" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">同一分量收缩时，峰值增高，概率质量保持不变</text>
+<path d="M122 366.706 L400 366.706" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 303.412 L400 303.412" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 240.118 L400 240.118" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 176.824 L400 176.824" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 430 L412 430" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M412 430 L401 435 L401 425 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 430 L122 149" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 149 L127 160 L117 160 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M141.857 426 L141.857 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="141.857" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">−2</text>
+<path d="M221.286 426 L221.286 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="221.286" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M300.714 426 L300.714 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="300.714" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M380.143 426 L380.143 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="380.143" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">4</text>
+<path d="M117 366.706 L126 366.706" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="112" y="372.706" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.2</text>
+<path d="M117 303.412 L126 303.412" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="112" y="309.412" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.4</text>
+<path d="M117 240.118 L126 240.118" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="112" y="246.118" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.6</text>
+<path d="M117 176.824 L126 176.824" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="112" y="182.824" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.8</text>
+<text x="419" y="436" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">x</text>
+<text x="122" y="139" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">A · 加权密度</text>
+<path d="M122 428.613 L122.556 428.564 L123.112 428.513 L123.668 428.461 L124.224 428.407 L124.78 428.352 L125.336 428.295 L125.892 428.237 L126.448 428.177 L127.004 428.115 L127.56 428.051 L128.116 427.986 L128.672 427.919 L129.228 427.85 L129.784 427.779 L130.34 427.707 L130.896 427.632 L131.452 427.556 L132.008 427.478 L132.564 427.397 L133.12 427.315 L133.676 427.23 L134.232 427.144 L134.788 427.055 L135.344 426.964 L135.9 426.871 L136.456 426.776 L137.012 426.678 L137.568 426.578 L138.124 426.476 L138.68 426.372 L139.236 426.265 L139.792 426.155 L140.348 426.044 L140.904 425.93 L141.46 425.813 L142.016 425.694 L142.572 425.572 L143.128 425.448 L143.684 425.322 L144.24 425.192 L144.796 425.061 L145.352 424.926 L145.908 424.789 L146.464 424.649 L147.02 424.507 L147.576 424.361 L148.132 424.214 L148.688 424.063 L149.244 423.91 L149.8 423.754 L150.356 423.595 L150.912 423.433 L151.468 423.269 L152.024 423.102 L152.58 422.932 L153.136 422.76 L153.692 422.584 L154.248 422.406 L154.804 422.225 L155.36 422.042 L155.916 421.856 L156.472 421.666 L157.028 421.475 L157.584 421.28 L158.14 421.083 L158.696 420.883 L159.252 420.681 L159.808 420.476 L160.364 420.268 L160.92 420.058 L161.476 419.845 L162.032 419.629 L162.588 419.412 L163.144 419.191 L163.7 418.969 L164.256 418.743 L164.812 418.516 L165.368 418.286 L165.924 418.054 L166.48 417.82 L167.036 417.584 L167.592 417.345 L168.148 417.105 L168.704 416.862 L169.26 416.618 L169.816 416.371 L170.372 416.123 L170.928 415.873 L171.484 415.621 L172.04 415.368 L172.596 415.113 L173.152 414.857 L173.708 414.6 L174.264 414.341 L174.82 414.08 L175.376 413.819 L175.932 413.557 L176.488 413.293 L177.044 413.029 L177.6 412.764 L178.156 412.498 L178.712 412.232 L179.268 411.965 L179.824 411.698 L180.38 411.43 L180.936 411.162 L181.492 410.894 L182.048 410.626 L182.604 410.358 L183.16 410.09 L183.716 409.823 L184.272 409.556 L184.828 409.29 L185.384 409.024 L185.94 408.759 L186.496 408.494 L187.052 408.231 L187.608 407.969 L188.164 407.708 L188.72 407.449 L189.276 407.19 L189.832 406.934 L190.388 406.679 L190.944 406.426 L191.5 406.175 L192.056 405.926 L192.612 405.679 L193.168 405.434 L193.724 405.192 L194.28 404.952 L194.836 404.715 L195.392 404.48 L195.948 404.249 L196.504 404.02 L197.06 403.795 L197.616 403.573 L198.172 403.354 L198.728 403.139 L199.284 402.927 L199.84 402.719 L200.396 402.514 L200.952 402.314 L201.508 402.118 L202.064 401.925 L202.62 401.737 L203.176 401.553 L203.732 401.374 L204.288 401.199 L204.844 401.029 L205.4 400.863 L205.956 400.703 L206.512 400.547 L207.068 400.396 L207.624 400.25 L208.18 400.109 L208.736 399.974 L209.292 399.844 L209.848 399.719 L210.404 399.599 L210.96 399.486 L211.516 399.377 L212.072 399.275 L212.628 399.178 L213.184 399.087 L213.74 399.001 L214.296 398.922 L214.852 398.848 L215.408 398.78 L215.964 398.719 L216.52 398.663 L217.076 398.613 L217.632 398.57 L218.188 398.532 L218.744 398.501 L219.3 398.476 L219.856 398.457 L220.412 398.444 L220.968 398.438 L221.524 398.437 L222.08 398.443 L222.636 398.455 L223.192 398.473 L223.748 398.497 L224.304 398.528 L224.86 398.564 L225.416 398.607 L225.972 398.656 L226.528 398.71 L227.084 398.771 L227.64 398.838 L228.196 398.911 L228.752 398.99 L229.308 399.074 L229.864 399.164 L230.42 399.261 L230.976 399.362 L231.532 399.47 L232.088 399.583 L232.644 399.701 L233.2 399.825 L233.756 399.955 L234.312 400.09 L234.868 400.23 L235.424 400.375 L235.98 400.525 L236.536 400.68 L237.092 400.84 L237.648 401.005 L238.204 401.175 L238.76 401.349 L239.316 401.527 L239.872 401.711 L240.428 401.898 L240.984 402.09 L241.54 402.286 L242.096 402.486 L242.652 402.689 L243.208 402.897 L243.764 403.108 L244.32 403.323 L244.876 403.541 L245.432 403.763 L245.988 403.988 L246.544 404.216 L247.1 404.447 L247.656 404.681 L248.212 404.918 L248.768 405.157 L249.324 405.399 L249.88 405.644 L250.436 405.89 L250.992 406.139 L251.548 406.39 L252.104 406.643 L252.66 406.897 L253.216 407.154 L253.772 407.412 L254.328 407.671 L254.884 407.932 L255.44 408.194 L255.996 408.457 L256.552 408.721 L257.108 408.986 L257.664 409.252 L258.22 409.518 L258.776 409.785 L259.332 410.052 L259.888 410.32 L260.444 410.588 L261 410.856 L261.556 411.124 L262.112 411.392 L262.668 411.659 L263.224 411.927 L263.78 412.194 L264.336 412.46 L264.892 412.726 L265.448 412.991 L266.004 413.256 L266.56 413.519 L267.116 413.782 L267.672 414.043 L268.228 414.304 L268.784 414.563 L269.34 414.82 L269.896 415.077 L270.452 415.332 L271.008 415.585 L271.564 415.837 L272.12 416.087 L272.676 416.336 L273.232 416.582 L273.788 416.827 L274.344 417.07 L274.9 417.311 L275.456 417.55 L276.012 417.786 L276.568 418.021 L277.124 418.253 L277.68 418.483 L278.236 418.711 L278.792 418.937 L279.348 419.16 L279.904 419.38 L280.46 419.599 L281.016 419.814 L281.572 420.027 L282.128 420.238 L282.684 420.446 L283.24 420.652 L283.796 420.855 L284.352 421.055 L284.908 421.252 L285.464 421.447 L286.02 421.639 L286.576 421.829 L287.132 422.015 L287.688 422.199 L288.244 422.381 L288.8 422.559 L289.356 422.735 L289.912 422.908 L290.468 423.078 L291.024 423.245 L291.58 423.41 L292.136 423.572 L292.692 423.731 L293.248 423.888 L293.804 424.041 L294.36 424.192 L294.916 424.34 L295.472 424.486 L296.028 424.629 L296.584 424.769 L297.14 424.907 L297.696 425.041 L298.252 425.174 L298.808 425.303 L299.364 425.43 L299.92 425.555 L300.476 425.677 L301.032 425.796 L301.588 425.913 L302.144 426.028 L302.7 426.14 L303.256 426.249 L303.812 426.356 L304.368 426.461 L304.924 426.564 L305.48 426.664 L306.036 426.762 L306.592 426.857 L307.148 426.951 L307.704 427.042 L308.26 427.131 L308.816 427.218 L309.372 427.303 L309.928 427.385 L310.484 427.466 L311.04 427.545 L311.596 427.622 L312.152 427.696 L312.708 427.769 L313.264 427.84 L313.82 427.909 L314.376 427.976 L314.932 428.042 L315.488 428.106 L316.044 428.168 L316.6 428.228 L317.156 428.287 L317.712 428.344 L318.268 428.4 L318.824 428.453 L319.38 428.506 L319.936 428.557 L320.492 428.606 L321.048 428.654 L321.604 428.701 L322.16 428.746 L322.716 428.79 L323.272 428.833 L323.828 428.874 L324.384 428.914 L324.94 428.953 L325.496 428.991 L326.052 429.027 L326.608 429.063 L327.164 429.097 L327.72 429.13 L328.276 429.162 L328.832 429.193 L329.388 429.223 L329.944 429.252 L330.5 429.281 L331.056 429.308 L331.612 429.334 L332.168 429.36 L332.724 429.384 L333.28 429.408 L333.836 429.431 L334.392 429.453 L334.948 429.475 L335.504 429.495 L336.06 429.515 L336.616 429.534 L337.172 429.553 L337.728 429.571 L338.284 429.588 L338.84 429.605 L339.396 429.621 L339.952 429.637 L340.508 429.651 L341.064 429.666 L341.62 429.68 L342.176 429.693 L342.732 429.706 L343.288 429.718 L343.844 429.73 L344.4 429.742 L344.956 429.753 L345.512 429.763 L346.068 429.773 L346.624 429.783 L347.18 429.792 L347.736 429.801 L348.292 429.81 L348.848 429.818 L349.404 429.826 L349.96 429.834 L350.516 429.842 L351.072 429.849 L351.628 429.855 L352.184 429.862 L352.74 429.868 L353.296 429.874 L353.852 429.88 L354.408 429.885 L354.964 429.891 L355.52 429.896 L356.076 429.901 L356.632 429.905 L357.188 429.91 L357.744 429.914 L358.3 429.918 L358.856 429.922 L359.412 429.925 L359.968 429.929 L360.524 429.932 L361.08 429.936 L361.636 429.939 L362.192 429.942 L362.748 429.945 L363.304 429.947 L363.86 429.95 L364.416 429.952 L364.972 429.955 L365.528 429.957 L366.084 429.959 L366.64 429.961 L367.196 429.963 L367.752 429.965 L368.308 429.967 L368.864 429.968 L369.42 429.97 L369.976 429.971 L370.532 429.973 L371.088 429.974 L371.644 429.976 L372.2 429.977 L372.756 429.978 L373.312 429.979 L373.868 429.98 L374.424 429.981 L374.98 429.982 L375.536 429.983 L376.092 429.984 L376.648 429.985 L377.204 429.986 L377.76 429.987 L378.316 429.987 L378.872 429.988 L379.428 429.989 L379.984 429.989 L380.54 429.99 L381.096 429.99 L381.652 429.991 L382.208 429.991 L382.764 429.992 L383.32 429.992 L383.876 429.993 L384.432 429.993 L384.988 429.994 L385.544 429.994 L386.1 429.994 L386.656 429.995 L387.212 429.995 L387.768 429.995 L388.324 429.995 L388.88 429.996 L389.436 429.996 L389.992 429.996 L390.548 429.996 L391.104 429.997 L391.66 429.997 L392.216 429.997 L392.772 429.997 L393.328 429.997 L393.884 429.998 L394.44 429.998 L394.996 429.998 L395.552 429.998 L396.108 429.998 L396.664 429.998 L397.22 429.998 L397.776 429.998 L398.332 429.998 L398.888 429.999 L399.444 429.999 L400 429.999" fill="none" stroke="#526976" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 430 L122.556 430 L123.112 430 L123.668 430 L124.224 430 L124.78 430 L125.336 429.999 L125.892 429.999 L126.448 429.999 L127.004 429.999 L127.56 429.999 L128.116 429.999 L128.672 429.999 L129.228 429.999 L129.784 429.998 L130.34 429.998 L130.896 429.998 L131.452 429.998 L132.008 429.997 L132.564 429.997 L133.12 429.997 L133.676 429.996 L134.232 429.996 L134.788 429.995 L135.344 429.995 L135.9 429.994 L136.456 429.993 L137.012 429.992 L137.568 429.991 L138.124 429.99 L138.68 429.989 L139.236 429.988 L139.792 429.986 L140.348 429.984 L140.904 429.983 L141.46 429.98 L142.016 429.978 L142.572 429.976 L143.128 429.973 L143.684 429.97 L144.24 429.966 L144.796 429.962 L145.352 429.958 L145.908 429.953 L146.464 429.948 L147.02 429.942 L147.576 429.936 L148.132 429.929 L148.688 429.921 L149.244 429.912 L149.8 429.903 L150.356 429.893 L150.912 429.882 L151.468 429.869 L152.024 429.856 L152.58 429.841 L153.136 429.825 L153.692 429.808 L154.248 429.789 L154.804 429.768 L155.36 429.745 L155.916 429.72 L156.472 429.693 L157.028 429.664 L157.584 429.632 L158.14 429.598 L158.696 429.561 L159.252 429.52 L159.808 429.477 L160.364 429.429 L160.92 429.379 L161.476 429.324 L162.032 429.264 L162.588 429.201 L163.144 429.132 L163.7 429.058 L164.256 428.979 L164.812 428.894 L165.368 428.803 L165.924 428.705 L166.48 428.6 L167.036 428.488 L167.592 428.369 L168.148 428.241 L168.704 428.105 L169.26 427.96 L169.816 427.806 L170.372 427.641 L170.928 427.467 L171.484 427.281 L172.04 427.085 L172.596 426.876 L173.152 426.656 L173.708 426.422 L174.264 426.175 L174.82 425.915 L175.376 425.64 L175.932 425.35 L176.488 425.045 L177.044 424.724 L177.6 424.387 L178.156 424.032 L178.712 423.661 L179.268 423.271 L179.824 422.863 L180.38 422.436 L180.936 421.99 L181.492 421.525 L182.048 421.039 L182.604 420.533 L183.16 420.006 L183.716 419.459 L184.272 418.889 L184.828 418.299 L185.384 417.686 L185.94 417.052 L186.496 416.396 L187.052 415.717 L187.608 415.017 L188.164 414.294 L188.72 413.55 L189.276 412.783 L189.832 411.996 L190.388 411.186 L190.944 410.356 L191.5 409.506 L192.056 408.635 L192.612 407.745 L193.168 406.836 L193.724 405.908 L194.28 404.963 L194.836 404.002 L195.392 403.024 L195.948 402.032 L196.504 401.026 L197.06 400.008 L197.616 398.978 L198.172 397.937 L198.728 396.888 L199.284 395.831 L199.84 394.768 L200.396 393.701 L200.952 392.63 L201.508 391.559 L202.064 390.487 L202.62 389.417 L203.176 388.351 L203.732 387.291 L204.288 386.238 L204.844 385.194 L205.4 384.161 L205.956 383.141 L206.512 382.135 L207.068 381.147 L207.624 380.177 L208.18 379.228 L208.736 378.301 L209.292 377.399 L209.848 376.523 L210.404 375.675 L210.96 374.856 L211.516 374.069 L212.072 373.316 L212.628 372.597 L213.184 371.915 L213.74 371.27 L214.296 370.665 L214.852 370.101 L215.408 369.579 L215.964 369.1 L216.52 368.665 L217.076 368.276 L217.632 367.933 L218.188 367.637 L218.744 367.388 L219.3 367.188 L219.856 367.037 L220.412 366.934 L220.968 366.881 L221.524 366.878 L222.08 366.924 L222.636 367.019 L223.192 367.163 L223.748 367.357 L224.304 367.598 L224.86 367.888 L225.416 368.224 L225.972 368.607 L226.528 369.035 L227.084 369.508 L227.64 370.024 L228.196 370.582 L228.752 371.181 L229.308 371.82 L229.864 372.497 L230.42 373.211 L230.976 373.96 L231.532 374.742 L232.088 375.556 L232.644 376.4 L233.2 377.272 L233.756 378.171 L234.312 379.094 L234.868 380.04 L235.424 381.007 L235.98 381.993 L236.536 382.996 L237.092 384.014 L237.648 385.045 L238.204 386.088 L238.76 387.14 L239.316 388.199 L239.872 389.265 L240.428 390.334 L240.984 391.405 L241.54 392.477 L242.096 393.548 L242.652 394.616 L243.208 395.68 L243.764 396.737 L244.32 397.788 L244.876 398.829 L245.432 399.861 L245.988 400.881 L246.544 401.889 L247.1 402.883 L247.656 403.863 L248.212 404.827 L248.768 405.774 L249.324 406.704 L249.88 407.616 L250.436 408.509 L250.992 409.383 L251.548 410.236 L252.104 411.069 L252.66 411.881 L253.216 412.672 L253.772 413.442 L254.328 414.189 L254.884 414.915 L255.44 415.618 L255.996 416.3 L256.552 416.96 L257.108 417.597 L257.664 418.213 L258.22 418.806 L258.776 419.379 L259.332 419.929 L259.888 420.459 L260.444 420.968 L261 421.457 L261.556 421.925 L262.112 422.374 L262.668 422.803 L263.224 423.214 L263.78 423.606 L264.336 423.98 L264.892 424.337 L265.448 424.677 L266.004 425 L266.56 425.308 L267.116 425.6 L267.672 425.877 L268.228 426.139 L268.784 426.388 L269.34 426.623 L269.896 426.846 L270.452 427.056 L271.008 427.254 L271.564 427.441 L272.12 427.617 L272.676 427.783 L273.232 427.939 L273.788 428.085 L274.344 428.222 L274.9 428.351 L275.456 428.472 L276.012 428.585 L276.568 428.69 L277.124 428.789 L277.68 428.881 L278.236 428.967 L278.792 429.047 L279.348 429.122 L279.904 429.191 L280.46 429.256 L281.016 429.315 L281.572 429.371 L282.128 429.422 L282.684 429.47 L283.24 429.514 L283.796 429.555 L284.352 429.593 L284.908 429.628 L285.464 429.66 L286.02 429.689 L286.576 429.716 L287.132 429.741 L287.688 429.764 L288.244 429.786 L288.8 429.805 L289.356 429.823 L289.912 429.839 L290.468 429.854 L291.024 429.868 L291.58 429.88 L292.136 429.891 L292.692 429.902 L293.248 429.911 L293.804 429.92 L294.36 429.928 L294.916 429.935 L295.472 429.941 L296.028 429.947 L296.584 429.952 L297.14 429.957 L297.696 429.962 L298.252 429.965 L298.808 429.969 L299.364 429.972 L299.92 429.975 L300.476 429.978 L301.032 429.98 L301.588 429.982 L302.144 429.984 L302.7 429.986 L303.256 429.987 L303.812 429.989 L304.368 429.99 L304.924 429.991 L305.48 429.992 L306.036 429.993 L306.592 429.994 L307.148 429.995 L307.704 429.995 L308.26 429.996 L308.816 429.996 L309.372 429.997 L309.928 429.997 L310.484 429.997 L311.04 429.998 L311.596 429.998 L312.152 429.998 L312.708 429.998 L313.264 429.999 L313.82 429.999 L314.376 429.999 L314.932 429.999 L315.488 429.999 L316.044 429.999 L316.6 429.999 L317.156 429.999 L317.712 430 L318.268 430 L318.824 430 L319.38 430 L319.936 430 L320.492 430 L321.048 430 L321.604 430 L322.16 430 L322.716 430 L323.272 430 L323.828 430 L324.384 430 L324.94 430 L325.496 430 L326.052 430 L326.608 430 L327.164 430 L327.72 430 L328.276 430 L328.832 430 L329.388 430 L329.944 430 L330.5 430 L331.056 430 L331.612 430 L332.168 430 L332.724 430 L333.28 430 L333.836 430 L334.392 430 L334.948 430 L335.504 430 L336.06 430 L336.616 430 L337.172 430 L337.728 430 L338.284 430 L338.84 430 L339.396 430 L339.952 430 L340.508 430 L341.064 430 L341.62 430 L342.176 430 L342.732 430 L343.288 430 L343.844 430 L344.4 430 L344.956 430 L345.512 430 L346.068 430 L346.624 430 L347.18 430 L347.736 430 L348.292 430 L348.848 430 L349.404 430 L349.96 430 L350.516 430 L351.072 430 L351.628 430 L352.184 430 L352.74 430 L353.296 430 L353.852 430 L354.408 430 L354.964 430 L355.52 430 L356.076 430 L356.632 430 L357.188 430 L357.744 430 L358.3 430 L358.856 430 L359.412 430 L359.968 430 L360.524 430 L361.08 430 L361.636 430 L362.192 430 L362.748 430 L363.304 430 L363.86 430 L364.416 430 L364.972 430 L365.528 430 L366.084 430 L366.64 430 L367.196 430 L367.752 430 L368.308 430 L368.864 430 L369.42 430 L369.976 430 L370.532 430 L371.088 430 L371.644 430 L372.2 430 L372.756 430 L373.312 430 L373.868 430 L374.424 430 L374.98 430 L375.536 430 L376.092 430 L376.648 430 L377.204 430 L377.76 430 L378.316 430 L378.872 430 L379.428 430 L379.984 430 L380.54 430 L381.096 430 L381.652 430 L382.208 430 L382.764 430 L383.32 430 L383.876 430 L384.432 430 L384.988 430 L385.544 430 L386.1 430 L386.656 430 L387.212 430 L387.768 430 L388.324 430 L388.88 430 L389.436 430 L389.992 430 L390.548 430 L391.104 430 L391.66 430 L392.216 430 L392.772 430 L393.328 430 L393.884 430 L394.44 430 L394.996 430 L395.552 430 L396.108 430 L396.664 430 L397.22 430 L397.776 430 L398.332 430 L398.888 430 L399.444 430 L400 430" fill="none" stroke="#6e618e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 430 L122.556 430 L123.112 430 L123.668 430 L124.224 430 L124.78 430 L125.336 430 L125.892 430 L126.448 430 L127.004 430 L127.56 430 L128.116 430 L128.672 430 L129.228 430 L129.784 430 L130.34 430 L130.896 430 L131.452 430 L132.008 430 L132.564 430 L133.12 430 L133.676 430 L134.232 430 L134.788 430 L135.344 430 L135.9 430 L136.456 430 L137.012 430 L137.568 430 L138.124 430 L138.68 430 L139.236 430 L139.792 430 L140.348 430 L140.904 430 L141.46 430 L142.016 430 L142.572 430 L143.128 430 L143.684 430 L144.24 430 L144.796 430 L145.352 430 L145.908 430 L146.464 430 L147.02 430 L147.576 430 L148.132 430 L148.688 430 L149.244 430 L149.8 430 L150.356 430 L150.912 430 L151.468 430 L152.024 430 L152.58 430 L153.136 430 L153.692 430 L154.248 430 L154.804 430 L155.36 430 L155.916 430 L156.472 430 L157.028 430 L157.584 430 L158.14 430 L158.696 430 L159.252 430 L159.808 430 L160.364 430 L160.92 430 L161.476 430 L162.032 430 L162.588 430 L163.144 430 L163.7 430 L164.256 430 L164.812 430 L165.368 430 L165.924 430 L166.48 430 L167.036 430 L167.592 430 L168.148 430 L168.704 430 L169.26 430 L169.816 430 L170.372 430 L170.928 430 L171.484 430 L172.04 429.999 L172.596 429.999 L173.152 429.999 L173.708 429.999 L174.264 429.998 L174.82 429.998 L175.376 429.997 L175.932 429.996 L176.488 429.995 L177.044 429.994 L177.6 429.992 L178.156 429.99 L178.712 429.987 L179.268 429.984 L179.824 429.979 L180.38 429.974 L180.936 429.967 L181.492 429.959 L182.048 429.949 L182.604 429.936 L183.16 429.921 L183.716 429.902 L184.272 429.879 L184.828 429.851 L185.384 429.817 L185.94 429.777 L186.496 429.728 L187.052 429.669 L187.608 429.599 L188.164 429.516 L188.72 429.418 L189.276 429.301 L189.832 429.165 L190.388 429.004 L190.944 428.816 L191.5 428.597 L192.056 428.343 L192.612 428.05 L193.168 427.711 L193.724 427.322 L194.28 426.876 L194.836 426.368 L195.392 425.79 L195.948 425.136 L196.504 424.397 L197.06 423.567 L197.616 422.636 L198.172 421.598 L198.728 420.443 L199.284 419.163 L199.84 417.75 L200.396 416.197 L200.952 414.495 L201.508 412.638 L202.064 410.62 L202.62 408.435 L203.176 406.078 L203.732 403.547 L204.288 400.839 L204.844 397.956 L205.4 394.897 L205.956 391.667 L206.512 388.27 L207.068 384.715 L207.624 381.011 L208.18 377.169 L208.736 373.205 L209.292 369.135 L209.848 364.977 L210.404 360.753 L210.96 356.485 L211.516 352.198 L212.072 347.92 L212.628 343.677 L213.184 339.499 L213.74 335.416 L214.296 331.458 L214.852 327.656 L215.408 324.04 L215.964 320.64 L216.52 317.484 L217.076 314.6 L217.632 312.012 L218.188 309.744 L218.744 307.817 L219.3 306.246 L219.856 305.049 L220.412 304.234 L220.968 303.811 L221.524 303.783 L222.08 304.15 L222.636 304.909 L223.192 306.052 L223.748 307.57 L224.304 309.448 L224.86 311.668 L225.416 314.212 L225.972 317.055 L226.528 320.174 L227.084 323.541 L227.64 327.127 L228.196 330.905 L228.752 334.842 L229.308 338.909 L229.864 343.075 L230.42 347.311 L230.976 351.586 L231.532 355.873 L232.088 360.145 L232.644 364.377 L233.2 368.546 L233.756 372.63 L234.312 376.61 L234.868 380.47 L235.424 384.195 L235.98 387.772 L236.536 391.191 L237.092 394.446 L237.648 397.529 L238.204 400.438 L238.76 403.171 L239.316 405.727 L239.872 408.108 L240.428 410.318 L240.984 412.36 L241.54 414.24 L242.096 415.963 L242.652 417.537 L243.208 418.97 L243.764 420.268 L244.32 421.44 L244.876 422.495 L245.432 423.44 L245.988 424.284 L246.544 425.035 L247.1 425.701 L247.656 426.29 L248.212 426.807 L248.768 427.262 L249.324 427.658 L249.88 428.004 L250.436 428.304 L250.992 428.563 L251.548 428.787 L252.104 428.979 L252.66 429.143 L253.216 429.283 L253.772 429.402 L254.328 429.503 L254.884 429.588 L255.44 429.66 L255.996 429.72 L256.552 429.77 L257.108 429.812 L257.664 429.847 L258.22 429.875 L258.776 429.899 L259.332 429.918 L259.888 429.934 L260.444 429.947 L261 429.958 L261.556 429.966 L262.112 429.973 L262.668 429.979 L263.224 429.983 L263.78 429.987 L264.336 429.99 L264.892 429.992 L265.448 429.994 L266.004 429.995 L266.56 429.996 L267.116 429.997 L267.672 429.998 L268.228 429.998 L268.784 429.999 L269.34 429.999 L269.896 429.999 L270.452 429.999 L271.008 430 L271.564 430 L272.12 430 L272.676 430 L273.232 430 L273.788 430 L274.344 430 L274.9 430 L275.456 430 L276.012 430 L276.568 430 L277.124 430 L277.68 430 L278.236 430 L278.792 430 L279.348 430 L279.904 430 L280.46 430 L281.016 430 L281.572 430 L282.128 430 L282.684 430 L283.24 430 L283.796 430 L284.352 430 L284.908 430 L285.464 430 L286.02 430 L286.576 430 L287.132 430 L287.688 430 L288.244 430 L288.8 430 L289.356 430 L289.912 430 L290.468 430 L291.024 430 L291.58 430 L292.136 430 L292.692 430 L293.248 430 L293.804 430 L294.36 430 L294.916 430 L295.472 430 L296.028 430 L296.584 430 L297.14 430 L297.696 430 L298.252 430 L298.808 430 L299.364 430 L299.92 430 L300.476 430 L301.032 430 L301.588 430 L302.144 430 L302.7 430 L303.256 430 L303.812 430 L304.368 430 L304.924 430 L305.48 430 L306.036 430 L306.592 430 L307.148 430 L307.704 430 L308.26 430 L308.816 430 L309.372 430 L309.928 430 L310.484 430 L311.04 430 L311.596 430 L312.152 430 L312.708 430 L313.264 430 L313.82 430 L314.376 430 L314.932 430 L315.488 430 L316.044 430 L316.6 430 L317.156 430 L317.712 430 L318.268 430 L318.824 430 L319.38 430 L319.936 430 L320.492 430 L321.048 430 L321.604 430 L322.16 430 L322.716 430 L323.272 430 L323.828 430 L324.384 430 L324.94 430 L325.496 430 L326.052 430 L326.608 430 L327.164 430 L327.72 430 L328.276 430 L328.832 430 L329.388 430 L329.944 430 L330.5 430 L331.056 430 L331.612 430 L332.168 430 L332.724 430 L333.28 430 L333.836 430 L334.392 430 L334.948 430 L335.504 430 L336.06 430 L336.616 430 L337.172 430 L337.728 430 L338.284 430 L338.84 430 L339.396 430 L339.952 430 L340.508 430 L341.064 430 L341.62 430 L342.176 430 L342.732 430 L343.288 430 L343.844 430 L344.4 430 L344.956 430 L345.512 430 L346.068 430 L346.624 430 L347.18 430 L347.736 430 L348.292 430 L348.848 430 L349.404 430 L349.96 430 L350.516 430 L351.072 430 L351.628 430 L352.184 430 L352.74 430 L353.296 430 L353.852 430 L354.408 430 L354.964 430 L355.52 430 L356.076 430 L356.632 430 L357.188 430 L357.744 430 L358.3 430 L358.856 430 L359.412 430 L359.968 430 L360.524 430 L361.08 430 L361.636 430 L362.192 430 L362.748 430 L363.304 430 L363.86 430 L364.416 430 L364.972 430 L365.528 430 L366.084 430 L366.64 430 L367.196 430 L367.752 430 L368.308 430 L368.864 430 L369.42 430 L369.976 430 L370.532 430 L371.088 430 L371.644 430 L372.2 430 L372.756 430 L373.312 430 L373.868 430 L374.424 430 L374.98 430 L375.536 430 L376.092 430 L376.648 430 L377.204 430 L377.76 430 L378.316 430 L378.872 430 L379.428 430 L379.984 430 L380.54 430 L381.096 430 L381.652 430 L382.208 430 L382.764 430 L383.32 430 L383.876 430 L384.432 430 L384.988 430 L385.544 430 L386.1 430 L386.656 430 L387.212 430 L387.768 430 L388.324 430 L388.88 430 L389.436 430 L389.992 430 L390.548 430 L391.104 430 L391.66 430 L392.216 430 L392.772 430 L393.328 430 L393.884 430 L394.44 430 L394.996 430 L395.552 430 L396.108 430 L396.664 430 L397.22 430 L397.776 430 L398.332 430 L398.888 430 L399.444 430 L400 430" fill="none" stroke="#166d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 430 L122.556 430 L123.112 430 L123.668 430 L124.224 430 L124.78 430 L125.336 430 L125.892 430 L126.448 430 L127.004 430 L127.56 430 L128.116 430 L128.672 430 L129.228 430 L129.784 430 L130.34 430 L130.896 430 L131.452 430 L132.008 430 L132.564 430 L133.12 430 L133.676 430 L134.232 430 L134.788 430 L135.344 430 L135.9 430 L136.456 430 L137.012 430 L137.568 430 L138.124 430 L138.68 430 L139.236 430 L139.792 430 L140.348 430 L140.904 430 L141.46 430 L142.016 430 L142.572 430 L143.128 430 L143.684 430 L144.24 430 L144.796 430 L145.352 430 L145.908 430 L146.464 430 L147.02 430 L147.576 430 L148.132 430 L148.688 430 L149.244 430 L149.8 430 L150.356 430 L150.912 430 L151.468 430 L152.024 430 L152.58 430 L153.136 430 L153.692 430 L154.248 430 L154.804 430 L155.36 430 L155.916 430 L156.472 430 L157.028 430 L157.584 430 L158.14 430 L158.696 430 L159.252 430 L159.808 430 L160.364 430 L160.92 430 L161.476 430 L162.032 430 L162.588 430 L163.144 430 L163.7 430 L164.256 430 L164.812 430 L165.368 430 L165.924 430 L166.48 430 L167.036 430 L167.592 430 L168.148 430 L168.704 430 L169.26 430 L169.816 430 L170.372 430 L170.928 430 L171.484 430 L172.04 430 L172.596 430 L173.152 430 L173.708 430 L174.264 430 L174.82 430 L175.376 430 L175.932 430 L176.488 430 L177.044 430 L177.6 430 L178.156 430 L178.712 430 L179.268 430 L179.824 430 L180.38 430 L180.936 430 L181.492 430 L182.048 430 L182.604 430 L183.16 430 L183.716 430 L184.272 430 L184.828 430 L185.384 430 L185.94 430 L186.496 430 L187.052 430 L187.608 430 L188.164 430 L188.72 430 L189.276 430 L189.832 430 L190.388 430 L190.944 430 L191.5 430 L192.056 430 L192.612 430 L193.168 430 L193.724 430 L194.28 430 L194.836 430 L195.392 430 L195.948 429.999 L196.504 429.999 L197.06 429.998 L197.616 429.997 L198.172 429.995 L198.728 429.992 L199.284 429.986 L199.84 429.978 L200.396 429.964 L200.952 429.943 L201.508 429.91 L202.064 429.86 L202.62 429.785 L203.176 429.675 L203.732 429.513 L204.288 429.281 L204.844 428.952 L205.4 428.491 L205.956 427.854 L206.512 426.986 L207.068 425.821 L207.624 424.276 L208.18 422.258 L208.736 419.66 L209.292 416.361 L209.848 412.235 L210.404 407.149 L210.96 400.973 L211.516 393.587 L212.072 384.891 L212.628 374.816 L213.184 363.332 L213.74 350.462 L214.296 336.29 L214.852 320.969 L215.408 304.725 L215.964 287.855 L216.52 270.724 L217.076 253.753 L217.632 237.405 L218.188 222.164 L218.744 208.512 L219.3 196.907 L219.856 187.751 L220.412 181.374 L220.968 178.01 L221.524 177.784 L222.08 180.704 L222.636 186.663 L223.192 195.44 L223.748 206.719 L224.304 220.105 L224.86 235.148 L225.416 251.368 L225.972 268.279 L226.528 285.415 L227.084 302.346 L227.64 318.699 L228.196 334.167 L228.752 348.514 L229.308 361.577 L229.864 373.262 L230.42 383.538 L230.976 392.427 L231.532 399.994 L232.088 406.336 L232.644 411.57 L233.2 415.826 L233.756 419.234 L234.312 421.925 L234.868 424.019 L235.424 425.625 L235.98 426.84 L236.536 427.746 L237.092 428.412 L237.648 428.895 L238.204 429.241 L238.76 429.485 L239.316 429.655 L239.872 429.772 L240.428 429.851 L240.984 429.904 L241.54 429.939 L242.096 429.961 L242.652 429.976 L243.208 429.985 L243.764 429.991 L244.32 429.995 L244.876 429.997 L245.432 429.998 L245.988 429.999 L246.544 429.999 L247.1 430 L247.656 430 L248.212 430 L248.768 430 L249.324 430 L249.88 430 L250.436 430 L250.992 430 L251.548 430 L252.104 430 L252.66 430 L253.216 430 L253.772 430 L254.328 430 L254.884 430 L255.44 430 L255.996 430 L256.552 430 L257.108 430 L257.664 430 L258.22 430 L258.776 430 L259.332 430 L259.888 430 L260.444 430 L261 430 L261.556 430 L262.112 430 L262.668 430 L263.224 430 L263.78 430 L264.336 430 L264.892 430 L265.448 430 L266.004 430 L266.56 430 L267.116 430 L267.672 430 L268.228 430 L268.784 430 L269.34 430 L269.896 430 L270.452 430 L271.008 430 L271.564 430 L272.12 430 L272.676 430 L273.232 430 L273.788 430 L274.344 430 L274.9 430 L275.456 430 L276.012 430 L276.568 430 L277.124 430 L277.68 430 L278.236 430 L278.792 430 L279.348 430 L279.904 430 L280.46 430 L281.016 430 L281.572 430 L282.128 430 L282.684 430 L283.24 430 L283.796 430 L284.352 430 L284.908 430 L285.464 430 L286.02 430 L286.576 430 L287.132 430 L287.688 430 L288.244 430 L288.8 430 L289.356 430 L289.912 430 L290.468 430 L291.024 430 L291.58 430 L292.136 430 L292.692 430 L293.248 430 L293.804 430 L294.36 430 L294.916 430 L295.472 430 L296.028 430 L296.584 430 L297.14 430 L297.696 430 L298.252 430 L298.808 430 L299.364 430 L299.92 430 L300.476 430 L301.032 430 L301.588 430 L302.144 430 L302.7 430 L303.256 430 L303.812 430 L304.368 430 L304.924 430 L305.48 430 L306.036 430 L306.592 430 L307.148 430 L307.704 430 L308.26 430 L308.816 430 L309.372 430 L309.928 430 L310.484 430 L311.04 430 L311.596 430 L312.152 430 L312.708 430 L313.264 430 L313.82 430 L314.376 430 L314.932 430 L315.488 430 L316.044 430 L316.6 430 L317.156 430 L317.712 430 L318.268 430 L318.824 430 L319.38 430 L319.936 430 L320.492 430 L321.048 430 L321.604 430 L322.16 430 L322.716 430 L323.272 430 L323.828 430 L324.384 430 L324.94 430 L325.496 430 L326.052 430 L326.608 430 L327.164 430 L327.72 430 L328.276 430 L328.832 430 L329.388 430 L329.944 430 L330.5 430 L331.056 430 L331.612 430 L332.168 430 L332.724 430 L333.28 430 L333.836 430 L334.392 430 L334.948 430 L335.504 430 L336.06 430 L336.616 430 L337.172 430 L337.728 430 L338.284 430 L338.84 430 L339.396 430 L339.952 430 L340.508 430 L341.064 430 L341.62 430 L342.176 430 L342.732 430 L343.288 430 L343.844 430 L344.4 430 L344.956 430 L345.512 430 L346.068 430 L346.624 430 L347.18 430 L347.736 430 L348.292 430 L348.848 430 L349.404 430 L349.96 430 L350.516 430 L351.072 430 L351.628 430 L352.184 430 L352.74 430 L353.296 430 L353.852 430 L354.408 430 L354.964 430 L355.52 430 L356.076 430 L356.632 430 L357.188 430 L357.744 430 L358.3 430 L358.856 430 L359.412 430 L359.968 430 L360.524 430 L361.08 430 L361.636 430 L362.192 430 L362.748 430 L363.304 430 L363.86 430 L364.416 430 L364.972 430 L365.528 430 L366.084 430 L366.64 430 L367.196 430 L367.752 430 L368.308 430 L368.864 430 L369.42 430 L369.976 430 L370.532 430 L371.088 430 L371.644 430 L372.2 430 L372.756 430 L373.312 430 L373.868 430 L374.424 430 L374.98 430 L375.536 430 L376.092 430 L376.648 430 L377.204 430 L377.76 430 L378.316 430 L378.872 430 L379.428 430 L379.984 430 L380.54 430 L381.096 430 L381.652 430 L382.208 430 L382.764 430 L383.32 430 L383.876 430 L384.432 430 L384.988 430 L385.544 430 L386.1 430 L386.656 430 L387.212 430 L387.768 430 L388.324 430 L388.88 430 L389.436 430 L389.992 430 L390.548 430 L391.104 430 L391.66 430 L392.216 430 L392.772 430 L393.328 430 L393.884 430 L394.44 430 L394.996 430 L395.552 430 L396.108 430 L396.664 430 L397.22 430 L397.776 430 L398.332 430 L398.888 430 L399.444 430 L400 430" fill="none" stroke="#a74d3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 430 L123.03 430 L124.059 430 L125.089 430 L126.119 430 L127.148 430 L128.178 430 L129.207 430 L130.237 430 L131.267 430 L132.296 430 L133.326 430 L134.356 430 L135.385 430 L136.415 430 L137.444 430 L138.474 430 L139.504 430 L140.533 430 L141.563 430 L142.593 430 L143.622 430 L144.652 429.999 L145.681 429.999 L146.711 429.999 L147.741 429.999 L148.77 429.999 L149.8 429.999 L150.83 429.999 L151.859 429.999 L152.889 429.999 L153.919 429.998 L154.948 429.998 L155.978 429.998 L157.007 429.998 L158.037 429.998 L159.067 429.997 L160.096 429.997 L161.126 429.996 L162.156 429.996 L163.185 429.996 L164.215 429.995 L165.244 429.994 L166.274 429.994 L167.304 429.993 L168.333 429.992 L169.363 429.991 L170.393 429.99 L171.422 429.989 L172.452 429.988 L173.481 429.986 L174.511 429.985 L175.541 429.983 L176.57 429.981 L177.6 429.979 L178.63 429.976 L179.659 429.974 L180.689 429.971 L181.719 429.968 L182.748 429.964 L183.778 429.96 L184.807 429.956 L185.837 429.951 L186.867 429.946 L187.896 429.941 L188.926 429.935 L189.956 429.928 L190.985 429.92 L192.015 429.912 L193.044 429.903 L194.074 429.894 L195.104 429.883 L196.133 429.871 L197.163 429.859 L198.193 429.845 L199.222 429.83 L200.252 429.813 L201.281 429.796 L202.311 429.776 L203.341 429.755 L204.37 429.732 L205.4 429.708 L206.43 429.681 L207.459 429.652 L208.489 429.62 L209.519 429.586 L210.548 429.549 L211.578 429.51 L212.607 429.467 L213.637 429.421 L214.667 429.371 L215.696 429.317 L216.726 429.259 L217.756 429.197 L218.785 429.131 L219.815 429.059 L220.844 428.983 L221.874 428.9 L222.904 428.812 L223.933 428.718 L224.963 428.617 L225.993 428.509 L227.022 428.394 L228.052 428.272 L229.081 428.141 L230.111 428.001 L231.141 427.853 L232.17 427.695 L233.2 427.527 L234.23 427.348 L235.259 427.159 L236.289 426.958 L237.319 426.745 L238.348 426.519 L239.378 426.281 L240.407 426.029 L241.437 425.762 L242.467 425.481 L243.496 425.184 L244.526 424.871 L245.556 424.541 L246.585 424.194 L247.615 423.83 L248.644 423.447 L249.674 423.044 L250.704 422.622 L251.733 422.18 L252.763 421.716 L253.793 421.231 L254.822 420.724 L255.852 420.194 L256.881 419.641 L257.911 419.064 L258.941 418.463 L259.97 417.837 L261 417.185 L262.03 416.508 L263.059 415.804 L264.089 415.073 L265.119 414.316 L266.148 413.531 L267.178 412.719 L268.207 411.878 L269.237 411.01 L270.267 410.113 L271.296 409.188 L272.326 408.235 L273.356 407.253 L274.385 406.243 L275.415 405.204 L276.444 404.138 L277.474 403.044 L278.504 401.923 L279.533 400.774 L280.563 399.599 L281.593 398.398 L282.622 397.172 L283.652 395.921 L284.681 394.646 L285.711 393.348 L286.741 392.028 L287.77 390.686 L288.8 389.325 L289.83 387.945 L290.859 386.547 L291.889 385.133 L292.919 383.704 L293.948 382.262 L294.978 380.808 L296.007 379.343 L297.037 377.871 L298.067 376.391 L299.096 374.906 L300.126 373.418 L301.156 371.929 L302.185 370.441 L303.215 368.956 L304.244 367.476 L305.274 366.003 L306.304 364.54 L307.333 363.087 L308.363 361.649 L309.393 360.227 L310.422 358.822 L311.452 357.439 L312.481 356.078 L313.511 354.742 L314.541 353.434 L315.57 352.155 L316.6 350.908 L317.63 349.695 L318.659 348.518 L319.689 347.38 L320.719 346.282 L321.748 345.226 L322.778 344.215 L323.807 343.25 L324.837 342.333 L325.867 341.466 L326.896 340.65 L327.926 339.888 L328.956 339.18 L329.985 338.528 L331.015 337.933 L332.044 337.397 L333.074 336.92 L334.104 336.503 L335.133 336.148 L336.163 335.854 L337.193 335.624 L338.222 335.456 L339.252 335.351 L340.281 335.311 L341.311 335.333 L342.341 335.42 L343.37 335.569 L344.4 335.782 L345.43 336.058 L346.459 336.395 L347.489 336.794 L348.519 337.254 L349.548 337.774 L350.578 338.352 L351.607 338.988 L352.637 339.68 L353.667 340.427 L354.696 341.228 L355.726 342.08 L356.756 342.983 L357.785 343.934 L358.815 344.933 L359.844 345.976 L360.874 347.062 L361.904 348.189 L362.933 349.355 L363.963 350.558 L364.993 351.796 L366.022 353.065 L367.052 354.366 L368.081 355.694 L369.111 357.048 L370.141 358.425 L371.17 359.823 L372.2 361.241 L373.23 362.675 L374.259 364.123 L375.289 365.584 L376.319 367.054 L377.348 368.533 L378.378 370.017 L379.407 371.504 L380.437 372.993 L381.467 374.481 L382.496 375.967 L383.526 377.448 L384.556 378.923 L385.585 380.39 L386.615 381.848 L387.644 383.294 L388.674 384.726 L389.704 386.145 L390.733 387.547 L391.763 388.933 L392.793 390.299 L393.822 391.647 L394.852 392.973 L395.881 394.277 L396.911 395.559 L397.941 396.817 L398.97 398.05 L400 399.259" fill="none" stroke="#526976" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<path d="M586.333 430 L586.333 282.068 L587.147 279.11 L587.96 276.154 L588.773 273.203 L589.587 270.259 L590.4 267.325 L591.213 264.404 L592.027 261.497 L592.84 258.608 L593.653 255.739 L594.467 252.893 L595.28 250.073 L596.093 247.28 L596.907 244.519 L597.72 241.791 L598.533 239.099 L599.347 236.447 L600.16 233.836 L600.973 231.269 L601.787 228.749 L602.6 226.279 L603.413 223.86 L604.227 221.497 L605.04 219.191 L605.853 216.944 L606.667 214.76 L607.48 212.64 L608.293 210.588 L609.107 208.604 L609.92 206.692 L610.733 204.853 L611.547 203.09 L612.36 201.405 L613.173 199.799 L613.987 198.275 L614.8 196.833 L615.613 195.477 L616.427 194.207 L617.24 193.025 L618.053 191.933 L618.867 190.931 L619.68 190.021 L620.493 189.203 L621.307 188.48 L622.12 187.851 L622.933 187.318 L623.747 186.88 L624.56 186.54 L625.373 186.296 L626.187 186.15 L627 186.101 L627.813 186.15 L628.627 186.296 L629.44 186.54 L630.253 186.88 L631.067 187.318 L631.88 187.851 L632.693 188.48 L633.507 189.203 L634.32 190.021 L635.133 190.931 L635.947 191.933 L636.76 193.025 L637.573 194.207 L638.387 195.477 L639.2 196.833 L640.013 198.275 L640.827 199.799 L641.64 201.405 L642.453 203.09 L643.267 204.853 L644.08 206.692 L644.893 208.604 L645.707 210.588 L646.52 212.64 L647.333 214.76 L648.147 216.944 L648.96 219.191 L649.773 221.497 L650.587 223.86 L651.4 226.279 L652.213 228.749 L653.027 231.269 L653.84 233.836 L654.653 236.447 L655.467 239.099 L656.28 241.791 L657.093 244.519 L657.907 247.28 L658.72 250.073 L659.533 252.893 L660.347 255.739 L661.16 258.608 L661.973 261.497 L662.787 264.404 L663.6 267.325 L664.413 270.259 L665.227 273.203 L666.04 276.154 L666.853 279.11 L667.667 282.068 L667.667 430 Z" fill="#ecf6f6" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 368.864 L749 368.864" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 307.727 L749 307.727" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 246.591 L749 246.591" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 185.455 L749 185.455" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 430 L761 430" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M761 430 L750 435 L750 425 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 430 L505 149" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M505 149 L510 160 L500 160 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M545.667 426 L545.667 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="545.667" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">−2</text>
+<path d="M627 426 L627 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="627" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0</text>
+<path d="M708.333 426 L708.333 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="708.333" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M500 368.864 L509 368.864" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="495" y="374.864" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.025</text>
+<path d="M500 307.727 L509 307.727" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="495" y="313.727" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.05</text>
+<path d="M500 246.591 L509 246.591" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="495" y="252.591" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.075</text>
+<path d="M500 185.455 L509 185.455" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="495" y="191.455" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.1</text>
+<text x="768" y="436" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">u</text>
+<text x="505" y="139" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">B · 密度换算</text>
+<path d="M505 427.291 L505.904 427.104 L506.807 426.907 L507.711 426.698 L508.615 426.476 L509.519 426.242 L510.422 425.994 L511.326 425.731 L512.23 425.454 L513.133 425.161 L514.037 424.851 L514.941 424.525 L515.844 424.181 L516.748 423.818 L517.652 423.435 L518.556 423.033 L519.459 422.609 L520.363 422.164 L521.267 421.696 L522.17 421.204 L523.074 420.688 L523.978 420.146 L524.881 419.578 L525.785 418.983 L526.689 418.359 L527.593 417.706 L528.496 417.023 L529.4 416.309 L530.304 415.562 L531.207 414.783 L532.111 413.969 L533.015 413.12 L533.919 412.235 L534.822 411.312 L535.726 410.352 L536.63 409.352 L537.533 408.312 L538.437 407.231 L539.341 406.108 L540.244 404.942 L541.148 403.732 L542.052 402.477 L542.956 401.176 L543.859 399.829 L544.763 398.435 L545.667 396.992 L546.57 395.5 L547.474 393.959 L548.378 392.368 L549.281 390.725 L550.185 389.032 L551.089 387.286 L551.993 385.488 L552.896 383.637 L553.8 381.733 L554.704 379.775 L555.607 377.764 L556.511 375.7 L557.415 373.581 L558.319 371.409 L559.222 369.183 L560.126 366.904 L561.03 364.572 L561.933 362.187 L562.837 359.75 L563.741 357.261 L564.644 354.721 L565.548 352.131 L566.452 349.492 L567.356 346.804 L568.259 344.069 L569.163 341.288 L570.067 338.462 L570.97 335.593 L571.874 332.682 L572.778 329.73 L573.681 326.74 L574.585 323.714 L575.489 320.652 L576.393 317.559 L577.296 314.434 L578.2 311.282 L579.104 308.103 L580.007 304.902 L580.911 301.679 L581.815 298.439 L582.719 295.184 L583.622 291.916 L584.526 288.638 L585.43 285.355 L586.333 282.068 L587.237 278.781 L588.141 275.498 L589.044 272.221 L589.948 268.954 L590.852 265.7 L591.756 262.464 L592.659 259.248 L593.563 256.057 L594.467 252.893 L595.37 249.761 L596.274 246.664 L597.178 243.606 L598.081 240.59 L598.985 237.621 L599.889 234.701 L600.793 231.835 L601.696 229.026 L602.6 226.279 L603.504 223.595 L604.407 220.979 L605.311 218.435 L606.215 215.966 L607.119 213.574 L608.022 211.264 L608.926 209.039 L609.83 206.901 L610.733 204.853 L611.637 202.899 L612.541 201.041 L613.444 199.282 L614.348 197.624 L615.252 196.069 L616.156 194.621 L617.059 193.28 L617.963 192.05 L618.867 190.931 L619.77 189.925 L620.674 189.034 L621.578 188.26 L622.481 187.602 L623.385 187.063 L624.289 186.643 L625.193 186.342 L626.096 186.161 L627 186.101 L627.904 186.161 L628.807 186.342 L629.711 186.643 L630.615 187.063 L631.519 187.602 L632.422 188.26 L633.326 189.034 L634.23 189.925 L635.133 190.931 L636.037 192.05 L636.941 193.28 L637.844 194.621 L638.748 196.069 L639.652 197.624 L640.556 199.282 L641.459 201.041 L642.363 202.899 L643.267 204.853 L644.17 206.901 L645.074 209.039 L645.978 211.264 L646.881 213.574 L647.785 215.966 L648.689 218.435 L649.593 220.979 L650.496 223.595 L651.4 226.279 L652.304 229.026 L653.207 231.835 L654.111 234.701 L655.015 237.621 L655.919 240.59 L656.822 243.606 L657.726 246.664 L658.63 249.761 L659.533 252.893 L660.437 256.057 L661.341 259.248 L662.244 262.464 L663.148 265.7 L664.052 268.954 L664.956 272.221 L665.859 275.498 L666.763 278.781 L667.667 282.068 L668.57 285.355 L669.474 288.638 L670.378 291.916 L671.281 295.184 L672.185 298.439 L673.089 301.679 L673.993 304.902 L674.896 308.103 L675.8 311.282 L676.704 314.434 L677.607 317.559 L678.511 320.652 L679.415 323.714 L680.319 326.74 L681.222 329.73 L682.126 332.682 L683.03 335.593 L683.933 338.462 L684.837 341.288 L685.741 344.069 L686.644 346.804 L687.548 349.492 L688.452 352.131 L689.356 354.721 L690.259 357.261 L691.163 359.75 L692.067 362.187 L692.97 364.572 L693.874 366.904 L694.778 369.183 L695.681 371.409 L696.585 373.581 L697.489 375.7 L698.393 377.764 L699.296 379.775 L700.2 381.733 L701.104 383.637 L702.007 385.488 L702.911 387.286 L703.815 389.032 L704.719 390.725 L705.622 392.368 L706.526 393.959 L707.43 395.5 L708.333 396.992 L709.237 398.435 L710.141 399.829 L711.044 401.176 L711.948 402.477 L712.852 403.732 L713.756 404.942 L714.659 406.108 L715.563 407.231 L716.467 408.312 L717.37 409.352 L718.274 410.352 L719.178 411.312 L720.081 412.235 L720.985 413.12 L721.889 413.969 L722.793 414.783 L723.696 415.562 L724.6 416.309 L725.504 417.023 L726.407 417.706 L727.311 418.359 L728.215 418.983 L729.119 419.578 L730.022 420.146 L730.926 420.688 L731.83 421.204 L732.733 421.696 L733.637 422.164 L734.541 422.609 L735.444 423.033 L736.348 423.435 L737.252 423.818 L738.156 424.181 L739.059 424.525 L739.963 424.851 L740.867 425.161 L741.77 425.454 L742.674 425.731 L743.578 425.994 L744.481 426.242 L745.385 426.476 L746.289 426.698 L747.193 426.907 L748.096 427.104 L749 427.291" fill="none" stroke="#166d75" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 430 L1074 430" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 315.532 L1074 315.532" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 201.064 L1074 201.064" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 430 L1086 430" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1086 430 L1075 435 L1075 425 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 430 L854 149" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 149 L859 160 L849 160 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854 426 L854 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="854" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M927.333 426 L927.333 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="927.333" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.5</text>
+<path d="M1000.667 426 L1000.667 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1000.667" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.25</text>
+<path d="M1074 426 L1074 435" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1074" y="459" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.125</text>
+<path d="M849 430 L858 430" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="844" y="436" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">−7</text>
+<path d="M849 315.532 L858 315.532" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="844" y="321.532" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">−6</text>
+<path d="M849 201.064 L858 201.064" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="844" y="207.064" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">−5</text>
+<text x="1093" y="436" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">σ</text>
+<text x="854" y="139" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">C · 总对数似然</text>
+<path d="M854 409.017 L927.333 340.149 L1000.667 261.79 L1074 182.92" fill="none" stroke="#6e618e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="854" cy="409.017" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="927.333" cy="340.149" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="1000.667" cy="261.79" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="1074" cy="182.92" r="5" fill="#6e618e" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M75 496 L1125 496" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="548" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">A：实线从灰、紫、蓝绿到橙，标准差依次减半。灰虚线表示固定的第二分量。</text>
+<text x="75" y="602" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">B：横坐标除以 σ、密度乘 σ 后，四条线完全重合。阴影质量约为 0.170672。</text>
+<text x="75" y="656" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">C：其他三点仍由固定分量解释，压窄第一分量提高了零点密度和总似然。</text>
+<text x="75" y="730" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">四个总对数似然依次为：−6.8167,  −6.2151,  −5.5305,  −4.8415。</text>
+</svg>

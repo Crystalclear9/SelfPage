@@ -1,2 +1,56 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="869.0221" viewBox="0 0 1440 869.0221" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">VC 维要求打散同一组点的全部标记</title><rect width="1440" height="869.0221" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">VC 维要求打散同一组点的全部标记</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg aria-labelledby="fig-title fig-desc" width="1344" height="727.0221" viewBox="0 66.4824 1200 649.1269" role="img" x="48" y="106" overflow="hidden"><rect id="offline-white-background" x="0" y="66.482412" width="1200" height="649.126884" fill="#ffffff"/><title id="fig-title">一维固定方向阈值无法实现全部四种标记</title><desc id="fig-desc">一维固定方向阈值无法实现全部四种标记</desc><rect width="1200" height="735" fill="white"/><defs><marker id="m-b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#2472b1"/></marker><marker id="m-o" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#cb7436"/></marker></defs><g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><text x="35" y="110" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">固定 x1 &lt; x2，规则 h(x)=1[x ≥ θ]</text><text x="40" y="193" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">标记 00</text><line x1="185" y1="185" x2="760" y2="185" stroke="#617f97" stroke-width="2"/><circle cx="330" cy="185" r="25" fill="#2472b1"/><text x="330" y="194" font-size="25" fill="white" text-anchor="middle" font-weight="600">0</text><circle cx="590" cy="185" r="25" fill="#2472b1"/><text x="590" y="194" font-size="25" fill="white" text-anchor="middle" font-weight="600">0</text><line x1="700" y1="150" x2="700" y2="223" stroke="#cb7436" stroke-width="2" stroke-dasharray="5 5"/><text x="700" y="137" font-size="27" fill="#cb7436" text-anchor="middle" font-weight="400">θ</text><text x="820" y="193" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">θ &gt; x2</text><text x="40" y="323" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">标记 01</text><line x1="185" y1="315" x2="760" y2="315" stroke="#617f97" stroke-width="2"/><circle cx="330" cy="315" r="25" fill="#2472b1"/><text x="330" y="324" font-size="25" fill="white" text-anchor="middle" font-weight="600">0</text><circle cx="590" cy="315" r="25" fill="#cb7436"/><text x="590" y="324" font-size="25" fill="white" text-anchor="middle" font-weight="600">1</text><line x1="450" y1="280" x2="450" y2="353" stroke="#cb7436" stroke-width="2" stroke-dasharray="5 5"/><text x="450" y="267" font-size="27" fill="#cb7436" text-anchor="middle" font-weight="400">θ</text><text x="820" y="323" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">x1 &lt; θ ≤ x2</text><text x="40" y="453" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">标记 11</text><line x1="185" y1="445" x2="760" y2="445" stroke="#617f97" stroke-width="2"/><circle cx="330" cy="445" r="25" fill="#cb7436"/><text x="330" y="454" font-size="25" fill="white" text-anchor="middle" font-weight="600">1</text><circle cx="590" cy="445" r="25" fill="#cb7436"/><text x="590" y="454" font-size="25" fill="white" text-anchor="middle" font-weight="600">1</text><line x1="200" y1="410" x2="200" y2="483" stroke="#cb7436" stroke-width="2" stroke-dasharray="5 5"/><text x="200" y="397" font-size="27" fill="#cb7436" text-anchor="middle" font-weight="400">θ</text><text x="820" y="453" font-size="28" fill="#2472b1" text-anchor="start" font-weight="400">θ ≤ x1</text><text x="40" y="583" font-size="28" fill="#1f3449" text-anchor="start" font-weight="400">标记 10</text><line x1="185" y1="575" x2="760" y2="575" stroke="#617f97" stroke-width="2"/><circle cx="330" cy="575" r="25" fill="#cb7436"/><text x="330" y="584" font-size="25" fill="white" text-anchor="middle" font-weight="600">1</text><circle cx="590" cy="575" r="25" fill="#2472b1"/><text x="590" y="584" font-size="25" fill="white" text-anchor="middle" font-weight="600">0</text><text x="820" y="583" font-size="28" fill="#cb7436" text-anchor="start" font-weight="400">不可能</text><text x="330" y="695" font-size="27" fill="#1f3449" text-anchor="middle" font-weight="400">x1</text><text x="590" y="695" font-size="27" fill="#1f3449" text-anchor="middle" font-weight="400">x2</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 462" role="img" aria-labelledby="title description">
+<title id="title">VC 维要求打散同一组点的全部标记</title>
+<desc id="description">点位固定在同一坐标轴。按规则 x 大于等于阈值时为正，阈值从左到右仅能得到双正、左负右正、双负，不能得到左正右负。</desc>
+<defs>
+<linearGradient id="wash-t" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#eef8f8"/><stop offset="1" stop-color="#c9e6e7"/></linearGradient>
+<linearGradient id="wash-c" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#fdf2ef"/><stop offset="1" stop-color="#f3d5cd"/></linearGradient>
+<linearGradient id="wash-v" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#f7f4fb"/><stop offset="1" stop-color="#e4dbee"/></linearGradient>
+<linearGradient id="wash-n" x1="0" x2="0.9" y1="0" y2="1"><stop stop-color="#f8fafb"/><stop offset="1" stop-color="#e9eef2"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="462" rx="0" fill="white" stroke="none" stroke-width="1.6"/>
+<path d="M254 91L838.0 91.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 91L835.0 85.0L835.0 97.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="316" y="65" width="506" height="52" rx="0" fill="url(#wash-t)" stroke="none" stroke-width="1.6"/>
+<path d="M316 53L316 128" fill="none" stroke="#176f76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6"/>
+<text x="316" y="48" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">θ</text>
+<path d="M254 91L838.0 91.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 91L835.0 85.0L835.0 97.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="420" cy="91" r="22" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="420" y="101" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">+</text>
+<circle cx="638" cy="91" r="22" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="638" y="101" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">+</text>
+<text x="997" y="102" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="30">可实现</text>
+<path d="M254 181L838.0 181.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 181L835.0 175.0L835.0 187.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="529" y="155" width="293" height="52" rx="0" fill="url(#wash-t)" stroke="none" stroke-width="1.6"/>
+<path d="M529 143L529 218" fill="none" stroke="#176f76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6"/>
+<text x="529" y="138" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">θ</text>
+<path d="M254 181L838.0 181.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 181L835.0 175.0L835.0 187.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="420" cy="181" r="22" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="420" y="191" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">−</text>
+<circle cx="638" cy="181" r="22" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="638" y="191" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">+</text>
+<text x="997" y="192" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="30">可实现</text>
+<path d="M254 271L838.0 271.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 271L835.0 265.0L835.0 277.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="738" y="245" width="84" height="52" rx="0" fill="url(#wash-t)" stroke="none" stroke-width="1.6"/>
+<path d="M738 233L738 308" fill="none" stroke="#176f76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6"/>
+<text x="738" y="228" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="27">θ</text>
+<path d="M254 271L838.0 271.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 271L835.0 265.0L835.0 277.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="420" cy="271" r="22" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="420" y="281" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">−</text>
+<circle cx="638" cy="271" r="22" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="638" y="281" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">−</text>
+<text x="997" y="282" text-anchor="middle" fill="#176f76" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="30">可实现</text>
+<path d="M254 361L838.0 361.0" fill="none" stroke="#546677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M850 361L835.0 355.0L835.0 367.0Z" fill="#546677" stroke="#546677" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="420" cy="361" r="22" fill="white" stroke="#176f76" stroke-width="2.5"/>
+<text x="420" y="371" text-anchor="middle" fill="#176f76" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">+</text>
+<circle cx="638" cy="361" r="22" fill="white" stroke="#a54938" stroke-width="2.5"/>
+<text x="638" y="371" text-anchor="middle" fill="#a54938" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="29">−</text>
+<text x="997" y="372" text-anchor="middle" fill="#a54938" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="30">不可实现</text>
+<text x="420" y="424" text-anchor="middle" fill="#546677" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="27">左点</text>
+<text x="638" y="424" text-anchor="middle" fill="#546677" font-family="SimSun, Noto Serif CJK SC, STSong, Microsoft YaHei, serif" font-size="27">右点</text>
+</svg>

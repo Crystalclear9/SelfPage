@@ -1,73 +1,83 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="752.184" viewBox="0 0 1440 752.184" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">缓存追加块的局部三角掩码与正确绝对位置掩码</title><rect width="1440" height="752.184" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">缓存追加块的局部三角掩码与正确绝对位置掩码</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="610.184" viewBox="26 66 1348 612" role="img" x="48" y="106" overflow="hidden"><rect x="26" y="66" width="1348" height="612" fill="#ffffff"/><title>缓存追加两词：2×6 掩码必须按绝对位置对齐</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#206ca9"/></marker></defs><rect width="1400" height="740" fill="white"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<line x1="44" y1="85" x2="1356" y2="85" stroke="#dce5ed" stroke-width="2"/>
-<text x="350" y="145" font-size="29" fill="#1d3145" text-anchor="middle" font-weight="normal">错误：从局部行号 0 开始</text>
-<text x="150" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">0</text>
-<text x="225" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">1</text>
-<text x="300" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">2</text>
-<text x="375" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">3</text>
-<text x="450" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">4</text>
-<text x="525" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">5</text>
-<text x="50" y="310" font-size="28" fill="#1d3145" text-anchor="start" font-weight="normal">q4</text>
-<rect x="117" y="255" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="150" y="306" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="192" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="225" y="306" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="267" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="300" y="306" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="342" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="375" y="306" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="417" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="450" y="306" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="492" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="525" y="306" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<text x="50" y="410" font-size="28" fill="#1d3145" text-anchor="start" font-weight="normal">q5</text>
-<rect x="117" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="150" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="192" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="225" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="267" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="300" y="406" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="342" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="375" y="406" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="417" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="450" y="406" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<rect x="492" y="355" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="525" y="406" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<text x="350" y="525" font-size="29" fill="#c26a2a" text-anchor="middle" font-weight="normal">可见键数：1、2</text>
-<text x="1050" y="145" font-size="29" fill="#1d3145" text-anchor="middle" font-weight="normal">正确：查询位置为 4、5</text>
-<text x="850" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">0</text>
-<text x="925" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">1</text>
-<text x="1000" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">2</text>
-<text x="1075" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">3</text>
-<text x="1150" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">4</text>
-<text x="1225" y="220" font-size="26" fill="#1d3145" text-anchor="middle" font-weight="normal">5</text>
-<text x="750" y="310" font-size="28" fill="#1d3145" text-anchor="start" font-weight="normal">q4</text>
-<rect x="817" y="255" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="850" y="306" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="892" y="255" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="925" y="306" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="967" y="255" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1000" y="306" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="1042" y="255" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1075" y="306" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="1117" y="255" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1150" y="306" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="1192" y="255" width="66" height="80" rx="7" fill="#f4f7fa" stroke="#dce5ed"/>
-<text x="1225" y="306" font-size="29" fill="#618098" text-anchor="middle" font-weight="normal">×</text>
-<text x="750" y="410" font-size="28" fill="#1d3145" text-anchor="start" font-weight="normal">q5</text>
-<rect x="817" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="850" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="892" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="925" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="967" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1000" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="1042" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1075" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="1117" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1150" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<rect x="1192" y="355" width="66" height="80" rx="7" fill="#dceaf6" stroke="#dce5ed"/>
-<text x="1225" y="406" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">1</text>
-<text x="1050" y="525" font-size="29" fill="#206ca9" text-anchor="middle" font-weight="normal">可见键数：5、6</text>
-<line x1="700" y1="115" x2="700" y2="660" stroke="#dce5ed" stroke-width="2"/>
-<text x="700" y="635" font-size="29" fill="#1d3145" text-anchor="middle" font-weight="normal">past=4；允许条件：键位置 j ≤ 4+i</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="561" viewBox="0 0 1200 561" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">缓存块的绝对位置掩码</title>
+<desc id="fig-desc">已有缓存位置零到三。新查询的绝对位置为四和五，按局部行号截断会误删合法历史。</desc>
+<rect x="0" y="0" width="1200" height="561" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="73" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">误用局部行号</text>
+<rect x="132" y="162" width="64" height="64" fill="#fbede8" opacity="1"/>
+<text x="164" y="202" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="200" y="162" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="232" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="268" y="162" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="300" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="336" y="162" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="368" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="404" y="162" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="436" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="472" y="162" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="504" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<text x="116" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">q4</text>
+<rect x="132" y="230" width="64" height="64" fill="#fbede8" opacity="1"/>
+<text x="164" y="270" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="200" y="230" width="64" height="64" fill="#fbede8" opacity="1"/>
+<text x="232" y="270" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="268" y="230" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="300" y="270" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="336" y="230" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="368" y="270" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="404" y="230" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="436" y="270" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<rect x="472" y="230" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="504" y="270" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<text x="116" y="270" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">q5</text>
+<text x="164" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">0</text>
+<text x="232" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">1</text>
+<text x="300" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">2</text>
+<text x="368" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">3</text>
+<text x="436" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">4</text>
+<text x="504" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">5</text>
+<text x="73" y="357" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">可见键数：1、2</text>
+<text x="73" y="408" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">等权读出：(0, 0.5)</text>
+<text x="658" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">按绝对位置判断</text>
+<rect x="717" y="162" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="749" y="202" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="785" y="162" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="817" y="202" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="853" y="162" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="885" y="202" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="921" y="162" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="953" y="202" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="989" y="162" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="1021" y="202" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="1057" y="162" width="64" height="64" fill="#f1f5f6" opacity="1"/>
+<text x="1089" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">×</text>
+<text x="701" y="202" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">q4</text>
+<rect x="717" y="230" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="749" y="270" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="785" y="230" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="817" y="270" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="853" y="230" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="885" y="270" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="921" y="230" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="953" y="270" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="989" y="230" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="1021" y="270" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<rect x="1057" y="230" width="64" height="64" fill="#ecf6f6" opacity="1"/>
+<text x="1089" y="270" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">✓</text>
+<text x="701" y="270" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">q5</text>
+<text x="749" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">0</text>
+<text x="817" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">1</text>
+<text x="885" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">2</text>
+<text x="953" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">3</text>
+<text x="1021" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">4</text>
+<text x="1089" y="148" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">5</text>
+<text x="658" y="357" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">可见键数：5、6</text>
+<text x="658" y="408" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">等权读出：(2, 2.5)</text>
+<path d="M75 463 L1125 463" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="517" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">已有缓存长 4，允许条件为键位置 j ≤ 4 + 局部行号 i。</text>
+</svg>

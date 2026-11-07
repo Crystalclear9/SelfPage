@@ -1,2 +1,91 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="925.4923" viewBox="0 0 1440 925.4923" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">普通选择函数与ufunc运算掩码的求值差异</title><rect width="1440" height="925.4923" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">普通选择函数与ufunc运算掩码的求值差异</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="783.4923" viewBox="16 50 1103 643" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden"><title id="title">相同掩码，不同的求值边界</title><desc id="desc">选择函数接收之前已求值的数组；通用函数的where掩码只对指定位置求值并写回。显式out为跳过位置定义结果。 相同掩码，不同的求值边界 两种接口：np.where 选择已求值的分支；ufunc 的 where 控制运算与写出位置。</desc><rect width="1103.0" height="643.0" fill="white" x="16.0" y="50.0"/><g font-family="Microsoft YaHei, sans-serif"><text x="40" y="96" font-size="26" fill="#617f97" text-anchor="start">固定实数输入；非法位置用 NaN 表示，严格模式会抛浮点异常</text><text x="40" y="170" font-size="28" fill="#1f3449" text-anchor="start">输入 x</text><text x="40" y="255" font-size="28" fill="#1f3449" text-anchor="start">有效掩码 x&gt;0</text><text x="40" y="380" font-size="28" fill="#1f3449" text-anchor="start">先完整求 log(x)</text><text x="40" y="540" font-size="28" fill="#1f3449" text-anchor="start">ufunc 掩码求 log</text><rect x="325" y="134" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="410" y="174" font-size="27" fill="#c57439" text-anchor="middle">−1</text><rect x="525" y="134" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="610" y="174" font-size="27" fill="#c57439" text-anchor="middle">0</text><rect x="725" y="134" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="810" y="174" font-size="27" fill="#2472b1" text-anchor="middle">1</text><rect x="925" y="134" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="1010" y="174" font-size="27" fill="#2472b1" text-anchor="middle">4</text><rect x="325" y="219" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="410" y="259" font-size="27" fill="#c57439" text-anchor="middle">False</text><rect x="525" y="219" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="610" y="259" font-size="27" fill="#c57439" text-anchor="middle">False</text><rect x="725" y="219" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="810" y="259" font-size="27" fill="#2472b1" text-anchor="middle">True</text><rect x="925" y="219" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="1010" y="259" font-size="27" fill="#2472b1" text-anchor="middle">True</text><rect x="325" y="344" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="410" y="384" font-size="27" fill="#c57439" text-anchor="middle">NaN</text><rect x="525" y="344" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="610" y="384" font-size="27" fill="#c57439" text-anchor="middle">−∞</text><rect x="725" y="344" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="810" y="384" font-size="27" fill="#2472b1" text-anchor="middle">0</text><rect x="925" y="344" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="1010" y="384" font-size="27" fill="#2472b1" text-anchor="middle">1.38629</text><rect x="325" y="504" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="410" y="544" font-size="27" fill="#c57439" text-anchor="middle">保留 NaN</text><rect x="525" y="504" width="170" height="61" fill="#c57439" opacity="0.09" rx="3"/><text x="610" y="544" font-size="27" fill="#c57439" text-anchor="middle">保留 NaN</text><rect x="725" y="504" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="810" y="544" font-size="27" fill="#2472b1" text-anchor="middle">0</text><rect x="925" y="504" width="170" height="61" fill="#2472b1" opacity="0.09" rx="3"/><text x="1010" y="544" font-size="27" fill="#2472b1" text-anchor="middle">1.38629</text><text x="40" y="440" font-size="25" fill="#c57439" text-anchor="start">上行若在默认警告模式下运行，非法算术已先发生；随后选择无法撤销。</text><text x="40" y="600" font-size="26" fill="#2472b1" text-anchor="start">下行预先把 out 全部填成 NaN，只在有效位置计算并写回。</text><text x="40" y="665" font-size="25" fill="#1f3449" text-anchor="start">where=False 的位置保留 out 原值；省略 out 时不能假定这些位置自动填零。</text></g></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="720" viewBox="0 0 1360 720" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">先运算再选择，与带掩码的运算不同</title>
+  <desc id="plate-desc">输入 −1、0、1、4。普通 where 的对数参数会先计算，带 where 的 ufunc 则只在两个有效位置写入。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="720" fill="white" stroke="none" stroke-width="0"/>
+  <text x="333" y="68" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">整个对数参数先求值</text>
+  <rect x="106" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="162" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">−1</text>
+  <rect x="218" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="274" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="330" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="386" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1</text>
+  <rect x="442" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="498" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">4</text>
+  <polyline points="330,270 330,335" fill="none" stroke="#a84b3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-coral)"/>
+  <rect x="106" y="357" width="112" height="112" fill="#f4ded6" stroke="white" stroke-width="1.6"/>
+  <text x="162" y="430.92" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">NaN</text>
+  <rect x="218" y="357" width="112" height="112" fill="#f4ded6" stroke="white" stroke-width="1.6"/>
+  <text x="274" y="430.92" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">−∞</text>
+  <rect x="330" y="357" width="112" height="112" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="386" y="430.92" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="442" y="357" width="112" height="112" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="498" y="430.92" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1.386…</text>
+  <text x="333" y="552" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#a84b3b" text-anchor="middle">无效运算或除零已经发生</text>
+  <text x="333" y="604" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">np.where(valid, np.log(x), np.nan)</text>
+  <text x="1013" y="68" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">只计算掩码允许的位置</text>
+  <rect x="786" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="842" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">−1</text>
+  <rect x="898" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="954" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="1010" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1066" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1</text>
+  <rect x="1122" y="136" width="112" height="112" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1178" y="209.92" font-size="28" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">4</text>
+  <polyline points="1010,270 1010,335" fill="none" stroke="#196f77" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <rect x="786" y="357" width="112" height="112" fill="#f4ded6" stroke="white" stroke-width="1.6"/>
+  <text x="842" y="430.92" font-size="24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">不计算</text>
+  <rect x="898" y="357" width="112" height="112" fill="#f4ded6" stroke="white" stroke-width="1.6"/>
+  <text x="954" y="430.92" font-size="24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">不计算</text>
+  <rect x="1010" y="357" width="112" height="112" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="1066" y="430.92" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="1122" y="357" width="112" height="112" fill="#cce8e8" stroke="white" stroke-width="1.6"/>
+  <text x="1178" y="430.92" font-size="24" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1.386…</text>
+  <text x="1013" y="552" font-size="28" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#196f77" text-anchor="middle">前两格沿用初始化的 NaN</text>
+  <text x="1013" y="604" font-size="25" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">np.log(x, out=out, where=valid)</text>
+  <text x="680" y="678" font-size="29" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">最终输出可以相同，但触发的运算和浮点错误不同。</text>
+</svg>

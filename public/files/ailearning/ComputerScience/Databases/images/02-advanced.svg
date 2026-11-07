@@ -1,49 +1,43 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1187.3333" viewBox="0 0 1440 1187.3333" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">事务中的读改写也需要并发协议</title><rect width="1440" height="1187.3333" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">事务中的读改写也需要并发协议</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1045.3333" viewBox="0 0 1440 1120" role="img" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-edf5f8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf5f8"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><title>旧余额读进应用后，不会随数据库提交自动更新</title><rect width="1440" height="1120" fill="white"/><g font-family="Microsoft YaHei, sans-serif">
-<text x="55" y="65" font-size="38" fill="#1d3145" text-anchor="start">旧余额读进应用后，不会随数据库提交自动更新</text>
-<text x="250" y="140" font-size="30" fill="#1e7499" text-anchor="middle">应用 A：扣 10</text>
-<text x="720" y="140" font-size="30" fill="#1d3145" text-anchor="middle">数据库已提交行</text>
-<line x1="720" y1="180" x2="720" y2="650" stroke="#1d3145" stroke-width="2" stroke-dasharray="7 7"/>
-<text x="1180" y="140" font-size="30" fill="#c66d3a" text-anchor="middle">应用 B：扣 20</text>
-<rect x="650" y="185" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b889c" stroke-dasharray=""/>
-<text x="720" y="227" font-size="31" fill="#1d3145" text-anchor="middle">100</text>
-<rect x="650" y="335" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b889c" stroke-dasharray=""/>
-<text x="720" y="377" font-size="31" fill="#1d3145" text-anchor="middle">100</text>
-<rect x="650" y="485" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b889c" stroke-dasharray=""/>
-<text x="720" y="527" font-size="31" fill="#1d3145" text-anchor="middle">90</text>
-<rect x="650" y="620" width="140" height="60" rx="3" fill="#f5f7f8" stroke="#7b889c" stroke-dasharray=""/>
-<text x="720" y="662" font-size="31" fill="#1d3145" text-anchor="middle">80</text>
-<line x1="645" y1="215" x2="310" y2="215" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M321.05,210.33 L310.00,215.00 L321.05,219.67" fill="none" stroke="#1e7499" stroke-width="2"/>
-<text x="250" y="275" font-size="28" fill="#1e7499" text-anchor="middle">本地读值 100</text>
-<text x="250" y="320" font-size="28" fill="#1e7499" text-anchor="middle">计算 100 − 10 = 90</text>
-<line x1="795" y1="365" x2="1120" y2="365" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
-<path d="M1108.95,369.67 L1120.00,365.00 L1108.95,360.33" fill="none" stroke="#c66d3a" stroke-width="2"/>
-<text x="1180" y="425" font-size="28" fill="#c66d3a" text-anchor="middle">本地读值 100</text>
-<text x="1180" y="470" font-size="28" fill="#c66d3a" text-anchor="middle">计算 100 − 20 = 80</text>
-<line x1="310" y1="515" x2="645" y2="515" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M633.95,519.67 L645.00,515.00 L633.95,510.33" fill="none" stroke="#1e7499" stroke-width="2"/>
-<text x="250" y="565" font-size="28" fill="#1e7499" text-anchor="middle">写常量 90，提交</text>
-<line x1="1120" y1="650" x2="795" y2="650" stroke="#c66d3a" stroke-width="2" stroke-dasharray=""/>
-<path d="M806.05,645.33 L795.00,650.00 L806.05,654.67" fill="none" stroke="#c66d3a" stroke-width="2"/>
-<text x="1180" y="605" font-size="28" fill="#c66d3a" text-anchor="middle">仍写常量 80，提交</text>
-<text x="55" y="735" font-size="30" fill="#c66d3a" text-anchor="start">丢失更新的结果</text>
-<text x="435" y="735" font-size="31" fill="#c66d3a" text-anchor="start">100 → 90 → 80</text>
-<text x="55" y="800" font-size="30" fill="#1e7499" text-anchor="start">串行扣减的目标</text>
-<text x="435" y="800" font-size="31" fill="#1e7499" text-anchor="start">100 − 10 − 20 = 70</text>
-<text x="55" y="865" font-size="28" fill="#1d3145" text-anchor="start">SET balance = 80 与 SET balance = balance − 20 是两种不同操作。</text>
-<line x1="60" y1="900" x2="1380" y2="900" stroke="#dce2eb" stroke-width="2" stroke-dasharray=""/>
-<text x="60" y="955" font-size="29" fill="#1e7499" text-anchor="start">对照：把减法放在行更新里，按两次成功提交追踪状态</text>
-<text x="60" y="1030" font-size="28" fill="#1d3145" text-anchor="start">本例依次扣 10、20</text>
-<rect x="520" y="985" width="150" height="75" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="595" y="1035" font-size="32" fill="#1e7499" text-anchor="middle">100</text>
-<line x1="680" y1="1022" x2="785" y2="1022" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M773.95,1026.67 L785.00,1022.00 L773.95,1017.33" fill="none" stroke="#1e7499" stroke-width="2"/>
-<rect x="800" y="985" width="150" height="75" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="875" y="1035" font-size="32" fill="#1e7499" text-anchor="middle">90</text>
-<line x1="960" y1="1022" x2="1065" y2="1022" stroke="#1e7499" stroke-width="2" stroke-dasharray=""/>
-<path d="M1053.95,1026.67 L1065.00,1022.00 L1053.95,1017.33" fill="none" stroke="#1e7499" stroke-width="2"/>
-<rect x="1080" y="985" width="150" height="75" rx="3" fill="url(#book-wash-edf5f8)" stroke="#1e7499" stroke-dasharray=""/>
-<text x="1155" y="1035" font-size="32" fill="#1e7499" text-anchor="middle">70</text>
-<text x="60" y="1090" font-size="27" fill="#1d3145" text-anchor="start">该对照仍须满足实际引擎对行更新、冲突等待与条件复查的约定。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="686" viewBox="0 0 1200 686" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">旧余额写常量导致丢失更新</title>
+<desc id="fig-desc">两个应用都先读一百。第二次写入陈旧计算得到的八十，覆盖了已经提交的第一次扣款。</desc>
+<rect x="0" y="0" width="1200" height="686" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+<linearGradient id="blue" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9f1f8"/></linearGradient>
+<linearGradient id="ochre" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f7f0d9"/></linearGradient>
+<linearGradient id="green" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf4e9"/></linearGradient>
+</defs>
+<text x="77" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">A 与 B 都曾读到 100</text>
+<text x="77" y="115" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">应用 A · 扣 10</text>
+<path d="M77 192 L104 141 L522 141 L495 192 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="299.5" y="174.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">读 100 → 算出 90</text>
+<path d="M295 199 L295 257" fill="none" stroke="#166d75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M295 257 L290 246 L300 246 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M77 316 L104 267 L522 267 L495 316 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="299.5" y="299.9" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">提交常量 90</text>
+<text x="653" y="115" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">应用 B · 扣 20</text>
+<path d="M653 192 L680 141 L1098 141 L1071 192 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="875.5" y="174.9" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">读 100 → 算出 80</text>
+<path d="M871 199 L871 257" fill="none" stroke="#a74d3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M871 257 L866 246 L876 246 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M653 316 L680 267 L1098 267 L1071 316 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="875.5" y="299.9" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">提交常量 80</text>
+<text x="76" y="377" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">已提交的余额：100 → 90 → 80。第二次覆盖了第一次扣减。</text>
+<path d="M75 424 L1125 424" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="76" y="469" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="26" text-anchor="start" font-weight="600">将扣减表达为对当前行的更新</text>
+<path d="M118 547 L133 504 L393 504 L378 547 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="255.5" y="533.2" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">100</text>
+<path d="M395 525 L417 525" fill="none" stroke="#166d75" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M417 525 L406 530 L406 520 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M423 547 L438 504 L698 504 L683 547 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="560.5" y="533.2" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">90</text>
+<path d="M700 525 L722 525" fill="none" stroke="#166d75" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M722 525 L711 530 L711 520 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M728 547 L743 504 L1003 504 L988 547 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="865.5" y="533.2" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">70</text>
+<text x="77" y="618" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">该轨迹假定两次更新依次成功提交，实际等待与冲突规则由数据库决定。</text>
+</svg>

@@ -1,2 +1,102 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="976.9431" viewBox="0 0 1440 976.9431" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">视觉分块把空间网格转成 token 序列</title><rect width="1440" height="976.9431" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">视觉分块把空间网格转成 token 序列</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="834.9431" viewBox="42 74 1196 743" role="img" x="48" y="106" overflow="hidden"><rect x="42" y="74" width="1196" height="743" fill="#ffffff"/><title>同一个块投影，把像素变成可计算的 token</title><rect width="1280" height="850" fill="white"/><g font-family="Microsoft YaHei, sans-serif"><text x="60" y="115" font-size="27" fill="#769099" text-anchor="start">单通道 4 × 4 图像 → 四个 2 × 2 块；按“行内从左到右”展开</text><rect x="70" y="185" width="59" height="59" fill="#d6e8ee"/><text x="101.0" y="227.16" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="132" y="185" width="59" height="59" fill="#d6e8ee"/><text x="163.0" y="227.16" font-size="28" fill="#1a2b3d" text-anchor="middle">2</text><rect x="194" y="185" width="59" height="59" fill="#b5d3e1"/><text x="225.0" y="227.16" font-size="28" fill="#1a2b3d" text-anchor="middle">3</text><rect x="256" y="185" width="59" height="59" fill="#b5d3e1"/><text x="287.0" y="227.16" font-size="28" fill="#1a2b3d" text-anchor="middle">4</text><rect x="70" y="247" width="59" height="59" fill="#d6e8ee"/><text x="101.0" y="289.16" font-size="28" fill="#1a2b3d" text-anchor="middle">5</text><rect x="132" y="247" width="59" height="59" fill="#d6e8ee"/><text x="163.0" y="289.16" font-size="28" fill="#1a2b3d" text-anchor="middle">6</text><rect x="194" y="247" width="59" height="59" fill="#b5d3e1"/><text x="225.0" y="289.16" font-size="28" fill="#1a2b3d" text-anchor="middle">7</text><rect x="256" y="247" width="59" height="59" fill="#b5d3e1"/><text x="287.0" y="289.16" font-size="28" fill="#1a2b3d" text-anchor="middle">8</text><rect x="70" y="309" width="59" height="59" fill="#f2dfd2"/><text x="101.0" y="351.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">9</text><rect x="132" y="309" width="59" height="59" fill="#f2dfd2"/><text x="163.0" y="351.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">10</text><rect x="194" y="309" width="59" height="59" fill="#e7bb9f"/><text x="225.0" y="351.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">11</text><rect x="256" y="309" width="59" height="59" fill="#e7bb9f"/><text x="287.0" y="351.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">12</text><rect x="70" y="371" width="59" height="59" fill="#f2dfd2"/><text x="101.0" y="413.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">13</text><rect x="132" y="371" width="59" height="59" fill="#f2dfd2"/><text x="163.0" y="413.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">14</text><rect x="194" y="371" width="59" height="59" fill="#e7bb9f"/><text x="225.0" y="413.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">15</text><rect x="256" y="371" width="59" height="59" fill="#e7bb9f"/><text x="287.0" y="413.15999999999997" font-size="28" fill="#1a2b3d" text-anchor="middle">16</text><text x="70" y="512" font-size="26" fill="#769099" text-anchor="start">位置次序：左上、右上、左下、右下</text><line x1="350" y1="300" x2="460" y2="300" stroke="#257190" stroke-width="4"/><path d="M449.47,305.75 L460.00,300.00 L449.47,294.25" fill="none" stroke="#257190" stroke-width="4"/><text x="470" y="185" font-size="29" fill="#257190" text-anchor="start">共享投影 W</text><rect x="490" y="218" width="57" height="57" fill="#eef1f5"/><text x="520.0" y="258.8" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="550" y="218" width="57" height="57" fill="#eef1f5"/><text x="580.0" y="258.8" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="610" y="218" width="57" height="57" fill="#eef1f5"/><text x="640.0" y="258.8" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="670" y="218" width="57" height="57" fill="#eef1f5"/><text x="700.0" y="258.8" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="490" y="278" width="57" height="57" fill="#f7eae4"/><text x="520.0" y="318.8" font-size="28" fill="#1a2b3d" text-anchor="middle">-1</text><rect x="550" y="278" width="57" height="57" fill="#eef1f5"/><text x="580.0" y="318.8" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="610" y="278" width="57" height="57" fill="#f7eae4"/><text x="640.0" y="318.8" font-size="28" fill="#1a2b3d" text-anchor="middle">-1</text><rect x="670" y="278" width="57" height="57" fill="#eef1f5"/><text x="700.0" y="318.8" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><text x="475" y="420" font-size="27" fill="#257190" text-anchor="start">第 1 维：四个像素之和</text><text x="475" y="463" font-size="27" fill="#bf6d42" text-anchor="start">第 2 维：右列 − 左列</text><line x1="770" y1="300" x2="860" y2="300" stroke="#257190" stroke-width="4"/><path d="M849.47,305.75 L860.00,300.00 L849.47,294.25" fill="none" stroke="#257190" stroke-width="4"/><text x="900" y="185" font-size="29" fill="#1a2b3d" text-anchor="start">token（尚未加位置）</text><text x="930" y="245" font-size="30" fill="#257190" text-anchor="start">T1  (14, 2)</text><text x="930" y="307" font-size="30" fill="#257190" text-anchor="start">T2  (22, 2)</text><text x="930" y="369" font-size="30" fill="#bf6d42" text-anchor="start">T3  (46, 2)</text><text x="930" y="431" font-size="30" fill="#bf6d42" text-anchor="start">T4  (54, 2)</text><line x1="60" y1="535" x2="1220" y2="535" stroke="#dfe4eb" stroke-width="2"/><text x="60" y="585" font-size="30" fill="#1a2b3d" text-anchor="start">压缩丢掉了哪些差异？</text><rect x="65" y="620" width="50" height="50" fill="#eef1f5"/><text x="91.5" y="656.04" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="118" y="620" width="50" height="50" fill="#eef1f5"/><text x="144.5" y="656.04" font-size="28" fill="#1a2b3d" text-anchor="middle">2</text><rect x="65" y="673" width="50" height="50" fill="#eef1f5"/><text x="91.5" y="709.04" font-size="28" fill="#1a2b3d" text-anchor="middle">5</text><rect x="118" y="673" width="50" height="50" fill="#eef1f5"/><text x="144.5" y="709.04" font-size="28" fill="#1a2b3d" text-anchor="middle">6</text><line x1="200" y1="675" x2="300" y2="675" stroke="#257190" stroke-width="4"/><path d="M289.47,680.75 L300.00,675.00 L289.47,669.25" fill="none" stroke="#257190" stroke-width="4"/><rect x="330" y="620" width="50" height="50" fill="#eef1f5"/><text x="356.5" y="656.04" font-size="28" fill="#1a2b3d" text-anchor="middle">2</text><rect x="383" y="620" width="50" height="50" fill="#eef1f5"/><text x="409.5" y="656.04" font-size="28" fill="#1a2b3d" text-anchor="middle">1</text><rect x="330" y="673" width="50" height="50" fill="#eef1f5"/><text x="356.5" y="709.04" font-size="28" fill="#1a2b3d" text-anchor="middle">4</text><rect x="383" y="673" width="50" height="50" fill="#eef1f5"/><text x="409.5" y="709.04" font-size="28" fill="#1a2b3d" text-anchor="middle">7</text><text x="505" y="650" font-size="29" fill="#1a2b3d" text-anchor="start">块像素不同，两个投影却都为 (14, 2)。</text><text x="505" y="704" font-size="27" fill="#bf6d42" text-anchor="start">差值 (1, −1, −1, 1) 落在 W 的零空间。</text><text x="60" y="795" font-size="28" fill="#769099" text-anchor="start">位置编码保留块的位置；它不能恢复已经被块投影抹掉的内部差异。</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="717" viewBox="0 0 1200 717" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">位置编码保留块的位置，无法恢复投影丢失的信息</title>
+<desc id="fig-desc">四个图像块使用同一个线性投影。两个内部不同的块可投影到相同 token。</desc>
+<rect x="0" y="0" width="1200" height="717" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="77" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">四个图像块共享同一个投影</text>
+<rect x="86" y="143" width="54" height="44" fill="#ecf6f6" opacity="1"/>
+<text x="113" y="173" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="144" y="143" width="54" height="44" fill="#ecf6f6" opacity="1"/>
+<text x="171" y="173" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<rect x="202" y="143" width="54" height="44" fill="#e8e6f2" opacity="1"/>
+<text x="229" y="173" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">3</text>
+<rect x="260" y="143" width="54" height="44" fill="#e8e6f2" opacity="1"/>
+<text x="287" y="173" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="86" y="191" width="54" height="44" fill="#ecf6f6" opacity="1"/>
+<text x="113" y="221" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="144" y="191" width="54" height="44" fill="#ecf6f6" opacity="1"/>
+<text x="171" y="221" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">6</text>
+<rect x="202" y="191" width="54" height="44" fill="#e8e6f2" opacity="1"/>
+<text x="229" y="221" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">7</text>
+<rect x="260" y="191" width="54" height="44" fill="#e8e6f2" opacity="1"/>
+<text x="287" y="221" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">8</text>
+<rect x="86" y="239" width="54" height="44" fill="#fbede8" opacity="1"/>
+<text x="113" y="269" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">9</text>
+<rect x="144" y="239" width="54" height="44" fill="#fbede8" opacity="1"/>
+<text x="171" y="269" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">10</text>
+<rect x="202" y="239" width="54" height="44" fill="#f1f5f6" opacity="1"/>
+<text x="229" y="269" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">11</text>
+<rect x="260" y="239" width="54" height="44" fill="#f1f5f6" opacity="1"/>
+<text x="287" y="269" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">12</text>
+<rect x="86" y="287" width="54" height="44" fill="#fbede8" opacity="1"/>
+<text x="113" y="317" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">13</text>
+<rect x="144" y="287" width="54" height="44" fill="#fbede8" opacity="1"/>
+<text x="171" y="317" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">14</text>
+<rect x="202" y="287" width="54" height="44" fill="#f1f5f6" opacity="1"/>
+<text x="229" y="317" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">15</text>
+<rect x="260" y="287" width="54" height="44" fill="#f1f5f6" opacity="1"/>
+<text x="287" y="317" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">16</text>
+<path d="M200 141 L200 333" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84 237 L316 237" fill="none" stroke="#526976" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M342 234 L443 234" fill="none" stroke="#6e618e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M443 234 L432 239 L432 229 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="469" y="174" width="54" height="48" fill="#ecf6f6" opacity="1"/>
+<text x="496" y="206" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="527" y="174" width="54" height="48" fill="#ecf6f6" opacity="1"/>
+<text x="554" y="206" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="585" y="174" width="54" height="48" fill="#ecf6f6" opacity="1"/>
+<text x="612" y="206" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="643" y="174" width="54" height="48" fill="#ecf6f6" opacity="1"/>
+<text x="670" y="206" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="469" y="226" width="54" height="48" fill="#fbede8" opacity="1"/>
+<text x="496" y="258" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">−1</text>
+<rect x="527" y="226" width="54" height="48" fill="#fbede8" opacity="1"/>
+<text x="554" y="258" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="585" y="226" width="54" height="48" fill="#fbede8" opacity="1"/>
+<text x="612" y="258" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">−1</text>
+<rect x="643" y="226" width="54" height="48" fill="#fbede8" opacity="1"/>
+<text x="670" y="258" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<text x="466" y="144" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">共享投影 W</text>
+<path d="M724 234 L808 234" fill="none" stroke="#6e618e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M808 234 L797 239 L797 229 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M832 168 L849 125 L1102 125 L1085 168 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="967" y="154.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">T1   (14, 2)</text>
+<path d="M832 230 L849 187 L1102 187 L1085 230 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="967" y="216.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">T2   (22, 2)</text>
+<path d="M832 292 L849 249 L1102 249 L1085 292 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="967" y="278.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">T3   (46, 2)</text>
+<path d="M832 354 L849 311 L1102 311 L1085 354 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="967" y="340.55" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">T4   (54, 2)</text>
+<text x="84" y="376" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">块按左上、右上、左下、右下编号，各块内部按行展开。</text>
+<path d="M75 405 L1125 405" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="76" y="454" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="26" text-anchor="start" font-weight="600">两个像素块不同，投影却相同</text>
+<rect x="82" y="495" width="56" height="46" fill="#ecf6f6" opacity="1"/>
+<text x="110" y="526" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="142" y="495" width="56" height="46" fill="#ecf6f6" opacity="1"/>
+<text x="170" y="526" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<rect x="82" y="545" width="56" height="46" fill="#ecf6f6" opacity="1"/>
+<text x="110" y="576" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="142" y="545" width="56" height="46" fill="#ecf6f6" opacity="1"/>
+<text x="170" y="576" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">6</text>
+<path d="M217 567 L243 567 L243 610 L666 610 L686 557" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M686 557 L711 557" fill="none" stroke="#166d75" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M711 557 L700 562 L700 552 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="346" y="495" width="56" height="46" fill="#fbede8" opacity="1"/>
+<text x="374" y="526" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<rect x="406" y="495" width="56" height="46" fill="#fbede8" opacity="1"/>
+<text x="434" y="526" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="346" y="545" width="56" height="46" fill="#fbede8" opacity="1"/>
+<text x="374" y="576" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="406" y="545" width="56" height="46" fill="#fbede8" opacity="1"/>
+<text x="434" y="576" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">7</text>
+<path d="M484 529 L710 529" fill="none" stroke="#a74d3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710 529 L699 534 L699 524 Z" fill="#a74d3a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M719 560 L746 505 L1063 505 L1036 560 Z" fill="url(#v)" stroke="#6e618e" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="891" y="540.9" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="middle" font-weight="400">共同投影 (14, 2)</text>
+<text x="76" y="663" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">差向量 (1, −1, −1, 1) 在 W 的零空间内。</text>
+</svg>

@@ -1,2 +1,41 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="872.1473" viewBox="0 0 1440 872.1473" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">同时间戳不能自动建立因果顺序</title><rect width="1440" height="872.1473" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">同时间戳不能自动建立因果顺序</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="730.1473" viewBox="13.867 63.979 1252.267 680.312" x="48" y="106" overflow="hidden"><rect width="1252.267" height="680.312" fill="white" x="13.867" y="63.979"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#173c58"><text x="40" y="112" font-size="27" fill="#527087">同一实体、整批在 t=10 评分；严格历史只允许事件时间小于 10</text><path d="M80 225 H610" stroke="#7690a0" stroke-width="2"/><path d="M140 216 V234" stroke="#7690a0" stroke-width="2"/><text x="130" y="200" font-size="27" fill="#173c58">9</text><path d="M350 216 V234" stroke="#7690a0" stroke-width="2"/><text x="340" y="200" font-size="27" fill="#173c58">10</text><path d="M560 216 V234" stroke="#7690a0" stroke-width="2"/><text x="550" y="200" font-size="27" fill="#173c58">11</text><path d="M350 240 V545" stroke="#d07533" stroke-width="3" stroke-dasharray="8 7"/><circle cx="140" cy="295" r="12" fill="#1f81c7"/><text x="162" y="304" font-size="28" fill="#1f81c7">A：金额 5</text><circle cx="350" cy="380" r="12" fill="#d07533"/><text x="372" y="389" font-size="28" fill="#d07533">B：金额 10</text><circle cx="350" cy="465" r="12" fill="#d07533"/><text x="372" y="474" font-size="28" fill="#d07533">C：金额 20</text><text x="90" y="582" font-size="28" fill="#d07533">B 与 C 位于同一时间边界</text><text x="710" y="195" font-size="31" fill="#173c58">历史金额和</text><text x="730" y="273" font-size="29" fill="#173c58">评分记录</text><text x="920" y="273" font-size="29" fill="#173c58">B</text><text x="1110" y="273" font-size="29" fill="#173c58">C</text><path d="M700 300 H1235" stroke="#dce2eb" stroke-width="2"/><text x="710" y="363" font-size="28" fill="#148f94">整批严格过去</text><text x="925" y="363" font-size="31" fill="#148f94">5</text><text x="1110" y="363" font-size="31" fill="#148f94">5</text><text x="710" y="448" font-size="28" fill="#d07533">按行累计后移</text><text x="925" y="448" font-size="31" fill="#d07533">5</text><text x="1110" y="448" font-size="31" fill="#d07533">15</text><text x="710" y="532" font-size="29" fill="#d07533">15 = A 的 5 + B 的 10</text><text x="710" y="582" font-size="28" fill="#d07533">C 错误看到同刻 B</text><path d="M40 650 H1240" stroke="#dce2eb" stroke-width="2"/><text x="40" y="715" font-size="28" fill="#173c58">交换 B、C 的物理行序，严格历史仍都是 5；按行结果会随顺序改变。</text></g><desc> 两条记录同刻评分，文件先后不能赋予额外历史 若服务确实逐条提交，必须另有可靠序号或更细时钟证明可见顺序。</desc></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="697" viewBox="0 0 1200 697" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">同一个时间戳不能确定先后</title>
+<desc id="fig-desc">较早事件 A 为两条同刻评分共享。把文件行序当作时间顺序会让 C 看到 B。</desc>
+<rect x="0" y="0" width="1200" height="697" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">同刻评分，读取同一份严格历史</text>
+<path d="M123.8 242 L909.5 242" fill="none" stroke="#233b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M909.5 242 L898.5 247 L898.5 237 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="182" y="282" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">9</text>
+<text x="473" y="282" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">10</text>
+<text x="764" y="282" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">11</text>
+<circle cx="182" cy="242" r="7" fill="#166d75" stroke="#ffffff" stroke-width="1.5"/>
+<text x="182" y="209" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">A · 5</text>
+<circle cx="473" cy="169" r="7" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<text x="494" y="175" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">B · 10</text>
+<circle cx="473" cy="318" r="7" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<text x="494" y="324" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="start" font-weight="400">C · 20</text>
+<path d="M473 140 L473 346" fill="none" stroke="#a74d3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5"/>
+<text x="747" y="191" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">B 和 C 都在时间 10。</text>
+<text x="747" y="318" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">不能用文件行序推断可见性。</text>
+<path d="M75 371 L1125 371" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="444" y="454" width="144" height="65" fill="#ecf6f6" opacity="1"/>
+<text x="516" y="494.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="592" y="454" width="144" height="65" fill="#ecf6f6" opacity="1"/>
+<text x="664" y="494.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<text x="428" y="494.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">严格过去</text>
+<rect x="444" y="523" width="144" height="65" fill="#ecf6f6" opacity="1"/>
+<text x="516" y="563.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="592" y="523" width="144" height="65" fill="#fbede8" opacity="1"/>
+<text x="664" y="563.5" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">15</text>
+<text x="428" y="563.5" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">逐行累计再后移</text>
+<text x="516" y="440" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">评分 B</text>
+<text x="664" y="440" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">评分 C</text>
+<text x="800" y="553" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">15 里混入同刻 B 的 10。</text>
+<text x="74" y="635" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">交换 B、C 的文件行序，严格历史仍都等于 5。</text>
+</svg>

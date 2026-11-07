@@ -1,65 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1144" viewBox="0 0 960 1144" role="img" aria-labelledby="title desc">
-<title id="title">PPO 的旧策略分母必须固定</title><desc id="desc">真实旧概率 0.5 时，比率 1.6 已在平台，导数为零。以当前概率分离值作分母时，比率为一但梯度为 0.2。完全共用计算图时分子分母导数相消。</desc>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0.000" y="0.000" width="960.000" height="1144.000" rx="0" fill="#ffffff" stroke="none" stroke-width="1.6"/>
-<text x="44.000" y="61.000" fill="#172a40" font-size="38" font-weight="700" text-anchor="start">PPO 的旧策略分母必须固定</text>
-<text x="46.000" y="106.000" fill="#465d72" font-size="26" font-weight="400" text-anchor="start">同一求导点的当前概率为 0.8，优势为正一</text>
-<rect x="44.000" y="144.000" width="44.000" height="41.000" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.6"/>
-<text x="66.000" y="173.000" fill="#136d84" font-size="26" font-weight="700" text-anchor="middle">A</text>
-<text x="103.000" y="173.000" fill="#172a40" font-size="31" font-weight="700" text-anchor="start">在同一点比较两个局部函数</text>
-<line x1="148.000" y1="552.000" x2="868.000" y2="552.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="135.000" y="560.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">0.6</text>
-<line x1="148.000" y1="471.000" x2="868.000" y2="471.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="135.000" y="479.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">0.8</text>
-<line x1="148.000" y1="390.000" x2="868.000" y2="390.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="135.000" y="398.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">1</text>
-<line x1="148.000" y1="309.000" x2="868.000" y2="309.000" stroke="#cedae4" stroke-width="2" stroke-dasharray="none"/>
-<text x="135.000" y="317.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">1.2</text>
-<line x1="148.000" y1="552.000" x2="868.000" y2="552.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<line x1="148.000" y1="552.000" x2="148.000" y2="309.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<line x1="148.000" y1="552.000" x2="148.000" y2="560.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="148.000" y="588.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">0</text>
-<line x1="308.000" y1="552.000" x2="308.000" y2="560.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="308.000" y="588.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">0.5</text>
-<line x1="468.000" y1="552.000" x2="468.000" y2="560.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="468.000" y="588.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">1</text>
-<line x1="628.000" y1="552.000" x2="628.000" y2="560.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="628.000" y="588.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">1.5</text>
-<line x1="788.000" y1="552.000" x2="788.000" y2="560.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="788.000" y="588.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle">2</text>
-<line x1="868.000" y1="552.000" x2="868.000" y2="560.000" stroke="#465d72" stroke-width="2" stroke-dasharray="none"/>
-<text x="868.000" y="588.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="middle"></text>
-<polyline points="148.000,390.000 152.000,387.469 156.000,384.938 160.000,382.407 164.000,379.877 168.000,377.348 172.000,374.820 176.000,372.293 180.000,369.767 184.000,367.243 188.000,364.720 192.000,362.200 196.000,359.682 200.000,357.166 204.000,354.653 208.000,352.142 212.000,349.634 216.000,347.130 220.000,344.629 224.000,342.131 228.000,339.637 232.000,337.147 236.000,334.661 240.000,332.179 244.000,329.702 248.000,327.229 252.000,324.761 256.000,322.298 260.000,319.840 264.000,317.387 268.000,314.940 272.000,312.499 276.000,310.063 280.000,309.000 284.000,309.000 288.000,309.000 292.000,309.000 296.000,309.000 300.000,309.000 304.000,309.000 308.000,309.000 312.000,309.000 316.000,309.000 320.000,309.000 324.000,309.000 328.000,309.000 332.000,309.000 336.000,309.000 340.000,309.000 344.000,309.000 348.000,309.000 352.000,309.000 356.000,309.000 360.000,309.000 364.000,309.000 368.000,309.000 372.000,309.000 376.000,309.000 380.000,309.000 384.000,309.000 388.000,309.000 392.000,309.000 396.000,309.000 400.000,309.000 404.000,309.000 408.000,309.000 412.000,309.000 416.000,309.000 420.000,309.000 424.000,309.000 428.000,309.000 432.000,309.000 436.000,309.000 440.000,309.000 444.000,309.000 448.000,309.000 452.000,309.000 456.000,309.000 460.000,309.000 464.000,309.000 468.000,309.000 472.000,309.000 476.000,309.000 480.000,309.000 484.000,309.000 488.000,309.000 492.000,309.000 496.000,309.000 500.000,309.000 504.000,309.000 508.000,309.000 512.000,309.000 516.000,309.000 520.000,309.000 524.000,309.000 528.000,309.000 532.000,309.000 536.000,309.000 540.000,309.000 544.000,309.000 548.000,309.000 552.000,309.000 556.000,309.000 560.000,309.000 564.000,309.000 568.000,309.000 572.000,309.000 576.000,309.000 580.000,309.000 584.000,309.000 588.000,309.000 592.000,309.000 596.000,309.000 600.000,309.000 604.000,309.000 608.000,309.000 612.000,309.000 616.000,309.000 620.000,309.000 624.000,309.000 628.000,309.000 632.000,309.000 636.000,309.000 640.000,309.000 644.000,309.000 648.000,309.000 652.000,309.000 656.000,309.000 660.000,309.000 664.000,309.000 668.000,309.000 672.000,309.000 676.000,309.000 680.000,309.000 684.000,309.000 688.000,309.000 692.000,309.000 696.000,309.000 700.000,309.000 704.000,309.000 708.000,309.000 712.000,309.000 716.000,309.000 720.000,309.000 724.000,309.000 728.000,309.000 732.000,309.000 736.000,309.000 740.000,309.000 744.000,309.000 748.000,309.000 752.000,309.000 756.000,309.000 760.000,309.000 764.000,309.000 768.000,309.000 772.000,309.000 776.000,309.000 780.000,309.000 784.000,309.000 788.000,309.000 792.000,309.000 796.000,309.000 800.000,309.000 804.000,309.000 808.000,309.000 812.000,309.000 816.000,309.000 820.000,309.000 824.000,309.000 828.000,309.000 832.000,309.000 836.000,309.000 840.000,309.000 844.000,309.000 848.000,309.000 852.000,309.000 856.000,309.000 860.000,309.000 864.000,309.000 868.000,309.000" fill="none" stroke="#136d84" stroke-width="4" stroke-dasharray="none" stroke-linecap="round"/>
-<polyline points="148.000,541.875 152.000,540.293 156.000,538.711 160.000,537.129 164.000,535.548 168.000,533.967 172.000,532.387 176.000,530.808 180.000,529.229 184.000,527.652 188.000,526.075 192.000,524.500 196.000,522.926 200.000,521.354 204.000,519.783 208.000,518.214 212.000,516.647 216.000,515.081 220.000,513.518 224.000,511.957 228.000,510.398 232.000,508.842 236.000,507.288 240.000,505.737 244.000,504.188 248.000,502.643 252.000,501.100 256.000,499.561 260.000,498.025 264.000,496.492 268.000,494.963 272.000,493.437 276.000,491.914 280.000,490.396 284.000,488.881 288.000,487.371 292.000,485.864 296.000,484.361 300.000,482.863 304.000,481.369 308.000,479.880 312.000,478.395 316.000,476.915 320.000,475.439 324.000,473.969 328.000,472.503 332.000,471.042 336.000,469.587 340.000,468.136 344.000,466.691 348.000,465.252 352.000,463.817 356.000,462.388 360.000,460.965 364.000,459.548 368.000,458.136 372.000,456.730 376.000,455.330 380.000,453.936 384.000,452.548 388.000,451.166 392.000,449.790 396.000,448.420 400.000,447.057 404.000,445.700 408.000,444.350 412.000,443.006 416.000,441.669 420.000,440.338 424.000,439.014 428.000,437.696 432.000,436.386 436.000,435.082 440.000,433.785 444.000,432.495 448.000,431.212 452.000,429.935 456.000,428.666 460.000,427.404 464.000,426.149 468.000,424.902 472.000,423.661 476.000,422.428 480.000,421.202 484.000,419.983 488.000,418.771 492.000,417.567 496.000,416.370 500.000,415.181 504.000,413.999 508.000,412.824 512.000,411.657 516.000,410.498 520.000,409.345 524.000,408.201 528.000,407.064 532.000,405.934 536.000,404.812 540.000,403.698 544.000,402.591 548.000,401.492 552.000,400.400 556.000,399.316 560.000,398.240 564.000,397.171 568.000,396.110 572.000,395.056 576.000,394.010 580.000,392.972 584.000,391.941 588.000,390.918 592.000,389.902 596.000,388.894 600.000,387.894 604.000,386.901 608.000,385.916 612.000,384.938 616.000,383.968 620.000,383.006 624.000,382.050 628.000,381.103 632.000,380.163 636.000,379.230 640.000,378.305 644.000,377.387 648.000,376.477 652.000,375.574 656.000,374.679 660.000,373.791 664.000,372.910 668.000,372.036 672.000,371.170 676.000,370.311 680.000,369.460 684.000,368.615 688.000,367.778 692.000,366.948 696.000,366.125 700.000,365.309 704.000,364.501 708.000,363.699 712.000,362.904 716.000,362.117 720.000,361.336 724.000,360.562 728.000,359.795 732.000,359.035 736.000,358.282 740.000,357.536 744.000,356.796 748.000,356.063 752.000,355.337 756.000,354.617 760.000,353.905 764.000,353.198 768.000,352.498 772.000,351.805 776.000,351.118 780.000,350.438 784.000,349.764 788.000,349.096 792.000,348.435 796.000,347.780 800.000,347.132 804.000,346.489 808.000,345.853 812.000,345.222 816.000,344.598 820.000,343.980 824.000,343.368 828.000,342.762 832.000,342.162 836.000,341.568 840.000,340.979 844.000,340.397 848.000,339.820 852.000,339.249 856.000,338.683 860.000,338.123 864.000,337.569 868.000,337.021" fill="none" stroke="#a85127" stroke-width="4" stroke-dasharray="none" stroke-linecap="round"/>
-<line x1="591.614" y1="552.000" x2="591.614" y2="309.000" stroke="#465d72" stroke-width="2" stroke-dasharray="6 6"/>
-<circle cx="591.614" cy="309.000" r="7" fill="#136d84" stroke="#ffffff" stroke-width="2.2"/>
-<circle cx="591.614" cy="390.000" r="7" fill="#a85127" stroke="#ffffff" stroke-width="2.2"/>
-<line x1="150.000" y1="218.000" x2="186.000" y2="218.000" stroke="#136d84" stroke-width="4" stroke-dasharray="none"/>
-<text x="199.000" y="226.000" fill="#136d84" font-size="24" font-weight="650" text-anchor="start">实际旧概率 0.5</text>
-<line x1="508.000" y1="218.000" x2="544.000" y2="218.000" stroke="#a85127" stroke-width="4" stroke-dasharray="none"/>
-<text x="557.000" y="226.000" fill="#a85127" font-size="24" font-weight="650" text-anchor="start">当前点分离的 0.8</text>
-<text x="578.614" y="481.000" fill="#465d72" font-size="24" font-weight="650" text-anchor="end">当前点 θ = ln 4</text>
-<text x="866.000" y="623.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="end">当前策略参数 θ</text>
-<rect x="44.000" y="675.000" width="44.000" height="41.000" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.6"/>
-<text x="66.000" y="704.000" fill="#136d84" font-size="26" font-weight="700" text-anchor="middle">B</text>
-<text x="103.000" y="704.000" fill="#172a40" font-size="31" font-weight="700" text-anchor="start">两个前向比率为一，梯度仍然不同</text>
-<text x="69.000" y="757.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">分母来源</text>
-<text x="644.000" y="757.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">当前比率</text>
-<text x="807.000" y="757.000" fill="#465d72" font-size="25" font-weight="650" text-anchor="start">目标导数</text>
-<rect x="44.000" y="782.000" width="872.000" height="91.000" rx="10" fill="#e9f5f7" stroke="#cedae4" stroke-width="1.6"/>
-<text x="69.000" y="819.000" fill="#136d84" font-size="27" font-weight="700" text-anchor="start">采样时保存的旧概率</text>
-<text x="69.000" y="854.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="start">进入裁剪平台</text>
-<text x="701.000" y="838.000" fill="#136d84" font-size="30" font-weight="700" text-anchor="middle">1.6</text>
-<text x="860.000" y="838.000" fill="#136d84" font-size="30" font-weight="700" text-anchor="middle">0</text>
-<rect x="44.000" y="887.000" width="872.000" height="91.000" rx="10" fill="#fff2e8" stroke="#cedae4" stroke-width="1.6"/>
-<text x="69.000" y="924.000" fill="#a85127" font-size="27" font-weight="700" text-anchor="start">当前概率的分离值</text>
-<text x="69.000" y="959.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="start">分母在这一步视为常数</text>
-<text x="701.000" y="943.000" fill="#a85127" font-size="30" font-weight="700" text-anchor="middle">1</text>
-<text x="860.000" y="943.000" fill="#a85127" font-size="30" font-weight="700" text-anchor="middle">0.2</text>
-<rect x="44.000" y="992.000" width="872.000" height="91.000" rx="10" fill="#f7fafc" stroke="#cedae4" stroke-width="1.6"/>
-<text x="69.000" y="1029.000" fill="#172a40" font-size="27" font-weight="700" text-anchor="start">当前概率的同一计算图</text>
-<text x="69.000" y="1064.000" fill="#465d72" font-size="24" font-weight="400" text-anchor="start">分子分母的导数相消</text>
-<text x="701.000" y="1048.000" fill="#172a40" font-size="30" font-weight="700" text-anchor="middle">1</text>
-<text x="860.000" y="1048.000" fill="#172a40" font-size="30" font-weight="700" text-anchor="middle">0</text>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="791" viewBox="0 0 1200 791" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">当前概率相同，分母来源改变局部梯度</title>
+<desc id="fig-desc">保存的旧概率使本样本处于裁剪平台；用当前分离值会得到不同梯度；使用同一图则相消。</desc>
+<rect x="0" y="0" width="1200" height="791" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="74" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">前向比率相同，求导结果仍可能不同</text>
+<path d="M138 382.034 L787 382.034" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 287.552 L787 287.552" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 193.069 L787 193.069" fill="none" stroke="#dbe8eb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 434 L799 434" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M799 434 L788 439 L788 429 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 434 L138 148" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 148 L143 159 L133 159 Z" fill="#233b4a" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M166.685 430 L166.685 439" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="166.685" y="463" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">0.5</text>
+<path d="M345.967 430 L345.967 439" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="345.967" y="463" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1</text>
+<path d="M525.249 430 L525.249 439" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="525.249" y="463" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">1.5</text>
+<path d="M704.53 430 L704.53 439" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="704.53" y="463" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="middle" font-weight="400">2</text>
+<path d="M133 382.034 L142 382.034" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="128" y="388.034" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">0.8</text>
+<path d="M133 287.552 L142 287.552" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="128" y="293.552" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1</text>
+<path d="M133 193.069 L142 193.069" fill="none" stroke="#233b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="128" y="199.069" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" text-anchor="end" font-weight="400">1.2</text>
+<text x="806" y="440" fill="#233b4a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="start" font-weight="400">θ</text>
+<text x="138" y="138" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">A  局部目标</text>
+<path d="M138 193.069 L144.49 193.069 L150.98 193.069 L157.47 193.069 L163.96 193.069 L170.45 193.069 L176.94 193.069 L183.43 193.069 L189.92 193.069 L196.41 193.069 L202.9 193.069 L209.39 193.069 L215.88 193.069 L222.37 193.069 L228.86 193.069 L235.35 193.069 L241.84 193.069 L248.33 193.069 L254.82 193.069 L261.31 193.069 L267.8 193.069 L274.29 193.069 L280.78 193.069 L287.27 193.069 L293.76 193.069 L300.25 193.069 L306.74 193.069 L313.23 193.069 L319.72 193.069 L326.21 193.069 L332.7 193.069 L339.19 193.069 L345.68 193.069 L352.17 193.069 L358.66 193.069 L365.15 193.069 L371.64 193.069 L378.13 193.069 L384.62 193.069 L391.11 193.069 L397.6 193.069 L404.09 193.069 L410.58 193.069 L417.07 193.069 L423.56 193.069 L430.05 193.069 L436.54 193.069 L443.03 193.069 L449.52 193.069 L456.01 193.069 L462.5 193.069 L468.99 193.069 L475.48 193.069 L481.97 193.069 L488.46 193.069 L494.95 193.069 L501.44 193.069 L507.93 193.069 L514.42 193.069 L520.91 193.069 L527.4 193.069 L533.89 193.069 L540.38 193.069 L546.87 193.069 L553.36 193.069 L559.85 193.069 L566.34 193.069 L572.83 193.069 L579.32 193.069 L585.81 193.069 L592.3 193.069 L598.79 193.069 L605.28 193.069 L611.77 193.069 L618.26 193.069 L624.75 193.069 L631.24 193.069 L637.73 193.069 L644.22 193.069 L650.71 193.069 L657.2 193.069 L663.69 193.069 L670.18 193.069 L676.67 193.069 L683.16 193.069 L689.65 193.069 L696.14 193.069 L702.63 193.069 L709.12 193.069 L715.61 193.069 L722.1 193.069 L728.59 193.069 L735.08 193.069 L741.57 193.069 L748.06 193.069 L754.55 193.069 L761.04 193.069 L767.53 193.069 L774.02 193.069 L780.51 193.069 L787 193.069" fill="none" stroke="#166d75" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M138 403.598 L144.49 401.045 L150.98 398.503 L157.47 395.97 L163.96 393.448 L170.45 390.937 L176.94 388.438 L183.43 385.95 L189.92 383.474 L196.41 381.01 L202.9 378.559 L209.39 376.121 L215.88 373.696 L222.37 371.285 L228.86 368.887 L235.35 366.504 L241.84 364.134 L248.33 361.78 L254.82 359.44 L261.31 357.115 L267.8 354.805 L274.29 352.511 L280.78 350.233 L287.27 347.97 L293.76 345.724 L300.25 343.494 L306.74 341.281 L313.23 339.084 L319.72 336.904 L326.21 334.741 L332.7 332.595 L339.19 330.467 L345.68 328.356 L352.17 326.262 L358.66 324.187 L365.15 322.129 L371.64 320.089 L378.13 318.067 L384.62 316.063 L391.11 314.077 L397.6 312.109 L404.09 310.16 L410.58 308.229 L417.07 306.317 L423.56 304.423 L430.05 302.548 L436.54 300.691 L443.03 298.853 L449.52 297.033 L456.01 295.232 L462.5 293.45 L468.99 291.686 L475.48 289.941 L481.97 288.214 L488.46 286.506 L494.95 284.816 L501.44 283.146 L507.93 281.493 L514.42 279.859 L520.91 278.243 L527.4 276.646 L533.89 275.067 L540.38 273.507 L546.87 271.964 L553.36 270.44 L559.85 268.934 L566.34 267.445 L572.83 265.975 L579.32 264.522 L585.81 263.087 L592.3 261.67 L598.79 260.27 L605.28 258.888 L611.77 257.523 L618.26 256.175 L624.75 254.844 L631.24 253.531 L637.73 252.234 L644.22 250.954 L650.71 249.69 L657.2 248.444 L663.69 247.213 L670.18 245.999 L676.67 244.801 L683.16 243.62 L689.65 242.454 L696.14 241.303 L702.63 240.169 L709.12 239.05 L715.61 237.946 L722.1 236.858 L728.59 235.785 L735.08 234.726 L741.57 233.683 L748.06 232.654 L754.55 231.639 L761.04 230.64 L767.53 229.654 L774.02 228.682 L780.51 227.725 L787 226.781" fill="none" stroke="#a74d3a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M484.478 434 L484.478 174.172" fill="none" stroke="#6e618e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5"/>
+<circle cx="484.478" cy="193.069" r="6" fill="#ffffff" stroke="#166d75" stroke-width="3"/>
+<circle cx="484.478" cy="287.552" r="6" fill="#ffffff" stroke="#a74d3a" stroke-width="3"/>
+<text x="868" y="218" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">保存旧概率 0.5</text>
+<text x="868" y="283" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">当前点分离值 0.8</text>
+<text x="868" y="348" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">当前 θ = ln 4</text>
+<path d="M75 502 L1125 502" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="74" y="550" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">B  分母来源</text>
+<text x="685" y="550" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">当前比率</text>
+<text x="939" y="550" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">目标导数</text>
+<text x="74" y="610" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">采样时保存的旧概率</text>
+<path d="M651 620 L662 578 L813 578 L802 620 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="732" y="607.05" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1.6</text>
+<path d="M911 620 L922 578 L1073 578 L1062 620 Z" fill="url(#t)" stroke="#166d75" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="992" y="607.05" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0</text>
+<text x="74" y="670" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分离的当前概率</text>
+<path d="M651 680 L662 638 L813 638 L802 680 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="732" y="667.05" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M911 680 L922 638 L1073 638 L1062 680 Z" fill="url(#r)" stroke="#a74d3a" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="992" y="667.05" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0.2</text>
+<text x="74" y="730" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">同一计算图中的当前概率</text>
+<path d="M651 740 L662 698 L813 698 L802 740 Z" fill="url(#v)" stroke="#6e618e" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="732" y="727.05" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M911 740 L922 698 L1073 698 L1062 740 Z" fill="url(#v)" stroke="#6e618e" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="992" y="727.05" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">0</text>
 </svg>

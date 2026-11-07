@@ -1,105 +1,109 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1234.8051" viewBox="0 0 1440 1234.8051" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">同一交叉注意力算例的值路径分数路径和键梯度矩阵</title><rect width="1440" height="1234.8051" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">同一交叉注意力算例的值路径分数路径和键梯度矩阵</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="1092.8051" viewBox="24 59 1252 1018" role="img" x="48" y="106" overflow="hidden"><rect x="24" y="59" width="1252" height="1018" fill="#ffffff"/><title>交叉读取的反向：学习“取什么”，也学习“取多少”</title><rect width="1300" height="1120" fill="white"/>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#6e8ba0"/></marker></defs>
-<text x="42" y="99" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#6e8ba0" text-anchor="start" font-weight="normal">沿用前图；诊断标量 L = O 的第1行第1项 + 第2行第2项</text>
-<text x="60" y="162" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="bold">① 输出梯度 G</text>
-<rect x="60" y="184" width="79" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="99.5" y="232" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">1</text>
-<rect x="142" y="184" width="79" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="181.5" y="232" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="60" y="266" width="79" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="99.5" y="314" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="142" y="266" width="79" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="181.5" y="314" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">1</text>
-<text x="525" y="162" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="bold">② 值路径：g(V) = A 的转置 × G</text>
-<rect x="525" y="184" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="573.5" y="211" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">2</text>
-<line x1="548.5" y1="219" x2="598.5" y2="219" stroke="#21364c" stroke-width="2"/>
-<text x="573.5" y="246" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">3</text>
-<rect x="625" y="184" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="673.5" y="211" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">1</text>
-<line x1="648.5" y1="219" x2="698.5" y2="219" stroke="#21364c" stroke-width="2"/>
-<text x="673.5" y="246" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">4</text>
-<rect x="525" y="266" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="573.5" y="293" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">1</text>
-<line x1="548.5" y1="301" x2="598.5" y2="301" stroke="#21364c" stroke-width="2"/>
-<text x="573.5" y="328" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">3</text>
-<rect x="625" y="266" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="673.5" y="293" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">3</text>
-<line x1="648.5" y1="301" x2="698.5" y2="301" stroke="#21364c" stroke-width="2"/>
-<text x="673.5" y="328" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">4</text>
-<rect x="525" y="348" width="97" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="573.5" y="396" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="625" y="348" width="97" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="673.5" y="396" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<line x1="250" y1="267" x2="485" y2="267" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="300" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#6e8ba0" text-anchor="start" font-weight="normal">沿读取权重回传</text>
-<text x="829" y="256" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="normal">每个源位置接收</text>
-<text x="829" y="301" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="normal">所有目标的贡献</text>
-<text x="829" y="388" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#c47534" text-anchor="start" font-weight="normal">填充行严格为 0</text>
-<line x1="42" y1="460" x2="1258" y2="460" stroke="#d7e2eb" stroke-width="2"/>
-<text x="60" y="516" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="bold">③ 权重梯度：g(A) = G × V 的转置</text>
-<rect x="60" y="538" width="91" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="105.5" y="586" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">2</text>
-<rect x="154" y="538" width="91" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="199.5" y="586" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="248" y="538" width="91" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="293.5" y="586" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">100</text>
-<rect x="60" y="620" width="91" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="105.5" y="668" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="154" y="620" width="91" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="199.5" y="668" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">3</text>
-<rect x="248" y="620" width="91" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="293.5" y="668" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">100</text>
-<text x="645" y="516" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="bold">④ 经过逐行 softmax：g(S)</text>
-<rect x="645" y="538" width="105" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="697.5" y="565" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">4</text>
-<line x1="672.5" y1="573" x2="722.5" y2="573" stroke="#21364c" stroke-width="2"/>
-<text x="697.5" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">9</text>
-<rect x="753" y="538" width="105" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="805.5" y="565" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">−4</text>
-<line x1="780.5" y1="573" x2="830.5" y2="573" stroke="#21364c" stroke-width="2"/>
-<text x="805.5" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">9</text>
-<rect x="861" y="538" width="105" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="913.5" y="586" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="645" y="620" width="105" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="697.5" y="647" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">−9</text>
-<line x1="672.5" y1="655" x2="722.5" y2="655" stroke="#21364c" stroke-width="2"/>
-<text x="697.5" y="682" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">16</text>
-<rect x="753" y="620" width="105" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="805.5" y="647" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">9</text>
-<line x1="780.5" y1="655" x2="830.5" y2="655" stroke="#21364c" stroke-width="2"/>
-<text x="805.5" y="682" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">16</text>
-<rect x="861" y="620" width="105" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="913.5" y="668" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<line x1="374" y1="619" x2="610" y2="619" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="390" y="588" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" fill="#6e8ba0" text-anchor="start" font-weight="normal">减加权均值</text>
-<text x="60" y="765" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="bold">键路径：√2 g(K) = g(S) 的转置 × Q</text>
-<text x="820" y="793" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="start" font-weight="bold">√2 g(K)</text>
-<rect x="820" y="815" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="868.5" y="842" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">4</text>
-<line x1="843.5" y1="850" x2="893.5" y2="850" stroke="#21364c" stroke-width="2"/>
-<text x="868.5" y="877" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">9</text>
-<rect x="920" y="815" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="968.5" y="842" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">−9</text>
-<line x1="943.5" y1="850" x2="993.5" y2="850" stroke="#21364c" stroke-width="2"/>
-<text x="968.5" y="877" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">16</text>
-<rect x="820" y="897" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="868.5" y="924" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">−4</text>
-<line x1="843.5" y1="932" x2="893.5" y2="932" stroke="#21364c" stroke-width="2"/>
-<text x="868.5" y="959" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">9</text>
-<rect x="920" y="897" width="97" height="79" rx="6" fill="#eaf2f8" stroke="#d7e2eb"/>
-<text x="968.5" y="924" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">9</text>
-<line x1="943.5" y1="932" x2="993.5" y2="932" stroke="#21364c" stroke-width="2"/>
-<text x="968.5" y="959" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#21364c" text-anchor="middle" font-weight="normal">16</text>
-<rect x="820" y="979" width="97" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="868.5" y="1027" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<rect x="920" y="979" width="97" height="79" rx="6" fill="#faefe4" stroke="#d7e2eb"/>
-<text x="968.5" y="1027" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" fill="#21364c" text-anchor="middle" font-weight="normal">0</text>
-<line x1="830" y1="712" x2="900" y2="770" stroke="#6e8ba0" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="60" y="840" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#206fac" text-anchor="start" font-weight="bold">g(V) → 改变源提供的内容</text>
-<text x="60" y="900" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" fill="#c47534" text-anchor="start" font-weight="bold">g(K) → 改变源被读取的比例</text>
-<text x="60" y="975" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="start" font-weight="normal">两路经过各自投影矩阵，</text>
-<text x="60" y="1024" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" fill="#21364c" text-anchor="start" font-weight="normal">共同汇入编码器记忆的梯度。</text>
-<text x="390" y="675" font-family="Microsoft YaHei, sans-serif" font-size="26" fill="#6e8ba0">再逐项乘 A</text>
-</svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="737" viewBox="0 0 1200 737" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">交叉注意力中的值梯度与键梯度</title>
+<desc id="fig-desc">输出梯度沿两条路径回到共享源记忆。填充位置的值梯度与键梯度都为零。</desc>
+<rect x="0" y="0" width="1200" height="737" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="77" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">从同一个输出梯度分出两条路径</text>
+<text x="78" y="122" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">输出梯度 G</text>
+<rect x="80" y="146" width="61" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="110.5" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="145" y="146" width="61" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="175.5" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="80" y="208" width="61" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="110.5" y="245" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="145" y="208" width="61" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="175.5" y="245" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<text x="361" y="122" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">值路径  g(V)</text>
+<rect x="363" y="146" width="76" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="401" y="166" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">2</text>
+<path d="M381 172 L421 172" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="401" y="197" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<rect x="443" y="146" width="76" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="481" y="166" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M461 172 L501 172" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="481" y="197" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<rect x="363" y="208" width="76" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="401" y="228" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">1</text>
+<path d="M381 234 L421 234" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="401" y="259" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<rect x="443" y="208" width="76" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="481" y="228" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">3</text>
+<path d="M461 234 L501 234" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="481" y="259" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<rect x="363" y="270" width="76" height="58" fill="#fbede8" opacity="1"/>
+<text x="401" y="307" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="443" y="270" width="76" height="58" fill="#fbede8" opacity="1"/>
+<text x="481" y="307" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="757" y="122" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="400">权重梯度  g(A)</text>
+<rect x="759" y="146" width="85" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="801.5" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<rect x="848" y="146" width="85" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="890.5" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="937" y="146" width="85" height="58" fill="#fbede8" opacity="1"/>
+<text x="979.5" y="183" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">100</text>
+<rect x="759" y="208" width="85" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="801.5" y="245" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="848" y="208" width="85" height="58" fill="#ecf6f6" opacity="1"/>
+<text x="890.5" y="245" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">3</text>
+<rect x="937" y="208" width="85" height="58" fill="#fbede8" opacity="1"/>
+<text x="979.5" y="245" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">100</text>
+<path d="M226 205 L345 205" fill="none" stroke="#6e618e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M345 205 L334 210 L334 200 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M234 251 L260 251 L260 348 L711 348 L711 208" fill="none" stroke="#6e618e" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M711 208 L742 208" fill="none" stroke="#6e618e" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M742 208 L731 213 L731 203 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="456" y="381" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">权重路径从 G 与 V 得到 g(A)</text>
+<path d="M75 401 L1125 401" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="77" y="445" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="26" text-anchor="start" font-weight="600">逐行通过 softmax，再回传到键</text>
+<text x="80" y="490" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">分数梯度  g(S)</text>
+<rect x="82" y="513" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="126.5" y="532" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M106.5 538 L146.5 538" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="126.5" y="563" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<rect x="175" y="513" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="219.5" y="532" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">-4</text>
+<path d="M199.5 538 L239.5 538" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="219.5" y="563" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<rect x="268" y="513" width="89" height="56" fill="#fbede8" opacity="1"/>
+<text x="312.5" y="549" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="82" y="573" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="126.5" y="592" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">-9</text>
+<path d="M106.5 598 L146.5 598" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="126.5" y="623" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">16</text>
+<rect x="175" y="573" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="219.5" y="592" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<path d="M199.5 598 L239.5 598" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="219.5" y="623" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">16</text>
+<rect x="268" y="573" width="89" height="56" fill="#fbede8" opacity="1"/>
+<text x="312.5" y="609" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="674" y="490" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">√2 乘以键梯度  g(K)</text>
+<rect x="676" y="513" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="720.5" y="532" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<path d="M700.5 538 L740.5 538" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720.5" y="563" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<rect x="769" y="513" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="813.5" y="532" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">-9</text>
+<path d="M793.5 538 L833.5 538" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="813.5" y="563" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">16</text>
+<rect x="676" y="573" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="720.5" y="592" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">-4</text>
+<path d="M700.5 598 L740.5 598" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720.5" y="623" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<rect x="769" y="573" width="89" height="56" fill="#ecf6f6" opacity="1"/>
+<text x="813.5" y="592" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">9</text>
+<path d="M793.5 598 L833.5 598" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="813.5" y="623" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">16</text>
+<rect x="676" y="633" width="89" height="56" fill="#fbede8" opacity="1"/>
+<text x="720.5" y="669" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="769" y="633" width="89" height="56" fill="#fbede8" opacity="1"/>
+<text x="813.5" y="669" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<path d="M410 575 L643 575" fill="none" stroke="#6e618e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M643 575 L632 580 L632 570 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="429" y="553" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="20" text-anchor="start" font-weight="400">转置，再乘 Q</text>
+<text x="77" y="705" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">原填充值可进入 g(A)，但在 softmax 和掩码处不再向填充键传递。</text>
+</svg>

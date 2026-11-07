@@ -1,2 +1,139 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="933.0598" viewBox="0 0 1440 933.0598" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">原矩阵和转置矩阵以不同坐标访问同一字节偏移四十八处的元素六</title><rect width="1440" height="933.0598" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">原矩阵和转置矩阵以不同坐标访问同一字节偏移四十八处的元素六</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="791.0598" viewBox="13.867 61.867 1252.267 737.067" x="48" y="106" overflow="hidden"><defs><linearGradient id="book-wash-fff1e5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1e5"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><rect width="1252.267" height="737.067" fill="white" x="13.867" y="61.867"/><g font-family="Microsoft YaHei,Arial,sans-serif" fill="#173c58"><text x="40" y="110" font-size="27" fill="#527087">A = arange(12, dtype=int64).reshape(3,4)；一个元素占 8 字节</text><text x="40" y="176" font-size="29" fill="#173c58">唯一数值缓冲：相对 A[0,0] 的字节偏移</text><rect x="50" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="85" y="260" font-size="29" fill="#1f81c7">0</text><text x="73" y="321" font-size="25" fill="#527087">0</text><rect x="149" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="184" y="260" font-size="29" fill="#1f81c7">1</text><text x="172" y="321" font-size="25" fill="#527087">8</text><rect x="248" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="283" y="260" font-size="29" fill="#1f81c7">2</text><text x="271" y="321" font-size="25" fill="#527087">16</text><rect x="347" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="382" y="260" font-size="29" fill="#1f81c7">3</text><text x="370" y="321" font-size="25" fill="#527087">24</text><rect x="446" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="481" y="260" font-size="29" fill="#1f81c7">4</text><text x="469" y="321" font-size="25" fill="#527087">32</text><rect x="545" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="580" y="260" font-size="29" fill="#1f81c7">5</text><text x="568" y="321" font-size="25" fill="#527087">40</text><rect x="644" y="215" width="99" height="68" fill="url(#book-wash-fff1e5)" stroke="#c8d8e2" stroke-width="2"/><text x="679" y="260" font-size="29" fill="#d07533">6</text><text x="667" y="321" font-size="25" fill="#527087">48</text><rect x="743" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="778" y="260" font-size="29" fill="#1f81c7">7</text><text x="766" y="321" font-size="25" fill="#527087">56</text><rect x="842" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="877" y="260" font-size="29" fill="#1f81c7">8</text><text x="865" y="321" font-size="25" fill="#527087">64</text><rect x="941" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="976" y="260" font-size="29" fill="#1f81c7">9</text><text x="964" y="321" font-size="25" fill="#527087">72</text><rect x="1040" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="1075" y="260" font-size="29" fill="#1f81c7">10</text><text x="1063" y="321" font-size="25" fill="#527087">80</text><rect x="1139" y="215" width="99" height="68" fill="#f4f8fb" stroke="#c8d8e2" stroke-width="2"/><text x="1174" y="260" font-size="29" fill="#1f81c7">11</text><text x="1162" y="321" font-size="25" fill="#527087">88</text><path d="M40 355 H1240" stroke="#dce2eb" stroke-width="2"/><text x="50" y="417" font-size="30" fill="#1f81c7">原矩阵 A：shape (3,4)</text><text x="50" y="476" font-size="30" fill="#173c58">strides = (32, 8)</text><text x="50" y="541" font-size="29" fill="#173c58">A[1,2]  →  1×32 + 2×8 = 48</text><text x="50" y="606" font-size="27" fill="#527087">向下走一行：跳过 4 个元素</text><text x="690" y="417" font-size="30" fill="#d07533">转置 T：shape (4,3)</text><text x="690" y="476" font-size="30" fill="#173c58">strides = (8, 32)</text><text x="690" y="541" font-size="29" fill="#173c58">T[2,1]  →  2×8 + 1×32 = 48</text><text x="690" y="606" font-size="27" fill="#527087">向右走一列：跳过 4 个元素</text><path d="M645 390 V635" stroke="#dce2eb" stroke-width="2"/><text x="50" y="709" font-size="31" fill="#148f94">两种坐标都读取值 6；它们不是两份存储。</text><text x="50" y="768" font-size="29" fill="#173c58">若只令 T[2,1] = 99，A[1,2] 也会成为 99。</text></g><desc> 同一段缓冲，转置只改变从坐标到字节的路径 间隔切片改变步幅；翻转还会改变起点，并可能使用负步幅。</desc></svg></svg>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="770" viewBox="0 0 1360 770" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">转置前后用不同坐标读取同一个地址</title>
+  <desc id="plate-desc">原矩阵 A[1,2] 与转置 T[2,1] 都读取缓冲的字节偏移 48。转置交换了两个轴的步幅。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="770" fill="white" stroke="none" stroke-width="0"/>
+  <text x="685" y="65" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">只有一条物理缓冲</text>
+  <rect x="117" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="155" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">0</text>
+  <text x="155" y="239" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">0</text>
+  <rect x="207" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="245" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">1</text>
+  <rect x="297" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="335" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">2</text>
+  <text x="335" y="239" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">16</text>
+  <rect x="387" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="425" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">3</text>
+  <rect x="477" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="515" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">4</text>
+  <text x="515" y="239" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">32</text>
+  <rect x="567" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="605" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">5</text>
+  <rect x="657" y="129" width="76" height="69" fill="url(#wash-coral)" stroke="#a84b3b" stroke-width="1.4"/>
+  <text x="695" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">6</text>
+  <text x="695" y="239" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#a84b3b" text-anchor="middle">48</text>
+  <rect x="747" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="785" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">7</text>
+  <rect x="837" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="875" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">8</text>
+  <text x="875" y="239" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">64</text>
+  <rect x="927" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="965" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">9</text>
+  <rect x="1017" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="1055" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">10</text>
+  <text x="1055" y="239" font-size="23" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">80</text>
+  <rect x="1107" y="129" width="76" height="69" fill="url(#wash-gray)" stroke="none" stroke-width="1.4"/>
+  <text x="1145" y="171" font-size="26" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#657682" text-anchor="middle">11</text>
+  <text x="1241" y="238" font-size="24" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">字节</text>
+  <text x="341" y="369" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">原矩阵 A</text>
+  <rect x="221" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="251" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="281" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="311" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1</text>
+  <rect x="341" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="371" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">2</text>
+  <rect x="401" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="431" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">3</text>
+  <rect x="221" y="474" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="251" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">4</text>
+  <rect x="281" y="474" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="311" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">5</text>
+  <rect x="341" y="474" width="60" height="60" fill="#f4ded6" stroke="white" stroke-width="1.6"/>
+  <text x="371" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">6</text>
+  <rect x="401" y="474" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="431" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">7</text>
+  <rect x="221" y="534" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="251" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">8</text>
+  <rect x="281" y="534" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="311" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">9</text>
+  <rect x="341" y="534" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="371" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">10</text>
+  <rect x="401" y="534" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="431" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">11</text>
+  <rect x="341" y="474" width="60" height="60" fill="none" stroke="#a84b3b" stroke-width="2"/>
+  <polyline points="541,394 541,365 695,318 695,253" fill="none" stroke="#196f77" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+  <text x="341" y="695" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#196f77" text-anchor="middle">1 × 32 + 2 × 8 = 48</text>
+  <text x="1028" y="369" font-size="35" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">转置视图 T</text>
+  <rect x="938" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="968" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">0</text>
+  <rect x="998" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1028" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">4</text>
+  <rect x="1058" y="414" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1088" y="453.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">8</text>
+  <rect x="938" y="474" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="968" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">1</text>
+  <rect x="998" y="474" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1028" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">5</text>
+  <rect x="1058" y="474" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1088" y="513.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">9</text>
+  <rect x="938" y="534" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="968" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">2</text>
+  <rect x="998" y="534" width="60" height="60" fill="#f4ded6" stroke="white" stroke-width="1.6"/>
+  <text x="1028" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">6</text>
+  <rect x="1058" y="534" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1088" y="573.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">10</text>
+  <rect x="938" y="594" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="968" y="633.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">3</text>
+  <rect x="998" y="594" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1028" y="633.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">7</text>
+  <rect x="1058" y="594" width="60" height="60" fill="#f1f6f7" stroke="white" stroke-width="1.6"/>
+  <text x="1088" y="633.6" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#202a37" text-anchor="middle">11</text>
+  <rect x="998" y="534" width="60" height="60" fill="none" stroke="#a84b3b" stroke-width="2"/>
+  <polyline points="828,394 828,365 695,318 695,253" fill="none" stroke="#655184" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <text x="1028" y="695" font-size="27" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" fill="#655184" text-anchor="middle">2 × 8 + 1 × 32 = 48</text>
+  <text x="680" y="746" font-size="27" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" fill="#202a37" text-anchor="middle">坐标和步幅换了。两个索引仍指向同一个元素 6。</text>
+</svg>

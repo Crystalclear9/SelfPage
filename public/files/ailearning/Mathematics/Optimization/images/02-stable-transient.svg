@@ -1,72 +1,158 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="933" viewBox="0 0 960 933" role="img" aria-labelledby="title desc">
-<title id="title">渐近稳定，也可能先放大七倍</title><desc id="desc">严格稳定带为 0≤β&lt;1、0&lt;η&lt;2(1+β)，给定点位于内部。重球在第九步达到最大幅度约 7.012，普通梯度下降单调衰减。</desc>
-<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#536f86"/></marker></defs>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif">
-<rect x="0" y="0" width="960" height="933" rx="0" fill="#fff" stroke="none" stroke-width="1.8"/>
-<text x="44" y="61" font-size="39" fill="#172a40" font-weight="700" text-anchor="start">渐近稳定，也可能先放大七倍</text>
-<text x="46" y="106" font-size="26" fill="#465d72" font-weight="400" text-anchor="start">比较同一个二次目标，两种方法的最大根模长都为 0.9</text>
-<rect x="44" y="143" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="173" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">A</text>
-<text x="101" y="173" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">参数点紧贴稳定上界的内侧</text>
-<line x1="145" y1="472" x2="860" y2="472" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="480" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
-<line x1="145" y1="413" x2="860" y2="413" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="421" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">1</text>
-<line x1="145" y1="354" x2="860" y2="354" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="362" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">2</text>
-<line x1="145" y1="295" x2="860" y2="295" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="303" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">3</text>
-<line x1="145" y1="236" x2="860" y2="236" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="244" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">4</text>
-<line x1="145" y1="472" x2="860" y2="472" stroke="#465d72" stroke-width="2"/>
-<line x1="145" y1="472" x2="145" y2="236" stroke="#465d72" stroke-width="2"/>
-<line x1="145" y1="472" x2="145" y2="480" stroke="#465d72" stroke-width="2"/>
-<text x="145" y="508" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
-<line x1="502.5" y1="472" x2="502.5" y2="480" stroke="#465d72" stroke-width="2"/>
-<text x="502.5" y="508" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0.5</text>
-<line x1="860" y1="472" x2="860" y2="480" stroke="#465d72" stroke-width="2"/>
-<text x="860" y="508" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">1</text>
-<path d="M145.000 472.000 L145.000 354.000 L860.000 236.000 L860.000 472.000 L145.000 472.000" fill="#e9f5f7" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="145" y1="354" x2="860" y2="236" stroke="#136d84" stroke-width="3" stroke-dasharray="7 6"/>
-<line x1="860" y1="472" x2="860" y2="236" stroke="#136d84" stroke-width="2" stroke-dasharray="6 6"/>
-<line x1="145" y1="472" x2="860" y2="472" stroke="#136d84" stroke-width="2" stroke-dasharray="6 6"/>
-<circle cx="724.1500000000001" cy="259.01" r="7" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<text x="698.1500000000001" y="246.01" font-size="24" fill="#a85127" font-weight="700" text-anchor="end">η = 3.61</text>
-<text x="188" y="408" font-size="25" fill="#136d84" font-weight="700" text-anchor="start">严格稳定</text>
-<text x="790" y="399" font-size="24" fill="#465d72" font-weight="650" text-anchor="end">上界 3.62</text>
-<text x="888" y="508" font-size="24" fill="#465d72" font-weight="400" text-anchor="start">β</text>
-<text x="77" y="223" font-size="24" fill="#465d72" font-weight="400" text-anchor="start">η</text>
-<rect x="44" y="553" width="42" height="41" rx="10" fill="#e9f5f7" stroke="none" stroke-width="1.8"/>
-<text x="65" y="583" font-size="25" fill="#136d84" font-weight="700" text-anchor="middle">B</text>
-<text x="101" y="583" font-size="31" fill="#172a40" font-weight="700" text-anchor="start">相同渐近速度，有限步振幅不同</text>
-<line x1="145" y1="846" x2="865" y2="846" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="854" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">0</text>
-<line x1="145" y1="790" x2="865" y2="790" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="798" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">2</text>
-<line x1="145" y1="734" x2="865" y2="734" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="742" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">4</text>
-<line x1="145" y1="678" x2="865" y2="678" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="686" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">6</text>
-<line x1="145" y1="622" x2="865" y2="622" stroke="#cedae4" stroke-width="2"/>
-<text x="130" y="630" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">8</text>
-<line x1="145" y1="846" x2="865" y2="846" stroke="#465d72" stroke-width="2"/>
-<line x1="145" y1="846" x2="145" y2="622" stroke="#465d72" stroke-width="2"/>
-<line x1="145" y1="846" x2="145" y2="854" stroke="#465d72" stroke-width="2"/>
-<text x="145" y="882" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">0</text>
-<line x1="307" y1="846" x2="307" y2="854" stroke="#465d72" stroke-width="2"/>
-<text x="307" y="882" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">9</text>
-<line x1="505" y1="846" x2="505" y2="854" stroke="#465d72" stroke-width="2"/>
-<text x="505" y="882" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">20</text>
-<line x1="685" y1="846" x2="685" y2="854" stroke="#465d72" stroke-width="2"/>
-<text x="685" y="882" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">30</text>
-<line x1="865" y1="846" x2="865" y2="854" stroke="#465d72" stroke-width="2"/>
-<text x="865" y="882" font-size="24" fill="#465d72" font-weight="400" text-anchor="middle">40</text>
-<path d="M145.000 818.000 L163.000 820.800 L181.000 823.320 L199.000 825.588 L217.000 827.629 L235.000 829.466 L253.000 831.120 L271.000 832.608 L289.000 833.947 L307.000 835.152 L325.000 836.237 L343.000 837.213 L361.000 838.092 L379.000 838.883 L397.000 839.594 L415.000 840.235 L433.000 840.812 L451.000 841.330 L469.000 841.797 L487.000 842.218 L505.000 842.596 L523.000 842.936 L541.000 843.243 L559.000 843.518 L577.000 843.767 L595.000 843.990 L613.000 844.191 L631.000 844.372 L649.000 844.535 L667.000 844.681 L685.000 844.813 L703.000 844.932 L721.000 845.039 L739.000 845.135 L757.000 845.221 L775.000 845.299 L793.000 845.369 L811.000 845.432 L829.000 845.489 L847.000 845.540 L865.000 845.586" fill="none" stroke="#136d84" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M145.000 818.000 L163.000 772.920 L181.000 737.136 L199.000 709.240 L217.000 688.011 L235.000 672.396 L253.000 661.484 L271.000 654.490 L289.000 650.740 L307.000 649.655 L325.000 650.740 L343.000 653.571 L361.000 657.789 L379.000 663.087 L397.000 669.208 L415.000 675.934 L433.000 683.082 L451.000 690.502 L469.000 698.067 L487.000 705.674 L505.000 713.238 L523.000 720.693 L541.000 727.985 L559.000 735.071 L577.000 741.921 L595.000 748.509 L613.000 754.821 L631.000 760.846 L649.000 766.577 L667.000 772.013 L685.000 777.157 L703.000 782.011 L721.000 786.584 L739.000 790.881 L757.000 794.913 L775.000 798.690 L793.000 802.223 L811.000 805.522 L829.000 808.599 L847.000 811.465 L865.000 814.132" fill="none" stroke="#a85127" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="307" cy="649.6552961748" r="7" fill="#a85127" stroke="#fff" stroke-width="3"/>
-<text x="329" y="644.6552961748" font-size="25" fill="#a85127" font-weight="700" text-anchor="start">第 9 步：7.012</text>
-<text x="647" y="728" font-size="24" fill="#a85127" font-weight="700" text-anchor="start">重球幅度</text>
-<text x="385" y="819" font-size="24" fill="#136d84" font-weight="700" text-anchor="start">普通梯度下降</text>
-<text x="889" y="914" font-size="24" fill="#465d72" font-weight="400" text-anchor="end">更新步数</text>
-</g>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="680" viewBox="0 0 1360 680" role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">相同渐近根模长，有限步幅度仍不同</title>
+  <desc id="plate-desc">A 左图给出重球稳定区域，点 (0.81,3.61) 位于稳定区内部。B 右图比较重球与梯度下降的绝对值。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#202a37"/>
+    </marker>
+    <linearGradient id="wash-ink" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#afb9c7" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#afb9c7" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#196f77"/>
+    </marker>
+    <linearGradient id="wash-teal" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#8dccd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#8dccd2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#a84b3b"/>
+    </marker>
+    <linearGradient id="wash-coral" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#efaa9d" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#efaa9d" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#655184"/>
+    </marker>
+    <linearGradient id="wash-violet" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#b4a6d2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#b4a6d2" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#3c7459"/>
+    </marker>
+    <linearGradient id="wash-green" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#a4cfb3" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#a4cfb3" stop-opacity=".58"/>
+    </linearGradient>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.8" markerHeight="6.8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2 5 Z" fill="#657682"/>
+    </marker>
+    <linearGradient id="wash-gray" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#becbd2" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#becbd2" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1360" height="680" fill="white" stroke="none" stroke-width="1.6"/>
+  <text x="326" y="63" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="36" fill="#202a37" text-anchor="middle">A  重球严格稳定区间</text>
+  <line x1="126" y1="511" x2="598" y2="511" stroke="#202a37" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+  <line x1="130" y1="515" x2="130" y2="100" stroke="#202a37" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+  <text x="130" y="85" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="25" fill="#202a37" text-anchor="start">学习率 η</text>
+  <polygon points="130,511 558,511 558,135 130,323" stroke="none" stroke-width="0" stroke-linejoin="round" fill="url(#wash-teal)"/>
+  <line x1="130" y1="323" x2="558" y2="135" stroke="#196f77" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="7 5"/>
+  <line x1="558" y1="511" x2="558" y2="135" stroke="#196f77" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="7 5"/>
+  <line x1="130" y1="511" x2="130" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="130" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">0</text>
+  <line x1="344" y1="511" x2="344" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="344" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">0.5</text>
+  <line x1="558" y1="511" x2="558" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="558" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">1</text>
+  <line x1="123" y1="417" x2="130" y2="417" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="118" y="425" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">1</text>
+  <line x1="123" y1="323" x2="130" y2="323" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="118" y="331" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">2</text>
+  <line x1="123" y1="229" x2="130" y2="229" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="118" y="237" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">3</text>
+  <line x1="123" y1="135" x2="130" y2="135" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="118" y="143" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">4</text>
+  <circle cx="476.68" cy="171.66" r="6.5" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <text x="367.68" y="203.66" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="26" fill="#a84b3b" text-anchor="middle">(0.81, 3.61)</text>
+  <text x="295" y="578" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="26" fill="#202a37" text-anchor="middle">动量系数 β</text>
+  <text x="1020" y="63" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="36" fill="#202a37" text-anchor="middle">B  每步梯度预算相同</text>
+  <line x1="788" y1="511" x2="1302" y2="511" stroke="#202a37" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+  <line x1="792" y1="515" x2="792" y2="103" stroke="#202a37" stroke-width="1.75" stroke-linecap="round" marker-end="url(#arrow-ink)"/>
+  <text x="792" y="88" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="25" fill="#202a37" text-anchor="start">参数幅度</text>
+  <line x1="792" y1="511" x2="792" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="792" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">0</text>
+  <line x1="889.5" y1="511" x2="889.5" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="889.5" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">5</text>
+  <line x1="987" y1="511" x2="987" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="987" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">10</text>
+  <line x1="1084.5" y1="511" x2="1084.5" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="1084.5" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">15</text>
+  <line x1="1182" y1="511" x2="1182" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="1182" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">20</text>
+  <line x1="1279.5" y1="511" x2="1279.5" y2="518" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="1279.5" y="541" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="middle">25</text>
+  <line x1="785" y1="415" x2="792" y2="415" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="780" y="423" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">2</text>
+  <line x1="785" y1="319" x2="792" y2="319" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="780" y="327" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">4</text>
+  <line x1="785" y1="223" x2="792" y2="223" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="780" y="231" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">6</text>
+  <line x1="785" y1="127" x2="792" y2="127" stroke="#202a37" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="780" y="135" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="23" fill="#202a37" text-anchor="end">8</text>
+  <polyline points="792,463 811.5,385.72 831,324.376 850.5,276.5536 870,240.1619 889.5,213.393 909,194.6863 928.5,182.697 948,176.2687 967.5,174.4091 987,176.2687 1006.5,181.1223 1026,188.3525 1045.5,197.4354 1065,207.9283 1084.5,219.4582 1104,231.7128 1123.5,244.4319 1143,257.4001 1162.5,270.4403 1182,283.4085 1201.5,296.1886 1221,308.6887 1240.5,320.8368 1260,332.5784 1279.5,343.8733" stroke="#a84b3b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="792" cy="463" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="811.5" cy="385.72" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="831" cy="324.376" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="850.5" cy="276.5536" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="870" cy="240.1619" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="889.5" cy="213.393" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="909" cy="194.6863" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="928.5" cy="182.697" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="948" cy="176.2687" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="967.5" cy="174.4091" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="987" cy="176.2687" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1006.5" cy="181.1223" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1026" cy="188.3525" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1045.5" cy="197.4354" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1065" cy="207.9283" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1084.5" cy="219.4582" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1104" cy="231.7128" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1123.5" cy="244.4319" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1143" cy="257.4001" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1162.5" cy="270.4403" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1182" cy="283.4085" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1201.5" cy="296.1886" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1221" cy="308.6887" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1240.5" cy="320.8368" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1260" cy="332.5784" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <circle cx="1279.5" cy="343.8733" r="3.1" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <polyline points="792,463 811.5,467.8 831,472.12 850.5,476.008 870,479.5072 889.5,482.6565 909,485.4908 928.5,488.0417 948,490.3376 967.5,492.4038 987,494.2634 1006.5,495.9371 1026,497.4434 1045.5,498.799 1065,500.0191 1084.5,501.1172 1104,502.1055 1123.5,502.995 1143,503.7955 1162.5,504.5159 1182,505.1643 1201.5,505.7479 1221,506.2731 1240.5,506.7458 1260,507.1712 1279.5,507.5541" stroke="#196f77" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="792" cy="463" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="811.5" cy="467.8" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="831" cy="472.12" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="850.5" cy="476.008" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="870" cy="479.5072" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="889.5" cy="482.6565" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="909" cy="485.4908" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="928.5" cy="488.0417" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="948" cy="490.3376" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="967.5" cy="492.4038" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="987" cy="494.2634" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1006.5" cy="495.9371" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1026" cy="497.4434" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1045.5" cy="498.799" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1065" cy="500.0191" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1084.5" cy="501.1172" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1104" cy="502.1055" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1123.5" cy="502.995" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1143" cy="503.7955" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1162.5" cy="504.5159" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1182" cy="505.1643" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1201.5" cy="505.7479" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1221" cy="506.2731" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1240.5" cy="506.7458" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1260" cy="507.1712" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="1279.5" cy="507.5541" r="3.1" stroke="#196f77" stroke-width="1.8" fill="#196f77"/>
+  <circle cx="967.5" cy="174.4091" r="6.5" stroke="#a84b3b" stroke-width="1.8" fill="#a84b3b"/>
+  <text x="967.5" y="152.4091" font-family="Cambria Math, DejaVu Sans, Microsoft YaHei, sans-serif" font-size="26" fill="#a84b3b" text-anchor="middle">7.012</text>
+  <text x="1198" y="229" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="26" fill="#a84b3b" text-anchor="middle">重球</text>
+  <text x="1147" y="462" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="27" fill="#196f77" text-anchor="middle">梯度下降</text>
+  <text x="1047" y="578" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="26" fill="#202a37" text-anchor="middle">更新次数</text>
+  <text x="680" y="640" font-family="SimSun, Noto Serif CJK SC, Microsoft YaHei, serif" font-size="29" fill="#202a37" text-anchor="middle">根模长相同。重根带来的时间因子让重球先放大，再衰减。</text>
 </svg>

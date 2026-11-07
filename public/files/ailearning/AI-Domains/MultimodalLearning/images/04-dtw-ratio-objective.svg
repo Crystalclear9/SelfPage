@@ -1,84 +1,91 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1087.685" viewBox="0 0 1440 1087.685" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">真实平方距离网格上的 DTW 总和与平均目标反例</title><rect width="1440" height="1087.685" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">真实平方距离网格上的 DTW 总和与平均目标反例</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="945.685" viewBox="26 60 1073 755" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden">
-<defs><linearGradient id="book-wash-eef4f9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4f9"/><stop offset="1" stop-color="#ffffff" stop-opacity=".64"/></linearGradient></defs><rect x="26" y="60" width="1073" height="755" fill="#ffffff"/><title id="title">DTW最小总和与最小平均代价选择不同路径</title><desc id="desc">序列x为0,0,1，y为0,2,3，格点代价为平方差。总和最优路径代价5长4平均1.25，平均最优路径代价6长5平均1.20。长度为3,4,5的最小总和分别8,5,6。</desc>
-<rect width="1200" height="850" fill="white"/>
-<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#1f3449">
-<text x="44" y="100" font-size="26" fill="#62819a" text-anchor="start" font-weight="400">x = (0, 0, 1)，y = (0, 2, 3)；每个访问格点按平方差计一次</text>
-<text x="60" y="168" font-size="29" fill="#2472b1" text-anchor="start" font-weight="700">① 总和最小</text>
-<text x="200.0" y="226" font-size="25" fill="#62819a" text-anchor="middle" font-weight="400">y = 0</text>
-<text x="310.0" y="226" font-size="25" fill="#62819a" text-anchor="middle" font-weight="400">y = 2</text>
-<text x="420.0" y="226" font-size="25" fill="#62819a" text-anchor="middle" font-weight="400">y = 3</text>
-<text x="127" y="313.0" font-size="25" fill="#62819a" text-anchor="end" font-weight="400">x = 0</text>
-<rect x="145" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="255" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="365" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<text x="127" y="423.0" font-size="25" fill="#62819a" text-anchor="end" font-weight="400">x = 0</text>
-<rect x="145" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="255" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="365" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<text x="127" y="533.0" font-size="25" fill="#62819a" text-anchor="end" font-weight="400">x = 1</text>
-<rect x="145" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="255" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="365" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<polyline points="200.000,305.000 200.000,415.000 310.000,525.000 420.000,525.000" fill="none" stroke="#2472b1" stroke-width="7" stroke-linejoin="round"/>
-<circle cx="200.0" cy="305.0" r="27" fill="white"/>
-<circle cx="200.0" cy="305.0" r="27" fill="none" stroke="#2472b1" stroke-width="3"/>
-<text x="200.0" y="315.0" font-size="30" fill="#2472b1" text-anchor="middle" font-weight="700">0</text>
-<text x="310.0" y="315.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">4</text>
-<text x="420.0" y="315.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">9</text>
-<circle cx="200.0" cy="415.0" r="27" fill="white"/>
-<circle cx="200.0" cy="415.0" r="27" fill="none" stroke="#2472b1" stroke-width="3"/>
-<text x="200.0" y="425.0" font-size="30" fill="#2472b1" text-anchor="middle" font-weight="700">0</text>
-<text x="310.0" y="425.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">4</text>
-<text x="420.0" y="425.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">9</text>
-<text x="200.0" y="535.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">1</text>
-<circle cx="310.0" cy="525.0" r="27" fill="white"/>
-<circle cx="310.0" cy="525.0" r="27" fill="none" stroke="#2472b1" stroke-width="3"/>
-<text x="310.0" y="535.0" font-size="30" fill="#2472b1" text-anchor="middle" font-weight="700">1</text>
-<circle cx="420.0" cy="525.0" r="27" fill="white"/>
-<circle cx="420.0" cy="525.0" r="27" fill="none" stroke="#2472b1" stroke-width="3"/>
-<text x="420.0" y="535.0" font-size="30" fill="#2472b1" text-anchor="middle" font-weight="700">4</text>
-<text x="305" y="630" font-size="28" fill="#2472b1" text-anchor="middle" font-weight="700">总和 5　长度 4</text>
-<text x="305" y="674" font-size="28" fill="#2472b1" text-anchor="middle" font-weight="400">平均 = 1.25</text>
-<text x="665" y="168" font-size="29" fill="#c57439" text-anchor="start" font-weight="700">② 平均代价最小</text>
-<text x="805.0" y="226" font-size="25" fill="#62819a" text-anchor="middle" font-weight="400">y = 0</text>
-<text x="915.0" y="226" font-size="25" fill="#62819a" text-anchor="middle" font-weight="400">y = 2</text>
-<text x="1025.0" y="226" font-size="25" fill="#62819a" text-anchor="middle" font-weight="400">y = 3</text>
-<text x="732" y="313.0" font-size="25" fill="#62819a" text-anchor="end" font-weight="400">x = 0</text>
-<rect x="750" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="860" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="970" y="250" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<text x="732" y="423.0" font-size="25" fill="#62819a" text-anchor="end" font-weight="400">x = 0</text>
-<rect x="750" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="860" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="970" y="360" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<text x="732" y="533.0" font-size="25" fill="#62819a" text-anchor="end" font-weight="400">x = 1</text>
-<rect x="750" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="860" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<rect x="970" y="470" width="110" height="110" rx="0" fill="#f6f8fa" stroke="#dce5ed"/>
-<polyline points="805.000,305.000 805.000,415.000 805.000,525.000 915.000,525.000 1025.000,525.000" fill="none" stroke="#c57439" stroke-width="7" stroke-linejoin="round"/>
-<circle cx="805.0" cy="305.0" r="27" fill="white"/>
-<circle cx="805.0" cy="305.0" r="27" fill="none" stroke="#c57439" stroke-width="3"/>
-<text x="805.0" y="315.0" font-size="30" fill="#c57439" text-anchor="middle" font-weight="700">0</text>
-<text x="915.0" y="315.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">4</text>
-<text x="1025.0" y="315.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">9</text>
-<circle cx="805.0" cy="415.0" r="27" fill="white"/>
-<circle cx="805.0" cy="415.0" r="27" fill="none" stroke="#c57439" stroke-width="3"/>
-<text x="805.0" y="425.0" font-size="30" fill="#c57439" text-anchor="middle" font-weight="700">0</text>
-<text x="915.0" y="425.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">4</text>
-<text x="1025.0" y="425.0" font-size="30" fill="#62819a" text-anchor="middle" font-weight="400">9</text>
-<circle cx="805.0" cy="525.0" r="27" fill="white"/>
-<circle cx="805.0" cy="525.0" r="27" fill="none" stroke="#c57439" stroke-width="3"/>
-<text x="805.0" y="535.0" font-size="30" fill="#c57439" text-anchor="middle" font-weight="700">1</text>
-<circle cx="915.0" cy="525.0" r="27" fill="white"/>
-<circle cx="915.0" cy="525.0" r="27" fill="none" stroke="#c57439" stroke-width="3"/>
-<text x="915.0" y="535.0" font-size="30" fill="#c57439" text-anchor="middle" font-weight="700">1</text>
-<circle cx="1025.0" cy="525.0" r="27" fill="white"/>
-<circle cx="1025.0" cy="525.0" r="27" fill="none" stroke="#c57439" stroke-width="3"/>
-<text x="1025.0" y="535.0" font-size="30" fill="#c57439" text-anchor="middle" font-weight="700">4</text>
-<text x="910" y="630" font-size="28" fill="#c57439" text-anchor="middle" font-weight="700">总和 6　长度 5</text>
-<text x="910" y="674" font-size="28" fill="#c57439" text-anchor="middle" font-weight="400">平均 = 1.20</text>
-<rect x="44" y="719" width="1112" height="96" rx="12" fill="url(#book-wash-eef4f9)" stroke="none"/>
-<text x="65" y="757" font-size="25" fill="#1f3449" text-anchor="start" font-weight="400">按长度单独求最优：长度 3 → 总和 8；长度 4 → 总和 5；长度 5 → 总和 6。</text>
-<text x="65" y="793" font-size="25" fill="#1f3449" text-anchor="start" font-weight="400">比较各长度的最小总和与长度之比，才能得到本例的最小平均值。</text>
-</g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="785" viewBox="0 0 1200 785" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">DTW 总和与均值的最优路径可以不同</title>
+<desc id="fig-desc">同一平方差矩阵，分别优化总代价和长度归一代价。</desc>
+<rect x="0" y="0" width="1200" height="785" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+</defs>
+<text x="75" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">每多走一个格点，分母和代价都可能改变</text>
+<text x="178" y="124" fill="#166d75" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">总和最小</text>
+<rect x="180" y="202" width="100" height="73" fill="#ecf6f6" opacity="1"/>
+<text x="230" y="246.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="284" y="202" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="334" y="246.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="388" y="202" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="438" y="246.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">9</text>
+<text x="164" y="246.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="180" y="279" width="100" height="73" fill="#ecf6f6" opacity="1"/>
+<text x="230" y="323.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="284" y="279" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="334" y="323.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="388" y="279" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="438" y="323.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">9</text>
+<text x="164" y="323.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="180" y="356" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="230" y="400.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="284" y="356" width="100" height="73" fill="#ecf6f6" opacity="1"/>
+<text x="334" y="400.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="388" y="356" width="100" height="73" fill="#ecf6f6" opacity="1"/>
+<text x="438" y="400.5" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<text x="164" y="400.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">x = 1</text>
+<text x="230" y="188" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y = 0</text>
+<text x="334" y="188" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y = 2</text>
+<text x="438" y="188" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y = 3</text>
+<path d="M258 254 L258 331" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M258 331 L253 320 L263 320 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M258 331 L362 408" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M362 408 L350.184 405.473 L356.135 397.436 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M362 408 L466 408" fill="none" stroke="#166d75" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M466 408 L455 413 L455 403 Z" fill="#166d75" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="178" y="501" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">总和 5，长度 4</text>
+<text x="178" y="562" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">平均值</text>
+<text x="331" y="550" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<path d="M311 556 L351 556" fill="none" stroke="#166d75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="331" y="581" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">4</text>
+<text x="377" y="562" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">= 1.25</text>
+<text x="724" y="124" fill="#6e618e" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="25" text-anchor="start" font-weight="400">平均代价最小</text>
+<rect x="726" y="202" width="100" height="73" fill="#e8e6f2" opacity="1"/>
+<text x="776" y="246.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="830" y="202" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="880" y="246.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="934" y="202" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="984" y="246.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">9</text>
+<text x="710" y="246.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="726" y="279" width="100" height="73" fill="#e8e6f2" opacity="1"/>
+<text x="776" y="323.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="830" y="279" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="880" y="323.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="934" y="279" width="100" height="73" fill="#f1f5f6" opacity="1"/>
+<text x="984" y="323.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">9</text>
+<text x="710" y="323.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">x = 0</text>
+<rect x="726" y="356" width="100" height="73" fill="#e8e6f2" opacity="1"/>
+<text x="776" y="400.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="830" y="356" width="100" height="73" fill="#e8e6f2" opacity="1"/>
+<text x="880" y="400.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="934" y="356" width="100" height="73" fill="#e8e6f2" opacity="1"/>
+<text x="984" y="400.5" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<text x="710" y="400.5" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400">x = 1</text>
+<text x="776" y="188" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y = 0</text>
+<text x="880" y="188" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y = 2</text>
+<text x="984" y="188" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">y = 3</text>
+<path d="M804 254 L804 331" fill="none" stroke="#6e618e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M804 331 L799 320 L809 320 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M804 331 L804 408" fill="none" stroke="#6e618e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M804 408 L799 397 L809 397 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M804 408 L908 408" fill="none" stroke="#6e618e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M908 408 L897 413 L897 403 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M908 408 L1012 408" fill="none" stroke="#6e618e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1012 408 L1001 413 L1001 403 Z" fill="#6e618e" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="724" y="501" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">总和 6，长度 5</text>
+<text x="724" y="562" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">平均值</text>
+<text x="877" y="550" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">6</text>
+<path d="M857 556 L897 556" fill="none" stroke="#6e618e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="877" y="581" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" font-weight="400">5</text>
+<text x="923" y="562" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">= 1.20</text>
+<path d="M75 626 L1125 626" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="75" y="680" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">按长度查最小总和：3 格得 8，4 格得 5，5 格得 6。</text>
+<text x="75" y="731" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">求平均代价的最优路径时，再比较这三个总和各自除以长度。</text>
+</svg>

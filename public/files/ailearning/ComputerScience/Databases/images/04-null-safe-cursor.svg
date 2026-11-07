@@ -1,2 +1,82 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="954.0255" viewBox="0 0 1440 954.0255" role="img" aria-labelledby="book-plate-title"><title id="book-plate-title">带空值标记的完整键让分页跨入NULL时间组</title><rect width="1440" height="954.0255" fill="#ffffff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif"><rect x="48" y="36" width="5" height="37" rx="2.5" fill="#526bab"/><text x="71" y="66" font-size="38" font-weight="700" fill="#142b45">带空值标记的完整键让分页跨入NULL时间组</text><path d="M48 89 H1392" stroke="#d7e1ee" stroke-width="1.4"/></g><svg width="1344" height="812.0255" viewBox="15 49 1099 664" role="img" aria-labelledby="title desc" x="48" y="106" overflow="hidden"><title id="title">排序能排到最后，不代表普通比较能续读</title><desc id="desc">六条记录按空值标记、非空时间或占位零、唯一编号组成全序。显式编码使键集分页能跨入空值组。 排序能排到最后，不代表普通比较能续读 ORDER BY 与续页谓词必须使用完全相同的键定义；游标不能替代快照。</desc><rect width="1099.0" height="664.0" fill="white" x="15.0" y="49.0"/><g font-family="Microsoft YaHei, sans-serif"><text x="40" y="95" font-size="26" fill="#617f97" text-anchor="start">固定数据视图 · 时间升序 · 空时间排最后 · id 唯一且非空</text><rect x="215" y="130" width="275" height="55" fill="#2472b1" opacity="0.09" rx="3"/><text x="352" y="166" font-size="27" fill="#2472b1" text-anchor="middle">第 1 页</text><rect x="515" y="130" width="275" height="55" fill="#2472b1" opacity="0.09" rx="3"/><text x="652" y="166" font-size="27" fill="#2472b1" text-anchor="middle">第 2 页</text><rect x="815" y="130" width="275" height="55" fill="#2472b1" opacity="0.09" rx="3"/><text x="952" y="166" font-size="27" fill="#2472b1" text-anchor="middle">第 3 页</text><text x="40" y="230" font-size="27" fill="#1f3449" text-anchor="start">id</text><text x="40" y="300" font-size="27" fill="#1f3449" text-anchor="start">原时间 t</text><text x="40" y="370" font-size="27" fill="#1f3449" text-anchor="start">空值标记</text><text x="40" y="440" font-size="27" fill="#1f3449" text-anchor="start">数值键</text><text x="245" y="230" font-size="27" fill="#2472b1" text-anchor="middle">6</text><text x="245" y="300" font-size="27" fill="#2472b1" text-anchor="middle">0</text><text x="245" y="370" font-size="27" fill="#2472b1" text-anchor="middle">0</text><text x="245" y="440" font-size="27" fill="#2472b1" text-anchor="middle">0</text><text x="390" y="230" font-size="27" fill="#2472b1" text-anchor="middle">1</text><text x="390" y="300" font-size="27" fill="#2472b1" text-anchor="middle">5</text><text x="390" y="370" font-size="27" fill="#2472b1" text-anchor="middle">0</text><text x="390" y="440" font-size="27" fill="#2472b1" text-anchor="middle">5</text><line x1="462" y1="200" x2="462" y2="465" stroke="#dce5ed" stroke-width="3"/><text x="535" y="230" font-size="27" fill="#2472b1" text-anchor="middle">3</text><text x="535" y="300" font-size="27" fill="#2472b1" text-anchor="middle">5</text><text x="535" y="370" font-size="27" fill="#2472b1" text-anchor="middle">0</text><text x="535" y="440" font-size="27" fill="#2472b1" text-anchor="middle">5</text><text x="680" y="230" font-size="27" fill="#2472b1" text-anchor="middle">5</text><text x="680" y="300" font-size="27" fill="#2472b1" text-anchor="middle">8</text><text x="680" y="370" font-size="27" fill="#2472b1" text-anchor="middle">0</text><text x="680" y="440" font-size="27" fill="#2472b1" text-anchor="middle">8</text><line x1="752" y1="200" x2="752" y2="465" stroke="#dce5ed" stroke-width="3"/><text x="825" y="230" font-size="27" fill="#c57439" text-anchor="middle">2</text><text x="825" y="300" font-size="27" fill="#c57439" text-anchor="middle">NULL</text><text x="825" y="370" font-size="27" fill="#c57439" text-anchor="middle">1</text><text x="825" y="440" font-size="27" fill="#c57439" text-anchor="middle">0</text><text x="970" y="230" font-size="27" fill="#c57439" text-anchor="middle">4</text><text x="970" y="300" font-size="27" fill="#c57439" text-anchor="middle">NULL</text><text x="970" y="370" font-size="27" fill="#c57439" text-anchor="middle">1</text><text x="970" y="440" font-size="27" fill="#c57439" text-anchor="middle">0</text><text x="40" y="505" font-size="29" fill="#1f3449" text-anchor="start">统一游标键：(空值标记，COALESCE(t,0)，id)</text><text x="40" y="565" font-size="26" fill="#2472b1" text-anchor="start">跨过第二页的游标 (0, 8, 5)，下一页为 (1, 0, 2)、(1, 0, 4)。</text><text x="40" y="625" font-size="26" fill="#c57439" text-anchor="start">直接比较 (NULL, id) &gt; (8, 5) 得到未知；WHERE 不会保留这些行。</text><text x="40" y="685" font-size="25" fill="#1f3449" text-anchor="start">0 只是被空值标记隔开的占位；真实时间 0 仍属于非空组，不会碰撞。</text></g></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="703" viewBox="0 0 1200 703" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">带 NULL 的键集游标需要显式排序键</title>
+<desc id="fig-desc">使用空值标记、非空数值键和 ID 形成确定顺序。跨过第二页后仍能读取空值两行。</desc>
+<rect x="0" y="0" width="1200" height="703" fill="#ffffff" opacity="1"/>
+<defs>
+<linearGradient id="t" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#ecf6f6"/></linearGradient>
+<linearGradient id="r" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#fbede8"/></linearGradient>
+<linearGradient id="v" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e6f2"/></linearGradient>
+<linearGradient id="n" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f1f5f6"/></linearGradient>
+<linearGradient id="blue" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9f1f8"/></linearGradient>
+<linearGradient id="ochre" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f7f0d9"/></linearGradient>
+<linearGradient id="green" x2="0.85" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf4e9"/></linearGradient>
+</defs>
+<text x="76" y="58" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="31" text-anchor="start" font-weight="600">空值先编码，再使用元组比较</text>
+<rect x="146" y="150" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="219" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">6</text>
+<rect x="296" y="150" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="369" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="446" y="150" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="519" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="596" y="150" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="669" y="183" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="130" y="183" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">页 1</text>
+<rect x="146" y="204" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="219" y="237" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="296" y="204" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="369" y="237" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="446" y="204" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="519" y="237" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="596" y="204" width="146" height="50" fill="#ecf6f6" opacity="1"/>
+<text x="669" y="237" fill="#166d75" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<text x="130" y="237" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400"></text>
+<rect x="146" y="258" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="219" y="291" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">3</text>
+<rect x="296" y="258" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="369" y="291" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="446" y="258" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="519" y="291" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="596" y="258" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="669" y="291" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<text x="130" y="291" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">页 2</text>
+<rect x="146" y="312" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="219" y="345" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">5</text>
+<rect x="296" y="312" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="369" y="345" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">8</text>
+<rect x="446" y="312" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="519" y="345" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<rect x="596" y="312" width="146" height="50" fill="#e8e6f2" opacity="1"/>
+<text x="669" y="345" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">8</text>
+<text x="130" y="345" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400"></text>
+<rect x="146" y="366" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="219" y="399" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">2</text>
+<rect x="296" y="366" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="369" y="399" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">NULL</text>
+<rect x="446" y="366" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="519" y="399" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="596" y="366" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="669" y="399" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="130" y="399" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="end" font-weight="400">页 3</text>
+<rect x="146" y="420" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="219" y="453" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">4</text>
+<rect x="296" y="420" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="369" y="453" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">NULL</text>
+<rect x="446" y="420" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="519" y="453" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">1</text>
+<rect x="596" y="420" width="146" height="50" fill="#fbede8" opacity="1"/>
+<text x="669" y="453" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" text-anchor="middle" font-weight="400">0</text>
+<text x="130" y="453" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="end" font-weight="400"></text>
+<text x="219" y="136" fill="#526976" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" text-anchor="middle" font-weight="400">id</text>
+<text x="369" y="136" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">时间 t</text>
+<text x="519" y="136" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">空值标记</text>
+<text x="669" y="136" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="21" text-anchor="middle" font-weight="400">数值键</text>
+<text x="817" y="160" fill="#a74d3a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="24" text-anchor="start" font-weight="600">最后一页</text>
+<text x="817" y="214" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">(1, 0, 2)</text>
+<text x="817" y="263" fill="#a74d3a" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">(1, 0, 4)</text>
+<text x="816" y="340" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">上一页游标</text>
+<text x="816" y="380" fill="#6e618e" font-family="Cambria Math, Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="start" font-weight="400">(0, 8, 5)</text>
+<path d="M75 504 L1125 504" fill="none" stroke="#dbe8eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="76" y="551" fill="#233b4a" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">统一键为 (空值标记, COALESCE(t, 0), id)。</text>
+<text x="76" y="598" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="23" text-anchor="start" font-weight="400">直接比较 (NULL, id) 会得到未知，WHERE 不会保留这些行。</text>
+<text x="76" y="644" fill="#526976" font-family="SimSun, Noto Serif CJK SC, Songti SC, Microsoft YaHei, serif" font-size="22" text-anchor="start" font-weight="400">真实时间 0 属于非空组，仍与空值占位区分。</text>
+</svg>
