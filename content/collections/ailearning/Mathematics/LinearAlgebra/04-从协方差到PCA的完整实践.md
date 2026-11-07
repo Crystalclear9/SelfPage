@@ -87,9 +87,11 @@
 设观测 $`x_1,\ldots,x_n`$ 独立同分布、$`n>1`$，样本均值为 $`\bar x`$，中心化矩阵为 $`X_c`$。常用样本协方差是 $`S=\frac{X_c^TX_c}{(n-1)}`$。证明无偏性，要把每个观测减总体均值与减样本均值分开：
 
 $$
-\sum_i(x_i-\bar x)(x_i-\bar x)^T
-=\sum_i(x_i-\mu)(x_i-\mu)^T
--n(\bar x-\mu)(\bar x-\mu)^T.
+\begin{aligned}
+&\sum_i(x_i-\bar x)(x_i-\bar x)^T\\
+&=\sum_i(x_i-\mu)(x_i-\mu)^T\\
+&-n(\bar x-\mu)(\bar x-\mu)^T.
+\end{aligned}
 $$
 
 第一项期望为 $`n\Sigma`$，独立抽样使样本均值协方差为 $`\frac{\Sigma}{n}`$，所以第二项期望为 $`\Sigma`$，差为 $`(n-1)\Sigma`$。因此除以样本数减一恢复总体协方差的无偏估计。这个结论依赖抽样条件，不是任何相关记录都具有同样有效信息量。
@@ -121,6 +123,30 @@ $$
 ### 实图对照：点云的主方向
 
 ![同一批八个观测的原坐标主轴、主成分得分与一维重构](../../assets/external/pca.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，上左区域](../../assets/external/pca.svg#textbook-detail-1-1)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，上中区域](../../assets/external/pca.svg#textbook-detail-1-2)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，上右区域](../../assets/external/pca.svg#textbook-detail-1-3)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，中左区域](../../assets/external/pca.svg#textbook-detail-2-1)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，中中区域](../../assets/external/pca.svg#textbook-detail-2-2)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，中右区域](../../assets/external/pca.svg#textbook-detail-2-3)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，下左区域](../../assets/external/pca.svg#textbook-detail-3-1)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，下中区域](../../assets/external/pca.svg#textbook-detail-3-2)
+
+![同一批八个观测的原坐标主轴、主成分得分与一维重构，下右区域](../../assets/external/pca.svg#textbook-detail-3-3)
+
+</details>
+
 
 图 A、B、C 使用完全相同的八个观测，青色、珊瑚色和绿色三点分别标为 A、B、C，以便追踪同一对象。图 A 的加号位于样本中心 $`(1,3)`$，两根箭头表示正交主方向；箭头长度仅帮助辨认方向。图 B 先减去这个中心，再旋转坐标；这是同一批点的另一种坐标表示，尚未丢失维度。图 C 才把第二得分置零，并变回原变量：实点是原观测，空心点是一维重构，虚线是被丢弃的残差。
 
@@ -228,9 +254,11 @@ $$
 设 $`Q=PP^T`$ 为原空间中的正交投影。中心化数据可以分解为 $`X_cQ+X_c(I-Q)`$，两部分在 Frobenius 内积下正交，因为 $`Q(I-Q)=0`$。于是平方范数满足勾股关系：
 
 $$
-\Vert X_c-X_cQ\Vert _F^2
-=\Vert X_c\Vert _F^2-\Vert X_cP\Vert _F^2
-=(n-1)\left[\mathrm{tr}(S)-\mathrm{tr}(P^TSP)\right].
+\begin{aligned}
+&\Vert X_c-X_cQ\Vert _F^2
+=\Vert X_c\Vert _F^2-\Vert X_cP\Vert _F^2\\
+&\quad =(n-1)\left[\mathrm{tr}(S)-\mathrm{tr}(P^TSP)\right].
+\end{aligned}
 $$
 
 总能量固定，最大化保留部分就等价于最小化残差。这一等价依赖正交投影与平方欧氏误差。若重构损失改成绝对误差、按样本不同加权的损失，或某个非线性任务代价，上面的恒等式不再自动成立，普通 PCA 的最优性不能直接移植过去。
@@ -290,11 +318,11 @@ $$
 **③→④：正交坐标变换既解释谱，也直接给出每条样本的坐标。** 本例的方向矩阵为
 
 $$
-P=[v_1,v_2]
+\begin{aligned}
+&P=[v_1,v_2]
 =\frac1{\sqrt2}
-\begin{pmatrix}1&1\\1&-1\end{pmatrix},
-\qquad
-Z=X_cP
+\begin{pmatrix}1&1\\1&-1\end{pmatrix},\\
+&\quad Z=X_cP
 =\frac1{\sqrt2}
 \begin{pmatrix}
 3&1\\
@@ -302,6 +330,7 @@ Z=X_cP
 -3&1\\
 -3&-1
 \end{pmatrix}.
+\end{aligned}
 $$
 
 散点图展示真实得分 $`Z`$，上面的矩阵则特意提出 $`\frac1{\sqrt2}`$，方便逐元素复算；两者没有额外标准化。对 A 而言，两个得分分别来自“坐标相加”和“坐标相减”，再除以 $`\sqrt2`$；这同时说明第一方向为何把 A、B 合并，而第二方向仍能区分它们。完整的二维正交坐标变换可以逆转，此时并未发生信息丢失。本例 $`\det P=-1`$，包含方向翻转，严格说不能只称为一个旋转；翻号不改变正交性和重构能力。
@@ -343,13 +372,15 @@ $$
 对 A 逐步执行“编码→清零第二得分→解码”：
 
 $$
-(2,1)
+\begin{aligned}
+&(2,1)
 \ \longmapsto\
-\left(\frac3{\sqrt2},\frac1{\sqrt2}\right)
-\ \longmapsto\
+\left(\frac3{\sqrt2},\frac1{\sqrt2}\right)\\
+&\ \longmapsto\
 \left(\frac3{\sqrt2},0\right)
 \ \longmapsto\
 (1.5,1.5).
+\end{aligned}
 $$
 
 保留第一方向的投影矩阵为 $`v_1v_1^{\mathsf T}=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix}`$。残差 $`(0.5,-0.5)`$ 沿第二方向，与重构方向正交；两部分平方长度为 $`4.5`$ 和 $`0.5`$，相加恢复 A 的原平方长度 $`5`$。对 B、C、D 做同样操作，每条都丢掉 $`0.5`$，因此总损失恰为上一图第二得分列的平方和 $`2`$。几何里的四条虚线与矩阵里的被删一列，是同一件事的两种表示。
@@ -499,6 +530,20 @@ PCA 得分 $`Z=X_cP`$ 的样本协方差是保留特征值对角阵 $`\Lambda_k`
 
 ![原协方差、精确白化与正则白化的同尺度轮廓](images/04-extension.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![原协方差、精确白化与正则白化的同尺度轮廓，上左区域](images/04-extension.svg#textbook-detail-1-1)
+
+![原协方差、精确白化与正则白化的同尺度轮廓，上右区域](images/04-extension.svg#textbook-detail-1-2)
+
+![原协方差、精确白化与正则白化的同尺度轮廓，下左区域](images/04-extension.svg#textbook-detail-2-1)
+
+![原协方差、精确白化与正则白化的同尺度轮廓，下右区域](images/04-extension.svg#textbook-detail-2-2)
+
+</details>
+
+
 假设数据中心化后已处于主方向坐标，总体协方差为 $`\Sigma=\mathrm{diag}(9,1)`$。精确白化 $`C=\mathrm{diag}(\frac13,1)`$ 满足 $`C\Sigma C^T=I`$。左侧椭圆是 $`\frac{x_1^2}{9}+x_2^2=1`$，中间圆是 $`z_1^2+z_2^2=1`$；橙色参考点从 $`(3,1)`$ 变成 $`(1,1)`$。这些是追踪变换的参考位置，不是用于估计协方差的一组样本。
 
 新增右图采用正则白化 $`C_\lambda=(\Sigma+\lambda I)^{-\frac12}`$。输出协方差为
@@ -568,6 +613,30 @@ $$
 ### 图解：相同扰动遇到小谱间隙会产生大旋转
 
 ![相同扰动遇到小谱间隙会产生大旋转](images/04-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![相同扰动遇到小谱间隙会产生大旋转，上左区域](images/04-mechanism.svg#textbook-detail-1-1)
+
+![相同扰动遇到小谱间隙会产生大旋转，上中区域](images/04-mechanism.svg#textbook-detail-1-2)
+
+![相同扰动遇到小谱间隙会产生大旋转，上右区域](images/04-mechanism.svg#textbook-detail-1-3)
+
+![相同扰动遇到小谱间隙会产生大旋转，中左区域](images/04-mechanism.svg#textbook-detail-2-1)
+
+![相同扰动遇到小谱间隙会产生大旋转，中中区域](images/04-mechanism.svg#textbook-detail-2-2)
+
+![相同扰动遇到小谱间隙会产生大旋转，中右区域](images/04-mechanism.svg#textbook-detail-2-3)
+
+![相同扰动遇到小谱间隙会产生大旋转，下左区域](images/04-mechanism.svg#textbook-detail-3-1)
+
+![相同扰动遇到小谱间隙会产生大旋转，下中区域](images/04-mechanism.svg#textbook-detail-3-2)
+
+![相同扰动遇到小谱间隙会产生大旋转，下右区域](images/04-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 前两幅图固定同一个非对角扰动 $`\varepsilon=0.1`$，分别取扰动前协方差 $`S=\mathrm{diag}(1+\delta,1)`$ 的谱间隙 $`\delta=2`$ 与 $`0.2`$。灰虚线为原协方差椭圆，蓝实线按扰动后矩阵 $`S+\left[\begin{smallmatrix}0&\varepsilon\\\varepsilon&0\end{smallmatrix}\right]`$ 的真实特征分解绘制。原主方向沿水平轴，蓝箭头标记扰动后的第一主方向。两种椭圆都是单位圆经对应协方差平方根的像。
 
@@ -758,16 +827,30 @@ A 图具体取 $`M=12`$，新均值为 $`(0,1.2)`$；B 图将全部十点减去�
 
 ![同一四点 PCA 的训练样本与两个新点，在空间内距离和重构残差上的对照](images/04-anomaly-two-distances.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一四点 PCA 的训练样本与两个新点，在空间内距离和重构残差上的对照，上左区域](images/04-anomaly-two-distances.svg#textbook-detail-1-1)
+
+![同一四点 PCA 的训练样本与两个新点，在空间内距离和重构残差上的对照，上右区域](images/04-anomaly-two-distances.svg#textbook-detail-1-2)
+
+![同一四点 PCA 的训练样本与两个新点，在空间内距离和重构残差上的对照，下左区域](images/04-anomaly-two-distances.svg#textbook-detail-2-1)
+
+![同一四点 PCA 的训练样本与两个新点，在空间内距离和重构残差上的对照，下右区域](images/04-anomaly-two-distances.svg#textbook-detail-2-2)
+
+</details>
+
+
 固定本章四点数据拟合出的均值与第一方向，定义两个不同量：
 
 $$
-D(x)=\frac{z_1^2}{6},
+\begin{aligned}
+&D(x)=\frac{z_1^2}{6},
 \qquad
-Q(x)=z_2^2,
-\qquad
-z_1=\frac{(x_1-10)+(x_2-20)}{\sqrt2},
-\quad
-z_2=\frac{(x_1-10)-(x_2-20)}{\sqrt2}.
+Q(x)=z_2^2,\\
+&\quad z_1=\frac{(x_1-10)+(x_2-20)}{\sqrt2},\\
+&\quad z_2=\frac{(x_1-10)-(x_2-20)}{\sqrt2}.
+\end{aligned}
 $$
 
 这里 $`D`$ 用保留方向的样本方差六做尺度化，表示空间内相对于训练波动的距离平方；$`Q`$ 是原单位中的残差平方，并没有再除以第二特征值。二者量纲、目标都不同，图没有把它们相加成一个没有解释的“异常分数”。

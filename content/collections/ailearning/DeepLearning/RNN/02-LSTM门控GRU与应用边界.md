@@ -130,6 +130,20 @@ $$
 
 ![更新细胞状态后再读出隐藏状态](images/02-lstm-state-before-readout.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![更新细胞状态后再读出隐藏状态，上左区域](images/02-lstm-state-before-readout.svg#textbook-detail-1-1)
+
+![更新细胞状态后再读出隐藏状态，上右区域](images/02-lstm-state-before-readout.svg#textbook-detail-1-2)
+
+![更新细胞状态后再读出隐藏状态，下左区域](images/02-lstm-state-before-readout.svg#textbook-detail-2-1)
+
+![更新细胞状态后再读出隐藏状态，下右区域](images/02-lstm-state-before-readout.svg#textbook-detail-2-2)
+
+</details>
+
+
 旧状态先乘遗忘门 $`f`$，候选 $`g`$ 乘输入门 $`i`$，两支在加号处形成新状态 $`c`$。紫色路径从这个新状态取 $`\tanh(c)`$，再乘输出门 $`o`$ 得到 $`h`$。三处乘号都表示逐元素乘法。
 
 固定同一步的 $`f,i,g`$，将 $`o`$ 调小，当前 $`c`$ 不变，$`h`$ 分量趋零。下一时刻的门仍可受变化后的 $`h`$ 影响，所以不能推出未来细胞状态始终不变。对照 [D2L 的完整记忆单元图](https://d2l.ai/chapter_recurrent-modern/lstm.html)。
@@ -167,9 +181,11 @@ sigmoid 门严格位于零与一之间，除非考虑浮点舍入或理想极限
 **把一次保留与写入，延长到二十步。** 本图只隔离一个标量细胞通道；状态迭代与输出读出分开画，避免把两者当成同一条“记忆线”：初值 $`c_0=2`$，每步固定遗忘门 $`f=0.9`$、输入门 $`i=0.2`$ 和候选值 $`g=0.5`$。每一步都执行 $`c_t=0.9c_{t-1}+0.1`$，所以图中第一步为 $`1.8+0.1=1.9`$。展开后得到
 
 $$
-c_t=\underbrace{2(0.9)^t}_{\text{初始记忆留下的贡献}}
-+\underbrace{0.1\sum_{j=0}^{t-1}(0.9)^j}_{\text{后续写入留下的贡献}}
+\begin{aligned}
+&c_t=\underbrace{2(0.9)^t}_{\text{初始记忆留下的贡献}}\\
+&\quad +\underbrace{0.1\sum_{j=0}^{t-1}(0.9)^j}_{\text{后续写入留下的贡献}}
 =1+(0.9)^t.
+\end{aligned}
 $$
 
 中间左图将状态更新函数画成蓝直线，灰虚线是恒等映射；从初值二出发，橙色阶梯先竖直到蓝线执行更新，再水平回到恒等线，把本次结果作为下次输入。图中只画前七次阶梯，解析式适用于任意非负整数步。蓝线与恒等线相交于一，说明持续写入与遗忘达到平衡，而非保留了全部初始信息。第一步的乘法和加法为：保留项为 $`0.9\times2=1.8`$，写入项为 $`0.2\times0.5=0.1`$；另外指定输出门 $`o=0.6`$，则 $`h_1=0.6\tanh(1.9)\approx0.5737`$。中间右图实际画出这条 $`h=0.6\tanh(c)`$ 读出曲线，并标出第一步的位置。输出门只缩放读出的隐藏状态，没有把存储的 $`c_1`$ 改写成 $`h_1`$。图下方在五个离散时刻比较同一纵向比例的堆叠柱：蓝色初始贡献变短，橙色写入贡献逐步接替。到第二十步，初始记忆贡献约 $`0.2432`$，累计写入贡献约 $`0.8784`$，总状态约 $`1.1216`$；最终状态趋近一，**不表示旧记忆没有衰减**。若只看总状态曲线而不按来源拆分，很容易把持续写入误认成长期保存。柱段高度表示当时的状态贡献；这些柱是同一递推在不同整数时刻的解析取样，柱间不额外执行状态更新。
@@ -190,8 +206,11 @@ $$
 若暂时把各时刻门值视为固定外生系数，单元状态可展开为
 
 $$
-c_T=\left(\prod_{t=1}^Tf_t\right)\odot c_0+
+\begin{aligned}
+&c_T=\left(\prod_{t=1}^Tf_t\right)\odot c_0\\
+&\quad +
 \sum_{k=1}^T\left(\prod_{t=k+1}^Tf_t\right)\odot i_k\odot g_k.
+\end{aligned}
 $$
 
 这是逐维形式，空乘积为一。它显示旧信息沿一条不反复经过 tanh 的加法主路径传递，保留程度由遗忘门乘积决定。这是门控能够改善长期梯度的一项核心机制，但公式中的“冻结门”条件不可省略：真实门通常通过隐藏状态间接依赖更早单元状态。
@@ -212,6 +231,30 @@ $$
 还可以量化偏置是否容易学习：在只考虑外生预激活的辅助模型 $`f_t=\sigma(a_t+b)`$ 中，固定 $`a_t`$ 后有 $`\frac{\partial\log R_T}{\partial b}=\sum_t(1-f_t)`$。门接近一时，单步偏置敏感性变小；例如一百步均为 $`0.99`$，保留率约 $`0.366032`$，这个对数导数仍为一。若真实门通过旧隐藏状态反馈依赖偏置，以上求导遗漏了 $`a_t`$ 的间接变化，必须回到第 4 节完整状态雅可比，不能把这个辅助公式充当全部训练梯度。
 
 ![遗忘门与记忆跨度](images/02-forget-bias-timescale.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![遗忘门与记忆跨度，上左区域](images/02-forget-bias-timescale.svg#textbook-detail-1-1)
+
+![遗忘门与记忆跨度，上中区域](images/02-forget-bias-timescale.svg#textbook-detail-1-2)
+
+![遗忘门与记忆跨度，上右区域](images/02-forget-bias-timescale.svg#textbook-detail-1-3)
+
+![遗忘门与记忆跨度，中左区域](images/02-forget-bias-timescale.svg#textbook-detail-2-1)
+
+![遗忘门与记忆跨度，中中区域](images/02-forget-bias-timescale.svg#textbook-detail-2-2)
+
+![遗忘门与记忆跨度，中右区域](images/02-forget-bias-timescale.svg#textbook-detail-2-3)
+
+![遗忘门与记忆跨度，下左区域](images/02-forget-bias-timescale.svg#textbook-detail-3-1)
+
+![遗忘门与记忆跨度，下中区域](images/02-forget-bias-timescale.svg#textbook-detail-3-2)
+
+![遗忘门与记忆跨度，下右区域](images/02-forget-bias-timescale.svg#textbook-detail-3-3)
+
+</details>
+
 
 **遗忘门与记忆跨度。** 本图令遗忘门固定为 sigmoid(b)，只跟踪已写入信息的直接状态路径，后续不再写入。经过 t 步的比例是 sigmoid(b) 的 t 次方。b 从零增加到二，单步门值只从 0.5 变到约 0.8808，二十步后的剩余比例却从约百万分之一变到约 0.07898；一百步还会更小。它说明门偏置对不同跨度的作用不能线性外推。真实门随输入与历史改变，完整状态导数还包含门反馈；这张固定门曲线并不承诺记忆能力。
 
@@ -236,11 +279,37 @@ $$
 
 ![固定保留率下不同初始状态在tanh读出上的位置和末读出导数](images/02-retention-readout-saturation.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，上左区域](images/02-retention-readout-saturation.svg#textbook-detail-1-1)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，上中区域](images/02-retention-readout-saturation.svg#textbook-detail-1-2)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，上右区域](images/02-retention-readout-saturation.svg#textbook-detail-1-3)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，中左区域](images/02-retention-readout-saturation.svg#textbook-detail-2-1)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，中中区域](images/02-retention-readout-saturation.svg#textbook-detail-2-2)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，中右区域](images/02-retention-readout-saturation.svg#textbook-detail-2-3)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，下左区域](images/02-retention-readout-saturation.svg#textbook-detail-3-1)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，下中区域](images/02-retention-readout-saturation.svg#textbook-detail-3-2)
+
+![固定保留率下不同初始状态在tanh读出上的位置和末读出导数，下右区域](images/02-retention-readout-saturation.svg#textbook-detail-3-3)
+
+</details>
+
+
 把“存在于单元中”和“可以灵敏读出”分开计算。另设一个受控标量单元：固定 $`f=0.99`$，后续二十步不再写入，输出门固定 $`o=0.5`$。于是
 
 $$
-c_{20}=r c_0,\qquad r=0.99^{20}\approx0.81790694,\qquad
-h_{20}=\frac12\tanh(rc_0).
+\begin{aligned}
+&c_{20}=r c_0,\qquad r=0.99^{20}\approx0.81790694,\\
+&\quad h_{20}=\frac12\tanh(rc_0).
+\end{aligned}
 $$
 
 无论初值取一还是四，直接存储导数都是 $`\frac{\partial c_{20}}{\partial c_0}=r`$。但读出导数为
@@ -297,6 +366,20 @@ $$
 这个反例不是说 LSTM 必然不稳定，而是反驳“所有门都在零一之间，所以整个梯度不可能爆炸”的推理。矩阵中的可训练循环权重没有被门值上界自动限制。要判断实际训练的灵敏度，仍需沿轨迹检查完整雅可比或相应向量积，并结合损失读出、参数梯度累积与裁剪情况。
 
 ![LSTM候选反馈形成完整状态雅可比的放大方向](images/02-state-jacobian.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![LSTM候选反馈形成完整状态雅可比的放大方向，上左区域](images/02-state-jacobian.svg#textbook-detail-1-1)
+
+![LSTM候选反馈形成完整状态雅可比的放大方向，上右区域](images/02-state-jacobian.svg#textbook-detail-1-2)
+
+![LSTM候选反馈形成完整状态雅可比的放大方向，下左区域](images/02-state-jacobian.svg#textbook-detail-2-1)
+
+![LSTM候选反馈形成完整状态雅可比的放大方向，下右区域](images/02-state-jacobian.svg#textbook-detail-2-2)
+
+</details>
+
 
 图中的三条局部边把本节反例拆开：旧单元到新单元的直接系数为 0.99，旧隐藏到新单元的候选反馈系数为 0.5×8=4，新单元到新隐藏的系数为 0.5。合并路径后，雅可比第二行为第一行的 0.5 倍，扰动方向 (2,1) 被放大为 2.99(2,1)。这些是零状态处、固定门值与指定候选函数的局部导数；有限扰动离开零附近后会受到 tanh 非线性影响，不能把 2.99 当作任意长轨迹上的恒定放大倍数。
 
@@ -393,6 +476,30 @@ $$
 
 ![GRU 重置门先后位置的同权重数值对照](images/02-example.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![GRU 重置门先后位置的同权重数值对照，上左区域](images/02-example.svg#textbook-detail-1-1)
+
+![GRU 重置门先后位置的同权重数值对照，上中区域](images/02-example.svg#textbook-detail-1-2)
+
+![GRU 重置门先后位置的同权重数值对照，上右区域](images/02-example.svg#textbook-detail-1-3)
+
+![GRU 重置门先后位置的同权重数值对照，中左区域](images/02-example.svg#textbook-detail-2-1)
+
+![GRU 重置门先后位置的同权重数值对照，中中区域](images/02-example.svg#textbook-detail-2-2)
+
+![GRU 重置门先后位置的同权重数值对照，中右区域](images/02-example.svg#textbook-detail-2-3)
+
+![GRU 重置门先后位置的同权重数值对照，下左区域](images/02-example.svg#textbook-detail-3-1)
+
+![GRU 重置门先后位置的同权重数值对照，下中区域](images/02-example.svg#textbook-detail-3-2)
+
+![GRU 重置门先后位置的同权重数值对照，下右区域](images/02-example.svg#textbook-detail-3-3)
+
+</details>
+
+
 两幅图使用同一坐标范围，箭头连接真实中间向量，而不是用示意框代替数值。蓝段表示第一个算子，橙段表示第二个算子；两种次序的“第二个算子”本身不同，因此不能把颜色误读为某个固定矩阵。门矩阵 $`D=\mathrm{diag}(0.2,0.8)`$ 只沿当前坐标轴缩放，混合矩阵 U 则把两个坐标组合起来。左侧先缩放再混合，最终落入负半平面；右侧先混合使第一坐标恰好相消为零，再缩放仍保留这个零。线段仅帮助追踪离散算子顺序，不是 GRU 在连续时间中经过的状态轨迹。
 
 **先保留插值约定，再检查候选如何产生。** 若旧状态为二、候选为负一、保留系数为 0.75，直接插值仍为 $`0.75\times2+0.25\times(-1)=1.25`$。但候选不是一个可以随意给定后忽略实现的常数；下面的对照解释同一组权重为什么可能产生不同候选。
@@ -410,9 +517,11 @@ $$
 记旧状态为 $`h`$，候选为 $`n(h)`$，更新门为 $`z(h)`$，则
 
 $$
-\frac{\partial h'}{\partial h}=\mathrm{diag}(z)
-+\mathrm{diag}(h-n)\frac{\partial z}{\partial h}
-+\mathrm{diag}(1-z)\frac{\partial n}{\partial h}.
+\begin{aligned}
+&\frac{\partial h'}{\partial h}=\mathrm{diag}(z)
++\mathrm{diag}(h-n)\frac{\partial z}{\partial h}\\
+&\quad +\mathrm{diag}(1-z)\frac{\partial n}{\partial h}.
+\end{aligned}
 $$
 
 第一项是直接保留路径，第二项来自插值系数的变化，第三项来自候选变化。如果只保留第一项，就与对 LSTM 只看遗忘门犯了同一类错误。即使前向是凸组合，选择组合权重的函数也可能对输入非常敏感，因而整体导数可以放大。
@@ -423,10 +532,13 @@ $$
 设 $`a=U_nh+b_{hn}`$，$`r=\sigma(U_rh+\text{输入项})`$，则
 
 $$
-\frac{\partial n}{\partial h}
-=\mathrm{diag}(1-n^2)
-\left[\mathrm{diag}(r)U_n+
-\mathrm{diag}(a)\mathrm{diag}(r(1-r))U_r\right].
+\begin{aligned}
+&\frac{\partial n}{\partial h}=\mathrm{diag}(1-n^2)\\
+&\cdot\left[\begin{aligned}
+&\mathrm{diag}(r)U_n\\
+&+\mathrm{diag}(a)\mathrm{diag}(r(1-r))U_r
+\end{aligned}\right].
+\end{aligned}
 $$
 
 第一项是在固定重置门时通过循环线性支路传播，第二项是重置门自身随旧状态变化的贡献。若使用重置前约定，矩阵乘法位置会不同，导数也应重新写。这个推导既能用于解释长期灵敏度，也能帮助排查手写 GRU 前向相同但反向不正确的自定义算子。
@@ -540,6 +652,28 @@ print('full-state spectral radius', float(eigen), 'direct cell factor', 0.99 ** 
 ### 图解：遗忘系数决定直接记忆路径的半衰期
 
 ![遗忘系数决定直接记忆路径的半衰期](images/02-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![遗忘系数决定直接记忆路径的半衰期，上左区域](images/02-mechanism.svg#textbook-detail-1-1)
+
+![遗忘系数决定直接记忆路径的半衰期，上中区域](images/02-mechanism.svg#textbook-detail-1-2)
+
+![遗忘系数决定直接记忆路径的半衰期，上右区域](images/02-mechanism.svg#textbook-detail-1-3)
+
+![遗忘系数决定直接记忆路径的半衰期，中左区域](images/02-mechanism.svg#textbook-detail-2-1)
+
+![遗忘系数决定直接记忆路径的半衰期，中右区域](images/02-mechanism.svg#textbook-detail-2-3)
+
+![遗忘系数决定直接记忆路径的半衰期，下左区域](images/02-mechanism.svg#textbook-detail-3-1)
+
+![遗忘系数决定直接记忆路径的半衰期，下中区域](images/02-mechanism.svg#textbook-detail-3-2)
+
+![遗忘系数决定直接记忆路径的半衰期，下右区域](images/02-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 **图中的机制。** 只看固定遗忘系数的直接细胞路径，旧信号经过 k 步后乘以系数的 k 次方。图比较 0.9 与 0.5：前者约七步降至一半附近，后者一步就减半。门值接近一会延长这条直接路径的记忆尺度。
 
@@ -669,6 +803,20 @@ print('full-state spectral radius', float(eigen), 'direct cell factor', 0.99 ** 
 #### 用不规则时钟检验“每步”的单位
 
 ![不规则记录下按真实时间衰减与按记录条数衰减的差异](images/02-irregular-clock-decay.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![不规则记录下按真实时间衰减与按记录条数衰减的差异，上左区域](images/02-irregular-clock-decay.svg#textbook-detail-1-1)
+
+![不规则记录下按真实时间衰减与按记录条数衰减的差异，上右区域](images/02-irregular-clock-decay.svg#textbook-detail-1-2)
+
+![不规则记录下按真实时间衰减与按记录条数衰减的差异，下左区域](images/02-irregular-clock-decay.svg#textbook-detail-2-1)
+
+![不规则记录下按真实时间衰减与按记录条数衰减的差异，下右区域](images/02-irregular-clock-decay.svg#textbook-detail-2-2)
+
+</details>
+
 
 设没有新内容写入，初始记忆为一，记录时刻为零、一、四、五小时。选择每小时保留率 $`0.8`$，相应时间常数是 $`\tau=-\frac1{\ln0.8}\approx4.48142`$ 小时。按真实间隔更新，四个时点的状态为
 

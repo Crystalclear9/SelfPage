@@ -165,7 +165,16 @@ $$
 
 移项便得到 $`\mathbb E_Qg\le\mathrm{KL}(Q\Vert \Pi)+\log\mathbb E_\Pi e^g`$。等号当且仅当 $`Q=\Pi_g`$，在相应几乎处处意义下成立。若 KL 无穷，右侧无穷，结论只是平凡上界，不提供有用数字。
 
-KL 非负性本身可由 Jensen 或 $`\log u\le u-1`$ 推出。有限空间中，设所有相关概率为正，$`-\mathrm{KL}(Q\Vert \Pi)=\sum_hQ(h)\log[\frac{\Pi(h)}{Q(h)}]\le\log\sum_{Q(h)>0}\Pi(h)\le0`$。一般测度版本使用密度比与同样的凹性思想。支持条件确保表达有定义，不能在无穷减无穷之间机械抵消。
+KL 非负性本身可由 Jensen 或 $`\log u\le u-1`$ 推出。有限空间中，设所有相关概率为正，
+
+$$
+\begin{aligned}
+&-\mathrm{KL}(Q\Vert \Pi)=\sum_hQ(h)\log[\frac{\Pi(h)}{Q(h)}]\\
+&\quad \le\log\sum_{Q(h)>0}\Pi(h)\le0
+\end{aligned}
+$$
+
+一般测度版本使用密度比与同样的凹性思想。支持条件确保表达有定义，不能在无穷减无穷之间机械抵消。
 
 这条换测度不等式不需要训练集，也不是一个高概率结论；它是对给定 $`g,\Pi,Q`$ 的确定性关系。将其用于随机样本时，概率控制来自第 2.2 节建立的事件。分清这两种角色，量词顺序就会变得透明。
 
@@ -243,9 +252,9 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{KL}(Q\Vert Q_\lambda)
-&=\sum_hQ(h)\log\frac{Q(h)}{\Pi(h)}
-+\lambda\sum_hQ(h)\widehat R(h)+\log Z.
+&\mathrm{KL}(Q\Vert Q_\lambda)
+=\sum_hQ(h)\log\frac{Q(h)}{\Pi(h)}\\
+&+\lambda\sum_hQ(h)\widehat R(h)+\log Z.
 \end{aligned}
 $$
 
@@ -254,6 +263,20 @@ $$
 Gibbs 形式给出的是预测器上的分布。沿图从先验到抽取预测器，可以区分学习分布和使用分布这两个步骤。
 
 ![随机预测器从后验中抽取](images/03-gibbs-draw-then-predict.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![随机预测器从后验中抽取，上左区域](images/03-gibbs-draw-then-predict.svg#textbook-detail-1-1)
+
+![随机预测器从后验中抽取，上右区域](images/03-gibbs-draw-then-predict.svg#textbook-detail-1-2)
+
+![随机预测器从后验中抽取，下左区域](images/03-gibbs-draw-then-predict.svg#textbook-detail-2-1)
+
+![随机预测器从后验中抽取，下右区域](images/03-gibbs-draw-then-predict.svg#textbook-detail-2-2)
+
+</details>
+
 
 条长对应三个候选预测器的后验抽样概率。Gibbs 预测器先从分布中抽取一个候选，图中抽中第二个。随后把新输入送入该预测器得到结果。后验可以是为界或预测选定的分布，具体构造见下文。相应风险也不能直接替换成均值网络的风险。
 
@@ -327,13 +350,30 @@ print({"posterior": posterior, "empirical_risk": posterior @ empirical,
 
 ![PAC-Bayes 中的先验与数据依赖后验：机制、算例与边界](images/03-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![PAC-Bayes 中的先验与数据依赖后验：机制、算例与边界，上左区域](images/03-concept.svg#textbook-detail-1-1)
+
+![PAC-Bayes 中的先验与数据依赖后验：机制、算例与边界，上右区域](images/03-concept.svg#textbook-detail-1-2)
+
+![PAC-Bayes 中的先验与数据依赖后验：机制、算例与边界，下左区域](images/03-concept.svg#textbook-detail-2-1)
+
+![PAC-Bayes 中的先验与数据依赖后验：机制、算例与边界，下右区域](images/03-concept.svg#textbook-detail-2-2)
+
+</details>
+
+
 **怎样从经验拟合走到可报告的风险上界？** A 将经验风险、KL 惩罚和完整目标分开画出，B 核对最优点的两项斜率，C 解释逆温度，D 再把选好后验后的风险证书逐项计算。B 分别画出经验项的−0.2与惩罚项的 $`\frac1{20}\log\frac q{1-q}`$；两者相反时，总导数为零。C 进一步展示这个固定二候选问题的解析族 $`q^*(\lambda)=\frac1{1+e^{-0.2\lambda}}`$，从先验各半连续走向低经验风险候选。C 是代数比较，不给事后搜索逆温度授予统计保证；D 的证书仍使用预先固定的 $`\lambda=20`$。
 
 图沿用第 4.3 节刚才验证过的全部设定：先验 $`\Pi=(0.5,0.5)`$、两个候选经验风险 $`(0.1,0.3)`$、逆温度 $`\lambda=20`$。Gibbs 后验满足 $`Q_j\propto\Pi_j e^{-\lambda\widehat R_j}`$，因此低风险候选权重为 $`\frac1{1+e^{-4}}\approx0.982014`$，另一项约 $`0.017986`$。A 的横轴把第一项后验概率从零连续改变到一，第二项始终取其补数；橙线是后验经验风险，绿线是 KL 除以二十的惩罚，蓝线是两者之和。三条曲线共用相同目标单位，避免将概率权重条与风险证书条混成一个比例。
 
 令 $`q=Q(h_1)`$，则所优化的目标为
 $$
-J(q)=0.3-0.2q+\frac{q\log(2q)+(1-q)\log(2(1-q))}{20}.
+\begin{aligned}
+&J(q)=0.3-0.2q\\
+&\quad +\frac{q\log(2q)+(1-q)\log(2(1-q))}{20}.
+\end{aligned}
 $$
 在 $`0<q<1`$ 内，$`J'(q)=-0.2+\frac{\log q-\log(1-q)}{20}`$，而 $`J''(q)=\frac{1}{20q(1-q)}>0`$。因此唯一极小点满足后验对数优势比等于四，正好给出上面的 $`0.982014`$。经验风险单独最喜欢边界 $`q=1`$，KL 项却在先验位置 $`q=0.5`$ 最小；最优后验由两者共同决定。基本证书还需加 $`\frac{\ln20}{20}+\frac{20}{8000}\approx0.1522866`$，这个常数不改变最优权重，却改变最终能保证的风险数字。图上的连续扫描是在固定 $`\lambda=20`$ 下选择已同时控制的后验，不涉及事后搜索逆温度。
 
@@ -345,11 +385,14 @@ $$
 $$
 
 $$
-R(Q)\le
+\begin{aligned}
+&R(Q)\le
 0.103597+
-\frac{0.603052+\ln20}{20}+
+\frac{0.603052+\ln20}{20}\\
+&\quad +
 \frac{20}{8\times1000}
 \approx0.286036.
+\end{aligned}
 $$
 
 这里 $`n=1000,\delta=0.05`$；先验必须满足数据独立条件，$`\lambda`$ 按第 2.4 节的定理预先固定。在同一数据上尝试许多逆温度后选择最有利证书，需要相应同时保证。只因为低经验风险候选占约百分之九十八，不能直接宣布总体风险接近 $`0.1`$。
@@ -391,6 +434,30 @@ $$
 ### 图解：平均参数与平均函数是不同对象
 
 ![对称参数后验具有相同成员函数但参数平均函数退化](images/03-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![对称参数后验具有相同成员函数但参数平均函数退化，上左区域](images/03-mechanism.svg#textbook-detail-1-1)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，上中区域](images/03-mechanism.svg#textbook-detail-1-2)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，上右区域](images/03-mechanism.svg#textbook-detail-1-3)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，中左区域](images/03-mechanism.svg#textbook-detail-2-1)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，中中区域](images/03-mechanism.svg#textbook-detail-2-2)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，中右区域](images/03-mechanism.svg#textbook-detail-2-3)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，下左区域](images/03-mechanism.svg#textbook-detail-3-1)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，下中区域](images/03-mechanism.svg#textbook-detail-3-2)
+
+![对称参数后验具有相同成员函数但参数平均函数退化，下右区域](images/03-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 前面的目标曲线已经展示了 Gibbs 权重如何由经验拟合与 KL 共同决定；这里进一步画出风险结论最容易被错误转移的一步。令 $`Q\{w=-1\}=Q\{w=1\}=\frac12`$，模型为 $`f_w(x)=w^2x`$。左图两根竖线表示参数空间中的两个概率原子，橙点是它们的算术平均，并不是另一个正质量后验成员。
 
@@ -448,6 +515,30 @@ $$
 
 ![随机 Gibbs 预测与多数投票风险不同](images/03-extension.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![随机 Gibbs 预测与多数投票风险不同，上左区域](images/03-extension.svg#textbook-detail-1-1)
+
+![随机 Gibbs 预测与多数投票风险不同，上中区域](images/03-extension.svg#textbook-detail-1-2)
+
+![随机 Gibbs 预测与多数投票风险不同，上右区域](images/03-extension.svg#textbook-detail-1-3)
+
+![随机 Gibbs 预测与多数投票风险不同，中左区域](images/03-extension.svg#textbook-detail-2-1)
+
+![随机 Gibbs 预测与多数投票风险不同，中中区域](images/03-extension.svg#textbook-detail-2-2)
+
+![随机 Gibbs 预测与多数投票风险不同，中右区域](images/03-extension.svg#textbook-detail-2-3)
+
+![随机 Gibbs 预测与多数投票风险不同，下左区域](images/03-extension.svg#textbook-detail-3-1)
+
+![随机 Gibbs 预测与多数投票风险不同，下中区域](images/03-extension.svg#textbook-detail-3-2)
+
+![随机 Gibbs 预测与多数投票风险不同，下右区域](images/03-extension.svg#textbook-detail-3-3)
+
+</details>
+
+
 先看图 A 第一行：三个成员分别预测“对、对、错”，后验等权时，随机抽一个预测器的错误概率为 $`\frac13`$，固定三个成员各投一票却预测正确。单行只展示对象区别；现在将它扩展到六个**等概率**对象，每一格直接记录该成员在该对象上是否犯错。
 
 图 A 每行恰好一错，每列恰好两错，所以三个成员各自的总体风险都是 $`\frac26=\frac13`$，Gibbs 总体风险也是 $`\frac13`$。但每个对象上都有两票正确，多数票风险为零。图 B 保持每列仍错两次，只把三人的错误集中到同两个对象；于是成员风险和 Gibbs 风险全部不变，多数票却在前两个对象上一起失败，总体风险变为 $`\frac13`$。这两个构造可以直接实现为真实标签全为零、标记“错”的格预测一，其余预测零；不是任意拼出的不可能指标。
@@ -461,9 +552,11 @@ $$
 令 $`e(x,y)`$ 为给定对象上错误成员的后验质量，二分类投票间隔写为 $`M=1-2e`$。有正平均间隔 $`\mu_1=E[M]>0`$ 时，单侧切比雪夫不等式给出
 
 $$
-R_{\mathrm{vote}}\le P(M\le0)
-\le\frac{\mathrm{Var}(M)}{\mathrm{Var}(M)+\mu_1^2}
+\begin{aligned}
+&R_{\mathrm{vote}}\le P(M\le0)\\
+&\quad \le\frac{\mathrm{Var}(M)}{\mathrm{Var}(M)+\mu_1^2}
 =1-\frac{\mu_1^2}{E[M^2]}.
+\end{aligned}
 $$
 
 首个不等式允许平票按固定规则决定；本例没有平票，错误事件恰为负间隔。与前面两倍粗界相比，这里保留了**跨对象的间隔二阶矩**。A 的间隔恒为 $`\frac13`$，所以 $`\mu_1=\frac13`$、$`E[M^2]=\frac19`$，得到上界零，等于真实多数票风险。B 的间隔在前两行是负一、其余四行为一，平均仍为 $`\frac13`$，二阶矩却为一，上界 $`\frac89`$；它合法但很松，不能把该上界当成真实风险 $`\frac13`$。
@@ -471,8 +564,10 @@ $$
 再从同一个后验独立抽两个成员，给定对象的预测分歧概率为 $`2e(1-e)`$。记总体平均分歧为 $`d`$，则
 
 $$
-\mu_1=1-2R(Q),\qquad E[M^2]=1-2d,
-\qquad R_{\mathrm{vote}}\le 1-\frac{[1-2R(Q)]^2}{1-2d}.
+\begin{aligned}
+&\mu_1=1-2R(Q),\qquad E[M^2]=1-2d,\\
+&\quad R_{\mathrm{vote}}\le 1-\frac{[1-2R(Q)]^2}{1-2d}.
+\end{aligned}
 $$
 
 A 有 $`d=\frac49`$，B 有 $`d=0`$，它们与上面的间隔计算完全一致。这正是 C-bound 的一个入口，条件、不同表示与原图可读 [Germain 等原论文第 4.1—4.3 节、图 2](https://jmlr.org/papers/volume16/germain15a/germain15a.pdf)。这里先用完整错误矩阵核算，再理解分歧为何提供 Gibbs 风险之外的信息。**不能脱离成员质量只追求更大分歧**；而且当前推导使用的是总体矩，若只有训练估计，还需同时控制这些矩的抽样误差，不能自动把经验 C-bound 当成新的高概率证书。
@@ -673,9 +768,10 @@ print({"mean_gibbs_risk": float(records[:, 0].mean()),
 
 $$
 \begin{aligned}
-\mathbb E_S e^{n\mathrm{kl}(\widehat r\Vert r)}
-&=\sum_{k=0}^n\binom nk
-\left(\frac kn\right)^k
+&\mathbb E_S e^{n\mathrm{kl}(\widehat r\Vert r)}
+=\sum_{k=0}^n\binom nk
+\left(\frac kn\right)\\
+&^k
 \left(1-\frac kn\right)^{n-k}
 \le n+1.
 \end{aligned}
@@ -703,6 +799,30 @@ $$
 ### 图解推导：把二元KL预算反演成可读的风险上界
 
 ![PAC Bayes二元KL预算的风险反演与平方根放松对照](images/03-binary-kl-inversion.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，上左区域](images/03-binary-kl-inversion.svg#textbook-detail-1-1)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，上中区域](images/03-binary-kl-inversion.svg#textbook-detail-1-2)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，上右区域](images/03-binary-kl-inversion.svg#textbook-detail-1-3)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，中左区域](images/03-binary-kl-inversion.svg#textbook-detail-2-1)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，中中区域](images/03-binary-kl-inversion.svg#textbook-detail-2-2)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，中右区域](images/03-binary-kl-inversion.svg#textbook-detail-2-3)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，下左区域](images/03-binary-kl-inversion.svg#textbook-detail-3-1)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，下中区域](images/03-binary-kl-inversion.svg#textbook-detail-3-2)
+
+![PAC Bayes二元KL预算的风险反演与平方根放松对照，下右区域](images/03-binary-kl-inversion.svg#textbook-detail-3-3)
+
+</details>
+
 
 **先固定正在反演的定理。** 本图沿用本节已经证明的 $`n+1`$ 指数矩常数。设 $`n=1000`$、$`\mathrm{KL}(Q\Vert\Pi)=5`$、$`\delta=0.05`$，那么右端预算为
 

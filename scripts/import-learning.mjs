@@ -7,7 +7,7 @@ if (!source) throw new Error('Usage: npm run import:learning -- <AILearning dire
 const root = path.resolve(source);
 const destination = path.resolve('content/collections/ailearning');
 const categories = ['Mathematics', 'Programming', 'ComputerScience', 'MachineLearning', 'DeepLearning', 'AI-Domains', 'ReinforcementLearning', 'AdvancedStudies'];
-const guides = { '学习路线.md': 'learning-path', '内容范围与掌握标准.md': 'scope', '运行环境.md': 'environment', '术语与符号.md': 'glossary' };
+const guides = { '学习路线.md': 'learning-path', '内容范围与掌握标准.md': 'scope', '运行环境.md': 'environment', '术语与符号.md': 'glossary', '授课与作业.md': 'teaching', '作业题面.md': 'assignments' };
 const slug = value => value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 const files = [];
 const images = [];

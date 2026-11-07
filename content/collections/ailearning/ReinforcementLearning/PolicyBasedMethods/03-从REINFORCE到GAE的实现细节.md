@@ -123,12 +123,28 @@
 
 ![GAE 的完整算例：带符号加权与回合边界反例](images/03-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![GAE 的完整算例：带符号加权与回合边界反例，上左区域](images/03-concept.svg#textbook-detail-1-1)
+
+![GAE 的完整算例：带符号加权与回合边界反例，上右区域](images/03-concept.svg#textbook-detail-1-2)
+
+![GAE 的完整算例：带符号加权与回合边界反例，下左区域](images/03-concept.svg#textbook-detail-2-1)
+
+![GAE 的完整算例：带符号加权与回合边界反例，下右区域](images/03-concept.svg#textbook-detail-2-2)
+
+</details>
+
+
 三个固定残差为 $`(1,-0.5,0.25)`$，$`\gamma=0.9,\lambda=0.95`$，故 $`q=\gamma\lambda=0.855`$。A 的每一格**已经乘入残差**，不是纯非负系数矩阵；每行只取当前及未来残差，不含过去残差。B 对每行求和，等价于从底往上递推：
 $$
 \begin{aligned}
-\hat A_2&=0.25,\\
-\hat A_1&=-0.5+0.855(0.25)=-0.28625,\\
-\hat A_0&=1+0.855(-0.28625)=0.75525625.
+&\hat A_2=0.25,\\
+&\hat A_1=-0.5+0.855(0.25)\\
+&=-0.28625,\\
+&\hat A_0=1+0.855(-0.28625)\\
+&=0.75525625.
 \end{aligned}
 $$
 C 另设重置后新回合残差一百。如果错误地跨边界拼接，会额外加入 $`0.855^3\times100=62.5026375`$，把原优势改成 $`63.25789375`$。图中并列列出两个结果，便于核对附加项。正确边界不是随意把最后一个有效 TD 残差清零，而是阻止新回合的递推项流回旧回合；外部截断的价值补尾与迹传播掩码仍是两个独立条件。展开与递推形式可对照 [GAE 原论文第 3 节](https://arxiv.org/pdf/1506.02438)。
@@ -252,6 +268,20 @@ print('actor_gradient',good_grads[0].item(),'unwanted_baseline_gradient',bad_gra
 
 ![不停止优势梯度会多出一条参数依赖路径](images/03-insight.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![不停止优势梯度会多出一条参数依赖路径，上左区域](images/03-insight.svg#textbook-detail-1-1)
+
+![不停止优势梯度会多出一条参数依赖路径，上右区域](images/03-insight.svg#textbook-detail-1-2)
+
+![不停止优势梯度会多出一条参数依赖路径，下左区域](images/03-insight.svg#textbook-detail-2-1)
+
+![不停止优势梯度会多出一条参数依赖路径，下右区域](images/03-insight.svg#textbook-detail-2-2)
+
+</details>
+
+
 构造单个已采样动作，其概率为 sigmoid(theta)，奖励一，基线同样取 theta。actor 损失为负对数概率乘一减 theta；把优势当固定权重时，只保留对数概率的导数，若让梯度穿过优势，会多出对数 sigmoid(theta) 项。参数零处正确半梯度为负零点五，错误全导数约负一点一九三一。图仅用于说明计算图权限，不是完整策略目标的无偏性证明；真实共享网络中 critic 自己的损失仍可更新共享参数，但不应无意混入 actor 的优势权重路径。
 
 图 B 直接相减两条梯度，隔离多出来的路径。对固定采样动作，记 $`p=\sigma(\theta)`$，停止优势导数时为 $`-(1-p)(1-\theta)`$；若对整个乘积求导，则额外增加 $`\log p`$。在 $`\theta=0`$ 时，这一差为 $`-\log2\approx-0.693147`$，恰把 $`-0.5`$ 变成 $`-1.193147`$。停止梯度保留相同的前向损失数值，却规定不同的反向计算，这正是仅检查 loss 数值无法发现此类错误的原因。这里展示固定样本上的 actor 梯度权限，critic 自己的监督损失仍应沿其规定路径求导。
@@ -274,6 +304,20 @@ print('actor_gradient',good_grads[0].item(),'unwanted_baseline_gradient',bad_gra
 
 ![GAE不能越过回合边界](images/03-gae-episode-boundary.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![GAE不能越过回合边界，上左区域](images/03-gae-episode-boundary.svg#textbook-detail-1-1)
+
+![GAE不能越过回合边界，上右区域](images/03-gae-episode-boundary.svg#textbook-detail-1-2)
+
+![GAE不能越过回合边界，下左区域](images/03-gae-episode-boundary.svg#textbook-detail-2-1)
+
+![GAE不能越过回合边界，下右区域](images/03-gae-episode-boundary.svg#textbook-detail-2-2)
+
+</details>
+
+
 青色弧线表示同一回合中的后续 TD 残差对较早优势的贡献。珊瑚色虚线标出递推边界，新回合的残差在边界右侧单独累积。截断处是否保留价值自举属于另一问题，因此不能用一个掩码替代两种语义。
 
 GAE 加旧值常作为某种自举回报目标，它不是在所有迹参数下等于 Monte Carlo 回报。真实终止时两种边界都切断；外部截断可以保留下一价值却切断跨重置递推。前章已经推导误差来源，本章实现应让每个字段与这些条件一一对应。
@@ -295,27 +339,40 @@ GAE 加旧值常作为某种自举回报目标，它不是在所有迹参数下�
 设动作 $`A\in\{0,1\}`$，$`P_\theta(A=1)=p=\sigma(\theta)`$，奖励 $`R=A`$。参数是 logit $`\theta`$，所以得分函数和真实梯度为
 
 $$
-S=\nabla_\theta\log P_\theta(A)=A-p,\qquad
-g=\nabla_\theta E[R]=p(1-p).
+\begin{aligned}
+&S=\nabla_\theta\log P_\theta(A)=A-p,\\
+&\quad g=\nabla_\theta E[R]=p(1-p).
+\end{aligned}
 $$
 
 取 $`p=0.2`$，因此 $`g=0.16`$。同一策略下独立抽取两次动作，构成一个批次。比较三种估计量：
 
 $$
 \begin{aligned}
-\widehat g_{\rm raw}
-&=\frac12\sum_{i=1}^{2}S_iR_i,\\
-\widehat g_{\rm center}
-&=\frac12\sum_{i=1}^{2}S_i(R_i-\bar R),
-\qquad \bar R=\frac{R_1+R_2}{2},\\
-\widehat g_{\rm LOO}
-&=\frac12\bigl[S_1(R_1-R_2)+S_2(R_2-R_1)\bigr].
+&\widehat g_{\rm raw}=\frac12\sum_{i=1}^2 S_iR_i,\\
+&\bar R=\frac{R_1+R_2}{2},\\
+&\widehat g_{\rm center}=\frac12\sum_{i=1}^2S_i(R_i-\bar R),\\
+&\widehat g_{\rm LOO}=\frac12\bigl[S_1(R_1-R_2)+S_2(R_2-R_1)\bigr].
 \end{aligned}
 $$
 
 最后一种把另一条独立样本的奖励作为当前样本的基线，称为留一基线。这里不除以样本标准差，也不使用 PPO 裁剪；只研究减均值这一操作。
 
 ![两个独立伯努利动作的四种批次、三种梯度及其精确期望；批内中心化的期望减半，留一恢复真实梯度](images/03-batch-baseline-bias.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![两个独立伯努利动作的四种批次、三种梯度及其精确期望；批内中心化的期望减半，留一恢复真实梯度，上左区域](images/03-batch-baseline-bias.svg#textbook-detail-1-1)
+
+![两个独立伯努利动作的四种批次、三种梯度及其精确期望；批内中心化的期望减半，留一恢复真实梯度，上右区域](images/03-batch-baseline-bias.svg#textbook-detail-1-2)
+
+![两个独立伯努利动作的四种批次、三种梯度及其精确期望；批内中心化的期望减半，留一恢复真实梯度，下左区域](images/03-batch-baseline-bias.svg#textbook-detail-2-1)
+
+![两个独立伯努利动作的四种批次、三种梯度及其精确期望；批内中心化的期望减半，留一恢复真实梯度，下右区域](images/03-batch-baseline-bias.svg#textbook-detail-2-2)
+
+</details>
+
 
 四种批次可以穷举，不需要依靠训练曲线猜测偏差：
 
@@ -329,16 +386,18 @@ $$
 例如 $`(0,1)`$ 的得分是 $`(-0.2,0.8)`$，中心化奖励为 $`(-0.5,0.5)`$，故估计量是 $`\frac12[(-0.2)(-0.5)+0.8(0.5)]=0.25`$。留一奖励差为 $`(-1,1)`$，对应结果为 $`0.5`$。用各行概率加权，得到
 
 $$
-E[\widehat g_{\rm raw}]=0.16,\qquad
-E[\widehat g_{\rm center}]=0.08,\qquad
+\begin{aligned}
+&E[\widehat g_{\rm raw}]=0.16,\\
+&\quad E[\widehat g_{\rm center}]=0.08,\qquad
 E[\widehat g_{\rm LOO}]=0.16.
+\end{aligned}
 $$
 
 **一般批量大小的推导。** 固定策略，假设 $`(S_i,R_i)`$ 是独立同分布样本，期望存在，得分恒等式成立，即 $`E[S_i]=0`$，并记 $`E[S_iR_i]=g`$。对不同样本，独立性使 $`E[S_iR_j]=E[S_i]E[R_j]=0`$。于是
 
 $$
 \begin{aligned}
-E[\widehat g_{\rm center}]
+&E[\widehat g_{\rm center}]\\
 &=E\left[\frac1n\sum_iS_iR_i
 -\frac{1}{n^2}\sum_i\sum_j S_iR_j\right]\\
 &=g-\frac{n}{n^2}g
@@ -349,8 +408,10 @@ $$
 偏差来自双重求和中的 $`i=j`$ 对角项，正是“自己的奖励进入自己的基线”。对 $`n>1`$，定义
 
 $$
-b_{-i}=\frac{1}{n-1}\sum_{j\neq i}R_j,\qquad
-R_i-b_{-i}=\frac{n}{n-1}(R_i-\bar R).
+\begin{aligned}
+&b_{-i}=\frac{1}{n-1}\sum_{j\neq i}R_j,\\
+&\quad R_i-b_{-i}=\frac{n}{n-1}(R_i-\bar R).
+\end{aligned}
 $$
 
 这个等式对每一批样本逐项成立，因此 $`\widehat g_{\rm LOO}=\frac{n}{n-1}\widehat g_{\rm center}`$，其期望恢复为 $`g`$。$`n=1`$ 时批内中心化恒为零，留一基线没有定义，必须改用历史估计、独立估计或不用基线。
@@ -361,10 +422,12 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{Var}(\widehat g_{\rm raw})
-&=0.32(0.4)^2+0.04(0.8)^2-(0.16)^2=0.0512,\\
-\mathrm{Var}(\widehat g_{\rm LOO})
-&=0.32(0.5)^2-(0.16)^2=0.0544.
+&\mathrm{Var}(\widehat g_{\rm raw})
+=0.32(0.4)^2\\
+&+0.04(0.8)^2-(0.16)^2=0.0512,\\
+&\mathrm{Var}(\widehat g_{\rm LOO})
+=0.32(0.5)^2-(0.16)^2\\
+&=0.0544.
 \end{aligned}
 $$
 
@@ -634,6 +697,30 @@ Critic 拟合的是相对状态价值，不应再把所有目标无条件乘起�
 ### 图解算例：同一批回报项改变分母会改变更新尺度
 
 ![同一批回报项改变分母会改变更新尺度](images/03-example.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![同一批回报项改变分母会改变更新尺度，上左区域](images/03-example.svg#textbook-detail-1-1)
+
+![同一批回报项改变分母会改变更新尺度，上中区域](images/03-example.svg#textbook-detail-1-2)
+
+![同一批回报项改变分母会改变更新尺度，上右区域](images/03-example.svg#textbook-detail-1-3)
+
+![同一批回报项改变分母会改变更新尺度，中左区域](images/03-example.svg#textbook-detail-2-1)
+
+![同一批回报项改变分母会改变更新尺度，中中区域](images/03-example.svg#textbook-detail-2-2)
+
+![同一批回报项改变分母会改变更新尺度，中右区域](images/03-example.svg#textbook-detail-2-3)
+
+![同一批回报项改变分母会改变更新尺度，下左区域](images/03-example.svg#textbook-detail-3-1)
+
+![同一批回报项改变分母会改变更新尺度，下中区域](images/03-example.svg#textbook-detail-3-2)
+
+![同一批回报项改变分母会改变更新尺度，下右区域](images/03-example.svg#textbook-detail-3-3)
+
+</details>
+
 
 图把两条轨迹的总贡献展开到每个有效步。轨迹 A 有两个标量梯度项 $`1,1`$，轨迹 B 有六个 $`3,3,3,3,3,3`$，总分子为二十。A 图每根柱子表示一个构造的**带权梯度项**，不是环境奖励、动作概率或样本数量权重。
 

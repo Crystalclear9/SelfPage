@@ -157,6 +157,20 @@
 
 ![同一型号最新有效版本与权限撤销的时间路径](images/03-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一型号最新有效版本与权限撤销的时间路径，上左区域](images/03-concept.svg#textbook-detail-1-1)
+
+![同一型号最新有效版本与权限撤销的时间路径，上右区域](images/03-concept.svg#textbook-detail-1-2)
+
+![同一型号最新有效版本与权限撤销的时间路径，下左区域](images/03-concept.svg#textbook-detail-2-1)
+
+![同一型号最新有效版本与权限撤销的时间路径，下右区域](images/03-concept.svg#textbook-detail-2-2)
+
+</details>
+
+
 先沿时间轴检查同一型号的版本与访问权。时点一，旧版 A 上限三十五且 team-a 可见；时点二，新版整体替换旧版，上限四十、仅 team-b 可见。新版不可见不使旧版重新生效，所以 team-a 在时点二没有合法证据，不能因旧版仍带可见 ACL 而退回三十五。图中横条表示生效区间，竖线是版本交界，不表示两版本数值之间进行插值。第 4 节实验同时覆盖新版仍可见与新版撤销权限两种情况。图中固定为后者。
 
 <a id="sec-2-1"></a>
@@ -198,6 +212,20 @@
 一个可靠打包结果应能回答：哪些候选被保留、为何保留、哪些被截断、每段对应什么来源、输出还剩多少预算。如果摘要器参与压缩，它也成为新的生成阶段，需要验证是否改变条件或数值。把摘要称为“原始证据”会掩盖这一层误差，最好保留原文定位并允许回查。
 
 ![检索候选怎样变成可核对证据](images/03-version-checked-evidence.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![检索候选怎样变成可核对证据，上左区域](images/03-version-checked-evidence.svg#textbook-detail-1-1)
+
+![检索候选怎样变成可核对证据，上右区域](images/03-version-checked-evidence.svg#textbook-detail-1-2)
+
+![检索候选怎样变成可核对证据，下左区域](images/03-version-checked-evidence.svg#textbook-detail-2-1)
+
+![检索候选怎样变成可核对证据，下右区域](images/03-version-checked-evidence.svg#textbook-detail-2-2)
+
+</details>
+
 
 左侧候选有同一来源的两个版本和另一来源的片段。在这个例子中，灰色 `A-v1` 已失效，停在边界外；绿色 `A-v2` 与紫色 `B-v2` 在当前请求中同时满足版本和访问要求。用右侧保留的来源信息回查原文。引用要保留来源、版本和具体位置。两个来源的版本号恰好都为二，不自动证明它们适用同一时间与语境。
 
@@ -388,6 +416,20 @@ print('claim_validation_passed')
 
 ![工具调用中失败请求与预算耗尽的具体轨迹](images/03-mechanism.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![工具调用中失败请求与预算耗尽的具体轨迹，上左区域](images/03-mechanism.svg#textbook-detail-1-1)
+
+![工具调用中失败请求与预算耗尽的具体轨迹，上右区域](images/03-mechanism.svg#textbook-detail-1-2)
+
+![工具调用中失败请求与预算耗尽的具体轨迹，下左区域](images/03-mechanism.svg#textbook-detail-2-1)
+
+![工具调用中失败请求与预算耗尽的具体轨迹，下右区域](images/03-mechanism.svg#textbook-detail-2-2)
+
+</details>
+
+
 **在剩余预算仍大于零的独立请求中，逐项检查参数契约。** 图中工具只接受绝对值不超过一千的严格整数。JSON 的 true 解码为 Python 布尔值，虽满足 $`\mathrm{isinstance}(v,\mathrm{int})`$，却不满足 $`\mathrm{type}(v)\ \mathrm{is}\ \mathrm{int}`$；JSON 的 $`2.0`$ 解码为浮点数，同样被拒绝。整数二同时通过类型与范围，整数一千零一则只通过类型检查。
 
 这些是新请求的校验样例，不是把上方已耗尽的三次预算继续延长。执行顺序仍是先检查预算、记账，再解析和验证，最后才调用白名单中的纯加法；只有通过所有条件的参数能进入执行器。类型约束与业务范围各自拦截不同输入，不能因为模型输出“看起来像数字”便省略其中一层。
@@ -506,6 +548,20 @@ print('executor_trace', ex.trace)
 
 ![同一百题的分阶段计数与总体分母](images/03-stage-counts.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一百题的分阶段计数与总体分母，上左区域](images/03-stage-counts.svg#textbook-detail-1-1)
+
+![同一百题的分阶段计数与总体分母，上右区域](images/03-stage-counts.svg#textbook-detail-1-2)
+
+![同一百题的分阶段计数与总体分母，下左区域](images/03-stage-counts.svg#textbook-detail-2-1)
+
+![同一百题的分阶段计数与总体分母，下右区域](images/03-stage-counts.svg#textbook-detail-2-2)
+
+</details>
+
+
 四条计数带共用同一百题的宽度。蓝绿色段保留成功路径，橙色段表示本阶段流失，浅灰段表示此前已流失。第一步二十题未召回，第二步再有二十题没有正确使用证据，最后六题没有得到正确答案，留下五十四题。橙色段每次只标新增失败，阶段条件率的分母则是上一阶段尚存的题数。
 
 本例人为设置嵌套事件，所以 $`\frac{80}{100}\times\frac{60}{80}\times\frac{54}{60}=\frac{54}{100}=0.54`$；相邻计数消去，不依赖阶段独立。计数带按阶段结果整理这一百道人工示例题，宽度只表示题数。真实评估必须记录未召回却靠记忆答对、引用不支持却碰巧正确等其他路径；证据忠实性也不等于事实正确。原始 [RAG 图 1 与第 2 节](https://arxiv.org/html/2005.11401v4#S2)描述的是潜证据概率模型，与本图的工程计数分解属于不同层次。
@@ -534,10 +590,25 @@ print('executor_trace', ex.trace)
 
 ![按证据条件分解系统成功率](images/03-evidence-conditional-success.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![按证据条件分解系统成功率，上左区域](images/03-evidence-conditional-success.svg#textbook-detail-1-1)
+
+![按证据条件分解系统成功率，下左区域](images/03-evidence-conditional-success.svg#textbook-detail-2-1)
+
+![按证据条件分解系统成功率，下右区域](images/03-evidence-conditional-success.svg#textbook-detail-2-2)
+
+</details>
+
+
 **按证据条件分解系统成功率。** 本图令有充分证据时回答成功率为 0.8，无证据时为 0.1。全概率公式给出总体成功率 0.8r+0.1(1−r)，并非简单的 0.8r。只有额外规定无证据必定失败，才能使用乘积。真实系统需要同时记录检索充分性、条件回答正确性和最终正确性；阶段指标必须使用明确的条件分母。
 
 $$
-P(C)=P(C\mid E)P(E)+P(C\mid E^c)P(E^c)=0.8r+0.1(1-r).
+\begin{aligned}
+&P(C)=P(C\mid E)P(E)+P(C\mid E^c)P(E^c)\\
+&\quad =0.8r+0.1(1-r).
+\end{aligned}
 $$
 
 <a id="sec-6-1"></a>
@@ -578,6 +649,20 @@ $$
 
 ![RAG 检索先验、联合质量、后验责任度及两种损失的对照](images/03-rag-posterior-responsibility.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![RAG 检索先验、联合质量、后验责任度及两种损失的对照，上左区域](images/03-rag-posterior-responsibility.svg#textbook-detail-1-1)
+
+![RAG 检索先验、联合质量、后验责任度及两种损失的对照，上右区域](images/03-rag-posterior-responsibility.svg#textbook-detail-1-2)
+
+![RAG 检索先验、联合质量、后验责任度及两种损失的对照，下左区域](images/03-rag-posterior-responsibility.svg#textbook-detail-2-1)
+
+![RAG 检索先验、联合质量、后验责任度及两种损失的对照，下右区域](images/03-rag-posterior-responsibility.svg#textbook-detail-2-2)
+
+</details>
+
+
 **先确定“求和”在对数的哪一侧。** 固定问题 $`q`$、训练答案 $`y`$ 和一个有限候选集合，记检索概率为 $`\pi_z=p_\eta(z\mid q)`$，条件答案概率为 $`l_z=p_\theta(y\mid q,z)`$。本节假设 $`\sum_z\pi_z=1`$，且各项概率为正，以便所有对数有限。隐变量混合模型的负对数似然为
 
 $$
@@ -599,19 +684,20 @@ $$
 
 $$
 \begin{aligned}
-L_{\mathrm{marg}}&=-\log0.26\approx1.347074,\\
-L_{\mathrm{avg}}&=-0.8\log0.1-0.2\log0.9
-\approx1.863140.
+&L_{\mathrm{marg}}=-\log0.26\approx1.347074,\\
+&L_{\mathrm{avg}}=-0.8\log0.1-0.2\log0.9\\
+&\approx1.863140.
 \end{aligned}
 $$
 
 第一份候选虽然检索先验更大，却更难生成给定答案。观察到训练答案后，其后验责任度变为
 
 $$
-r_z=p(z\mid q,y)=\frac{\pi_zl_z}{P},
-\qquad
-(r_1,r_2)=\left(\frac4{13},\frac9{13}\right)
-\approx(0.307692,0.692308).
+\begin{aligned}
+&r_z=p(z\mid q,y)=\frac{\pi_zl_z}{P},\\
+&\quad (r_1,r_2)=\left(\frac4{13},\frac9{13}\right)\\
+&\quad \approx(0.307692,0.692308).
+\end{aligned}
 $$
 
 “责任度”表示在这个概率模型中，各候选对当前答案似然的解释份额。它与检索时尚未看到答案的先验不是同一分布，也不是人工事实支持率。模型可能仅因参数记忆、答案措辞或无关相关性而给出高似然；高后验并不自动证明该段文字蕴含答案，引用验收仍须独立进行。
@@ -686,6 +772,30 @@ $$
 | D | 3 | 0.85 | w |
 
 ![预算相同而事实覆盖不同的两种上下文](images/03-context-budget-coverage.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![预算相同而事实覆盖不同的两种上下文，上左区域](images/03-context-budget-coverage.svg#textbook-detail-1-1)
+
+![预算相同而事实覆盖不同的两种上下文，上中区域](images/03-context-budget-coverage.svg#textbook-detail-1-2)
+
+![预算相同而事实覆盖不同的两种上下文，上右区域](images/03-context-budget-coverage.svg#textbook-detail-1-3)
+
+![预算相同而事实覆盖不同的两种上下文，中左区域](images/03-context-budget-coverage.svg#textbook-detail-2-1)
+
+![预算相同而事实覆盖不同的两种上下文，中中区域](images/03-context-budget-coverage.svg#textbook-detail-2-2)
+
+![预算相同而事实覆盖不同的两种上下文，中右区域](images/03-context-budget-coverage.svg#textbook-detail-2-3)
+
+![预算相同而事实覆盖不同的两种上下文，下左区域](images/03-context-budget-coverage.svg#textbook-detail-3-1)
+
+![预算相同而事实覆盖不同的两种上下文，下中区域](images/03-context-budget-coverage.svg#textbook-detail-3-2)
+
+![预算相同而事实覆盖不同的两种上下文，下右区域](images/03-context-budget-coverage.svg#textbook-detail-3-3)
+
+</details>
+
 
 预算为十，按排名依次装入并跳过放不下的块，会选择 A、B，成本十，却只覆盖一条事实。B、C、D 的成本同样为十，却覆盖全部三条；若选 A，另外两条所需总成本为十二，必然放不下。穷举十六个子集即可确认，B、C、D 是本例唯一能完整回答的可行集合。
 

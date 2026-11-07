@@ -106,6 +106,30 @@ VGG 一类规则堆叠使结构容易描述与扩展，但很深的普通网络�
 
 ![残差分支与捷径如何汇合](images/03-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![残差分支与捷径如何汇合，上左区域](images/03-concept.svg#textbook-detail-1-1)
+
+![残差分支与捷径如何汇合，上中区域](images/03-concept.svg#textbook-detail-1-2)
+
+![残差分支与捷径如何汇合，上右区域](images/03-concept.svg#textbook-detail-1-3)
+
+![残差分支与捷径如何汇合，中左区域](images/03-concept.svg#textbook-detail-2-1)
+
+![残差分支与捷径如何汇合，中中区域](images/03-concept.svg#textbook-detail-2-2)
+
+![残差分支与捷径如何汇合，中右区域](images/03-concept.svg#textbook-detail-2-3)
+
+![残差分支与捷径如何汇合，下左区域](images/03-concept.svg#textbook-detail-3-1)
+
+![残差分支与捷径如何汇合，下中区域](images/03-concept.svg#textbook-detail-3-2)
+
+![残差分支与捷径如何汇合，下右区域](images/03-concept.svg#textbook-detail-3-3)
+
+</details>
+
+
 **先把“修正”读成同位置的算术。** 上半图将一个通道的 2 × 2 切片分成两条路径：捷径保留 $`x`$，另一条计算 $`F(x)`$，在相同坐标相加。四个位置的修正值分别为 0.1、−0.2、0、0.5。于是右上位置从 2 减到 1.8，左下位置仍为 3，右下位置从 4 增到 4.5。这些数表示这个示例中的修正值，不能由这四个数推断导数或训练收敛性。
 
 残差相加不增加通道数，也不会重新排列位置。若残差分支改变通道或空间尺寸，捷径需要与输出坐标相匹配的投影；只有形状相同仍不足以保证语义对齐。图中相加之后没有额外激活，若接 ReLU 等操作，还必须继续追踪该操作对数值与梯度的影响。
@@ -163,6 +187,20 @@ print('identity path and projected branch shapes verified')
 
 ![捷径仍可能在特定方向抵消](images/03-residual-direction-cancellation.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![捷径仍可能在特定方向抵消，上左区域](images/03-residual-direction-cancellation.svg#textbook-detail-1-1)
+
+![捷径仍可能在特定方向抵消，上右区域](images/03-residual-direction-cancellation.svg#textbook-detail-1-2)
+
+![捷径仍可能在特定方向抵消，下左区域](images/03-residual-direction-cancellation.svg#textbook-detail-2-1)
+
+![捷径仍可能在特定方向抵消，下右区域](images/03-residual-direction-cancellation.svg#textbook-detail-2-2)
+
+</details>
+
+
 **捷径仍可能在特定方向抵消。** 图 A 先研究一条固定特征方向；假定该方向是分支雅可比的实特征向量，对应特征值 λ。恒等捷径使同方向增益从 λ 变为 1+λ，绝对增益如图。λ=−1 时恰好抵消，λ=0 时完整保留，λ=1 时放大两倍。因而“有捷径就不会梯度消失”仍需条件；非正规矩阵还不能只凭特征值判断全部奇异方向的放大。
 
 **没有负特征值，也可能出现强烈收缩。** 图 B 改看二维残差雅可比 $`R_k=I+J_F=\begin{bmatrix}1&k\\0&1\end{bmatrix}`$。无论 $`k`$ 多大，它的两个特征值都是一；但 $`k=4`$ 时，输入单位圆被剪切成细长椭圆。图内两轴等比例，虚线是原单位圆，实线是所有单位输入的实际像，所以椭圆长、短半径分别给出最大和最小奇异值。
@@ -170,8 +208,10 @@ print('identity path and projected branch shapes verified')
 从 $`R_k^\top R_k=\begin{bmatrix}1&k\\k&k^2+1\end{bmatrix}`$ 求特征值，再开平方，得到在 $`k\ge0`$ 时
 
 $$
-\sigma_{\max}(R_k)=\frac{\sqrt{k^2+4}+k}{2},\qquad
-\sigma_{\min}(R_k)=\frac{\sqrt{k^2+4}-k}{2}.
+\begin{aligned}
+&\sigma_{\max}(R_k)=\frac{\sqrt{k^2+4}+k}{2},\\
+&\quad \sigma_{\min}(R_k)=\frac{\sqrt{k^2+4}-k}{2}.
+\end{aligned}
 $$
 
 二者乘积为一。$`k=4`$ 时约为 $`4.236`$ 与 $`0.236`$：一个方向可被放大四倍多，另一个方向却缩到原长约四分之一，尽管所有特征值的模都等于一。图 C 把这种分离随 $`k`$ 的变化画在同一对数轴上。反向乘 $`R_k^\top`$ 具有同样奇异值，但对应方向需用相应左右奇异向量区分；不能把图 B 的前向椭圆直接当作同一方向的反向梯度图。
@@ -239,11 +279,37 @@ print('separable equivalence passed; independent edge kernels have rank two')
 
 ![同一输入通道的两个独立边缘响应不能压成一个空间基](images/03-depthwise-two-directions.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，上左区域](images/03-depthwise-two-directions.svg#textbook-detail-1-1)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，上中区域](images/03-depthwise-two-directions.svg#textbook-detail-1-2)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，上右区域](images/03-depthwise-two-directions.svg#textbook-detail-1-3)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，中左区域](images/03-depthwise-two-directions.svg#textbook-detail-2-1)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，中中区域](images/03-depthwise-two-directions.svg#textbook-detail-2-2)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，中右区域](images/03-depthwise-two-directions.svg#textbook-detail-2-3)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，下左区域](images/03-depthwise-two-directions.svg#textbook-detail-3-1)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，下中区域](images/03-depthwise-two-directions.svg#textbook-detail-3-2)
+
+![同一输入通道的两个独立边缘响应不能压成一个空间基，下右区域](images/03-depthwise-two-directions.svg#textbook-detail-3-3)
+
+</details>
+
+
 **把上面的核秩换成可检查的输出。** 仍使用实验二中的两个核，记左右差核为 $`H`$、上下差核为 $`V=H^\top`$：
 
 $$
-H=\begin{bmatrix}-1&0&1\\-1&0&1\\-1&0&1\end{bmatrix},\qquad
-V=\begin{bmatrix}-1&-1&-1\\0&0&0\\1&1&1\end{bmatrix}.
+\begin{aligned}
+&H=\begin{bmatrix}-1&0&1\\-1&0&1\\-1&0&1\end{bmatrix},\\
+&\quad V=\begin{bmatrix}-1&-1&-1\\0&0&0\\1&1&1\end{bmatrix}.
+\end{aligned}
 $$
 
 这里使用深度学习库常用的互相关约定，不翻转核；输入是一个单通道特征窗口，可取负值，不要求它是未经处理的像素。两个标准输出通道分别以 $`H`$、$`V`$ 为核，无偏置。让测试窗口也依次取 $`H`$ 和 $`V`$，逐项相乘求和得到 $`\langle H,H\rangle=6`$、$`\langle V,V\rangle=6`$、$`\langle H,V\rangle=0`$。因此它们所需的输出分别为 $`(6,0)`$ 与 $`(0,6)`$，图中蓝橙两点就是这两个结果；没有把“横向边缘”这样的名称当作数值证据。
@@ -272,6 +338,20 @@ $$
 **先融合，再传给下一尺度。**
 
 ![先融合，再传给下一尺度](images/03-pyramid-fuse-before-propagating.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![先融合，再传给下一尺度，上左区域](images/03-pyramid-fuse-before-propagating.svg#textbook-detail-1-1)
+
+![先融合，再传给下一尺度，上右区域](images/03-pyramid-fuse-before-propagating.svg#textbook-detail-1-2)
+
+![先融合，再传给下一尺度，下左区域](images/03-pyramid-fuse-before-propagating.svg#textbook-detail-2-1)
+
+![先融合，再传给下一尺度，下右区域](images/03-pyramid-fuse-before-propagating.svg#textbook-detail-2-2)
+
+</details>
+
 
 粗特征先上采样到较细一级，与该级主干的横向特征在加号处相加。下一条下行箭头从已经融合的结果出发。加号的两条入边需要在同一空间网格上。一份携带粗上下文，另一份保留更细的位置变化。
 
@@ -341,6 +421,20 @@ print('pyramid shapes and lost-information counterexample verified')
 ### 图解：特征金字塔的侧向连接与上采样
 
 ![特征金字塔的侧向连接与上采样](images/03-example.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![特征金字塔的侧向连接与上采样，上左区域](images/03-example.svg#textbook-detail-1-1)
+
+![特征金字塔的侧向连接与上采样，上右区域](images/03-example.svg#textbook-detail-1-2)
+
+![特征金字塔的侧向连接与上采样，下左区域](images/03-example.svg#textbook-detail-2-1)
+
+![特征金字塔的侧向连接与上采样，下右区域](images/03-example.svg#textbook-detail-2-2)
+
+</details>
+
 
 **读图与计算。** 图把通道投影之后的一个通道单独展开：低分辨率矩阵为 $`\begin{bmatrix}1&2\\3&4\end{bmatrix}`$，最近邻上采样把每个值复制到一个 $`2\times2`$ 区域。侧向分支在原来的高分辨率坐标上提供一个由零和一组成的折线。两者逐点相加，例如第三行第二列是 $`3+1=4`$，而第四行第二列仍是 $`3+0=3`$。这两个位置在粗特征中原本无法区分，融合后仍可保留侧向分支提供的差别。
 
@@ -414,6 +508,20 @@ print('patch projection equality and dimensional bottleneck verified')
 ### 图解：视觉分块把空间网格转成 token 序列
 
 ![视觉分块把空间网格转成 token 序列](images/03-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![视觉分块把空间网格转成 token 序列，上左区域](images/03-mechanism.svg#textbook-detail-1-1)
+
+![视觉分块把空间网格转成 token 序列，上右区域](images/03-mechanism.svg#textbook-detail-1-2)
+
+![视觉分块把空间网格转成 token 序列，下左区域](images/03-mechanism.svg#textbook-detail-2-1)
+
+![视觉分块把空间网格转成 token 序列，下右区域](images/03-mechanism.svg#textbook-detail-2-2)
+
+</details>
+
 
 **逐项复算块投影。** 图使用单通道 $`4\times4`$ 输入和 $`2\times2`$ 不重叠分块，专门把数字缩小到能手算；上方实验仍是三通道、块边长四的独立等价性验证。四块按左上、右上、左下、右下排列，每块按行展开。共享投影为
 

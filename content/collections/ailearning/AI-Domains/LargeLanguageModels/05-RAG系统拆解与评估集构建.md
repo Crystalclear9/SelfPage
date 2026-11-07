@@ -279,6 +279,20 @@ print('diagnostic oracle / minimum bundle cost:', oracle_output, minimum_cost)
 
 ![同一规则库公开与私有两跳事实、版本分支及q4的最小证据成本](images/05-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一规则库公开与私有两跳事实、版本分支及q4的最小证据成本，上左区域](images/05-concept.svg#textbook-detail-1-1)
+
+![同一规则库公开与私有两跳事实、版本分支及q4的最小证据成本，上右区域](images/05-concept.svg#textbook-detail-1-2)
+
+![同一规则库公开与私有两跳事实、版本分支及q4的最小证据成本，下左区域](images/05-concept.svg#textbook-detail-2-1)
+
+![同一规则库公开与私有两跳事实、版本分支及q4的最小证据成本，下右区域](images/05-concept.svg#textbook-detail-2-2)
+
+</details>
+
+
 图中使用刚运行的四道问题。先沿蓝色公开链读出连接：`member` 只说明 Orion 采用 blue；`blue-new` 只说明 blue 保留十四日，二者合在一起才支持项目的保留期限。到时点三，项目关系不变，规则换成 `blue-old`，所以 q3 的答案是七。时点五是旧版本右开、新版本左闭的交界；这不是两个版本同时投票决定答案。
 
 橙色私有链还要结合四道问题的阶段身份来读。q1 与 q3 都在允许库、候选和上下文中有完整连接；q4 的允许库包含 `secret-member` 与 `secret-rule`，但第二条没进入前四个候选。q2 与 q4 问的都是 Nebula，却具有不同权限：组 A 的允许库根本没有这两条私有事实，组 B 则拥有它们。因而相同的“未知”输出，在 q2 上符合证据范围，在 q4 上暴露可答任务未完成。这里的“不适用”表示不把无权限问题塞进条件充分召回的分母，不表示该请求没有实际执行检索。
@@ -328,19 +342,59 @@ $$
 
 ![多条证据的联合召回](images/05-joint-evidence-recall.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![多条证据的联合召回，上左区域](images/05-joint-evidence-recall.svg#textbook-detail-1-1)
+
+![多条证据的联合召回，上右区域](images/05-joint-evidence-recall.svg#textbook-detail-1-2)
+
+![多条证据的联合召回，下左区域](images/05-joint-evidence-recall.svg#textbook-detail-2-1)
+
+![多条证据的联合召回，下右区域](images/05-joint-evidence-recall.svg#textbook-detail-2-2)
+
+</details>
+
+
 **把两份证据的例子扩展到四份必需证据。** 仍取一百道题，每份证据各漏十题。若四份证据漏检的题组彼此不重叠，共有四十题缺至少一份，完整覆盖只有六十题；若四份总在同十题上漏检，则其余九十题全部完整。底部每格代表十题，着色部分只表示完整覆盖的题数，不把单份召回画成完整覆盖。
 
 一般地，四个事件的交集概率至少为 $`\max(0,\sum_{j=1}^4P(E_j)-3)`$，至多为其中最小的边缘概率；各为 $`0.9`$ 时就是 $`[0.6,0.9]`$。独立假设下的 $`0.9^4=0.6561`$ 是区间内的一个模型值，不能只凭四个边缘召回率推出。多跳评估应直接标注每题的必需证据集合并测完整覆盖。
 
-**先看相关性，再谈乘积。** 图中每个格表示一道人工问题，左、右半格分别记录 A、B 两条必要证据是否召回。蓝绿色表示命中，浅灰色表示缺失。三种安排中，A 和 B 都各在九十题出现；第一种同成同败，完整九十题；第二种表格计数为八十一题都命中、各九题只命中一条、一题都缺失，恰好匹配独立联合分布；第三种两组十题错失互不重合，只剩八十题完整。它们是精确构造的计数安排，不是一次随机实验的置信区间。仅由两个边际可得 $`\max(0,r_A+r_B-1)\le P(A\cap B)\le\min(r_A,r_B)`$，因此这里的范围是零点八到零点九。
+**先看相关性，再谈乘积。** 图中每个格表示一道人工问题，左、右半格分别记录 A、B 两条必要证据是否召回。蓝绿色表示命中，浅灰色表示缺失。三种安排中，A 和 B 都各在九十题出现；第一种同成同败，完整九十题；第二种表格计数为八十一题都命中、各九题只命中一条、一题都缺失，恰好匹配独立联合分布；第三种两组十题错失互不重合，只剩八十题完整。它们是精确构造的计数安排，不是一次随机实验的置信区间。仅由两个边际可得
+
+$$
+\begin{aligned}
+&\max(0,r_A+r_B-1)\le P(A\cap B)\\
+&\quad \le\min(r_A,r_B)
+\end{aligned}
+$$
+
+因此这里的范围是零点八到零点九。
 
 推广到一题必须同时使用 h 条证据，只有各召回事件独立且概率同为 r 时，证据齐全概率才为 rʰ。每条 0.9，在四条证据时只有 0.6561；每条 0.99 时对应 $`0.99^4=0.96059601`$，而八条时两者分别约为 $`0.430467`$ 与 $`0.922745`$。只统计平均单条召回会掩盖这种下降。真实检索相关性可能使乘积假设失效，应按问题直接判定最小充分证据集是否齐全，并检查同版本、权限与上下文装箱。
 
 $$
-P(E_1\cap\cdots\cap E_h)=r^h\quad\text{（本例假设各证据的召回事件独立）}.
+\begin{aligned}
+&P(E_1\cap\cdots\cap E_h)=r^h\\
+&\text{本例假设各证据的召回事件独立。}
+\end{aligned}
 $$
 
 ![固定预算下的互补证据选择](images/05-complementary-evidence-budget.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![固定预算下的互补证据选择，上左区域](images/05-complementary-evidence-budget.svg#textbook-detail-1-1)
+
+![固定预算下的互补证据选择，上右区域](images/05-complementary-evidence-budget.svg#textbook-detail-1-2)
+
+![固定预算下的互补证据选择，下左区域](images/05-complementary-evidence-budget.svg#textbook-detail-2-1)
+
+![固定预算下的互补证据选择，下右区域](images/05-complementary-evidence-budget.svg#textbook-detail-2-2)
+
+</details>
+
 
 上下两条长度标尺相同，表示扣除模板、问题和输出预留后的同一证据预算。上方长片段虽然相关，却只包含事实 A；预算已用完，缺少推理所需的事实 B。下方分别放入短 A 和短 B，两个事实互相补足，才形成图右的支持关系。片段长度只是教学构造，不是实测检索分数。
 
@@ -465,6 +519,20 @@ print('snapshot, scope, time and packing changes cannot hit the same cache entry
 
 ![Orion 的方案关系与时长规则怎样联合支持回答，以及遗漏关系与加入无关规则的对照](images/05-claim-citation-joins.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![Orion 的方案关系与时长规则怎样联合支持回答，以及遗漏关系与加入无关规则的对照，上左区域](images/05-claim-citation-joins.svg#textbook-detail-1-1)
+
+![Orion 的方案关系与时长规则怎样联合支持回答，以及遗漏关系与加入无关规则的对照，上右区域](images/05-claim-citation-joins.svg#textbook-detail-1-2)
+
+![Orion 的方案关系与时长规则怎样联合支持回答，以及遗漏关系与加入无关规则的对照，下左区域](images/05-claim-citation-joins.svg#textbook-detail-2-1)
+
+![Orion 的方案关系与时长规则怎样联合支持回答，以及遗漏关系与加入无关规则的对照，下右区域](images/05-claim-citation-joins.svg#textbook-detail-2-2)
+
+</details>
+
+
 固定 q1、时点六和组 A，回答命题是“Orion 的日志保留十四日”。只引 `blue-new`，读者知道 blue 的时长，却不知道 Orion 是否采用 blue；只引 `member`，读者知道采用方案，却不知道其期限。两者各自不充分，合起来才构成完整连接。一个简单的反模型检验是：只给 blue 规则时，把 Orion 所用方案改为其他方案，并不会违反该规则，但项目期限可以改变；所以这条规则单独不蕴含回答。把关系前提补齐后，这个自由度才被消除。
 
 这种联合支持不等于要求每一条引文独立证明整句。若逐条都要求完整支持，会错误惩罚合理的多跳证据。另一方面，在充分组合后附加 `green` 不会使回答变错，却增加一条与这个项目期限无关的来源；完整支持率与无关引用比例于是可以给出不同评价。重复的 `member-copy` 则仍表达同一条有效关系，不应仅因冗余就自动判作错误引用。
@@ -528,6 +596,20 @@ $$
 
 ![同一 q4 在不同候选数、预算与打包策略下的实际证据可达性](images/05-mechanism.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一 q4 在不同候选数、预算与打包策略下的实际证据可达性，上左区域](images/05-mechanism.svg#textbook-detail-1-1)
+
+![同一 q4 在不同候选数、预算与打包策略下的实际证据可达性，上右区域](images/05-mechanism.svg#textbook-detail-1-2)
+
+![同一 q4 在不同候选数、预算与打包策略下的实际证据可达性，下左区域](images/05-mechanism.svg#textbook-detail-2-1)
+
+![同一 q4 在不同候选数、预算与打包策略下的实际证据可达性，下右区域](images/05-mechanism.svg#textbook-detail-2-2)
+
+</details>
+
+
 本图不用假定形状的效用曲线，而是逐格运行正文的 `pack` 与 `read`。固定 q4 的合法库和完整排名，前五名分别为 `secret-member`、`blue-new`、`member`、`member-copy`、`secret-rule`，成本依次是四十四、三十八、三十七、四十二、四十。结果分成三个层次：
 
 | 改动 | 候选包含完整证据吗 | 实际保留上下文 | 读取结果 |
@@ -543,9 +625,10 @@ $$
 一百五十九从哪里来？在保留 `secret-member` 后，预算至少八十二时会装入 `blue-new`；预算至少一百一十九时又装入 `member`；`member-copy` 因重复跳过，之后才轮到成本四十的 `secret-rule`。于是当前前五名顺序下，贪心首次能够保留完整证据的预算为
 
 $$
-B_{\mathrm{greedy}}=44+38+37+40=159,
-\qquad
-B_{\mathrm{sufficient}}=44+40=84.
+\begin{aligned}
+&B_{\mathrm{greedy}}=44+38+37+40=159,\\
+&\quad B_{\mathrm{sufficient}}=44+40=84.
+\end{aligned}
 $$
 
 对所有低于八十四的预算，完整证据自身就放不下。对八十四到一百一十八，前两块占八十二，第三块放不下，规则还需总成本一百二十二，因而仍失败；到一百一十九时第三块却先变得可装入，又把总需求推到一百五十九。这也说明“只差四字符”只描述最低充分组合与原预算之间的差距，不能描述现有算法所需的实际修复幅度。图中的一百五十九是这一个小语料、固定顺序和装箱规则的精确阈值，不是 RAG 的通用预算。
@@ -647,10 +730,12 @@ $$
 若 $`\epsilon>0`$，再定义被删部分的回答混合分布 $`p_R`$，原分布恰好为 $`p=(1-\epsilon)p_S+\epsilon p_R`$。对离散回答空间，总变差距离满足
 
 $$
-\mathrm{TV}(p,p_S)
-=\frac12\sum_y\vert p(y)-p_S(y)\vert
-=\epsilon\mathrm{TV}(p_R,p_S)
+\begin{aligned}
+&\mathrm{TV}(p,p_S)
+=\frac12\sum_y\vert p(y)-p_S(y)\vert\\
+&\quad =\epsilon\mathrm{TV}(p_R,p_S)
 \leq\epsilon.
+\end{aligned}
 $$
 
 这里没有假设各证据相互独立，关键是混合权重确实是概率、条件分布正确归一化，并且比较时条件模型没有随截断改变。若保留部分总回答为甲、删除部分总回答为乙且两者不同，总变差恰为删去质量，说明一般情况下不能把该界进一步缩成更小常数。若删去部分和保留部分具有完全相同回答分布，误差又恰为零；删掉多少检索概率并不唯一决定回答变化。
@@ -914,6 +999,20 @@ $$
 **固定读取器也能出现下降的条件分数。** 取一百道题，其中八十道容易、二十道困难。假设在充分上下文下，读取器在容易题上的成功率固定为百分之九十，困难题固定为百分之四十，并假设两版检索在各难度层内没有额外选择偏差。原检索只覆盖四十道容易题，得到三十六次成功；新检索覆盖所有题，得到 $`80\times0.9+20\times0.4=80`$ 次成功。可把这些整数视作本例预设的观测计数。
 
 ![同一总体上，条件读取正确率与最终正确率的变化](images/05-conditional-composition.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![同一总体上，条件读取正确率与最终正确率的变化，上左区域](images/05-conditional-composition.svg#textbook-detail-1-1)
+
+![同一总体上，条件读取正确率与最终正确率的变化，上右区域](images/05-conditional-composition.svg#textbook-detail-1-2)
+
+![同一总体上，条件读取正确率与最终正确率的变化，下左区域](images/05-conditional-composition.svg#textbook-detail-2-1)
+
+![同一总体上，条件读取正确率与最终正确率的变化，下右区域](images/05-conditional-composition.svg#textbook-detail-2-2)
+
+</details>
+
 
 原条件分数为 $`\frac{36}{40}=0.9`$，新条件分数为 $`\frac{80}{100}=0.8`$，而总体正确率从 $`0.36`$ 提高到 $`0.8`$。两种难度上的读取器都没有退化，下降来自条件人群改变。按难度 $`d`$ 展开就能看出权重来源：
 

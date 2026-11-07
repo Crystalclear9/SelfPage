@@ -221,6 +221,28 @@ print('good/bad/shared gradients',good_grad.tolist(),bad_grad.tolist(),shared_gr
 
 ![旧策略分母必须固定，重算分母会抹掉真实概率比](images/04-insight.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，上左区域](images/04-insight.svg#textbook-detail-1-1)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，上右区域](images/04-insight.svg#textbook-detail-1-3)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，中左区域](images/04-insight.svg#textbook-detail-2-1)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，中中区域](images/04-insight.svg#textbook-detail-2-2)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，中右区域](images/04-insight.svg#textbook-detail-2-3)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，下左区域](images/04-insight.svg#textbook-detail-3-1)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，下中区域](images/04-insight.svg#textbook-detail-3-2)
+
+![旧策略分母必须固定，重算分母会抹掉真实概率比，下右区域](images/04-insight.svg#textbook-detail-3-3)
+
+</details>
+
+
 **局部曲线解释了 stop 的真实含义。** 图 A 在 $`\theta_0=\log4`$ 附近比较两个分母都保持常数的函数；蓝线用真正保存的0.5，橙线用当前求导点分离出来的0.8。因此当前点两条切线斜率分别为零和0.2。橙线只表示这一点的自动微分局部函数；下一次重新前向时 stop 值又会更新，不能把它解读成整个训练期间始终冻结0.8。图 B 再将完全不分离的 $`\frac{p}{p}`$ 纳入对照；这种情况前向同为一，导数却为零。
 
 图把同一动作的旧行为概率固定为 $`0.5`$、当前概率固定为 $`p=\sigma(\theta)=0.8`$，并取正优势一、裁剪宽度 $`0.2`$。这是便于手算的独立参数点；实验一采用另外的两 logit 初值，检验的是同一机制。第一行使用保存的旧概率，得到比率 $`1.6`$，最大化目标 $`\min(1.6,1.2)=1.2`$；该样本已进入有利变化平台，故对 $`\theta`$ 的局部导数为零。
@@ -565,6 +587,20 @@ PPO 实验记录应包含完整代码、有效配置、实际结果与限制，�
 
 ![两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换](images/04-scientific-plate.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换，上左区域](images/04-scientific-plate.svg#textbook-detail-1-1)
+
+![两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换，上右区域](images/04-scientific-plate.svg#textbook-detail-1-2)
+
+![两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换，下左区域](images/04-scientific-plate.svg#textbook-detail-2-1)
+
+![两策略在三动作单纯形上共享 p(A) = 0.20，B 和 C 的概率互换，下右区域](images/04-scientific-plate.svg#textbook-detail-2-2)
+
+</details>
+
+
 三角形的三个顶点分别代表给一个动作分配全部概率。沿紫色横线移动时，点到底边的高度始终是总高的 $`0.20`$，因此两策略的采样动作 $`A`$ 概率都是 $`0.20`$，比值为一。图上的点按表中三个概率对顶点加权定位。此时 $`B`$ 与 $`C`$ 的概率互换，$`D_{\mathrm{KL}}(\pi_{\mathrm{old}}\|\pi_{\mathrm{new}})=0.70\log 15\approx1.896`$。读图时要分别检查采样动作的比值和整组概率的变化。
 
 旧概率很小的动作可以获得很大比率，而总概率仍合法。例如旧质量百分之一变为一成，比率十；其他动作的比率只略低于一。有限采样可能很少看到该稀有动作，监测覆盖受到限制。反过来，单个大比率也不自动代表整体任务失败，应结合概率质量、状态与回报分析。
@@ -761,8 +797,10 @@ print('clipped_values',values.tolist(),'full_KL',kl.tolist(),'entropy_regularize
 固定一个旧采样状态 $`s`$，并假设新策略的动作支持包含在旧策略支持内。对于不随参数求导的函数 $`f(s,a)`$，完整动作求和满足
 
 $$
-\sum_a\pi_{\mathrm{old}}(a\vert s)\frac{\pi_\theta(a\vert s)}{\pi_{\mathrm{old}}(a\vert s)}f(s,a)
-=\sum_a\pi_\theta(a\vert s)f(s,a).
+\begin{aligned}
+&\sum_a\pi_{\mathrm{old}}(a\vert s)\frac{\pi_\theta(a\vert s)}{\pi_{\mathrm{old}}(a\vert s)}f(s,a)\\
+&\quad =\sum_a\pi_\theta(a\vert s)f(s,a).
+\end{aligned}
 $$
 
 这里变换的只有条件动作分布。若状态本来按旧策略访问，外层仍是旧状态分布。过去动作改变了今天到达哪个状态，今天的单步动作比不能抹去过去的差异。PPO 替代目标有意保留旧访问并使用旧优势，以便从当前批构造可优化的局部目标；把这个近似描述成新策略真实回报的精确重要性估计，会越过成立条件。

@@ -75,6 +75,30 @@ CUDA 把工作组织成线程、线程块和网格，线程块内可以协作并
 
 ![连续访问与跨距访问落在不同段](images/04-scientific-plate.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![连续访问与跨距访问落在不同段，上左区域](images/04-scientific-plate.svg#textbook-detail-1-1)
+
+![连续访问与跨距访问落在不同段，上中区域](images/04-scientific-plate.svg#textbook-detail-1-2)
+
+![连续访问与跨距访问落在不同段，上右区域](images/04-scientific-plate.svg#textbook-detail-1-3)
+
+![连续访问与跨距访问落在不同段，中左区域](images/04-scientific-plate.svg#textbook-detail-2-1)
+
+![连续访问与跨距访问落在不同段，中中区域](images/04-scientific-plate.svg#textbook-detail-2-2)
+
+![连续访问与跨距访问落在不同段，中右区域](images/04-scientific-plate.svg#textbook-detail-2-3)
+
+![连续访问与跨距访问落在不同段，下左区域](images/04-scientific-plate.svg#textbook-detail-3-1)
+
+![连续访问与跨距访问落在不同段，下中区域](images/04-scientific-plate.svg#textbook-detail-3-2)
+
+![连续访问与跨距访问落在不同段，下右区域](images/04-scientific-plate.svg#textbook-detail-3-3)
+
+</details>
+
+
 四条示意 lane 读取连续的 float32 元素零到三时，落在同一个十六字节示意段；改成索引零、四、八、十二后，落在四段。图用人为简化的段大小解释地址聚集，四条 lane 与十六字节均不是真实 GPU warp 或事务规格。实际合并访问还受架构、对齐、缓存与指令访问宽度影响。
 
 矩阵乘法有较高复用潜力：一个输入元素可以参与许多乘加。分块把部分输入载入较近存储，再反复使用，从而减少外部显存访问。向量逐元素加法则几乎每次读取只产生少量计算，更容易受带宽限制。两者都能并行，但适合优化的方向不同。只比较浮点运算数量，容易误判哪个算子需要更长时间。
@@ -150,6 +174,20 @@ CPU 与 GPU 内存也要分开。把状态卸载到主机可以减少设备容�
 锁页主机内存与合适异步接口可以帮助某些传输路径，但不能把任何带有“非阻塞”参数的调用都理解为已经获得重叠。接口返回仅表示提交语义，结果在何时可安全读取仍由依赖决定。设备到主机的异步拷贝后立刻读取主机数组，也可能读取尚未完成的数据，必须建立完成条件。
 
 ![异步提交之后，依赖仍要明确建立](images/04-stream-event-dependency.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![异步提交之后，依赖仍要明确建立，上左区域](images/04-stream-event-dependency.svg#textbook-detail-1-1)
+
+![异步提交之后，依赖仍要明确建立，上右区域](images/04-stream-event-dependency.svg#textbook-detail-1-2)
+
+![异步提交之后，依赖仍要明确建立，下左区域](images/04-stream-event-dependency.svg#textbook-detail-2-1)
+
+![异步提交之后，依赖仍要明确建立，下右区域](images/04-stream-event-dependency.svg#textbook-detail-2-2)
+
+</details>
+
 
 横轴是示意时间：传输流在 0 到 2 复制输入，计算流 C 等待这次复制完成的事件，再于 2 到 5 使用设备输入。橙色竖箭头表示执行依赖；蓝色横条表示设备输入存储必须一直可供使用，直到消费完成。这两种关系不能互相替代，主机调用返回同样不代表设备已完成。
 
@@ -229,6 +267,30 @@ CPU 与 GPU 内存也要分开。把状态卸载到主机可以减少设备容�
 
 ![复制参数不等于重复消费同一批数据](images/04-mechanism.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![复制参数不等于重复消费同一批数据，上左区域](images/04-mechanism.svg#textbook-detail-1-1)
+
+![复制参数不等于重复消费同一批数据，上中区域](images/04-mechanism.svg#textbook-detail-1-2)
+
+![复制参数不等于重复消费同一批数据，上右区域](images/04-mechanism.svg#textbook-detail-1-3)
+
+![复制参数不等于重复消费同一批数据，中左区域](images/04-mechanism.svg#textbook-detail-2-1)
+
+![复制参数不等于重复消费同一批数据，中中区域](images/04-mechanism.svg#textbook-detail-2-2)
+
+![复制参数不等于重复消费同一批数据，中右区域](images/04-mechanism.svg#textbook-detail-2-3)
+
+![复制参数不等于重复消费同一批数据，下左区域](images/04-mechanism.svg#textbook-detail-3-1)
+
+![复制参数不等于重复消费同一批数据，下中区域](images/04-mechanism.svg#textbook-detail-3-2)
+
+![复制参数不等于重复消费同一批数据，下右区域](images/04-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
+
 图把副本数据并行展开为第 7.2 节可执行程序的五条记录。所有副本从 $`w=0.7`$ 出发，单样本平方损失的导数为 $`2x_i(wx_i-y_i)`$，依次得到 $`1.4,1.6,12.6,14.4,35`$。进程 A 负责前两条，贡献和为三；进程 B 负责后三条，贡献和为六十二。柱高表示导数，而不是损失或执行耗时。
 
 直接平均两个本地均值，得到 $`\frac{1.5+\frac{62}{3}}{2}\approx11.0833`$，给 A 中每条记录的权重是 $`\frac14`$，给 B 中每条的权重是 $`\frac16`$。声明的五条记录等权目标却应为 $`\frac{3+62}{5}=13`$，每条权重均为 $`\frac15`$。偏差是归约定义改变，不是不同设备间的随机舍入。
@@ -256,6 +318,20 @@ CPU 与 GPU 内存也要分开。把状态卸载到主机可以减少设备容�
 反向重叠意味着某些层的梯度已经就绪时开始通信，同时继续计算其他层。可隐藏的时间受依赖和资源限制：最后就绪的桶通常有无法隐藏的通信尾部；通信内核和反向也可能争用设备带宽。把全部反向时间与全部通信时间直接取最大值，是理想下界，需要进一步验证实际关键路径。
 
 ![同一数据块在四进程环形全归约中的累计与传播](images/04-ring-traffic.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![同一数据块在四进程环形全归约中的累计与传播，上左区域](images/04-ring-traffic.svg#textbook-detail-1-1)
+
+![同一数据块在四进程环形全归约中的累计与传播，上右区域](images/04-ring-traffic.svg#textbook-detail-1-2)
+
+![同一数据块在四进程环形全归约中的累计与传播，下左区域](images/04-ring-traffic.svg#textbook-detail-2-1)
+
+![同一数据块在四进程环形全归约中的累计与传播，下右区域](images/04-ring-traffic.svg#textbook-detail-2-2)
+
+</details>
+
 
 **底部将通信量继续拆成步数与每步负载。** 四卡环将完整张量 M 分成四块，归约分散与全收集各走三步，每一步每卡发送一块。沿用图中 M 等于十二个有效载荷单位，每卡总发送 $`2(4-1)\frac{12}{4}=18`$，全机发送七十二；如果同时统计接收量，会是另一套计数口径。
 
@@ -347,6 +423,30 @@ CPU 与 GPU 内存也要分开。把状态卸载到主机可以减少设备容�
 
 ![复制梯度与分片梯度的范数](images/04-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![复制梯度与分片梯度的范数，上左区域](images/04-concept.svg#textbook-detail-1-1)
+
+![复制梯度与分片梯度的范数，上中区域](images/04-concept.svg#textbook-detail-1-2)
+
+![复制梯度与分片梯度的范数，上右区域](images/04-concept.svg#textbook-detail-1-3)
+
+![复制梯度与分片梯度的范数，中左区域](images/04-concept.svg#textbook-detail-2-1)
+
+![复制梯度与分片梯度的范数，中中区域](images/04-concept.svg#textbook-detail-2-2)
+
+![复制梯度与分片梯度的范数，中右区域](images/04-concept.svg#textbook-detail-2-3)
+
+![复制梯度与分片梯度的范数，下左区域](images/04-concept.svg#textbook-detail-3-1)
+
+![复制梯度与分片梯度的范数，下中区域](images/04-concept.svg#textbook-detail-3-2)
+
+![复制梯度与分片梯度的范数，下右区域](images/04-concept.svg#textbook-detail-3-3)
+
+</details>
+
+
 **范数归约错误会怎样改变真实更新？** 右侧把上限固定为三，正确系数为 $`\min(1,\frac35)=0.6`$，得到梯度 $`(1.8,2.4)`$。若把两个完整副本的平方和再次相加，会误用 $`\sqrt{50}`$，得到的实际梯度范数只有 $`\frac3{\sqrt2}`$，比要求的三更小。分片场景若各卡先开方再相加，则误用七，真实范数变为 $`\frac{15}{7}`$。这不是仅在日志里多显示一个数：系数被用于全部坐标后，优化器接收的更新量已经改变。图中的圆只表示逻辑二维梯度的范数边界，不表示各设备都有一份半径为三的独立裁剪预算。
 
 **读图。** 左侧每个设备都持有完整梯度 (3,4)，只需按一份逻辑坐标计算平方和 25；把两个副本再相加会错误地得到 50。右侧设备 A 只持有第一个坐标 3，设备 B 只持有第二个坐标 4，必须先归约局部平方和 $`9+16=25`$，最后开方得到 5。先在各卡开方再相加得到 7，也不是全局 L2 范数。两种布局改变的是坐标存放位置，不改变逻辑梯度本身。
@@ -361,13 +461,30 @@ CPU 与 GPU 内存也要分开。把状态卸载到主机可以减少设备容�
 
 ![重计算用额外计算换取较短的激活驻留](images/04-advanced.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![重计算用额外计算换取较短的激活驻留，上左区域](images/04-advanced.svg#textbook-detail-1-1)
+
+![重计算用额外计算换取较短的激活驻留，上右区域](images/04-advanced.svg#textbook-detail-1-2)
+
+![重计算用额外计算换取较短的激活驻留，下左区域](images/04-advanced.svg#textbook-detail-2-1)
+
+![重计算用额外计算换取较短的激活驻留，下右区域](images/04-advanced.svg#textbook-detail-2-2)
+
+</details>
+
+
 图固定一个可手算函数，而不是给任意网络假定统一的重算时长。取 $`a=x^2`$、$`b=\sin a`$、$`L=b^2`$ 和输入 $`x=2`$，得到 $`a=4`$、$`b\approx-0.7568`$、$`L\approx0.57275`$。常规自动求导需要分别为平方、正弦及最后的平方保留相应输入 $`x,a,b`$。把 $`f(x)=\sin(x^2)`$ 包在非重入激活检查点内，长期只需保留边界输入 x 和外部损失仍需的 b；中间 a 不必一直驻留。
 
 反向进入这一段时，重新计算 $`a=2^2=4`$，就能恢复正弦导数所需的值。链式法则给出
 
 $$
-\frac{dL}{dx}=2b\,\cos(a)\,2x
-=8\sin(4)\cos(4)\approx3.9574329865.
+\begin{aligned}
+&\frac{dL}{dx}=2b\,\cos(a)\,2x
+=8\sin(4)\cos(4)\\
+&\quad \approx3.9574329865.
+\end{aligned}
 $$
 
 两种执行都得到该导数，区别是保存时间与额外执行。用当前受控 CPU 路径的保存张量钩子观察，普通方式保留三个非空标量；非重入检查点保留两个非空标量及一个零元素内部占位张量，函数在反向阶段再次进入。非重入实现可能在所需值已重建后提前停止，不能把“再次进入”理解为一定完整计算整个函数。这个极小账本只解释机制，不等于显存节省比例：对象开销、边界、输出、工作区与模型状态都需要另算。

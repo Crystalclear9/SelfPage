@@ -144,12 +144,50 @@ $$
 
 ![一次训练更新的状态依赖](images/04-one-sample-gradient-update.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![一次训练更新的状态依赖，上左区域](images/04-one-sample-gradient-update.svg#textbook-detail-1-1)
+
+![一次训练更新的状态依赖，上右区域](images/04-one-sample-gradient-update.svg#textbook-detail-1-2)
+
+![一次训练更新的状态依赖，下左区域](images/04-one-sample-gradient-update.svg#textbook-detail-2-1)
+
+![一次训练更新的状态依赖，下右区域](images/04-one-sample-gradient-update.svg#textbook-detail-2-2)
+
+</details>
+
+
 先沿前向依赖得到预测二与残差负三，再把残差分别乘输入二和偏置导数一，得到权重梯度负六、偏置梯度负三。采用半平方损失及学习率十分之一，同时更新后得到权重一点六、偏置零点三，新预测为三点五。这里使用单样本目标，批量平均、正则项与不同损失缩放都会改变梯度。
 
 
 **一次参数更新究竟改了什么，又为何受步长限制？** 左图从三个输入分量的乘积汇成旧预测和旧残差，再把同一残差分发给三个梯度分量；右图在这份固定旧梯度上比较不同步长。两部分对应同一次单样本计算，不是两条分别训练出来的曲线。
 
 ![训练器的一次完整更新](images/04-concept.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![训练器的一次完整更新，上左区域](images/04-concept.svg#textbook-detail-1-1)
+
+![训练器的一次完整更新，上中区域](images/04-concept.svg#textbook-detail-1-2)
+
+![训练器的一次完整更新，上右区域](images/04-concept.svg#textbook-detail-1-3)
+
+![训练器的一次完整更新，中左区域](images/04-concept.svg#textbook-detail-2-1)
+
+![训练器的一次完整更新，中中区域](images/04-concept.svg#textbook-detail-2-2)
+
+![训练器的一次完整更新，中右区域](images/04-concept.svg#textbook-detail-2-3)
+
+![训练器的一次完整更新，下左区域](images/04-concept.svg#textbook-detail-3-1)
+
+![训练器的一次完整更新，下中区域](images/04-concept.svg#textbook-detail-3-2)
+
+![训练器的一次完整更新，下右区域](images/04-concept.svg#textbook-detail-3-3)
+
+</details>
+
 
 **先固定旧梯度，再改变步长。** 本图使用同一样本 $`x=(1,2)`$、目标三、零初始参数和未加正则的半平方误差。旧残差为负三，三个参数 $`(w_1,w_2,b)`$ 的梯度分别为 $`(-3,-6,-3)`$；步长 $`\eta=0.1`$ 时，同时更新到 $`(0.3,0.6,0.3)`$，新预测为一点八，新损失为 $`\frac12(1.8-3)^2=0.72`$。
 
@@ -581,6 +619,30 @@ print("raw coefficients:", w_raw, "raw intercept:", b_raw)
 
 ![预处理只能从训练数据估计](images/04-advanced.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![预处理只能从训练数据估计，上左区域](images/04-advanced.svg#textbook-detail-1-1)
+
+![预处理只能从训练数据估计，上中区域](images/04-advanced.svg#textbook-detail-1-2)
+
+![预处理只能从训练数据估计，上右区域](images/04-advanced.svg#textbook-detail-1-3)
+
+![预处理只能从训练数据估计，中左区域](images/04-advanced.svg#textbook-detail-2-1)
+
+![预处理只能从训练数据估计，中中区域](images/04-advanced.svg#textbook-detail-2-2)
+
+![预处理只能从训练数据估计，中右区域](images/04-advanced.svg#textbook-detail-2-3)
+
+![预处理只能从训练数据估计，下左区域](images/04-advanced.svg#textbook-detail-3-1)
+
+![预处理只能从训练数据估计，下中区域](images/04-advanced.svg#textbook-detail-3-2)
+
+![预处理只能从训练数据估计，下右区域](images/04-advanced.svg#textbook-detail-3-3)
+
+</details>
+
+
 三条等单位数轴分别画出原始输入、合法中心化和泄漏中心化。蓝点始终是训练输入零与二的变换，橙点始终是同一个验证输入一百；连线让它的位移可以直接比较。仅按训练集拟合中心化参数时，均值为 1，验证样本 100 变成 99。若把验证样本也放进拟合，均值变为 34，验证结果就被改成 66；预处理已经使用了本应留作评价的数据。
 
 本图只演示减均值，没有执行标准差缩放。两组训练点的中心分别移到零与负三十三，这揭示了泄漏同时改变训练表示，并非只把验证数字改小。预处理拟合与应用的区别可对照 [scikit-learn 的数据泄漏说明](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage)。验证输入可以用于应用已拟合变换，却不能反向改变训练阶段的估计；测试集还应保持独立。
@@ -647,6 +709,30 @@ $$
 
 ![损失收敛并不总能唯一识别参数](images/04-nullspace-minimum-norm.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![损失收敛并不总能唯一识别参数，上左区域](images/04-nullspace-minimum-norm.svg#textbook-detail-1-1)
+
+![损失收敛并不总能唯一识别参数，上中区域](images/04-nullspace-minimum-norm.svg#textbook-detail-1-2)
+
+![损失收敛并不总能唯一识别参数，上右区域](images/04-nullspace-minimum-norm.svg#textbook-detail-1-3)
+
+![损失收敛并不总能唯一识别参数，中左区域](images/04-nullspace-minimum-norm.svg#textbook-detail-2-1)
+
+![损失收敛并不总能唯一识别参数，中中区域](images/04-nullspace-minimum-norm.svg#textbook-detail-2-2)
+
+![损失收敛并不总能唯一识别参数，中右区域](images/04-nullspace-minimum-norm.svg#textbook-detail-2-3)
+
+![损失收敛并不总能唯一识别参数，下左区域](images/04-nullspace-minimum-norm.svg#textbook-detail-3-1)
+
+![损失收敛并不总能唯一识别参数，下中区域](images/04-nullspace-minimum-norm.svg#textbook-detail-3-2)
+
+![损失收敛并不总能唯一识别参数，下右区域](images/04-nullspace-minimum-norm.svg#textbook-detail-3-3)
+
+</details>
+
+
 只用一个样本，取设计行 `[1, 1]`、目标 1，省略偏置。满足 `w1 + w2 = 1` 的参数都能精确拟合，图 A橙线标出整个零损失集合。图 B仅在这条零损失线上比较参数范数平方，最小点是(0.5,0.5)，其他点仍可有相同预测。这里的最小范数选择可由相应伪逆解或零初始化、合适步长的梯度下降得到；有限强度岭回归一般还会改变预测，不能说它总在零损失直线上选点。
 
 继续阅读：[NumPy最小二乘的最小范数约定](https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html)。
@@ -684,6 +770,30 @@ $$
 ### 图解：谱方向决定梯度下降收敛速度
 
 ![谱方向决定梯度下降收敛速度](images/04-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![谱方向决定梯度下降收敛速度，上左区域](images/04-mechanism.svg#textbook-detail-1-1)
+
+![谱方向决定梯度下降收敛速度，上中区域](images/04-mechanism.svg#textbook-detail-1-2)
+
+![谱方向决定梯度下降收敛速度，上右区域](images/04-mechanism.svg#textbook-detail-1-3)
+
+![谱方向决定梯度下降收敛速度，中左区域](images/04-mechanism.svg#textbook-detail-2-1)
+
+![谱方向决定梯度下降收敛速度，中中区域](images/04-mechanism.svg#textbook-detail-2-2)
+
+![谱方向决定梯度下降收敛速度，中右区域](images/04-mechanism.svg#textbook-detail-2-3)
+
+![谱方向决定梯度下降收敛速度，下左区域](images/04-mechanism.svg#textbook-detail-3-1)
+
+![谱方向决定梯度下降收敛速度，下中区域](images/04-mechanism.svg#textbook-detail-3-2)
+
+![谱方向决定梯度下降收敛速度，下右区域](images/04-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 **底部把同一次更新序列按谱方向拆开。** 本图固定 $`J(e)=\frac12(e_1^2+4e_2^2)`$、$`e(0)=(1,1)`$、步长 $`0.1`$，所以第六步的参数误差为 $`(0.9^6,0.6^6)\approx(0.531441,0.046656)`$。代回目标，慢方向平方约为 $`0.282430`$，快方向加权平方约为 $`0.008707`$，两项相加再除二，得到损失约 $`0.145568`$。
 

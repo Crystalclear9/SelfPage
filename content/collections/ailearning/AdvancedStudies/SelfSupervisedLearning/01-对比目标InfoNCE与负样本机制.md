@@ -123,6 +123,20 @@
 
 ![对比学习的正对与分母竞争](images/01-contrastive-positive-and-candidates.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![对比学习的正对与分母竞争，上左区域](images/01-contrastive-positive-and-candidates.svg#textbook-detail-1-1)
+
+![对比学习的正对与分母竞争，上右区域](images/01-contrastive-positive-and-candidates.svg#textbook-detail-1-2)
+
+![对比学习的正对与分母竞争，下左区域](images/01-contrastive-positive-and-candidates.svg#textbook-detail-2-1)
+
+![对比学习的正对与分母竞争，下右区域](images/01-contrastive-positive-and-candidates.svg#textbook-detail-2-2)
+
+</details>
+
+
 同一观测经过两次增强产生两个视图，共享编码器将它们变成一对正表示。其他来源视图提供分母中的竞争候选。在右侧标出的角色中，正例要和允许的候选一起参加相似度归一化，锚点自身应排除。
 
 增强定义了希望忽略的变化，过强裁剪也可能丢掉任务相关结构。
@@ -234,8 +248,10 @@ for N in [2,3,5]:
 图将本节刚枚举的二值模型展开，固定锚点 $`X=0`$，正样本条件概率为 $`(0.8,0.2)`$，负样本边缘为 $`(0.5,0.5)`$。候选数 $`N=2`$ 包含正样本。隐藏均匀索引 $`I`$ 后，候选集合的混合概率为
 
 $$
-Q(y_1,y_2)=\frac12p(y_1\mid X=0)p(y_2)
-+\frac12p(y_1)p(y_2\mid X=0).
+\begin{aligned}
+&Q(y_1,y_2)=\frac12p(y_1\mid X=0)p(y_2)\\
+&\quad +\frac12p(y_1)p(y_2\mid X=0).
+\end{aligned}
 $$
 
 例如候选为 $`(0,1)`$ 时，两项联合质量分别为 $`0.2`$ 和 $`0.05`$，总质量 $`0.25`$；因此第一个候选是正样本的后验概率为 $`\frac{0.2}{0.25}=0.8`$。等价地，用密度比 $`r(0)=1.6`$、$`r(1)=0.4`$ 归一化，也得到 $`\frac{1.6}{1.6+0.4}=0.8`$。候选相同时后验只能各半，模型再强也不能从相同观测中辨认索引。
@@ -244,7 +260,16 @@ $$
 
 图上方先固定候选 (0,1)，蓝色路径对应隐藏索引 I=1，橙色对应 I=2；每一路先乘索引先验，再乘相应的条件与边缘概率。下方四组条带把同一计算扩展到全部候选：短条的两色长度表示联合质量，使用统一比例尺，四条总质量合计为1；每条再除以自己的 Q，得到下层总长度为1的索引后验。两排长度对象不同，不能把归一化后的等长条误读成四种候选等概率。$`(0,0)`$ 最常见，但两个索引的贡献各为0.2，后验只能各半；$`(0,1)`$ 虽然总质量更小，却因0.2对0.05的不对称证据可以做到80%索引正确。候选常见与索引可分是不同问题。
 
-最优交叉熵不是四个后验熵的等权平均，而是 $`0.4H_b(0.5)+0.25H_b(0.8)+0.25H_b(0.2)+0.1H_b(0.5)`$，其中 $`H_b`$ 用自然对数。逐项加权得到前述 $`0.596774802`$，再从 $`\log2`$ 中减去才形成下界。密度比候选识别的出发点见 [CPC原论文第2.3节及附录A.1](https://arxiv.org/pdf/1807.03748)，本例通过完整枚举把其中的联合分布、后验与期望分别展开。
+最优交叉熵不是四个后验熵的等权平均，而是
+
+$$
+\begin{aligned}
+&0.4H_b(0.5)+0.25H_b(0.8)\\
+&\quad +0.25H_b(0.2)+0.1H_b(0.5)
+\end{aligned}
+$$
+
+其中 $`H_b`$ 用自然对数。逐项加权得到前述 $`0.596774802`$，再从 $`\log2`$ 中减去才形成下界。密度比候选识别的出发点见 [CPC原论文第2.3节及附录A.1](https://arxiv.org/pdf/1807.03748)，本例通过完整枚举把其中的联合分布、后验与期望分别展开。
 
 这种画法把候选生成、最优概率和理论下界接到同一组数字上；温度引起的梯度变化由后面的独立图解说明，语义信息是否保留则由第 11 节二元反例单独检验。
 
@@ -284,6 +309,20 @@ $$
 
 ![温度改变同一组相似度的竞争强度](images/01-mechanism.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![温度改变同一组相似度的竞争强度，上左区域](images/01-mechanism.svg#textbook-detail-1-1)
+
+![温度改变同一组相似度的竞争强度，上右区域](images/01-mechanism.svg#textbook-detail-1-2)
+
+![温度改变同一组相似度的竞争强度，下左区域](images/01-mechanism.svg#textbook-detail-2-1)
+
+![温度改变同一组相似度的竞争强度，下右区域](images/01-mechanism.svg#textbook-detail-2-2)
+
+</details>
+
+
 **按温度分组追踪导数。** 图 A 在同一尺度上比较两种温度的三个归一化概率。图 B 按相同颜色和顺序给出带符号导数，两组箭头共用零点和长度单位。负的正例导数意味着梯度下降会推高其相似度；正的负例导数意味着会推低其相似度。同一温度下三个导数相加均为零，对应所有分数共同平移时损失不变；这也是实现中检查候选轴是否弄错的一个必要核对，但它本身不足以证明整个编码器梯度正确。
 
 两个面板都保留三个候选，固定相似度 $`s=(1,0.8,0)`$，只有第一项是真正配对的正样本。概率为 $`p_j=\frac{\exp(\frac{s_j}{\tau})}{\sum_k\exp(\frac{s_k}{\tau})}`$；对单个查询的损失 $`\ell=-\ln p_1`$，相似度梯度为
@@ -302,6 +341,30 @@ $$
 ### 图解推导：相似度梯度如何变为查询向量的转动
 
 ![单位圆上的候选向量以及归一化去除径向梯度的投影](images/01-normalized-tangent-gradient.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，上左区域](images/01-normalized-tangent-gradient.svg#textbook-detail-1-1)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，上中区域](images/01-normalized-tangent-gradient.svg#textbook-detail-1-2)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，上右区域](images/01-normalized-tangent-gradient.svg#textbook-detail-1-3)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，中左区域](images/01-normalized-tangent-gradient.svg#textbook-detail-2-1)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，中中区域](images/01-normalized-tangent-gradient.svg#textbook-detail-2-2)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，中右区域](images/01-normalized-tangent-gradient.svg#textbook-detail-2-3)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，下左区域](images/01-normalized-tangent-gradient.svg#textbook-detail-3-1)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，下中区域](images/01-normalized-tangent-gradient.svg#textbook-detail-3-2)
+
+![单位圆上的候选向量以及归一化去除径向梯度的投影，下右区域](images/01-normalized-tangent-gradient.svg#textbook-detail-3-3)
+
+</details>
+
 
 **底部用共线候选检验投影的作用。** 另取单位查询与正键均为 $`(1,0)`$，唯一负键为 $`(-1,0)`$，温度一。正类概率为 $`\frac{e}{e+e^{-1}}\approx0.880797`$，对自由查询的梯度约为 $`(-0.238406,0)`$，沿径向非零。若查询由单位长度处的归一化映射产生，乘上 $`I-qq^T`$ 后该径向量完全消失，参数空间收到的查询梯度为零。
 
@@ -355,15 +418,30 @@ $$
 
 ![旧队列参与当前候选竞争，查询收到梯度，随后FIFO替换最旧键](images/01-queue-gradient-fifo.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![旧队列参与当前候选竞争，查询收到梯度，随后FIFO替换最旧键，上左区域](images/01-queue-gradient-fifo.svg#textbook-detail-1-1)
+
+![旧队列参与当前候选竞争，查询收到梯度，随后FIFO替换最旧键，上右区域](images/01-queue-gradient-fifo.svg#textbook-detail-1-2)
+
+![旧队列参与当前候选竞争，查询收到梯度，随后FIFO替换最旧键，下左区域](images/01-queue-gradient-fifo.svg#textbook-detail-2-1)
+
+![旧队列参与当前候选竞争，查询收到梯度，随后FIFO替换最旧键，下右区域](images/01-queue-gradient-fifo.svg#textbook-detail-2-2)
+
+</details>
+
+
 上方逐项对齐键向量、logit 和候选概率。下方单独画出队列在当前反向结束后如何替换条目。把队列机制缩到可手算的一步。容量为二的旧队列依次保存最旧键 $`k_A=(-1,0)`$、较新键 $`k_B=(0,1)`$；当前查询为 $`q=(1,0)`$，当前正键为 $`k_+=(1,0)`$。温度取一，三个候选按正键、旧键 A、旧键 B 排列，logits 是 $`(1,-1,0)`$，softmax 概率约为 $`(0.665241,0.090031,0.244728)`$。所有键都作为冻结数值参与这次损失，停止梯度没有把它们从候选集合移除。
 
 先把查询输出当自由向量，对单查询交叉熵求导：
 
 $$
-\nabla_q\ell
-=\sum_j p_j k_j-k_+
-=(0.665241-0.090031-1,\;0.244728)
-\approx(-0.424790,\;0.244728).
+\begin{aligned}
+&\nabla_q\ell=\sum_j p_j k_j-k_+\\
+&=(0.665241-0.090031-1,\;0.244728)\\
+&\approx(-0.424790,\;0.244728).
+\end{aligned}
 $$
 
 若删掉历史键 A 而非仅停止它的梯度，只剩正键与 B，梯度会变成约 $`(-0.268941,0.268941)`$；可见历史键即使没有自己的梯度，仍然改变在线查询的更新。回到原始编码器还须继续乘相应 Jacobian；若 $`q=\frac{z}{\|z\|}`$ 且当前 $`z=(1,0)`$，归一化会去掉第一坐标的径向梯度，传给原始查询的是 $`(0,0.244728)`$，不能把图中的自由查询导数直接当全部网络参数更新。
@@ -588,6 +666,20 @@ print('representation coordinate std',std.tolist())
 
 ![增强保留一比特，为什么仍可能丢掉全部语义](images/01-augmentation-semantic-information.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![增强保留一比特，为什么仍可能丢掉全部语义，上左区域](images/01-augmentation-semantic-information.svg#textbook-detail-1-1)
+
+![增强保留一比特，为什么仍可能丢掉全部语义，上右区域](images/01-augmentation-semantic-information.svg#textbook-detail-1-2)
+
+![增强保留一比特，为什么仍可能丢掉全部语义，下左区域](images/01-augmentation-semantic-information.svg#textbook-detail-2-1)
+
+![增强保留一比特，为什么仍可能丢掉全部语义，下右区域](images/01-augmentation-semantic-information.svg#textbook-detail-2-2)
+
+</details>
+
+
 令真实语义 $`Y`$ 和背景位 $`Z`$ 是两个独立公平硬币。第一种视图机制保留同一 $`Y`$，但独立重抽背景：$`V_1=(Y,Z_1)`$、$`V_2=(Y,Z_2)`$。两视图共享的只有一比特语义，所以 $`I(V_1;V_2)=H(Y)=1`$ bit。取共享表示 $`R=Y`$，左图只有两点，各占一半，语义可被无误读取。
 
 第二种机制保留背景，却把语义坐标分别随机化：$`V_1=(Y_1,Z)`$、$`V_2=(Y_2,Z)`$，其中新随机位独立于原始真实标签。此时两视图互信息仍是一比特，来自 $`Z`$；取共同表示 $`R=Z`$，得到右图四个等概率点。给定任一表示值，真实标签仍各半，因此任何分类器的最佳错误率都是 $`0.5`$，不限于线性探针。
@@ -609,8 +701,10 @@ print('representation coordinate std',std.tolist())
 **把“多了分布差异”定量写出来。** 设负样本独立来自 $`n(y)`$，并且在正样本可能出现的地方 $`n(y)>0`$。沿用本章候选数 $`N`$ 包含一个正样本的约定，最优分类分数对应密度比 $`\frac{p(y\mid x)}{n(y)}`$。此时能够直接证明的是
 
 $$
-\log N-L_{N,n}\le D_{\mathrm{KL}}(P_{XY}\Vert P_Xn)
-=I(X;Y)+D_{\mathrm{KL}}(P_Y\Vert n),
+\begin{aligned}
+&\log N-L_{N,n}\le D_{\mathrm{KL}}(P_{XY}\Vert P_Xn)\\
+&\quad =I(X;Y)+D_{\mathrm{KL}}(P_Y\Vert n),
+\end{aligned}
 $$
 
 其中 $`L_{N,n}`$ 是该候选生成机制下模型的总体交叉熵，单位为 nat。右端第二个等号来自 $`\log[\frac{p(y\mid x)}{n(y)}]=\log[\frac{p(y\mid x)}{p(y)}]+\log[\frac{p(y)}{n(y)}]`$ 后对联合分布取期望；假设相关散度有限，便可将两项分开。
@@ -618,9 +712,11 @@ $$
 第一个不等式也有完整来源。令 $`Q_j`$ 表示第 $`j`$ 个候选是正样本的联合分布，$`\bar Q=N^{-1}\sum_jQ_j`$，参考分布为 $`R=P_X\prod_i n(Y_i)`$。KL 的混合分解给出
 
 $$
-\frac1N\sum_jD_{\mathrm{KL}}(Q_j\Vert R)
-=\frac1N\sum_jD_{\mathrm{KL}}(Q_j\Vert \bar Q)
+\begin{aligned}
+&\frac1N\sum_jD_{\mathrm{KL}}(Q_j\Vert R)\\
+&\quad =\frac1N\sum_jD_{\mathrm{KL}}(Q_j\Vert \bar Q)
 +D_{\mathrm{KL}}(\bar Q\Vert R).
+\end{aligned}
 $$
 
 左边等于 $`D_{\mathrm{KL}}(P_{XY}\Vert P_Xn)`$，右边第一项等于候选索引与全部观测的互信息。任意分类器的交叉熵不少于条件熵，因此 $`\log N-L_{N,n}`$ 不超过这个索引互信息；再舍去非负的最后一项，即得结论。可见推导仍然成立，只是它控制的散度已经改变。
@@ -628,8 +724,10 @@ $$
 **零互信息却出现正数的反例。** 让 $`X`$ 与二值 $`Y`$ 独立，$`P_Y=(0.5,0.5)`$，故 $`I(X;Y)=0`$；取 $`n=(0.9,0.1)`$，并令 $`N=2`$。两个类别的最优密度比分别为 $`\frac{5}{9}`$ 和 $`5`$。按“正样本类别、负样本类别”枚举，类别相同的总概率为 $`0.5`$，分类损失为 $`\log2`$；正零负一的概率为 $`0.05`$，正确索引概率为 $`0.1`$；正一负零的概率为 $`0.45`$，正确索引概率为 $`0.9`$。于是
 
 $$
-L^*_{2,n}=0.5\log2-0.05\log0.1-0.45\log0.9
-\approx0.509115,
+\begin{aligned}
+&L^*_{2,n}=0.5\log2-0.05\log0.1-0.45\log0.9\\
+&\quad \approx0.509115,
+\end{aligned}
 $$
 
 故 $`\log2-L^*_{2,n}\approx0.184032>0`$。这不违反理论，因为 $`D_{\mathrm{KL}}(P_Y\Vert n)=\log(\frac{5}{3})\approx0.510826`$：分类器只需识别正负来源的边缘分布差异，就能优于随机选择，完全无需锚点信息。若仍把这个正数当成真实互信息下界，就会得出错误结论。

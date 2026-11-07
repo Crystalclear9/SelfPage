@@ -134,6 +134,20 @@ Shell 中每个命令都有退出状态，零通常表示成功，非零的具�
 
 ![两种管道成员结果及立即保存PIPESTATUS的区别](images/03-pipeline-status.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![两种管道成员结果及立即保存PIPESTATUS的区别，上左区域](images/03-pipeline-status.svg#textbook-detail-1-1)
+
+![两种管道成员结果及立即保存PIPESTATUS的区别，上右区域](images/03-pipeline-status.svg#textbook-detail-1-2)
+
+![两种管道成员结果及立即保存PIPESTATUS的区别，下左区域](images/03-pipeline-status.svg#textbook-detail-2-1)
+
+![两种管道成员结果及立即保存PIPESTATUS的区别，下右区域](images/03-pipeline-status.svg#textbook-detail-2-2)
+
+</details>
+
+
 图中箭头是数据管道，不表示三个进程必须按顺序结束。先沿同一行收集 A、B、C 的退出码，再按当前 Bash 选项计算整条管道的状态；启用 `pipefail` 后，[7,0,3] 选择右侧的 3，而不是左侧的 7。下半图把保存放在打印之前，因为打印本身会覆盖两种状态。
 
 第一行成员状态为 $`[7,0,0]`$，默认汇总为最后成员的零，开启 `pipefail` 后才变为七。第二行为 $`[7,0,3]`$，两种模式的汇总都为三；此时仅看总状态仍不知道左侧另有一个七。所谓“最右侧非零”按语法位置选择，不是按失败时刻选择，也不能直接解释为根因。
@@ -195,6 +209,20 @@ Shell 中每个命令都有退出状态，零通常表示成功，非零的具�
 
 ![清理只能删除当前任务确实拥有的资源](images/03-advanced.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![清理只能删除当前任务确实拥有的资源，上左区域](images/03-advanced.svg#textbook-detail-1-1)
+
+![清理只能删除当前任务确实拥有的资源，上右区域](images/03-advanced.svg#textbook-detail-1-2)
+
+![清理只能删除当前任务确实拥有的资源，下左区域](images/03-advanced.svg#textbook-detail-2-1)
+
+![清理只能删除当前任务确实拥有的资源，下右区域](images/03-advanced.svg#textbook-detail-2-2)
+
+</details>
+
+
 图把“清理当前任务”与“匹配临时后缀”分成两个集合：运行 17 在创建时只登记自己的 `run-17.tmp`，而目录扫描 `run-*.tmp` 还会选中运行 18 的文件。两者都像临时文件，却不能因此共享清理权限；已发布的 `result` 也不能按尝试结束就删除。例子中的判断依据是创建时保存的确切资源引用与状态，而不是 17 这个前缀具有某种系统保护能力。对于可以被并发替换的目录项，还需结合目录归属与适用操作约束，不能把一份旧路径列表误当成永远不会变化的对象证明。
 
 清理协议应记录本任务创建的确切资源，并只把这些资源放入清理集合。用宽泛的文件名模式代替所有权信息，可能把别的任务临时文件或已发布的共享结果也纳入清理。
@@ -209,9 +237,47 @@ Shell 中每个命令都有退出状态，零通常表示成功，非零的具�
 
 ![逐个等待才能取得每个作业状态](images/03-wait-per-process-status.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![逐个等待才能取得每个作业状态，上左区域](images/03-wait-per-process-status.svg#textbook-detail-1-1)
+
+![逐个等待才能取得每个作业状态，上右区域](images/03-wait-per-process-status.svg#textbook-detail-1-2)
+
+![逐个等待才能取得每个作业状态，下左区域](images/03-wait-per-process-status.svg#textbook-detail-2-1)
+
+![逐个等待才能取得每个作业状态，下右区域](images/03-wait-per-process-status.svg#textbook-detail-2-2)
+
+</details>
+
+
 三个作业分别以零、七、零结束，父进程逐个等待并保存对应状态，才知道第二个作业失败。不能用最后一个成功状态代表全部任务成功，也不能假设无参数 wait 会替我们汇总每个失败。图中的状态值是教学构造，实际脚本还要考虑信号退出、启动失败与任务身份。 底部是状态记录的顺序示意，PID1等代表实际进程号；这里用的是Bash内建wait，并非C语言waitpid的直接返回值。
 
 ![后台作业需要逐个等待](images/03-concept.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![后台作业需要逐个等待，上左区域](images/03-concept.svg#textbook-detail-1-1)
+
+![后台作业需要逐个等待，上中区域](images/03-concept.svg#textbook-detail-1-2)
+
+![后台作业需要逐个等待，上右区域](images/03-concept.svg#textbook-detail-1-3)
+
+![后台作业需要逐个等待，中左区域](images/03-concept.svg#textbook-detail-2-1)
+
+![后台作业需要逐个等待，中中区域](images/03-concept.svg#textbook-detail-2-2)
+
+![后台作业需要逐个等待，中右区域](images/03-concept.svg#textbook-detail-2-3)
+
+![后台作业需要逐个等待，下左区域](images/03-concept.svg#textbook-detail-3-1)
+
+![后台作业需要逐个等待，下中区域](images/03-concept.svg#textbook-detail-3-2)
+
+![后台作业需要逐个等待，下右区域](images/03-concept.svg#textbook-detail-3-3)
+
+</details>
+
 
 **底部检验等待是否还保存了失败证据。** 三个后台作业状态为零、七、零。在 Bash 中，不带参数的 `wait` 会等待当前作业并返回零，不能把这个状态解释成所有成员都返回零。应逐个等待已记录的 PID，立刻保存各自结果，再按“任何成员失败即整批失败”等明确政策汇总。
 
@@ -648,6 +714,30 @@ print("subshell boundary assertions passed")
 第一次操作究竟有没有发生，为什么不能由超时推出？先看确认丢失前已经写下的业务记录，再比较重试时服务端是否还能识别同一次意图。
 
 ![重试不是幂等：重复追加会重复副作用](images/03-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![重试不是幂等：重复追加会重复副作用，上左区域](images/03-mechanism.svg#textbook-detail-1-1)
+
+![重试不是幂等：重复追加会重复副作用，上中区域](images/03-mechanism.svg#textbook-detail-1-2)
+
+![重试不是幂等：重复追加会重复副作用，上右区域](images/03-mechanism.svg#textbook-detail-1-3)
+
+![重试不是幂等：重复追加会重复副作用，中左区域](images/03-mechanism.svg#textbook-detail-2-1)
+
+![重试不是幂等：重复追加会重复副作用，中中区域](images/03-mechanism.svg#textbook-detail-2-2)
+
+![重试不是幂等：重复追加会重复副作用，中右区域](images/03-mechanism.svg#textbook-detail-2-3)
+
+![重试不是幂等：重复追加会重复副作用，下左区域](images/03-mechanism.svg#textbook-detail-3-1)
+
+![重试不是幂等：重复追加会重复副作用，下中区域](images/03-mechanism.svg#textbook-detail-3-2)
+
+![重试不是幂等：重复追加会重复副作用，下右区域](images/03-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 两侧都从首次请求刚到达、尚未写入的状态开始。第二行让服务方完成写入，再故意丢掉返回确认；调用方因此无法区分“未执行”与“已执行但未收到答复”。左侧普通追加在重试后产生两份 k；右侧单独显示业务记录与键账本。具有约定去重能力的服务按同一调用者与请求键识别重复，再返回已有结果，仍只有一份业务写入。它不是简单把本地日志改写成成功，也不是发现相同参数就一律拒绝用户创建第二份合法资源。
 

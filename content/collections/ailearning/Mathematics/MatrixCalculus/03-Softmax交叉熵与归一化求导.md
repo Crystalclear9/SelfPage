@@ -97,6 +97,20 @@ $$
 
 ![Softmax让类别共同变化](images/03-softmax-shared-normalizer.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![Softmax让类别共同变化，上左区域](images/03-softmax-shared-normalizer.svg#textbook-detail-1-1)
+
+![Softmax让类别共同变化，上右区域](images/03-softmax-shared-normalizer.svg#textbook-detail-1-2)
+
+![Softmax让类别共同变化，下左区域](images/03-softmax-shared-normalizer.svg#textbook-detail-2-1)
+
+![Softmax让类别共同变化，下右区域](images/03-softmax-shared-normalizer.svg#textbook-detail-2-2)
+
+</details>
+
+
 共同分母把各类别耦合，单独提高一个分数会改变其他类别概率。分数本身无需相加为一，概率总和才受约束。图中第一个分数从零提高到 $`\ln 2`$，对应概率从 $`(\frac13,\frac13,\frac13)`$ 变为 $`(\frac12,\frac14,\frac14)`$。局部敏感度由雅可比给出。
 
 对角项为 $`p_i(1-p_i)`$，非对角项为 $`-p_ip_k`$。这同时解释本类增强和跨类抑制。矩阵形式是 $`J=\mathrm{diag}(p)-pp^T`$，其中 $`J_{ik}`$ 表示第几个输出对第几个输入求导。这里雅可比对称是一种特殊结构，不能据此把所有网络层的雅可比方向任意颠倒。
@@ -221,8 +235,10 @@ $$
 取固定软标签 $`q=(0.9,0.1)`$、非负类别权重 $`w=(1,9)`$。逐类别相乘得到 $`r=w\odot q=(0.9,0.9)`$，其总质量 $`a=1.8`$。设第一类预测概率为 $`p_1=p`$，则未作批量归约的单样本损失为
 
 $$
-L_w(p)=-0.9\ln p-0.9\ln(1-p)
-=1.8\left[-\frac12\ln p-\frac12\ln(1-p)\right].
+\begin{aligned}
+&L_w(p)=-0.9\ln p-0.9\ln(1-p)\\
+&\quad =1.8\left[-\frac12\ln p-\frac12\ln(1-p)\right].
+\end{aligned}
 $$
 
 所以被拟合的归一目标变为 $`\frac r a=(0.5,0.5)`$，而不是原标签 $`q`$。原始交叉熵在 $`p=0.9`$ 最小；加权后的曲线在 $`p=0.5`$ 最小。比较图中两条曲线时，纵轴同时受到总质量缩放影响，不能把损失数值的大小当作模型质量的直接比较；这里要观察的是**最小点的位置**。
@@ -230,8 +246,10 @@ $$
 再在 logits 空间核对一次。令 $`d=z_1-z_2`$，则 $`p=\sigma(d)`$，有
 
 $$
-\frac{dL_w}{dd}=1.8\sigma(d)-0.9,\qquad
-\frac{d^2L_w}{dd^2}=1.8\sigma(d)[1-\sigma(d)]>0
+\begin{aligned}
+&\frac{dL_w}{dd}=1.8\sigma(d)-0.9,\\
+&\quad \frac{d^2L_w}{dd^2}=1.8\sigma(d)[1-\sigma(d)]>0
+\end{aligned}
 $$
 
 对所有有限 $`d`$ 成立。因此最优差值为零，且差值坐标中的最优点唯一；两个 logits 仍能共同加任意常数，不能宣称整个 logits 向量有唯一解。在原始匹配点 $`p=q`$、即 $`d=\ln9`$ 处，正确梯度是 $`\nabla_zL_w=1.8p-r=(0.72,-0.72)`$。如果误写成 $`p-q`$，会错误地让这个本应继续更新的位置梯度为零。
@@ -367,6 +385,20 @@ $$
 ### 图解：中心化让不同样本的梯度发生耦合
 
 ![中心化投影与全部单位方向的输出增益](images/03-extension.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![中心化投影与全部单位方向的输出增益，上左区域](images/03-extension.svg#textbook-detail-1-1)
+
+![中心化投影与全部单位方向的输出增益，上右区域](images/03-extension.svg#textbook-detail-1-2)
+
+![中心化投影与全部单位方向的输出增益，下左区域](images/03-extension.svg#textbook-detail-2-1)
+
+![中心化投影与全部单位方向的输出增益，下右区域](images/03-extension.svg#textbook-detail-2-2)
+
+</details>
+
 
 两元素中心化矩阵为
 
@@ -537,9 +569,11 @@ print('autograd gradient and Hessian-vector checks passed')
 由 $`\nabla A=p`$ 可得 $`\nabla^2A=J`$。对任意向量 $`v`$，有
 
 $$
-v^TJv=\sum_i p_iv_i^2-\left(\sum_i p_iv_i\right)^2
-=\sum_i p_i(v_i-\bar v)^2\geq0,
-\quad \bar v=\sum_i p_iv_i.
+\begin{aligned}
+&v^TJv=\sum_i p_iv_i^2-\left(\sum_i p_iv_i\right)^2\\
+&\quad =\sum_i p_i(v_i-\bar v)^2\geq0,\\
+&\quad \bar v=\sum_i p_iv_i.
+\end{aligned}
 $$
 
 这正是以类别概率为权重的方差。因此固定非负目标质量且总质量为正时，交叉熵在 logits 空间凸。当所有概率严格为正，方差为零等价于所有 $`v_i`$ 相同，零空间恰为常数方向，秩为类别数减一。

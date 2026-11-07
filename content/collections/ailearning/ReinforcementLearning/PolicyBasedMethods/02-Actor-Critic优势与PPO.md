@@ -131,6 +131,20 @@ Actor–Critic 是方法框架，不是单一损失。可以使用单步时序�
 
 ![同一轨迹分成两条求导路径](images/02-value-and-policy-gradient-paths.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一轨迹分成两条求导路径，上左区域](images/02-value-and-policy-gradient-paths.svg#textbook-detail-1-1)
+
+![同一轨迹分成两条求导路径，上右区域](images/02-value-and-policy-gradient-paths.svg#textbook-detail-1-2)
+
+![同一轨迹分成两条求导路径，下左区域](images/02-value-and-policy-gradient-paths.svg#textbook-detail-2-1)
+
+![同一轨迹分成两条求导路径，下右区域](images/02-value-and-policy-gradient-paths.svg#textbook-detail-2-2)
+
+</details>
+
+
 同一段轨迹可以同时用于价值拟合和策略改进。上方由价值估计和轨迹中的奖励等信息构造优势；下方先对采样动作取对数策略梯度，再乘这个优势。红色标记只阻断梯度，不阻断优势数值流动。若两分支共享参数，还须明确联合损失如何作用于共享部分。
 
 Actor 使用残差或优势时通常分离其梯度，让它作为当前更新权重。共享主干时 critic 的损失仍能更新共同表示，而 actor 不应无意通过优势计算加入额外路径。停止梯度只控制自动微分，不自动修复同批拟合和自举带来的统计偏差。
@@ -204,8 +218,8 @@ GAE 使用 $`\hat A_t=\sum_{l\ge0}(\gamma\lambda)^l\delta_{t+l}`$，其中迹参
 
 $$
 \begin{aligned}
-\hat A_t(\hat V)-\hat A_t(V^\pi)
-={}&-e_0
+&\hat A_t(\hat V)-\hat A_t(V^\pi)\\
+&={}-e_0
 +\gamma(1-\lambda)\sum_{j=1}^{K-1}(\gamma\lambda)^{j-1}e_j\\
 &+\gamma(\gamma\lambda)^{K-1}e_K .
 \end{aligned}
@@ -283,6 +297,20 @@ print('GAE',adv.tolist(),'MC advantage',mc.tolist(),'truncated bootstrap',cut.to
 
 ![自举掩码与迹递推掩码解决不同边界问题](images/02-example.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![自举掩码与迹递推掩码解决不同边界问题，上左区域](images/02-example.svg#textbook-detail-1-1)
+
+![自举掩码与迹递推掩码解决不同边界问题，上右区域](images/02-example.svg#textbook-detail-1-2)
+
+![自举掩码与迹递推掩码解决不同边界问题，下左区域](images/02-example.svg#textbook-detail-2-1)
+
+![自举掩码与迹递推掩码解决不同边界问题，下右区域](images/02-example.svg#textbook-detail-2-2)
+
+</details>
+
+
 残差自举关心原任务是否还有未来价值，迹递推关心数组下一条是否仍属于同一条轨迹。图中固定奖励 $`r=1`$、当前价值 $`V(s)=2`$、折扣 $`\gamma=0.9`$、迹系数 $`\lambda=0.95`$，用同一组数值区分三个边界：
 
 - **A，普通继续。** 后继价值为五，且同一轨迹的下一优势为 $`0.7`$，因此 $`\delta=1+0.9\times5-2=3.5`$，$`A=3.5+0.9\times0.95\times0.7=4.0985`$。
@@ -346,8 +374,10 @@ print('GAE',adv.tolist(),'MC advantage',mc.tolist(),'truncated bootstrap',cut.to
 
 图 B 和图 C 沿完整二动作分布继续改变 $`p=\pi_{\mathrm{new}}(1)`$，另一个动作的概率始终为 $`1-p`$，因此比率不是两个独立旋钮，而是 $`r_1=2p`$ 与 $`r_0=2(1-p)`$。对全部旧动作精确平均，有
 $$
-L_{\mathrm{unclip}}(p)=2p-1,\qquad
-L_{\mathrm{clip}}(p)=\min(2p-1,0.2).
+\begin{aligned}
+&L_{\mathrm{unclip}}(p)=2p-1,\\
+&\quad L_{\mathrm{clip}}(p)=\min(2p-1,0.2).
+\end{aligned}
 $$
 在 $`p\ge0.6`$ 时两个有利变化都到达各自平台；但
 $$
@@ -451,9 +481,11 @@ PPO 的裁剪形式试图用更简单目标抑制部分过大改动，但不是�
 固定一条合法轨迹，记估计价值与真实价值之差为 $`e_t`$。两种残差相差 $`\gamma e_{t+1}-e_t`$。将该差乘 GAE 权重求和，逐项整理得到
 
 $$
-\hat A_t^{(N)}-A_{t,\mathrm{trueV}}^{(N)}
-=-e_t+\gamma(1-\lambda)\sum_{k=1}^{N-1}(\gamma\lambda)^{k-1}e_{t+k}
-+\gamma(\gamma\lambda)^{N-1}e_{t+N}.
+\begin{aligned}
+&\hat A_t^{(N)}-A_{t,\mathrm{trueV}}^{(N)}\\
+&\quad =-e_t+\gamma(1-\lambda)\sum_{k=1}^{N-1}(\gamma\lambda)^{k-1}e_{t+k}\\
+&\quad +\gamma(\gamma\lambda)^{N-1}e_{t+N}.
+\end{aligned}
 $$
 
 这个整理可以逐个系数核对。令 $`r=\gamma\lambda`$，误差和先写成 $`\gamma\sum_{l=0}^{N-1}r^l e_{t+l+1}-\sum_{l=0}^{N-1}r^l e_{t+l}`$。当前误差只出现在第二个和中，系数为负一；中间的 $`e_{t+k}`$ 同时出现在两边，净系数是 $`\gamma r^{k-1}-r^k=\gamma(1-\lambda)r^{k-1}`$；末端误差只出现在第一个和中，系数为 $`\gamma r^{N-1}`$。三类位置分别整理，就得到上式，而不是把所有价值误差都近似成一个基线。
@@ -520,7 +552,16 @@ $$
 (d'-d)(I-\gamma P)=\gamma d'(P'-P).
 $$
 
-对每个状态，$`\Vert P'(s,\cdot)-P(s,\cdot)\Vert _1\le\sum_a\vert \pi'(a\mid s)-\pi(a\mid s)\vert \le2\alpha`$，因为每个动作条件转移行的概率质量为一。于是 $`\Vert d'(P'-P)\Vert _1\le2\alpha`$。再用逆矩阵的 Neumann 展开 $`\sum_{k\ge0}\gamma^kP^k`$；右乘每个 $`P^k`$ 对行向量的一范数非扩张，级数总系数为 $`\frac{1}{(1-\gamma)}`$，便得到 $`\Vert d'-d\Vert _1\le\frac{2\gamma\alpha}{(1-\gamma)}`$。这里要求相同环境与初始分布；若二者改变，固定点差还会多出相应项。
+对每个状态，
+
+$$
+\begin{aligned}
+&\Vert P'(s,\cdot)-P(s,\cdot)\Vert _1\\
+&\quad \le\sum_a\vert \pi'(a\mid s)-\pi(a\mid s)\vert \le2\alpha
+\end{aligned}
+$$
+
+因为每个动作条件转移行的概率质量为一。于是 $`\Vert d'(P'-P)\Vert _1\le2\alpha`$。再用逆矩阵的 Neumann 展开 $`\sum_{k\ge0}\gamma^kP^k`$；右乘每个 $`P^k`$ 对行向量的一范数非扩张，级数总系数为 $`\frac{1}{(1-\gamma)}`$，便得到 $`\Vert d'-d\Vert _1\le\frac{2\gamma\alpha}{(1-\gamma)}`$。这里要求相同环境与初始分布；若二者改变，固定点差还会多出相应项。
 
 又因为旧策略下优势动作平均为零，新策略下的优势均值等于新旧动作概率差乘旧优势。若优势绝对值有界，其最大状态均值不超过两倍总变差乘优势上界。将两项放进访问替换误差，得到与总变差平方、优势界及折扣有关的性能界。这解释了为什么理论上控制全状态策略变化有意义，而不仅是任意选小学习率。
 
@@ -554,6 +595,20 @@ $$
 softmax 参数存在冗余时矩阵可能奇异，实际求解常加阻尼或采用适当广义解；这些处理改变局部问题。大网络通常用 Hessian 向量积与共轭梯度近似方向，再回溯检查采样目标和 KL。回溯通过仍不等于真实最大状态约束满足，更不等于原任务严格单调改善。清楚区分各层近似，才是理解 TRPO 而非背诵名称。
 
 ![相同二次KL预算下自然梯度方向与欧氏方向的比较](images/02-fisher-trust-ellipse.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![相同二次KL预算下自然梯度方向与欧氏方向的比较，上左区域](images/02-fisher-trust-ellipse.svg#textbook-detail-1-1)
+
+![相同二次KL预算下自然梯度方向与欧氏方向的比较，上右区域](images/02-fisher-trust-ellipse.svg#textbook-detail-1-2)
+
+![相同二次KL预算下自然梯度方向与欧氏方向的比较，下左区域](images/02-fisher-trust-ellipse.svg#textbook-detail-2-1)
+
+![相同二次KL预算下自然梯度方向与欧氏方向的比较，下右区域](images/02-fisher-trust-ellipse.svg#textbook-detail-2-2)
+
+</details>
+
 
 图把本节的二维算例放回参数增量平面：椭圆内部满足 $`\frac{4\Delta_1^2+\Delta_2^2}{2}\le0.01`$，横纵坐标使用相同单位长度。蓝色增量 $`(0.05,0.1)`$ 沿 $`F^{-1}g`$ 的方向；橙色增量约为 $`(0.0686,0.0343)`$，沿欧氏梯度 $`g`$，但也被缩到同一个椭圆边界。两者消耗相同二次预算，线性预测收益 $`g^T\Delta`$ 却分别为 $`0.2`$ 和约 $`0.1715`$，因为第一参数坐标的二次代价更高。蓝色虚线是 $`2\Delta_1+\Delta_2=0.2`$ 的等收益线；它恰好在蓝点与约束椭圆相切。此处约束梯度 $`F\Delta=(0.2,0.1)`$ 与收益梯度 $`g=(2,1)`$ 平行，将拉格朗日最优条件直接画了出来。
 
@@ -590,6 +645,20 @@ softmax 参数存在冗余时矩阵可能奇异，实际求解常加阻尼或采
 数值上比率常由新旧 log 概率差取指数，极端差异可能溢出。可记录 log 比率范围并调查根因，不能为了不报错就任意裁剪所有 log 概率而声称目标未变。动作身份、分布支持、学习率和旧状态恢复都值得优先检查。数值修补若改变优化，应准确记录。
 
 ![PPO中比率越界与平坦裁剪分支的区别](images/02-clip-activation.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![PPO中比率越界与平坦裁剪分支的区别，上左区域](images/02-clip-activation.svg#textbook-detail-1-1)
+
+![PPO中比率越界与平坦裁剪分支的区别，上右区域](images/02-clip-activation.svg#textbook-detail-1-2)
+
+![PPO中比率越界与平坦裁剪分支的区别，下左区域](images/02-clip-activation.svg#textbook-detail-2-1)
+
+![PPO中比率越界与平坦裁剪分支的区别，下右区域](images/02-clip-activation.svg#textbook-detail-2-2)
+
+</details>
+
 
 取 $`\epsilon=0.2`$，固定优势后，正优势 $`A=1`$ 的单样本目标是 $`\min(r,1.2)`$，负优势 $`A=-1`$ 的目标是 $`-\max(r,0.8)`$。图中灰色虚线是未裁剪的 $`rA`$，蓝色和橙色实线组成实际裁剪目标。两个比率 $`r=0.5,1.5`$ 分别配上正、负优势，形成四个样本：比率全部在 $`[0.8,1.2]`$ 外，但只有正优势且比率过高、负优势且比率过低的两个样本进入橙色平坦部分。
 
@@ -652,9 +721,9 @@ $$
 
 $$
 \begin{aligned}
-\frac{dH(p)}{d\theta} &=p_1(1-p_1)\log\frac{1-p_1}{p_1}
-\approx-0.221807,\\[6pt]
-\frac{dH(q,p)}{d\theta} &=p_1-q_1=0.3.
+&\frac{dH(p)}{d\theta} =p_1(1-p_1)\log\frac{1-p_1}{p_1}\\
+&\approx-0.221807,\\
+&\frac{dH(q,p)}{d\theta} =p_1-q_1=0.3.
 \end{aligned}
 $$
 

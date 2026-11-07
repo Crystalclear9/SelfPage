@@ -45,14 +45,17 @@ function learningMarkdown({ page, pages, base }) {
         }
       }
       if (node.type === 'image' && !/^(?:[a-z]+:|\/\/)/i.test(node.url)) {
-        const target = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), decodeURIComponent(node.url)));
+        const suffixIndex = node.url.search(/[?#]/);
+        const file = suffixIndex < 0 ? node.url : node.url.slice(0, suffixIndex);
+        const suffix = suffixIndex < 0 ? '' : node.url.slice(suffixIndex);
+        const target = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), decodeURIComponent(file)));
         if (!loadLearning().images?.includes(target)) throw new Error(`Missing learning image: ${target}`);
-        node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/');
+        node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/') + suffix;
       }
       if ((node.type === 'link' || node.type === 'definition') && !/^(?:[a-z]+:|#|\/\/)/i.test(node.url)) {
         const [file, fragment] = node.url.split('#');
         const target = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), decodeURIComponent(file)));
-        if (loadLearning().images?.includes(target)) { node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/'); return; }
+        if (loadLearning().images?.includes(target)) { node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/') + (fragment ? `#${fragment}` : ''); return; }
         const linked = pages.find(p => p.file === target);
         if (!linked) throw new Error(`Unresolved learning link in ${page.file}: ${node.url}`);
         node.url = base + linked.route.slice(1) + (fragment ? `#${fragment}` : '');

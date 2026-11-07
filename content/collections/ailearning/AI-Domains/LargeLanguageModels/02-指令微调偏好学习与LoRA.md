@@ -162,6 +162,30 @@ print('sft_mask_loss', float(loss.detach()))
 
 ![LoRA 低秩增量的参数路径](images/02-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![LoRA 低秩增量的参数路径，上左区域](images/02-concept.svg#textbook-detail-1-1)
+
+![LoRA 低秩增量的参数路径，上中区域](images/02-concept.svg#textbook-detail-1-2)
+
+![LoRA 低秩增量的参数路径，上右区域](images/02-concept.svg#textbook-detail-1-3)
+
+![LoRA 低秩增量的参数路径，中左区域](images/02-concept.svg#textbook-detail-2-1)
+
+![LoRA 低秩增量的参数路径，中中区域](images/02-concept.svg#textbook-detail-2-2)
+
+![LoRA 低秩增量的参数路径，中右区域](images/02-concept.svg#textbook-detail-2-3)
+
+![LoRA 低秩增量的参数路径，下左区域](images/02-concept.svg#textbook-detail-3-1)
+
+![LoRA 低秩增量的参数路径，下中区域](images/02-concept.svg#textbook-detail-3-2)
+
+![LoRA 低秩增量的参数路径，下右区域](images/02-concept.svg#textbook-detail-3-3)
+
+</details>
+
+
 **把因子自由度与优化轨迹分开。** 取秩一因子 $`B=(1,2)^T`$、$`A=(1,-1)`$，目标为 $`L=\frac12\|BA\|_F^2`$，初始损失为五。把 B 除二、A 乘二不会改变乘积或损失，但梯度分别随另一因子的尺度变化。对两套因子各做一次学习率 $`0.1`$ 的同时 SGD 更新，得到图中不同的新矩阵，损失分别为 $`0.8`$ 与 $`0.153125`$。
 
 因此低秩更新矩阵相同，并不意味着其因子坐标中的梯度下降轨迹相同；因子缩放、初始化和优化器共同影响训练。本例是独立的秩一矩阵回归算例，没有基座权重、LoRA 额外缩放或非线性网络，不能据此断言某种尺度在所有微调任务中更优。它说明参数个数、有效矩阵自由度与优化条件是三个需要分别解释的问题。
@@ -182,6 +206,30 @@ A 矩阵十二个系数、B 矩阵十六个，因子共二十八个参数，组�
 
 ![LoRA零初始化B时A和B在第一步接收到的不同梯度](images/02-lora-initial-gradient-gate.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，上左区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-1-1)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，上中区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-1-2)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，上右区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-1-3)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，中左区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-2-1)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，中中区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-2-2)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，中右区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-2-3)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，下左区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-3-1)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，下中区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-3-2)
+
+![LoRA零初始化B时A和B在第一步接收到的不同梯度，下右区域](images/02-lora-initial-gradient-gate.svg#textbook-detail-3-3)
+
+</details>
+
+
 左图把一次前后向检查扩展成实际更新轨迹。横坐标是当前输入的瓶颈标量 $`a=Ax`$，不是 A 的某个单独元素；纵坐标为 B。浅线均由同一个 $`L=\frac12(Ba-1)^2`$ 计算。起点在 $`B=0`$ 的水平损失切片上，所以首步 A 的梯度为零，而 B 从零移到 $`-0.1`$。在新点计算梯度后，再做一次同步 SGD，可得 $`A=(0.991,-1.018)`$、$`B=-0.19`$，从而 $`a=-1.045`$。图上折线仅连接离散更新点，不是连续梯度流。
 
 注意这里 $`a`$ 的变化由两个 A 元素共同诱导：$`\Delta a=\Delta A\,x=-0.045`$，不能误用同一个学习率直接把 $`a`$ 当独立参数更新。这个二维视图展示的是既定参数更新在 $`(Ax,B)`$ 平面中的投影，而非对重参数化后的两个标量重新训练。
@@ -189,8 +237,10 @@ A 矩阵十二个系数、B 矩阵十六个，因子共二十八个参数，组�
 只观察一个标量输出的适配分支，固定基座在此输入上的输出为零，取 $`x=(1,2)^\top,A=(1,-1),B=0`$，缩放为一、目标为一、损失 $`L=\frac12(BAx-1)^2`$。此时 $`Ax=-1`$、输出零、残差负一，因此
 
 $$
-\nabla_B L=(BAx-1)(Ax)=1,\qquad
-\nabla_A L=B(BAx-1)x^\top=(0,0).
+\begin{aligned}
+&\nabla_B L=(BAx-1)(Ax)=1,\\
+&\quad \nabla_A L=B(BAx-1)x^\top=(0,0).
+\end{aligned}
 $$
 
 用学习率 $`0.1`$ 的普通 SGD 做一次同步更新，A 不变、B 变为 $`-0.1`$，新输出为 $`0.1`$。在这个新点重新前向反向，得到 $`\nabla_A L=0.09(1,2)=(0.09,0.18)`$：第二步已打开 A 的梯度路径。若将 A 和 B **都**初始化为零，同一个无其他路径的双线性分支会让两组初始梯度都为零，这才是需要避免的对称停滞。这里没有权重衰减、动量或额外适配损失；实际 Adam 轨迹和缩放规则会改变步长，但链式法则解释的起始门控仍然适用。不能把“首步 A 的梯度为零”误诊成冻结 A 或反向实现失效。
@@ -295,12 +345,40 @@ print('optimal_policy', pstar, 'objective', objective(pstar))
 由上式有 $`r(x,y)=\beta\log[\frac{p^*(y\mid x)}{q(y\mid x)}]+\beta\log Z(x)`$。同一输入下两个回答相减，分区函数项消失。将这个奖励差代入逻辑比较模型，并用可训练策略代替理想策略，得到
 
 $$
-L_{DPO}=-\log\sigma\left(\beta\left[\log\frac{\pi_\theta(y_w\mid x)}{q(y_w\mid x)}-\log\frac{\pi_\theta(y_l\mid x)}{q(y_l\mid x)}\right]\right).
+\begin{aligned}
+&L_{DPO}=-\log\sigma(\beta\,\Delta),\\
+&\Delta=\log\frac{\pi_\theta(y_w\mid x)}{q(y_w\mid x)}\\
+&\qquad-\log\frac{\pi_\theta(y_l\mid x)}{q(y_l\mid x)}.
+\end{aligned}
 $$
 
 其中胜者和败者必须针对相同提示及相同条件协议。原始 DPO 的序列 log 概率是回复 token 条件 log 概率之和，包括哪些特殊标记应预先定义。随意改成按长度平均，会改变目标；它可能是研究变体，但不能声称与上述完整序列推导完全相同。
 
 ![两条回答的当前概率相同，但相对冻结参考策略的增益不同](images/02-scientific-plate.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，上左区域](images/02-scientific-plate.svg#textbook-detail-1-1)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，上中区域](images/02-scientific-plate.svg#textbook-detail-1-2)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，上右区域](images/02-scientific-plate.svg#textbook-detail-1-3)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，中左区域](images/02-scientific-plate.svg#textbook-detail-2-1)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，中中区域](images/02-scientific-plate.svg#textbook-detail-2-2)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，中右区域](images/02-scientific-plate.svg#textbook-detail-2-3)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，下左区域](images/02-scientific-plate.svg#textbook-detail-3-1)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，下中区域](images/02-scientific-plate.svg#textbook-detail-3-2)
+
+![两条回答的当前概率相同，但相对冻结参考策略的增益不同，下右区域](images/02-scientific-plate.svg#textbook-detail-3-3)
+
+</details>
+
 
 两条回答来自同一提示，分别由当前策略 $`\pi`$ 与冻结参考 $`q`$ 计算序列概率。横轴越靠右，序列对数概率越大；两条回答的当前概率相同，因此当前策略的两个实心点落在同一条竖虚线上。偏好回答从参考概率 $`0.1`$ 提高到 $`0.3`$，有一段正位移；另一条回答的参考点和当前点重合。偏好分数来自两条回答各自对数位移的差。
 
@@ -315,6 +393,20 @@ $$
 偏好数据可分且没有额外约束时，逻辑损失可能持续推动比较间隔扩大，没有有限参数最优点。训练损失接近零不意味着模型的真实质量已经饱和，也可能只是把训练比较对记住。应监测独立偏好、任务正确性、与参考的分布偏移和输出行为，必要时使用早停或其他明确正则，而不是单纯追求更小训练损失。
 
 ![偏好间隔决定梯度尺度](images/02-preference-margin-gradient.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![偏好间隔决定梯度尺度，上左区域](images/02-preference-margin-gradient.svg#textbook-detail-1-1)
+
+![偏好间隔决定梯度尺度，上右区域](images/02-preference-margin-gradient.svg#textbook-detail-1-2)
+
+![偏好间隔决定梯度尺度，下左区域](images/02-preference-margin-gradient.svg#textbook-detail-2-1)
+
+![偏好间隔决定梯度尺度，下右区域](images/02-preference-margin-gradient.svg#textbook-detail-2-2)
+
+</details>
+
 
 **偏好间隔决定梯度尺度。** 本图固定一个偏好对，将相对参考模型的好坏对数概率优势差记为 Δ，损失为 log[1+exp(−βΔ)]。β 同时改变横向尺度与导数：Δ=0 处导数为负 β 除以二，而较大的正间隔处梯度趋近零。它不是奖励的原始分差，也不能仅靠单对损失下降断定整体回答质量提高；偏好噪声、长度及分布偏移仍需独立检验。进一步阅读可对照[DPO 原论文第 4 节与梯度附录](https://arxiv.org/html/2305.18290v2)。
 
@@ -361,6 +453,20 @@ print('dpo_losses', before, l1.item(), 'winner_p', logits.softmax(0)[0].item())
 ### 图解：DPO 比较的是相对参考模型的偏好差
 
 ![DPO 比较的是相对参考模型的偏好差](images/02-example.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![DPO 比较的是相对参考模型的偏好差，上左区域](images/02-example.svg#textbook-detail-1-1)
+
+![DPO 比较的是相对参考模型的偏好差，上右区域](images/02-example.svg#textbook-detail-1-2)
+
+![DPO 比较的是相对参考模型的偏好差，下左区域](images/02-example.svg#textbook-detail-2-1)
+
+![DPO 比较的是相对参考模型的偏好差，下右区域](images/02-example.svg#textbook-detail-2-2)
+
+</details>
+
 
 **先读两张归一化分布。** 图把回答空间压成优选、劣选、其他三个互斥结果。参考模型概率为 $`(0.4,0.4,0.2)`$，当前策略为 $`(0.3,0.1,0.6)`$，两者总质量均为一。优选回答的绝对概率从 0.4 降到 0.3，但相对于劣选回答的优势比从 $`\frac{0.4}{0.4}=1`$ 升到 $`\frac{0.3}{0.1}=3`$；这两个比较不能互相替代。
 
@@ -636,13 +742,29 @@ $$
 
 ![输入协方差怎样改变最佳秩一更新](images/02-data-weighted-rank.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![输入协方差怎样改变最佳秩一更新，上左区域](images/02-data-weighted-rank.svg#textbook-detail-1-1)
+
+![输入协方差怎样改变最佳秩一更新，上右区域](images/02-data-weighted-rank.svg#textbook-detail-1-2)
+
+![输入协方差怎样改变最佳秩一更新，下左区域](images/02-data-weighted-rank.svg#textbook-detail-2-1)
+
+![输入协方差怎样改变最佳秩一更新，下右区域](images/02-data-weighted-rank.svg#textbook-detail-2-2)
+
+</details>
+
+
 **先区分两个优化问题。** 令目标线性增量为 $`M=\mathrm{diag}(3,1)`$，只允许用秩不超过一的矩阵 $`D`$ 近似。若衡量矩阵元素的误差 $`\Vert M-D\Vert_F^2`$，截断最大的奇异值得到 $`D_F=\mathrm{diag}(3,0)`$，误差平方为一。保留第二方向的 $`D_P=\mathrm{diag}(0,1)`$ 则有矩阵误差平方九。因此，单看权重表，前一种近似明确更好；这个结论本身没有错误，问题在于它回答的是否是实际预测问题。
 
 **把输入分布代入目标。** 假设 $`\mathbb E[x]=0`$，输入协方差 $`\Sigma=\mathbb E[xx^\top]=\mathrm{diag}(0.01,100)`$。第一坐标标准差只有 $`0.1`$，第二坐标标准差是 $`10`$。预测平方风险为
 $$
-R(D)=\mathbb E\Vert(M-D)x\Vert^2
-=\mathrm{tr}\!\left((M-D)\Sigma(M-D)^\top\right)
-=\Vert(M-D)\Sigma^{\frac12}\Vert_F^2.
+\begin{aligned}
+&R(D)=\mathbb E\Vert(M-D)x\Vert^2\\
+&\quad =\mathrm{tr}\!\left((M-D)\Sigma(M-D)^\top\right)\\
+&\quad =\Vert(M-D)\Sigma^{\frac12}\Vert_F^2.
+\end{aligned}
 $$
 第一种近似完全漏掉第二输出，风险是 $`1^2\times100=100`$；第二种完全漏掉第一输出，风险却只有 $`3^2\times0.01=0.09`$。图中两组柱形分别采用自身标出的纵轴刻度，重点是同组内方向的重要性次序；不要把两个面板的像素柱高直接当成同一数值尺度。
 
@@ -683,6 +805,30 @@ $$
 本例的原矩阵是二乘二，两个秩一因子合计仍有四个元素。这个尺寸用来展示方向关系。
 
 ![LoRA：四个矩阵元素共用一个输出方向](images/02-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![LoRA：四个矩阵元素共用一个输出方向，上左区域](images/02-mechanism.svg#textbook-detail-1-1)
+
+![LoRA：四个矩阵元素共用一个输出方向，上中区域](images/02-mechanism.svg#textbook-detail-1-2)
+
+![LoRA：四个矩阵元素共用一个输出方向，上右区域](images/02-mechanism.svg#textbook-detail-1-3)
+
+![LoRA：四个矩阵元素共用一个输出方向，中左区域](images/02-mechanism.svg#textbook-detail-2-1)
+
+![LoRA：四个矩阵元素共用一个输出方向，中中区域](images/02-mechanism.svg#textbook-detail-2-2)
+
+![LoRA：四个矩阵元素共用一个输出方向，中右区域](images/02-mechanism.svg#textbook-detail-2-3)
+
+![LoRA：四个矩阵元素共用一个输出方向，下左区域](images/02-mechanism.svg#textbook-detail-3-1)
+
+![LoRA：四个矩阵元素共用一个输出方向，下中区域](images/02-mechanism.svg#textbook-detail-3-2)
+
+![LoRA：四个矩阵元素共用一个输出方向，下右区域](images/02-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 **从矩阵读到几何。** 这里直接取实验四的目标增量 $`\Delta W=\begin{pmatrix}0.4&-0.2\\0.8&-0.4\end{pmatrix}`$，将它分解成 $`B=(0.4,0.8)^\top`$ 与 $`A=(1,-0.5)`$。第二列是第一列的负二分之一，所以增量的秩恰好为一。对任意输入，先得到标量 $`Ax=x_1-0.5x_2`$，再沿 $`B`$ 的方向伸缩；右图的三个输出增量分别为 $`(0.4,0.8)`$、$`(-0.2,-0.4)`$、$`(0.2,0.4)`$，全部落在同一条直线上。输入不同不代表可以得到任意二维增量。
 

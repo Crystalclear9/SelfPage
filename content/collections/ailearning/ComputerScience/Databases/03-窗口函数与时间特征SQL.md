@@ -191,9 +191,37 @@ frame 对不同函数并非统一生效。偏移函数、排名函数与 frame �
 
 ![窗口帧按位置或同值范围取成员](images/03-rows-range-peers.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![窗口帧按位置或同值范围取成员，上左区域](images/03-rows-range-peers.svg#textbook-detail-1-1)
+
+![窗口帧按位置或同值范围取成员，上右区域](images/03-rows-range-peers.svg#textbook-detail-1-2)
+
+![窗口帧按位置或同值范围取成员，下左区域](images/03-rows-range-peers.svg#textbook-detail-2-1)
+
+![窗口帧按位置或同值范围取成员，下右区域](images/03-rows-range-peers.svg#textbook-detail-2-2)
+
+</details>
+
+
 在第一条十所在的 a 行，ROWS 的当前行边界只纳入已经到达的位置 a；RANGE 的当前值边界会同时纳入排序值相同的 a、b，因此两种前缀和分别为十与二十。示例需用额外稳定键定义 ROWS 下的具体行顺序；窗口内排序也不自动保证最终查询输出顺序。可分别用 ROWS 的 ORDER BY value, id 与 RANGE 的 ORDER BY value 复现。若给 RANGE 也增加唯一 id，a 与 b 就不再是同级行。两种帧都从分区起点到 CURRENT ROW。下面的事件算例进一步加入空金额与排除当前组的情形。
 
 ![ROWS 按行推进，RANGE 前缀纳入同级行](images/03-concept.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![ROWS 按行推进，RANGE 前缀纳入同级行，上左区域](images/03-concept.svg#textbook-detail-1-1)
+
+![ROWS 按行推进，RANGE 前缀纳入同级行，上右区域](images/03-concept.svg#textbook-detail-1-2)
+
+![ROWS 按行推进，RANGE 前缀纳入同级行，下左区域](images/03-concept.svg#textbook-detail-2-1)
+
+![ROWS 按行推进，RANGE 前缀纳入同级行，下右区域](images/03-concept.svg#textbook-detail-2-2)
+
+</details>
+
 
 顶部给出四条事件的时间和金额，`NULL` 表示 SQL 空值，各排薄片圈出窗口中的记录。三排都固定当前行为 E3：前两个窗口包含 E1、E2、E3，所以记录数为三、金额有效数为二、已知金额和为十二；排除当前时间组的窗口只含 E1、E2，三项变为二、二、十二。相同的 `SUM` 不能证明参与身份相同，`COUNT(*)` 与 `COUNT(amount)` 也不能互相替换。
 
@@ -204,6 +232,20 @@ frame 对不同函数并非统一生效。偏移函数、排名函数与 frame �
 具体默认窗口和语法取决于数据库。需要确定逐事件次序时，应提供稳定的次级排序键并显式写出框架；不要依赖碰巧出现的物理行序解释业务时间。
 
 ![窗口的分区决定哪些行允许共享累计状态](images/03-window-partition-reset.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![窗口的分区决定哪些行允许共享累计状态，上左区域](images/03-window-partition-reset.svg#textbook-detail-1-1)
+
+![窗口的分区决定哪些行允许共享累计状态，上右区域](images/03-window-partition-reset.svg#textbook-detail-1-2)
+
+![窗口的分区决定哪些行允许共享累计状态，下左区域](images/03-window-partition-reset.svg#textbook-detail-2-1)
+
+![窗口的分区决定哪些行允许共享累计状态，下右区域](images/03-window-partition-reset.svg#textbook-detail-2-2)
+
+</details>
+
 
 窗口的分区决定哪些行允许共享累计状态。输入的唯一顺序键为 id=1、2、3、4，对应 A1=2、A2=3、B1=10、B2=20；字母表示分区，编号只是本例的明确次序。两种查询都显式采用 `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`。
 
@@ -482,6 +524,20 @@ LAG 可以取排序前一条记录，适合差分与间隔计算；LEAD 取后�
 
 ![LAST_VALUE 取决于窗口终点](images/03-advanced.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![LAST_VALUE 取决于窗口终点，上左区域](images/03-advanced.svg#textbook-detail-1-1)
+
+![LAST_VALUE 取决于窗口终点，上右区域](images/03-advanced.svg#textbook-detail-1-2)
+
+![LAST_VALUE 取决于窗口终点，下左区域](images/03-advanced.svg#textbook-detail-2-1)
+
+![LAST_VALUE 取决于窗口终点，下右区域](images/03-advanced.svg#textbook-detail-2-2)
+
+</details>
+
+
 **底部同时固定当前行、窗口和空值政策。** 当前行为 id 二、值为空。窗口截止当前行时，`LAST_VALUE` 返回该空值；扩大到分区末得到三十，但那是未来 id 三的值；如果目标是“截至当前行最后已知值”，正确对象应是 id 一的十。三个结果分别对应三个不同查询，不能用得到非空值来证明历史特征正确。
 
 有些数据库提供忽略空值的窗口选项，有些需要另外构造查询，但跳过空值不会授权跨过时间边界。还应确认排序键唯一、窗口端点明确，并按系统支持的实际语法实现。特别是 PostgreSQL 的窗口函数空值处理约定，参见 [官方窗口函数说明](https://www.postgresql.org/docs/current/functions-window.html)。
@@ -511,6 +567,20 @@ PostgreSQL 的 LAST_VALUE 按 RESPECT NULLS 工作，不会自动跳过末行 NU
 **离线排序正确，不代表在线会话号永久不变。**
 
 ![迟到的中间事件把两个已有会话合并并改变旧事件的会话归属](images/03-late-event-session-merge.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![迟到的中间事件把两个已有会话合并并改变旧事件的会话归属，上左区域](images/03-late-event-session-merge.svg#textbook-detail-1-1)
+
+![迟到的中间事件把两个已有会话合并并改变旧事件的会话归属，上右区域](images/03-late-event-session-merge.svg#textbook-detail-1-2)
+
+![迟到的中间事件把两个已有会话合并并改变旧事件的会话归属，下左区域](images/03-late-event-session-merge.svg#textbook-detail-2-1)
+
+![迟到的中间事件把两个已有会话合并并改变旧事件的会话归属，下右区域](images/03-late-event-session-merge.svg#textbook-detail-2-2)
+
+</details>
+
 
 继续使用“相邻间隔严格大于五才断开”的规则。可用时刻八，只收到事件时间零与八的两条活动，金额分别十、二十；间隔八，故当前结果是两个会话。可用时刻九，又收到事件时间四、金额五的迟到活动。按事件时间重新排序后，两个相邻间隔都变为四，三条活动成为同一会话，总额三十五。后来的数据没有改旧记录本身，却改了旧记录的邻接关系与分组归属。
 
@@ -568,6 +638,30 @@ con.close()
 会话号是怎样从事件时间计算出来的？先逐列读前一事件与间隔，再把开启标记按前缀求和；不要直接按会话总跨度猜编号。
 
 ![会话边界来自相邻事件间隔](images/03-mechanism.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![会话边界来自相邻事件间隔，上左区域](images/03-mechanism.svg#textbook-detail-1-1)
+
+![会话边界来自相邻事件间隔，上中区域](images/03-mechanism.svg#textbook-detail-1-2)
+
+![会话边界来自相邻事件间隔，上右区域](images/03-mechanism.svg#textbook-detail-1-3)
+
+![会话边界来自相邻事件间隔，中左区域](images/03-mechanism.svg#textbook-detail-2-1)
+
+![会话边界来自相邻事件间隔，中中区域](images/03-mechanism.svg#textbook-detail-2-2)
+
+![会话边界来自相邻事件间隔，中右区域](images/03-mechanism.svg#textbook-detail-2-3)
+
+![会话边界来自相邻事件间隔，下左区域](images/03-mechanism.svg#textbook-detail-3-1)
+
+![会话边界来自相邻事件间隔，下中区域](images/03-mechanism.svg#textbook-detail-3-2)
+
+![会话边界来自相邻事件间隔，下右区域](images/03-mechanism.svg#textbook-detail-3-3)
+
+</details>
+
 
 顶部每列始终对应同一事件；前一事件由 LAG 取得，第一条没有前驱，故直接标记为开启。开启标记依次为 1、0、1、0，累计和才得到 1、1、2、2；这让 SQL 的两个窗口阶段能够逐项手算。下方时间线使用真实事件间隔的比例作核对。同一用户的事件时间为 0、4、12、16，相邻间隔依次是 4、8、4；采用“间隔严格大于 5 才开启新会话”的规则，在时间 12 处切开，得到 {0,4} 与 {12,16}。等于阈值五时仍留在原会话，若业务采用“大于等于”，必须同时修改 SQL 与边界测试。
 

@@ -154,10 +154,27 @@ $$
 
 ![保留拒绝时的等待长度，才能保留目标平稳占据比例](images/02-jump-chain-occupancy.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![保留拒绝时的等待长度，才能保留目标平稳占据比例，上左区域](images/02-jump-chain-occupancy.svg#textbook-detail-1-1)
+
+![保留拒绝时的等待长度，才能保留目标平稳占据比例，上右区域](images/02-jump-chain-occupancy.svg#textbook-detail-1-2)
+
+![保留拒绝时的等待长度，才能保留目标平稳占据比例，下左区域](images/02-jump-chain-occupancy.svg#textbook-detail-2-1)
+
+![保留拒绝时的等待长度，才能保留目标平稳占据比例，下右区域](images/02-jump-chain-occupancy.svg#textbook-detail-2-2)
+
+</details>
+
+
 **用两个状态把等待偏差算完整。** 另设目标 $`\pi=(0.8,0.2)`$，状态为 A、B，每次都对称地提议换到另一个状态。A 到 B 的接受率为 $`\frac{0.2}{0.8}=0.25`$，反向接受率为一，因此完整转移矩阵为
 
 $$
-P=\begin{pmatrix}0.75&0.25\\1&0\end{pmatrix},\qquad (0.8,0.2)P=(0.8,0.2).
+\begin{aligned}
+&P=\begin{pmatrix}0.75&0.25\\1&0\end{pmatrix},\\
+&\quad (0.8,0.2)P=(0.8,0.2).
+\end{aligned}
 $$
 
 从 A 出发，直到离开为止的停留长度服从取值1、2……的几何分布，均值四；从 B 必定下一次离开，停留长度一。中排四格与一格画的是**期望停留长度**，不是一条固定或实测轨迹。若删除所有拒绝，只记录状态改变，就变成 A、B 严格交替的跳链，长期计数各半；它的边际分布可随初态奇偶振荡，但时间平均比例仍各半。对 $`f=\mathbf1\{X=B\}`$，完整链时间平均的目标是0.2，跳链不加权平均的目标则为0.5。
@@ -332,9 +349,11 @@ $$
 一步长度 $`\varepsilon`$ 的 leapfrog 先半步动量，再整步位置，再半步动量：
 
 $$
-p_{\frac{1}{2}}=p-\tfrac\varepsilon2\nabla U(q),\quad
-q'=q+\varepsilon M^{-1}p_{\frac{1}{2}},\quad
-p'=p_{\frac{1}{2}}-\tfrac\varepsilon2\nabla U(q').
+\begin{aligned}
+&p_{\frac{1}{2}}=p-\tfrac\varepsilon2\nabla U(q),\quad
+q'=q+\varepsilon M^{-1}p_{\frac{1}{2}},\\
+&\quad p'=p_{\frac{1}{2}}-\tfrac\varepsilon2\nabla U(q').
+\end{aligned}
 $$
 
 每个动量更新是固定位置下的平移，Jacobian 为对角块均为单位阵的三角矩阵；位置更新也是同类剪切，所以各步绝对行列式为一，组合仍保持体积。把步长换成负值并逆序执行，可恢复原点；对称的半步结构使这一逆过程具有同样形式。这些结构性质比“误差很小”更关键，因为它们决定简单 MH 校正是否合法。
@@ -352,6 +371,20 @@ $$
 这是由前述映射证明得到的边界，不能笼统宣称所有不精确梯度必然引入目标偏差。随机小批力还涉及反向随机性，应另行设计完整机制；不能不加说明就当作标准 HMC。真正错误的反向或接受结构，即使局部误差小，也可能长期采到错误分布。
 
 ![HMC用梯度和动量穿越后验几何](images/02-hmc-leapfrog-candidate.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![HMC用梯度和动量穿越后验几何，上左区域](images/02-hmc-leapfrog-candidate.svg#textbook-detail-1-1)
+
+![HMC用梯度和动量穿越后验几何，上右区域](images/02-hmc-leapfrog-candidate.svg#textbook-detail-1-2)
+
+![HMC用梯度和动量穿越后验几何，下左区域](images/02-hmc-leapfrog-candidate.svg#textbook-detail-2-1)
+
+![HMC用梯度和动量穿越后验几何，下右区域](images/02-hmc-leapfrog-candidate.svg#textbook-detail-2-2)
+
+</details>
+
 
 先看参数空间中的弯曲后验几何：动量使候选轨迹连续前行，局部梯度改变动量方向。右侧把一次蛙跳拆成半步动量、整步位置、半步动量。位置是链所采样的参数，动量是为更新引入的辅助变量。
 
@@ -431,6 +464,20 @@ $$
 ### 图解：接受率相同，位置核为何可以完全不同
 
 ![精确HMC在四分之一周期、半周期和整周期的不同位置更新](images/02-hmc-resonance-kernel.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![精确HMC在四分之一周期、半周期和整周期的不同位置更新，上左区域](images/02-hmc-resonance-kernel.svg#textbook-detail-1-1)
+
+![精确HMC在四分之一周期、半周期和整周期的不同位置更新，上右区域](images/02-hmc-resonance-kernel.svg#textbook-detail-1-2)
+
+![精确HMC在四分之一周期、半周期和整周期的不同位置更新，下左区域](images/02-hmc-resonance-kernel.svg#textbook-detail-2-1)
+
+![精确HMC在四分之一周期、半周期和整周期的不同位置更新，下右区域](images/02-hmc-resonance-kernel.svg#textbook-detail-2-2)
+
+</details>
+
 
 图将上式专门设为 $`\omega=1`$，前三幅把 $`q,p\in\{-2,-1,0,1,2\}`$ 的二十五组输入逐一代入映射。四分之一周期时，固定当前 $`q`$ 后仍有五种不同后继位置，因为新动量真正进入位置更新；半周期和整周期时，五种动量全部重叠到同一后继位置，分别形成反对角线与对角线。格点仅展示代数映射，不是从目标抽出的二十五个独立样本，也不以点的个数估计概率。
 
@@ -552,9 +599,11 @@ $$
 图将长度八的平稳 AR(1) 状态的协方差完整画出。边缘方差为一、相邻状态的相关系数为 $`\rho=0.8`$，所以第 $`(i,j)`$ 格的值为 $`0.8^{|i-j|}`$。颜色越深，协方差越大；它不是状态取值或经验频数。橙框标出滞后二的两条斜带：上方六格加下方六格，每格为 $`0.8^2=0.64`$，所以它们对未归一化协方差总和贡献 $`12\times0.64=7.68`$。图 B 把图 A 中的矩阵按斜带汇总：滞后零出现八次，正滞后 $`k`$ 在两个方向共出现 $`2(8-k)`$ 次。因此图 B 每根条的长度是“出现次数乘每格数值”，而不是自相关本身。所有条合计 $`38.7108864`$；最后除以六十四，才是八次平均的方差：
 
 $$
-\mathrm{Var}(\bar X)
-=\frac1{8^2}\left[8+2\sum_{k=1}^{7}(8-k)0.8^k\right]
-=0.6048576.
+\begin{aligned}
+&\mathrm{Var}(\bar X)
+=\frac1{8^2}\left[8+2\sum_{k=1}^{7}(8-k)0.8^k\right]\\
+&\quad =0.6048576.
+\end{aligned}
 $$
 
 独立时非对角格均为零，均值方差只有 $`\frac18=0.125`$。以独立样本边缘方差一为基准，当前有限长度方差比为 $`\mathrm{ESS}=\frac1{0.6048576}\approx1.65328`$。若直接使用长链近似 $`N\frac{1-\rho}{1+\rho}`$，会得到 $`\frac89`$；八步远未达到这个渐近近似需要的长度，精确计算中的 $`1-\frac{k}{N}`$ 因子不能省略。
@@ -603,6 +652,30 @@ $$
 ### 图解推导：负相关为什么只帮助某些估计目标
 
 ![相同HMC链的均值与平方统计量自相关和有效样本量](images/02-function-dependent-autocorrelation.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，上左区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-1-1)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，上中区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-1-2)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，上右区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-1-3)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，中左区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-2-1)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，中中区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-2-2)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，中右区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-2-3)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，下左区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-3-1)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，下中区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-3-2)
+
+![相同HMC链的均值与平方统计量自相关和有效样本量，下右区域](images/02-function-dependent-autocorrelation.svg#textbook-detail-3-3)
+
+</details>
+
 
 把第六节的精确高斯 HMC 和本节的 AR(1) 放到同一个图中：单位质量、标准正态目标，每次独立刷新动量，选取 $`\cos T=-0.9`$，即 $`T\approx2.690566`$。于是 $`q_{t+1}=-0.9q_t+\sqrt{0.19}\epsilon_t`$，其中 $`\epsilon_t`$ 独立标准正态。这里使用解析动力学而非有限步 leapfrog，因此不需要用数值接受率掩盖积分误差；同时已明确 $`|\cos T|<1`$，不落在半周期的不可遍历端点上。
 
@@ -766,9 +839,11 @@ print('AR1 batch/theory MCSE',batch_mcse,theory_mcse,'asymptotic ESS',n/19)
 若两分布的全变差距离为 $`\delta`$，对绝对值不超过 $`B`$ 的函数有 $`\vert E_\mu f-E_\pi f\vert \le2B\delta`$。这是把正负部分或密度差积分的绝对值界出来。因而若确知 $`\Vert \mu K^t-\pi\Vert _{TV}\le C\rho^t`$，其中 $`C\ge0`$、$`0\le\rho<1`$，有限样本平均的初始化偏差可由各时刻误差平均控制：
 
 $$
-\left\vert E\left[\frac1N\sum_{t=0}^{N-1}f(q_t)\right]-E_\pi f\right\vert
-\le\frac{2BC}{N}\sum_{t=0}^{N-1}\rho^t
+\begin{aligned}
+&\left\vert E\left[\frac1N\sum_{t=0}^{N-1}f(q_t)\right]-E_\pi f\right\vert\\
+&\quad \le\frac{2BC}{N}\sum_{t=0}^{N-1}\rho^t
 \le\frac{2BC}{N(1-\rho)}.
+\end{aligned}
 $$
 
 这里混合界是额外已知条件，不能从一次 R-hat 接近一就获得它。对无界函数，全变差小也可能因极少尾部巨大取值而有大均值差，需要矩或一致可积等额外控制。参数均值、方差和尾部风险不能只凭一个有界事件的误差界全部放行。证明中函数有界的位置，是结论能否迁移的关键。
@@ -780,9 +855,11 @@ $$
 若要估计新事件概率，给定参数样本后可以计算 $`p_i=P(Y_{new}\in A\mid q_i)`$，也可以每次再抽一个新结果并记指示 $`I_i`$。两种平均在正确条件下估计同一后验预测概率，但后一种额外引入结果抽样。条件于整条参数链，若这些预测抽样独立，条件均值为 $`p_i`$，则全方差公式给出
 
 $$
-\mathrm{Var}\left(\frac1N\sum_iI_i\right)
-=\mathrm{Var}\left(\frac1N\sum_ip_i\right)
-+\frac1{N^2}\sum_iE[p_i(1-p_i)].
+\begin{aligned}
+&\mathrm{Var}\left(\frac1N\sum_iI_i\right)
+=\mathrm{Var}\left(\frac1N\sum_ip_i\right)\\
+&\quad +\frac1{N^2}\sum_iE[p_i(1-p_i)].
+\end{aligned}
 $$
 
 这个等式允许参数链相关，因为条件于整条链后只要求新结果的随机数独立。直接平均可计算的条件概率可以减少该额外噪声，是一种具体条件期望替代。它不修复参数链遗漏模式，也不证明预测模型正确；若条件概率本身需要近似积分，还应计入其误差。减少一层噪声不等于消除了所有计算不确定性。

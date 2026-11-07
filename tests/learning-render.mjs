@@ -26,6 +26,14 @@ try {
           await page.evaluate(async () => {
             document.querySelectorAll('details').forEach(el => { el.open = true; });
             await document.fonts.ready;
+            const images = [...document.querySelectorAll('#learning-content img')];
+            await Promise.all(images.map(async image => {
+              image.loading = 'eager';
+              await Promise.race([
+                image.decode(),
+                new Promise((_, reject) => setTimeout(() => reject(new Error(`Image timed out: ${image.src}`)), 15000)),
+              ]);
+            }));
           });
           for (const width of [375, 1440]) {
             await page.setViewportSize({ width, height: 900 });

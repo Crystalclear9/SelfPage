@@ -125,6 +125,30 @@ VAE 同时学习生成参数和摊销后验，变分目标是训练生成模型�
 
 ![ELBO 中的证据与近似误差：机制、算例与边界](images/01-concept.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![ELBO 中的证据与近似误差：机制、算例与边界，上左区域](images/01-concept.svg#textbook-detail-1-1)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，上中区域](images/01-concept.svg#textbook-detail-1-2)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，上右区域](images/01-concept.svg#textbook-detail-1-3)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，中左区域](images/01-concept.svg#textbook-detail-2-1)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，中中区域](images/01-concept.svg#textbook-detail-2-2)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，中右区域](images/01-concept.svg#textbook-detail-2-3)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，下左区域](images/01-concept.svg#textbook-detail-3-1)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，下中区域](images/01-concept.svg#textbook-detail-3-2)
+
+![ELBO 中的证据与近似误差：机制、算例与边界，下右区域](images/01-concept.svg#textbook-detail-3-3)
+
+</details>
+
+
 先把“优化后验”变成能够逐步复算的路径。沿用下面同一个正相关高斯目标，让近似协方差固定为最优对角值 $`0.36I`$，均值由 $`(1,1)`$ 开始。精度矩阵的对角元均为 $`\frac{1}{0.36}`$、非对角元为 $`-\frac{0.8}{0.36}`$，均值场坐标更新因此依次为
 
 $$
@@ -146,9 +170,11 @@ $$
 图固定同一目标 $`p=N(0,\Sigma)`$，$`\Sigma=\begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}`$，并让 $`q_a=N((a,a)^{\mathsf T},0.36I)`$ 只改变均值。由高斯 KL 公式，协方差项与均值项可以精确拆开：
 
 $$
-\mathrm{KL}(q_a\Vert p)
-=-\frac12\ln0.36+\frac{a^2}{1.8}
-\approx0.510826+\frac{a^2}{1.8}.
+\begin{aligned}
+&\mathrm{KL}(q_a\Vert p)
+=-\frac12\ln0.36+\frac{a^2}{1.8}\\
+&\quad \approx0.510826+\frac{a^2}{1.8}.
+\end{aligned}
 $$
 
 左图使用相同坐标尺度画出真实后验的倾斜椭圆、均值最优近似的蓝圆，以及中心位于 $`(1,1)`$ 的橙圆。三条轮廓都对应各自分布的 Mahalanobis 距离一；它们不是 95% 可信区域，二维高斯在此轮廓内的质量为 $`1-e^{-\frac12}\approx0.393469`$。移动橙圆的中心可以让它与后验中心对齐，却不会将圆变成倾斜椭圆。目标沿 $`z_1+z_2`$ 与 $`z_1-z_2`$ 方向的方差分别为 $`1.8,0.2`$，独立近似沿两个单位方向的方差都是 $`0.36`$；这正是几何形状不能靠优化均值修复的原因。
@@ -228,8 +254,9 @@ $$
 
 $$
 \begin{aligned}
-\mathcal L(q_jq_{-j})
-&=\int q_j(z_j)[h_j(z_j)-\log q_j(z_j)]\,dz_j+C_{-j}\\
+&\mathcal L(q_jq_{-j})\\
+&=\int q_j(z_j)[h_j(z_j)-\log q_j(z_j)]\,dz_j\\
+&+C_{-j}\\
 &=\log Z_j+C_{-j}-\mathrm{KL}(q_j\Vert q_j^*).
 \end{aligned}
 $$
@@ -243,6 +270,30 @@ $$
 **先积分非线性，再更新因子。**
 
 ![非线性平方期望的三点求积与两个不同中心的坐标因子](images/01-nonlinear-coordinate-expectation.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，上左区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-1-1)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，上中区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-1-2)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，上右区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-1-3)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，中左区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-2-1)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，中中区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-2-2)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，中右区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-2-3)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，下左区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-3-1)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，下中区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-3-2)
+
+![非线性平方期望的三点求积与两个不同中心的坐标因子，下右区域](images/01-nonlinear-coordinate-expectation.svg#textbook-detail-3-3)
+
+</details>
+
 
 图把上面的 $`m=0,v=1`$ 固定下来，并进一步取 $`\sigma^2=\frac14`$。图 A的圆并不是将高斯后验改成三个原子：它们是标准高斯的三点 Gauss–Hermite 求积节点，位置为 $`-\sqrt3,0,\sqrt3`$，对应权重为 $`\frac16,\frac23,\frac16`$。圆面积正比于求积权重；由于被积函数是二次多项式，这一求积对本项精确：
 
@@ -291,8 +342,10 @@ $$
 **从同一个初值手算一轮。** 令初值为 $`(1,1,1)`$，此时 $`G=3.3`$。依次更新并立即使用最新值：
 
 $$
-m_1=-0.6(1+1)=-1.2,\qquad
-m_2=-0.6(-1.2+1)=0.12,
+\begin{aligned}
+&m_1=-0.6(1+1)=-1.2,\\
+&\quad m_2=-0.6(-1.2+1)=0.12,
+\end{aligned}
 $$
 
 $$
@@ -330,6 +383,20 @@ $$
 
 ![平均场近似丢掉相关方向](images/01-mean-field-directions.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![平均场近似丢掉相关方向，上左区域](images/01-mean-field-directions.svg#textbook-detail-1-1)
+
+![平均场近似丢掉相关方向，上右区域](images/01-mean-field-directions.svg#textbook-detail-1-2)
+
+![平均场近似丢掉相关方向，下左区域](images/01-mean-field-directions.svg#textbook-detail-2-1)
+
+![平均场近似丢掉相关方向，下右区域](images/01-mean-field-directions.svg#textbook-detail-2-2)
+
+</details>
+
+
 蓝色斜长轮廓表达两个参数的相关变化，紫色平均场近似与它共享中心，却不能保留相关结构。沿蓝色长轴的方差可能严重变小，但换到垂直于长轴的组合方向，情况可以反转，右侧同一横向尺度的方差条展示了这个对照。例如目标协方差的对角为一、非对角为 $`0.8`$，反向 KL 下最优独立高斯两轴方差均为 $`0.36`$；目标沿长短两轴的方差为 $`1.8`$ 与 $`0.2`$。
 
 因此平均场在短轴方向反而更宽。两排各自在同一个方向上比较两个分布的方差。
@@ -340,6 +407,30 @@ $$
 
 ![沿关注函数的方向判断变分不确定性](images/01-directional-vi-uncertainty.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![沿关注函数的方向判断变分不确定性，上左区域](images/01-directional-vi-uncertainty.svg#textbook-detail-1-1)
+
+![沿关注函数的方向判断变分不确定性，上中区域](images/01-directional-vi-uncertainty.svg#textbook-detail-1-2)
+
+![沿关注函数的方向判断变分不确定性，上右区域](images/01-directional-vi-uncertainty.svg#textbook-detail-1-3)
+
+![沿关注函数的方向判断变分不确定性，中左区域](images/01-directional-vi-uncertainty.svg#textbook-detail-2-1)
+
+![沿关注函数的方向判断变分不确定性，中中区域](images/01-directional-vi-uncertainty.svg#textbook-detail-2-2)
+
+![沿关注函数的方向判断变分不确定性，中右区域](images/01-directional-vi-uncertainty.svg#textbook-detail-2-3)
+
+![沿关注函数的方向判断变分不确定性，下左区域](images/01-directional-vi-uncertainty.svg#textbook-detail-3-1)
+
+![沿关注函数的方向判断变分不确定性，下中区域](images/01-directional-vi-uncertainty.svg#textbook-detail-3-2)
+
+![沿关注函数的方向判断变分不确定性，下右区域](images/01-directional-vi-uncertainty.svg#textbook-detail-3-3)
+
+</details>
+
+
 取目标 $`p=N(0,\Sigma)`$，$`\Sigma=\begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}`$。单位长轴 $`u_+=\frac{(1,1)^T}{\sqrt2}`$ 和短轴 $`u_-=\frac{(1,-1)^T}{\sqrt2}`$ 的方差分别为 $`u_\pm^T\Sigma u_\pm=1\pm0.8`$，即 $`1.8`$ 与 $`0.2`$。这两个方差对应不同后验线性函数，不能只看坐标边缘概括整个后验。
 
 反向 KL 最优的对角高斯有每坐标方差 $`\frac1{(\Sigma^{-1})_{ii}}=1-0.8^2=0.36`$，均值仍为零。它沿任何单位方向的方差都是 $`0.36`$。所以图 B在 $`45^\circ`$ 与 $`135^\circ`$ 的标记显示：沿长轴低估五倍，沿短轴反而高估 $`1.8`$ 倍。常说的“均值场低估不确定性”不能被理解为所有方向上的无条件不等式。
@@ -347,9 +438,10 @@ $$
 图 A将目标的单位 Mahalanobis 椭圆与近似的半径 $`0.6`$ 圆放在同一参数平面，箭头指出上述两个方向。两者是各自标准化半径相同的轮廓，并非相同密度高度；在这个二维高斯例子中，轮廓内部的概率都为 $`1-e^{-\frac12}`$。图 B则连续转动同一个单位投影向量 $`u(\theta)=(\cos\theta,\sin\theta)^T`$：
 
 $$
-\mathrm{Var}_p(u(\theta)^TZ)=1+0.8\sin(2\theta),
-\qquad
-\mathrm{Var}_q(u(\theta)^TZ)=0.36.
+\begin{aligned}
+&\mathrm{Var}_p(u(\theta)^TZ)=1+0.8\sin(2\theta),\\
+&\quad \mathrm{Var}_q(u(\theta)^TZ)=0.36.
+\end{aligned}
 $$
 
 这使每个方向的同一线性查询都能直接比较目标方差与近似方差。沿长轴，目标标准差约 $`1.3416`$，近似标准差为 $`0.6`$。若把中心 95% 正态区间用于这个函数，其半宽分别约 $`2.6296`$ 与 $`1.176`$。平均值准确并不能弥补函数分布的宽度失真；继续优化同一个对角族也无法恢复被约束为零的相关项。
@@ -378,7 +470,16 @@ $$
 
 ![相关高斯的真实边缘、固定条件和平均场因子对照](images/01-mechanism.svg)
 
-**底部用全方差公式说明三条曲线为什么宽度不同。** 真实相关高斯满足 $`E[Z_2\mid Z_1]=0.8Z_1`$、条件方差 $`0.36`$。边缘方差因此为 $`E[\mathrm{Var}(Z_2\mid Z_1)]+\mathrm{Var}(E[Z_2\mid Z_1])=0.36+0.64=1`$。固定条件只保留第一项；把所有条件按 Z1 的真实分布混合，还要计入条件中心本身的波动。
+**底部用全方差公式说明三条曲线为什么宽度不同。** 真实相关高斯满足 $`E[Z_2\mid Z_1]=0.8Z_1`$、条件方差 $`0.36`$。边缘方差因此为
+
+$$
+\begin{aligned}
+&E[\mathrm{Var}(Z_2\mid Z_1)]\\
+&\quad +\mathrm{Var}(E[Z_2\mid Z_1])=0.36+0.64=1
+\end{aligned}
+$$
+
+固定条件只保留第一项；把所有条件按 Z1 的真实分布混合，还要计入条件中心本身的波动。
 
 平均场最优因子 q2 的方差在此高斯反向 KL 问题中恰为 $`0.36`$，均值却为零，并不是“固定 Z1 为一”的那条条件分布。更不能把平均对数密度的坐标更新当作直接混合条件密度；两者次序与对象都不同。反向 KL、平均场与坐标更新的原始推导见 [Blei 等 VI 综述第 2—3 节](https://arxiv.org/pdf/1601.00670)。
 
@@ -399,10 +500,12 @@ $$
 在最优零均值处得到图中的蓝线。真实边缘还包含条件均值随 $`Z_1`$ 变化的那部分方差；由全方差公式，
 
 $$
-\mathrm{Var}(Z_2)
-=\mathbb E[\mathrm{Var}(Z_2\mid Z_1)]
-+\mathrm{Var}(\mathbb E[Z_2\mid Z_1])
+\begin{aligned}
+&\mathrm{Var}(Z_2)
+=\mathbb E[\mathrm{Var}(Z_2\mid Z_1)]\\
+&\quad +\mathrm{Var}(\mathbb E[Z_2\mid Z_1])
 =0.36+0.64=1.
+\end{aligned}
 $$
 
 图中的宽灰线和窄蓝线，差的正是第二项。条件分布、边缘分布、变分因子虽然都能画成单变量密度，回答的问题却不同。本例平方项使 CAVI 均值更新恰好能写成代入另一个因子的均值；非线性条件均值一般没有这个性质，前文的 $`W^2`$ 反例已经说明这一点。该图衔接 [Blei 等综述第 2.3—2.4 节](https://arxiv.org/html/1601.00670v9#S2.SS3) 的平均场高斯例子，并用本章参数展开其条件与边缘的差别。
@@ -468,6 +571,20 @@ print('difference variances exact/MF',minus@cov@minus,minus@np.diag(variance)@mi
 
 ![同一正态平方期望的得分函数、常数基线和路径梯度及精确方差比较](images/01-gradient-estimator-variance.svg)
 
+<details>
+<summary>页内放大读图</summary>
+
+![同一正态平方期望的得分函数、常数基线和路径梯度及精确方差比较，上左区域](images/01-gradient-estimator-variance.svg#textbook-detail-1-1)
+
+![同一正态平方期望的得分函数、常数基线和路径梯度及精确方差比较，上右区域](images/01-gradient-estimator-variance.svg#textbook-detail-1-2)
+
+![同一正态平方期望的得分函数、常数基线和路径梯度及精确方差比较，下左区域](images/01-gradient-estimator-variance.svg#textbook-detail-2-1)
+
+![同一正态平方期望的得分函数、常数基线和路径梯度及精确方差比较，下右区域](images/01-gradient-estimator-variance.svg#textbook-detail-2-2)
+
+</details>
+
+
 只说“重参数化常常方差较小”还没有说明两种方法到底在随机化什么。先固定一个可以精确积分的任务：$`Z\sim N(m,1)`$，目标 $`J(m)=E[Z^2]=m^2+1`$，所以真实导数为 $`J'(m)=2m`$。这里比较的是**期望项的均值参数梯度**，没有把它冒充整个 ELBO，也没有同时优化方差或拟合模型参数。令 $`\epsilon\sim N(0,1)`$，同一次抽样对应 $`Z=m+\epsilon`$。
 
 **先把两条计算路径写开。** 得分函数法把样本位置视作给定，对概率密度求导，$`\partial_m\log q_m(z)=z-m`$，得到单样本估计
@@ -494,8 +611,10 @@ $$
 仍有期望 $`2m`$。利用标准正态的奇数矩为零、$`E[\epsilon^2]=1,E[\epsilon^4]=3,E[\epsilon^6]=15`$，可逐项展开得到
 
 $$
-\mathrm{Var}(g_b)
-=(m^2-b)^2+6(m^2-b)+8m^2+15.
+\begin{aligned}
+&\mathrm{Var}(g_b)\\
+&\quad =(m^2-b)^2+6(m^2-b)+8m^2+15.
+\end{aligned}
 $$
 
 将与 $`b`$ 有关的二次式配方，最优**常数**基线为 $`b^*=m^2+3`$，并有
@@ -907,6 +1026,20 @@ ELBO 是对数权重的期望，证据对数是权重期望的对数，二者顺
 ### 图解：重要性权重集中会让证据估计不稳定
 
 ![重要性权重集中会让证据估计不稳定](images/01-extension.svg)
+
+<details>
+<summary>页内放大读图</summary>
+
+![重要性权重集中会让证据估计不稳定，上左区域](images/01-extension.svg#textbook-detail-1-1)
+
+![重要性权重集中会让证据估计不稳定，上右区域](images/01-extension.svg#textbook-detail-1-2)
+
+![重要性权重集中会让证据估计不稳定，下左区域](images/01-extension.svg#textbook-detail-2-1)
+
+![重要性权重集中会让证据估计不稳定，下右区域](images/01-extension.svg#textbook-detail-2-2)
+
+</details>
+
 
 图 A 保留两组四个样本的权重对照：均匀权重为 $`(\frac{1}{4},\frac{1}{4},\frac{1}{4},\frac{1}{4})`$，集中权重为 $`(0.97,0.01,0.01,0.01)`$。权重诊断 $`\widehat{\mathrm{ESS}}_w=\frac{1}{\sum_i\bar w_i^2}`$ 分别为 4 和约 1.062。这个量衡量已观测权重的集中程度，不是对所有被积函数都成立的精确方差等价样本量。
 
