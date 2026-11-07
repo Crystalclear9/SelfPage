@@ -18,6 +18,23 @@ try {
   await notes.locator('summary').click();
   assert.equal(await notes.locator('textarea').inputValue(), '先写出轨迹概率，再约去相同因子。');
   assert.ok(await notes.locator('input').isChecked());
+  await page.goto(base + 'mathematics/calculus/chapter-01/');
+  const solutions = page.locator('.exercise-answer');
+  assert.ok(await solutions.count() >= 12, 'Every numbered question needs its own answer');
+  assert.equal(await page.locator('.exercise-answer[open]').count(), 0);
+  assert.ok(await page.getByText('题二：', { exact: true }).isVisible());
+  assert.ok(await page.getByText('题三：', { exact: true }).isVisible());
+  const drafts = page.locator('.exercise-notes');
+  for (let i = 0; i < 2; i++) {
+    await drafts.nth(i).locator('summary').click();
+    await drafts.nth(i).locator('textarea').fill(`独立思路 ${i}`);
+  }
+  await page.reload();
+  assert.equal(await page.locator('.exercise-answer[open]').count(), 0);
+  for (let i = 0; i < 2; i++) assert.equal(await drafts.nth(i).locator('textarea').inputValue(), `独立思路 ${i}`);
+  await page.goto(base + 'machine-learning/unsupervised-learning/chapter-04/');
+  assert.ok(await page.locator('.exercise-answer').count() >= 16, 'Full-stop answer labels must collapse');
+  assert.equal(await page.locator('.exercise-answer[open]').count(), 0);
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
   await page.goto(base + 'guides/assignments/');
   assert.equal(await page.locator('.exercise-notes').count(), 4);

@@ -47,6 +47,7 @@ try {
                   title: document.querySelector('h1')?.textContent,
                   empty: !content.textContent.trim(),
                   mathErrors: content.querySelectorAll('.katex-error').length,
+                  exposedAnswers: [...content.querySelectorAll('p')].some(el => /^(?:(?:详细|参考|教师参考)?(?:解答|答案|解析|解题思路))[：:。．.]/.test(el.textContent.trim()) && !el.closest('.exercise-answer')),
                   wrongFonts: code.some(el => !getComputedStyle(el).fontFamily.includes('monospace')),
                   noColour: code.some(el => {
                     const token = el.querySelector('.hljs-keyword, .hljs-string, .hljs-number');
@@ -56,7 +57,7 @@ try {
                 };
               }, theme);
               assert.equal(result.title, entry.title);
-              for (const key of ['overflow', 'empty', 'wrongFonts', 'noColour', 'brokenImages']) assert.equal(result[key], false, `${width}px ${theme}: ${key}`);
+              for (const key of ['overflow', 'empty', 'wrongFonts', 'noColour', 'brokenImages', 'exposedAnswers']) assert.equal(result[key], false, `${width}px ${theme}: ${key}`);
               assert.equal(result.mathErrors, 0);
             }
           }

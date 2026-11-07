@@ -7,13 +7,17 @@ export default function useExerciseNotes(route, html) {
     const targets = route.endsWith('/guides/assignments/')
       ? [...root.querySelectorAll('h2')].filter(h => h.textContent.startsWith('作业'))
       : [...root.querySelectorAll('.exercise-answer')];
+    const counts = new Map();
     const cleanups = targets.map((target, index) => {
       const heading = target.matches('h2') ? target : (() => {
         let node = target.previousElementSibling;
         while (node && !/^H[2-6]$/.test(node.tagName)) node = node.previousElementSibling;
         return node;
       })();
-      const key = `learning-draft:${route}:${heading?.id || index}`;
+      const headingKey = heading?.id || String(index);
+      const ordinal = counts.get(headingKey) || 0;
+      counts.set(headingKey, ordinal + 1);
+      const key = `learning-draft:${route}:${headingKey}${ordinal ? `:question-${ordinal + 1}` : ''}`;
       const panel = document.createElement('details');
       panel.className = 'exercise-notes';
       const summary = document.createElement('summary'); summary.textContent = '写下我的思路';

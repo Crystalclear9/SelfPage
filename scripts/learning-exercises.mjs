@@ -3,6 +3,8 @@
 export default function learningExercises() {
   return tree => {
     const text = n => n.value || n.children?.map(text).join('') || '';
+    const isAnswer = n => /^(?:(?:详细|参考|教师参考)?(?:解答|答案|解析|解题思路))[：:。．.]/.test(text(n).trim());
+    const isQuestion = n => /^(?:(?:题目|问题)|(?:第?[一二三四五六七八九十百\d]+题)|(?:题[一二三四五六七八九十百\d]+))[：:。．.\s]/.test(text(n).trim());
     const disclosure = (label, children) => ({ type: 'paragraph', data: { hName: 'details', hProperties: { className: ['exercise-answer'] } }, children: [
       { type: 'paragraph', data: { hName: 'summary' }, children: [{ type: 'text', value: label }] },
       { type: 'paragraph', data: { hName: 'div', hProperties: { className: ['exercise-solution'] } }, children },
@@ -19,10 +21,10 @@ export default function learningExercises() {
           output.push(block); i = end; continue;
         }
       }
-      if (node.type === 'paragraph' && /^(?:解答|答案|参考答案|解析)[：:]/.test(text(node))) {
+      if (node.type === 'paragraph' && isAnswer(node)) {
         const answer = [node];
         while (i + 1 < nodes.length && !['heading', 'html'].includes(nodes[i + 1].type)
-          && !/^(?:题目|问题)[：:]/.test(text(nodes[i + 1]))) answer.push(nodes[++i]);
+          && !isQuestion(nodes[i + 1]) && !isAnswer(nodes[i + 1])) answer.push(nodes[++i]);
         output.push(disclosure('查看参考解析', answer));
       } else output.push(node);
     }
