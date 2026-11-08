@@ -27,7 +27,7 @@
 
 ## 参考资料
 
-- [动手学深度学习，作者教材](https://zh.d2l.ai/)
-- [PyTorch 官方教程](https://docs.pytorch.org/tutorials/)
+- 动手学深度学习，作者教材
+- PyTorch 官方教程
 
 [分类目录](../README.md) · [总目录](../../README.md)

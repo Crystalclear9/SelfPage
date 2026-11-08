@@ -24,6 +24,6 @@
 
 ## 参考资料
 
-- [NumPy 官方快速入门](https://numpy.org/doc/stable/user/quickstart.html)
+- NumPy 官方快速入门
 
 [分类目录](../README.md) · [总目录](../../README.md)

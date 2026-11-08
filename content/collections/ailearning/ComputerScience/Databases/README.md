@@ -22,6 +22,6 @@
 
 ## 参考资料
 
-- [PostgreSQL 官方教程](https://www.postgresql.org/docs/current/tutorial.html)
+- PostgreSQL 官方教程
 
 [分类目录](../README.md) · [总目录](../../README.md)

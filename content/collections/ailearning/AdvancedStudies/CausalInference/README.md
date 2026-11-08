@@ -25,8 +25,8 @@
 
 ## 参考资料
 
-- [Causal Inference: What If](https://miguelhernan.org/whatifbook)
-- [Double/Debiased Machine Learning](https://arxiv.org/abs/1608.00060)
-- [序贯双重稳健评价](https://proceedings.mlr.press/v48/jiang16.html)
+- Causal Inference: What If
+- Double/Debiased Machine Learning（arXiv:1608.00060）
+- 序贯双重稳健评价
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)

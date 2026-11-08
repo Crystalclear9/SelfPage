@@ -28,10 +28,10 @@
 
 ## 参考资料
 
-- [Spinning Up：强化学习基本概念](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html)
-- [Gymnasium：时间限制处理](https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/)
-- [Double DQN 论文](https://arxiv.org/abs/1509.06461)
-- [Spinning Up：DDPG](https://spinningup.openai.com/en/latest/algorithms/ddpg.html)
-- [SAC 原始论文](https://arxiv.org/abs/1801.01290)
+- Spinning Up：强化学习基本概念
+- Gymnasium：时间限制处理
+- Double DQN 论文（arXiv:1509.06461）
+- Spinning Up：DDPG
+- SAC 原始论文（arXiv:1801.01290）
 
 [分类目录](../README.md) · [总目录](../../README.md)

@@ -22,6 +22,6 @@
 
 ## 参考资料
 
-- [Pro Git 官方在线书](https://git-scm.com/book/en/v2)
+- Pro Git 官方在线书
 
 [分类目录](../README.md) · [总目录](../../README.md)

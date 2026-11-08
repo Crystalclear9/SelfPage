@@ -25,8 +25,8 @@
 
 ## 参考资料
 
-- [Understanding Machine Learning](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/)
-- [Stability and Generalization](https://www.jmlr.org/papers/v2/bousquet02a.html)
-- [PAC-Bayes 推导框架](https://jmlr.org/papers/v24/23-0401.html)
+- Understanding Machine Learning
+- Stability and Generalization
+- PAC-Bayes 推导框架
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)

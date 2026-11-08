@@ -29,9 +29,9 @@
 
 ## 参考资料
 
-- [VAE 原始论文](https://arxiv.org/abs/1312.6114)
-- [GAN 原始论文](https://arxiv.org/abs/1406.2661)
-- [DDPM 原始论文](https://arxiv.org/abs/2006.11239)
-- [Latent Diffusion 论文](https://arxiv.org/abs/2112.10752)
+- VAE 原始论文（arXiv:1312.6114）
+- GAN 原始论文（arXiv:1406.2661）
+- DDPM 原始论文（arXiv:2006.11239）
+- Latent Diffusion 论文（arXiv:2112.10752）
 
 [分类目录](../README.md) · [总目录](../../README.md)

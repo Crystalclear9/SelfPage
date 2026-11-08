@@ -24,8 +24,8 @@
 
 ## 参考资料
 
-- [Conformal Prediction Tutorial](https://arxiv.org/abs/2107.07511)
-- [Group DRO](https://arxiv.org/abs/1911.08731)
-- [选择性分类](https://proceedings.neurips.cc/paper_files/paper/2017/hash/4a8423d5e91fda00bb7e46540e2b0cf1-Abstract.html)
+- Conformal Prediction Tutorial（arXiv:2107.07511）
+- Group DRO（arXiv:1911.08731）
+- 选择性分类
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)

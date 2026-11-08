@@ -22,7 +22,7 @@
 
 ## 参考资料
 
-- [GNU Bash 官方手册](https://www.gnu.org/software/bash/manual/bash.html)
-- [Linux man-pages 项目](https://www.kernel.org/doc/man-pages/)
+- GNU Bash 官方手册
+- Linux man-pages 项目
 
 [分类目录](../README.md) · [总目录](../../README.md)

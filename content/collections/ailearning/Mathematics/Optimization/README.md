@@ -28,8 +28,8 @@
 
 ## 参考资料
 
-- [Mathematics for Machine Learning：作者提供的教材](https://mml-book.github.io/)
-- [Adam 论文](https://arxiv.org/abs/1412.6980)
-- [AdamW 论文](https://arxiv.org/abs/1711.05101)
+- Mathematics for Machine Learning：作者提供的教材
+- Adam 论文（arXiv:1412.6980）
+- AdamW 论文（arXiv:1711.05101）
 
 [分类目录](../README.md) · [总目录](../../README.md)

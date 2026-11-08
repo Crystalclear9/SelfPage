@@ -28,9 +28,9 @@
 
 ## 参考资料
 
-- [动手学深度学习，作者教材](https://zh.d2l.ai/)
-- [PyTorch 官方教程](https://docs.pytorch.org/tutorials/)
-- [Transformer 原始论文](https://arxiv.org/abs/1706.03762)
-- [RoFormer 与 RoPE](https://arxiv.org/abs/2104.09864)
+- 动手学深度学习，作者教材
+- PyTorch 官方教程
+- Transformer 原始论文（arXiv:1706.03762）
+- RoFormer 与 RoPE（arXiv:2104.09864）
 
 [分类目录](../README.md) · [总目录](../../README.md)

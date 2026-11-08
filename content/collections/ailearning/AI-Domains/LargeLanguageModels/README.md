@@ -34,9 +34,9 @@
 
 ## 参考资料
 
-- [LoRA 原始论文](https://arxiv.org/abs/2106.09685)
-- [RAG 原始论文](https://arxiv.org/abs/2005.11401)
-- [InstructGPT 论文](https://arxiv.org/abs/2203.02155)
-- [DPO 论文](https://arxiv.org/abs/2305.18290)
+- LoRA 原始论文（arXiv:2106.09685）
+- RAG 原始论文（arXiv:2005.11401）
+- InstructGPT 论文（arXiv:2203.02155）
+- DPO 论文（arXiv:2305.18290）
 
 [分类目录](../README.md) · [总目录](../../README.md)

@@ -112,9 +112,9 @@
 &=0.75525625.
 \end{aligned}
 ```
-再构造一个边界反例，让新回合的首个残差为一百。如果错误地跨边界拼接，会额外加入 $`0.855^3\times100=62.5026375`$，把原优势改成 $`63.25789375`$。图中并列列出两个结果，便于核对附加项。正确边界不是随意把最后一个有效 TD 残差清零，而是阻止新回合的递推项流回旧回合；外部截断的价值补尾与迹传播掩码仍是两个独立条件。展开与递推形式可对照 [GAE 原论文第 3 节](https://arxiv.org/pdf/1506.02438)。
+再构造一个边界反例，让新回合的首个残差为一百。如果错误地跨边界拼接，会额外加入 $`0.855^3\times100=62.5026375`$，把原优势改成 $`63.25789375`$。图中并列列出两个结果，便于核对附加项。正确边界不是随意把最后一个有效 TD 残差清零，而是阻止新回合的递推项流回旧回合；外部截断的价值补尾与迹传播掩码仍是两个独立条件。展开与递推形式可对照 GAE 原论文第 3 节。
 
-固定这些残差而只改变 $`\lambda`$，优势为 $`1-0.45\lambda+0.2025\lambda^2`$，从零到一时由一降至 0.7525；更远权重变大不意味着带符号总和一定变大。此例核验的是 GAE 加权与边界，不能用来选择任意任务的最优 $`\lambda`$。其 TD 残差展开见 [GAE 原论文第 3 节](https://arxiv.org/pdf/1506.02438)。
+固定这些残差而只改变 $`\lambda`$，优势为 $`1-0.45\lambda+0.2025\lambda^2`$，从零到一时由一降至 0.7525；更远权重变大不意味着带符号总和一定变大。此例核验的是 GAE 加权与边界，不能用来选择任意任务的最优 $`\lambda`$。其 TD 残差展开见 GAE 原论文第 3 节。
 
 <a id="sec-2"></a>
 
@@ -362,7 +362,7 @@ E[\widehat g_{\mathrm{LOO}}]=0.16.
 
 因此本例的留一估计虽然无偏，方差还略大于原始估计。留一基线利用的是独立样本提供的回报信息；若基线本身噪声很大，其方差收益必须另行计算或测量。本例用于精确检查估计目标，而不是证明一种训练配置普遍优于另一种。
 
-同一输入下多次独立采样的留一基线，可参见 Ahmadian 等的 [Back to Basics: Revisiting REINFORCE-Style Optimization for Learning from Human Feedback in LLMs](https://aclanthology.org/2024.acl-long.662.pdf) 第 2.3 节。这里的伯努利穷举是单步解析例子；应用到序列模型时，还需按具体奖励定义、采样分组与目标函数重新核对。
+同一输入下多次独立采样的留一基线，可参见 Ahmadian 等的 Back to Basics: Revisiting REINFORCE-Style Optimization for Learning from Human Feedback in LLMs 第 2.3 节。这里的伯努利穷举是单步解析例子；应用到序列模型时，还需按具体奖励定义、采样分组与目标函数重新核对。
 
 <a id="policy-3-detail-15"></a>
 
@@ -637,7 +637,7 @@ Critic 拟合的是相对状态价值，不应再把所有目标无条件乘起�
 
 把图中的三种归约展开到每一个原始项。按回合平均时，八项都乘 $`\frac12`$，所以 A 的两项贡献各为 $`0.5`$，B 的六项各为 $`1.5`$，总和十。按有效步平均时，每项乘 $`\frac18`$，贡献为两项 $`0.125`$ 和六项 $`0.375`$，总和 $`2.5`$。先在各回合取步均值时，A 的每项乘 $`\frac1{2\times2}=\frac14`$，B 的每项乘 $`\frac1{2\times6}=\frac1{12}`$，恰好八项均为 $`0.25`$，总和二。最后八项恰好相同来自本例所取的数值，不是两条轨迹在一般问题中每步贡献必然一样。
 
-检查实现时可把梯度项临时换成这八个数，分别核对有效步掩码、每条长度和最终归约；先验证代数，再恢复网络与自动微分。[Spinning Up 的公式以轨迹数平均轨迹内梯度和，示例损失则对收集的步取均值](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html#implementing-the-simplest-policy-gradient)。两种写法放在一起阅读时，必须追踪批次长度与归一化因子；仅看到 `.mean()` 不能确定它估计哪个目标。
+检查实现时可把梯度项临时换成这八个数，分别核对有效步掩码、每条长度和最终归约；先验证代数，再恢复网络与自动微分。Spinning Up 的公式以轨迹数平均轨迹内梯度和，示例损失则对收集的步取均值。两种写法放在一起阅读时，必须追踪批次长度与归一化因子；仅看到 `.mean()` 不能确定它估计哪个目标。
 
 <a id="policy-3-detail-56"></a>
 
@@ -803,10 +803,10 @@ print('optimal_five_step_success',success[5,0])
 
 ## 参考资料
 
-- [Policy Gradient Methods](https://proceedings.neurips.cc/paper/1999/hash/464d828b85b0bed98e80ade0a5c43b0f-Abstract.html)：梯度目标背景。
-- [Generalized Advantage Estimation](https://arxiv.org/abs/1506.02438)：残差和与优势估计的原论文。
-- [PyTorch Categorical](https://docs.pytorch.org/docs/stable/distributions.html#categorical)：动作分布与 log 概率的官方接口。
-- [PyTorch multinomial](https://docs.pytorch.org/docs/stable/generated/torch.multinomial.html)：本章带显式随机流的离散采样接口。
+- Policy Gradient Methods：梯度目标背景。
+- Generalized Advantage Estimation（arXiv:1506.02438）：残差和与优势估计的原论文。
+- PyTorch Categorical：动作分布与 log 概率的官方接口。
+- PyTorch multinomial：本章带显式随机流的离散采样接口。
 
 ---
 

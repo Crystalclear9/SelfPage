@@ -27,7 +27,7 @@
 
 ## 参考资料
 
-- [Contrastive Predictive Coding](https://arxiv.org/abs/1807.03748)
-- [VICReg](https://arxiv.org/abs/2105.04906)
+- Contrastive Predictive Coding（arXiv:1807.03748）
+- VICReg（arXiv:2105.04906）
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)

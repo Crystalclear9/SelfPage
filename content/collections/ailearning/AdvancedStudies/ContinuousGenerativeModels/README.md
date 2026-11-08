@@ -23,7 +23,7 @@
 
 ## 参考资料
 
-- [Score SDE](https://arxiv.org/abs/2011.13456)
-- [Flow Matching](https://arxiv.org/abs/2210.02747)
+- Score SDE（arXiv:2011.13456）
+- Flow Matching（arXiv:2210.02747）
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)

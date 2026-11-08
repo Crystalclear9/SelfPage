@@ -33,8 +33,8 @@
 
 ## 参考资料
 
-- [Seeing Theory：点估计、置信区间与经验重采样](https://seeing-theory.brown.edu/frequentist-inference/index.html)
-- [Berkeley Stat 210A：p 值、置信区域与检验反演](https://stat210a.berkeley.edu/fall-2025/reader/testing-interpretation.html)
-- [Mathematics for Machine Learning：作者提供的教材](https://mml-book.github.io/)
+- Seeing Theory：点估计、置信区间与经验重采样
+- Berkeley Stat 210A：p 值、置信区域与检验反演
+- Mathematics for Machine Learning：作者提供的教材
 
 [分类目录](../README.md) · [总目录](../../README.md)

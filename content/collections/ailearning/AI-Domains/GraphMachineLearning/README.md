@@ -24,10 +24,10 @@
 
 ## 参考资料
 
-- [GCN 原始论文](https://arxiv.org/abs/1609.02907)
-- [GraphSAGE 论文](https://arxiv.org/abs/1706.02216)
-- [PyTorch Geometric 官方教程](https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html)
+- GCN 原始论文（arXiv:1609.02907）
+- GraphSAGE 论文（arXiv:1706.02216）
+- PyTorch Geometric 官方教程
 
-- [GIN与消息传递表达能力分析](https://arxiv.org/abs/1810.00826)
+- GIN与消息传递表达能力分析（arXiv:1810.00826）
 
 [分类目录](../README.md) · [总目录](../../README.md)

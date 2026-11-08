@@ -137,7 +137,7 @@ p'(0)=p\odot\left(v-\frac13\mathbf1\right)
 
 末列给出的变化率只在 $`t=0`$ 处成立。若要得到有限位移后的概率，须重新计算完整 Softmax。概率的切线外推可能为负，完整映射始终留在概率单纯形内。给 $`v`$ 加任意公共常数会保持整个概率路径，乘常数则改变沿路径的速度。
 
-这里画的是概率输出的方向导数，还没有指定交叉熵标签。接上标量损失后须再配对其上游，不能直接把中间三根柱当作任意标签下的损失梯度。独立 sigmoid 的多标签任务又有不同约束，不应套用此处零和结论。归一化的商法则与雅可比形状可进一步对照 [MML 向量微积分章节](https://mml-book.github.io/book/mml-book.pdf)。
+这里画的是概率输出的方向导数，还没有指定交叉熵标签。接上标量损失后须再配对其上游，不能直接把中间三根柱当作任意标签下的损失梯度。独立 sigmoid 的多标签任务又有不同约束，不应套用此处零和结论。归一化的商法则与雅可比形状可进一步对照 MML 向量微积分章节。
 
  可以在完全相同的基准上直接检验“第二个得分未动”这个现象。取 $`t=1`$ 后，指数质量为 $`(\frac e2,\frac13,\frac1{6e})`$，第二类概率约为 $`0.1901`$，低于起点 $`\frac13`$。其变化由共同分母驱动；局部切线给出的 $`\frac29\approx0.2222`$ 只是小步近似。右图的完整曲线与切线差异，是非线性归一化的具体余项。
 
@@ -232,7 +232,7 @@ L(z) &=-\sum_i q_i\log p_i=aA(z)-q^Tz,\\[6pt]
 
 也不能把 $`1.8(p-q)`$ 当作正确式子。该式对应把整项原始损失放大，保留了原最优概率；逐类别加权改变了各类质量的比例，两种操作有不同目标。只有一热标签等特殊情况，类别加权才退化为给单样本整体乘一个标量。
 
-若用接口复现，应给出浮点软标签，设置 `weight=[1, 9]`，并先使用 `reduction='none'` 比较本节单样本公式；批量归约另按下一节定义处理。[PyTorch 的 CrossEntropyLoss 官方定义](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)分别列出了类别索引和概率目标的加权公式，两类输入的默认均值分母也不同，不能只凭接口名称推断。
+若用接口复现，应给出浮点软标签，设置 `weight=[1, 9]`，并先使用 `reduction='none'` 比较本节单样本公式；批量归约另按下一节定义处理。PyTorch 的 CrossEntropyLoss 官方定义分别列出了类别索引和概率目标的加权公式，两类输入的默认均值分母也不同，不能只凭接口名称推断。
 
 <a id="sec-3"></a>
 ## 3. 批量、样本权重与两种掩码
@@ -592,7 +592,7 @@ print('autograd gradient and Hessian-vector checks passed')
 
 表中比较同一个输入处的三种增益。$`\epsilon=0.1`$ 时，径向和切向的增益分别约为 $`0.1490`$ 与 $`1.1421`$。在本例的正方差输入处，径向增益仅在 $`\epsilon=0`$ 时精确为零。
 
-图只表示固定输入的局部算子。逐坐标不同的仿射系数 $`\gamma`$ 还会改变输出方向和奇异值；$`v=0,\epsilon=0`$ 时函数未定义。归一化与不变性机制依据 [Layer Normalization 原论文第 3、5 节](https://arxiv.org/html/1607.06450v1)，稳定项谱由本章公式自行推导。
+图只表示固定输入的局部算子。逐坐标不同的仿射系数 $`\gamma`$ 还会改变输出方向和奇异值；$`v=0,\epsilon=0`$ 时函数未定义。归一化与不变性机制依据 Layer Normalization 原论文第 3、5 节，稳定项谱由本章公式自行推导。
 
 <a id="visual-detail-matrixcalculus-03"></a>
 
@@ -606,7 +606,7 @@ print('autograd gradient and Hessian-vector checks passed')
 
 在原点，Softmax 的 Jacobian 为 $`J=\left[\begin{smallmatrix}\frac{1}{4}&-\frac{1}{4}\\-\frac{1}{4}&\frac{1}{4}\end{smallmatrix}\right]`$；它把公共方向映到零，把对比方向缩放为原来的 $`\frac{1}{2}`$。同一个矩阵也是硬标签或固定软标签交叉熵关于 **logits** 的 Hessian，因此公共方向具有零曲率。图中所列的对比方向概率变化率等于 $`J(1,-1)^T`$ 的第一分量，不能把概率曲线自身当成交叉熵曲线；网络参数化还可能给完整参数 Hessian 引入其他二阶项。
 
-Softmax 的平移不变性与数值稳定性见 [《Dive into Deep Learning》数值稳定与条件数](https://d2l.smola.org/chapter_mdl-optimization/mdl-numerical-stability-conditioning.html)。
+Softmax 的平移不变性与数值稳定性见 《Dive into Deep Learning》数值稳定与条件数。
 
 <a id="m3-19"></a>
 ## 7. 从求导公式走向研究问题
@@ -689,10 +689,10 @@ Softmax 的平移不变性与数值稳定性见 [《Dive into Deep Learning》�
 
 以下资料用于核对接口及进一步阅读；本章公式均已在正文展开推导。接口行为对应 PyTorch 2.10，其他版本应重新核对目标与归约设置。
 
-- [PyTorch 2.10 CrossEntropyLoss：输入形式与归约契约](https://docs.pytorch.org/docs/2.10/generated/torch.nn.CrossEntropyLoss.html)
-- [PyTorch 2.10 LayerNorm：统计轴与方差定义](https://docs.pytorch.org/docs/2.10/generated/torch.nn.LayerNorm.html)
-- [PyTorch 2.10 BatchNorm1d：训练与评估统计量](https://docs.pytorch.org/docs/2.10/generated/torch.nn.BatchNorm1d.html)
-- [Layer Normalization 原始论文](https://arxiv.org/abs/1607.06450)
+- PyTorch 2.10 CrossEntropyLoss：输入形式与归约契约
+- PyTorch 2.10 LayerNorm：统计轴与方差定义
+- PyTorch 2.10 BatchNorm1d：训练与评估统计量
+- Layer Normalization 原始论文（arXiv:1607.06450）
 
 ---
 

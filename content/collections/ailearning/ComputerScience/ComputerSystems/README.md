@@ -31,7 +31,7 @@
 
 ## 参考资料
 
-- [Operating Systems: Three Easy Pieces，作者教材](https://pages.cs.wisc.edu/~remzi/OSTEP/)
-- [PyTorch 性能分析器教程](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
+- Operating Systems: Three Easy Pieces，作者教材
+- PyTorch 性能分析器教程
 
 [分类目录](../README.md) · [总目录](../../README.md)

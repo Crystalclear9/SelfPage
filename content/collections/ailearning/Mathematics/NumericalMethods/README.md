@@ -24,7 +24,7 @@
 
 ## 参考资料
 
-- [Mathematics for Machine Learning：作者提供的教材](https://mml-book.github.io/)
-- [NumPy 线性代数文档](https://numpy.org/doc/stable/reference/routines.linalg.html)
+- Mathematics for Machine Learning：作者提供的教材
+- NumPy 线性代数文档
 
 [分类目录](../README.md) · [总目录](../../README.md)

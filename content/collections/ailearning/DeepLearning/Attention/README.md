@@ -28,10 +28,10 @@
 
 ## 参考资料
 
-- [动手学深度学习，作者教材](https://zh.d2l.ai/)
-- [PyTorch 官方教程](https://docs.pytorch.org/tutorials/)
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+- 动手学深度学习，作者教材
+- PyTorch 官方教程
+- Attention Is All You Need（arXiv:1706.03762）
 
-- [FlashAttention：精确注意力与IO成本](https://arxiv.org/abs/2205.14135)
+- FlashAttention：精确注意力与IO成本（arXiv:2205.14135）
 
 [分类目录](../README.md) · [总目录](../../README.md)

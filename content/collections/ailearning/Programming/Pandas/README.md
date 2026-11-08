@@ -24,6 +24,6 @@
 
 ## 参考资料
 
-- [Pandas 官方入门](https://pandas.pydata.org/docs/user_guide/10min.html)
+- Pandas 官方入门
 
 [分类目录](../README.md) · [总目录](../../README.md)

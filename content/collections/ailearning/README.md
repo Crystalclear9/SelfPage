@@ -22,9 +22,9 @@
 - **对照条件变化。** [动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)与[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)分别展示了随机波动、迭代失效和事务依赖。
 - **明确概率的对象。** [置信区间的抽样与反演](Mathematics/Statistics/01-参数估计与置信区间.md#visual-statistics-01)、[三角形支持上的条件密度](Mathematics/Probability/03-联合分布边缘化与条件期望.md#triangle-conditioning-visual)和[按独立单位重采样](Mathematics/Statistics/04-重采样实验设计与报告实践.md#visual-statistics-04)分别对应重复抽样、条件分布和抽样单位。
 
-每幅图的数据、单位和模型假设以所在章节为准。教材、论文和官方文档的链接放在相关解释旁，便于查阅完整证明与实现细节。
+每幅图的数据、单位和模型假设以所在章节为准。相关解释旁保留著作名称、作者或版本，便于识别出处。
 
-离线阅读时，请保留各主题的 images 目录，并使用支持 WebP 和数学公式的 Markdown 阅读器。插图使用相对路径，可以通过图下链接打开本地原图。
+从本地 README 进入教材时，请完整保留各主题目录及其 images 子目录。目录、章间跳转和原图链接都指向本地文件。Markdown 阅读器需要支持 WebP、行内数学和 math 围栏。
 
 ## 分类目录
 
@@ -121,4 +121,4 @@
 
 Python 完整示例带必要导入与人工或内置数据；SQL、Git、Linux 命令有环境前提，不能在任意终端直接混用。涉及梯度、划分、归约与概率时，按所在章节定义理解符号与系数；环境要求见[运行环境](运行环境.md)。
 
-各主题提供教材、原始论文或官方文档入口，供继续查阅完整理论、实现细节和版本说明。
+各主题列出相关教材、原始论文和文档的名称。正文包含阅读算例所需的定义、图表与计算步骤。

@@ -24,7 +24,7 @@
 
 ## 参考资料
 
-- [Stanford：Speech and Language Processing，作者教材](https://web.stanford.edu/~jurafsky/slp3/)
-- [Hugging Face Tokenizers 文档](https://huggingface.co/docs/tokenizers/index)
+- Stanford：Speech and Language Processing，作者教材
+- Hugging Face Tokenizers 文档
 
 [分类目录](../README.md) · [总目录](../../README.md)

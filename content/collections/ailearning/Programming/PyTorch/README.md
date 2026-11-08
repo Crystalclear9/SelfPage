@@ -32,6 +32,6 @@
 
 ## 参考资料
 
-- [PyTorch 官方快速入门](https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html)
+- PyTorch 官方快速入门
 
 [分类目录](../README.md) · [总目录](../../README.md)

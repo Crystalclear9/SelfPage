@@ -23,7 +23,7 @@
 
 ## 参考资料
 
-- [Variational Inference Review](https://arxiv.org/abs/1601.00670)
-- [Stan Posterior Analysis](https://mc-stan.org/docs/reference-manual/analysis.html)
+- Variational Inference Review（arXiv:1601.00670）
+- Stan Posterior Analysis
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)

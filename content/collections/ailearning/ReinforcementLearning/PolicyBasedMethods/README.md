@@ -24,9 +24,9 @@
 
 ## 参考资料
 
-- [Spinning Up：强化学习基本概念](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html)
-- [Gymnasium：时间限制处理](https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/)
-- [PPO 原始论文](https://arxiv.org/abs/1707.06347)
-- [GAE 论文](https://arxiv.org/abs/1506.02438)
+- Spinning Up：强化学习基本概念
+- Gymnasium：时间限制处理
+- PPO 原始论文（arXiv:1707.06347）
+- GAE 论文（arXiv:1506.02438）
 
 [分类目录](../README.md) · [总目录](../../README.md)

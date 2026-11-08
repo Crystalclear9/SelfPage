@@ -258,7 +258,7 @@ print('diagnostic oracle / minimum bundle cost:', oracle_output, minimum_cost)
 
 下排展示私有证据链，虚线标出未进入前四名的规则。q1 与 q3 都在允许库、候选和上下文中有完整连接；q4 的允许库包含 `secret-member` 与 `secret-rule`，但第二条没进入前四个候选。q2 与 q4 问的都是 Nebula，却具有不同权限：组 A 的允许库根本没有这两条私有事实，组 B 则拥有它们。因而相同的“未知”输出，在 q2 上符合证据范围，在 q4 上暴露可答任务未完成。这里的“不适用”表示不把无权限问题塞进条件充分召回的分母，不表示该请求没有实际执行检索。
 
-q4 还受预算限制：规则位于第五名，首先被前四截断；即使补入候选，成员关系成本四十四、规则成本四十，共八十四字符。八十字符预算少了四字符，无法完整容纳这两条证据。相同事实关系、合法权限、候选可达和预算可容纳应逐项成立。关于多跳评估，[HotpotQA 第 2—3 节](https://aclanthology.org/D18-1259/)将跨文档问题与支持事实标注一起定义；本图用封闭连接解释必要证据，不冒充其真实数据成绩。
+q4 还受预算限制：规则位于第五名，首先被前四截断；即使补入候选，成员关系成本四十四、规则成本四十，共八十四字符。八十字符预算少了四字符，无法完整容纳这两条证据。相同事实关系、合法权限、候选可达和预算可容纳应逐项成立。关于多跳评估，HotpotQA 第 2—3 节将跨文档问题与支持事实标注一起定义；本图用封闭连接解释必要证据，不冒充其真实数据成绩。
 
 <a id="rag-5-ranking-ledger"></a>
 
@@ -293,7 +293,7 @@ c(d)=\mathrm{len}(d.\mathrm{id})
 \mathrm{idf}(w)=1+\log\frac{1+n}{1+\mathrm{df}(w)}.
 ```
 
-先将词频乘这个权重，再各自除以向量 L2 范数，最后点积即可独立复算下表分数。这些实现约定可查 [scikit-learn 的 TfidfVectorizer 文档](https://scikit-learn.org/1.8/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)。每道题先按权限与时点取允许库，再单独拟合向量器，所以 q1 与 q4 的库、IDF 和查询编码都不同；不要跨题将某个分数解释为共同标尺下的置信概率。
+先将词频乘这个权重，再各自除以向量 L2 范数，最后点积即可独立复算下表分数。这些实现约定可查 scikit-learn 的 TfidfVectorizer 文档。每道题先按权限与时点取允许库，再单独拟合向量器，所以 q1 与 q4 的库、IDF 和查询编码都不同；不要跨题将某个分数解释为共同标尺下的置信概率。
 
 为什么一个必要规则会输给无关的 blue 规则？查询只有 `project Nebula retention_days`，没有尚待推断的 `red`。直接词项匹配可以发现项目成员关系，却不会自动把已检索到的方案名带回第二次查询。因此，问题的关系链有两跳，不意味着一次词项检索已经执行了两跳推理。加入关系展开或查询改写是可以检验的改进，但需要实际实现并重新评估，不能把知道答案后的 `red` 直接添入正式测试查询。
 
@@ -472,7 +472,7 @@ print('snapshot, scope, time and packing changes cannot hit the same cache entry
 
 这种联合支持不等于要求每一条引文独立证明整句。若逐条都要求完整支持，会错误惩罚合理的多跳证据。另一方面，在充分组合后附加 `green` 不会使回答变错，却增加一条与这个项目期限无关的来源；完整支持率与无关引用比例于是可以给出不同评价。重复的 `member-copy` 则仍表达同一条有效关系，不应仅因冗余就自动判作错误引用。
 
-[ALCE 的引用评价](https://arxiv.org/html/2305.14627v2#S3.SS3)明确把整句的联合支持与无关引用分开；论文也讨论了自动蕴含模型识别部分支持的限制。这里用可手工追踪的关系连接说明评价对象，没有实现其 NLI 评分器，更没有假定自然语言蕴含可由字符串匹配解决。
+ALCE 的引用评价明确把整句的联合支持与无关引用分开；论文也讨论了自动蕴含模型识别部分支持的限制。这里用可手工追踪的关系连接说明评价对象，没有实现其 NLI 评分器，更没有假定自然语言蕴含可由字符串匹配解决。
 
 最后检查证据资格。`blue-old` 的 ID 存在，但对 q1 的时点六已过期；`secret-rule` 同样真实存在于全库，却既不属于组 A 的允许库，也不说明 Orion。**ID 可解析、范围合法、关系相关、联合充分**是四次不同检查。先限定允许范围，再判断命题支持；不能用一条真实存在的来源链接掩盖错误时点、错误实体或缺失前提。
 
@@ -556,7 +556,7 @@ print('snapshot, scope, time and packing changes cannot hit the same cache entry
 
 对所有低于八十四的预算，完整证据自身就放不下。对八十四到一百一十八，前两块占八十二，第三块放不下，规则还需总成本一百二十二，因而仍失败；到一百一十九时第三块却先变得可装入，又把总需求推到一百五十九。这也说明“只差四字符”只描述最低充分组合与原预算之间的差距，不能描述现有算法所需的实际修复幅度。图中的一百五十九是这一个小语料、固定顺序和装箱规则的精确阈值，不是 RAG 的通用预算。
 
-同样不应从这个例子声称“预算越大答案越差”：本例展示的是较长的失败平台和策略浪费，没有观测到成功后的回落。位置改变能否降低自然语言读取性能是另一个问题，需要固定证据、改变排列并实际调用目标模型；[Lost in the Middle](https://arxiv.org/html/2307.03172v3)提供了这类受控实验的研究背景，本章的符号读取器没有位置注意力机制，不能复现其现象。区分已经算出的机制和需要另做的实验，才能使图形支持正文结论。
+同样不应从这个例子声称“预算越大答案越差”：本例展示的是较长的失败平台和策略浪费，没有观测到成功后的回落。位置改变能否降低自然语言读取性能是另一个问题，需要固定证据、改变排列并实际调用目标模型；Lost in the Middle提供了这类受控实验的研究背景，本章的符号读取器没有位置注意力机制，不能复现其现象。区分已经算出的机制和需要另做的实验，才能使图形支持正文结论。
 
 <a id="rag-5-detail-25"></a>
 
@@ -708,10 +708,10 @@ P(Y=1\mid C)
 
 ## 11. 参考资料与继续阅读
 
-- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)：检索与生成的概率建模背景；本章稀疏检索和规则读取实验不是论文架构复现。
-- [Enabling Large Language Models to Generate Text with Citations](https://arxiv.org/abs/2305.14627)：引用与答案评价的研究背景，引用存在性与支持性需要区分。
-- [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172)：长上下文利用的研究背景；本章未执行大模型位置实验。
-- [scikit-learn 1.8 TfidfVectorizer](https://scikit-learn.org/1.8/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)：本章稀疏向量化实现接口。
+- Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks（arXiv:2005.11401）：检索与生成的概率建模背景；本章稀疏检索和规则读取实验不是论文架构复现。
+- Enabling Large Language Models to Generate Text with Citations（arXiv:2305.14627）：引用与答案评价的研究背景，引用存在性与支持性需要区分。
+- Lost in the Middle: How Language Models Use Long Contexts（arXiv:2307.03172）：长上下文利用的研究背景；本章未执行大模型位置实验。
+- scikit-learn 1.8 TfidfVectorizer：本章稀疏向量化实现接口。
 
 ---
 

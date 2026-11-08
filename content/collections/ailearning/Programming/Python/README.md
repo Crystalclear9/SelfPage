@@ -26,6 +26,6 @@
 
 ## 参考资料
 
-- [Python 官方教程](https://docs.python.org/3/tutorial/)
+- Python 官方教程
 
 [分类目录](../README.md) · [总目录](../../README.md)

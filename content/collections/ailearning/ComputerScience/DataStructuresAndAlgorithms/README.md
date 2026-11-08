@@ -28,7 +28,7 @@
 
 ## 参考资料
 
-- [Python 数据结构教程](https://docs.python.org/3/tutorial/datastructures.html)
-- [MIT 算法导论课程](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/)
+- Python 数据结构教程
+- MIT 算法导论课程
 
 [分类目录](../README.md) · [总目录](../../README.md)

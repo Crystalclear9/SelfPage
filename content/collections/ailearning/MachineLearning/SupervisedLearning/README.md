@@ -24,9 +24,9 @@
 
 ## 参考资料
 
-- [scikit-learn 用户指南](https://scikit-learn.org/stable/user_guide.html)
-- [scikit-learn 常见陷阱](https://scikit-learn.org/stable/common_pitfalls.html)
+- scikit-learn 用户指南
+- scikit-learn 常见陷阱
 
-- [scikit-learn：SVM目标与实现约定](https://scikit-learn.org/stable/modules/svm.html)
+- scikit-learn：SVM目标与实现约定
 
 [分类目录](../README.md) · [总目录](../../README.md)

@@ -561,7 +561,7 @@ print("raw coefficients:", w_raw, "raw intercept:", b_raw)
 
 图中两条路径使用同一组训练输入零、二与验证输入一百。只用训练集拟合中心化参数时，均值为一，训练值变成负一和一，验证值变成九十九。若拟合时也读入验证输入，均值变成三十四，训练值变成负三十四和负三十二，验证值变成六十六。问题出在估计参数的数据范围，减法本身没有变化。
 
-本图只演示减均值，没有执行标准差缩放。两组训练点的中心分别移到零与负三十三，这揭示了泄漏同时改变训练表示，并非只把验证数字改小。预处理拟合与应用的区别可对照 [scikit-learn 的数据泄漏说明](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage)。验证输入可以用于应用已拟合变换，却不能反向改变训练阶段的估计；测试集还应保持独立。
+本图只演示减均值，没有执行标准差缩放。两组训练点的中心分别移到零与负三十三，这揭示了泄漏同时改变训练表示，并非只把验证数字改小。预处理拟合与应用的区别可对照 scikit-learn 的数据泄漏说明。验证输入可以用于应用已拟合变换，却不能反向改变训练阶段的估计；测试集还应保持独立。
 
 <a id="sec-6"></a>
 
@@ -629,7 +629,7 @@ q &=\frac{A^Ty}{n},\\[6pt]
 
 只用设计行 `[1, 1]` 和目标一，省略偏置。所有满足 $`w_1+w_2=1`$ 的参数都能精确拟合。图中从原点向该直线作垂线，交点 $`(0.5,0.5)`$ 给出最小范数解。沿直线偏离该点可写成 $`(0.5+t,0.5-t)`$，范数平方等于 $`0.5+2t^2`$。伪逆或零初始化的适当梯度下降会选到最小范数解，有限强度岭回归一般还会改变预测。
 
-继续阅读：[NumPy最小二乘的最小范数约定](https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html)。
+继续阅读：NumPy最小二乘的最小范数约定。
 
 <a id="numpy-4-detail-30"></a>
 
@@ -683,17 +683,17 @@ f_t(\mu_j)=1-(1-\eta\mu_j)^t.
 
 此例的稳定步长范围为 $`0\lt \eta\lt \frac12`$。若改为零点四，两个因子为零点六与负零点六，第二方向会交替越过原点，却仍收敛；如果只画绝对误差，就看不到这个符号振荡。等于零点五时高曲率方向因子为负一，一般不再衰减。因而“轨迹存在折返”和“算法发散”不能简单等同，应检查因子的绝对值及初始方向。
 
-用等高线同时解释曲率与轨迹，是 [《Dive into Deep Learning》梯度下降一节](https://d2l.ai/chapter_optimization/gd.html)采用的教学方式。本图以本章完整谱递推独立构造数值，不借用非线性训练的保证；全批、固定步长、无噪声二次模型的结论，不能直接外推到任意神经网络和随机小批曲线。
+用等高线同时解释曲率与轨迹，是 《Dive into Deep Learning》梯度下降一节采用的教学方式。本图以本章完整谱递推独立构造数值，不借用非线性训练的保证；全批、固定步长、无噪声二次模型的结论，不能直接外推到任意神经网络和随机小批曲线。
 
 <a id="numpy-4-detail-56"></a>
 
 ## 参考资料与继续阅读
 
-- [NumPy 2.4：最小二乘求解的输入、返回值与秩约定](https://numpy.org/doc/2.4/reference/generated/numpy.linalg.lstsq.html)
-- [NumPy 2.4：随机生成器、状态与版本兼容边界](https://numpy.org/doc/2.4/reference/random/generator.html)
-- [NumPy 2.4：并行随机流与 SeedSequence](https://numpy.org/doc/2.4/reference/random/parallel.html)
-- [Boyd 与 Vandenberghe：Convex Optimization，作者教材](https://web.stanford.edu/~boyd/cvxbook/)
-- [Mathematics for Machine Learning，作者教材](https://mml-book.github.io/)
+- NumPy 2.4：最小二乘求解的输入、返回值与秩约定
+- NumPy 2.4：随机生成器、状态与版本兼容边界
+- NumPy 2.4：并行随机流与 SeedSequence
+- Boyd 与 Vandenberghe：Convex Optimization，作者教材
+- Mathematics for Machine Learning，作者教材
 
 若要继续推导目标、差分与微批，返回[微积分完整训练实践](../../Mathematics/Calculus/04-从导数到训练目标的推导实践.md)；若要理解分解与误差，阅读[稳定求解](../../Mathematics/LinearAlgebra/03-线性方程组与稳定求解.md)；若要设计真实样本，进入[Pandas 数据流程](../Pandas/README.md)。把计算正确、目标一致与独立预测效果分别建立证据，再把它们连成完整学习程序。
 

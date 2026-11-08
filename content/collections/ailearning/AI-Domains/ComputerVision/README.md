@@ -24,7 +24,7 @@
 
 ## 参考资料
 
-- [Torchvision 官方文档](https://docs.pytorch.org/vision/stable/index.html)
-- [COCO 官方检测评价说明](https://cocodataset.org/#detection-eval)
+- Torchvision 官方文档
+- COCO 官方检测评价说明
 
 [分类目录](../README.md) · [总目录](../../README.md)

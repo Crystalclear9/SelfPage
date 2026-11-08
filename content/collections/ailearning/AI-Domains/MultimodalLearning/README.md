@@ -28,8 +28,8 @@
 
 ## 参考资料
 
-- [CLIP 原始论文](https://arxiv.org/abs/2103.00020)
-- [多模态机器学习综述](https://arxiv.org/abs/1705.09406)
-- [BLIP-2 论文](https://arxiv.org/abs/2301.12597)
+- CLIP 原始论文（arXiv:2103.00020）
+- 多模态机器学习综述（arXiv:1705.09406）
+- BLIP-2 论文（arXiv:2301.12597）
 
 [分类目录](../README.md) · [总目录](../../README.md)

@@ -122,7 +122,7 @@ PPO 不只是一行最小值公式，而是策略采样、行为概率保存、�
 
 还可以用相邻版本的比率检查“错误滚动分母”为何隐藏累计漂移。如果依次把上一列当作新旧策略，三个比率只显示 $`\frac{0.6}{0.5}=1.2`$、$`\frac{0.7}{0.6}=\frac76`$、$`\frac{0.8}{0.7}=\frac87`$，后两项甚至低于上阈值 1.2；但相对真正行为分布的累计比率已经是 1.4、1.6。若每列直接用当前概率的分离值作分母，比率还会全部成为一。前者忘记累计偏移，后者直接抹去采集身份，都不能继续当作原固定数据 PPO 目标。第 3 节的分母实验将进一步区分“错误比率为一但仍有梯度”和“分子分母梯度完全抵消”。
 
-这个算例说明代理目标进入平台后，整个策略仍可能继续变化：其他样本、熵项或共享参数都可能推动更新。多轮复用需要保存对应状态与动作的旧 log 概率，并核对策略身份、数据批次、固定优势、目标值与终止边界；这些要求与 [PPO 原论文算法 1](https://arxiv.org/pdf/1707.06347) 的采样—多轮优化区分一致。
+这个算例说明代理目标进入平台后，整个策略仍可能继续变化：其他样本、熵项或共享参数都可能推动更新。多轮复用需要保存对应状态与动作的旧 log 概率，并核对策略身份、数据批次、固定优势、目标值与终止边界；这些要求与 PPO 原论文算法 1 的采样—多轮优化区分一致。
 
 <a id="sec-2"></a>
 
@@ -596,7 +596,7 @@ D_{\mathrm{KL}}(\pi_{\mathrm{old}}\Vert\pi_x)=-\frac12\log\bigl(4x(1-x)\bigr).
 ```
 当 $`x=0.6,0.9,0.99`$ 时，KL 分别约为 $`0.020411,0.510826,1.614463`$ nat，目标却都在同一平台。所有动作比率的旧策略加权均值仍为一，归一化也没有限制 KL 变大。
 
-因此目标裁剪消除的是一部分继续变化的激励，不是对策略分布距离的硬约束；共享参数、其他状态或额外损失仍可能推动变化。图为完整动作求和的解析反例，没有抽样误差；实践中的经验 KL 又多一层估计波动。参照 [Spinning Up 对 PPO 裁剪与 KL 早停的说明](https://spinningup.openai.com/en/latest/algorithms/ppo.html)。
+因此目标裁剪消除的是一部分继续变化的激励，不是对策略分布距离的硬约束；共享参数、其他状态或额外损失仍可能推动变化。图为完整动作求和的解析反例，没有抽样误差；实践中的经验 KL 又多一层估计波动。参照 Spinning Up 对 PPO 裁剪与 KL 早停的说明。
 
 <a id="policy-4-detail-58"></a>
 
@@ -858,10 +858,10 @@ print('clipped_values',values.tolist(),'full_KL',kl.tolist(),'entropy_regularize
 
 ## 参考资料
 
-- [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347)：裁剪替代目标的原论文。
-- [Trust Region Policy Optimization](https://proceedings.mlr.press/v37/schulman15.html)：更新约束的理论背景。
-- [PyTorch Adam](https://docs.pytorch.org/docs/stable/generated/torch.optim.Adam.html)：优化器参数组的官方接口。
-- [PyTorch multinomial](https://docs.pytorch.org/docs/stable/generated/torch.multinomial.html)：离散采样接口。
+- Proximal Policy Optimization Algorithms（arXiv:1707.06347）：裁剪替代目标的原论文。
+- Trust Region Policy Optimization：更新约束的理论背景。
+- PyTorch Adam：优化器参数组的官方接口。
+- PyTorch multinomial：离散采样接口。
 
 ---
 

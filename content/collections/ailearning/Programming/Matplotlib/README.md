@@ -28,6 +28,6 @@
 
 ## 参考资料
 
-- [Matplotlib 官方快速入门](https://matplotlib.org/stable/users/explain/quick_start.html)
+- Matplotlib 官方快速入门
 
 [分类目录](../README.md) · [总目录](../../README.md)

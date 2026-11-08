@@ -24,6 +24,6 @@
 
 ## 参考资料
 
-- [Mathematics for Machine Learning：作者提供的教材](https://mml-book.github.io/)
+- Mathematics for Machine Learning：作者提供的教材
 
 [分类目录](../README.md) · [总目录](../../README.md)

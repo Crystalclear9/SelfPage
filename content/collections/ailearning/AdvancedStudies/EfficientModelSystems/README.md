@@ -27,7 +27,7 @@
 
 ## 参考资料
 
-- [ZeRO](https://arxiv.org/abs/1910.02054)
-- [GPTQ](https://arxiv.org/abs/2210.17323)
+- ZeRO（arXiv:1910.02054）
+- GPTQ（arXiv:2210.17323）
 
 [进阶目录](../README.md) · [学习路线](../../学习路线.md#advanced-topics) · [总目录](../../README.md)
