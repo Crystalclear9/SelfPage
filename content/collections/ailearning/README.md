@@ -1,32 +1,30 @@
 # AI 学习教材
 
-这是一套可按章节自学的 AI 教材，分为 **8 个分类、47 个主题、186 个章节**，覆盖数学、编程、计算机基础、机器学习、深度学习、应用方向、强化学习与进阶研究专题。各章从问题与概念出发，通过推导和完整算例解释方法，再用反例、方法比较和练习解析帮助巩固。算例可用纸笔复算，涉及实现的章节提供可运行实验。
+这是一套可直接阅读的 AI 教材，分为 **8 个分类、47 个主题、188 个章节**，涵盖数学、编程、计算机基础、机器学习、深度学习、应用方向、强化学习与进阶专题。各章通过定义、推导、科学插图、完整算例和反例解释方法，涉及实现的章节配有可运行的代码与实验结果。
 
-初学者按[基础学习路线](学习路线.md#basic)建立完整知识链；已有基础可按[进阶学习路线](学习路线.md#advanced)重点阅读证明条件、方法比较和研究练习。
+[基础学习路线](学习路线.md#basic)串联数据处理、建模与评估所需的知识。[进阶学习路线](学习路线.md#advanced)按先修关系连接证明、方法比较和专题阅读。
 
 ## 开始学习
 
-- [学习路线与阶段验收](学习路线.md)：按先修关系安排学习，选择视觉、语言、生成或强化学习方向。
-- [授课与作业](授课与作业.md)：按周安排阅读和课堂练习，使用独立题面、参考解析和评分标准。
-- [内容范围与掌握标准](内容范围与掌握标准.md)：了解各主题的学习范围、逐主题验收及进阶衔接。
+- [阅读导航](学习路线.md)串联各篇的先修知识与专题入口。
 - [运行环境](运行环境.md)：区分完整 Python 示例、SQL 与特定 shell 命令，配置可复现环境。
 - [术语与符号](术语与符号.md)：查阅跨主题数学符号和容易混淆的概念。
 
-目录按“分类 → 主题 → 章节”逐层展开。先用[学习路线](学习路线.md)确定当前阶段，再进入主题目录选择章节；章内目录用于定位推导、实验和练习。已有基础时，可通过下方的[完整章节索引](#textbook-status)直接找具体章节。
+目录按“分类 → 主题 → 章节”展开。主题首页说明各章的先修关系，章内目录用于定位定义、推导、算例与实验。下方的[完整章节索引](#textbook-status)可直接进入任意一章。
 
 ## 图解与离线阅读
 
 读到“科学图解”时，可以先从图中找出对象、依赖关系和变化步骤，再沿图下说明回到公式或实现。例如，[联合密度的切片](Mathematics/Probability/03-联合分布边缘化与条件期望.md#scientific-plate-03)把三角支持、固定坐标和重新归一化画在一起；[目标网络](ReinforcementLearning/DeepRL/01-DQN经验回放与目标网络.md#scientific-plate-01)沿不同颜色追踪前向估计、反向求导和参数同步。机制插画用于建立直觉，带标尺的算例图与实验图用于复算或核验。读数前先确认轴、单位和统计对象；示意图的距离、宽度和面积可能未按数值比例绘制。
 
-可以用下面三个问题练习读图：
+以下图解展示了三种不同的读图方式。
 
-- **结果是怎样算出来的？** 从[导数的一阶面积与余项](Mathematics/Calculus/01-导数偏导数与链式法则.md#visual-calculus-01)、[三节点 GCN 的逐通道贡献](AI-Domains/GraphMachineLearning/03-GCN手算GraphSAGE与图注意力.md#visual-local-graphmachinelearning-03)或[整数重定标](AdvancedStudies/EfficientModelSystems/02-量化误差校准与推理瓶颈.md#integer-requantization-worked)开始，遮住结果，自己完成中间计算。
-- **只改变一个条件，会发生什么？** 比较[动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)或[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)，解释原结论在哪一步失去保证。
-- **图中的概率针对哪个重复实验？** 用[置信区间的抽样与反演](Mathematics/Statistics/01-参数估计与置信区间.md#visual-statistics-01)、[三角形支持上的条件密度](Mathematics/Probability/03-联合分布边缘化与条件期望.md#triangle-conditioning-visual)和[按独立单位重采样](Mathematics/Statistics/04-重采样实验设计与报告实践.md#visual-statistics-04)，区分密度高度、概率面积、条件分布与单次观察。
+- **从中间量复算结果。** [导数的一阶面积与余项](Mathematics/Calculus/01-导数偏导数与链式法则.md#visual-calculus-01)、[三节点 GCN 的逐通道贡献](AI-Domains/GraphMachineLearning/03-GCN手算GraphSAGE与图注意力.md#visual-local-graphmachinelearning-03)和[整数重定标](AdvancedStudies/EfficientModelSystems/02-量化误差校准与推理瓶颈.md#integer-requantization-worked)都标出了中间步骤。
+- **对照条件变化。** [动量的均值与噪声平台](Mathematics/Optimization/02-动量自适应方法与训练诊断.md#visual-momentum-noise-floor)、[牛顿法的两步循环](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md#visual-newton-two-cycle)与[跨行读写依赖环](ComputerScience/Databases/02-连接索引事务与特征数据.md#visual-write-skew-cycle)分别展示了随机波动、迭代失效和事务依赖。
+- **明确概率的对象。** [置信区间的抽样与反演](Mathematics/Statistics/01-参数估计与置信区间.md#visual-statistics-01)、[三角形支持上的条件密度](Mathematics/Probability/03-联合分布边缘化与条件期望.md#triangle-conditioning-visual)和[按独立单位重采样](Mathematics/Statistics/04-重采样实验设计与报告实践.md#visual-statistics-04)分别对应重复抽样、条件分布和抽样单位。
 
-不同图之间切换时，请重新核对数据与模型假设；同名变量未必来自同一个算例。[线性变换](Mathematics/LinearAlgebra/01-向量矩阵与线性变换.md#visual-linearalgebra-01)等章节还提供本地动画，静态图保留坐标和数值，便于暂停复算。教材、论文和官方文档链接放在相关解释旁，可继续追问证明条件或实现细节。
+每幅图的数据、单位和模型假设以所在章节为准。教材、论文和官方文档的链接放在相关解释旁，便于查阅完整证明与实现细节。
 
-离线阅读时，保留完整仓库及各主题的 images 目录、assets 目录，使用支持本地 SVG、GIF 和下文所列数学语法的 Markdown 阅读器。图片使用相对路径，无需联网加载。窄屏上可展开图下的「页内放大读图」，先看全图确定位置，再按区域核对坐标、图例和读数。各区域沿用同一张本地图，并保留相邻区域的重叠部分。
+离线阅读时，请保留各主题的 images 目录，并使用支持 WebP 和数学公式的 Markdown 阅读器。插图使用相对路径，可以通过图下链接打开本地原图。
 
 ## 分类目录
 
@@ -34,22 +32,22 @@
 | --- | ---: | ---: |
 | [编&#8288;程&#8288;基&#8288;础](Programming/README.md) | 5 | 22 |
 | [数&#8288;学&#8288;基&#8288;础](Mathematics/README.md) | 8 | 32 |
-| [计&#8288;算&#8288;机&#8288;基&#8288;础](ComputerScience/README.md) | 5 | 21 |
+| [计&#8288;算&#8288;机&#8288;基&#8288;础](ComputerScience/README.md) | 5 | 22 |
 | [机&#8288;器&#8288;学&#8288;习](MachineLearning/README.md) | 6 | 26 |
 | [深&#8288;度&#8288;学&#8288;习](DeepLearning/README.md) | 6 | 25 |
-| [应&#8288;用&#8288;与&#8288;研&#8288;究&#8288;方&#8288;向](AI-Domains/README.md) | 6 | 26 |
+| [应&#8288;用&#8288;与&#8288;研&#8288;究&#8288;方&#8288;向](AI-Domains/README.md) | 6 | 27 |
 | [强&#8288;化&#8288;学&#8288;习](ReinforcementLearning/README.md) | 4 | 16 |
 | [进&#8288;阶&#8288;理&#8288;论&#8288;与&#8288;研&#8288;究&#8288;专&#8288;题](AdvancedStudies/README.md) | 7 | 18 |
 
 ## 进阶专题
 
-完成相关先修后，可进入[进阶篇](AdvancedStudies/README.md)：学习理论、因果推断、贝叶斯计算、自监督表示、连续生成与流匹配、高效模型系统、不确定性与分布鲁棒性。各主题用两到四章深入一个问题链，包含推导、比较、算例和研究练习；顺序见[进阶分支路线](学习路线.md#advanced-topics)。
+[进阶篇](AdvancedStudies/README.md)涵盖学习理论、因果推断、贝叶斯计算、自监督表示、连续生成与流匹配、高效模型系统、不确定性与分布鲁棒性。专题先修关系见[进阶分支路线](学习路线.md#advanced-topics)。
 
 <a id="textbook-status"></a>
 
 ## 完整章节索引
 
-下表按教材的分类顺序列出全部主题、章节与主要内容。初次学习时，先进入主题首页了解先修要求和阅读顺序；查阅某个问题时，可以直接打开对应章节，使用章内目录定位概念、推导、实验或题解。
+下表列出全部主题、章节和主要内容。主题首页有先修知识和阅读顺序，每章的目录可直接定位概念、推导、算例或实验。
 
 | 主题 | 章节 | 主要内容 |
 | --- | --- | --- |
@@ -66,7 +64,7 @@
 | [数&#8288;值&#8288;计&#8288;算](Mathematics/NumericalMethods/README.md) | [01 浮点误差、条件数与稳定计算](Mathematics/NumericalMethods/01-浮点误差条件数与稳定计算.md)、[02 数值求导、积分与蒙特卡洛](Mathematics/NumericalMethods/02-数值求导积分与蒙特卡洛.md)、[03 线性系统条件数与病态问题](Mathematics/NumericalMethods/03-线性系统条件数与病态问题.md)、[04 根查找数值积分与停止准则](Mathematics/NumericalMethods/04-根查找数值积分与停止准则.md) | 浮点与误差模型、差分和积分、反问题谱滤波与参数选择、可靠求根与停止证据 |
 | [矩&#8288;阵&#8288;微&#8288;积&#8288;分](Mathematics/MatrixCalculus/README.md) | [01 梯度雅可比与形状约定](Mathematics/MatrixCalculus/01-梯度雅可比与形状约定.md)、[02 批量损失与反向传播推导](Mathematics/MatrixCalculus/02-批量损失与反向传播推导.md)、[03 Softmax交叉熵与归一化求导](Mathematics/MatrixCalculus/03-Softmax交叉熵与归一化求导.md)、[04 从零实现两层网络的梯度检查](Mathematics/MatrixCalculus/04-从零实现两层网络的梯度检查.md) | 微分与伴随、批量归约及共享参数、稳定分类和归一化、全参数梯度与二阶检查 |
 | [信&#8288;息&#8288;论](Mathematics/InformationTheory/README.md) | [01 信息量熵与编码直觉](Mathematics/InformationTheory/01-信息量熵与编码直觉.md)、[02 交叉熵KL散度与分类训练](Mathematics/InformationTheory/02-交叉熵KL散度与分类训练.md)、[03 最大似然交叉熵与困惑度](Mathematics/InformationTheory/03-最大似然交叉熵与困惑度.md)、[04 互信息特征选择与估计限制](Mathematics/InformationTheory/04-互信息特征选择与估计限制.md) | 熵与编码、KL 与分类评分、序列似然和困惑度、互信息估计与无泄漏特征选择 |
-| [数&#8288;据&#8288;结&#8288;构&#8288;与&#8288;算&#8288;法](ComputerScience/DataStructuresAndAlgorithms/README.md) | [01 复杂度与基础数据结构](ComputerScience/DataStructuresAndAlgorithms/01-复杂度与基础数据结构.md)、[02 二分排序与图遍历](ComputerScience/DataStructuresAndAlgorithms/02-二分排序与图遍历.md)、[03 递归动态规划与最优子结构](ComputerScience/DataStructuresAndAlgorithms/03-递归动态规划与最优子结构.md)、[04 堆近邻与大数据处理策略](ComputerScience/DataStructuresAndAlgorithms/04-堆近邻与大数据处理策略.md) | 计算模型与摊还、二分排序及图证明、状态充分性和近似动态规划、可合并 Top-k 与近邻外存策略 |
+| [数&#8288;据&#8288;结&#8288;构&#8288;与&#8288;算&#8288;法](ComputerScience/DataStructuresAndAlgorithms/README.md) | [01 复杂度与基础数据结构](ComputerScience/DataStructuresAndAlgorithms/01-复杂度与基础数据结构.md)、[02 二分排序与图遍历](ComputerScience/DataStructuresAndAlgorithms/02-二分排序与图遍历.md)、[03 递归动态规划与最优子结构](ComputerScience/DataStructuresAndAlgorithms/03-递归动态规划与最优子结构.md)、[04 堆近邻与大数据处理策略](ComputerScience/DataStructuresAndAlgorithms/04-堆近邻与大数据处理策略.md)、[05 启发式搜索、约束满足与符号规划](ComputerScience/DataStructuresAndAlgorithms/05-启发式搜索约束满足与符号规划.md) | 计算模型与摊还、图与动态规划、堆和外存、A* 重开、约束传播与计划重放 |
 | [计&#8288;算&#8288;机&#8288;系&#8288;统&#8288;基&#8288;础](ComputerScience/ComputerSystems/README.md) | [01 程序执行内存与存储](ComputerScience/ComputerSystems/01-程序执行内存与存储.md)、[02 进程线程并发与性能分析](ComputerScience/ComputerSystems/02-进程线程并发与性能分析.md)、[03 I/O 缓存与数据加载流水线](ComputerScience/ComputerSystems/03-I_O缓存与数据加载流水线.md)、[04 GPU 并行、显存与分布式系统](ComputerScience/ComputerSystems/04-GPU并行显存与分布式入门.md)、[05 性能建模、基准实验与瓶颈推断](ComputerScience/ComputerSystems/05-性能建模基准实验与瓶颈推断.md) | 执行与虚拟内存、同步与并发、缓存背压和 I/O 流水线、GPU 资源与归约、性能建模和受控实验 |
 | [G&#8288;i&#8288;t&#8288;&nbsp;&#8288;版&#8288;本&#8288;管&#8288;理](ComputerScience/Git/README.md) | [01 工作区暂存区与提交](ComputerScience/Git/01-工作区暂存区与提交.md)、[02 分支合并冲突与实验复现](ComputerScience/Git/02-分支合并冲突与实验复现.md)、[03 检查历史定位问题与安全撤销](ComputerScience/Git/03-检查历史定位问题与安全撤销.md)、[04 协作分支与实验版本规范](ComputerScience/Git/04-协作分支与实验版本规范.md) | 索引与对象图、合并语义、历史定位与撤销、引用同步及实验交付 |
 | [L&#8288;i&#8288;n&#8288;u&#8288;x&#8288;&nbsp;&#8288;与&#8288;命&#8288;令&#8288;行](ComputerScience/Linux/README.md) | [01 路径文件管道与权限](ComputerScience/Linux/01-路径文件管道与权限.md)、[02 进程日志远程与环境管理](ComputerScience/Linux/02-进程日志远程与环境管理.md)、[03 Shell脚本参数与作业管理](ComputerScience/Linux/03-Shell脚本参数与作业管理.md)、[04 服务器实验的监控与故障排查](ComputerScience/Linux/04-服务器实验的监控与故障排查.md) | 路径与描述符、进程信号和日志、脚本状态机、资源监控与故障诊断 |
@@ -85,7 +83,7 @@
 | [深&#8288;度&#8288;学&#8288;习&#8288;实&#8288;践&#8288;项&#8288;目](DeepLearning/Projects/README.md) | [01 任务数据与实验设计](DeepLearning/Projects/01-任务数据与实验设计.md)、[02 可运行训练与最佳模型选择](DeepLearning/Projects/02-可运行训练与最佳模型选择.md)、[03 错误分析消融与交付](DeepLearning/Projects/03-错误分析消融与交付.md)、[04 训练曲线检查点与推理接口](DeepLearning/Projects/04-训练曲线检查点与推理接口.md)、[05 消融设计资源比较与项目报告](DeepLearning/Projects/05-消融设计资源比较与项目报告.md) | 图像任务与协议、完整 CNN 和线性基线、错误配对与交互、恢复状态机和比较报告 |
 | [计&#8288;算&#8288;机&#8288;视&#8288;觉](AI-Domains/ComputerVision/README.md) | [01 图像表示分类与迁移学习](AI-Domains/ComputerVision/01-图像表示分类与迁移学习.md)、[02 检测分割与视觉评价](AI-Domains/ComputerVision/02-检测分割与视觉评价.md)、[03 检测与分割的模型流程](AI-Domains/ComputerVision/03-检测与分割的模型流程.md)、[04 视觉项目的数据审计与鲁棒性](AI-Domains/ComputerVision/04-视觉项目的数据审计与鲁棒性.md) | 图像几何和分类、检测分割评价与流程、来源谱系、背景捷径和风险覆盖 |
 | [自&#8288;然&#8288;语&#8288;言&#8288;处&#8288;理](AI-Domains/NLP/README.md) | [01 文本清洗分词与向量表示](AI-Domains/NLP/01-文本清洗分词与向量表示.md)、[02 分类标注生成与评价](AI-Domains/NLP/02-分类标注生成与评价.md)、[03 检索序列标注与文本分类实践](AI-Domains/NLP/03-检索序列标注与文本分类实践.md)、[04 生成任务数据质量与评价设计](AI-Domains/NLP/04-生成任务数据质量与评价设计.md) | Unicode 和分词、向量几何、CRF 与实体、检索分类实践、事实引用和生成评价 |
-| [大&#8288;语&#8288;言&#8288;模&#8288;型](AI-Domains/LargeLanguageModels/README.md) | [01 分词预训练与语言建模](AI-Domains/LargeLanguageModels/01-分词预训练与语言建模.md)、[02 指令微调偏好学习与 LoRA](AI-Domains/LargeLanguageModels/02-指令微调偏好学习与LoRA.md)、[03 RAG 工具使用与系统评估](AI-Domains/LargeLanguageModels/03-RAG工具使用与系统评估.md)、[04 微调数据设计与训练验收](AI-Domains/LargeLanguageModels/04-微调数据设计与训练验收.md)、[05 RAG系统拆解与评估集构建](AI-Domains/LargeLanguageModels/05-RAG系统拆解与评估集构建.md) | 自回归与后训练、DPO 和 LoRA、监督数据与完整微调、证据系统和失败归因 |
+| [大&#8288;语&#8288;言&#8288;模&#8288;型](AI-Domains/LargeLanguageModels/README.md) | [01 分词预训练与语言建模](AI-Domains/LargeLanguageModels/01-分词预训练与语言建模.md)、[02 指令微调偏好学习与 LoRA](AI-Domains/LargeLanguageModels/02-指令微调偏好学习与LoRA.md)、[03 RAG 工具使用与系统评估](AI-Domains/LargeLanguageModels/03-RAG工具使用与系统评估.md)、[04 微调数据设计与训练验收](AI-Domains/LargeLanguageModels/04-微调数据设计与训练验收.md)、[05 RAG系统拆解与评估集构建](AI-Domains/LargeLanguageModels/05-RAG系统拆解与评估集构建.md)、[06 预训练语料工程](AI-Domains/LargeLanguageModels/06-预训练语料工程.md) | 自回归、预训练语料与污染控制、后训练、RAG 证据系统和失败归因 |
 | [生&#8288;成&#8288;模&#8288;型](AI-Domains/GenerativeModels/README.md) | [01 分布建模与变分自编码器](AI-Domains/GenerativeModels/01-分布建模与变分自编码器.md)、[02 对抗生成与模式覆盖](AI-Domains/GenerativeModels/02-对抗生成与模式覆盖.md)、[03 扩散去噪与采样](AI-Domains/GenerativeModels/03-扩散去噪与采样.md)、[04 自回归模型与归一化流](AI-Domains/GenerativeModels/04-自回归模型与归一化流.md)、[05 生成实验设计与可控性评价](AI-Domains/GenerativeModels/05-生成实验设计与可控性评价.md) | ELBO 与重参数化、对抗分布和覆盖、DDPM 推导与训练、精确流及评价边界 |
 | [图&#8288;机&#8288;器&#8288;学&#8288;习](AI-Domains/GraphMachineLearning/README.md) | [01 图表示消息传递与GCN](AI-Domains/GraphMachineLearning/01-图表示消息传递与GCN.md)、[02 过平滑采样与图评估](AI-Domains/GraphMachineLearning/02-过平滑采样与图评估.md)、[03 GCN手算GraphSAGE与图注意力](AI-Domains/GraphMachineLearning/03-GCN手算GraphSAGE与图注意力.md)、[04 图级任务异质图与评估实践](AI-Domains/GraphMachineLearning/04-图级任务异质图与评估实践.md) | 消息算子与等变、谱和采样、聚合表达力、批图和异质关系及候选评价 |
 | [多&#8288;模&#8288;态&#8288;学&#8288;习](AI-Domains/MultimodalLearning/README.md) | [01 模态编码对齐与对比学习](AI-Domains/MultimodalLearning/01-模态编码对齐与对比学习.md)、[02 融合跨模态生成与评估](AI-Domains/MultimodalLearning/02-融合跨模态生成与评估.md)、[03 对比目标跨注意力与训练阶段](AI-Domains/MultimodalLearning/03-对比目标跨注意力与训练阶段.md)、[04 音视频对齐与多模态实验](AI-Domains/MultimodalLearning/04-音视频对齐与多模态实验.md) | 双向对比与多正例、融合条件和梯度、训练阶段、时间测量及音视频实验 |
@@ -105,26 +103,22 @@
 
 ## 如何阅读
 
-各主题首页章节表中的“深入讲解入口”可以直接进入对应机制或推导。各章连续展开概念、证明、完整例题、方法比较与分层题解；整体覆盖见上方[完整章节索引](#textbook-status)。建议先独立复算，再对照解析，不把看过公式当成已经掌握。
+主题首页的“深入讲解入口”直接链接到章内的机制分析或推导。完整算例随对应知识展开，进阶小节补充证明条件、方法比较与失效反例。
 
 每个主题先看 README 中的先修知识与阅读路径，再进入章节。分类按知识归属组织，文件夹排列不代表必须逐类学完；PyTorch 与神经网络基础可并行，视觉、语言、生成、图、多模态和强化学习按目标选择。
 
-| 阅读层次 | 需要解决的问题 | 建议做法 |
-| --- | --- | --- |
-| 概念与原理 | 对象是什么，输入输出和符号表示什么 | 先读定义，确认先修知识、轴含义与问题目标 |
-| 对应算例与机制 | 结论如何落实为计算，步骤为何这样安排 | 在相关概念之后复算例子，追踪状态、形状与归约 |
-| 进阶推导 | 结论在什么条件下成立，方法有何取舍 | 补中间步骤，区分数学性质、实现行为与实验结果 |
-| 基础练习与边界追问 | 能否独立应用，改变条件后是否仍成立 | 先作答，再用推导或反例核对解析 |
-| 研究与综合练习 | 能否连接多章并设计有效验证 | 按主题或支线验收，固定数据、预算和选择规则 |
-
-初学者先走[基础学习路线](学习路线.md#basic)，进阶推导可以在基础闭环完成后返回；已有基础可从[进阶路线](学习路线.md#advanced)和章内目录进入。基础算例随对应知识安排，练习由应用走向条件判断，再进入研究与综合任务。
+| 阅读层次 | 正文内容 |
+| --- | --- |
+| 概念与原理 | 定义对象、输入输出、记号与适用范围 |
+| 图解与算例 | 展示计算过程、状态变化和关键中间量 |
+| 进阶推导与实验 | 解释证明条件、方法取舍和实验所能支持的结论 |
 
 代码帮助验证机制，不能替代原理。运行前先说明期望性质，运行后解释输入、输出和关键中间量；前向一致、梯度一致、训练稳定和独立效果改善是不同层次的证据。
 
 ## 排版与示例约定
 
-文件统一使用 UTF-8；行内公式使用受保护的数学标记``$`...`$``，独立公式使用`$$...$$`，分数使用`\frac{分子}{分母}`上下排列。建议使用 GitHub 或支持相应数学语法的 Markdown 阅读器。章节内目录采用显式锚点，文件之间采用相对路径，移动资料时请整体保留目录结构。
+文件统一使用 UTF-8；行内公式使用受保护的数学标记``$`...`$``，独立公式使用 `math` 围栏，分数使用`\frac{分子}{分母}`上下排列。建议使用 GitHub 或支持相应数学语法的 Markdown 阅读器。章节内目录采用显式锚点，文件之间采用相对路径，移动资料时请整体保留目录结构。
 
 Python 完整示例带必要导入与人工或内置数据；SQL、Git、Linux 命令有环境前提，不能在任意终端直接混用。涉及梯度、划分、归约与概率时，按所在章节定义理解符号与系数；环境要求见[运行环境](运行环境.md)。
 
-每个主题保留作者教材、原始论文或官方文档入口。讲义覆盖各主题的核心学习链条；继续深入特定研究问题时，可据参考资料查阅完整理论、实现细节与版本说明。
+各主题提供教材、原始论文或官方文档入口，供继续查阅完整理论、实现细节和版本说明。

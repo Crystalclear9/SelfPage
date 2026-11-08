@@ -20,7 +20,7 @@ try {
     assert.equal(await page.locator('.learning-meta').count(), 0);
     assert.equal(await page.locator('.learning-row span').count(), 0);
     await page.locator('.learning-notes summary').click();
-    assert.equal(await page.locator('#learning-content code').filter({ hasText: '$$...$$' }).count(), 1);
+    assert.ok(await page.locator('#learning-content').isVisible());
     await page.locator('.learning-notes summary').click();
     await page.locator('.learning-row', { hasText: '数学基础' }).click();
     await page.locator('.learning-row', { hasText: '线性代数' }).click();

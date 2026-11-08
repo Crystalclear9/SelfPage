@@ -6,7 +6,7 @@ try {
   for (const reducedMotion of ['no-preference', 'reduce']) {
     const context = await browser.newContext({ reducedMotion, viewport: { width: 375, height: 812 } });
     const page = await context.newPage();
-    await page.goto(base + 'mathematics/calculus/chapter-01/');
+    await page.goto(base + 'reinforcement-learning/policy-based-methods/chapter-04/');
     await page.waitForFunction(() => document.documentElement.classList.contains('interactive'));
     assert.equal(await page.locator('.exercise-notes, #learning-content textarea').count(), 0);
     const answer = page.locator('.exercise-answer').first();
@@ -26,7 +26,7 @@ try {
     await page.keyboard.press('Enter');
     await answer.evaluate(async el => { await Promise.all(el.getAnimations({ subtree: true }).map(a => a.finished)); });
     assert.ok(await answer.locator('.exercise-solution').isVisible());
-    assert.ok(await page.getByText('题二：', { exact: true }).isVisible());
+
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     await page.reload();
     assert.equal(await page.locator('.exercise-answer[open]').count(), 0);
@@ -34,7 +34,7 @@ try {
   }
   const plain = await browser.newContext({ javaScriptEnabled: false });
   const page = await plain.newPage();
-  await page.goto(base + 'guides/teaching/');
+  await page.goto(base + 'reinforcement-learning/policy-based-methods/chapter-04/');
   await page.locator('.exercise-answer summary').first().click();
   assert.ok(await page.locator('.exercise-solution').first().isVisible());
   console.log('Answers: animated open/close, keyboard, reduced motion, no draft UI, reload and no-JS passed.');

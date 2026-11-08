@@ -75,7 +75,7 @@ node tests/learning-render.mjs
 
 新增章节使用已有目录结构及 `01-标题.md` 形式。路由使用分类、主题的英文目录名与 `chapter-01` 编号，修改中文标题不改变网址；更改目录或编号前需检查旧链接。新增顶级分类或阅读指南时，需同步扩展 `scripts/import-learning.mjs` 的映射。
 
-提交 `content/collections/ailearning/` 的 Markdown 和清单，以及需要更新的文章摘要。将专题入口设为 `published: false` 会停止生成专题及下级路由；文件仍存在于公开源码仓库。当前专题共 248 个页面，其中包括总览、分类、主题、指南与章节。
+提交 `content/collections/ailearning/` 的 Markdown 和清单，以及需要更新的文章摘要。将专题入口设为 `published: false` 会停止生成专题及下级路由；文件仍存在于公开源码仓库。当前专题共 247 个页面，其中包括总览、分类、主题、指南与章节。
 
 ### 题目与作答交互
 
@@ -85,7 +85,7 @@ node tests/learning-render.mjs
 
 ### 渲染检查
 
-2026-11-07 检查了 1385 个外部网址：604 个返回成功，1 个 Pandas 文档旧地址返回 404，已在本站快照修正为官方新地址；其余 780 个因连接失败、超时或 403 未能验证，详见 `docs/LEARNING-LINK-AUDIT.json`。这不是参考文献内容正确性的认证。下次导入需复核 Pandas 链接，避免源资料旧地址覆盖本站修正。
+2026-11-08 检查了 1399 个外部网址：598 个返回成功，1 个 Pandas 旧地址返回 404，现由渲染器统一映射到官方新地址；其余 800 个因连接失败、超时或 403 未能验证，详见 docs/LEARNING-LINK-AUDIT.json。可访问性检查不等同于参考文献内容正确性的认证。
 
 构建后运行 `node tests/learning-references.mjs` 检查本地图片与 SVG 定位片段；加 `--external` 可检测外部参考网址，非成功响应与超时会分别列出，需复核后再修改来源。`node tests/learning-render.mjs` 会等待正文图片实际解码，并检查手机/电脑、明暗主题以及启用/禁用 JavaScript 的页面。带 `#view-id` 的 SVG 图片保留定位片段，以展示源资料指定的局部图示。
 
@@ -319,6 +319,6 @@ KaTeX 的渲染器、CSS 和字体必须使用同一版本。直接依赖固定�
 
 ### 当前学习资料快照
 
-AILearning 已同步本机提交 7cf1fae（2026-11-07），包含 248 个阅读页面与 1279 个配图及许可文件。新增授课与作业、作业题面入口，保持独立阅读页面。完整来源版本记录在 content/collections/ailearning/manifest.json 中。
+AILearning 已同步本机提交 043da61（2026-11-08），包含 247 个阅读页面、188 个章节与 1228 个配图及许可文件。上游撤下内容范围与掌握标准、授课与作业、作业题面三个指南，并更新配图。完整来源版本记录在 content/collections/ailearning/manifest.json 中。
 
 章内目录同时支持原有手写锚点与 GitHub 风格的标题锚点。标题锚点由 `github-slugger` 在 Markdown 转换阶段生成，重复标题自动编号；更新正文后运行 `npm run check:learning` 核对所有内部链接和锚点。同步配图时应删除新清单中已不存在的旧素材，避免发布过期文件。

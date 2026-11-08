@@ -20,6 +20,10 @@ function learningMarkdown({ page, pages, base }) {
     const headingText = node => node.value || node.children?.map(headingText).join('') || '';
     if (tree.children[0]?.type === 'heading' && tree.children[0].depth === 1) tree.children.shift();
     const visit = node => {
+      // Preserve source snapshots while following the official Pandas API move.
+      if (node.url?.startsWith('https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.transform.html')) {
+        node.url = node.url.replace('pandas.core.groupby.SeriesGroupBy.transform.html', 'pandas.api.typing.SeriesGroupBy.transform.html');
+      }
       if (node.type === 'heading') {
         node.data = { ...node.data, hProperties: { ...node.data?.hProperties, id: slugger.slug(headingText(node)) } };
       }
@@ -37,7 +41,7 @@ function learningMarkdown({ page, pages, base }) {
         node.data.hChildren = [{ type: 'text', value: node.value }];
       }
       if (node.type === 'html') {
-        const match = node.value.trim().match(/^<a\s+id=["']([a-zA-Z0-9_-]+)["']\s*>(?:<\/a>)?$/);
+        const match = node.value.trim().match(/^<a\s+id=["']([\p{L}\p{N}_-]+)["']\s*>(?:<\/a>)?$/u);
         if (match) {
           node.type = 'paragraph';
           node.children = [];
