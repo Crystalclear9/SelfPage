@@ -74,7 +74,7 @@ export default function PaperBody({ markdown }) {
             : /\/k-gat\/(inference|training)\.png$/.test(src) ? [3360, 1280]
             : src.endsWith('/k-gat/over-planning.png') ? [617, 544]
             : src.endsWith('/k-gat/under-planning.png') ? [637, 544] : [];
-          return <a href={src} target="_blank" rel="noreferrer" aria-label={`查看原图：${alt}`}><img src={src} alt={alt} width={size[0]} height={size[1]} loading="lazy" decoding="async" /></a>;
+          return <img src={src} alt={alt} width={size[0]} height={size[1]} loading="lazy" decoding="async" />;
         },
       }} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{markdown}</ReactMarkdown>
     </div>

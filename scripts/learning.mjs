@@ -18,6 +18,20 @@ function learningMarkdown({ page, pages, base }) {
   return tree => {
     const slugger = new GithubSlugger();
     const headingText = node => node.value || node.children?.map(headingText).join('') || '';
+    // Keep upstream Markdown intact; omit image-only zoom controls on the site.
+    const stripZoom = node => {
+      if (!node.children) return;
+      node.children = node.children.flatMap(child => {
+        if (child.type === 'link' && /\.(?:svg|png|jpe?g|webp|gif)(?:[?#].*)?$/i.test(child.url)) {
+          if (child.children.some(n => n.type === 'image')) return child.children;
+          if (/原图|放大/.test(headingText(child))) return [];
+        }
+        stripZoom(child);
+        if (child.type === 'paragraph' && child.children.length === 0 && !child.data) return [];
+        return [child];
+      });
+    };
+    stripZoom(tree);
     if (tree.children[0]?.type === 'heading' && tree.children[0].depth === 1) tree.children.shift();
     const visit = node => {
       // Preserve source snapshots while following the official Pandas API move.
