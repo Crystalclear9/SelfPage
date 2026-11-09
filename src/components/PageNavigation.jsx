@@ -43,8 +43,8 @@ export default function PageNavigation({ section, sectionHref }) {
   }, []);
 
   const links = compact => <>
-    <HomeLink compact={compact} />
     {section && <a className="section-return" href={href(sectionHref)}><ArrowUpLeft size={16} aria-hidden="true" />{section}</a>}
+    <HomeLink compact={compact} />
   </>;
 
   return <>
