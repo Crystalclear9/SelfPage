@@ -9,9 +9,9 @@ try {
     const page = await context.newPage();
     for (const route of ['projects/suishouban/', 'projects/gameqa/', 'projects/autellix/', 'projects/time-predict/', 'projects/sandboxsim/', 'articles/', 'papers/']) {
       await page.goto(base + route);
-      await expect(page.locator('.page-navigation .home-link')).toHaveAttribute('href', new URL(base).pathname);
+      await expect(page.locator('.page-navigation').getByRole('link', { name: '返回个人主页', exact: true })).toHaveAttribute('href', new URL(base).pathname);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-      await page.locator('.page-navigation .home-link').click();
+      await page.locator('.page-navigation').getByRole('link', { name: '返回个人主页', exact: true }).click();
       await page.waitForURL(base);
       await expect(page.locator('.hero h1')).toBeVisible();
     }
@@ -49,7 +49,7 @@ try {
   await page.goBack();
   await expect(page.locator('h1')).toHaveText('随手办');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.locator('.page-navigation .home-link').click();
+  await page.locator('.page-navigation').getByRole('link', { name: '返回个人主页', exact: true }).click();
   await page.waitForURL(base);
   await page.locator('.avatar-button').focus();
   await page.keyboard.press('Enter');
@@ -87,10 +87,10 @@ try {
     await expect(bar).not.toHaveClass(/is-visible/);
     await page.mouse.wheel(0, -25);
     await expect(bar).toHaveClass(/is-visible/);
-    await bar.locator('.home-link').focus();
+    await bar.getByRole('link', { name: '返回个人主页', exact: true }).focus();
     await page.mouse.wheel(0, 20);
     await expect(bar).toHaveClass(/is-visible/);
-    await bar.locator('.home-link').click();
+    await bar.getByRole('link', { name: '返回个人主页', exact: true }).click();
     await page.waitForURL(base);
   }
   for (const width of [375, 1440]) {

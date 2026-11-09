@@ -28,7 +28,7 @@ try {
     assert.equal(await page.evaluate(() => window.transitionResult.skipped), stalled);
     await expect(page.locator('h1')).toHaveText('随手办');
     assert.equal(await page.evaluate(() => document.getAnimations().filter(a => a.effect?.pseudoElement?.startsWith('::view-transition')).length), 0);
-    await page.locator('.page-navigation .home-link').click();
+    await page.locator('.page-navigation').getByRole('link', { name: '返回个人主页', exact: true }).click();
     await page.waitForURL(base);
     await expect(page.locator('.hero h1')).toBeVisible();
     await page.goBack(); await expect(page.locator('h1')).toHaveText('随手办');

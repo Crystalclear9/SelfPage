@@ -31,7 +31,18 @@ try {
  const { default: Page } = await server.ssrLoadModule('/src/pages/ContentPage.jsx');
  for (const entry of fixtures) {
   const output = renderToString(createElement(Page, { path: entry.route }));
-  assert.match(output, /class="home-link" href="\/SelfPage\/"/); assert.ok(output.includes(`class="section-return" href="/SelfPage/${entry.type}/"`));
+  const navs = [...output.matchAll(/<nav[^>]*aria-label="(?:页面返回导航|随滚动返回导航)"[^>]*>([\s\S]*?)<\/nav>/g)];
+  assert.equal(navs.length, 2, 'Top and floating return navigation must both render');
+  for (const [, nav] of navs) {
+    const links = [...nav.matchAll(/<a class="([^"]+)" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+    assert.equal(links.length, 2);
+    assert.match(links[0][1], /^home-link(?: home-link-compact)?$/);
+    assert.equal(links[0][2], `/SelfPage/${entry.type}/`);
+    assert.ok(links[0][3].includes(entry.type === 'articles' ? '返回文章列表' : '返回论文列表'));
+    assert.equal(links[1][1], 'section-return');
+    assert.equal(links[1][2], '/SelfPage/');
+    assert.ok(links[1][3].includes('返回个人主页'));
+  }
   assert.match(output, /<table>/); assert.match(output, /src="\/SelfPage\/files\/figure.png"/);
   assert.ok(!output.includes('<script>'));
   assert.match(output, /class="katex"/, 'Regular articles and papers must render inline math');

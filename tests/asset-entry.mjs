@@ -28,7 +28,7 @@ try {
   expect(await page.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThan(50);
   await page.unroute(url);
   for (let i = 0; i < 2; i++) {
-    await page.locator('.page-navigation .home-link').click(); await page.waitForURL(base);
+    await page.locator('.page-navigation').getByRole('link', { name: '返回个人主页', exact: true }).click(); await page.waitForURL(base);
     await page.goBack({ waitUntil: 'commit' });
     await expect(page.locator('h1')).toHaveText('SandBoxSim');
     expect(await page.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThan(50);
