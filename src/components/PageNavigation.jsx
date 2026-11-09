@@ -2,10 +2,10 @@ import { ArrowLeft, ArrowUpLeft } from '@phosphor-icons/react';
 import { useEffect, useRef, useState } from 'react';
 import { href } from '../data/routes';
 
-export function HomeLink({ compact = false }) {
-  return <a className={`home-link${compact ? ' home-link-compact' : ''}`} href={href('/')}>
+export function HomeLink({ compact = false, destination = '/', label = '返回个人主页' }) {
+  return <a className={`home-link${compact ? ' home-link-compact' : ''}`} href={href(destination)}>
     <span className="home-link-icon" aria-hidden="true"><ArrowLeft size={18} /></span>
-    <span>返回个人主页</span>
+    <span>{label}</span>
   </a>;
 }
 
@@ -43,8 +43,8 @@ export default function PageNavigation({ section, sectionHref }) {
   }, []);
 
   const links = compact => <>
-    {section && <a className="section-return" href={href(sectionHref)}><ArrowUpLeft size={16} aria-hidden="true" />{section}</a>}
-    <HomeLink compact={compact} />
+    <HomeLink compact={compact} destination={section ? sectionHref : '/'} label={section || '返回个人主页'} />
+    {section && <a className="section-return" href={href('/')}><ArrowUpLeft size={16} aria-hidden="true" />返回个人主页</a>}
   </>;
 
   return <>
