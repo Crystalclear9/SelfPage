@@ -20,8 +20,9 @@ try {
     });
     const page = await context.newPage(), errors = [];
     page.on('pageerror', e => errors.push(e.message));
+    // Exercise the cross-document path when the enhanced router is unavailable.
+    await context.route(/\.js(?:\?|$)/, route => route.abort());
     await page.goto(base);
-    if (stalled) await context.route(/\.js(?:\?|$)/, route => route.abort());
     await page.locator('.project-page-link').first().click();
     await page.waitForURL(base + 'projects/suishouban/');
     await expect.poll(() => page.evaluate(() => window.transitionResult?.finished), { timeout: 3500 }).toBe(true);

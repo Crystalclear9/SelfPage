@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
+import AnimatedCursor from './components/AnimatedCursor';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import '@fontsource/outfit/400.css';
@@ -12,26 +14,45 @@ import './styles/content.css';
 import './styles/navigation.css';
 import './styles/avatar.css';
 import './styles/chapters.css';
-import { installNavigationMotion } from './lib/navigation';
+import { navigationIntent, installNavigationMotion } from './lib/navigation';
 const disposeNavigation = installNavigationMotion();
 if (import.meta.hot) import.meta.hot.dispose(disposeNavigation);
-import { currentPath, writing, learningPublished } from './data/routes';
+import { currentPath, routes, writing, learningPublished } from './data/routes';
 
 const container = document.getElementById('root');
-async function start() {
-  const path = currentPath(window.location.pathname);
-  // Production chapters are already rendered. Reuse only this page's sanitized
-  // HTML during hydration; never ship the complete collection in the JS bundle.
-  let learningHtml = document.getElementById('learning-content')?.innerHTML || '';
-  if (import.meta.env.DEV && path.startsWith('/articles/ailearning/')) {
-    const response = await fetch(`${import.meta.env.BASE_URL}__learning?route=${encodeURIComponent(path)}`);
-    if (response.ok) learningHtml = await response.text();
+function Site({ page }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  return <><App key={page.path} {...page} />{mounted && <AnimatedCursor />}</>;
+}
+
+async function readPage(path, initial, signal) {
+  let learningHtml = initial ? document.getElementById('learning-content')?.innerHTML || '' : '';
+  if (path.startsWith('/articles/ailearning/') && (import.meta.env.DEV || !initial)) {
+    const url = import.meta.env.DEV
+      ? `${import.meta.env.BASE_URL}__learning?route=${encodeURIComponent(path)}`
+      : `${import.meta.env.BASE_URL}${path.slice(1)}`;
+    const response = await fetch(url, { signal });
+    if (!response.ok) throw new Error('Chapter unavailable');
+    const text = await response.text();
+    if (import.meta.env.DEV) learningHtml = text;
+    else {
+      const content = new DOMParser().parseFromString(text, 'text/html').getElementById('learning-content');
+      if (!content) throw new Error('Chapter content missing');
+      learningHtml = content.innerHTML;
+    }
   }
-  const needsWritingDetail = writing.some(entry => entry.route === path) && !(learningPublished && path === '/articles/ailearning/');
-  const WritingDetail = needsWritingDetail ? (await import('./pages/WritingDetail')).default : undefined;
-  const app = <React.StrictMode><App path={path} learningHtml={learningHtml} WritingDetail={WritingDetail} /></React.StrictMode>;
-  if (container.hasChildNodes()) hydrateRoot(container, app);
-  else createRoot(container).render(app);
+  const detail = writing.some(entry => entry.route === path) && !(learningPublished && path === '/articles/ailearning/');
+  return { path, learningHtml, WritingDetail: detail ? (await import('./pages/WritingDetail')).default : undefined };
+}
+
+async function start() {
+  let path = currentPath(location.pathname);
+  const render = page => <React.StrictMode><Site page={page} /></React.StrictMode>;
+  const initial = render(await readPage(path, true));
+  const prerendered = container.hasChildNodes();
+  const root = prerendered ? hydrateRoot(container, initial) : createRoot(container);
+  if (!prerendered) root.render(initial);
   // Anchor targets in source README explanations can be inside collapsed notes.
   const revealAnchor = () => {
     if (!location.hash) return;
@@ -44,6 +65,47 @@ async function start() {
   window.addEventListener('hashchange', revealAnchor);
   requestAnimationFrame(revealAnchor);
   if (import.meta.hot) import.meta.hot.dispose(() => window.removeEventListener('hashchange', revealAnchor));
+  // Keep the document and its cursor layer alive across internal page changes.
+  // Downloads, external URLs, reloads and new tabs retain browser navigation.
+  const navigate = event => {
+    const to = new URL(event.destination.url);
+    if (!event.canIntercept || event.hashChange || event.navigationType === 'reload' ||
+        event.downloadRequest != null || event.formData || to.origin !== location.origin ||
+        !to.pathname.startsWith(import.meta.env.BASE_URL)) return;
+    const next = currentPath(to.pathname);
+    const route = routes.find(item => item.path === next);
+    if (next === path || !route) return;
+    event.intercept({ scroll: 'manual', handler: async () => {
+      try {
+        const page = await readPage(next, false, event.signal);
+        if (event.signal.aborted) return;
+        const intent = navigationIntent(path, next);
+        document.documentElement.dataset.transitionKind = intent.kind;
+        document.documentElement.style.setProperty('--page-direction', String(intent.direction));
+        flushSync(() => root.render(render(page)));
+        path = next;
+        document.querySelector('meta[name="description"]').content = route.description;
+        event.scroll();
+        revealAnchor();
+        if (next === '/' && to.hash && event.navigationType !== 'traverse') {
+          history.replaceState(history.state, '', to.pathname + to.search);
+        }
+        window.dispatchEvent(new Event('site-page-rendered'));
+        const main = document.querySelector('main');
+        if (main && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          main.classList.add('page-arriving');
+          main.addEventListener('animationend', () => {
+            main.classList.remove('page-arriving');
+            window.dispatchEvent(new Event('site-page-rendered'));
+          }, { once: true });
+        }
+      } catch {
+        if (!event.signal.aborted) location.reload();
+      }
+    } });
+  };
+  window.navigation?.addEventListener('navigate', navigate);
+  if (import.meta.hot) import.meta.hot.dispose(() => window.navigation?.removeEventListener('navigate', navigate));
   document.documentElement.classList.add('interactive');
 }
 start();

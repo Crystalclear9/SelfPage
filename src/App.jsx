@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
-import AnimatedCursor from './components/AnimatedCursor';
 import PointerSurfaces from './components/PointerSurfaces';
 import ProfileAvatar from './components/ProfileAvatar';
 import ScrollToTop from './components/ScrollToTop';
@@ -83,7 +82,6 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
-    {hydrated && <AnimatedCursor />}
     <PointerSurfaces />
     <ScrollToTop target={path === '/' ? '#home' : '#main'} />
     {path === '/' && <ChapterMotion />}

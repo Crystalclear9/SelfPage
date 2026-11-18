@@ -25,7 +25,7 @@ const transitionGuard = {
         }
         html[data-cursor-outfit="short"] { --cursor-image: var(--short-cursor); --native-cursor: var(--short-cursor) 8 12, var(--long-cursor) 8 12, auto; }
         html, html * { cursor: var(--native-cursor) !important; }
-        html.animated-cursor-active:is(.cursor-posing, .cursor-stationary):active-view-transition, html.animated-cursor-active:is(.cursor-posing, .cursor-stationary):active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
+        html.animated-cursor-active:active-view-transition, html.animated-cursor-active:active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
         html:active-view-transition .animated-cursor { display: none !important; }
       }` }, { tag: 'script', attrs: { 'data-transition-guard': '' },
       children: readFileSync(new URL('./src/lib/transition-guard.js', import.meta.url), 'utf8'),

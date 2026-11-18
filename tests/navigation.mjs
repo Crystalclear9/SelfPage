@@ -19,9 +19,6 @@ try {
   }
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
   const errors = []; page.on('pageerror', e => errors.push(e.message));
-  await page.addInitScript(() => window.addEventListener('pagereveal', event => {
-    if (event.viewTransition) sessionStorage.setItem('transition-seen', 'yes');
-  }));
   await page.goto(base);
   await page.locator('.avatar-button').click();
   await expect(page.locator('.avatar-button')).toHaveClass(/is-greeting/);
@@ -30,9 +27,10 @@ try {
   // The greeting animation stays active for the actual ~13.74s synthesized response.
   await expect(page.locator('.avatar-button')).toHaveAttribute('aria-label', '播放加藤惠语音', { timeout: 20000 });
   await expect(page.locator('.avatar-button')).not.toHaveClass(/is-greeting/);
+  const persistentCursor = await page.locator('.animated-cursor').elementHandle();
   await page.locator('.project-page-link').first().click();
   await page.waitForURL(base + 'projects/suishouban/');
-  assert.equal(await page.evaluate(() => sessionStorage.getItem('transition-seen')), 'yes');
+  assert.ok(await persistentCursor.evaluate(el => el === document.querySelector('.animated-cursor')));
   await page.waitForTimeout(600);
   await mkdir('.local/reports', { recursive: true });
   await page.screenshot({ path: '.local/reports/return-navigation.png' });

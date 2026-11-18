@@ -37,7 +37,7 @@ try {
       const css = getComputedStyle(el);
       const expected = css.getPropertyValue(short ? '--short-cursor' : '--long-cursor').trim();
       const data = /base64,([A-Za-z0-9+/=]+)/;
-      const painted = el.classList.contains('cursor-stationary')
+      const painted = el.classList.contains('animated-cursor-active')
         ? getComputedStyle(document.querySelector('.animated-cursor')).backgroundImage : css.cursor;
       return painted.match(data)?.[1] === expected.match(data)[1];
     }, short);
@@ -45,10 +45,10 @@ try {
     await page.mouse.move(300, 220);
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     await expect(page.locator('html')).not.toHaveClass(/cursor-posing/);
-    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
+    await expect(page.locator('body')).toHaveCSS('cursor', 'none');
     resume();
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
-    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
+    await expect(page.locator('body')).toHaveCSS('cursor', 'none');
     await expect(sprite).toBeHidden();
     const box = await page.locator('.animated-cursor').boundingBox();
     assert.equal(box.x + 8, 300);
@@ -68,8 +68,8 @@ try {
   await page.route(externalAssets, route => route.abort());
   await page.locator('.writing-door').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
-  await expect(page.locator('html')).not.toHaveClass(/animated-cursor-active/);
-  await expect(page.locator('.entry-row').first()).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
+  await expect(page.locator('.entry-row').first()).toBeVisible();
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/png/);
   assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor')), nativeBefore);
   await page.unroute(externalAssets);
   await page.goBack({ waitUntil: 'commit' });
@@ -87,8 +87,8 @@ try {
   assert.ok(Math.abs(restored.x + 8 - cx) < 1);
   assert.ok(Math.abs(restored.y + 12 - cy) < 1);
   await page.mouse.move(cx + 4, cy);
-  await expect(page.locator('html')).not.toHaveClass(/cursor-stationary/);
-  await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
+  await expect(page.locator('.animated-cursor')).toBeVisible();
+  await expect(page.locator('body')).toHaveCSS('cursor', 'none');
   await page.unroute('**/megumi-cursor*.svg');
   await page.locator('.entry-row').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
@@ -103,5 +103,5 @@ try {
   await page.goto(new URL('papers/k-gat/', base).href);
   await expect(page.locator('.paper-contents')).toBeVisible();
   assert.ok(scripts.some(url => url.includes('/WritingDetail-')), 'Paper renderer loaded on demand');
-  console.log('Both outfit switches use one request and take over at the stationary fingertip after decoding.');
+  console.log('Both outfits, stationary page navigation, refresh and history passed.');
 } finally { await browser.close(); }

@@ -51,7 +51,7 @@ try {
   await page.locator('.hero-description').dblclick(); await state('text');
   assert.equal(await page.evaluate(() => getSelection().toString()), '');
   // A wheel can be the first mouse input after keyboard navigation.
-  await page.keyboard.press('Shift');
+  await page.keyboard.press('Escape');
   await expect(cursor).toBeHidden();
   await page.mouse.wheel(0, 90); await state('scroll-down');
   await expect(cursor.locator('.cursor-status')).toHaveText('↓');
