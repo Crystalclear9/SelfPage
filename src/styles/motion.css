@@ -69,7 +69,7 @@
    Its original silhouette and fingertip hotspot stay unchanged in every state. */
 .animated-cursor { position: fixed; inset: 0 auto auto 0; margin: 0; padding: 0; border: 0; width: 92px; height: 96px; overflow: visible; background: none; color: var(--accent); pointer-events: none; }
 .animated-cursor::backdrop { display: none; }
-.animated-cursor .cursor-sprite { width: 64px; height: 68px; max-width: none; transform-origin: 8px 12px; transform: rotate(var(--travel-angle, 0deg)); transition: transform .18s cubic-bezier(.2,.8,.2,1); }
+.animated-cursor .cursor-sprite { width: 64px; height: 68px; max-width: none; transform-origin: 8px 12px; transform: none; transition: transform .18s cubic-bezier(.2,.8,.2,1); }
 .cursor-status { position: absolute; left: 49px; top: 12px; min-width: 16px; height: 18px; text-align: center; font: 600 15px/18px system-ui; color: var(--accent); text-shadow: 0 0 3px var(--bg), 0 0 3px var(--bg); }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   html.animated-cursor-active, html.animated-cursor-active * { cursor: none !important; }

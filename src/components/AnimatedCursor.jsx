@@ -1,5 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { Heart } from '@phosphor-icons/react';
+// Original site dialogue, reserved for deliberate interactions.
+const replies = {
+  playful: '……我看到了。',
+  greeting: '嗯，我在。',
+  like: '嗯。谢谢你。',
+  reconsidered: '……这么快就改主意了？',
+};
 
 // Both outfits pivot at the pointing fingertip (8, 12).
 // A manual popover keeps the pointer above native dialogs without intercepting input.
@@ -15,24 +21,10 @@ export default function AnimatedCursor() {
     const filename = root.dataset.cursorOutfit === 'short' ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg';
     sprite.src = import.meta.env.BASE_URL + 'images/' + filename;
     let x = 0, y = 0, down = null, target = null, frame = 0, timer = 0;
-    let transient = '', nativeDrag = false, visible = false, travelTimer = 0;
-    let holdTimer = 0, chargeTimer = 0, lastMove = 0;
-    let anchor = null, previousDirection = 0, reversals = 0, lastReverse = 0, lastPlay = -2000;
-    const sparks = [...el.querySelectorAll('.cursor-spark')];
-    const clearHold = () => { clearTimeout(holdTimer); clearTimeout(chargeTimer); };
-    const burst = (radius = 27, count = 3) => {
-      if (!visible || reduced.matches) return;
-      sparks.forEach((spark, i) => {
-        spark.getAnimations().forEach(animation => animation.cancel());
-        if (i >= count) return;
-        const angle = (-155 + i * 110 / Math.max(1, count - 1)) * Math.PI / 180;
-        spark.animate([
-          { opacity: .85, transform: 'translate(0, 0) rotate(45deg) scale(.6)' },
-          { opacity: .65, offset: .55, transform: `translate(${Math.cos(angle) * radius}px, ${Math.sin(angle) * radius}px) rotate(90deg)` },
-          { opacity: 0, transform: `translate(${Math.cos(angle) * radius + 5}px, ${Math.sin(angle) * radius + 9}px) rotate(155deg) scale(.45)` },
-        ], { duration: 480 + i * 18, easing: 'cubic-bezier(.16,1,.3,1)' });
-      });
-    };
+    let transient = '', nativeDrag = false, visible = false;
+    let strokeX = null, previousDirection = 0, reversals = 0, lastReverse = 0, lastPlay = -Infinity;
+    let lastLike = -Infinity;
+    const aside = el.querySelector('.cursor-aside');
     const aliases = { auto: 'default', all: 'move', 'all-scroll': 'move', 'n-resize': 'ns-resize', 's-resize': 'ns-resize', 'e-resize': 'ew-resize', 'w-resize': 'ew-resize', 'ne-resize': 'nesw-resize', 'sw-resize': 'nesw-resize', 'nw-resize': 'nwse-resize', 'se-resize': 'nwse-resize' };
     const allowed = new Set(['read', 'download', 'default', 'pointer', 'text', 'vertical-text', 'wait', 'progress', 'grab', 'grabbing', 'move', 'not-allowed', 'no-drop', 'copy', 'alias', 'zoom-in', 'zoom-out', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize', 'col-resize', 'row-resize', 'crosshair', 'help']);
     const context = () => {
@@ -58,57 +50,47 @@ export default function AnimatedCursor() {
       el.style.transform = `translate3d(${x - 8}px, ${y - 12}px, 0)`;
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : context());
       el.dataset.state = state;
-      const hint = state === 'copied' ? '已复制' : state === 'filtered' ? '已筛选'
-        : target?.closest('.copy-project-link') ? '复制链接'
-        : target?.closest('.filter-bar button:not(.selected)') ? '筛选'
-        : target?.closest('.source-link') ? '查看源码'
-        : target?.closest('.project-page-link, .writing-door') ? '阅读' : '';
-      el.querySelector('.cursor-hint').textContent = hint;
+      const line = replies[state] || '';
+      if (aside.textContent !== line) aside.textContent = line;
+      el.dataset.flip = x > innerWidth - 200 ? 'true' : 'false';
+      el.querySelector('.cursor-hint').textContent = state === 'copied' ? '已复制' : state === 'filtered' ? '已筛选' : '';
       el.dataset.axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
-      el.querySelector('.cursor-status').textContent = ({ read: '≡', download: '↓', text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
+      el.querySelector('.cursor-status').textContent = ({ wait: '…', progress: '…', read: '≡', download: '↓', text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
     const hide = () => {
       visible = false; down = null; nativeDrag = false; transient = '';
-      anchor = null; reversals = 0; previousDirection = 0; delete el.dataset.tether;
-      clearTimeout(timer); clearTimeout(travelTimer); clearHold(); cancelAnimationFrame(frame); frame = 0;
-      sparks.forEach(spark => spark.getAnimations().forEach(animation => animation.cancel()));
+      strokeX = null; reversals = 0; previousDirection = 0;
+      clearTimeout(timer); cancelAnimationFrame(frame); frame = 0;
       root.classList.remove('animated-cursor-active');
       if (el.matches(':popover-open')) el.hidePopover();
     };
     const position = event => {
       if (!fine.matches || reduced.matches || (event.pointerType && event.pointerType !== 'mouse') || !sprite.complete || !sprite.naturalWidth) return hide();
       const now = performance.now();
-      const dx = event.clientX - x;
-      const speed = visible ? Math.hypot(event.clientX - x, event.clientY - y) / Math.max(8, now - lastMove) : 0;
-      lastMove = now;
-      const lean = visible ? Math.max(-13, Math.min(13, (event.clientX - x) / 2)) : 0;
-      el.dataset.speed = speed > 1.4 ? 'fast' : 'normal';
-      el.style.setProperty('--travel-angle', `${lean}deg`);
-      clearTimeout(travelTimer);
-      travelTimer = setTimeout(() => { el.style.setProperty('--travel-angle', '0deg'); el.dataset.speed = 'idle'; }, 140);
       x = event.clientX; y = event.clientY; target = event.target;
       if (!visible) { visible = true; el.showPopover(); root.classList.add('animated-cursor-active'); }
       const semantic = context();
-      if (transient === 'playful' && semantic !== 'default') { clearTimeout(timer); transient = ''; }
-      if (!down && !nativeDrag && !transient && semantic === 'default' && Math.abs(dx) > 12 && speed > .6) {
+      if (transient && !down && (transient === 'playful' ? semantic !== 'default' : ['text', 'read', 'vertical-text'].includes(semantic))) { clearTimeout(timer); transient = ''; }
+      const canTease = !down && !nativeDrag && !transient && semantic === 'default';
+      if (!canTease) {
+        strokeX = null; previousDirection = 0; reversals = 0;
+      }
+      const dx = x - (strokeX ?? x);
+      if (canTease && strokeX === null) strokeX = x;
+      if (canTease && Math.abs(dx) >= 24) {
+        strokeX = x;
         const direction = Math.sign(dx);
         if (previousDirection && previousDirection !== direction) {
           reversals = now - lastReverse < 450 ? reversals + 1 : 1;
           lastReverse = now;
-          if (reversals >= 2 && now - lastPlay > 1800) {
-            pulse('playful', 650); lastPlay = now; reversals = 0;
+          if (reversals >= 2 && now - lastPlay > 12000) {
+            pulse('playful', 1450); lastPlay = now; reversals = 0;
           }
         }
         previousDirection = direction;
       }
-      if (anchor && anchor.mode !== 'text') {
-        const distance = Math.hypot(anchor.x - x, anchor.y - y);
-        el.dataset.tether = distance > 6 ? 'true' : 'false';
-        el.style.setProperty('--tether-length', `${Math.min(48, distance)}px`);
-        el.style.setProperty('--tether-angle', `${Math.atan2(anchor.y - y, anchor.x - x)}rad`);
-      }
-      if (down && Math.hypot(x - down.x, y - down.y) > 5) { clearHold(); transient = context() === 'text' ? 'text' : 'grabbing'; }
+      if (down && Math.hypot(x - down.x, y - down.y) > 5) transient = down.mode === 'text' ? 'text' : 'grabbing';
       schedule();
     };
     const pulse = (state, duration = 420) => {
@@ -116,43 +98,30 @@ export default function AnimatedCursor() {
       timer = setTimeout(() => { transient = ''; schedule(); }, duration);
     };
     const press = event => {
-      position(event); clearHold();
+      position(event);
       if (!visible) return;
-      down = { x: event.clientX, y: event.clientY };
-      anchor = event.button === 0 ? { ...down, mode: context() } : null;
-      pulse(event.button === 2 ? 'context' : event.button === 1 ? 'scroll' : 'pressed', 10000);
-      if (event.button === 0 && !['text', 'not-allowed', 'wait'].includes(context())) {
-        holdTimer = setTimeout(() => { if (down) pulse('charging', 10000); }, 420);
-        chargeTimer = setTimeout(() => { if (down) pulse('charged', 10000); }, 1050);
-      }
+      clearTimeout(timer);
+      transient = event.button === 2 ? 'context' : '';
+      down = { x, y, mode: context() };
+      schedule();
     };
-    const release = event => {
-      if (!visible || event.pointerType !== 'mouse') return;
-      const charged = transient === 'charged';
-      clearHold(); down = null;
-      anchor = null; delete el.dataset.tether;
-      if (event.button === 0 && charged) burst(33, 5);
-      if (event.button === 0 && !charged) {
-        clearTimeout(timer);
-        transient = '';
-        schedule();
-      } else {
-        pulse(charged ? 'charged-release' : event.button === 2 ? 'context' : 'scroll', charged ? 650 : 420);
-      }
+    const release = () => {
+      down = null;
+      transient = '';
+      schedule();
     };
-    const doubleClick = () => { burst(15, 2); pulse('double-click', 650); };
-    const wheel = event => {
-      el.style.setProperty('--scroll-angle', event.deltaY < 0 ? '-10deg' : '10deg');
-      if (!down) pulse('scroll', 240);
-    };
-    const copy = () => { burst(25); pulse('copy', 650); };
     const feedback = event => {
-      const durations = { like: 900, unlike: 720, greeting: 740, copied: 750, filtered: 750 };
-      if (!visible || reduced.matches || !Object.hasOwn(durations, event.detail)) return;
-      pulse(event.detail, durations[event.detail]);
+      if (!visible || reduced.matches) return;
+      const state = event.detail;
+      if (!['like', 'unlike', 'greeting', 'copied', 'filtered'].includes(state)) return;
+      const now = performance.now();
+      const reconsidered = state === 'unlike' && now - lastLike < 4000;
+      if (state === 'like') lastLike = now;
+      if (state === 'unlike') lastLike = -Infinity;
+      const reaction = reconsidered ? 'reconsidered' : state;
+      pulse(reaction, replies[reaction] ? 1450 : 750);
     };
     const dragStart = event => {
-      clearHold();
       nativeDrag = true;
       // Keep the browser's drag payload while avoiding a second image ghost.
       const ghost = document.createElement('canvas'); ghost.width = ghost.height = 1;
@@ -160,7 +129,7 @@ export default function AnimatedCursor() {
       schedule();
     };
     const cancel = () => { if (nativeDrag) { down = null; schedule(); } else hide(); };
-    const dragEnd = () => { clearHold(); nativeDrag = false; down = null; anchor = null; delete el.dataset.tether; pulse('settle', 450); };
+    const dragEnd = () => { nativeDrag = false; release(); };
     const leave = () => { if (!nativeDrag) hide(); };
     const dragMove = event => { nativeDrag = true; position(event); };
     const dragLeave = event => { if (event.clientX <= 0 || event.clientY <= 0 || event.clientX >= innerWidth || event.clientY >= innerHeight) hide(); };
@@ -172,7 +141,7 @@ export default function AnimatedCursor() {
       schedule();
     });
     observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open', 'aria-busy', 'data-cursor', 'disabled', 'aria-disabled'] });
-    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'dblclick', doubleClick], [document, 'wheel', wheel], [document, 'copy', copy], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'load', schedule], [fine, 'change', hide], [reduced, 'change', hide]];
+    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'load', schedule], [fine, 'change', hide], [reduced, 'change', hide]];
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
     document.addEventListener('cursor-feedback', feedback);
     return () => { hide(); observer.disconnect(); document.removeEventListener('cursor-feedback', feedback); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
@@ -180,9 +149,6 @@ export default function AnimatedCursor() {
   return <div ref={ref} popover="manual" className="animated-cursor" aria-hidden="true">
     <img className="cursor-sprite" alt="" width="64" height="68" draggable="false" />
     <span className="cursor-status" /><span className="cursor-hint" />
-    <span className="cursor-aside">…</span>
-    <span className="cursor-tether" />
-    <span className="cursor-hearts">{[0, 1, 2].map(i => <Heart key={i} size={12} weight="fill" style={{ '--heart-index': i }} />)}</span>
-    {Array.from({ length: 5 }, (_, i) => <i key={i} className="cursor-spark" />)}
+    <span className="cursor-aside" />
   </div>;
 }
