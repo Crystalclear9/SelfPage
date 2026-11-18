@@ -1,7 +1,8 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
-const base = 'http://127.0.0.1:4174/SelfPage/articles/ailearning/';
+const site = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
+const base = site + 'articles/ailearning/';
 try {
   for (const reducedMotion of ['no-preference', 'reduce']) {
     const context = await browser.newContext({ reducedMotion, viewport: { width: 375, height: 812 } });

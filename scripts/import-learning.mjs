@@ -21,6 +21,9 @@ function scan(directory, relative = '') {
   }
 }
 scan(root);
+if (!files.includes('README.md') || !files.some(file => categories.includes(file.split('/')[0]))) {
+  throw new Error('Expected an AILearning source folder with README.md and a curriculum category');
+}
 const pages = files.sort().map(file => {
   const parts = file.split('/');
   if (parts.length > 1 && !categories.includes(parts[0]) && file !== 'assets/external/README.md') throw new Error(`Unknown category: ${file}`);

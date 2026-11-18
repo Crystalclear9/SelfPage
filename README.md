@@ -1,149 +1,56 @@
-# Crystalclear9 · 个人网站
+# Crystalclear9 的个人主页
 
-[访问网站](https://crystalclear9.github.io/SelfPage/) · [内容维护](docs/CONTENT.md) · [部署说明](docs/DEPLOYMENT.md) · [交互实现](docs/MOTION.md) · [素材来源](docs/ASSETS.md)
+从一张截图里提取待办，到让多个智能体围绕证据分工，这里记录我在 AI 应用和系统方面做过的尝试。首页可以翻看项目卡片，沿着感兴趣的问题进入实现笔记和源码；想坐下来慢慢读，也可以直接打开学习章节或论文。加藤惠藏在光标和头像的小互动里。
 
-个人项目、技术文章与论文的静态网站。使用 React、Vite 和构建时预渲染，发布至 GitHub Pages。每个页面输出独立 HTML，支持直接访问、刷新和无 JavaScript 阅读；客户端加载后接入筛选、主题及交互。
+[打开首页](https://crystalclear9.github.io/SelfPage/) · [读 AILearning](https://crystalclear9.github.io/SelfPage/articles/ailearning/) · [看 K-GAT 论文介绍](https://crystalclear9.github.io/SelfPage/papers/k-gat/)
 
-## 文档导航
+## 在本机打开
 
-| 要做的事情 | 阅读位置 |
-| --- | --- |
-| 了解网站已有功能、操作方式和本地偏好 | [功能说明与使用指南](docs/FEATURES.md) |
-| 理解模块关系、数据约定、状态和扩展方式 | [开发设计与扩展约定](docs/ARCHITECTURE.md) |
-| 首次运行、理解目录、选择测试、清理产物 | [本地开发与验证](docs/DEVELOPMENT.md) |
-| 修改个人介绍、项目说明，添加文章、论文与附件 | [内容维护](docs/CONTENT.md) |
-| 推送发布、检查 Actions、定位线上问题、回退版本 | [GitHub Pages 部署](docs/DEPLOYMENT.md) |
-| 理解滚动、筛选、返回按钮、光标与刷新行为 | [导航与动效实现](docs/MOTION.md) |
-| 查看插画、角色光标、字体及图标的来源 | [素材来源](docs/ASSETS.md) |
+使用 Node.js 22.12 或更高版本，部署工作流使用 Node.js 24。
 
-## 已实现功能
-
-- **个人介绍**：头像、公开 GitHub 入口与两段简短说明；介绍内容集中在 `profile` 中维护。
-- **项目展示**：分类筛选、简介弹窗、五个独立详情页、源码跳转和项目链接复制。
-- **内容发布**：Markdown 文章、论文索引、作者与发表信息、PDF 和项目关联记录；通过仓库文件维护。
-- **AILearning 专题**：文章列表保留一个入口，进入后按分类、主题、章节阅读；支持公式、章内目录和前后章导航。
-- **页面导航**：分区定位、滚动选中态、项目前后翻页、上滑返回条、互斥的回到顶部入口。
-- **阅读入口**：独立 HTML、直接访问与刷新、收藏首屏定位、浏览器历史位置恢复。
-- **视觉交互**：浅深色主题、加藤惠光标、樱花拖尾、头像问候及首页板块与项目卡片滚动动效。
-- **点击语音**：头像、点赞与取消点赞分别播放日语合成回应；主动点击触发、互斥播放，再次点击头像可停止。网站仅加载静态音频，不使用 API 密钥。
-- **论文阅读**：静态连续的图文排版，提供页内目录、原图链接与返回导航；正文不随滚动出现或消失。
-- **兼容路径**：静态阅读、窄屏布局、键盘操作和减少动态效果支持。
-
-网站没有在线编辑后台或账号系统。“喜欢”和主题等偏好只保存在当前浏览器，不是服务器统计。各功能的使用条件与边界见功能说明。
-
-## 开发与构建
-
-Node.js 22.12+，推荐与 CI 一致的 Node.js 24。
-
-```bash
+```sh
 npm ci
 npm run dev
 ```
 
-开发地址默认为 `http://127.0.0.1:5173/`。按当前 GitHub Pages 子路径构建和预览：
+打开终端显示的地址，默认是 `http://127.0.0.1:5173/`。改项目介绍时可以直接看卡片、简介弹窗和详情页的效果。
+
+## 下一次更新从哪里开始
+
+| 想改什么 | 从这里开始 |
+| --- | --- |
+| 个人介绍、头像和点赞语音 | `src/data/site.js` 的 `profile`。音频放在 `public/audio/` |
+| 项目卡片和实现笔记 | 在 `src/data/site.js` 改摘要、分类和仓库链接，在 `src/data/project-notes.js` 改详情。两处用项目 ID 关联 |
+| 独立文章或论文 | 在 `content/articles/` 或 `content/papers/` 写 Markdown，再到 `content/index.json` 填写标题、摘要和发布信息 |
+| AILearning 学习资料 | 在教材源目录改正文与配图，再运行 `npm run import:learning -- ../AI_Learning`。目录、章内引用和前后章链接随快照生成 |
+| 首页滚动、翻页与阅读导航 | 页面组合在 `src/App.jsx` 与 `src/pages/`，共享控件在 `src/components/`，样式在 `src/styles/` |
+
+项目详情适合写实现时做过的选择。例如，随手办从截图里的事项讲到用户如何核对提醒，Autellix 则从原论文的调度问题讲到个人复现的进展。学习资料可以按主题逐章读，先做题，再点开解析。论文页适合把方法图和实验结果放在对应的论述旁边。字段示例与素材路径见[内容维护手册](docs/CONTENT.md)。
+
+## 发布前预览
+
+React 与 Vite 负责页面和交互，构建脚本为每个公开地址生成独立 HTML。用 GitHub Pages 的子路径预览，能同时检查从首页点进去和直接打开深层链接这两种读法。
 
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
+npm run check:content
 npm run build
+npm run check:learning
 npm run preview
 ```
 
-预览地址默认为 `http://127.0.0.1:4173/SelfPage/`。根路径部署使用 `/`；构建与预览需使用相同的 `SITE_BASE_PATH`。
-
-## 内容与页面
-
-| 内容 | 维护位置 | 页面路径 |
-| --- | --- | --- |
-| 个人资料、项目说明 | `src/data/site.js` | `/`、`/projects/<id>/` |
-| 项目详情正文 | `src/data/project-notes.js` | `/projects/<id>/` |
-| 文章 | `content/index.json`、`content/articles/` | `/articles/`、`/articles/<slug>/` |
-| AILearning 资料 | `content/collections/ailearning/` | `/articles/ailearning/` 及其下级页面 |
-| 论文 | `content/index.json`、`content/papers/` | `/papers/`、`/papers/<slug>/` |
-| 公开 PDF、正文图片 | `public/files/` | `/files/<filename>` |
-
-路径均相对站点根目录。文章现收录 AILearning 专题，包含 8 个分类、47 个主题、186 个章节和 4 份阅读指南；论文收录 K-GAT（[EMNLP 2026](https://openreview.net/forum?id=E51inMWXf1)），提供研究动机、方法流程、实验对比与原图阅读入口。学习章节独立生成页面，不平铺到文章列表，也不合并成一篇长文。发布规则、资料同步和附件配置见 [内容维护](docs/CONTENT.md)。
-
-“关于我”保留简短的技术方向与项目记录说明，详细内容放在项目页和文章中。修改这部分时编辑 `profile.intro` 与 `profile.about`；首屏补充说明另在 `src/App.jsx` 中维护，具体对应关系见内容指南。
-
-本站提供项目说明和源码链接，不提供在线演示。Autellix 是基于[原论文](https://arxiv.org/abs/2502.13965)的个人复现尝试，原方法归论文作者，尚未完成对论文性能结果的复现。
-
-项目区展示随手办、GameQA、Autellix、TimePredictModel 和 SandBoxSim。按对应仓库更新介绍，不自动增加其他公开仓库。五个项目卡片统一采用 GameQA 的字号、图标尺寸、背景及间距，分类通过文字区分。首页卡片与介绍弹窗用于快速浏览，独立详情页按问题背景、实现过程、适用范围和代码参考展开。项目说明依据公开仓库整理，不代表本站对各项目进行了完整运行或性能复验。
-
-## 项目结构
-
-```text
-.github/workflows/  GitHub Pages 构建与部署
-content/            文章、论文正文与元数据
-public/             直接发布的图片、图标和附件
-src/
-  App.jsx           首页与公共页面框架
-  main.jsx          客户端入口
-  components/       导航、头像、光标、弹窗和拖尾
-  data/             个人资料、项目及路由数据
-  lib/              首页入口、项目筛选、翻页方向与异常恢复
-  pages/            项目详情、内容索引和正文
-  styles/           基础、内容、导航及动效样式
-scripts/            内容校验、静态生成、性能检查与产物清理
-tests/              内容、渲染及交互回归检查
-docs/               内容维护、部署、交互及素材文档
-```
-
-`package-lock.json` 用于锁定依赖，应与依赖变更一起提交。文章、论文及附件目录已有实际内容，不再保留 `.gitkeep` 占位文件。
-
-文件按用途保存在上述目录，不另设重复的源码备份或旧版本目录；版本回溯使用 Git。外部配图的署名与许可集中在 [配图来源](docs/LEARNING-IMAGE-SOURCES.md)，随素材一起保留。
-
-`node_modules/` 是本地开发依赖，`dist/` 是构建输出，`.local/` 是截图和报告，均被 Git 忽略。构建输出和报告可删除，命令会重新生成；无需手工上传 `dist/`，CI 从源码构建。
-
-删除失败时先停止占用文件的任务；可以移动的待清理产物集中到 Git 忽略的 `.cleanup-pending/`，不可移动的保留原位并记录路径。只有实际需要时才创建该目录，不将待清理文件放入发布目录。
-
-Windows 下运行 `npm run clean` 清理 `dist/` 和 `.local/`，保留依赖、源码、内容及 Git 历史。先停止预览和报告生成任务，再执行清理。可用 `powershell -NoProfile -File scripts/clean.ps1 -WhatIf` 查看目标；清理后需重新构建才能使用预览服务。
-
-`content/collections/ailearning/` 中的 Markdown 与 `manifest.json` 是发布所需的内容快照；`scripts/legacy-entrypoints.json` 用于兼容旧页面缓存，均需保留。详细清理规则见 [本地开发与验证](docs/DEVELOPMENT.md#7-清理与常见本地问题)。
-
-## 检查
-
-先运行 `npm run check:content` 与 `npm run build`，再启动预览，在另一个终端指定地址：
+打开 `http://127.0.0.1:4173/SelfPage/`。在另一个终端执行下面的命令，可以用浏览器验证导航与整套教材的实际渲染。
 
 ```powershell
 $env:TEST_URL = 'http://127.0.0.1:4173/SelfPage/'
-npm run check:pages
-npm run check:static
-npm run check:ui
-npm run check:motion
 npm run check:navigation
-npm run check:recovery
-npm run check:entry
-npm run check:projects
-npm run check:chapters
-npm run check:assets
-npm run check:learning
-npm run check:learning-ui
+node tests/learning-render.mjs
 ```
 
-浏览器检查使用本机 Microsoft Edge。各检查分别覆盖独立页面、静态首屏、基础交互、滚动与光标、返回导航，以及异常过渡恢复。`npm run audit` 生成 Lighthouse 报告。
+推送到 `main` 后，GitHub Actions 会从源码重新构建并发布。[部署与回退](docs/DEPLOYMENT.md)
 
-按改动范围选择检查，浏览器命令统一显式设置 `TEST_URL`，避免脚本默认端口不同：
+## 开发手册
 
-| 改动 | 建议检查 |
-| --- | --- |
-| 项目文案、文章和论文 | `build`、`check:pages`；修改内容加载逻辑时加 `check:content` |
-| 首页布局、项目筛选、光标 | `check:ui`、`check:projects`、`check:motion`、`check:chapters` |
-| 首页入口、返回与翻页 | `check:entry`、`check:navigation`、`check:recovery` |
-| 预渲染与脚本加载 | `check:static`、`check:pages` |
-| 入口资源、版本参数与旧页面兼容 | `check:assets`、`check:static` |
-| AILearning 导入、目录、公式和阅读页面 | `build`、`check:learning`、`check:learning-ui` |
-
-`check:content` 验证内容加载与渲染规则，`build` 读取当前内容并生成页面，`check:learning` 检查学习资料的全部内部链接、锚点和公式输出。CI 执行这三项；浏览器检查需在本地或指定的部署地址单独运行。
-
-## 交互与发布约定
-
-- 首页及子页面上滑显示回到当前页面顶部的按钮，下滑隐藏；上滑时优先显示悬浮按钮，并隐藏页脚顶部按钮。子页面另保留上滑出现的返回主页与上级列表导航。
-- 宽屏项目区左侧在导航下方偏上位置停留；分类切换将缩短后的列表定位到开头，以淡入淡出衔接。“了解项目”和“查看源码”并排放置，项目介绍内可复制页面链接。
-- 项目标题组、卡片、文章与论文入口均支持上下方向的重复浮现；标题组到位后在项目区内保持固定，离开后重新准备。宽屏最后一张卡片到文章标题保留约 320px 的整体间距。
-- 角色光标提示阅读、源码和筛选等操作，复制成功后显示确认；触屏与减少动态效果模式保留普通按钮和文字提示。
-- 收藏或直接打开首页时从首屏开始；刷新直接恢复阅读位置，站内返回分区与历史遍历保留定位，浏览后的首页地址不保留分区锚点。`check:entry` 覆盖入口、历史恢复及项目介绍弹窗。
-- 滚动卡片、页面翻页、头像与角色光标均支持减少动态效果设置。浏览器不支持页面过渡时使用普通导航。
-- 翻页保护脚本独立于应用包，过渡失败或超时后释放正文。实现和测试范围见 [交互说明](docs/MOTION.md)。
-- 入口 CSS 与脚本采用稳定文件名和内容版本参数，并保留近期旧地址兼容项；避免部署后旧 HTML 只剩默认文字和超链接。排查方法见 [部署说明](docs/DEPLOYMENT.md)。
-- 推送到 `main` 触发 GitHub Actions。仓库 Pages 的 Source 应为 **GitHub Actions**。
-- `public/` 会直接发布；公开仓库内的未发布 Markdown 也可通过源码访问，不应存放私人内容或凭据。
+- [功能与操作](docs/FEATURES.md) · [滚动与导航](docs/MOTION.md)
+- [模块与数据流](docs/ARCHITECTURE.md) · [本地开发、测试与清理](docs/DEVELOPMENT.md)
+- [插画、字体与语音来源](docs/ASSETS.md) · [学习资料配图署名](docs/LEARNING-IMAGE-SOURCES.md)

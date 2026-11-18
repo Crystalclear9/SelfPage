@@ -14,7 +14,7 @@ const directory = path.resolve('content/collections/ailearning');
 export const loadLearning = () => JSON.parse(readFileSync(path.join(directory, 'manifest.json'), 'utf8'));
 
 // Recognize only the source's empty anchor tags; arbitrary HTML remains disabled.
-function learningMarkdown({ page, pages, base }) {
+function learningMarkdown({ page, pages, images, base }) {
   return tree => {
     const slugger = new GithubSlugger();
     const headingText = node => node.value || node.children?.map(headingText).join('') || '';
@@ -68,13 +68,13 @@ function learningMarkdown({ page, pages, base }) {
         const file = suffixIndex < 0 ? node.url : node.url.slice(0, suffixIndex);
         const suffix = suffixIndex < 0 ? '' : node.url.slice(suffixIndex);
         const target = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), decodeURIComponent(file)));
-        if (!loadLearning().images?.includes(target)) throw new Error(`Missing learning image: ${target}`);
+        if (!images.has(target)) throw new Error(`Missing learning image: ${target}`);
         node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/') + suffix;
       }
       if ((node.type === 'link' || node.type === 'definition') && !/^(?:[a-z]+:|#|\/\/)/i.test(node.url)) {
         const [file, fragment] = node.url.split('#');
         const target = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), decodeURIComponent(file)));
-        if (loadLearning().images?.includes(target)) { node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/') + (fragment ? `#${fragment}` : ''); return; }
+        if (images.has(target)) { node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/') + (fragment ? `#${fragment}` : ''); return; }
         const linked = pages.find(p => p.file === target);
         if (!linked) throw new Error(`Unresolved learning link in ${page.file}: ${node.url}`);
         node.url = base + linked.route.slice(1) + (fragment ? `#${fragment}` : '');
@@ -113,11 +113,12 @@ export function normalizeLearningMath(source) {
   }).join('\n');
 }
 
-export function renderLearning(page, base = '/') {
-  const { pages } = loadLearning();
+export function renderLearning(page, base = '/', manifest = loadLearning()) {
+  const { pages } = manifest;
+  const images = new Set(manifest.images);
   const markdown = normalizeLearningMath(readFileSync(path.join(directory, page.file), 'utf8'));
   return renderToStaticMarkup(createElement(ReactMarkdown, {
-    remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, base }], learningExercises],
+    remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, images, base }], learningExercises],
     rehypePlugins: [[rehypeKatex, { strict: false, trust: false }], codeHighlight],
     components: {
       table: ({ node, children, ...props }) => props.className === 'learning-topic-table'
@@ -137,11 +138,12 @@ export function learningPlugin() {
       server.middlewares.use((req, res, next) => {
         const url = new URL(req.url, 'http://localhost');
         if (!url.pathname.endsWith('/__learning')) return next();
-        const page = loadLearning().pages.find(p => p.route === url.searchParams.get('route'));
+        const manifest = loadLearning();
+        const page = manifest.pages.find(p => p.route === url.searchParams.get('route'));
         if (!page) { res.statusCode = 404; return res.end(); }
         try {
           res.setHeader('Content-Type', 'text/html; charset=utf-8');
-          res.end(renderLearning(page, base));
+          res.end(renderLearning(page, base, manifest));
         } catch (error) { next(error); }
       });
       server.watcher.add(directory);

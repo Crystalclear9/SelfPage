@@ -24,6 +24,7 @@ export default function learningExercises() {
       if (node.type === 'paragraph' && isAnswer(node)) {
         const answer = [node];
         while (i + 1 < nodes.length && !['heading', 'html'].includes(nodes[i + 1].type)
+          && nodes[i + 1].data?.hName !== 'span'
           && !isQuestion(nodes[i + 1]) && !isAnswer(nodes[i + 1])) answer.push(nodes[++i]);
         output.push(disclosure('查看参考解析', answer));
       } else output.push(node);
