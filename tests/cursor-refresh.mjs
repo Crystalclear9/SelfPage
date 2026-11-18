@@ -52,7 +52,9 @@ try {
     await expect(sprite).toBeHidden();
     const resolution = await page.locator('.animated-cursor').evaluate(async el => {
       const image = new Image();
-      image.src = getComputedStyle(el).backgroundImage.match(/url\("([^"]+)"\)/)[1];
+      const uri = getComputedStyle(el).backgroundImage.match(/url\("([^"]+)"\)/)[1];
+      const svg = new DOMParser().parseFromString(atob(uri.split(',')[1]), 'image/svg+xml');
+      image.src = svg.querySelector('image').getAttribute('href');
       await image.decode();
       return [image.naturalWidth, image.naturalHeight];
     });
@@ -76,7 +78,7 @@ try {
   await page.locator('.writing-door').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
   await expect(page.locator('.entry-row').first()).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/webp/);
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/svg\+xml/);
   assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor')), nativeBefore);
   await page.unroute(externalAssets);
   await page.goBack({ waitUntil: 'commit' });
@@ -89,7 +91,7 @@ try {
   // restoration of the pointer or its contextual feedback.
   const [cx, cy] = await page.evaluate(() => JSON.parse(sessionStorage.testPoint));
   await expect(page.locator('.animated-cursor')).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/webp;base64/);
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/svg\+xml;base64/);
   const restored = await page.locator('.animated-cursor').boundingBox();
   assert.ok(Math.abs(restored.x + 8 - cx) < 1);
   assert.ok(Math.abs(restored.y + 12 - cy) < 1);

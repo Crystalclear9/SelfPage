@@ -10,13 +10,9 @@ const transitionGuard = {
   configResolved(config) { siteBase = config.base; },
   transformIndexHtml() {
     // The browser can paint the chosen native cursor before external assets arrive.
-    const cursor = name => 'url(data:image/png;base64,' +
-      readFileSync(new URL('./src/assets/' + name + '.png', import.meta.url)).toString('base64') + ')';
     const artwork = name => {
-      const svg = readFileSync(new URL('./public/images/' + name + '.svg', import.meta.url), 'utf8');
-      const image = svg.match(/href="(data:image\/webp;base64,[A-Za-z0-9+/=]+)"/);
-      if (!image) throw new Error('Missing embedded cursor artwork: ' + name);
-      return 'url("' + image[1] + '")';
+      const svg = readFileSync(new URL('./public/images/' + name + '.svg', import.meta.url));
+      return 'url("data:image/svg+xml;base64,' + svg.toString('base64') + '")';
     };
     return [{ tag: 'meta', attrs: { charset: 'UTF-8' }, injectTo: 'head-prepend' },
     { tag: 'script', attrs: { 'data-base': siteBase, 'data-cursor-entry': '' }, injectTo: 'head-prepend',
@@ -27,16 +23,9 @@ const transitionGuard = {
           --long-cursor: ${artwork('megumi-cursor')};
           --short-cursor: ${artwork('megumi-cursor-short')};
           --cursor-image: var(--long-cursor);
-          --cursor-fallback: ${cursor('megumi-cursor')};
-          --native-cursor: var(--cursor-fallback) 8 12, auto;
+          --native-cursor: var(--cursor-image) 8 12, auto;
         }
-        html[data-cursor-outfit="short"] {
-          --cursor-image: var(--short-cursor);
-          --cursor-fallback: ${cursor('megumi-cursor-short')};
-        }
-        @supports (cursor: image-set(url("") 3x) 8 12, auto) {
-          html { --native-cursor: image-set(var(--cursor-image) 3x) 8 12, var(--cursor-fallback) 8 12, auto; }
-        }
+        html[data-cursor-outfit="short"] { --cursor-image: var(--short-cursor); }
         html, html * { cursor: var(--native-cursor) !important; }
         html.animated-cursor-active:active-view-transition, html.animated-cursor-active:active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
         html:active-view-transition .animated-cursor { display: none !important; }
