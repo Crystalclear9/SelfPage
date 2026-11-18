@@ -88,7 +88,7 @@
 
 ## 头像与角色光标
 
-`ProfileAvatar` 为原生按钮，支持鼠标、触屏、Enter 和空格。触发后头像摆动一次、显示问候，动作期间不叠加重复动画。
+`ProfileAvatar` 为原生按钮，支持鼠标、触屏、Enter 和空格。点击后头像轻摆并播放问候语音，再次点击可停止。播放状态通过按钮的无障碍名称传达，头像交互没有悬浮文字或消息弹窗。
 
 每个标签页首次进入时等概率选择过膝白袜或短袜，整页刷新时切换到另一套。站内跨页和历史恢复均沿用本次选择。两套素材分别为 `public/images/megumi-cursor.svg` 和 `public/images/megumi-cursor-short.svg`，热点 `(8, 12)` 对应指尖。`AnimatedCursor` 使用不接收点击的 manual popover，保持在弹窗之上；移动、点击、长按、拖动、文本、等待、复制和方向调整各有反馈。`data-cursor` 可声明额外语义，如 `read`、`download`、`ew-resize`。
 

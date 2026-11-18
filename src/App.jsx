@@ -121,8 +121,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
       <section className="about section-shell reveal" id="about">
         <div className="profile-card" data-chapter="profile">
           <ProfileAvatar enabled={hydrated}
-            voiceSrc={profile.avatarVoice ? `${import.meta.env.BASE_URL}${profile.avatarVoice}` : ''}
-            onVoiceError={setToast} />
+            voiceSrc={profile.avatarVoice ? `${import.meta.env.BASE_URL}${profile.avatarVoice}` : ''} />
           <div><h2>{profile.name}</h2><a href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={15} /> GitHub <ArrowUpRight size={13} /></a></div>
         </div>
         <div className="about-copy" data-chapter="about">
