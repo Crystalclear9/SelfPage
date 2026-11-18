@@ -192,7 +192,7 @@ export default function AnimatedCursor() {
       event.preventDefault();
     };
     const preference = () => { hide(); loadSprite(); };
-    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
+    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pageswap', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
     loadSprite();
     document.addEventListener('wheel', wheel, { passive: true });
     document.addEventListener('mousedown', preventWordSelection);

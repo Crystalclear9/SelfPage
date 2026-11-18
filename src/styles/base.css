@@ -261,13 +261,6 @@ html:not(.interactive) .like-button { display: none; }
 
 /* Center the profile avatar independently of the cursor artwork. */
 .avatar img { position: absolute; width: 300%; max-width: none; height: 308%; left: -185%; top: -85%; }
-/* Native cursor: the character itself is the pointer, including inside dialogs. */
-@media (hover: hover) and (pointer: fine) {
-  html { --character-cursor: url('/images/megumi-cursor.svg'); }
-  html[data-cursor-outfit='short'] { --character-cursor: url('/images/megumi-cursor-short.svg'); }
-  html, body, body * { cursor: var(--character-cursor) 8 12, auto; }
-  a, button, a *, button * { cursor: var(--character-cursor) 8 12, pointer; }
-}
 @media (max-width: 767px) {
   .hero-art { max-width: 260px; justify-self: start; }
 }

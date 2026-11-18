@@ -34,6 +34,7 @@ try {
     await expect(sprite).toHaveAttribute('src', new RegExp(name + '$'));
     await page.mouse.move(300, 220);
     await expect(page.locator('html')).not.toHaveClass(/animated-cursor-active/);
+    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
     resume();
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     const box = await page.locator('.animated-cursor').boundingBox();
@@ -48,8 +49,18 @@ try {
   page.on('request', request => {
     if (request.resourceType() === 'script') scripts.push(request.url());
   });
+  const nativeBefore = await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor'));
+  // Simulate a destination whose entire external presentation is unavailable.
+  const externalAssets = /\.(?:css|js|svg)(?:\?|$)/;
+  await page.route(externalAssets, route => route.abort());
   await page.locator('.writing-door').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
+  await expect(page.locator('html')).not.toHaveClass(/animated-cursor-active/);
+  await expect(page.locator('.entry-row').first()).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
+  assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor')), nativeBefore);
+  await page.unroute(externalAssets);
+  await page.goBack({ waitUntil: 'commit' });
+  await page.locator('.writing-door').first().click();
   await page.locator('.entry-row').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
   assert.ok(!scripts.some(url => url.includes('/WritingDetail-')), 'Learning pages use pre-rendered HTML');
