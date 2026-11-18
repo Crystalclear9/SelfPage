@@ -36,6 +36,38 @@ npm run preview -- --port 4174 --strictPort
 
 表中的 `check:*` 使用 `npm run` 执行。浏览器用例针对运行中的预览；`check:learning` 和引用扫描直接读取 `dist/`。
 
+## 在本机复核一次改动
+
+以修改项目卡片和教材排版为例，两个终端分别承担服务与验证。第一个终端按上文完成构建并保持预览运行。第二个终端在同一仓库根目录执行：
+
+```powershell
+$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'
+npm run check:projects
+npm run check:learning-ui
+```
+
+检查脚本的输入是 `TEST_URL` 指向的页面。刚才编辑的是 `src/` 而浏览器仍显示旧样式时，先确认当前标签页是开发服务还是 `dist/` 的预览；预览在下次构建完成后才会读到新产物。切换前缀时，构建和启动预览使用同一个 `SITE_BASE_PATH`。
+
+| 验收对象 | 实际操作 | 预期结果 |
+| --- | --- | --- |
+| 项目卡片 | 在「全部」向下滚动，再选「应用」，打开 GameQA 并返回 | 列表从筛选后的内容开始，项目标题、详情和返回目标对应同一项目 |
+| 教材阅读 | 从「文章」进入分类、主题、章节，复制章节地址到新标签页 | 两个入口展示相同章标题、目录、公式和图片；前后章链接沿清单顺序切换 |
+| 图文排版 | 将视口调到 375px，查看含表格、长代码与图片的章节，再切换深色主题 | 长代码保留缩进和语法颜色；内容可阅读，页面整体宽度贴合视口 |
+| 历史恢复 | 同一标签页从首页进入详情后按后退，再按前进 | 地址、主标题、返回操作和滚动位置对应当前页面 |
+
+### 选择浏览器
+
+`npm run check:browser-ci` 默认使用 Microsoft Edge。使用 Playwright 提供的 Chromium 时，在第二个终端运行以下命令。教材逐页渲染脚本 `tests/learning-render.mjs` 明确使用 Edge；运行这项全量检查的机器需要安装 Edge。
+
+```powershell
+npx playwright install chromium
+$env:BROWSER_CHANNEL = 'chromium'
+npm run check:browser-ci
+```
+
+`check:learning` 适合每次内容构建后执行。调整公式处理、代码高亮、教材图片路径或全局阅读样式时，再运行 `node tests/learning-render.mjs`。它逐页打开折叠内容、等待字体与图片就绪，分别检查启用和关闭 JavaScript、375px 和 1440px 视口、浅色和深色主题。失败输出中的路由可直接拼在预览地址后复现。
+
+
 ## 定位渲染问题
 
 - **深层链接只有文字。** 在 Network 中查看该页的 HTML、`assets/site.css` 及响应类型。将线上请求与同前缀的生产预览对照，可区分路径错误与旧入口失效。

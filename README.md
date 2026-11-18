@@ -4,14 +4,35 @@ Crystalclear9 的个人主页，使用 React 和 Vite 构建，部署在 GitHub 
 
 ## 本地开发
 
-使用 Node.js 24，与 GitHub Actions 的构建环境一致。在仓库根目录启动开发服务：
+首次检出时使用以下命令。项目使用 Node.js 24 开发和发布，`npm ci` 根据提交的锁文件安装依赖。已有工作副本时，直接在仓库根目录启动开发服务。
 
 ```sh
+git clone https://github.com/Crystalclear9/SelfPage.git
+cd SelfPage
 npm ci
 npm run dev
 ```
 
 默认地址是 `http://127.0.0.1:5173/`。修改首页布局从 [App.jsx](src/App.jsx) 开始；修改介绍、项目分类或展示顺序，直接编辑 [site.js](src/data/site.js)。
+
+## 接手后的第一次修改
+
+从一个已有项目走一遍开发流程，可以同时熟悉首页、独立页面和生产路径。下面以 GameQA 为例。
+
+1. 在 [site.js](src/data/site.js) 找到 `id: "gameqa"`。修改 `subtitle` 后保存，打开首页「项目与实践」，选择「应用」。卡片标题下方会显示新的副标题。
+2. 点击卡片的「项目介绍」。弹窗的分项说明来自同一条记录的 `details`。关闭弹窗后点击「了解项目」进入独立页面，其中「实现思路」来自 [project-notes.js](src/data/project-notes.js) 的 `gameqa.implementation`。这两处适合分别写功能摘要和具体实现。
+3. 运行下文的生产构建，在预览地址直接打开 `/SelfPage/projects/gameqa/`。刷新后，页面应保留项目标题、正文和样式。点「全部项目」返回首页的项目分区，再切换一次分类，检查返回位置。
+4. 用 `git diff -- src/data/site.js src/data/project-notes.js` 核对本次内容差异。提交源文件后，发布工作流从源码生成对应 HTML。
+
+### 日常改动入口
+
+| 要做的事 | 从哪里入手 | 完成后看哪里 |
+| --- | --- | --- |
+| 调整桌面或移动端布局 | [布局样式](src/styles/base.css) 与对应组件的类名；阅读页使用 [content.css](src/styles/content.css) | 生产预览里同一地址的宽屏和窄屏布局 |
+| 发布一份关联项目的笔记 | 新建 Markdown 并在发布索引中填写 `project` | 文章列表、文章详情、项目页的「相关记录」；见[发布文章](docs/CONTENT.md#发布文章) |
+| 更新一章教材及配图 | 在 AILearning 源目录改正文与图片，再导入快照 | 分类目录、章节直达地址、图片与页内锚点；见[同步步骤](docs/CONTENT.md#同步-ailearning) |
+| 修改角色反馈或播放逻辑 | 从 [AnimatedCursor.jsx](src/components/AnimatedCursor.jsx) 或 [useVoice.js](src/lib/useVoice.js) 进入 | 首页触发反馈后进入子页，再后退、刷新，观察当前衣装与播放状态 |
+| 改变页面地址或构建路径 | [routes.js](src/data/routes.js)、[Vite 配置](vite.config.js) 与[预渲染脚本](scripts/prerender.mjs) | 直接打开目标页、站内进入、刷新、历史返回四条路径 |
 
 ## 仓库结构
 

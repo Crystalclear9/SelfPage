@@ -10,6 +10,16 @@
 
 构建后运行 `node tests/learning-references.mjs` 检查本地文件和 SVG 片段。启动生产预览后运行 `node tests/learning-render.mjs`，检查浏览器能否解码图片。排查缺图时依次核对正文的相对路径、清单条目、发布文件的大小写，以及 SVG 引用中的片段名。
 
+## 一张图在三个位置的路径
+
+| 查看位置 | 示例 |
+| --- | --- |
+| 主题目录里的章节 Markdown | `images/01-cavi-coordinate-progress.webp` |
+| 导入清单的 `images` 项 | `AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
+| GitHub Pages 的 Network 请求 | `/SelfPage/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
+
+第一条相对章节，第二条相对源仓库，第三条是浏览器实际取图的位置。新增插图后，先在源章节读一遍相对路径，再导入并查看 Git 差异。图名包含大小写或 SVG 片段时，从原引用直接复制，保留文件名和片段两部分。若请求成功但图示区域不对，查看 SVG 内是否存在片段指定的元素；若浏览器返回 404，检查清单条目与发布副本的目录层级。
+
 ## 早期版本使用的外部插图
 
 以下署名对应历史教材快照，可按图名追溯素材与许可。

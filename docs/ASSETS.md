@@ -44,6 +44,12 @@
 
 替换音轨时，在 [site.js](../src/data/site.js) 更新对应文件路径，再运行 `node tests/voice.mjs`。试听时依次点击头像、点赞、取消点赞，检查起音、停顿与音轨切换。
 
+### 替换一段首页语音
+
+以点赞为例，将处理好的 FLAC 放在 `public/audio/`，在 `profile.likeVoice` 填写 `audio/文件名.flac`。头像问候与取消点赞分别读取 `avatarVoice`、`unlikeVoice`。这些值是相对发布根目录的路径，开发环境和 Pages 共用同一份配置。
+
+[useVoice](../src/lib/useVoice.js) 在挂载后安排缓冲，用户点击时由 [voice-player.js](../src/lib/voice-player.js) 调用浏览器的 `play()`。三个入口共享当前播放器，新操作会停止旧音轨并复位播放时间。首页组件卸载、浏览器触发 pagehide 或再次点击正在播放的头像时，播放器会停止。替换音频后，在预览中先后执行「问候 → 点赞 → 取消点赞」；听到的回应应随最后一次操作切换。然后在语音播放期间进入详情页，确认上一页音轨已停止。
+
 ## 正文附件
 
 [K-GAT 配图](../public/files/k-gat)随论文正文发布，PDF 入口由内容索引提供。[教材配图](LEARNING-IMAGE-SOURCES.md)记录 AILearning 图像的导入路径、验证方法和历史署名。

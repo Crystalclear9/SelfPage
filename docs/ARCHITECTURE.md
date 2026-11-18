@@ -32,6 +32,25 @@ SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供
 
 业务组件在动作发生时发出 `cursor-feedback`。头像使用 `greeting`，喜欢状态使用 `like` 或 `unlike`，复制成功后发送 `copied`，筛选结果更新后发送 `filtered`。角色组件消费这些事件；播放语音和写入剪贴板仍由各自的业务入口完成。
 
+## 一次教材换章经过哪些模块
+
+以从目录进入微积分第一章为例，同一份 Markdown 在不同阶段有三种形态。选择修改位置取决于问题出现在哪一步。
+
+| 阶段 | 输入与输出 | 负责模块 |
+| --- | --- | --- |
+| 导入 | 源文件 `Mathematics/Calculus/01-导数偏导数与链式法则.md` → 快照中的同名文件和路由 `mathematics/calculus/chapter-01/` | [import-learning.mjs](../scripts/import-learning.mjs) 读取标题、推导路由及父级 |
+| 构建 | 快照与清单 → 带章标题、公式、语法着色和 `#learning-content` 的 HTML | [learning.mjs](../scripts/learning.mjs) 处理正文，[prerender.mjs](../scripts/prerender.mjs) 写入路由目录 |
+| 浏览 | 当前页或目标页的 HTML → `LearningPage` 接收正文，显示目录、上级链接和相邻章节 | [main.jsx](../src/main.jsx) 读取正文，[LearningPage.jsx](../src/pages/LearningPage.jsx) 组织页面 |
+
+例如改章节标题时，编辑源 Markdown 的一级标题并重新导入。修复所有章节的公式解析时，改构建渲染器并重新构建。若直接打开正常，只有站内点击后仍是上一章，应从 `readPage` 的目标 URL、响应中的 `#learning-content` 和页面提交顺序开始定位。
+
+## 页面状态的生命周期
+
+页面跳转由浏览器的 `navigate` 事件进入。`readPage` 完成后，`flushSync` 提交新树，然后恢复滚动、打开锚点所在的折叠块、发送 `site-page-rendered`。新页面的 `App` 因路径 key 改变而重新挂载，共享角色光标位于该 key 之外。原生刷新重新加载文档，从 head 中的首屏入口开始执行。
+
+开发新交互时，先确定状态属于哪个范围。筛选值随首页挂载建立；语音播放器在组件卸载或页面隐藏时停止；主题与喜欢状态跨访问保存在本地。注册窗口监听器的组件应在同一 effect 中解除监听。可以分别参考 [useProjectFilter.js](../src/lib/useProjectFilter.js)、[useVoice.js](../src/lib/useVoice.js) 和 [main.jsx](../src/main.jsx) 的实现。
+
+
 ## 扩展一个页面
 
 在 `src/data/routes.js` 登记公开路径，并在页面组件中实现该路径的视图。预渲染器按路由表输出 HTML；站内切换由 `readPage` 装配目标页面的数据。用同一个地址验证直接访问、站内点击、刷新和历史返回，可以分别覆盖静态入口与客户端导航。[内容字段](CONTENT.md) · [本地验证](DEVELOPMENT.md)
