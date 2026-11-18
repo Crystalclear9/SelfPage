@@ -41,6 +41,25 @@
       } catch { /* Storage is optional. */ }
     };
     restore();
+    // Own the first frame of a stationary reload, before React or site.css arrives.
+    // A real input event releases the bootstrap image if the app never mounts.
+    if (point && performance.getEntriesByType('navigation')[0]?.type === 'reload' &&
+        matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      root.style.setProperty('--reload-cursor-x', (point.clientX - 8) + 'px');
+      root.style.setProperty('--reload-cursor-y', (point.clientY - 12) + 'px');
+      root.classList.add('cursor-restoring');
+      const release = () => {
+        root.classList.remove('cursor-restoring');
+        root.style.removeProperty('--reload-cursor-x');
+        root.style.removeProperty('--reload-cursor-y');
+        controller.abort();
+      };
+      const controller = new AbortController();
+      for (const type of ['pointermove', 'pointerdown', 'keydown', 'cursor-mounted', 'pagehide', 'blur']) {
+        window.addEventListener(type, release, { capture: true, signal: controller.signal });
+      }
+      root.addEventListener('pointerleave', release, { signal: controller.signal });
+    }
     window.readCursorPoint = () => point;
     document.addEventListener('pointermove', remember, { capture: true, passive: true });
     document.addEventListener('pointerdown', remember, { capture: true, passive: true });

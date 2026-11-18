@@ -32,7 +32,23 @@ try {
       // Headless keyboard input delivers F5 to the document; reload performs
       // the browser command normally dispatched by the desktop shortcut.
       await page.keyboard.press('F5');
-      await page.reload({ waitUntil: 'domcontentloaded' });
+      let startApp;
+      const appGate = new Promise(resolve => { startApp = resolve; });
+      const entry = /\/assets\/site\.js(?:\?|$)/;
+      await page.route(entry, async route => { await appGate; await route.continue(); });
+      try {
+        await page.reload({ waitUntil: 'commit' });
+        const root = page.locator('html');
+        await expect(root).toHaveClass(/cursor-restoring/);
+        await expect(root).toHaveCSS('cursor', 'none');
+        await expect(page.locator('.animated-cursor:popover-open')).toHaveCount(0);
+        assert.ok(await root.evaluate(el => {
+          const boot = getComputedStyle(el, '::after');
+          return boot.content === '""' && boot.backgroundImage.includes('data:image/svg+xml');
+        }));
+      } finally { startApp(); }
+      await page.unroute(entry);
+
     }
     const sprite = page.locator('.cursor-sprite');
     await expect(sprite).toHaveAttribute('src', new RegExp(name + '$'));
@@ -47,7 +63,10 @@ try {
     }, short);
     assert.ok(firstImage, 'First native cursor matches the new outfit without mouse movement');
     if (initial) await page.mouse.move(300, 220);
-    else await expect(page.locator('.animated-cursor')).toBeVisible();
+    else {
+      await expect(page.locator('.animated-cursor:popover-open')).toHaveCount(1);
+      await expect(page.locator('html')).not.toHaveClass(/cursor-restoring/);
+    }
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     await expect(page.locator('html')).not.toHaveClass(/cursor-posing/);
     await expect(page.locator('body')).toHaveCSS('cursor', 'none');

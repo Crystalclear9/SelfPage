@@ -28,6 +28,15 @@ const transitionGuard = {
         html[data-cursor-outfit="short"] { --cursor-image: var(--short-cursor); }
         html, html * { cursor: var(--native-cursor) !important; }
         html.animated-cursor-active:active-view-transition, html.animated-cursor-active:active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
+        @media (prefers-reduced-motion: no-preference) {
+          html:is(.cursor-restoring, .animated-cursor-active),
+          html:is(.cursor-restoring, .animated-cursor-active) * { cursor: none !important; }
+          html.cursor-restoring:not(.animated-cursor-active)::after {
+            content: ''; position: fixed; pointer-events: none; z-index: 2147483647;
+            left: var(--reload-cursor-x); top: var(--reload-cursor-y);
+            width: 64px; height: 68px; background: var(--cursor-image) center / contain no-repeat;
+          }
+        }
         html:active-view-transition .animated-cursor { display: none !important; }
       }` }, { tag: 'script', attrs: { 'data-transition-guard': '' },
       children: readFileSync(new URL('./src/lib/transition-guard.js', import.meta.url), 'utf8'),
