@@ -1,20 +1,26 @@
 # 教材配图
 
-当前发布清单见 [AILearning 快照](../content/collections/ailearning/manifest.json) 的 `images` 字段。主题图解随源资料导入，目录层级保留在 `public/files/ailearning/` 下。维护单张图时，先在源章节中确认 Markdown 相对路径，再在清单和发布目录中核对同一路径。文件名大小写应与正文一致。
+## 从章节定位图片
 
-导入后运行 `npm run build` 和 `node tests/learning-references.mjs`，核对本地图片与 SVG 片段引用。要检查浏览器能否实际解码图片，在生产预览上运行 `node tests/learning-render.mjs`。引入第三方配图时，记录原始来源、作者、许可与改动，并将随图提供的许可文件与素材一并导入。
+以贝叶斯计算中的坐标更新图为例。章节引用 `images/01-cavi-coordinate-progress.webp`，导入时保留它相对于主题目录的位置，发布副本位于 [BayesianComputation/images](../public/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp)。[专题清单](../content/collections/ailearning/manifest.json) 的 `images` 字段可用于核对其他配图。
 
-## 历史外部插图
+修改图片时，先更新源资料中的文件和引用，再按[同步步骤](CONTENT.md#同步-ailearning)导入。新增第三方插图时记下作者、来源、许可及改动，随图附带的许可文件放在源素材旁。
 
-以下是早期教材快照使用过的外部素材。当前清单未列入这些文件，保留来源记录供核查旧版本使用。
+## 核对发布结果
 
-- `pca`：Nicoguaro；[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)；[原始来源](https://commons.wikimedia.org/wiki/File:GaussianScatterPCA.svg)。
-- `rnn`：fdeloche；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)；[原始来源](https://commons.wikimedia.org/wiki/File:Recurrent_neural_network_unfold.svg)。
-- `svm`：ZackWeinberg（基于 Cyc 原图）；[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)；[原始来源](https://commons.wikimedia.org/wiki/File:Svm_separating_hyperplanes_%28SVG%29.svg)。
-- `descent`：Zerodamage（基于 Olegalexandrov 原图）；公有领域；[原始来源](https://commons.wikimedia.org/wiki/File:Gradient_descent.svg)。
-- `network`：Glosser.ca；[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)；[原始来源](https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg)。
-- `no_padding_no_strides`：Vincent Dumoulin、Francesco Visin；MIT；[原始来源](https://github.com/vdumoulin/conv_arithmetic)。
-- `no_padding_strides`：Vincent Dumoulin、Francesco Visin；MIT；[原始来源](https://github.com/vdumoulin/conv_arithmetic)。
-- `dilation`：Vincent Dumoulin、Francesco Visin；MIT；[原始来源](https://github.com/vdumoulin/conv_arithmetic)。
+构建后运行 `node tests/learning-references.mjs` 检查本地文件和 SVG 片段。启动生产预览后运行 `node tests/learning-render.mjs`，检查浏览器能否解码图片。排查缺图时依次核对正文的相对路径、清单条目、发布文件的大小写，以及 SVG 引用中的片段名。
 
-主页角色插画、两套光标原画与音频见[站点素材说明](ASSETS.md)。角色表现的参考与设计取舍见[角色交互](MOTION.md#加藤惠什么时候回应)。
+## 早期版本使用的外部插图
+
+以下署名对应历史教材快照，可按图名追溯素材与许可。
+
+| 图名 | 作者 | 许可 | 来源 |
+| --- | --- | --- | --- |
+| `pca` | Nicoguaro | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:GaussianScatterPCA.svg) |
+| `rnn` | fdeloche | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:Recurrent_neural_network_unfold.svg) |
+| `svm` | ZackWeinberg（基于 Cyc 原图） | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:Svm_separating_hyperplanes_%28SVG%29.svg) |
+| `descent` | Zerodamage（基于 Olegalexandrov 原图） | 公有领域 | [原始来源](https://commons.wikimedia.org/wiki/File:Gradient_descent.svg) |
+| `network` | Glosser.ca | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg) |
+| `no_padding_no_strides` | Vincent Dumoulin、Francesco Visin | MIT | [原始来源](https://github.com/vdumoulin/conv_arithmetic) |
+| `no_padding_strides` | Vincent Dumoulin、Francesco Visin | MIT | [原始来源](https://github.com/vdumoulin/conv_arithmetic) |
+| `dilation` | Vincent Dumoulin、Francesco Visin | MIT | [原始来源](https://github.com/vdumoulin/conv_arithmetic) |

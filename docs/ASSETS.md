@@ -1,42 +1,32 @@
-# 素材来源
+# 站点素材
 
-## 当前展示的图片
+## 首页插画
 
-首页主视觉与头像来自[剧场版《冴えない彼女の育てかた Fine》官方网站](https://saenai-movie.com/)。主视觉与头像使用以下官方原图。
+两幅主视觉来自剧场版《路人女主的养成方法 Fine》，原图均为 1200 × 1232 像素。页面用 CSS 选取构图，「关于我」的圆形头像裁自第三版主视觉。
 
-| 文件 | 原始分辨率 | 原地址 |
-| --- | --- | --- |
-| `public/images/keyvisual-1.jpg` | 1200 × 1232 | https://saenai-movie.com/shared/img/top/visual_main_v1.jpg |
-| `public/images/keyvisual-3.jpg` | 1200 × 1232 | https://saenai-movie.com/shared/img/top/visual_main_v3.jpg |
+| 站内文件 | 原始素材 |
+| --- | --- |
+| [keyvisual-1.jpg](../public/images/keyvisual-1.jpg) | [第一版主视觉](https://saenai-movie.com/shared/img/top/visual_main_v1.jpg) |
+| [keyvisual-3.jpg](../public/images/keyvisual-3.jpg) | [第三版主视觉](https://saenai-movie.com/shared/img/top/visual_main_v3.jpg) |
 
-原图保留原有像素。页面使用 CSS 裁切与缩放进行构图，未进行 AI 放大。角色与插画版权属于原作者及各权利方，插画仅作为个人主页的视觉点缀，与作品官方无关联。
+## 光标原画
+
+[过膝袜版](../public/images/megumi-cursor.svg)与[短袜版](../public/images/megumi-cursor-short.svg)使用同人角色插画。过膝袜版的袜口参考第一季第三话坡道场景，窄缎带束住白色褶边。[镜头参考](https://www.anime-graffiti.com/wp-content/uploads/img/201501/20150130-s035.jpg)
+
+每份 SVG 内嵌一张 192 × 204 的透明 WebP，以 64 × 68 CSS 像素显示。替换原画时保留透明边距，对齐指尖热点 (8, 12)，再检查眼帘、面颊与姿态旋转原点。两套素材同时用于首屏原生指针与运行时姿态。[光标交互与验证](MOTION.md#角色光标)
 
 ## 字体与图标
 
-- Outfit：`@fontsource/outfit`，随包字体许可（SIL Open Font License），本地托管。
-- 中文字体：设备系统字体。
-- KaTeX：学习资料中的数学排版与字体，来自 `katex` 包，随包许可，本地托管；公式在构建时生成。
-- Phosphor：`@phosphor-icons/react`，MIT 许可，图标与 favicon 均来自该库。
+| 用途 | 来源与交付方式 |
+| --- | --- |
+| 拉丁字母与数字 | Outfit，由 @fontsource/outfit 本地提供，采用 SIL Open Font License |
+| 中文正文 | 使用读者设备的系统字体 |
+| 数学公式 | KaTeX 的样式与字体随构建一起发布 |
+| 界面图标与 favicon | Phosphor，MIT 许可 |
 
-头像使用 `keyvisual-3.jpg`，通过 CSS 居中裁切。
+## 首页语音
 
-## 角色鼠标光标
-
-`public/images/megumi-cursor.svg` 内嵌由原角色插画导出的透明 WebP，SVG 仅定义 64 × 68 的光标显示尺寸，保留原始透明度。属于加藤惠同人角色素材，并非官方插画。原生 CSS cursor 的热点为 `(8, 12)`，对应伸出的指尖；移动端不启用。
-
-袜口参考第一季第三话坡道场景。窄紫褐色缎带束住白色褶边，上缘微微立起，下缘向外展开。[镜头参考](https://www.anime-graffiti.com/wp-content/uploads/img/201501/20150130-s035.jpg) 两款运行素材均内嵌 192 × 204 透明位图。两套服装共用独立的左右眼帘和面颊矢量细节，表情通过局部缩放完成，原画与指尖位置固定。日常移动、悬停与点击直接显示 192 × 204 原画，显示尺寸为 64 × 68 CSS 像素。首屏和减少动态效果模式使用同一原画的三倍密度原生指针。构建时将两款 SVG 原画写入页面 head，首帧、静止和动态姿态均取自同一份高清素材。原版短袜插画保存在 `public/images/megumi-cursor-short.svg`。
-
-### 替换光标素材
-
-两份 SVG 位于 `public/images/`。构建插件读取它们生成内联首屏样式，客户端按衣装路径加载姿态图。替换时同时核对 SVG 视口、透明边距和伸出指尖的位置；更改画布或热点还需要同步检查动画层的定位偏移、表情覆盖层与旋转原点。针对双倍像素密度的回归使用 `npm run check:cursor`，动作与减少动态效果模式使用 `npm run check:motion`。
-
-## 文章与论文附件
-
-正文图片与 PDF 统一放在 `public/files/`。当前 `k-gat/` 保存论文图示，`ailearning/` 保存教材图解、动画及许可文件；论文 PDF 使用外部阅读链接。文件名应稳定，并在文章中记录必要的来源信息；已发布链接依赖该路径。
-
-## 首页角色语音
-
-当前三段为 MiniMax `speech-2.8-hd` 根据角色参考音频生成的日语合成回应，不是官方台词或声优新录音。参考素材来自 [Xperia Ear Duo 加藤恵角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)。角色和参考录音权利属于原权利方。
+三段日语回应使用 MiniMax speech-2.8-hd 合成。角色参考来自 [Xperia Ear Duo 加藤恵角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)。首页提前缓冲本地音轨，点击时播放对应文件；再次点击头像可停止播放。
 
 | 场景 | 文件 | 时长 | 情绪设置 |
 | --- | --- | --- | --- |
@@ -44,14 +34,16 @@
 | 点赞 | `public/audio/megumi-response-like.flac` | 10.54 秒 | happy |
 | 取消点赞 | `public/audio/megumi-response-unlike.flac` | 14.91 秒 | sad |
 
-语速 1.02，音高不偏移，日语语言增强。使用 FFmpeg `loudnorm=I=-20:TP=-3:LRA=11` 统一响度，输出 44.1 kHz / 16 bit 单声道 FLAC。以下台词中的停顿标记仅用于生成，不朗读：
+### 录制参数与台词
+
+语速 1.02，保持原音高，开启日语语言增强。停顿标记以秒计。导出前以 FFmpeg 的 `loudnorm=I=-20:TP=-3:LRA=11` 统一响度，保存为 44.1 kHz、16 bit、单声道 FLAC。
 
 - **greeting**：えっ？<#0.2#>ねえ、さっきから私のほっぺ、つつきすぎじゃない？<#0.3#>ともやくん、いったいどこ見てるのかなぁ。<#0.5#>……まあ、別に、嫌とは言ってないけど。
 - **like**：あ、ありがとう。<#0.25#>ともやくんが、いいって思ってくれたんだ。<#0.4#>そっか……。<#0.3#>うん。ちょっとだけ、うれしい、かも。
 - **unlike**：あれ？<#0.2#>……取り消しちゃうんだ。<#0.5#>そっか。<#0.3#>気のせいかなぁ。私、また存在感、薄くなってない？<#0.4#>……ちゃんと、ここにいるんだけどな。
 
-首页挂载后提前缓冲三段静态音频，点击时直接播放已准备的音轨，各入口互斥播放，再次点击头像可停止。合成服务不接入前端，不保存 API 密钥、上传文件 ID 或复刻音色 ID。旧录音、未采用的试听版本及旧下载处理脚本已移除；重新制作时应先试听，再使用新文件名更新 `profile` 路径，避免缓存旧音频。
+替换音轨时，在 [site.js](../src/data/site.js) 更新对应文件路径，再运行 `node tests/voice.mjs`。试听时依次点击头像、点赞、取消点赞，检查起音、停顿与音轨切换。
 
-## AILearning 配图
+## 正文附件
 
-`public/files/ailearning/` 保存教材仓库中的图解与动画，未改变图像内容。当前配图路径和历史外部插图的署名见[教材配图](LEARNING-IMAGE-SOURCES.md)。导入清单记录来源版本，图片使用本站路径加载，不依赖第三方图床。
+[K-GAT 配图](../public/files/k-gat)随论文正文发布，PDF 入口由内容索引提供。[教材配图](LEARNING-IMAGE-SOURCES.md)记录 AILearning 图像的导入路径、验证方法和历史署名。

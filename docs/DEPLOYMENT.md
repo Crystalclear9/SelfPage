@@ -1,125 +1,42 @@
-# GitHub Pages 部署
+# 发布到 GitHub Pages
 
-## 发布配置
+本站通过 [deploy.yml](../.github/workflows/deploy.yml) 发布。仓库 Settings → Pages → Build and deployment 中的 Source 选择 **GitHub Actions**。工作流读取 Pages 提供的路径，将同一次构建得到的 `dist/` 上传并部署。
 
-- 仓库：`Crystalclear9/SelfPage`
-- 分支：`main`
-- 网站：[crystalclear9.github.io/SelfPage](https://crystalclear9.github.io/SelfPage/)
-- Pages Source：**GitHub Actions**（`build_type: workflow`）
-- 工作流：`.github/workflows/deploy.yml`
+## 哪些修改会发布
 
-工作流使用 Node.js 24 执行 `npm ci`、语音播放器回归、内容检查、生产构建及 `check:learning`，将 `dist/` 上传至 Pages。学习资料检查覆盖全部章节链接、锚点与公式输出，失败时不上传产物。日常发布只需提交源码并推送到 `main`，不提交构建产物，也不需要在前端配置中填写令牌。
+| 入口 | 运行内容 | 结果 |
+| --- | --- | --- |
+| 发往 `main` 的拉取请求 | 内容、语音、生产构建、学习资料和浏览器回归 | 在仓库名对应的子路径验证页面 |
+| 推送到 `main` | 内容、语音、生产构建和学习资料检查 | 发布通过检查的产物 |
+| Actions → Run workflow | 手动选择分支，`browser_checks` 默认开启 | `main` 发布，其他分支用于验证 |
 
-| 触发方式 | 检查与发布 |
+自动任务忽略仅涉及 `README.md` 和 `docs/` 的改动。文章、论文与教材正文位于 `content/`，修改后会触发构建。同一分支连续推送时，工作流取消较早的运行。
+
+## 从本地复核构建
+
+在仓库根目录运行以下命令，以线上子路径预览。这能直接发现详情页中的脚本、图片或字体误用了域名根路径。
+
+```powershell
+npm ci
+$env:SITE_BASE_PATH = '/SelfPage/'
+node tests/voice.mjs
+npm run check:content
+npm run build
+npm run check:learning
+npm run preview -- --port 4174 --strictPort
+```
+
+预览运行后，在另一个终端设置 `$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'`，运行 `npm run check:browser-ci`。CI 使用 Ubuntu 24.04 与 Node.js 24，优先使用运行器自带的 Chrome；缺少时安装 Chromium。详细覆盖范围见[开发与测试](DEVELOPMENT.md)。
+
+## 确认线上版本
+
+在 Actions 中按提交 SHA 打开对应运行。`build` 生成静态页面并上传 `github-pages` 产物，`deploy` 使用 Pages 写入权限和 OIDC 发布。打开部署环境提供的地址，直接访问一个子页面，再检查首页导航与该页的资源加载。
+
+| 现象 | 检查位置 |
 | --- | --- |
-| 拉取请求到 `main` | 在仓库子路径构建，执行内容、语音和学习资料检查，并用生产预览运行浏览器回归。 |
-| 推送到 `main` | 读取 Pages 路径，运行静态检查与语音回归，构建一次并上传已检查的产物。浏览器安装和 UI 回归不占用此次发布的等待时间。 |
-| 手动运行 | `browser_checks` 默认开启，可在运行前取消；仅主分支发布。 |
+| 配置 Pages 时返回 404 | 核对仓库的 Pages Source 和工作流所在分支，查看此次运行的提交 SHA。 |
+| 浏览器回归无法连接预览 | 打开生产预览步骤，查看服务启动日志、端口和 `TEST_URL` 的末尾路径。 |
+| 直接访问子页只有文字 | 在 Network 面板检查 CSS、JS 请求地址，对照构建使用的 `SITE_BASE_PATH` 与发布产物中的入口文件。 |
+| 部署显示 `syncing_files` | 这是 Pages 同步文件的阶段。查看该次部署的最终状态与页面地址。 |
 
-自动运行忽略只涉及 `README.md` 和 `docs/` 的提交。文章 Markdown 位于 `content/`，变更后仍会发布。浏览器任务优先使用运行器的 Chrome，缺少时由 Playwright 安装 Chromium。
-
-
-## 发布一次普通修改
-
-在仓库目录中完成编辑与本地检查，确认本次文件范围：
-
-```powershell
-git status --short
-git diff --check
-git diff
-```
-
-按本次改动选择文件进行暂存，不需要把本地报告或构建目录加入 Git。例如仅修改介绍正文：
-
-```powershell
-git add src/data/project-notes.js
-git diff --cached
-git commit -m "Update project descriptions"
-git push origin main
-```
-
-如果当前不在 `main`，先确认分支和计划采用的合并方式，不能把示例推送命令理解为自动切换分支。正常发布无需强制推送。
-
-在仓库 Actions 中找到与本次提交 SHA 对应的运行：build 成功表示源码和静态页面已构建；deploy 成功才表示该产物已发布至 Pages。旧任务显示 cancelled 时，检查是否有更新的提交正在部署。
-
-## 核对一次发布
-
-在 Actions 运行详情中核对提交 SHA 和分支，再按触发方式核对构建、检查与发布结果。拉取请求使用仓库名作为预览前缀；主分支从 Pages 配置读取前缀，并上传校验通过的构建目录。修改发布路径时，应同时查看生成 HTML 的资源 URL 和预览服务使用的 `TEST_URL`。
-
-`deploy-pages` 显示 `syncing_files` 表示 Pages 正在同步文件。任务结束后，以部署作业的最终状态和环境 URL 为准。若构建失败，先定位第一个失败步骤；若已经部署成功但个别深层页面缺少样式，直接请求该页 HTML 中的样式地址，核对 HTTP 状态、内容类型和部署前缀。首页返回 200 只能验证首页入口。
-
-## 路径与静态页面
-
-`SITE_BASE_PATH` 控制资源和导航前缀。当前值为 `/SelfPage/`，由 Pages 元数据提供；自定义域名根路径部署使用 `/`。修改前缀后需重新构建。
-
-每个项目、内容索引和已发布文章输出对应目录的 `index.html`，另外生成 `404.html`。不使用 SPA 路由重写。静态 HTML 与客户端共享组件和数据，脚本不可用时仍可阅读正文并使用普通链接。
-
-## 发布后检查
-
-确认最新提交对应的 build、deploy 成功，再检查首页、项目页和内容索引的直接访问与刷新。旧失败记录不会因新发布成功而消失。
-
-```powershell
-$env:TEST_URL = 'https://crystalclear9.github.io/SelfPage/'
-npm run check:pages
-npm run check:static
-npm run check:navigation
-npm run check:entry
-```
-
-`check:recovery` 会注入故障以验证恢复逻辑，建议对本地生产预览运行。完整检查命令见 [README](../README.md)。
-
-## 故障排查
-
-| 现象 | 检查项 |
-| --- | --- |
-| configure-pages 返回 Not Found | 仓库已启用 Pages，Source 为 GitHub Actions |
-| 页面或静态资源 404 | 完整网址包含 `/SelfPage/`，构建前缀与部署位置一致 |
-| 只有文字与默认超链接 | 检查 CSS 是否返回 200 且内容类型为 text/css；核对稳定入口、版本参数和迁移兼容文件 |
-| 正文可见但交互不可用 | Network 中应用脚本的状态、缓存与拦截情况 |
-| 翻页卡住或需要刷新 | 记录目标网址、浏览器和失败请求；检查是否加载最新 HTML，以及过渡保护脚本是否存在 |
-| 收藏仍定位到项目区 | 确认收藏是首页 `/SelfPage/#projects` 而非项目详情页，并让已有标签页载入最新脚本；分别检查新标签页与同页再次打开收藏 |
-| 刷新从首屏滑向原位置 | 检查新版 `data-home-entry` 内联脚本是否存在；刷新应即时恢复，正常分区点击仍平滑滚动 |
-| 新文章或论文没有出现 | 检查 `published`、正文路径和最新构建结果；草稿不生成页面 |
-| 本地文件双击不能使用 | 通过 `npm run dev` 或 `npm run preview` 提供 HTTP 服务 |
-
-过渡保护脚本可结束失败或超时的动画，但不证明所有空白页问题均由动画引起。部署成功和具体访问环境下正常渲染需分别验证。
-
-## 定位失败的工作流
-
-先确认失败运行使用的是哪一个提交，避免反复排查已经被后续修复替代的历史错误。随后打开第一个失败步骤的日志，按阶段处理：
-
-1. **Pages 配置阶段**：核对仓库 Settings → Pages 的发布来源以及仓库是否可使用 Pages。配置问题不能通过修改前端路径修复。
-2. **依赖安装阶段**：查看 Node 版本、锁文件和 npm 的首条错误。本地可先使用 `npm ci` 检查锁文件安装，不应直接删除锁文件绕过失败。
-3. **内容检查或构建阶段**：复制同一提交到本地，设置 `/SelfPage/` 前缀后构建；按文件名、字段或缺失路径修正。
-4. **产物上传阶段**：确认构建已生成 `dist/`，上传步骤读取的也是该目录。
-5. **部署阶段**：检查 Pages、环境审批或工作流权限相关的明确报错。若任务还在等待环境条件，则不等于已经部署成功。
-
-页面显示旧版本时，先核对最新提交是否部署成功，再重新加载标签页。入口资源使用稳定路径 `assets/site.css`、`assets/site.js`，HTML 带内容版本查询参数，避免旧 HTML 引用已被新部署删除的入口。字体仍使用哈希文件名。旧标签页可能仍运行旧脚本，强制刷新仅用于诊断缓存，不应作为正常使用前提。
-
-`scripts/legacy-entrypoints.json` 保留迁移前最近三版入口文件名，构建时复制当前入口到这些兼容地址，供旧 HTML 和历史记录加载。不应删除这些兼容项后宣称旧缓存仍能恢复；未来正常部署使用稳定入口，不需要不断增加旧哈希名。
-
-`check:assets` 模拟旧版本查询参数和迁移前的哈希地址，检查 SandBoxSim 的样式、刷新、历史返回以及项目与文章区的原有留白间距。
-
-## 回退有问题的修改
-
-已发布的修改可通过 `git revert` 生成一条反向提交，保留历史，随后由 Actions 发布回退后的源码。先检查工作区和历史，下面的 SHA 需替换为实际要撤销的普通提交：
-
-```powershell
-git status --short
-git log --oneline -8
-git revert COMMIT_SHA_TO_REVERT
-```
-
-发生冲突时按文件内容处理；决定放弃本次回退可执行 `git revert --abort`。合并提交需要单独确认父分支语义，不直接套用普通提交示例。回退完成后重新构建并检查受影响页面，再执行 `git push origin main`。
-
-回退仅影响选定提交。如果后续提交依赖被撤销的结构，可能需要额外修正；不要假设撤销任意一个提交就一定能恢复到某个完整旧版本。部署结束后应核对线上页面及新运行的提交 SHA。
-
-## 更换仓库路径或域名时
-
-当前源码以 `/SelfPage/` 为线上前缀。本地通过 `SITE_BASE_PATH` 模拟部署位置，CI 从 configure-pages 输出计算前缀；改名或迁移时需同时核对 Pages 配置、README 中的网站地址、正文手写的站内链接，以及已有分享链接。
-
-更改构建前缀本身不会配置自定义域名、DNS 或旧地址重定向。迁移前先在对应前缀下做生产预览，至少验证首页资源、一个项目详情、内容索引和附件。素材许可与公开内容范围仍按各自文档维护。
-
-参考：[GitHub Pages 自定义工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
-
-发布后可直接访问项目详情并刷新几次，确认两款光标都能从站点子路径的 `images/` 加载。将鼠标从正文移到按钮上，角色应始终保持原色，指尖旁出现小折角。点击头像可验证轻眨与问候语音。开启系统的减少动态效果选项后，用同一地址检查静态光标。
+需要撤回某次站点修改时，在 `main` 上对相应提交执行 `git revert <提交号>`，检查差异并推送。回退后的源码沿用同一发布流程。

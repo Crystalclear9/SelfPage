@@ -1,161 +1,37 @@
-# 开发设计与扩展约定
+# 架构
 
-本文描述当前实现的模块关系与维护约束。使用者入口见 [功能说明](FEATURES.md)，环境与命令见 [本地开发](DEVELOPMENT.md)。路径均相对仓库根目录。
+SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供 HTML、脚本、样式和附件，浏览器负责筛选、导航与阅读交互。
 
-## 1. 架构边界
+## 从源文件到页面
 
-本站是 React + Vite 的静态多页面网站，使用同一套组件进行构建时预渲染和客户端 hydration。没有应用服务器、数据库或运行时内容 API；内容变更通过 Git 提交和构建发布。GitHub Pages 负责返回静态 HTML、脚本、样式与附件。
+1. `src/data/site.js` 提供个人资料和项目顺序。`scripts/content.mjs` 读取内容索引，按发布日期排序，并通过 Vite 的 `virtual:writing` 模块提供已发布条目。
+2. `src/data/routes.js` 合并首页、项目、文章与论文，以及 AILearning 清单中的子页。`href()` 为站内地址添加部署前缀，`currentPath()` 把浏览器地址还原为应用路径。
+3. `scripts/prerender.mjs` 加载与客户端相同的组件，逐条路由输出 `dist/<路径>/index.html`，并生成 `dist/404.html`。学习资料在这一步渲染公式、代码和正文。
+4. `src/main.jsx` 接管页面。已有 HTML 使用 `hydrateRoot`，开发环境的空挂载点使用 `createRoot`。站点标签页统一显示「Crystalclear9 | 个人主页」，页面描述随路由更新。
 
-```mermaid
-flowchart TD
-  A[site.js 项目与资料] --> D[routes.js 路由数据]
-  B[project-notes.js 详情正文] --> E[App / ContentPage]
-  C[content/index.json 与 Markdown] --> W[writingPlugin / virtual:writing]
-  W --> D
-  D --> P[prerender.mjs]
-  E --> P
-  P --> H[各路由独立 HTML]
-  E --> V[Vite 客户端构建]
-  V --> J[JS / CSS / 字体]
-  H --> G[GitHub Pages]
-  J --> G
-  G --> R[浏览器静态显示与 hydration]
-```
+构建入口使用稳定的 `assets/site.js`、`assets/site.css` 路径，HTML 通过内容摘要查询参数标识版本。`scripts/legacy-entrypoints.json` 保存迁移前的入口名，构建时为旧 HTML 生成对应副本。
 
-每次构建生成完整站点，生产环境不从 GitHub 动态拉取项目介绍。源码仓库中的项目情况改变后，需要人工核对并更新展示文案。
+## 直接访问与站内导航
 
-## 2. 数据和页面之间的契约
+直接打开教材章节时，客户端从当前文档的 `#learning-content` 取得正文。站内进入另一章时，`readPage` 请求目标 HTML，提取同一节点；开发服务从 `__learning` 返回片段。独立文章与论文按需加载 `WritingDetail`，论文的章节和图注由 `PaperBody` 排版。
 
-| 数据入口 | 消费方 | 维护约束 |
-| --- | --- | --- |
-| `profile` | 首页、导航、页脚 | 可选邮箱为空时隐藏邮件链接 |
-| `projects` | 首页、路由、项目页、ProjectPager | ID 稳定且唯一；数组顺序决定列表与翻页顺序 |
-| `projectNotes` | ContentPage | 以项目 ID 索引，必须为每个项目提供正文 |
-| `extraLinks` | 首页项目区 | 空数组隐藏额外链接板块 |
-| `content/index.json` | loadWriting | 仅布尔值 published=true 的条目进入校验和输出 |
-| `virtual:writing` | routes.js、ContentPage | 构建生成的模块，不是应手动编辑的文件 |
-| `collections/ailearning/manifest.json` | routes.js、LearningPage、预渲染 | 导入生成；一个文章入口，下级页面独立注册路由 |
+支持 Navigation API 的浏览器在当前文档内切换已注册的站内路由。页面数据就绪后，应用提交内容、恢复滚动并更新描述。连续跳转会取消过期请求，加载目标失败时由浏览器重新请求该地址。刷新、下载、新标签页和外部链接使用浏览器原生导航。
 
-`projects.details` 是简介弹窗要点；独立页面读取 `projectNotes.implementation`。两者有意分开，避免扩写正文时同时把弹窗拉得过长。`projectNotes.scope` 保存多个段落，解释适用范围与验证边界。
+`Site` 保留共享光标，内部 `App` 以路径为 key。换页时，项目筛选、弹窗与页面监听器随旧页面卸载；会话衣装和浏览器偏好有独立的存储周期。
 
-内容加载器检查已发布文章和论文的类型、路径、日期、重复路由及材料存在性，但不是通用 schema 校验器。项目 ID、项目与正文映射、文章 project 关联值仍需维护者核对。字段示例见 [内容维护](CONTENT.md)。
+## 组件与状态
 
-AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、相对链接和显式锚点；仅保留安全 Markdown 输出，不启用任意 HTML。预渲染按路由传入 `learningHtml`，客户端启动时读取当前页面的 `#learning-content` 作为相同内容接入。完整 Markdown 不进入客户端包，只有目录元数据随应用加载。开发服务通过 `__learning?route=…` 返回当前页渲染结果；该端点只用于 Vite 开发，不是生产 API。
-
-## 3. 路由、预渲染与启动顺序
-
-`src/data/routes.js` 导出 `routes`、`href()`、`currentPath()`。页面通过 `App` 的 path 属性选择首页或 `ContentPage`，普通链接提供静态入口。支持 Navigation API 时，客户端拦截符合条件的站内导航，在原文档中提交新页面。`currentPath()` 去除部署前缀、规范化尾斜杠和 index.html；新增路由时仍需在页面分支和路由清单中同时提供实现。
-
-启动过程分为三层：
-
-1. **head 脚本**：`index.html` 提前读取主题；Vite 插件内联首页入口与过渡保护脚本，使它们不依赖应用包下载。
-2. **静态正文**：`prerender.mjs` 将 App 输出写入各路由的 index.html，普通访问可先显示正文。
-3. **客户端**：`main.jsx` 依据 pathname 创建相同页面。有预渲染内容则 hydrateRoot，否则 createRoot；随后接入 effect、事件和样式增强标记。
-
-### 客户端切换与历史恢复
-
-`src/main.jsx` 中的 `readPage` 区分首次加载与站内切换。生产环境直接打开章节时，它读取当前 HTML 的 `#learning-content`；从另一页进入时，它请求目标 HTML 并提取同一节点。独立文章和论文按需加载 `WritingDetail`。开发服务通过 `__learning` 提供教材片段，因此静态路径问题需要在生产预览中复现。
-
-`Site` 持有共享的 `AnimatedCursor`，`App` 以路径作为 React key。切换路由会重建页面局部状态，光标层随文档保留。导航处理器在内容准备好后提交页面、更新描述、恢复滚动并通知交互组件。连续点击时使用导航事件的 abort signal 取消旧请求；读取失败且当前导航仍有效时，重新加载目标地址以走独立 HTML 入口。修改这个流程时，要分别覆盖静止光标、慢请求中再次跳转、历史前进后退和纯静态访问。
-
-### 构建产物与资源版本
-
-`vite.config.js` 将入口输出为 `assets/site.js`、`assets/site.css`。`prerender.mjs` 对各入口内容计算 SHA-256 摘要，取前 12 位作为 HTML 中的 `?v=` 参数；新 HTML 会请求新版本，而旧入口路径仍存在。字体继续使用带哈希的文件名。
-
-预渲染还读取 `scripts/legacy-entrypoints.json`，将当前入口复制到近期旧版使用过的哈希地址。这些文件是旧 HTML 的迁移兼容入口，不是项目源码或重复开发副本。发布时保留它们，开发时修改稳定入口的来源代码；后续新增分包或改变输出规则需重新评估缓存兼容。
-
-正文正常但只有默认超链接时，先检查 CSS 的状态码、内容类型与地址；整页过渡卡住则检查快照恢复。两类问题的处理机制分开，不能用跳过动画代替资源加载修复。
-
-`App` 的首次状态应与服务端输出一致。本地偏好在 hydration 后读取、保存，避免服务端渲染依赖浏览器存储。新增组件不要在渲染阶段直接访问 window、document 或剪贴板，也不要让正文是否可见取决于动画是否执行完毕。
-
-### 页面元信息
-
-标签页标题统一取自 `index.html` 的 `Crystalclear9 | 个人主页`。预渲染按路由替换 description，非首页移除首屏图片预加载。Open Graph 标题与描述目前仍来自 `index.html` 的固定站点值，不是逐页生成的分享卡片。若增加分享图、canonical 或 sitemap，应单独扩展构建输出并验证，不能只改页面可见标题。
-
-## 4. 状态归属与组件职责
-
-| 模块 | 拥有的状态或职责 | 不应承担的职责 |
-| --- | --- | --- |
-| App | 主题、拖尾、喜欢、菜单、当前板块、弹窗与提示 | 读取远程项目数据或实现内容后台 |
-| useProjectFilter | 当前分类、列表引用、动画取消与替换 | 改写详情路由、持久化分类 |
-| ContentPage | 按 path 展示项目、索引、正文或 404 | 修改项目数据或写入发布文件 |
-| PaperBody | 论文 Markdown 分节、配图分组与页内目录选中态 | 正文滚动入场或退场动画 |
-| Modal | 原生 dialog、背景滚动锁定、焦点恢复 | 控制页面路由 |
-| PageNavigation / ScrollToTop | 滚动方向、可见性、键盘焦点与入口互斥 | 接管滚轮速度或劫持历史 |
-| ProjectPager | 按完整项目数组计算前后页 | 按首页筛选动态改写翻页顺序 |
-| AnimatedCursor | 角色位置、上下文、短暂反馈和顶层展示 | 拦截业务点击或代替成功判断 |
-| PointerSurfaces | 命中检测、倾转、光晕与波纹清理 | 保存偏好或修改内容 |
-| PetalTrail | 装饰画布与鼠标拖尾 | 承担输入区域或影响布局 |
-| ChapterMotion | 首页模块双向重复进入观察与状态清理 | 劫持滚轮或移动 sticky 容器 |
-
-项目标题组的固定由 CSS sticky 外层负责，进入动作由内层负责。ChapterMotion 不记录“永久已播放”状态；卡片和标题组在观察区外重新准备，在阅读区内保持显示。新增动态列表时，需要为替换后的节点登记观察，不能只在首次挂载时抓取一份元素列表。
-
-持久化键与默认值见功能说明。所有浏览器 effect 应在卸载时取消动画帧、计时器、监听和观察器。客户端使用 StrictMode，开发中 effect 可能重复挂载，新增逻辑不能依赖“只执行一次且永不清理”的假设。
-
-### 首页音频的生命周期
-
-`profile` 提供三段音频的相对路径。`ProfileAvatar` 使用问候音轨，`App` 按喜欢状态选择点赞或撤回音轨。`useVoice` 在挂载后安排预缓冲，并在卸载或 `pagehide` 时停止播放。`voice-player.js` 协调当前活动播放器，后一次操作会取消前一次请求。异步播放结果按请求版本处理，失效音频元素的事件也会被忽略。替换素材修改数据和文件；修改互斥、取消或失败重试时，同时验证播放器和首页入口。
-
-## 5. 组件之间的事件约定
-
-业务操作使用 document 上的 `cursor-feedback` CustomEvent 通知角色组件：
-
-| detail | 发送位置 | 发送条件 |
-| --- | --- | --- |
-| `like` / `unlike` | App 的喜欢按钮 | 切换本地喜欢状态 |
-| `greeting` | ProfileAvatar | 点击头像发起问候 |
-| `copied` | App 的复制链接操作 | 剪贴板写入成功之后 |
-| `filtered` | useProjectFilter | 新类别已同步更新之后 |
-
-角色组件记录本页上一次收到喜欢的时间。四秒内撤回派生出 `reconsidered`，稍后撤回触发一次短眨眼。角色组件只在可见且允许动态效果时响应事件。业务逻辑不等待角色动画完成；角色不可用时，按钮、内容变化和文字提示仍然有效。
-
-```javascript
-// 先完成操作，再通知装饰性反馈；不要用该事件执行实际业务。
-document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'copied' }));
-```
-
-`data-cursor` 用于声明阅读、下载、复制等上下文，`AnimatedCursor` 另有允许值集合。新增一个字符串不会自动拥有完整行为，需同时核对上下文识别、反馈文案、样式和测试。`data-pointer-inside` 由表面组件管理，不应作为永久写入 JSX 的属性。
-
-## 6. 样式与动态效果分层
-
-样式按 `main.jsx` 导入顺序加载：base → motion → pointer → content → navigation → avatar → chapters。后加载规则可能覆盖前面的属性，因此排查时应检查浏览器最终计算样式，而不是只搜索第一个同名选择器。
-
-| 样式文件 | 主要职责 |
+| 维护位置 | 职责 |
 | --- | --- |
-| base.css | 主题变量、基础布局、导航、卡片、弹窗、断点 |
-| motion.css | 通用动效、项目滚动翻转、项目区 sticky |
-| pointer.css | 指针反馈、表面倾转、眼帘与脸颊的局部形变 |
-| content.css | 索引、项目详情、Markdown 与阅读交互 |
-| navigation.css | 页面过渡、返回入口和项目翻页 |
-| avatar.css | 头像构图与问候反馈 |
-| chapters.css | 首屏及章节滚动编排 |
+| `App`、`ContentPage` | 首页分区、主题与喜欢状态；选择项目、索引、正文与 404 页面 |
+| `useProjectFilter`、`ProjectPager` | 替换筛选结果；按完整项目数组计算相邻项目 |
+| `LearningPage`、`WritingDetail`、`PaperBody` | 教材层级、独立正文、论文页内目录 |
+| `PageNavigation`、`ScrollToTop`、`Modal` | 返回目的地、滚动方向、顶部入口、弹窗焦点 |
+| `ChapterMotion`、`PointerSurfaces`、`AnimatedCursor` | 模块进出视口、鼠标命中区域、人物与状态反馈 |
+| `useVoice`、`voice-player.js` | 首页音轨预缓冲、互斥播放、停止与失败重试 |
 
-颜色优先使用 `--bg`、`--surface`、`--ink`、`--muted`、`--accent` 和 `--line` 等主题变量。角色素材与指尖热点维持一致；业务内容的字号、链接对比度和点击范围不应随角色动画缩小。动效细节及可调位置见 [交互实现](MOTION.md)。
+业务组件在动作发生时发出 `cursor-feedback`。头像使用 `greeting`，喜欢状态使用 `like` 或 `unlike`，复制成功后发送 `copied`，筛选结果更新后发送 `filtered`。角色组件消费这些事件；播放语音和写入剪贴板仍由各自的业务入口完成。
 
-## 7. 常见扩展的修改清单
+## 扩展一个页面
 
-### 增加一个内容页面类型
-
-需要同时修改内容加载器的 type 规则、routes 路由、ContentPage 的标题和渲染分支、导航或入口，以及文档与测试。当前仅支持 articles/papers，在 JSON 中填写新的 type 会被拒绝。还需明确该类型是否需要 Markdown、附件或外部链接。
-
-### 增加一个独立功能页面
-
-为 App/ContentPage 提供可预渲染分支，在 routes 注册标题和描述，通过 href() 生成入口。构建后检查该目录 index.html 是否生成、能否直接访问和刷新、无 JS 时是否可阅读。不要只做一个客户端点击后才存在的视图并假设 Pages 可以处理其地址。
-
-### 增加偏好设置
-
-明确默认值和存储键，在初始化读取失败时使用可用默认值；避免 hydration 前用不一致状态替换正文。只在已读入偏好后保存，防止初始默认值覆盖旧设置。补充功能说明、存储键表及刷新后恢复的检查。
-
-### 接入动态服务
-
-GitHub Pages 只能提供本站静态产物。评论、在线上传、认证或跨设备收藏需要另行选择服务端和数据持久化方案，并明确请求失败、权限和数据公开范围。不要将模型或服务密钥写入前端源码、public 文件或客户端可见环境变量。
-
-## 8. 验证边界
-
-本项目浏览器测试覆盖既定页面和关键交互，不代表所有浏览器组合均已验证。CI 检查内容渲染、生产构建和学习资料。拉取请求和启用浏览器检查的手动运行还会执行 `check:browser-ci`。本地可以用 Edge 运行相同的浏览器用例。项目扩展、路由变化或新增动作应按实际影响更新相应测试，而不是仅让旧测试继续通过。
-
-交付一次修改时，记录改动功能、受影响文件、运行过的检查及未验证条件。日常流程、命令与报告位置见开发指南；发布与回退见部署说明。
-
-入口 HTML 在加载应用前确定本标签页的衣装。桌面浏览器先使用内联静态指针，获得鼠标位置后由页面上的角色层绘制人物、表情和操作提示。
-
-支持 Navigation API 的浏览器在站内跳转时保留文档和角色层。项目、文章、论文及首页使用各自的页面组件，学习章节按目标地址读取预渲染正文。返回与前进沿用浏览器历史，页面入场动画仅作用于正文。直接打开网址、刷新和关闭 JavaScript 时仍可使用 GitHub Pages 发布的静态页面。
+先确定公开路径和内容来源，在路由清单登记，再由页面组件渲染。需要构建时转换的正文接入预渲染流程，需要站内按需读取的内容接入 `readPage`。验收时使用同一个网址检查直接访问、站内点击、刷新、历史返回四条路径。[内容字段](CONTENT.md) · [本地验证](DEVELOPMENT.md)
