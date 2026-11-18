@@ -12,6 +12,25 @@
 
 自动任务忽略只涉及 `README.md` 和 `docs/**` 的提交。文章与论文在 `content/` 中维护，属于站点发布内容。同一分支连续触发运行时，新运行取代尚未完成的旧运行。
 
+## 发布一次普通修改
+
+在仓库目录中完成编辑与本地检查，确认本次文件范围：
+
+```powershell
+git status --short
+git diff --check
+git diff
+```
+
+以项目详情正文为例，提交与发布命令如下。
+
+```powershell
+git add src/data/project-notes.js
+git diff --cached
+git commit -m "Update project descriptions"
+git push origin main
+```
+
 ## 构建任务
 
 运行器为 Ubuntu 24.04，Node.js 版本为 24，依赖按 npm 锁文件安装。`build` 任务先执行 `node tests/voice.mjs` 和 `npm run check:content`，再设置部署前缀，执行 `npm run build` 及 `npm run check:learning`。

@@ -26,13 +26,11 @@
 
 以下署名对应历史教材快照，可按图名追溯素材与许可。
 
-| 图名 | 作者 | 许可 | 来源 |
-| --- | --- | --- | --- |
-| `pca` | Nicoguaro | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:GaussianScatterPCA.svg) |
-| `rnn` | fdeloche | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:Recurrent_neural_network_unfold.svg) |
-| `svm` | ZackWeinberg（基于 Cyc 原图） | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:Svm_separating_hyperplanes_%28SVG%29.svg) |
-| `descent` | Zerodamage（基于 Olegalexandrov 原图） | 公有领域 | [原始来源](https://commons.wikimedia.org/wiki/File:Gradient_descent.svg) |
-| `network` | Glosser.ca | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [原始来源](https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg) |
-| `no_padding_no_strides` | Vincent Dumoulin、Francesco Visin | MIT | [原始来源](https://github.com/vdumoulin/conv_arithmetic) |
-| `no_padding_strides` | Vincent Dumoulin、Francesco Visin | MIT | [原始来源](https://github.com/vdumoulin/conv_arithmetic) |
-| `dilation` | Vincent Dumoulin、Francesco Visin | MIT | [原始来源](https://github.com/vdumoulin/conv_arithmetic) |
+- `pca`：Nicoguaro。[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。[原始素材](https://commons.wikimedia.org/wiki/File:GaussianScatterPCA.svg)
+- `rnn`：fdeloche。[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。[原始素材](https://commons.wikimedia.org/wiki/File:Recurrent_neural_network_unfold.svg)
+- `svm`：ZackWeinberg（基于 Cyc 原图）。[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)。[原始素材](https://commons.wikimedia.org/wiki/File:Svm_separating_hyperplanes_%28SVG%29.svg)
+- `descent`：Zerodamage（基于 Olegalexandrov 原图）。公有领域。[原始素材](https://commons.wikimedia.org/wiki/File:Gradient_descent.svg)
+- `network`：Glosser.ca。[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)。[原始素材](https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg)
+- `no_padding_no_strides`：Vincent Dumoulin、Francesco Visin。MIT。[原始素材](https://github.com/vdumoulin/conv_arithmetic)
+- `no_padding_strides`：Vincent Dumoulin、Francesco Visin。MIT。[原始素材](https://github.com/vdumoulin/conv_arithmetic)
+- `dilation`：Vincent Dumoulin、Francesco Visin。MIT。[原始素材](https://github.com/vdumoulin/conv_arithmetic)

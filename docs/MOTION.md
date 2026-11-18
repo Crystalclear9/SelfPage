@@ -39,6 +39,27 @@
 
 **浮动返回栏。** [PageNavigation.jsx](../src/components/PageNavigation.jsx) 为页首和浮层复用一组链接。原栏滚过站点页头后，上滚显示浮层，下滚收起。组件用 4px 的方向阈值过滤触控板细微位移，浮层顶部位于站点页头下沿 10px 处。键盘焦点进入浮层后保持可见，Tab 移出时重新计算。两栏的文案和目标地址均来自组件收到的 section 和 sectionHref。
 
+## 翻页异常恢复
+
+Vite 将 `src/lib/transition-guard.js` 内联到文档 head。过渡准备失败或等待超过 1.8 秒时，脚本调用 `skipTransition()` 释放快照，继续显示已经加载的正文。历史缓存恢复时清理旧的出站过渡。`check:recovery` 覆盖正常过渡、挂起恢复以及阻断应用脚本后的页面显示。
+
+## 修改动效时的定位表
+
+| 要调整的行为 | 主要位置 | 同时检查 |
+| --- | --- | --- |
+| 首屏插画与章节展开 | `styles/chapters.css`、`styles/motion.css` | 首次打开、短屏、减少动态效果 |
+| 项目卡片翻转幅度与间距 | `styles/motion.css` | 上下两个方向、倾转后的卡片边缘、窄屏溢出 |
+| 左侧项目介绍停留位置 | `styles/motion.css` 中的宽屏媒体查询 | 页眉遮挡、项目区结束、筛选后列表缩短 |
+| 模块和项目标题组浮现 | `components/ChapterMotion.jsx`、`styles/chapters.css` | 多次上下往返、鼠标筛选后重入、区内固定、键盘焦点 |
+| 分类切换 | `lib/useProjectFilter.js` | 快速交替选择、重复选择当前项、减少动态效果 |
+| 表面光晕与倾转 | `components/PointerSurfaces.jsx`、`styles/pointer.css`、`styles/content.css` | 指针移出、滚动、切换窗口后是否清理 |
+| 角色动作和操作提示 | `components/AnimatedCursor.jsx` | 原热点、弹窗上层、实际操作结果和键盘切换 |
+| 弹窗进入与焦点恢复 | `components/Modal.jsx`、`styles/motion.css` | Escape、关闭按钮、关闭后页面位置 |
+| 悬浮返回与回到顶部 | `components/PageNavigation.jsx`、`components/ScrollToTop.jsx` | 上滑显示、下滑隐藏、焦点可达性和页脚互斥 |
+| 翻页方向与快照 | `lib/navigation.js`、`styles/navigation.css` | 前后项目、返回主页、浏览器历史遍历 |
+
+表中路径相对 `src/`。
+
 ## 验证入口
 
 在生产预览上运行 `npm run check:chapters` 检查分区重复入场，`npm run check:navigation` 检查翻页与卡片角度，`npm run check:projects` 检查筛选和项目操作。光标的刷新与历史恢复由 `npm run check:cursor` 覆盖，姿态与减少动态效果由 `npm run check:motion` 覆盖。[预览环境与测试命令](DEVELOPMENT.md)

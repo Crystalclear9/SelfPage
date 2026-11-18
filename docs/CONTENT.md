@@ -19,6 +19,52 @@
 
 首页与详情页共用项目数组的排列顺序。调整顺序会同时改变卡片位置及详情页的相邻项目链接。Autellix 的原论文登记在项目的 `reference` 字段，本站的复现工作记录在项目正文。
 
+## 新增项目的完整示例
+
+新增项目包含一条卡片记录和一条详情记录。以下示例以同一个 ID 关联两个 JavaScript 文件。
+
+在 `src/data/site.js` 的 `projects` 数组中追加：
+
+```javascript
+{
+  id: 'example-project',
+  title: '项目名称',
+  repository: 'RepositoryName',
+  category: '应用',
+  icon: 'layers',
+  subtitle: '用一句话说明用途。',
+  description: '概括使用场景、主要处理流程和输出。',
+  tags: ['Python', 'FastAPI'],
+  details: [
+    { title: '输入与处理', text: '用于介绍弹窗的简短说明。' },
+    { title: '输出与核对', text: '说明结果如何呈现和检查。' },
+  ],
+  note: '说明运行条件或当前限制。',
+  source: 'https://github.com/your-account/your-repository',
+}
+```
+
+`icon` 当前映射为 `phone`、`game`、`layers` 和 `clock`；未映射值使用通用代码图标。`repository` 是仓库标识，按钮使用完整的 `source`。如属论文复现，可增加 `reference: { title: '原论文标题', url: 'https://...' }`，它会生成论文来源并将页首标记为论文复现。
+
+在 `src/data/project-notes.js` 的 `projectNotes` 对象中追加同名键：
+
+```javascript
+'example-project': {
+  motivation: '问题出现的场景，以及为什么采用这个实现方向。',
+  implementation: [
+    { title: '数据进入系统', text: '描述输入、主要处理和异常分支。' },
+    { title: '结果如何使用', text: '描述输出、交互或下游消费方式。' },
+  ],
+  scopeTitle: '实现范围与使用条件',
+  scope: [
+    '已经完成的实现与可核对的验证记录。',
+    '尚未覆盖的场景、依赖条件和下一步需要验证的问题。',
+  ],
+}
+```
+
+两份记录使用同一 ID。构建后，项目应同时出现在首页筛选结果、简介弹窗和独立详情页。
+
 ## 发布文章
 
 在 `content/articles/` 写 Markdown，再把条目加入[内容索引](../content/index.json)。例如，文件 `content/articles/retrieval-notes.md` 对应以下记录。
@@ -89,6 +135,17 @@
 ```
 
 正文中的 `/files/` 对应仓库的 `public/files/`。构建器补上部署前缀，例如第一张图在生产环境的请求地址为 `/SelfPage/files/k-gat/over-planning.png`。
+
+## 图片、PDF 与链接路径
+
+| 使用位置 | 示例 | 对应文件或地址 |
+| --- | --- | --- |
+| 正文文件 `body` | `articles/retrieval-notes.md` | `content/articles/retrieval-notes.md` |
+| Markdown 图片 | `/files/retrieval-result.png` | `public/files/retrieval-result.png` |
+| 本地 PDF 元数据 | `files/paper-slug.pdf` | `public/files/paper-slug.pdf` |
+| 站外发表链接 | `https://example.org/paper` | 完整的远程地址 |
+
+修改文章标题或移动正文文件时，保留条目的 `type` 与 `slug` 即可沿用原地址。移动正文后更新 `body`。撤下内容时将 `published` 改为 `false`，下次构建会从列表与路由中移除该条目。
 
 ## 同步 AILearning
 

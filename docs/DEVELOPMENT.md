@@ -50,6 +50,25 @@ npm run check:browser-ci
 
 `check:learning` 适合每次内容构建后执行。调整公式处理、代码高亮、教材图片路径或全局阅读样式时，再运行 `node tests/learning-render.mjs`。它逐页打开折叠内容、等待字体与图片就绪，分别检查启用和关闭 JavaScript、375px 和 1440px 视口、浅色和深色主题。失败输出中的路由可直接拼在预览地址后复现。
 
+## 开发入口
+
+| 需求 | 入口 | 对应页面或行为 |
+| --- | --- | --- |
+| 修改昵称、个人说明、GitHub 地址 | `src/data/site.js` 的 `profile` | “关于我”读取 `intro`、`about` 两段；邮箱留空时不生成邮件入口 |
+| 修改首屏的补充说明 | `src/App.jsx` 的 `hero-description` | 与个人介绍独立维护，调整技术方向时核对两处文案 |
+| 修改项目卡片、分类和简介弹窗 | `src/data/site.js` 的 `projects` | 保持已有 `id` 稳定 |
+| 扩充项目独立详情 | `src/data/project-notes.js` | 对应项目 ID 必须存在 |
+| 新增文章、论文或附件 | `content/`、`public/files/` | 按内容指南配置元数据 |
+| 同步 AILearning 学习资料 | `scripts/import-learning.mjs`、`content/collections/ailearning/` | 一个专题入口，下级章节不写入文章列表 |
+| 调整学习目录和章节阅读页 | `src/pages/LearningPage.jsx`、`scripts/learning.mjs` | 检查深层链接、公式、锚点与静态阅读 |
+| 调整首页结构、公共导航 | `src/App.jsx` | 同时检查桌面与手机菜单 |
+| 调整项目详情、文章列表 | `src/pages/ContentPage.jsx` | 独立文章与论文正文由 `WritingDetail.jsx` 承载 |
+| 调整论文正文、配图和页内目录 | `src/pages/PaperBody.jsx`、`src/styles/content.css` | 保持静态连续阅读，核对图片尺寸、图注和锚点 |
+| 修改主题、基础排版 | `src/styles/base.css` | 浅色、深色共用主题变量 |
+| 修改滚动、翻页、光标 | 对应组件与 `src/styles/` | 文件职责见交互文档，保留减少动态效果分支 |
+| 修改分类切换 | `src/lib/useProjectFilter.js` | 检查列表缩短时的定位和快速连续点击 |
+| 修改收藏、刷新入口 | `src/lib/home-entry.js` | 独立内联脚本，不依赖 React 初始化 |
+
 ## 测试命令与覆盖范围
 
 | 改动 | 检查 | 观察点 |
