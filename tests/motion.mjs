@@ -12,7 +12,12 @@ try {
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
   const cursor = page.locator('.animated-cursor');
-  const state = value => expect(cursor).toHaveAttribute('data-state', value);
+  const state = async value => {
+    await expect(cursor).toHaveAttribute('data-state', value);
+    await expect(cursor).toHaveCSS('opacity', '1');
+    await expect(cursor.locator('.cursor-sprite')).toHaveCSS('opacity', '1');
+    await expect(cursor.locator('.cursor-status')).toHaveCSS('opacity', '1');
+  };
   await page.mouse.move(600, 160);
   await expect(cursor).toBeVisible();
   const outfit = await page.locator('html').getAttribute('data-cursor-outfit');

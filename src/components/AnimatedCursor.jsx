@@ -210,9 +210,14 @@ export default function AnimatedCursor() {
     <img className="cursor-sprite" alt="" width="64" height="68" draggable="false" />
     <svg className="cursor-expression" viewBox="0 0 320 340" width="64" height="68" aria-hidden="true">
       <g className="cursor-lids" fill="#f8d8c7">
-        <path d="M111 91 Q111 79 120 79 Q126 79 129 87 Q125 86 121 86 Q115 85 111 91Z" />
-        <path d="M149 102 Q150 90 158 92 Q166 93 170 103 Q159 98 149 102Z" />
-        <path d="M112 90 Q119 83 128 87 M150 102 Q158 98 169 103" fill="none" stroke="#513b39" strokeWidth="2.3" strokeLinecap="round" />
+        <g className="cursor-lid">
+          <path d="M111 91 Q111 79 120 79 Q126 79 129 87 Q125 86 121 86 Q115 85 111 91Z" />
+          <path d="M112 90 Q119 83 128 87" fill="none" stroke="#513b39" strokeWidth="2.3" strokeLinecap="round" />
+        </g>
+        <g className="cursor-lid">
+          <path d="M149 102 Q150 90 158 92 Q166 93 170 103 Q159 98 149 102Z" />
+          <path d="M150 102 Q158 98 169 103" fill="none" stroke="#513b39" strokeWidth="2.3" strokeLinecap="round" />
+        </g>
       </g>
       <g className="cursor-blush" fill="#dd827f">
         <ellipse cx="111" cy="106" rx="5" ry="2" transform="rotate(17 111 106)" />

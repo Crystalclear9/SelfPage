@@ -11,4 +11,4 @@
 - [no_padding_strides](../public/files/ailearning/assets/external/no_padding_strides.gif)：Vincent Dumoulin、Francesco Visin；[MIT](../public/files/ailearning/assets/external/conv-arithmetic-LICENSE.txt)；[原始来源](https://github.com/vdumoulin/conv_arithmetic)。
 - [dilation](../public/files/ailearning/assets/external/dilation.gif)：Vincent Dumoulin、Francesco Visin；[MIT](../public/files/ailearning/assets/external/conv-arithmetic-LICENSE.txt)；[原始来源](https://github.com/vdumoulin/conv_arithmetic)。
 
-主页角色插画、光标与音频见[站点素材说明](ASSETS.md)。角色表现的参考与设计取舍见[角色交互](MOTION.md#加藤惠什么时候回应)。
+主页角色插画、两套光标原画与音频见[站点素材说明](ASSETS.md)。角色表现的参考与设计取舍见[角色交互](MOTION.md#加藤惠什么时候回应)。

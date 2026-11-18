@@ -301,4 +301,4 @@ KaTeX 的渲染器、CSS 和字体必须使用同一版本。直接依赖固定�
 
 学习资料中的图片使用相对于 Markdown 的路径。导入后图片保存在 `public/files/ailearning/`，构建时补上站点前缀。手写锚点与自动生成的标题锚点均可用于章节引用。
 
-头像问候和喜欢按钮分别由 `ProfileAvatar` 和 `App` 通知光标。眼神与脸颊叠色位于 `AnimatedCursor.jsx`，与日语音频独立维护；角色动作及事件名称见[开发设计](ARCHITECTURE.md)。
+头像问候和喜欢按钮分别由 `ProfileAvatar` 和 `App` 通知光标。眼帘与脸颊的 SVG 图层位于 `AnimatedCursor.jsx`，与日语音频独立维护；角色动作及事件名称见[开发设计](ARCHITECTURE.md)。
