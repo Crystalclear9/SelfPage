@@ -72,7 +72,7 @@
 
 上述组件读取真实滚动位置，4px 阈值过滤轻微抖动，通过 requestAnimationFrame 合并更新。触屏、滚轮和键盘滚动使用相同逻辑，悬浮控件不改变正文布局。
 
-`ProjectPager` 按项目数组顺序提供前后导航，不循环跳回第一项。第一项可返回全部项目，最后一项可继续浏览文章。项目标题通过同名 View Transition 快照跨页衔接，动画约 0.7 秒，普通链接与浏览器历史行为保留。
+`ProjectPager` 按项目数组顺序提供前后导航，不循环跳回第一项。第一项可返回全部项目，最后一项可继续浏览文章。站内切换由导航处理器提交新页面，主内容使用 `page-arriving` 入场类。发生跨文档导航时，支持 View Transition 的浏览器可通过同名标题快照衔接两页。
 
 ## 翻页异常恢复
 
@@ -132,6 +132,12 @@
 样式调试时不要用永久隐藏正文或依赖固定等待时间的方式掩盖过渡问题。保持原生链接、静态 HTML 和减少动态效果路径可用，具体故障记录目标 URL、导航方式、浏览器及失败请求。
 
 参考：[CSS 滚动驱动动画](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations)、[跨文档 View Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40view-transition)、[Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using)。
+
+### 光标渲染层
+
+首屏的内联样式由 `vite.config.js` 从两份 SVG 原画生成。`cursor-entry.js` 在加载外部样式之前确定衣装。角色显示尺寸为 64 × 68 CSS 像素，SVG 内含 192 × 204 的透明位图。动画层接管后，日常移动使用相同原画作为背景；滚动或拖动使用已解码的角色图像绕指尖旋转。原生层与动画层使用同一热点，便于在页面加载及减少动态效果模式之间切换。
+
+更换原画后，分别观察默认状态、滚轮换向、拖动和打开弹窗。若只有某个姿态模糊，先比较背景图与角色图像的来源；若指尖偏离点击位置，核对原生热点、动画定位偏移和 CSS 旋转原点。
 
 ### 加藤惠什么时候回应
 

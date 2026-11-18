@@ -26,9 +26,9 @@
 
 袜口参考第一季第三话坡道场景。窄紫褐色缎带束住白色褶边，上缘微微立起，下缘向外展开。[镜头参考](https://www.anime-graffiti.com/wp-content/uploads/img/201501/20150130-s035.jpg) 两款运行素材均内嵌 192 × 204 透明位图。两套服装共用独立的左右眼帘和面颊矢量细节，表情通过局部缩放完成，原画与指尖位置固定。日常移动、悬停与点击直接显示 192 × 204 原画，显示尺寸为 64 × 68 CSS 像素。首屏和减少动态效果模式使用同一原画的三倍密度原生指针。构建时将两款 SVG 原画写入页面 head，首帧、静止和动态姿态均取自同一份高清素材。原版短袜插画保存在 `public/images/megumi-cursor-short.svg`。
 
-生成提示词：
+### 替换光标素材
 
-> Create a single transparent-background mouse cursor sprite: Megumi Kato from Saekano, recognizable short chestnut bob haircut, white beret, red cardigan over white dress. Cute compact chibi full body, crisp pixel-art-like clean anime silhouette legible at 48x64 pixels. She leans diagonally and extends her left arm toward upper left with ONE index fingertip at the extreme upper left of the silhouette as the precise cursor click hotspot. Entire character visible, shoes included. Tight crop, transparent margins minimal. No arrow, no conventional mouse cursor, no circle, no badge, no background, no text, no shadow backdrop, no other characters. Clean defined outlines, restrained shading, white clothing opaque, genuine transparent alpha outside silhouette. Output single isolated character asset for UI use.
+两份 SVG 位于 `public/images/`。构建插件读取它们生成内联首屏样式，客户端按衣装路径加载姿态图。替换时同时核对 SVG 视口、透明边距和伸出指尖的位置；更改画布或热点还需要同步检查动画层的定位偏移、表情覆盖层与旋转原点。针对双倍像素密度的回归使用 `npm run check:cursor`，动作与减少动态效果模式使用 `npm run check:motion`。
 
 ## 文章与论文附件
 
@@ -54,4 +54,4 @@
 
 ## AILearning 配图
 
-`public/files/ailearning/` 保存教材仓库中的图解与动画，未改变图像内容。原作者、外部图的许可及来源见 `docs/LEARNING-IMAGE-SOURCES.md`；对应许可文件随图片发布。导入清单记录来源版本，图片使用本站路径加载，不依赖第三方图床。
+`public/files/ailearning/` 保存教材仓库中的图解与动画，未改变图像内容。当前配图路径和历史外部插图的署名见[教材配图](LEARNING-IMAGE-SOURCES.md)。导入清单记录来源版本，图片使用本站路径加载，不依赖第三方图床。

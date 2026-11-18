@@ -44,13 +44,19 @@ AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、�
 
 ## 3. 路由、预渲染与启动顺序
 
-`src/data/routes.js` 导出 `routes`、`href()`、`currentPath()`。页面通过 `App` 的 path 属性选择首页或 `ContentPage`，使用原生链接跨文档导航，没有客户端路由库。`currentPath()` 去除部署前缀、规范化尾斜杠和 index.html；新增路由时仍需在页面分支和路由清单中同时提供实现。
+`src/data/routes.js` 导出 `routes`、`href()`、`currentPath()`。页面通过 `App` 的 path 属性选择首页或 `ContentPage`，普通链接提供静态入口。支持 Navigation API 时，客户端拦截符合条件的站内导航，在原文档中提交新页面。`currentPath()` 去除部署前缀、规范化尾斜杠和 index.html；新增路由时仍需在页面分支和路由清单中同时提供实现。
 
 启动过程分为三层：
 
 1. **head 脚本**：`index.html` 提前读取主题；Vite 插件内联首页入口与过渡保护脚本，使它们不依赖应用包下载。
 2. **静态正文**：`prerender.mjs` 将 App 输出写入各路由的 index.html，普通访问可先显示正文。
 3. **客户端**：`main.jsx` 依据 pathname 创建相同页面。有预渲染内容则 hydrateRoot，否则 createRoot；随后接入 effect、事件和样式增强标记。
+
+### 客户端切换与历史恢复
+
+`src/main.jsx` 中的 `readPage` 区分首次加载与站内切换。生产环境直接打开章节时，它读取当前 HTML 的 `#learning-content`；从另一页进入时，它请求目标 HTML 并提取同一节点。独立文章和论文按需加载 `WritingDetail`。开发服务通过 `__learning` 提供教材片段，因此静态路径问题需要在生产预览中复现。
+
+`Site` 持有共享的 `AnimatedCursor`，`App` 以路径作为 React key。切换路由会重建页面局部状态，光标层随文档保留。导航处理器在内容准备好后提交页面、更新描述、恢复滚动并通知交互组件。连续点击时使用导航事件的 abort signal 取消旧请求；读取失败且当前导航仍有效时，重新加载目标地址以走独立 HTML 入口。修改这个流程时，要分别覆盖静止光标、慢请求中再次跳转、历史前进后退和纯静态访问。
 
 ### 构建产物与资源版本
 
@@ -64,7 +70,7 @@ AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、�
 
 ### 页面元信息
 
-预渲染为各路由替换 title 和 description，非首页移除首屏图片预加载。Open Graph 标题与描述目前仍来自 `index.html` 的固定站点值，不是逐页生成的分享卡片。若增加分享图、canonical 或 sitemap，应单独扩展构建输出并验证，不能只改页面可见标题。
+标签页标题统一取自 `index.html` 的 `Crystalclear9 | 个人主页`。预渲染按路由替换 description，非首页移除首屏图片预加载。Open Graph 标题与描述目前仍来自 `index.html` 的固定站点值，不是逐页生成的分享卡片。若增加分享图、canonical 或 sitemap，应单独扩展构建输出并验证，不能只改页面可见标题。
 
 ## 4. 状态归属与组件职责
 

@@ -77,11 +77,18 @@ node tests/learning-render.mjs
 
 新增章节使用已有目录结构及 `01-标题.md` 形式。路由使用分类、主题的英文目录名与 `chapter-01` 编号，修改中文标题不改变网址；更改目录或编号前需检查旧链接。新增顶级分类或阅读指南时，需同步扩展 `scripts/import-learning.mjs` 的映射。
 
-提交 `content/collections/ailearning/` 的 Markdown 和清单，以及需要更新的文章摘要。将专题入口设为 `published: false` 会停止生成专题及下级路由；文件仍存在于公开源码仓库。页面层级与资料来源记录在专题的 `manifest.json` 中。
+提交 `content/collections/ailearning/` 的 Markdown 和清单、`public/files/ailearning/` 中对应的配图，以及需要更新的文章摘要。将专题入口设为 `published: false` 会停止生成专题及下级路由；文件仍存在于公开源码仓库。页面层级与资料来源记录在专题的 `manifest.json` 中。
+
+### 导入差异的核对顺序
+
+1. 在源仓库运行 `git status --short`。导入读取磁盘上的文件，包含尚未提交的修改；清单的 `revision` 记录源仓库 HEAD，无法单独标识工作区差异。
+2. 对照 `manifest.json` 的 `pages` 检查新增、改名和撤下的章节。父级由各层 README 建立，同一主题的章节号参与生成公开地址。移动章节后，从旧目录、相邻章节和正文引用分别检查目标。
+3. 对照 `images` 检查 `public/files/ailearning/` 下的发布副本。清单外的旧图片即使没有章节引用，仍可能随 `public/` 发布；确认引用和署名后再清理。
+4. 将正文、清单、配图和必要的索引变更放在同一次提交。构建后先检查全站链接与公式，再抽取本次修改的章节，验证正文中的图片、代码块和章内跳转。
 
 ### 渲染检查
 
-2026-11-08 针对当前快照检查了 248 个不同的外部网址，全部返回成功响应，详见 docs/LEARNING-LINK-AUDIT.json。该结果仅代表检查时的可访问性，不等同于参考内容正确性的认证。
+2026-11-08 针对当时的快照检查了 248 个不同的外部网址，全部返回成功响应，详见[当次检查记录](LEARNING-LINK-AUDIT.json)。该结果仅代表检查时的可访问性，不等同于参考内容正确性的认证。
 
 构建后运行 `node tests/learning-references.mjs` 检查本地图片与 SVG 定位片段；加 `--external` 可检测外部参考网址，非成功响应与超时会分别列出，需复核后再修改来源。`node tests/learning-render.mjs` 会等待正文图片实际解码，并检查手机/电脑、明暗主题以及启用/禁用 JavaScript 的页面。带 `#view-id` 的 SVG 图片保留定位片段，以展示源资料指定的局部图示。
 

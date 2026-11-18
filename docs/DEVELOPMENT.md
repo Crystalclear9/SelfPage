@@ -39,10 +39,10 @@ npm run dev
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
 npm run build
-npm run preview -- --port 4173
+npm run preview -- --port 4174
 ```
 
-访问 `http://127.0.0.1:4173/SelfPage/`。`preview` 读取 `dist/`，不会随着源码变更自动重新构建；修改后需再次运行 `npm run build`。PowerShell 环境变量只对当前进程及其子进程有效，换终端时应重新设置。
+访问 `http://127.0.0.1:4174/SelfPage/`。`preview` 读取 `dist/`，不会随着源码变更自动重新构建；修改后需再次运行 `npm run build`。PowerShell 环境变量只对当前进程及其子进程有效，换终端时应重新设置。
 
 ## 3. 从哪一层修改
 
@@ -73,7 +73,7 @@ npm run preview -- --port 4173
 4. 预渲染脚本生成入口版本参数和旧入口兼容文件，再使用共享 React 组件输出各路由 HTML，并填写各页描述。浏览器标签标题统一沿用 `index.html` 中的“Crystalclear9 | 个人主页”，不附加项目、论文或章节名称。
 5. 浏览器先显示 HTML，`src/main.jsx` 再进行 hydration，接入筛选、偏好与交互。
 
-当前构建生成首页、五个项目页、两个内容索引、AILearning 的 246 个页面及 K-GAT 论文页，共 255 个常规页面，另有 `404.html`。后续数量随内容变化。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
+预渲染按路由清单生成首页、项目页、两个内容索引、已发布的文章与论文，以及教材子页，另外输出 `404.html`。构建日志末尾记录实际生成页数；新增章节后，可对照导入清单核对路由增量。开发新组件时，不应在服务端渲染阶段直接读取 `window`、剪贴板或本地存储；浏览器行为放入事件处理或 effect。
 
 新增内部链接使用 `src/data/routes.js` 的 `href()`，使其带上构建前缀。直接写 `/projects/...` 会指向域名根目录，在 `/SelfPage/` 部署下可能访问错误位置。
 
@@ -82,7 +82,7 @@ npm run preview -- --port 4173
 先构建并保持生产预览运行，在另一个终端执行：
 
 ```powershell
-$env:TEST_URL = 'http://127.0.0.1:4173/SelfPage/'
+$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'
 npm run check:pages
 ```
 
@@ -114,6 +114,17 @@ npm run check:pages
 按修改范围运行相关检查即可。新增或删除项目后，还应检查 `tests/` 中固定项目数量、名称及路由的断言是否需要更新。自动化检查不会判断文字是否准确、素材授权是否适合当前用途，也不能替代实际阅读。
 
 Lighthouse 结果写入 `.local/reports/lighthouse.json`，部分浏览器测试也会在该目录写截图。报告反映当前机器、浏览器和网络条件，不作为所有设备的固定性能结论。审计使用调试端口 9223，同一时间只运行一个审计进程。
+
+### 从失败现象选择复现环境
+
+| 现象 | 首先比较 | 定位文件 |
+| --- | --- | --- |
+| 开发服务能打开，生产环境直接访问失败 | 查看 `dist/` 下是否存在对应的 `index.html`，再检查资源请求是否带部署前缀 | `src/data/routes.js`、`scripts/prerender.mjs`、`vite.config.js` |
+| 地址已切换，正文仍显示上一章 | 对比直接访问的正文和站内切换请求返回的 `#learning-content`。浏览器测试等待目标内容出现后再断言 | `src/main.jsx`、`tests/learning-ui.mjs` |
+| 学习资料只在窄屏溢出 | 在 375px 视口检查表格、长代码行、公式和图片，并切换深色主题检查语法配色 | `src/styles/content.css`、`tests/learning-render.mjs` |
+| 返回时光标短暂消失 | 分别测试站内返回链接、浏览器后退及刷新，回到页面后先保持指针静止 | `src/lib/cursor-entry.js`、`src/components/AnimatedCursor.jsx`、`tests/cursor-refresh.mjs` |
+
+涉及依赖升级时，使用锁文件安装并按生产前缀重新构建。KaTeX 的渲染器、样式和字体共同决定公式排版；仅查看开发页上的公式文字不足以验证字体与上下标。
 
 ## 6. 手动检查建议
 
