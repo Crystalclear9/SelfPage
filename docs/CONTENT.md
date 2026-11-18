@@ -4,7 +4,7 @@
 
 在 [site.js](../src/data/site.js) 中编辑 `profile`。`subtitle` 出现在首屏，`intro` 和 `about` 组成「关于我」。`github` 指向公开主页，填写 `email` 后会显示邮件入口。首屏标题下的补充说明在 [App.jsx](../src/App.jsx)。
 
-项目卡片与介绍弹窗读取 `projects` 数组。独立详情页按同一 ID 从 [project-notes.js](../src/data/project-notes.js) 的 `projectNotes` 对象读取正文。新增项目时，两处各登记一条记录；修改已有项目时按显示位置选择字段。
+项目卡片与介绍弹窗读取 `projects` 数组。独立详情页按同一 ID 从 [project-notes.js](../src/data/project-notes.js) 的 `projectNotes` 对象读取正文。新增项目时，在数组中添加卡片记录，并以该记录的 ID 为键添加详情正文。
 
 | 数据位置 | 字段 | 页面用途 |
 | --- | --- | --- |
@@ -17,7 +17,7 @@
 
 例如，GameQA 的 ID 是 `gameqa`，仓库名是 `RagGameQa`。其详情页地址为 `/projects/gameqa/`，实现说明读取 `projectNotes.gameqa.implementation`。源码地址变更只涉及 `source`；更改项目 ID 则同时影响公开地址、详情查找和文章关联。
 
-当前展示随手办（`suishouban`）、GameQA（`gameqa`）、Autellix（`autellix`）、TimePredictModel（`time-predict`）和 SandBoxSim（`sandboxsim`）。ID 用于 `/projects/<id>/` 和文章关联，数组顺序决定首页排序和项目翻页顺序。
+当前展示随手办（`suishouban`）、GameQA（`gameqa`）、Autellix（`autellix`）、TimePredictModel（`time-predict`）和 SandBoxSim（`sandboxsim`）。数组顺序决定首页排序和项目翻页顺序。
 
 ## 发布文章
 
@@ -31,6 +31,7 @@
   "date": "2026-11-18",
   "summary": "从文档分段到结果排序，记录一次检索流程的实现。",
   "body": "articles/retrieval-notes.md",
+  "project": "gameqa",
   "published": true
 }
 ```
@@ -39,7 +40,7 @@
 
 ### 文章与项目关联
 
-文章条目的 `project` 字段引用 `projects[].id`。例如，`"project": "gameqa"` 将文章关联至 GameQA。该项目的显示名称为 `GameQA`，源码仓库名为 `RagGameQa`。
+索引中的 `"project": "gameqa"` 将这篇笔记加入 GameQA 详情页的「相关记录」。独立文章省略该字段。
 
 `content/articles/retrieval-notes.md` 保存文章正文。详情页使用索引的 `title` 生成一级标题，正文从二级标题开始。
 
@@ -53,7 +54,7 @@
 选定同一个问题，分别记录召回的文档、排序后的片段和回答采用的来源。
 ```
 
-文章列表按 `date` 倒序排列。发布关联文章后，GameQA 详情页会在页内目录和正文末尾增加「相关记录」入口。两处均读取同一条索引记录，文章详情生成于 `dist/articles/retrieval-notes/index.html`。
+文章列表按 `date` 倒序排列，示例文章的详情页生成于 `dist/articles/retrieval-notes/index.html`。
 
 ### 发布索引字段
 

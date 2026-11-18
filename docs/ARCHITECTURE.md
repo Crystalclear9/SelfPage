@@ -30,15 +30,15 @@ SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供
 | `ChapterMotion`、`PointerSurfaces`、`AnimatedCursor` | 模块进出视口、鼠标命中区域、人物与状态反馈 |
 | `useVoice`、`voice-player.js` | 首页音轨预缓冲、互斥播放、停止与失败重试 |
 
-业务组件在动作发生时发出 `cursor-feedback`。头像使用 `greeting`，喜欢状态使用 `like` 或 `unlike`，复制成功后发送 `copied`，筛选结果更新后发送 `filtered`。角色组件消费这些事件；播放语音和写入剪贴板仍由各自的业务入口完成。
+业务组件通过自定义事件通知角色光标。事件名为 `cursor-feedback`。头像使用 `greeting`，喜欢状态使用 `like` 或 `unlike`，复制成功后发送 `copied`，筛选结果更新后发送 `filtered`。角色组件按事件类型切换表情或姿态。头像组件负责语音，项目弹窗负责写入剪贴板。
 
 ## 教材页面的导入、构建与加载
 
-微积分第一章的源文件、发布路径与客户端正文节点分别由导入器、预渲染器和阅读页组件生成。
+微积分第一章的路由由源文件所在的分类、主题和章节编号组成。导入、构建与阅读三个阶段共用同一条清单记录。
 
 | 阶段 | 输入与输出 | 负责模块 |
 | --- | --- | --- |
-| 导入 | 源文件 `Mathematics/Calculus/01-导数偏导数与链式法则.md` → 快照中的同名文件和路由 `mathematics/calculus/chapter-01/` | [import-learning.mjs](../scripts/import-learning.mjs) 读取标题、推导路由及父级 |
+| 导入 | 源文件 `Mathematics/Calculus/01-导数偏导数与链式法则.md` → 快照中的同名文件和路由 `/articles/ailearning/mathematics/calculus/chapter-01/` | [import-learning.mjs](../scripts/import-learning.mjs) 读取标题、推导路由及父级 |
 | 构建 | 快照与清单 → 带章标题、公式、语法着色和 `#learning-content` 的 HTML | [learning.mjs](../scripts/learning.mjs) 处理正文，[prerender.mjs](../scripts/prerender.mjs) 写入路由目录 |
 | 浏览 | 当前页或目标页的 HTML → `LearningPage` 接收正文，显示目录、上级链接和相邻章节 | [main.jsx](../src/main.jsx) 读取正文，[LearningPage.jsx](../src/pages/LearningPage.jsx) 组织页面 |
 
@@ -48,7 +48,7 @@ SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供
 
 页面跳转由浏览器的 `navigate` 事件进入。`readPage` 完成后，`flushSync` 提交新树，然后恢复滚动、打开锚点所在的折叠块、发送 `site-page-rendered`。新页面的 `App` 因路径 key 改变而重新挂载，共享角色光标位于该 key 之外。原生刷新重新加载文档，从 head 中的首屏入口开始执行。
 
-首页筛选值在组件挂载时初始化。语音播放器在组件卸载或 `pagehide` 事件触发时停止。主题与喜欢状态存于本地，跨访问保留。组件在 effect 中注册窗口监听器，并在该 effect 的清理函数中解除监听。相关实现见 [useProjectFilter.js](../src/lib/useProjectFilter.js)、[useVoice.js](../src/lib/useVoice.js) 和 [main.jsx](../src/main.jsx) 的实现。
+首页筛选值在组件挂载时初始化。语音播放器在组件卸载或 `pagehide` 事件触发时停止。主题与喜欢状态存于本地，跨访问保留。播放器同时清除缓冲定时器并解除窗口监听。相关代码见 [useProjectFilter.js](../src/lib/useProjectFilter.js)、[useVoice.js](../src/lib/useVoice.js) 和 [main.jsx](../src/main.jsx)。
 
 ## 新增页面类型
 

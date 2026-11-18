@@ -1,24 +1,21 @@
 # 教材配图
 
-## 配图清单与源文件
+## 引用与发布路径
 
-贝叶斯计算章节的坐标更新图引用路径为 `images/01-cavi-coordinate-progress.webp`，导入时保留它相对于主题目录的位置，发布副本位于 [BayesianComputation/images](../public/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp)。[专题清单](../content/collections/ailearning/manifest.json) 的 `images` 字段可用于核对其他配图。
+教材插图随源章节导入。[清单](../content/collections/ailearning/manifest.json)的 `images` 字段保存相对源仓库的路径，发布副本沿用相同目录结构。贝叶斯计算章节中的坐标更新图对应以下位置。
 
-修改图片时，先更新源资料中的文件和引用，再按[同步步骤](CONTENT.md#同步-ailearning)导入。新增第三方插图时记下作者、来源、许可及改动，随图附带的许可文件放在源素材旁。
-
-## 核对发布结果
-
-构建后运行 `node tests/learning-references.mjs` 检查本地文件和 SVG 片段。启动生产预览后运行 `node tests/learning-render.mjs`，检查浏览器能否解码图片。排查缺图时依次核对正文的相对路径、清单条目、发布文件的大小写，以及 SVG 引用中的片段名。
-
-## 源文件与发布路径映射
-
-| 查看位置 | 示例 |
+| 位置 | 路径 |
 | --- | --- |
-| 主题目录里的章节 Markdown | `images/01-cavi-coordinate-progress.webp` |
-| 导入清单的 `images` 项 | `AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
-| GitHub Pages 的 Network 请求 | `/SelfPage/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
+| 章节 Markdown 中的引用 | `images/01-cavi-coordinate-progress.webp` |
+| 清单条目 | `AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
+| 本站发布副本 | [public/files/ailearning 下的图像](../public/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp) |
+| 浏览器请求 | `/SelfPage/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
 
-章节引用以当前 Markdown 所在目录为基准，清单路径以源仓库根目录为基准。发布地址由站点前缀、附件目录和清单路径组成，保留文件名大小写及原引用中的 SVG 片段。若请求成功但图示区域不对，查看 SVG 内是否存在片段指定的元素；若浏览器返回 404，检查清单条目与发布副本的目录层级。
+更换插图时，在源资料中更新文件和 Markdown 引用，再[同步教材](CONTENT.md#同步-ailearning)。第三方插图同时记录作者、原始来源、许可及改动，许可文件与图片存放在同一目录。
+
+## 图像检查
+
+构建后运行 `node tests/learning-references.mjs`，脚本从生成的 HTML 提取引用，核对本地文件和 SVG 片段目标。生产预览中的逐页检查使用 `node tests/learning-render.mjs`，由浏览器展开折叠内容并解码图片。前者可定位路径和锚点错误，后者可发现文件存在但解码失败的图像。
 
 ## 早期版本使用的外部插图
 
