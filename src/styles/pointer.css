@@ -53,10 +53,10 @@
 .animated-cursor:is([data-state$='-resize'], [data-state='zoom-out']) .cursor-sprite { transform: rotate(-3deg) scale(.92); }
 .animated-cursor[data-state='zoom-in'] .cursor-sprite { transform: rotate(3deg) scale(1.06); }
 .animated-cursor:is([data-state='wait'], [data-state='progress']) .cursor-sprite { animation: megumi-wait 3s ease-in-out infinite; }
-.animated-cursor:is([data-state='click'], [data-state='copy'], [data-state='copied'], [data-state='filtered'], [data-state='download'], [data-state='answer-open'], [data-state='answer-close'], [data-state='settle'], [data-state='double-click'], [data-state='like']) .cursor-sprite { animation: megumi-nod .32s ease-in-out both; }
+.animated-cursor:is([data-state='copy'], [data-state='copied'], [data-state='filtered'], [data-state='download'], [data-state='settle'], [data-state='double-click'], [data-state='like']) .cursor-sprite { animation: megumi-nod .32s ease-in-out both; }
 .animated-cursor[data-state='double-click'] .cursor-sprite { animation-duration: .23s; animation-iteration-count: 2; }
 .animated-cursor[data-state='like'] .cursor-sprite { --nod: 13deg; animation-duration: .68s; }
-.animated-cursor:is([data-state='answer-close'], [data-state='settle']) { --nod: -6deg; }
+.animated-cursor[data-state='settle'] { --nod: -6deg; }
 .animated-cursor:is([data-state='greeting'], [data-state='playful'], [data-state='unlike'], [data-state='charged-release']) .cursor-sprite { animation: megumi-glance .62s ease-in-out both; }
 .animated-cursor[data-state='unlike'] .cursor-sprite { --glance: 8deg; opacity: .8; }
 .animated-cursor[data-state='charged-release'] .cursor-sprite { --glance: -13deg; }

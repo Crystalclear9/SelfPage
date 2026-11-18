@@ -4,7 +4,6 @@ import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { loadLearning, normalizeLearningMath, renderLearning } from '../scripts/learning.mjs';
 
-import learningExercises from '../scripts/learning-exercises.mjs';
 
 const require = createRequire(import.meta.url);
 const rendererRequire = createRequire(require.resolve('rehype-katex'));
@@ -33,13 +32,6 @@ const documents = new Map(pages.map(page => {
   assert.ok(!html.includes('href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.transform.html'), 'Pandas links must use the current official URL');
   return [page.route, { html, ids: new Set([...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1])) }];
 }));
-// learningMarkdown converts explicit section anchors before answers are grouped.
-const answerParagraph = { type: 'paragraph', children: [{ type: 'text', value: '答案：示例' }] };
-const nextAnchor = { type: 'paragraph', data: { hName: 'span', hProperties: { id: 'next' } }, children: [] };
-const tree = { type: 'root', children: [answerParagraph, nextAnchor, { type: 'heading', depth: 2, children: [] }] };
-learningExercises()(tree);
-assert.equal(tree.children[0].data.hName, 'details');
-assert.equal(tree.children[1], nextAnchor, 'The next section anchor must remain outside the closed answer');
 const missingAnchors = [];
 for (const [route, { html }] of documents) {
   // Infer the build prefix from the stylesheet, so this checks root and Pages builds.

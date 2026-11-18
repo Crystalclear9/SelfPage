@@ -44,7 +44,8 @@ try {
   await page.locator('.hero-actions .button').hover();
   await state('pointer');
   await page.mouse.down(); await state('pressed');
-  await page.mouse.up(); await state('click');
+  await page.mouse.up(); await expect(cursor).toHaveAttribute('data-state', /^(pointer|default)$/);
+  assert.equal(await cursor.locator('.cursor-sprite').evaluate(el => getComputedStyle(el).animationName), 'none');
   await page.locator('.hero-description').dblclick(); await state('double-click');
   await page.waitForTimeout(700);
   await page.locator('.hero-description').hover(); await state('text');

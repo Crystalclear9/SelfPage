@@ -245,11 +245,3 @@
 .learning-topic-table td { vertical-align: top; }
 
 /* Native answer disclosures with progressively enhanced motion. */
-.prose .exercise-answer{ margin: 16px 0 28px; border: 1px solid var(--line); border-radius: 14px; background: var(--elevated); overflow: hidden; }
-.prose .exercise-answer summary{ padding: 16px 20px; cursor: pointer; color: var(--accent); font-size: 16px; font-weight: 500; transition: background .18s ease; }
-.prose .exercise-answer summary:hover{ background: var(--soft); }
-.prose .exercise-answer summary:focus-visible{ outline: 2px solid var(--accent); outline-offset: -3px; }
-.prose .exercise-solution { padding: 4px 22px 20px; }
-@media (prefers-reduced-motion: reduce) { .prose .exercise-answer summary{ transition: none; } }
-.prose .learning-disclosure { margin: 20px 0; }
-.prose .learning-disclosure summary { cursor: pointer; color: var(--accent); padding: 12px 0; }

@@ -161,4 +161,4 @@ npm run clean
 
 ### 调整光标后的检查
 
-在生产预览上运行 `npm run check:motion` 和 `node tests/exercises.mjs`。前者覆盖长按、拖动、头像、喜欢与撤回以及原生光标回退；后者验证阅读时角色点头、答案开合与键盘操作。两者使用同一个 `TEST_URL`。
+在生产预览上运行 `npm run check:motion`。检查覆盖按下与松开、双击、长按、拖动、头像、喜欢与撤回，以及原生光标回退。

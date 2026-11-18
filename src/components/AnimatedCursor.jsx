@@ -132,7 +132,13 @@ export default function AnimatedCursor() {
       clearHold(); down = null;
       anchor = null; delete el.dataset.tether;
       if (event.button === 0 && charged) burst(33, 5);
-      pulse(event.button === 2 ? 'context' : event.button === 1 ? 'scroll' : charged ? 'charged-release' : 'click', charged ? 650 : 420);
+      if (event.button === 0 && !charged) {
+        clearTimeout(timer);
+        transient = '';
+        schedule();
+      } else {
+        pulse(charged ? 'charged-release' : event.button === 2 ? 'context' : 'scroll', charged ? 650 : 420);
+      }
     };
     const doubleClick = () => { burst(15, 2); pulse('double-click', 650); };
     const wheel = event => {
@@ -141,7 +147,7 @@ export default function AnimatedCursor() {
     };
     const copy = () => { burst(25); pulse('copy', 650); };
     const feedback = event => {
-      const durations = { like: 900, unlike: 720, greeting: 740, copied: 750, filtered: 750, 'answer-open': 340, 'answer-close': 340 };
+      const durations = { like: 900, unlike: 720, greeting: 740, copied: 750, filtered: 750 };
       if (!visible || reduced.matches || !Object.hasOwn(durations, event.detail)) return;
       pulse(event.detail, durations[event.detail]);
     };
