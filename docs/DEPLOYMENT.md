@@ -2,7 +2,7 @@
 
 本站通过 [deploy.yml](../.github/workflows/deploy.yml) 发布。仓库 Settings → Pages → Build and deployment 中的 Source 选择 **GitHub Actions**。工作流读取 Pages 提供的路径，将同一次构建得到的 `dist/` 上传并部署。
 
-## 哪些修改会发布
+## 工作流触发条件
 
 | 入口 | 运行内容 | 结果 |
 | --- | --- | --- |
@@ -12,7 +12,7 @@
 
 自动任务忽略仅涉及 `README.md` 和 `docs/` 的改动。文章、论文与教材正文位于 `content/`，修改后会触发构建。同一分支连续推送时，工作流取消较早的运行。
 
-## 从本地复核构建
+## 本地发布构建
 
 在仓库根目录运行以下命令，以线上子路径预览。这能直接发现详情页中的脚本、图片或字体误用了域名根路径。
 
@@ -28,7 +28,7 @@ npm run preview -- --port 4174 --strictPort
 
 预览运行后，在另一个终端设置 `$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'`，运行 `npm run check:browser-ci`。CI 使用 Ubuntu 24.04 与 Node.js 24，优先使用运行器自带的 Chrome；缺少时安装 Chromium。详细覆盖范围见[开发与测试](DEVELOPMENT.md)。
 
-## 确认线上版本
+## 部署状态与版本核对
 
 在 Actions 中按提交 SHA 打开对应运行。`build` 生成静态页面并上传 `github-pages` 产物，`deploy` 使用 Pages 写入权限和 OIDC 发布。打开部署环境提供的地址，直接访问一个子页面，再检查首页导航与该页的资源加载。
 
@@ -41,7 +41,7 @@ npm run preview -- --port 4174 --strictPort
 
 需要撤回某次站点修改时，在 `main` 上对相应提交执行 `git revert <提交号>`，检查差异并推送。回退后的源码沿用同一发布流程。
 
-## 发布路径如何传递
+## 部署前缀与产物目录
 
 1. 发布 `main` 时，`actions/configure-pages` 读取仓库 Pages 配置。工作流把得到的 `base_path` 规范为带末尾斜杠的 `SITE_BASE_PATH`。拉取请求使用仓库名模拟同样的子路径。
 2. [vite.config.js](../vite.config.js) 将该值设为 Vite 的 `base`。[路由辅助函数](../src/data/routes.js)的 `href()` 把应用内路径转换为公开地址。例如 `/projects/gameqa/` 会生成 `/SelfPage/projects/gameqa/`。

@@ -1,10 +1,16 @@
 # SelfPage
 
-Crystalclear9 的个人主页，使用 React 和 Vite 构建，部署在 GitHub Pages。首页展示个人简介和开源项目，文章与论文通过各自的目录阅读。加藤惠的插画、角色光标和语音贯穿首页交互。[访问个人主页](https://crystalclear9.github.io/SelfPage/)
+SelfPage 是 Crystalclear9 的个人技术主页，展示开源项目、技术文章与研究论文。站点使用 React 和 Vite 构建，每个项目、文章和教材章节都有独立的静态 HTML，由 GitHub Pages 发布。[访问个人主页](https://crystalclear9.github.io/SelfPage/)
 
-## 本地开发
+## 站点功能
 
-首次检出时使用以下命令。项目使用 Node.js 24 开发和发布，`npm ci` 根据提交的锁文件安装依赖。已有工作副本时，直接在仓库根目录启动开发服务。
+首页按「应用」和「系统研究」展示项目。卡片上的「项目介绍」打开功能摘要，「了解项目」进入实现说明，「查看源码」打开对应仓库。项目详情页提供相邻项目导航和相关文章入口。
+
+文章目录收录独立笔记和 AILearning 学习资料。AILearning 按分类、主题、章节组织，支持章节翻页、公式、代码高亮和图表。论文详情页集中展示发表信息、作者、研究方法与实验结果，并提供页内目录和 PDF 入口。角色光标、主题切换与语音反馈由客户端加载。[站点功能与导航](docs/FEATURES.md)
+
+## 本地运行
+
+开发与部署使用 Node.js 24。依赖版本由 `package-lock.json` 锁定。首次安装及启动命令如下。
 
 ```sh
 git clone https://github.com/Crystalclear9/SelfPage.git
@@ -13,26 +19,7 @@ npm ci
 npm run dev
 ```
 
-默认地址是 `http://127.0.0.1:5173/`。修改首页布局从 [App.jsx](src/App.jsx) 开始；修改介绍、项目分类或展示顺序，直接编辑 [site.js](src/data/site.js)。
-
-## 接手后的第一次修改
-
-从一个已有项目走一遍开发流程，可以同时熟悉首页、独立页面和生产路径。下面以 GameQA 为例。
-
-1. 在 [site.js](src/data/site.js) 找到 `id: "gameqa"`。修改 `subtitle` 后保存，打开首页「项目与实践」，选择「应用」。卡片标题下方会显示新的副标题。
-2. 点击卡片的「项目介绍」。弹窗的分项说明来自同一条记录的 `details`。关闭弹窗后点击「了解项目」进入独立页面，其中「实现思路」来自 [project-notes.js](src/data/project-notes.js) 的 `gameqa.implementation`。这两处适合分别写功能摘要和具体实现。
-3. 运行下文的生产构建，在预览地址直接打开 `/SelfPage/projects/gameqa/`。刷新后，页面应保留项目标题、正文和样式。点「全部项目」返回首页的项目分区，再切换一次分类，检查返回位置。
-4. 用 `git diff -- src/data/site.js src/data/project-notes.js` 核对本次内容差异。提交源文件后，发布工作流从源码生成对应 HTML。
-
-### 日常改动入口
-
-| 要做的事 | 从哪里入手 | 完成后看哪里 |
-| --- | --- | --- |
-| 调整桌面或移动端布局 | [布局样式](src/styles/base.css) 与对应组件的类名；阅读页使用 [content.css](src/styles/content.css) | 生产预览里同一地址的宽屏和窄屏布局 |
-| 发布一份关联项目的笔记 | 新建 Markdown 并在发布索引中填写 `project` | 文章列表、文章详情、项目页的「相关记录」；见[发布文章](docs/CONTENT.md#发布文章) |
-| 更新一章教材及配图 | 在 AILearning 源目录改正文与图片，再导入快照 | 分类目录、章节直达地址、图片与页内锚点；见[同步步骤](docs/CONTENT.md#同步-ailearning) |
-| 修改角色反馈或播放逻辑 | 从 [AnimatedCursor.jsx](src/components/AnimatedCursor.jsx) 或 [useVoice.js](src/lib/useVoice.js) 进入 | 首页触发反馈后进入子页，再后退、刷新，观察当前衣装与播放状态 |
-| 改变页面地址或构建路径 | [routes.js](src/data/routes.js)、[Vite 配置](vite.config.js) 与[预渲染脚本](scripts/prerender.mjs) | 直接打开目标页、站内进入、刷新、历史返回四条路径 |
+开发服务默认地址为 `http://127.0.0.1:5173/`。组件与样式修改由 Vite 热更新；发布索引及正文变更触发页面重新加载。现有工作副本可直接从仓库根目录运行 `npm run dev`。
 
 ## 仓库结构
 
@@ -40,29 +27,37 @@ npm run dev
 | --- | --- |
 | [src/data](src/data) | 个人资料、项目摘要与详情、全站路由表 |
 | [src/pages](src/pages) | 项目详情、内容索引、文章、论文与教材阅读页 |
-| [src/components](src/components)、[src/lib](src/lib)、[src/styles](src/styles) | 页面组件、导航与音频逻辑、布局和交互动效 |
-| [content](content) | 发布索引、Markdown 正文和 AILearning 教材快照 |
-| [public](public) | 按原路径发布的插画、语音、教材配图与论文附件 |
-| [scripts](scripts) | 内容导入与校验、Markdown 渲染、静态页面生成 |
-| [tests](tests)、[.github/workflows](.github/workflows) | 内容与浏览器回归、持续集成和 Pages 发布 |
+| [src/components](src/components)、[src/lib](src/lib) | 公共组件、导航、筛选、光标和音频播放 |
+| [src/styles](src/styles) | 全站布局、阅读排版、导航和角色动效 |
+| [content](content) | 发布索引、Markdown 正文与 AILearning 教材快照 |
+| [public](public) | 按原路径发布的插画、语音、配图与附件 |
+| [scripts](scripts) | 教材导入、内容加载、静态页生成和工作区清理 |
+| [tests](tests)、[.github/workflows](.github/workflows) | 内容检查、浏览器回归、持续集成与 Pages 发布 |
 
-## 内容从哪里改
+## 内容维护
 
-**项目。** 首页卡片读取 `projects`，详情页从 [project-notes.js](src/data/project-notes.js) 读取背景、实现过程与验证范围。两处通过项目 ID 关联，该 ID 也是公开网址的一部分。以 GameQA 为例，修改卡片摘要只涉及 `projects` 中的 `gameqa` 条目；补充检索流程则修改同名详情记录。项目数组的顺序同时决定首页排序与详情页的前后翻页。
+**个人资料与项目。** [site.js](src/data/site.js) 中的 `profile` 管理昵称、简介、公开联系方式和语音路径，`projects` 定义首页项目卡片。首页布局在 [App.jsx](src/App.jsx) 中，项目页的实现说明在 [project-notes.js](src/data/project-notes.js) 中。两份项目数据使用同一 ID；项目数组顺序同时决定首页排列和详情页前后翻页顺序。
 
-**文章与论文。** 正文分别写在 `content/articles/` 和 `content/papers/`，标题、摘要、发布日期与正文路径登记在 [content/index.json](content/index.json)。构建器根据已发布条目的类型和 slug 生成索引与详情页。论文的署名、会议和原文地址也在同一条记录中维护。
+| 项目数据 | 显示位置 | GameQA 示例 |
+| --- | --- | --- |
+| `id`、`category` | 详情页地址、首页分类 | `gameqa` 对应 `/projects/gameqa/`，归入「应用」 |
+| `title`、`subtitle`、`description`、`tags` | 卡片标题、副标题、简介、技术标签 | 卡片文案位于 `projects` 的 `gameqa` 条目 |
+| `details`、`source` | 介绍弹窗的分项说明、源码入口 | 仓库地址指向 `Crystalclear9/RagGameQa` |
+| `motivation`、`implementation`、`scope` | 详情页的背景、实现过程与范围 | `projectNotes.gameqa.implementation` 定义「实现思路」各小节 |
 
-**AILearning。** 教材以专题形式进入文章列表。章节内容在源仓库编辑，再从本站根目录运行 `npm run import:learning -- ../AI_Learning`。导入结果包括 Markdown 快照、章节清单和配图；一起提交这三部分，其他开发者就能从同一版本构建站点。索引字段、目录约定和配图示例见[内容维护](docs/CONTENT.md)。
+**文章与论文。** 正文分别保存在 `content/articles/` 和 `content/papers/`，标题、摘要、发布日期、正文路径及发布状态登记在 [content/index.json](content/index.json)。`type` 和 `slug` 组成公开地址。论文条目另含作者、发表会议、原文与 PDF 链接；条目的 `project` 字段可将文章或论文关联到项目详情页。
 
-## 页面如何生成
+**AILearning。** 教材以单个专题进入文章列表。源仓库位于相邻的 `AI_Learning` 目录时，同步命令为 `npm run import:learning -- ../AI_Learning`。提交范围包括 `content/collections/ailearning/` 下的正文与清单，以及 `public/files/ailearning/` 下的配图。常规站点构建直接读取仓库中的快照。[内容字段、正文格式与导入流程](docs/CONTENT.md)
 
-[路由表](src/data/routes.js) 汇总项目、已发布条目和教材章节。[预渲染脚本](scripts/prerender.mjs) 遍历这张表，为每个地址写出带正文的 HTML。例如项目 ID 为 `gameqa` 时，构建产物是 `dist/projects/gameqa/index.html`。GitHub Pages 直接提供这份文件；浏览器加载脚本后接入筛选、主题、光标和站内导航。
+## 页面生成与站内导航
 
-扩展页面类型涉及三个入口：路由表定义地址，[页面组件](src/pages)负责展示，[客户端入口](src/main.jsx)负责挂载和站内切换。普通内容更新复用现有页面类型。[架构说明](docs/ARCHITECTURE.md)
+[路由表](src/data/routes.js) 汇总项目、已发布条目和教材章节。[预渲染脚本](scripts/prerender.mjs) 按公开路径写入正文，例如 GameQA 的产物为 `dist/projects/gameqa/index.html`。直接访问该地址时，浏览器先获得包含标题和正文的 HTML，再由 React 接入主题、筛选和导航。
 
-## 验证与发布
+新增页面类型涉及三个模块：路由表登记公开地址，[页面组件](src/pages)定义视图，[客户端入口](src/main.jsx)加载站内切换所需的数据。现有类型的内容更新沿用同一条生成流程。[架构与组件职责](docs/ARCHITECTURE.md)
 
-线上站点位于 `/SelfPage/`。在 PowerShell 中使用相同的前缀构建和预览，可以直接核对深层页面的样式、图片与站内链接。
+## 生产构建与测试
+
+GitHub Pages 的站点前缀为 `/SelfPage/`。本地生产预览使用同一前缀，以覆盖深层页面中的脚本、图片和返回链接。
 
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
@@ -72,10 +67,19 @@ npm run check:learning
 npm run preview -- --port 4174 --strictPort
 ```
 
-打开 `http://127.0.0.1:4174/SelfPage/`。保留预览进程，在第二个终端运行 `npm run check:browser-ci`，覆盖页面导航、章节阅读、光标和历史恢复。[开发与测试](docs/DEVELOPMENT.md)
+`check:content` 校验发布索引及正文格式，`build` 写入 `dist/`，`check:learning` 检查构建后的教材页面、链接、锚点和公式。预览地址为 `http://127.0.0.1:4174/SelfPage/`。浏览器回归在预览服务运行期间从独立终端执行。
 
-发往 `main` 的拉取请求运行生产构建与浏览器回归。站点改动合入 `main` 后，工作流发布本次生成的 `dist/`。仅更新 README 或 `docs/` 时跳过部署。[发布流程](docs/DEPLOYMENT.md)
+```powershell
+$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'
+npm run check:browser-ci
+```
+
+回归范围包括光标刷新、页面导航、章节阅读和历史恢复。项目筛选、卡片动效、音频及教材完整渲染各有独立检查。[开发环境与测试命令](docs/DEVELOPMENT.md)
+
+## 部署
+
+发往 `main` 的拉取请求运行生产构建与浏览器回归。站点改动推送到 `main` 后，GitHub Actions 校验内容、构建站点并发布 `dist/`。仅修改 README 或 `docs/` 的提交跳过部署。[工作流配置与发布步骤](docs/DEPLOYMENT.md)
 
 ## 交互与素材
 
-[站点功能](docs/FEATURES.md)记录首页筛选、阅读导航、主题与语音的使用方式。[导航与动效](docs/MOTION.md)说明滚动入场、卡片翻转和角色光标的实现。替换插画或音轨时查阅[素材规格与来源](docs/ASSETS.md)；教材图片的路径与署名单独收录在[教材配图](docs/LEARNING-IMAGE-SOURCES.md)。
+首页的分区入场、项目卡片翻转、返回栏和角色光标共用站点的导航与滚动状态。动效参数、组件位置和浏览器验证方法见[导航与动效](docs/MOTION.md)。插画、光标原画和音轨的来源与替换规格见[站点素材](docs/ASSETS.md)，教材插图的路径映射与署名见[教材配图](docs/LEARNING-IMAGE-SOURCES.md)。

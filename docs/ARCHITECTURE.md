@@ -2,7 +2,7 @@
 
 SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供 HTML、脚本、样式和附件，浏览器负责筛选、导航与阅读交互。
 
-## 从源文件到页面
+## 静态页面构建流程
 
 1. `src/data/site.js` 提供个人资料和项目顺序。`scripts/content.mjs` 读取内容索引，按发布日期排序，并通过 Vite 的 `virtual:writing` 模块提供已发布条目。
 2. `src/data/routes.js` 合并首页、项目、文章与论文，以及 AILearning 清单中的子页。`href()` 为站内地址添加部署前缀，`currentPath()` 把浏览器地址还原为应用路径。
@@ -32,9 +32,9 @@ SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供
 
 业务组件在动作发生时发出 `cursor-feedback`。头像使用 `greeting`，喜欢状态使用 `like` 或 `unlike`，复制成功后发送 `copied`，筛选结果更新后发送 `filtered`。角色组件消费这些事件；播放语音和写入剪贴板仍由各自的业务入口完成。
 
-## 一次教材换章经过哪些模块
+## 教材页面的导入、构建与加载
 
-以从目录进入微积分第一章为例，同一份 Markdown 在不同阶段有三种形态。选择修改位置取决于问题出现在哪一步。
+微积分第一章的源文件、发布路径与客户端正文节点分别由导入器、预渲染器和阅读页组件生成。
 
 | 阶段 | 输入与输出 | 负责模块 |
 | --- | --- | --- |
@@ -42,15 +42,14 @@ SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供
 | 构建 | 快照与清单 → 带章标题、公式、语法着色和 `#learning-content` 的 HTML | [learning.mjs](../scripts/learning.mjs) 处理正文，[prerender.mjs](../scripts/prerender.mjs) 写入路由目录 |
 | 浏览 | 当前页或目标页的 HTML → `LearningPage` 接收正文，显示目录、上级链接和相邻章节 | [main.jsx](../src/main.jsx) 读取正文，[LearningPage.jsx](../src/pages/LearningPage.jsx) 组织页面 |
 
-例如改章节标题时，编辑源 Markdown 的一级标题并重新导入。修复所有章节的公式解析时，改构建渲染器并重新构建。若直接打开正常，只有站内点击后仍是上一章，应从 `readPage` 的目标 URL、响应中的 `#learning-content` 和页面提交顺序开始定位。
+章节标题取自源 Markdown 的一级标题，在下次导入时更新。公式解析规则由构建渲染器统一处理，重新构建后作用于所有章节。直接访问和站内换章使用相同的正文节点；若两者显示的章标题不同，可核对 `readPage` 请求地址、响应中的 `#learning-content` 与 React 提交的页面路径。
 
 ## 页面状态的生命周期
 
 页面跳转由浏览器的 `navigate` 事件进入。`readPage` 完成后，`flushSync` 提交新树，然后恢复滚动、打开锚点所在的折叠块、发送 `site-page-rendered`。新页面的 `App` 因路径 key 改变而重新挂载，共享角色光标位于该 key 之外。原生刷新重新加载文档，从 head 中的首屏入口开始执行。
 
-开发新交互时，先确定状态属于哪个范围。筛选值随首页挂载建立；语音播放器在组件卸载或页面隐藏时停止；主题与喜欢状态跨访问保存在本地。注册窗口监听器的组件应在同一 effect 中解除监听。可以分别参考 [useProjectFilter.js](../src/lib/useProjectFilter.js)、[useVoice.js](../src/lib/useVoice.js) 和 [main.jsx](../src/main.jsx) 的实现。
+首页筛选值在组件挂载时初始化。语音播放器在组件卸载或 `pagehide` 事件触发时停止。主题与喜欢状态存于本地，跨访问保留。组件在 effect 中注册窗口监听器，并在该 effect 的清理函数中解除监听。相关实现见 [useProjectFilter.js](../src/lib/useProjectFilter.js)、[useVoice.js](../src/lib/useVoice.js) 和 [main.jsx](../src/main.jsx) 的实现。
 
-
-## 扩展一个页面
+## 新增页面类型
 
 在 `src/data/routes.js` 登记公开路径，并在页面组件中实现该路径的视图。预渲染器按路由表输出 HTML；站内切换由 `readPage` 装配目标页面的数据。用同一个地址验证直接访问、站内点击、刷新和历史返回，可以分别覆盖静态入口与客户端导航。[内容字段](CONTENT.md) · [本地验证](DEVELOPMENT.md)

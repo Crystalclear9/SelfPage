@@ -33,23 +33,23 @@
 
 `body` 相对 `content/`，`slug` 决定公开地址。写作期间可设 `published: false`，准备预览详情页时改为 `true`。使用小写英文、数字和连字符命名 slug，日期采用 `YYYY-MM-DD`。保存后运行 `npm run check:content` 核对索引。
 
-### 给 GameQA 增加一篇相关记录
+### 文章与项目关联
 
-沿用上面的 `retrieval-notes` 示例，在条目中加入 `"project": "gameqa"`。填入的是 `projects` 中稳定的 ID；`title` 用于页面显示，`repository` 则是 GitHub 仓库名。这里 GameQA 的三个值分别是 `gameqa`、`GameQA` 和 `RagGameQa`。
+文章条目的 `project` 字段引用 `projects[].id`。例如，`"project": "gameqa"` 将文章关联至 GameQA。该项目的显示名称为 `GameQA`，源码仓库名为 `RagGameQa`。
 
-在 `content/articles/retrieval-notes.md` 写入正文。详情页已经用索引的 `title` 生成一级标题，正文从二级标题开始。例如：
+`content/articles/retrieval-notes.md` 保存文章正文。详情页使用索引的 `title` 生成一级标题，正文从二级标题开始。
 
 ```markdown
 ## 检索流程
 
 查询先进入候选检索，再由排序阶段选择交给回答模块的片段。
 
-## 如何核对结果
+## 检索结果核对
 
 选定同一个问题，分别记录召回的文档、排序后的片段和回答采用的来源。
 ```
 
-保存两份文件后打开开发服务。文章列表按 `date` 倒序排列；点入该条目可读到完整正文。再打开 GameQA 的详情页，页内目录和正文末尾都会出现「相关记录」。这是同一条索引记录的两个入口，日后修改标题或摘要只需编辑一次。在生产构建中，对应文件为 `dist/articles/retrieval-notes/index.html`。
+文章列表按 `date` 倒序排列。发布关联文章后，GameQA 详情页会在页内目录和正文末尾增加「相关记录」入口。两处均读取同一条索引记录，文章详情生成于 `dist/articles/retrieval-notes/index.html`。
 
 ### 发布索引字段
 
@@ -63,10 +63,9 @@
 | `authors`、`venue` | 作者字符串数组按给定顺序展示；`venue` 展示会议或期刊名称。 |
 | `externalUrl`、`pdf` | 分别生成发表页面和阅读 PDF 的入口。正文图片另由 Markdown 引用。 |
 
-
 ## 维护论文
 
-论文条目使用 `type: "papers"`，正文放在 `content/papers/`。`authors` 按署名顺序填写，`venue` 填发表会议或期刊，`externalUrl` 对应发表页面。`pdf` 可以是 HTTPS 链接，也可以指向 `public/files/` 下的文件，索引写作 `files/文件名.pdf`，本地附件采用英文文件名。
+论文条目使用 `type: "papers"`，正文放在 `content/papers/`。`authors` 按署名顺序填写，`venue` 填发表会议或期刊，`externalUrl` 对应发表页面。`pdf` 可以是 HTTPS 链接，也可以指向 `public/files/` 下的文件，索引写作 `files/paper.pdf`，本地附件采用英文文件名。
 
 [K-GAT 正文](../content/papers/k-gat.md)与[配图](../public/files/k-gat)可以作为编排示例。首页索引保留正式题目与摘要，详情页按问题、方法和实验展开。K-GAT 的会议标记为 EMNLP 2026，发表入口指向 OpenReview，PDF 指向 arXiv，索引日期沿用预印本日期。
 
@@ -74,7 +73,7 @@
 
 [PaperBody.jsx](../src/pages/PaperBody.jsx) 将每个二级标题及其后的内容组成一个研究小节。目录取自这些标题，按顺序生成 `#paper-section-1` 等定位地址。正文里可以继续用三级标题组织实验条件和结果。调整二级标题的顺序也会改变这些位置编号。
 
-独占一个段落的 Markdown 图片会成为带图注的 figure，图片替代文字同时作为图注。要并排比较两张图，在同一小节内连续写两个图片段落；在两段之间插入一段解释，页面就会将它们分别排版。例如，下面的两个路径对应本站已有的 K-GAT 图片：
+独占段落的 Markdown 图片渲染为 `figure`，替代文字用作图注。同一小节内相邻的图片段落组成对照图组；以正文段落隔开时，各图独立排版。K-GAT 的对照图引用格式如下。
 
 ```markdown
 ## 协作结构的两类偏差
@@ -91,7 +90,7 @@
 文章列表通过 `ailearning` 条目进入专题。分类、主题、章节与阅读指南由[专题清单](../content/collections/ailearning/manifest.json)生成。更新专题摘要或日期时编辑内容索引，修改教材正文时编辑源资料。
 
 1. 在源目录查看 `git status --short`。导入读取磁盘上的内容，包含未提交的编辑，清单中的 `revision` 记录源仓库 HEAD。
-2. 从本站根目录执行下面的命令。第一个参数是源工作区路径。
+2. 在本站根目录运行 `import:learning`，路径参数指定源工作区。
 3. 对照 Git 差异检查 `content/collections/ailearning/` 和 `public/files/ailearning/`。章节改名或撤下时，核对清单与正文引用后清理旧副本。正文、清单和配图一并提交。
 
 ```powershell
@@ -105,7 +104,7 @@ node tests/learning-references.mjs
 
 目录中的 README 提供分类与主题说明。`01-标题.md` 生成 `chapter-01`；修改标题时可以保留编号和网址。添加顶级分类或阅读指南时，同步更新[导入映射](../scripts/import-learning.mjs)。
 
-### 查看实际渲染
+### 教材渲染验证
 
 打开生产预览，在另一个终端设置对应的 `TEST_URL`，运行 `npm run check:learning-ui` 和 `node tests/learning-render.mjs`。前者覆盖目录与阅读导航，后者核对实际页面中的图片解码和不同阅读环境。预览命令见[开发与测试](DEVELOPMENT.md)。
 

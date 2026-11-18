@@ -2,12 +2,12 @@
 
 使用与 CI 相同的 Node.js 24，在仓库根目录运行 `npm ci`。日常编辑使用开发服务，验收路由、样式与素材路径时使用生产预览。
 
-## 两种运行方式
+## 开发服务与生产预览
 
 | 场景 | 命令 | 地址 |
 | --- | --- | --- |
 | 编辑组件或正文 | `npm run dev` | 默认 `http://127.0.0.1:5173/` |
-| 阅读构建产物 | `npm run preview -- --port 4174 --strictPort` | 按下面的配置使用 `/SelfPage/` |
+| 阅读构建产物 | `npm run preview -- --port 4174 --strictPort` | `http://127.0.0.1:4174/SelfPage/`（生产前缀） |
 
 在 PowerShell 中构建发布版本并启动预览：
 
@@ -22,7 +22,7 @@ npm run preview -- --port 4174 --strictPort
 
 保持预览运行，在第二个终端设置 `$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'`，执行 `npm run check:browser-ci`。这组测试依次覆盖光标、导航、移动端阅读和过渡恢复，本地默认使用 Edge。修改源码后重新构建即可更新预览；切回根路径开发时，在开发终端执行 `Remove-Item Env:SITE_BASE_PATH -ErrorAction SilentlyContinue`。
 
-## 按改动选择测试
+## 测试命令与覆盖范围
 
 | 改动 | 检查 | 观察点 |
 | --- | --- | --- |
@@ -36,9 +36,9 @@ npm run preview -- --port 4174 --strictPort
 
 表中的 `check:*` 使用 `npm run` 执行。浏览器用例针对运行中的预览；`check:learning` 和引用扫描直接读取 `dist/`。
 
-## 在本机复核一次改动
+## 浏览器验收
 
-以修改项目卡片和教材排版为例，两个终端分别承担服务与验证。第一个终端按上文完成构建并保持预览运行。第二个终端在同一仓库根目录执行：
+浏览器测试使用运行中的生产预览。项目筛选和教材导航分别由 `check:projects` 与 `check:learning-ui` 验证，命令在独立终端的仓库根目录执行。
 
 ```powershell
 $env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'
@@ -46,7 +46,7 @@ npm run check:projects
 npm run check:learning-ui
 ```
 
-检查脚本的输入是 `TEST_URL` 指向的页面。刚才编辑的是 `src/` 而浏览器仍显示旧样式时，先确认当前标签页是开发服务还是 `dist/` 的预览；预览在下次构建完成后才会读到新产物。切换前缀时，构建和启动预览使用同一个 `SITE_BASE_PATH`。
+`TEST_URL` 指定测试的站点地址。开发服务实时读取 `src/`，生产预览读取 `dist/`；源码变更经 `npm run build` 后才进入预览。构建与预览使用相同的 `SITE_BASE_PATH`。
 
 | 验收对象 | 实际操作 | 预期结果 |
 | --- | --- | --- |
@@ -55,7 +55,7 @@ npm run check:learning-ui
 | 图文排版 | 将视口调到 375px，查看含表格、长代码与图片的章节，再切换深色主题 | 长代码保留缩进和语法颜色；内容可阅读，页面整体宽度贴合视口 |
 | 历史恢复 | 同一标签页从首页进入详情后按后退，再按前进 | 地址、主标题、返回操作和滚动位置对应当前页面 |
 
-### 选择浏览器
+### 浏览器环境
 
 `npm run check:browser-ci` 默认使用 Microsoft Edge。使用 Playwright 提供的 Chromium 时，在第二个终端运行以下命令。教材逐页渲染脚本 `tests/learning-render.mjs` 明确使用 Edge；运行这项全量检查的机器需要安装 Edge。
 
@@ -66,7 +66,6 @@ npm run check:browser-ci
 ```
 
 `check:learning` 适合每次内容构建后执行。调整公式处理、代码高亮、教材图片路径或全局阅读样式时，再运行 `node tests/learning-render.mjs`。它逐页打开折叠内容、等待字体与图片就绪，分别检查启用和关闭 JavaScript、375px 和 1440px 视口、浅色和深色主题。失败输出中的路由可直接拼在预览地址后复现。
-
 
 ## 定位渲染问题
 
