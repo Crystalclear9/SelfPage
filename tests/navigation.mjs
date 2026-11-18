@@ -91,6 +91,19 @@ try {
     assert.equal(await page.locator('.project-grid').evaluate(el => getComputedStyle(el).gap), width === 375 ? '12px' : '16px');
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   }
+  const contact = page.locator('.contact-inner');
+  const panel = contact.locator('.contact-panel');
+  await contact.scrollIntoViewIfNeeded();
+  await expect(contact).toHaveCSS('translate', '0px');
+  const box = await contact.boundingBox();
+  const tiltY = () => panel.evaluate(el => new DOMMatrixReadOnly(getComputedStyle(el).transform).m31);
+  await page.mouse.move(box.x + 5, box.y + 5);
+  await expect.poll(tiltY).toBeLessThan(-.02);
+  await page.mouse.move(box.x + box.width - 5, box.y + 5);
+  await expect.poll(tiltY).toBeGreaterThan(.02);
+  assert.deepEqual(await contact.boundingBox(), box);
+  await page.mouse.move(box.x + box.width + 5, box.y + 5);
+  await expect.poll(tiltY).toBe(0);
   await page.setViewportSize({ width: 375, height: 600 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const route of ['projects/gameqa/', 'articles/', 'papers/']) {

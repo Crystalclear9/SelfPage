@@ -61,9 +61,9 @@ npm run preview -- --port 4174 --strictPort
 
 `check:content` 校验内容索引和 Markdown 渲染。`build` 将静态资源与预渲染页面写入 `dist/`。`check:learning` 检查生成的学习资料页，包括站内链接、章节锚点和公式输出。
 
-预览运行后，在另一个终端执行 `npm run check:browser-ci`。该命令默认访问 `http://127.0.0.1:4174/SelfPage/`，依次验证光标刷新与历史返回、页面导航、移动端章节阅读和过渡恢复。本地默认使用 Edge，CI 使用 Playwright 安装的 Chromium。
+预览运行后，在另一个终端执行 `npm run check:browser-ci`。该命令默认访问 `http://127.0.0.1:4174/SelfPage/`，依次验证光标刷新与历史返回、页面导航、移动端章节阅读和过渡恢复。本地默认使用 Edge，CI 优先使用运行器的 Chrome，缺少时安装 Chromium。
 
-面向 `main` 的拉取请求会运行构建和回归检查。推送到 `main` 后，工作流将通过检查的同一份 `dist/` 发布到 GitHub Pages。具体步骤见[发布工作流](.github/workflows/deploy.yml)与[部署及回退说明](docs/DEPLOYMENT.md)。
+面向 `main` 的拉取请求会运行构建和回归检查。推送到 `main` 后，工作流执行语音与内容检查、构建及学习资料校验，随后发布该次构建的 `dist/`。仅修改 README 或 `docs/` 时跳过自动运行；手动发布可选择完整浏览器回归。具体步骤见[发布工作流](.github/workflows/deploy.yml)与[部署及回退说明](docs/DEPLOYMENT.md)。
 
 ## 按改动选择检查
 

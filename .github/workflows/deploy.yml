@@ -2,9 +2,16 @@ name: Verify and deploy GitHub Pages
 on:
   pull_request:
     branches: [main]
+    paths-ignore: [README.md, "docs/**"]
   push:
     branches: [main]
+    paths-ignore: [README.md, "docs/**"]
   workflow_dispatch:
+    inputs:
+      browser_checks:
+        description: Run the browser regression suite before publishing
+        type: boolean
+        default: true
 permissions:
   contents: read
 concurrency:
@@ -40,10 +47,18 @@ jobs:
           echo "SITE_BASE_PATH=${PAGES_PATH%/}/" >> "$GITHUB_ENV"
       - run: npm run build
       - run: npm run check:learning
-      - run: npx playwright install --with-deps chromium
-      - name: Exercise production pages in Chromium
-        env:
-          BROWSER_CHANNEL: chromium
+      - name: Prepare browser for regression tests
+        if: github.event_name == 'pull_request' || inputs.browser_checks
+        run: |
+          if command -v google-chrome >/dev/null; then
+            google-chrome --version
+            echo "BROWSER_CHANNEL=chrome" >> "$GITHUB_ENV"
+          else
+            npx playwright install --with-deps chromium
+            echo "BROWSER_CHANNEL=chromium" >> "$GITHUB_ENV"
+          fi
+      - name: Exercise production pages in browser
+        if: github.event_name == 'pull_request' || inputs.browser_checks
         run: |
           export TEST_URL="http://127.0.0.1:4174${SITE_BASE_PATH}"
           npm run preview -- --port 4174 --strictPort > "$RUNNER_TEMP/preview.log" 2>&1 &
