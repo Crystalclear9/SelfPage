@@ -6,11 +6,31 @@ export function createVoicePlayer(src, { onPlaying = () => {}, onError = () => {
   let version = 0;
   let running = false;
   const player = {
+    prepare() {
+      if (!src || audio) return audio;
+      const media = new Audio();
+      audio = media;
+      media.preload = 'auto';
+      media.volume = .7;
+      media.onended = () => {
+        if (audio === media && media.ended) player.stop();
+      };
+      media.onerror = () => {
+        if (audio !== media) return;
+        const report = running && activePlayer === player;
+        audio = undefined;
+        if (report) { player.stop(); onError(); }
+      };
+      media.src = src;
+      return media;
+    },
     stop() {
       version++;
       running = false;
-      if (audio) {
+      if (audio && !audio.paused) {
         audio.pause();
+      }
+      if (audio?.currentTime > 0) {
         audio.currentTime = 0;
       }
       if (activePlayer === player) activePlayer = undefined;
@@ -22,26 +42,15 @@ export function createVoicePlayer(src, { onPlaying = () => {}, onError = () => {
       activePlayer = player;
       running = true;
       const request = ++version;
-      if (!audio) {
-        audio = new Audio(src);
-        audio.preload = 'none';
-        audio.volume = .7;
-        const media = audio;
-        audio.onended = () => { if (audio === media) player.stop(); };
-        audio.onerror = () => {
-          // Media errors can arrive after play() has already resolved.
-          if (audio !== media || !running || activePlayer !== player) return;
-          player.stop();
-          audio = undefined; // Retry with a fresh media element after a failed load.
-          onError();
-        };
-      }
+      const media = player.prepare();
+      // The avatar can cancel this request while the browser buffers.
+      onPlaying(true);
       try {
-        await audio.play();
-        if (request === version) onPlaying(true);
+        await media.play();
       } catch (error) {
         if (request !== version) return;
         player.stop();
+        audio = undefined;
         if (error.name !== 'AbortError') onError();
       }
     },

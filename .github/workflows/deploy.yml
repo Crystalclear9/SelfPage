@@ -23,6 +23,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: node tests/voice.mjs
       - run: npm run check:content
       - name: Read deployment path
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

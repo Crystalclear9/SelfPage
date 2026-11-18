@@ -3,7 +3,7 @@ import { createVoicePlayer } from '../src/lib/voice-player.js';
 
 const clips = [];
 globalThis.Audio = class {
-  constructor(src) { this.src = src; this.paused = true; clips.push(this); }
+  constructor(src) { this.src = src; this.paused = true; this.currentTime = 0; clips.push(this); }
   play() {
     this.paused = false;
     return new Promise((resolve, reject) => { this.resolve = resolve; this.reject = reject; });
@@ -17,7 +17,12 @@ const thanks = createVoicePlayer('thanks.mp3', {
 });
 await createVoicePlayer('').play();
 assert.equal(clips.length, 0);
+greeting.prepare();
+greeting.prepare();
+assert.equal(clips.length, 1);
+assert.equal(clips[0].preload, 'auto');
 const first = greeting.play();
+assert.equal(greetingPlaying, true, 'Pending playback can be cancelled immediately');
 await greeting.play(); // A pending request must not create an overlapping clip.
 assert.equal(clips.length, 1);
 const second = thanks.play();
@@ -37,9 +42,10 @@ await failed;
 assert.equal(errors, 1);
 assert.equal(thanksPlaying, false);
 const retry = thanks.play();
-clips[1].resolve();
+clips[2].resolve();
 await retry;
-clips[1].onended();
+clips[2].ended = true;
+clips[2].onended();
 assert.equal(thanksPlaying, false);
 const cancelled = greeting.play();
 greeting.toggle();
@@ -48,20 +54,20 @@ await cancelled;
 assert.equal(greetingPlaying, false);
 assert.equal(errors, 1);
 const interrupted = thanks.play();
-clips[1].resolve();
+clips[2].resolve();
 await interrupted;
-clips[1].onerror();
+clips[2].onerror();
 assert.equal(thanksPlaying, false, 'A mid-playback failure must clear the playing state');
 assert.equal(errors, 2);
-clips[1].onerror();
+clips[2].onerror();
 assert.equal(errors, 2, 'An idle failed element must not report twice');
 const recovered = thanks.play();
-assert.equal(clips.length, 3, 'Retry must replace a failed media element');
-clips[2].resolve();
+assert.equal(clips.length, 4, 'Retry must replace a failed media element');
+clips[3].resolve();
 await recovered;
 assert.equal(thanksPlaying, true);
-clips[1].onerror();
-clips[1].onended();
+clips[2].onerror();
+clips[2].onended();
 assert.equal(thanksPlaying, true, 'Late events from the failed element must not stop its replacement');
 thanks.stop();
 console.log('Voice playback: exclusivity, pending requests, stop, retry, completion and mid-playback failure passed.');

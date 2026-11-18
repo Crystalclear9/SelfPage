@@ -36,11 +36,9 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
     () => setToast('语音暂时无法播放。'));
   const toggleLike = () => {
     if (!liked) {
-      unlikeVoice.stop();
       document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' }));
       void likeVoice.play();
     } else {
-      likeVoice.stop();
       document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'unlike' }));
       void unlikeVoice.play();
     }

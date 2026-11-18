@@ -34,7 +34,6 @@
     .project-reveal { view-timeline-name: --project-arrival; perspective: 850px; }
     .project-reveal .project-card { animation: card-arrive linear both; animation-timeline: --project-arrival; animation-range: cover 0% cover 100%; transform-origin: center; }
     .about-copy { animation: copy-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
-    .contact-inner { animation: panel-arrive linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
     .hero { view-timeline-name: --hero; }
     .hero-art { animation: art-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 90%; }
     .hero-copy { animation: copy-depart linear both; animation-timeline: --hero; animation-range: exit 0% exit 80%; }
@@ -53,7 +52,6 @@
       }
     }
     @keyframes copy-arrive { from { translate: 0 36px; } to { translate: 0 0; } }
-    @keyframes panel-arrive { from { scale: .93; translate: 0 36px; } to { scale: 1; translate: 0 0; } }
     @keyframes art-depart { to { translate: 0 -65px; rotate: -4deg; scale: .9; } }
     @keyframes copy-depart { to { translate: 0 -35px; opacity: 1; } }
     @media (min-width: 1000px) and (min-height: 650px) {
