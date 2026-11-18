@@ -7,7 +7,7 @@ const browser = await chromium.launch({
   ignoreDefaultArgs: ['--disable-back-forward-cache'],
 });
 try {
-  const page = await browser.newPage({ reducedMotion: 'no-preference' });
+  const page = await browser.newPage({ deviceScaleFactor: 2, reducedMotion: 'no-preference' });
   await page.addInitScript(() => {
     const random = Math.random;
     Math.random = () => {
@@ -50,6 +50,13 @@ try {
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     await expect(page.locator('body')).toHaveCSS('cursor', 'none');
     await expect(sprite).toBeHidden();
+    const resolution = await page.locator('.animated-cursor').evaluate(async el => {
+      const image = new Image();
+      image.src = getComputedStyle(el).backgroundImage.match(/url\("([^"]+)"\)/)[1];
+      await image.decode();
+      return [image.naturalWidth, image.naturalHeight];
+    });
+    assert.deepEqual(resolution, [192, 204], 'Idle pointer uses the full-resolution artwork');
     const box = await page.locator('.animated-cursor').boundingBox();
     assert.equal(box.x + 8, 300);
     assert.equal(box.y + 12, 220);
@@ -69,7 +76,7 @@ try {
   await page.locator('.writing-door').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
   await expect(page.locator('.entry-row').first()).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/png/);
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/webp/);
   assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor')), nativeBefore);
   await page.unroute(externalAssets);
   await page.goBack({ waitUntil: 'commit' });
@@ -82,7 +89,7 @@ try {
   // restoration of the pointer or its contextual feedback.
   const [cx, cy] = await page.evaluate(() => JSON.parse(sessionStorage.testPoint));
   await expect(page.locator('.animated-cursor')).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/png;base64/);
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/webp;base64/);
   const restored = await page.locator('.animated-cursor').boundingBox();
   assert.ok(Math.abs(restored.x + 8 - cx) < 1);
   assert.ok(Math.abs(restored.y + 12 - cy) < 1);
