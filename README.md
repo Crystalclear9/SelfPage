@@ -1,8 +1,8 @@
 # SelfPage
 
-SelfPage 是 Crystalclear9 个人网站的源码仓库，用于维护和发布开源项目介绍、开发记录、技术文章和研究论文。
+[访问网站](https://crystalclear9.github.io/SelfPage/) · [内容维护](docs/CONTENT.md) · [部署说明](docs/DEPLOYMENT.md) · [交互实现](docs/MOTION.md) · [素材来源](docs/ASSETS.md)
 
-[访问个人主页](https://crystalclear9.github.io/SelfPage/)
+个人项目、技术文章与论文的静态网站。使用 React、Vite 和构建时预渲染，发布至 GitHub Pages。每个页面输出独立 HTML，支持直接访问、刷新和无 JavaScript 阅读；客户端加载后接入筛选、主题及交互。
 
 ## 文档导航
 
