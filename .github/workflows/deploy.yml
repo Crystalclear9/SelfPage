@@ -49,7 +49,10 @@ jobs:
           npm run preview -- --port 4174 --strictPort > "$RUNNER_TEMP/preview.log" 2>&1 &
           preview_pid=$!
           trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
-          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 "$TEST_URL" -o /dev/null
+          if ! curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 "$TEST_URL" -o /dev/null 2>"$RUNNER_TEMP/preview-curl.log"; then
+            cat "$RUNNER_TEMP/preview-curl.log" "$RUNNER_TEMP/preview.log" >&2
+            exit 1
+          fi
           npm run check:browser-ci
       - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

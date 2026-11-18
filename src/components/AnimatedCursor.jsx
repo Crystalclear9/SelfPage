@@ -99,7 +99,6 @@ export default function AnimatedCursor() {
         render();
         el.showPopover();
         root.classList.add('animated-cursor-active');
-        if (root.classList.contains('cursor-restoring')) window.dispatchEvent(new Event('cursor-mounted'));
       }
       const semantic = context();
       if (transient && !down && (transient === 'playful' ? semantic !== 'default' : ['text', 'read', 'vertical-text'].includes(semantic))) { clearTimeout(timer); transient = ''; }
@@ -186,12 +185,6 @@ export default function AnimatedCursor() {
       const point = window.readCursorPoint?.();
       if (point && !document.hidden) position(point);
     };
-    // Do not re-enable the outgoing native outfit during reload teardown.
-    const depart = event => {
-      if (visible && event.activation?.navigationType === 'reload') return;
-      hide();
-    };
-    const pageHide = event => { if (event.persisted) hide(); };
     const restore = event => { if (event.persisted) { loadSprite(); resumePoint(); } };
     const reveal = event => { event.viewTransition?.finished.then(schedule, schedule); };
     const preventWordSelection = event => {
@@ -201,7 +194,7 @@ export default function AnimatedCursor() {
     };
     const keyboard = event => { if (event.key === 'Escape' || event.key === 'Tab') hide(); };
     const preference = () => { hide(); loadSprite(); };
-    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', keyboard], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pageswap', depart], [window, 'pagehide', pageHide], [window, 'pageshow', restore], [window, 'site-page-rendered', schedule], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
+    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', keyboard], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pageswap', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'site-page-rendered', schedule], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
     loadSprite();
     resumePoint();
     document.fonts.ready.then(() => { if (!disposed) schedule(); });

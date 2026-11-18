@@ -58,16 +58,36 @@ try {
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.goto(base);
     const stage = page.locator('.project-reveal').nth(1);
-    const { top, height } = await stage.evaluate(el => ({ top: el.getBoundingClientRect().top + scrollY, height: el.offsetHeight }));
-    const angles = [];
+    await expect(page.locator('html')).toHaveClass(/interactive/);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    });
+    const card = stage.locator('.project-card');
+    let firstAngle;
     for (const progress of [.12, .5, .88, .5, .12]) {
-      await page.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), top - 1000 + progress * (1000 + height));
-      await page.waitForTimeout(100);
-      angles.push(await stage.locator('.project-card').evaluate(el => parseFloat(getComputedStyle(el).rotate.replace('x ', ''))));
+      // ViewTimeline offsets include the site's scroll padding.
+      await card.evaluate((el, fraction) => {
+        const timeline = el.getAnimations().find(a => a.animationName?.startsWith('card-arrive')).timeline;
+        const start = timeline.startOffset.to('px').value;
+        const end = timeline.endOffset.to('px').value;
+        scrollTo({ top: start + fraction * (end - start), behavior: 'instant' });
+      }, progress);
+      const angle = () => card.evaluate((el, fraction) => {
+        const animation = el.getAnimations().find(a => a.animationName?.startsWith('card-arrive'));
+        const position = animation?.effect.getComputedTiming().progress;
+        if (position == null || Math.abs(position - fraction) > .002) return NaN;
+        return Number.parseFloat(getComputedStyle(el).rotate.replace(/^x /, ''));
+      }, progress);
+      const sample = expect.poll(angle, { message: `Card rotation at width ${width}, scroll fraction ${progress}` });
+      if (progress === .5) await sample.toBe(0);
+      else if (progress === .88) await sample.toBeLessThan(-8);
+      else if (firstAngle !== undefined) await sample.toBeCloseTo(firstAngle, 1);
+      else {
+        await sample.toBeGreaterThan(8);
+        firstAngle = await angle();
+      }
     }
-    assert.ok(angles[0] > 8 && angles[2] < -8, 'Visible rotation at both viewport edges');
-    assert.equal(angles[1], 0); assert.equal(angles[3], 0);
-    assert.equal(angles[0], angles[4], 'Reverse scrolling follows the same motion');
     assert.equal(await page.locator('.project-grid').evaluate(el => getComputedStyle(el).gap), width === 375 ? '12px' : '16px');
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   }

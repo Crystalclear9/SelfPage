@@ -3,11 +3,17 @@
   const key = 'cursor-outfit:' + base;
   const root = document.documentElement;
   const valid = value => value === 'short' || value === 'long';
+  const chooseOutfit = () => {
+    const outfit = Math.random() < 0.5 ? 'short' : 'long';
+    root.dataset.cursorOutfit = outfit;
+    try { sessionStorage.setItem(key, outfit); } catch { /* Storage is optional. */ }
+    return outfit;
+  };
+  window.chooseCursorOutfit = chooseOutfit;
   try {
     let outfit = sessionStorage.getItem(key);
     if (!valid(outfit) || performance.getEntriesByType('navigation')[0]?.type === 'reload') {
-      outfit = Math.random() < 0.5 ? 'short' : 'long';
-      sessionStorage.setItem(key, outfit);
+      outfit = chooseOutfit();
     }
     root.dataset.cursorOutfit = outfit;
     window.addEventListener('pageshow', event => {
@@ -41,25 +47,6 @@
       } catch { /* Storage is optional. */ }
     };
     restore();
-    // Own the first frame of a stationary reload, before React or site.css arrives.
-    // A real input event releases the bootstrap image if the app never mounts.
-    if (point && performance.getEntriesByType('navigation')[0]?.type === 'reload' &&
-        matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-      root.style.setProperty('--reload-cursor-x', (point.clientX - 8) + 'px');
-      root.style.setProperty('--reload-cursor-y', (point.clientY - 12) + 'px');
-      root.classList.add('cursor-restoring');
-      const release = () => {
-        root.classList.remove('cursor-restoring');
-        root.style.removeProperty('--reload-cursor-x');
-        root.style.removeProperty('--reload-cursor-y');
-        controller.abort();
-      };
-      const controller = new AbortController();
-      for (const type of ['pointermove', 'pointerdown', 'keydown', 'cursor-mounted', 'pagehide', 'blur']) {
-        window.addEventListener(type, release, { capture: true, signal: controller.signal });
-      }
-      root.addEventListener('pointerleave', release, { signal: controller.signal });
-    }
     window.readCursorPoint = () => point;
     document.addEventListener('pointermove', remember, { capture: true, passive: true });
     document.addEventListener('pointerdown', remember, { capture: true, passive: true });
