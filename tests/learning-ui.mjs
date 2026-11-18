@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { loadLearning } from '../scripts/learning.mjs';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
 const chapter = 'articles/ailearning/mathematics/linear-algebra/chapter-01/';
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
 try {
   for (const javaScriptEnabled of [false, true]) {
     const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });

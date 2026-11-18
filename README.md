@@ -47,7 +47,7 @@ npm run check:navigation
 node tests/learning-render.mjs
 ```
 
-推送到 `main` 后，GitHub Actions 会从源码重新构建并发布。[部署与回退](docs/DEPLOYMENT.md)
+面向 `main` 的拉取请求和推送都会构建完整站点，检查文章链接与公式，并用 Chromium 验证光标、返回导航、移动端阅读和页面恢复。推送到 `main` 后，通过检查的同一份产物会发布到 Pages。[部署与回退](docs/DEPLOYMENT.md)
 
 ## 开发手册
 

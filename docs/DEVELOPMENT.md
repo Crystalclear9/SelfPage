@@ -103,6 +103,8 @@ npm run check:pages
 | `npm run check:chapters` | 模块和标题组多轮双向触发、实际过渡、区内固定、动态卡片登记 | 是 |
 | `npm run check:assets` | 缓存入口兼容、SandBoxSim 样式与历史恢复、板块间距 | 是 |
 | `npm run check:motion` | 滚动动效、角色状态、弹窗、触屏和减少动态效果 | 是 |
+| `npm run check:browser-ci` | 按 CI 顺序检查光标、导航、学习资料界面与页面恢复；默认预览地址为 `http://127.0.0.1:4174/SelfPage/`，可用 `TEST_URL` 覆盖 | 是 |
+| `npm run check:cursor` | 两套光标的刷新、延迟加载与站内导航 | 是 |
 | `npm run check:navigation` | 返回、历史遍历、翻页、导航选中态、顶部按钮互斥 | 是 |
 | `npm run check:entry` | 新入口、同页收藏、刷新逐帧位置和弹窗反馈 | 是 |
 | `npm run check:projects` | 项目区定位、筛选切换、操作行、复制链接与光晕清理 | 是 |
@@ -127,7 +129,7 @@ powershell -NoProfile -File scripts/clean.ps1 -WhatIf
 npm run clean
 ```
 
-清理仅删除 `dist/` 与 `.local/`；脚本拒绝跟随其中的链接目录或文件。`node_modules/`、源码、附件、锁文件及 Git 历史保留。需要预览时重新构建即可。
+清理会将 `dist/`、`.local/` 和 `node_modules/` 下的 `.vite/`、`.vite-temp/` 缓存移入 Windows 回收站。脚本会检查目标及其链接。`node_modules/`、源码、附件、锁文件及 Git 历史保留。需要预览时重新构建即可。
 
 | 文件类别 | 处理规则 |
 | --- | --- |
@@ -138,7 +140,7 @@ npm run clean
 | `docs/`、`README.md` | 实现变化时同步更新，不保留已移除功能的说明 |
 | `package.json`、`package-lock.json` | 保留依赖声明和锁定版本，确保 KaTeX 渲染器与样式一致 |
 | `node_modules/` | 本地运行依赖，Git 忽略，日常清理保留；可通过 `npm ci` 重建 |
-| `dist/`、`.local/` | 可再生的构建、截图和报告，停止相关任务后使用 `npm run clean` 删除 |
+| `dist/`、`.local/` | 可再生的构建、截图和报告，停止相关任务后使用 `npm run clean` 移入回收站 |
 
 已有正文或附件的目录不需要 `.gitkeep`。新截图、日志和临时报告统一放入 `.local/`，不要混入源码或 `public/`，后者会直接发布。清理不涉及仓库外的原始素材和用户文件。
 

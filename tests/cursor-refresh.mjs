@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 
-const base = process.env.TEST_URL || 'http://127.0.0.1:4189/SelfPage/';
+const base = process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/';
 const browser = await chromium.launch({
   channel: process.env.BROWSER_CHANNEL || 'msedge',
   ignoreDefaultArgs: ['--disable-back-forward-cache'],

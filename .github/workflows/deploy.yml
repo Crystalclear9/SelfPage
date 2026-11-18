@@ -1,39 +1,64 @@
-name: Deploy GitHub Pages
+name: Verify and deploy GitHub Pages
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   build:
+    permissions:
+      contents: read
+      pages: read
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
-      # Pages must be enabled with Source = GitHub Actions in repository settings.
-      # GITHUB_TOKEN can deploy to an existing site, but cannot enable a new one.
-      - name: Check GitHub Pages configuration
-        id: pages
-        uses: actions/configure-pages@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
       - run: npm ci
       - run: npm run check:content
-      - run: npm run build
+      - name: Read deployment path
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        id: pages
+        uses: actions/configure-pages@v6
+      - name: Select preview and build path
         env:
-          SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          PAGES_PATH: ${{ steps.pages.outputs.base_path }}
+          PR_PATH: /${{ github.event.repository.name }}
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == pull_request || "$GITHUB_REF" != refs/heads/main ]]; then
+            PAGES_PATH="$PR_PATH"
+          fi
+          echo "SITE_BASE_PATH=${PAGES_PATH%/}/" >> "$GITHUB_ENV"
+      - run: npm run build
       - run: npm run check:learning
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise production pages in Chromium
+        env:
+          BROWSER_CHANNEL: chromium
+        run: |
+          export TEST_URL="http://127.0.0.1:4174${SITE_BASE_PATH}"
+          npm run preview -- --port 4174 --strictPort > "$RUNNER_TEMP/preview.log" 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 "$TEST_URL" -o /dev/null
+          npm run check:browser-ci
       - uses: actions/upload-pages-artifact@v5
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           path: dist
   deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
