@@ -15,7 +15,10 @@ try {
   const state = value => expect(cursor).toHaveAttribute('data-state', value);
   await page.mouse.move(600, 160);
   await expect(cursor).toBeVisible();
-  await expect(cursor.locator('img')).toHaveAttribute('src', /megumi-cursor.svg$/);
+  const outfit = await page.locator('html').getAttribute('data-cursor-outfit');
+  assert.ok(['short', 'long'].includes(outfit));
+  const spriteName = outfit === 'short' ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg';
+  assert.ok((await cursor.locator('img').getAttribute('src')).endsWith('/' + spriteName));
   await page.mouse.move(720, 160);
   await page.mouse.move(550, 160);
   await page.mouse.move(720, 160);
@@ -112,7 +115,9 @@ try {
   await page.screenshot({ path: '.local/reports/pointer-thanks.png' });
   await like.click();
   await expect(like).toHaveAttribute('aria-pressed', 'false');
-  await state('click');
+  await state('unlike');
+  await page.locator('.avatar-button').click();
+  await state('greeting');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.mouse.move(300, 160);
   await expect(cursor).toBeHidden();

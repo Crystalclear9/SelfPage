@@ -24,6 +24,8 @@
 
 `public/images/megumi-cursor.svg` 内嵌由内置 imagegen 生成的透明 PNG，SVG 仅定义 64 × 68 的光标显示尺寸，保留原始透明度。属于加藤惠同人角色素材，并非官方插画。原生 CSS cursor 的热点为 `(8, 12)`，对应伸出的指尖；移动端不启用。
 
+袜口参考第一季第三话坡道场景。窄紫褐色缎带束住白色褶边，上缘微微立起，下缘向外展开。[镜头参考](https://www.anime-graffiti.com/wp-content/uploads/img/201501/20150130-s035.jpg) 过膝白袜版本内嵌 256 × 272 透明位图。原版短袜插画保存在 `public/images/megumi-cursor-short.svg`。
+
 生成提示词：
 
 > Create a single transparent-background mouse cursor sprite: Megumi Kato from Saekano, recognizable short chestnut bob haircut, white beret, red cardigan over white dress. Cute compact chibi full body, crisp pixel-art-like clean anime silhouette legible at 48x64 pixels. She leans diagonally and extends her left arm toward upper left with ONE index fingertip at the extreme upper left of the silhouette as the precise cursor click hotspot. Entire character visible, shoes included. Tight crop, transparent margins minimal. No arrow, no conventional mouse cursor, no circle, no badge, no background, no text, no shadow backdrop, no other characters. Clean defined outlines, restrained shading, white clothing opaque, genuine transparent alpha outside silhouette. Output single isolated character asset for UI use.

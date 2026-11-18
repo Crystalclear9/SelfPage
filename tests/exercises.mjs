@@ -13,10 +13,12 @@ try {
     const answer = page.locator('.exercise-answer').first();
     assert.equal(await answer.getAttribute('open'), null);
     await answer.locator('summary').click();
+    if (reducedMotion === 'no-preference') await page.waitForSelector('.animated-cursor[data-state=answer-open]');
     if (reducedMotion === 'no-preference') assert.ok(await answer.evaluate(el => el.getAnimations().length > 0));
     await answer.evaluate(async el => { await Promise.all(el.getAnimations({ subtree: true }).map(a => a.finished)); });
     assert.ok(await answer.locator('.exercise-solution').isVisible());
     await answer.locator('summary').click();
+    if (reducedMotion === 'no-preference') await page.waitForSelector('.animated-cursor[data-state=answer-close]');
     await page.waitForFunction(() => !document.querySelector('.exercise-answer').open);
     await answer.locator('summary').evaluate(el => { el.click(); el.click(); el.click(); });
     await answer.evaluate(async el => { await Promise.all(el.getAnimations({ subtree: true }).map(a => a.finished)); });

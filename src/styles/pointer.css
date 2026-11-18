@@ -1,8 +1,5 @@
-/* Extra feedback shares the existing rose accent and unchanged character asset. */
 .cursor-hint { position: absolute; left: 45px; top: 58px; padding: 4px 7px; border-radius: 6px; background: var(--elevated); color: var(--ink); border: 1px solid var(--line); font: 11px/1.4 system-ui; white-space: nowrap; }
 .cursor-hint:empty { display: none; }
-.animated-cursor:is([data-state='copied'], [data-state='filtered']) .cursor-sprite { animation: cursor-tap .4s both; }
-.animated-cursor:is([data-state='copied'], [data-state='filtered']) .cursor-ring { animation: cursor-ripple .45s both; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .project-card, .art-window, .contact-inner, .avatar { position: relative; isolation: isolate; }
   .project-card, .art-window, .contact-inner, .avatar {
@@ -30,42 +27,41 @@
   }
   .filter-bar button[data-pointer-inside] { box-shadow: inset 0 0 0 1px var(--line); }
 }
-.cursor-spark { position: absolute; left: 6px; top: 10px; width: 4px; height: 4px; background: var(--accent); border-radius: 1px; opacity: 0; }
-.cursor-orbit { position: absolute; left: -4px; top: 0; width: 24px; height: 24px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0; transform-origin: center; }
-.cursor-orbit::after { content: ''; position: absolute; top: -2px; left: 10px; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); }
-.cursor-wake { position: absolute; left: 34px; top: 30px; width: 26px; height: 24px; border-right: 1px solid var(--accent); border-radius: 50%; opacity: 0; rotate: -35deg; transition: opacity .15s, transform .2s; }
-.cursor-wake::after { content: ''; position: absolute; inset: 3px -5px 3px 5px; border-right: 1px solid var(--accent); border-radius: 50%; }
-.animated-cursor[data-speed='fast'] .cursor-wake { opacity: .45; transform: translate(4px, 4px); }
-.animated-cursor[data-state='pointer'] .cursor-orbit { opacity: .35; scale: .7; border-style: dashed; animation: cursor-spin 3s linear infinite; }
-.animated-cursor[data-state='charging'] .cursor-orbit { opacity: .7; animation: charge-orbit .65s ease-out both; }
-.animated-cursor[data-state='charging'] .cursor-sprite { transform: rotate(12deg) scale(.85); }
-.animated-cursor[data-state='charged'] .cursor-orbit { opacity: .8; scale: 1.6; border-style: dashed; animation: cursor-spin 1.2s linear infinite; }
-.animated-cursor[data-state='charged'] .cursor-sprite { transform: rotate(-10deg) scale(.92); }
-.animated-cursor[data-state='charged-release'] .cursor-sprite { animation: charged-release .6s cubic-bezier(.16, 1, .3, 1) both; }
-.animated-cursor[data-state='charged-release'] .cursor-ring { animation: cursor-ripple .65s both; }
-.animated-cursor[data-state='grabbing'] .cursor-orbit { opacity: .6; scale: .65; border-style: dotted; animation: cursor-spin 1.8s linear infinite; }
-.animated-cursor[data-state='settle'] .cursor-sprite { animation: cursor-tap .45s both; }
-.animated-cursor[data-state='settle'] .cursor-ring { animation: cursor-ripple .45s both; }
-.animated-cursor[data-state='scroll'] .cursor-sprite { transform: rotate(var(--scroll-angle, 10deg)); }
-.animated-cursor[data-state='scroll'] .cursor-orbit { opacity: .5; border-top-color: transparent; border-bottom-color: transparent; animation: cursor-spin .75s linear infinite; }
-.animated-cursor[data-state='context'] .cursor-sprite { transform: rotate(-12deg) scale(.94); }
-.animated-cursor[data-state='copy'] .cursor-orbit { animation: cursor-ripple .5s both; }
-@keyframes charge-orbit { from { rotate: 0deg; scale: .6; } to { rotate: 270deg; scale: 1.6; } }
-@keyframes charged-release { 0% { transform: rotate(-10deg) scale(.92); } 35% { transform: rotate(12deg) scale(1.18); } 65% { transform: rotate(-5deg) scale(.97); } 100% { transform: none; } }
 .cursor-tether { position: absolute; left: 8px; top: 12px; width: var(--tether-length, 0px); border-top: 1px dashed var(--accent); transform: rotate(var(--tether-angle, 0rad)); transform-origin: left center; opacity: 0; }
 .animated-cursor[data-tether='true'] .cursor-tether { opacity: .45; }
 .cursor-hearts { position: absolute; left: 8px; top: 12px; }
 .cursor-hearts svg { position: absolute; opacity: 0; color: var(--accent); }
 .animated-cursor[data-state='like'] .cursor-hearts svg { animation: cursor-heart .85s calc(var(--heart-index) * .07s) both; }
-.animated-cursor[data-state='like'] .cursor-sprite { animation: cursor-thanks .8s both; }
-.animated-cursor[data-state='playful'] .cursor-sprite { animation: cursor-sway .65s both; }
 @keyframes cursor-heart {
   0% { opacity: 0; transform: translate(0, 0) scale(.5); }
   20% { opacity: .85; }
   100% { opacity: 0; transform: translate(calc((var(--heart-index) - 1) * 18px), -38px) scale(1); }
 }
-@keyframes cursor-thanks { 0%, 100% { transform: none; } 35% { transform: rotate(-12deg) scale(1.07); } 65% { transform: rotate(5deg); } }
-@keyframes cursor-sway { 0%, 100% { transform: none; } 25% { transform: rotate(14deg); } 55% { transform: rotate(-11deg); } 80% { transform: rotate(4deg); } }
-@media (prefers-reduced-motion: reduce) {
-  .cursor-spark, .cursor-orbit, .cursor-wake, .cursor-tether, .cursor-hearts { display: none; }
-}
+
+/* The fingertip stays pinned while the rest of the figure turns towards it. */
+.cursor-spark { position: absolute; left: 6px; top: 10px; width: 4px; height: 7px; background: var(--accent); border-radius: 80% 10% 65% 35%; opacity: 0; }
+.cursor-aside { position: absolute; left: 41px; top: -5px; padding: 0 4px 2px; border: 1px solid var(--line); border-radius: 8px 8px 8px 2px; color: var(--ink); background: var(--elevated); font: 13px/12px system-ui; opacity: 0; }
+.animated-cursor:is([data-state='wait'], [data-state='progress'], [data-state='charged'], [data-state='playful'], [data-state='unlike']) .cursor-aside { animation: megumi-aside .32s ease-out both; }
+.animated-cursor[data-state='default'][data-speed='idle'] .cursor-aside { animation: megumi-pause 2s 2.5s both; }
+.animated-cursor:is([data-state='pointer'], [data-state='grab'], [data-state='alias']) .cursor-sprite { transform: rotate(-5deg); }
+.animated-cursor:is([data-state='pressed'], [data-state='charging']) .cursor-sprite { transform: rotate(7deg) scale(.96); }
+.animated-cursor[data-state='charged'] .cursor-sprite { transform: rotate(11deg) scale(.95); }
+.animated-cursor:is([data-state='grabbing'], [data-state='move']) .cursor-sprite { transform: rotate(calc(8deg + var(--travel-angle, 0deg))) scale(.97); }
+.animated-cursor[data-state='scroll'] .cursor-sprite { transform: rotate(var(--scroll-angle, 6deg)); }
+.animated-cursor:is([data-state='read'], [data-state='text'], [data-state='vertical-text'], [data-state='crosshair']) .cursor-sprite { transform: rotate(3deg) scale(.89); }
+.animated-cursor:is([data-state='context'], [data-state='help'], [data-state='not-allowed'], [data-state='no-drop']) .cursor-sprite { transform: rotate(-9deg) scale(.95); }
+.animated-cursor:is([data-state$='-resize'], [data-state='zoom-out']) .cursor-sprite { transform: rotate(-3deg) scale(.92); }
+.animated-cursor[data-state='zoom-in'] .cursor-sprite { transform: rotate(3deg) scale(1.06); }
+.animated-cursor:is([data-state='wait'], [data-state='progress']) .cursor-sprite { animation: megumi-wait 3s ease-in-out infinite; }
+.animated-cursor:is([data-state='click'], [data-state='copy'], [data-state='copied'], [data-state='filtered'], [data-state='download'], [data-state='answer-open'], [data-state='answer-close'], [data-state='settle'], [data-state='double-click'], [data-state='like']) .cursor-sprite { animation: megumi-nod .32s ease-in-out both; }
+.animated-cursor[data-state='double-click'] .cursor-sprite { animation-duration: .23s; animation-iteration-count: 2; }
+.animated-cursor[data-state='like'] .cursor-sprite { --nod: 13deg; animation-duration: .68s; }
+.animated-cursor:is([data-state='answer-close'], [data-state='settle']) { --nod: -6deg; }
+.animated-cursor:is([data-state='greeting'], [data-state='playful'], [data-state='unlike'], [data-state='charged-release']) .cursor-sprite { animation: megumi-glance .62s ease-in-out both; }
+.animated-cursor[data-state='unlike'] .cursor-sprite { --glance: 8deg; opacity: .8; }
+.animated-cursor[data-state='charged-release'] .cursor-sprite { --glance: -13deg; }
+@keyframes megumi-nod { 0%,100% { transform: none; } 45%,58% { transform: rotate(var(--nod, 7deg)); } }
+@keyframes megumi-glance { 0%,100% { transform: none; } 30%,55% { transform: rotate(var(--glance, -8deg)); } 80% { transform: rotate(2deg); } }
+@keyframes megumi-wait { 0%,65%,100% { transform: none; } 35% { transform: rotate(4deg); } }
+@keyframes megumi-aside { from { opacity: 0; translate: 0 2px; } to { opacity: .9; translate: 0 0; } }
+@keyframes megumi-pause { 0%,100% { opacity: 0; } 20%,75% { opacity: .85; } }

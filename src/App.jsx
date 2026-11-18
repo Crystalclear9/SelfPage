@@ -42,6 +42,7 @@ export default function App({ path = '/', learningHtml = '' }) {
       void likeVoice.play();
     } else {
       likeVoice.stop();
+      document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'unlike' }));
       void unlikeVoice.play();
     }
     setLiked(!liked);

@@ -71,31 +71,12 @@
 .animated-cursor::backdrop { display: none; }
 .animated-cursor .cursor-sprite { width: 64px; height: 68px; max-width: none; transform-origin: 8px 12px; transform: rotate(var(--travel-angle, 0deg)); transition: transform .18s cubic-bezier(.2,.8,.2,1); }
 .cursor-status { position: absolute; left: 49px; top: 12px; min-width: 16px; height: 18px; text-align: center; font: 600 15px/18px system-ui; color: var(--accent); text-shadow: 0 0 3px var(--bg), 0 0 3px var(--bg); }
-.cursor-ring { position: absolute; left: 1px; top: 5px; width: 14px; height: 14px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   html.animated-cursor-active, html.animated-cursor-active * { cursor: none !important; }
 }
-.animated-cursor[data-state='pointer'] .cursor-sprite { transform: rotate(-7deg) scale(1.06); }
-.animated-cursor[data-state='pressed'] .cursor-sprite { transform: rotate(7deg) scale(.88); }
-.animated-cursor[data-state='grab'] .cursor-sprite { transform: rotate(-5deg); }
-.animated-cursor[data-state='grabbing'] .cursor-sprite { transform: rotate(12deg) scale(.94); }
-.animated-cursor[data-state='text'] .cursor-sprite, .animated-cursor[data-state='vertical-text'] .cursor-sprite { transform: scale(.86); }
-.animated-cursor[data-state='scroll'] .cursor-sprite { transform: rotate(5deg) translateY(0); }
-.animated-cursor[data-state='click'] .cursor-sprite { animation: cursor-tap .4s both; }
-.animated-cursor[data-state='double-click'] .cursor-sprite { animation: cursor-tap .28s 2; }
-.animated-cursor[data-state='click'] .cursor-ring, .animated-cursor[data-state='double-click'] .cursor-ring { animation: cursor-ripple .45s both; }
-.animated-cursor[data-state='wait'] .cursor-sprite, .animated-cursor[data-state='progress'] .cursor-sprite { animation: cursor-wait 1.2s ease-in-out infinite alternate; }
-.animated-cursor[data-state='wait'] .cursor-ring, .animated-cursor[data-state='progress'] .cursor-ring { opacity: 1; border-right-color: transparent; animation: cursor-spin .7s linear infinite; }
-.animated-cursor[data-state='not-allowed'] .cursor-sprite, .animated-cursor[data-state='no-drop'] .cursor-sprite { transform: rotate(-9deg) scale(.9); }
-.animated-cursor[data-state='zoom-in'] .cursor-sprite { transform: scale(1.1); }
-.animated-cursor[data-state='zoom-out'] .cursor-sprite { transform: scale(.85); }
 .animated-cursor[data-axis='vertical'] .cursor-status { rotate: 90deg; }
 .animated-cursor[data-axis='diagonal-up'] .cursor-status { rotate: -45deg; }
 .animated-cursor[data-axis='diagonal-down'] .cursor-status { rotate: 45deg; }
-@keyframes cursor-tap { 0% { transform: scale(.88) rotate(7deg); } 60% { transform: scale(1.07) rotate(-4deg); } 100% { transform: none; } }
-@keyframes cursor-ripple { from { opacity: .7; scale: .5; } to { opacity: 0; scale: 2.5; } }
-@keyframes cursor-wait { to { transform: rotate(8deg); } }
-@keyframes cursor-spin { to { rotate: 360deg; } }
 @media (prefers-reduced-motion: reduce) {
   .animated-cursor { display: none !important; }
 }

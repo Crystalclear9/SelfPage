@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Heart } from '@phosphor-icons/react';
 
-// One unchanged sprite. Rotation and scale are anchored on its fingertip (8, 12).
+// Both outfits pivot at the pointing fingertip (8, 12).
 // A manual popover keeps the pointer above native dialogs without intercepting input.
 export default function AnimatedCursor() {
   const ref = useRef(null);
@@ -12,20 +12,24 @@ export default function AnimatedCursor() {
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     if (!el.showPopover) return;
+    const filename = root.dataset.cursorOutfit === 'short' ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg';
+    sprite.src = import.meta.env.BASE_URL + 'images/' + filename;
     let x = 0, y = 0, down = null, target = null, frame = 0, timer = 0;
     let transient = '', nativeDrag = false, visible = false, travelTimer = 0;
     let holdTimer = 0, chargeTimer = 0, lastMove = 0;
     let anchor = null, previousDirection = 0, reversals = 0, lastReverse = 0, lastPlay = -2000;
     const sparks = [...el.querySelectorAll('.cursor-spark')];
     const clearHold = () => { clearTimeout(holdTimer); clearTimeout(chargeTimer); };
-    const burst = (radius = 27) => {
+    const burst = (radius = 27, count = 3) => {
       if (!visible || reduced.matches) return;
       sparks.forEach((spark, i) => {
         spark.getAnimations().forEach(animation => animation.cancel());
-        const angle = i * Math.PI / 4;
+        if (i >= count) return;
+        const angle = (-155 + i * 110 / Math.max(1, count - 1)) * Math.PI / 180;
         spark.animate([
           { opacity: .85, transform: 'translate(0, 0) rotate(45deg) scale(.6)' },
-          { opacity: 0, transform: `translate(${Math.cos(angle) * radius}px, ${Math.sin(angle) * radius}px) rotate(135deg) scale(.1)` },
+          { opacity: .65, offset: .55, transform: `translate(${Math.cos(angle) * radius}px, ${Math.sin(angle) * radius}px) rotate(90deg)` },
+          { opacity: 0, transform: `translate(${Math.cos(angle) * radius + 5}px, ${Math.sin(angle) * radius + 9}px) rotate(155deg) scale(.45)` },
         ], { duration: 480 + i * 18, easing: 'cubic-bezier(.16,1,.3,1)' });
       });
     };
@@ -123,22 +127,23 @@ export default function AnimatedCursor() {
       }
     };
     const release = event => {
+      if (!visible || event.pointerType !== 'mouse') return;
       const charged = transient === 'charged';
       clearHold(); down = null;
       anchor = null; delete el.dataset.tether;
-      if (event.button === 0) burst(charged ? 48 : 22);
+      if (event.button === 0 && charged) burst(33, 5);
       pulse(event.button === 2 ? 'context' : event.button === 1 ? 'scroll' : charged ? 'charged-release' : 'click', charged ? 650 : 420);
     };
-    const doubleClick = () => { burst(36); pulse('double-click', 650); };
+    const doubleClick = () => { burst(15, 2); pulse('double-click', 650); };
     const wheel = event => {
       el.style.setProperty('--scroll-angle', event.deltaY < 0 ? '-10deg' : '10deg');
       if (!down) pulse('scroll', 240);
     };
     const copy = () => { burst(25); pulse('copy', 650); };
     const feedback = event => {
-      if (!['like', 'copied', 'filtered'].includes(event.detail) || !visible || reduced.matches) return;
-      if (event.detail === 'like') burst(32);
-      pulse(event.detail, event.detail === 'like' ? 900 : 750);
+      const durations = { like: 900, unlike: 720, greeting: 740, copied: 750, filtered: 750, 'answer-open': 340, 'answer-close': 340 };
+      if (!visible || reduced.matches || !Object.hasOwn(durations, event.detail)) return;
+      pulse(event.detail, durations[event.detail]);
     };
     const dragStart = event => {
       clearHold();
@@ -167,11 +172,11 @@ export default function AnimatedCursor() {
     return () => { hide(); observer.disconnect(); document.removeEventListener('cursor-feedback', feedback); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
   }, []);
   return <div ref={ref} popover="manual" className="animated-cursor" aria-hidden="true">
-    <img className="cursor-sprite" src={`${import.meta.env.BASE_URL}images/megumi-cursor.svg`} alt="" width="64" height="68" draggable="false" />
-    <span className="cursor-ring" /><span className="cursor-status" /><span className="cursor-hint" />
-    <span className="cursor-orbit" /><span className="cursor-wake" />
+    <img className="cursor-sprite" alt="" width="64" height="68" draggable="false" />
+    <span className="cursor-status" /><span className="cursor-hint" />
+    <span className="cursor-aside">…</span>
     <span className="cursor-tether" />
     <span className="cursor-hearts">{[0, 1, 2].map(i => <Heart key={i} size={12} weight="fill" style={{ '--heart-index': i }} />)}</span>
-    {Array.from({ length: 8 }, (_, i) => <i key={i} className="cursor-spark" />)}
+    {Array.from({ length: 5 }, (_, i) => <i key={i} className="cursor-spark" />)}
   </div>;
 }

@@ -15,6 +15,7 @@ export default function ProfileAvatar({ enabled, onGreet, voiceSrc = '' }) {
       setGreeting(true);
       onGreet();
     }
+    if (!voice.playing) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'greeting' }));
     voice.toggle();
   };
 

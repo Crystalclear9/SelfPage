@@ -122,12 +122,7 @@
  .writing-door::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(240px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%); opacity: 0; transition: opacity .2s; }
  .writing-door[data-pointer-inside]::before { opacity: 1; }
  .writing-door::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; }
- .animated-cursor[data-state='read'] img { animation: cursor-read .9s ease-in-out infinite alternate; }
- .animated-cursor[data-state='download'] img { animation: cursor-download .7s ease-in-out infinite alternate; }
- .animated-cursor:is([data-state='read'], [data-state='download']) .cursor-status { opacity: 1; }
 }
-@keyframes cursor-read { to { rotate: -6deg; translate: 0 -2px; } }
-@keyframes cursor-download { to { translate: 0 4px; scale: 1 .97; } }
 
 .main-nav a[aria-current="page"] { color: var(--accent); }
 

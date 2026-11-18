@@ -84,7 +84,7 @@
 
 `ProfileAvatar` 为原生按钮，支持鼠标、触屏、Enter 和空格。触发后头像摆动一次、显示问候，动作期间不叠加重复动画。
 
-角色素材为 `public/images/megumi-cursor.svg`，热点 `(8, 12)` 对应指尖。`AnimatedCursor` 使用不接收点击的 manual popover，保持在弹窗之上；移动、点击、长按、拖动、文本、等待、复制和方向调整各有反馈。`data-cursor` 可声明额外语义，如 `read`、`download`、`ew-resize`。
+新页面和刷新时等概率选择过膝白袜或短袜。同页交互沿用当前造型。两套素材分别为 `public/images/megumi-cursor.svg` 和 `public/images/megumi-cursor-short.svg`，热点 `(8, 12)` 对应指尖。`AnimatedCursor` 使用不接收点击的 manual popover，保持在弹窗之上；移动、点击、长按、拖动、文本、等待、复制和方向调整各有反馈。`data-cursor` 可声明额外语义，如 `read`、`download`、`ew-resize`。
 
 `PointerSurfaces` 负责表面倾转、局部光斑和点击波纹。动画帧合并 DOM 更新，固定复用粒子节点；事件处理不改变原生点击、选字、拖拽和右键菜单行为。
 
@@ -130,3 +130,16 @@
 样式调试时不要用永久隐藏正文或依赖固定等待时间的方式掩盖过渡问题。保持原生链接、静态 HTML 和减少动态效果路径可用，具体故障记录目标 URL、导航方式、浏览器及失败请求。
 
 参考：[CSS 滚动驱动动画](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations)、[跨文档 View Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40view-transition)、[Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using)。
+
+### 角色动作与节奏
+
+| 场景 | 动作 |
+| --- | --- |
+| 移动与停留 | 围绕指尖随移动方向微倾。在空白处停下后，省略号短暂出现一次；快速来回晃动时侧头回应 |
+| 悬停与阅读 | 链接前微倾，读文字和精确定位时收小。右键、帮助和不可用控件采用侧头观察，方向符号保留在角色旁 |
+| 点击与长按 | 单击点头、双击连点。持续按住时重心逐步后移，松手后回正并散出几瓣樱花 |
+| 拖动与滚动 | 拖动时身体随牵引方向倾斜；滚动时随翻页方向转身，停止后恢复命中位置的姿态 |
+| 阅读与操作结果 | 解析展开与收起用相反方向点头。复制、筛选以短促点头确认，加载时偶尔偏头等待 |
+| 头像与喜欢 | 问候时侧头，收到喜欢时鞠躬并浮出小心形；撤回时身影略淡，短暂停顿后恢复 |
+
+角色姿态集中在 `src/styles/pointer.css`。同页只使用入场时选中的衣装，浏览器历史缓存恢复页面时沿用该页选择。

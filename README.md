@@ -1,6 +1,6 @@
 # Crystalclear9 的个人主页
 
-从一张截图里提取待办，到让多个智能体围绕证据分工，这里记录我在 AI 应用和系统方面做过的尝试。首页可以翻看项目卡片，沿着感兴趣的问题进入实现笔记和源码；想坐下来慢慢读，也可以直接打开学习章节或论文。加藤惠藏在光标和头像的小互动里。
+从一张截图里提取待办，到让多个智能体围绕证据分工，这里记录我在 AI 应用和系统方面做过的尝试。首页可以翻看项目卡片，沿着感兴趣的问题进入实现笔记和源码；想坐下来慢慢读，也可以直接打开学习章节或论文。在空白处停一会儿，指尖旁的加藤惠会冒出一个短短的省略号。点开答案时她也会跟着点头。每次打开页面，都可能遇到短袜或过膝白袜的她。
 
 [打开首页](https://crystalclear9.github.io/SelfPage/) · [读 AILearning](https://crystalclear9.github.io/SelfPage/articles/ailearning/) · [看 K-GAT 论文介绍](https://crystalclear9.github.io/SelfPage/papers/k-gat/)
 

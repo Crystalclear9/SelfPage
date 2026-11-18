@@ -108,3 +108,5 @@ git revert COMMIT_SHA_TO_REVERT
 更改构建前缀本身不会配置自定义域名、DNS 或旧地址重定向。迁移前先在对应前缀下做生产预览，至少验证首页资源、一个项目详情、内容索引和附件。素材许可与公开内容范围仍按各自文档维护。
 
 参考：[GitHub Pages 自定义工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
+
+发布后可直接访问项目详情并刷新几次，确认两款光标都能从站点子路径的 `images/` 加载。开启系统的减少动态效果选项后，用同一地址检查静态光标。

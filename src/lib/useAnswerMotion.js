@@ -14,6 +14,11 @@ export default function useAnswerMotion(route, html) {
         event.preventDefault();
         const from = details.getBoundingClientRect().height;
         desired = animation ? !desired : !details.open;
+        if (event.detail > 0) {
+          document.dispatchEvent(new CustomEvent('cursor-feedback', {
+            detail: desired ? 'answer-open' : 'answer-close',
+          }));
+        }
         if (animation) { animation.onfinish = null; animation.cancel(); }
         fade?.cancel();
         details.style.height = '';

@@ -92,7 +92,9 @@ AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、�
 
 | detail | 发送位置 | 发送条件 |
 | --- | --- | --- |
-| `like` | App 的喜欢按钮 | 从未喜欢变为喜欢 |
+| `like` / `unlike` | App 的喜欢按钮 | 切换本地喜欢状态 |
+| `greeting` | ProfileAvatar | 点击头像发起问候 |
+| `answer-open` / `answer-close` | useAnswerMotion | 鼠标切换解析的目标展开状态 |
 | `copied` | App 的复制链接操作 | 剪贴板写入成功之后 |
 | `filtered` | useProjectFilter | 新类别已同步更新之后 |
 
