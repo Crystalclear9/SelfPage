@@ -29,8 +29,9 @@ for (const entry of fixtures) entry.markdown += '\n\nInline $x^2$ and block:\n\n
 const server = await createServer({ configFile: false, base: '/SelfPage/', plugins: [react(), { name: 'fixtures', resolveId(id) { if (id === 'virtual:writing') return '\0virtual:writing'; }, load(id) { if (id === '\0virtual:writing') return `export default ${JSON.stringify(fixtures)}`; } }], server: { middlewareMode: true }, appType: 'custom' });
 try {
  const { default: Page } = await server.ssrLoadModule('/src/pages/ContentPage.jsx');
+ const { default: WritingDetail } = await server.ssrLoadModule('/src/pages/WritingDetail.jsx');
  for (const entry of fixtures) {
-  const output = renderToString(createElement(Page, { path: entry.route }));
+  const output = renderToString(createElement(Page, { path: entry.route, WritingDetail }));
   const navs = [...output.matchAll(/<nav[^>]*aria-label="(?:页面返回导航|随滚动返回导航)"[^>]*>([\s\S]*?)<\/nav>/g)];
   assert.equal(navs.length, 2, 'Top and floating return navigation must both render');
   for (const [, nav] of navs) {

@@ -84,7 +84,7 @@
 
 `ProfileAvatar` 为原生按钮，支持鼠标、触屏、Enter 和空格。触发后头像摆动一次、显示问候，动作期间不叠加重复动画。
 
-新页面和刷新时等概率选择过膝白袜或短袜。同页交互沿用当前造型。两套素材分别为 `public/images/megumi-cursor.svg` 和 `public/images/megumi-cursor-short.svg`，热点 `(8, 12)` 对应指尖。`AnimatedCursor` 使用不接收点击的 manual popover，保持在弹窗之上；移动、点击、长按、拖动、文本、等待、复制和方向调整各有反馈。`data-cursor` 可声明额外语义，如 `read`、`download`、`ew-resize`。
+每个标签页首次进入时等概率选择过膝白袜或短袜，刷新时重新抽取。站内跨页和历史恢复均沿用本次选择。两套素材分别为 `public/images/megumi-cursor.svg` 和 `public/images/megumi-cursor-short.svg`，热点 `(8, 12)` 对应指尖。`AnimatedCursor` 使用不接收点击的 manual popover，保持在弹窗之上；移动、点击、长按、拖动、文本、等待、复制和方向调整各有反馈。`data-cursor` 可声明额外语义，如 `read`、`download`、`ew-resize`。
 
 `PointerSurfaces` 负责表面倾转、局部光斑和点击波纹。动画帧合并 DOM 更新，固定复用粒子节点；事件处理不改变原生点击、选字、拖拽和右键菜单行为。
 
@@ -144,6 +144,6 @@ TV 版角色介绍写到惠愿意陪伦也做事，也会平静地指出他话�
 | 在空白处来回晃动 | 连续换向后静止 240ms 才垂下眼帘；移入正文或控件即收起 |
 | 头像、点赞、撤回 | 问候时延迟轻眨一次，点赞时面颊缓缓显色；四秒内撤回时眼帘轻压，稍后撤回沿用按钮反馈 |
 
-衣装在进入页面时选定。两套服装共用同一动作表和 `(8, 12)` 热点。眼部与脸颊细节在 `AnimatedCursor.jsx` 中，动作时序在 `pointer.css` 中。
+衣装记录在标签页的 sessionStorage 中。两套服装共用同一动作表和 `(8, 12)` 热点。眼部与脸颊细节在 `AnimatedCursor.jsx` 中，动作时序在 `pointer.css` 中。
 
 安野希世乃谈到惠较早期克制的怒意，角色设备的原作者监修也保留了略显冷淡的回应。本站用一次迟来的眼神表达她已经察觉访客的小动作。[访谈](https://www.animatetimes.com/news/details.php?id=1571812682&p=3) · [角色设备采访](https://animeanime.jp/article/2017/10/03/35520.html)

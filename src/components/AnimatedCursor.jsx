@@ -10,14 +10,16 @@ export default function AnimatedCursor() {
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     if (!el.showPopover) return;
-    const filename = root.dataset.cursorOutfit === 'short' ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg';
     let decoded = false, disposed = false, pending = null, pauseTimer = 0;
-    const source = import.meta.env.BASE_URL + 'images/' + filename;
     const loadSprite = () => {
-      if (!fine.matches || reduced.matches || sprite.hasAttribute('src')) return;
-      sprite.src = source;
+      if (!fine.matches || reduced.matches) return;
+      const filename = root.dataset.cursorOutfit === 'short' ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg';
+      const source = import.meta.env.BASE_URL + 'images/' + filename;
+      if (decoded && sprite.getAttribute('src') === source) return;
+      decoded = false;
+      if (sprite.getAttribute('src') !== source) sprite.src = source;
       sprite.decode().then(() => {
-        if (disposed) return;
+        if (disposed || sprite.getAttribute('src') !== source) return;
         decoded = true;
         if (pending) position(pending);
       }).catch(() => { /* The native pointer remains available. */ });
@@ -53,9 +55,10 @@ export default function AnimatedCursor() {
       el.style.transform = `translate3d(${x - 8}px, ${y - 12}px, 0)`;
       const mode = down?.mode || context();
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : mode);
-      el.dataset.state = state;
-      el.dataset.context = mode;
-      el.dataset.axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
+      if (el.dataset.state !== state) el.dataset.state = state;
+      if (el.dataset.context !== mode) el.dataset.context = mode;
+      const axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
+      if (el.dataset.axis !== axis) el.dataset.axis = axis;
       const symbol = symbols[state] || '';
       if (status.textContent !== symbol) status.textContent = symbol;
     };
@@ -163,8 +166,9 @@ export default function AnimatedCursor() {
       schedule();
     });
     observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open', 'aria-busy', 'data-cursor', 'disabled', 'aria-disabled'] });
+    const restore = event => { if (event.persisted) loadSprite(); };
     const preference = () => { hide(); loadSprite(); };
-    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
+    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
     loadSprite();
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
     document.addEventListener('cursor-feedback', feedback);

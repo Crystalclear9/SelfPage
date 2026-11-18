@@ -15,7 +15,7 @@ import './styles/chapters.css';
 import { installNavigationMotion } from './lib/navigation';
 const disposeNavigation = installNavigationMotion();
 if (import.meta.hot) import.meta.hot.dispose(disposeNavigation);
-import { currentPath } from './data/routes';
+import { currentPath, writing, learningPublished } from './data/routes';
 
 const container = document.getElementById('root');
 async function start() {
@@ -27,7 +27,9 @@ async function start() {
     const response = await fetch(`${import.meta.env.BASE_URL}__learning?route=${encodeURIComponent(path)}`);
     if (response.ok) learningHtml = await response.text();
   }
-  const app = <React.StrictMode><App path={path} learningHtml={learningHtml} /></React.StrictMode>;
+  const needsWritingDetail = writing.some(entry => entry.route === path) && !(learningPublished && path === '/articles/ailearning/');
+  const WritingDetail = needsWritingDetail ? (await import('./pages/WritingDetail')).default : undefined;
+  const app = <React.StrictMode><App path={path} learningHtml={learningHtml} WritingDetail={WritingDetail} /></React.StrictMode>;
   if (container.hasChildNodes()) hydrateRoot(container, app);
   else createRoot(container).render(app);
   // Anchor targets in source README explanations can be inside collapsed notes.

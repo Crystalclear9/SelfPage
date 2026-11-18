@@ -1,7 +1,8 @@
 import writing from 'virtual:writing';
 import { projects } from './site';
-import learning from '../../content/collections/ailearning/manifest.json';
-export { writing, learning };
+import { pages, revision, source } from '../../content/collections/ailearning/manifest.json';
+export const learning = { pages, revision, source };
+export { writing };
 export const learningPublished = writing.some(p => p.route === '/articles/ailearning/');
 export const href = route => `${import.meta.env.BASE_URL}${route.replace(/^\//, '')}`;
 export const routes = [

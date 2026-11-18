@@ -9,6 +9,7 @@ const escape = value => value.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&l
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 try {
   const { default: App } = await server.ssrLoadModule('/src/App.jsx');
+  const { default: WritingDetail } = await server.ssrLoadModule('/src/pages/WritingDetail.jsx');
   const { routes } = await server.ssrLoadModule('/src/data/routes.js');
   let html = await readFile('dist/index.html', 'utf8');
   // Stable entry paths remain valid for cached HTML after a later deployment.
@@ -28,7 +29,7 @@ try {
   for (const route of [...routes, { path: '/404/', title: '页面不存在', description: '页面不存在或尚未发布。' }]) {
     const learningPage = learning.pages.find(p => p.route === route.path);
     const learningHtml = learningPage ? renderLearning(learningPage, server.config.base, learning) : '';
-    const markup = renderToString(createElement(App, { path: route.path, learningHtml }));
+    const markup = renderToString(createElement(App, { path: route.path, learningHtml, WritingDetail }));
     const target = route.path === '/404/' ? 'dist/404.html' : path.join('dist', route.path, 'index.html');
     await mkdir(path.dirname(target), { recursive: true });
     let output = html.replace('<div id="root"></div>', () => `<div id="root">${markup}</div>`)

@@ -22,6 +22,7 @@ export default defineConfig({
   base: process.env.SITE_BASE_PATH || '/',
   build: {
     rollupOptions: {
+      preserveEntrySignatures: 'strict',
       output: {
         entryFileNames: 'assets/site.js',
         assetFileNames: asset => asset.names?.some(name => name.endsWith('.css'))

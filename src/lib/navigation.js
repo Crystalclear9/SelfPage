@@ -20,6 +20,9 @@ function applyIntent(fromUrl, toUrl) {
 }
 
 export function installNavigationMotion() {
+  // The first reveal can precede module evaluation on a cold navigation.
+  const previousUrl = window.navigation?.activation?.from?.url;
+  if (previousUrl && previousUrl !== location.href) applyIntent(previousUrl, location.href);
   const swap = event => {
     if (event.viewTransition && event.activation?.entry?.url) applyIntent(location.href, event.activation.entry.url);
   };
