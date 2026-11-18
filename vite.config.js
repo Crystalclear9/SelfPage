@@ -11,7 +11,7 @@ const transitionGuard = {
   transformIndexHtml() {
     // The browser can paint the chosen native cursor before external assets arrive.
     const cursor = name => 'url(data:image/png;base64,' +
-      readFileSync(new URL('./src/assets/' + name + '.png', import.meta.url)).toString('base64') + ') 8 12';
+      readFileSync(new URL('./src/assets/' + name + '.png', import.meta.url)).toString('base64') + ')';
     return [{ tag: 'meta', attrs: { charset: 'UTF-8' }, injectTo: 'head-prepend' },
     { tag: 'script', attrs: { 'data-base': siteBase, 'data-cursor-entry': '' }, injectTo: 'head-prepend',
       children: readFileSync(new URL('./src/lib/cursor-entry.js', import.meta.url), 'utf8') },
@@ -20,11 +20,12 @@ const transitionGuard = {
         html {
           --long-cursor: ${cursor('megumi-cursor')};
           --short-cursor: ${cursor('megumi-cursor-short')};
-          --native-cursor: var(--long-cursor), var(--short-cursor), auto;
+          --cursor-image: var(--long-cursor);
+          --native-cursor: var(--long-cursor) 8 12, var(--short-cursor) 8 12, auto;
         }
-        html[data-cursor-outfit="short"] { --native-cursor: var(--short-cursor), var(--long-cursor), auto; }
+        html[data-cursor-outfit="short"] { --cursor-image: var(--short-cursor); --native-cursor: var(--short-cursor) 8 12, var(--long-cursor) 8 12, auto; }
         html, html * { cursor: var(--native-cursor) !important; }
-        html.cursor-posing.animated-cursor-active:active-view-transition, html.cursor-posing.animated-cursor-active:active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
+        html.animated-cursor-active:is(.cursor-posing, .cursor-stationary):active-view-transition, html.animated-cursor-active:is(.cursor-posing, .cursor-stationary):active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
         html:active-view-transition .animated-cursor { display: none !important; }
       }` }, { tag: 'script', attrs: { 'data-transition-guard': '' },
       children: readFileSync(new URL('./src/lib/transition-guard.js', import.meta.url), 'utf8'),

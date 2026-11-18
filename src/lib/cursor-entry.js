@@ -18,6 +18,52 @@
   } catch { root.dataset.cursorOutfit = 'long'; }
   const short = root.dataset.cursorOutfit === 'short';
   if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    // Keep viewport coordinates in memory. Write once when leaving, including
+    // for history traversal; ordinary pointer movement never touches storage.
+    const pointKey = 'cursor-departure:' + base;
+    let point = null;
+    const forget = () => { point = null; };
+    const remember = event => {
+      if (event.pointerType !== 'mouse') return forget();
+      point = { clientX: event.clientX, clientY: event.clientY };
+    };
+    const restore = () => {
+      forget();
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(pointKey));
+        sessionStorage.removeItem(pointKey);
+        if (!saved || Date.now() - saved.time > 30000) return;
+        const from = window.navigation?.activation?.from?.url || document.referrer;
+        const reloading = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+        if (saved.url !== from && !(reloading && saved.url === location.href)) return;
+        if (saved.width !== innerWidth || saved.height !== innerHeight) return;
+        point = saved.point;
+      } catch { /* Storage is optional. */ }
+    };
+    restore();
+    window.readCursorPoint = () => point;
+    document.addEventListener('pointermove', remember, { capture: true, passive: true });
+    document.addEventListener('pointerdown', remember, { capture: true, passive: true });
+    document.addEventListener('keydown', forget, true);
+    root.addEventListener('pointerleave', forget);
+    window.addEventListener('blur', forget);
+    let savedOnSwap = false;
+    const save = () => {
+      try {
+        if (point) sessionStorage.setItem(pointKey, JSON.stringify({
+          url: location.href, time: Date.now(), width: innerWidth, height: innerHeight,
+          point,
+        }));
+        else sessionStorage.removeItem(pointKey);
+      } catch { /* Storage is optional. */ }
+    };
+    window.addEventListener('pageswap', () => { save(); savedOnSwap = true; });
+    window.addEventListener('pagehide', () => {
+      if (!savedOnSwap) save();
+      savedOnSwap = false;
+      forget();
+    });
+    window.addEventListener('pageshow', event => { if (event.persisted) restore(); });
     const preload = document.createElement('link');
     preload.rel = 'preload';
     preload.as = 'image';

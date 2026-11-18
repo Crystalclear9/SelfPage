@@ -10,7 +10,7 @@ export default function AnimatedCursor() {
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     if (!el.showPopover) return;
-    let decoded = false, disposed = false, pending = null, pauseTimer = 0;
+    let decoded = false, disposed = false, pauseTimer = 0;
     const loadSprite = () => {
       if (!fine.matches || reduced.matches) return;
       const filename = root.dataset.cursorOutfit === 'short' ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg';
@@ -21,7 +21,7 @@ export default function AnimatedCursor() {
       sprite.decode().then(() => {
         if (disposed || sprite.getAttribute('src') !== source) return;
         decoded = true;
-        if (pending) position(pending);
+        schedule();
       }).catch(() => { /* The native pointer remains available. */ });
     };
     let x = 0, y = 0, down = null, target = null, frame = 0, timer = 0;
@@ -73,7 +73,7 @@ export default function AnimatedCursor() {
       const mode = down?.mode || context();
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : scrollCue || mode);
       if (el.dataset.state !== state) el.dataset.state = state;
-      root.classList.toggle('cursor-posing', state === 'scroll-up' || state === 'scroll-down' || state === 'grabbing');
+      root.classList.toggle('cursor-posing', decoded && (state === 'scroll-up' || state === 'scroll-down' || state === 'grabbing'));
       if (el.dataset.context !== mode) el.dataset.context = mode;
       const axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
       if (el.dataset.axis !== axis) el.dataset.axis = axis;
@@ -83,20 +83,16 @@ export default function AnimatedCursor() {
     const schedule = () => { if (visible && !frame) frame = requestAnimationFrame(render); };
     const hide = () => {
       clearScroll();
-      pending = null; clearTimeout(pauseTimer);
+      clearTimeout(pauseTimer);
       visible = false; down = null; nativeDrag = false; transient = '';
       strokeX = null; reversals = 0; previousDirection = 0;
       clearTimeout(timer); cancelAnimationFrame(frame); frame = 0;
-      root.classList.remove('animated-cursor-active', 'cursor-posing');
+      root.classList.remove('animated-cursor-active', 'cursor-posing', 'cursor-stationary');
       if (el.matches(':popover-open')) el.hidePopover();
     };
-    const position = event => {
+    const position = (event, restored = false) => {
       if (!fine.matches || reduced.matches || (event.pointerType && event.pointerType !== 'mouse')) return hide();
-      if (!decoded) {
-        pending = { clientX: event.clientX, clientY: event.clientY, pointerType: event.pointerType, target: event.target };
-        return;
-      }
-      pending = null;
+      root.classList.toggle('cursor-stationary', restored);
       const now = performance.now();
       x = event.clientX; y = event.clientY; target = event.target;
       if (!visible) {
@@ -186,7 +182,12 @@ export default function AnimatedCursor() {
       schedule();
     });
     observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open', 'aria-busy', 'data-cursor', 'disabled', 'aria-disabled'] });
-    const restore = event => { if (event.persisted) loadSprite(); };
+    const resumePoint = () => {
+      const point = window.readCursorPoint?.();
+      if (point && !document.hidden) position(point, true);
+    };
+    const restore = event => { if (event.persisted) { loadSprite(); resumePoint(); } };
+    const reveal = event => { event.viewTransition?.finished.then(schedule, schedule); };
     const preventWordSelection = event => {
       if (event.button !== 0 || event.detail < 2 || !(event.target instanceof Element)) return;
       if (event.target.closest('input, textarea, select, button, a, label, summary, [role="button"]') || event.target.isContentEditable) return;
@@ -195,6 +196,11 @@ export default function AnimatedCursor() {
     const preference = () => { hide(); loadSprite(); };
     const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pageswap', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
     loadSprite();
+    resumePoint();
+    document.fonts.ready.then(() => { if (!disposed) schedule(); });
+    // Hydration may follow pagereveal. Re-hit-test when its snapshot is gone.
+    document.activeViewTransition?.finished.then(schedule, schedule);
+    window.addEventListener('pagereveal', reveal);
     document.addEventListener('wheel', wheel, { passive: true });
     document.addEventListener('mousedown', preventWordSelection);
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
@@ -202,6 +208,7 @@ export default function AnimatedCursor() {
     return () => {
       disposed = true; sprite.removeAttribute('src'); hide(); observer.disconnect();
       document.removeEventListener('wheel', wheel);
+      window.removeEventListener('pagereveal', reveal);
       document.removeEventListener('mousedown', preventWordSelection);
       document.removeEventListener('cursor-feedback', feedback);
       events.forEach(([node, name, fn]) => node.removeEventListener(name, fn));
