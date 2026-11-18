@@ -1,4 +1,4 @@
-import { chromium } from '@playwright/test';
+import { chromium, expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { loadLearning } from '../scripts/learning.mjs';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
@@ -15,21 +15,21 @@ try {
     assert.equal(await page.locator('.entry-row').count(), 1);
     await page.locator('.entry-row', { hasText: 'AILearning' }).click();
     await page.waitForURL(base + 'articles/ailearning/');
-    assert.equal(await page.locator('.learning-row').count(), loadLearning().pages.filter(p => p.parent === '/articles/ailearning/').length);
+    await expect(page.locator('.learning-row')).toHaveCount(loadLearning().pages.filter(p => p.parent === '/articles/ailearning/').length);
     assert.equal(await page.locator('.learning-notes').getAttribute('open'), null);
     assert.equal(await page.locator('.learning-meta').count(), 0);
     assert.equal(await page.locator('.learning-row span').count(), 0);
     await page.locator('.learning-notes summary').click();
-    assert.ok(await page.locator('#learning-content').isVisible());
+    await expect(page.locator('#learning-content')).toBeVisible();
     await page.locator('.learning-notes summary').click();
     await page.locator('.learning-row', { hasText: '数学基础' }).click();
     await page.locator('.learning-row', { hasText: '线性代数' }).click();
-    assert.equal(await page.locator('.learning-row').count(), 4);
+    await expect(page.locator('.learning-row')).toHaveCount(4);
     await page.locator('.learning-row').first().click();
     await page.waitForURL(base + chapter);
     for (const action of [() => page.reload(), () => page.goto(base + chapter)]) {
       await action(); await page.locator('#sec-1').waitFor({ state: 'attached' });
-      assert.ok(await page.locator('.katex').count() > 0);
+      await expect(page.locator('.katex').first()).toBeAttached();
       assert.ok((await page.locator('#learning-content').innerText()).length > 10000);
       assert.equal(await page.locator('h1').count(), 1);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Mobile overflow');
@@ -37,7 +37,7 @@ try {
     await page.locator('.learning-pager a').last().click();
     await page.waitForURL(/chapter-02\/$/);
     await page.goBack({ waitUntil: 'commit' }); await page.waitForURL(base + chapter);
-    assert.ok(await page.locator('.katex').count() > 0);
+    await expect(page.locator('.katex').first()).toBeAttached();
     await page.goForward({ waitUntil: 'commit' }); await page.waitForURL(/chapter-02\/$/);
     assert.deepEqual(errors, []);
     await context.close();
