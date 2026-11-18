@@ -104,4 +104,12 @@ npm run check:browser-ci
 
 ## 工作区清理
 
-构建结果位于 `dist/`，截图及性能报告位于 `.local/reports/`。停止预览后，Windows 下运行 `npm run clean`，将 `dist/`、`.local/` 和 Vite 缓存移入回收站。查看待处理路径可使用 `powershell -NoProfile -File scripts/clean.ps1 -WhatIf`。教材快照、公开附件与依赖锁文件属于项目输入。
+Windows 下停止开发服务或生产预览后，运行 `npm run clean` 将本地产物移入回收站。使用 `powershell -NoProfile -File scripts/clean.ps1 -WhatIf` 可先列出本次实际存在的清理目标。
+
+| 清理目录 | 内容 | 重新生成方式 |
+| --- | --- | --- |
+| `dist/` | 生产页面与打包资源 | `npm run build` |
+| `.local/` | 浏览器测试截图、Lighthouse 报告 | 运行对应测试或 `npm run audit` |
+| `node_modules/.vite/`、`node_modules/.vite-temp/` | Vite 依赖缓存与配置加载临时文件 | 启动开发服务或执行构建时按需生成 |
+
+教材正文以清单的 `pages[].file` 对应 `content/collections/ailearning/`，附件以 `images[]` 对应 `public/files/ailearning/`。这两组文件属于构建输入，随教材更新一起维护。[教材同步](CONTENT.md#同步-ailearning)
