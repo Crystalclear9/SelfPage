@@ -2,14 +2,17 @@
 
 使用与 CI 相同的 Node.js 24，在仓库根目录运行 `npm ci`。日常编辑使用开发服务，验收路由、样式与素材路径时使用生产预览。
 
-## 开发服务与生产预览
+## 环境配置
 
-| 场景 | 命令 | 地址 |
+| 参数 | 读取位置 | 用途 |
 | --- | --- | --- |
-| 编辑组件或正文 | `npm run dev` | 默认 `http://127.0.0.1:5173/` |
-| 阅读构建产物 | `npm run preview -- --port 4174 --strictPort` | `http://127.0.0.1:4174/SelfPage/`（生产前缀） |
+| `SITE_BASE_PATH` | Vite 构建与预览 | 开发默认使用 `/`，复核当前 Pages 发布时使用 `/SelfPage/` |
+| `TEST_URL` | 浏览器测试与 Lighthouse | 指向运行中的站点，含协议、端口与部署前缀 |
+| `BROWSER_CHANNEL` | CI 浏览器回归套件 | 本地默认使用 `msedge`，可指定 `chrome` 或 `chromium` |
 
-在 PowerShell 中构建发布版本并启动预览：
+### 生产预览
+
+在仓库根目录的 PowerShell 终端运行：
 
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
@@ -20,7 +23,18 @@ npm run check:learning
 npm run preview -- --port 4174 --strictPort
 ```
 
-保持预览运行，在第二个终端设置 `$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'`，执行 `npm run check:browser-ci`。这组测试依次覆盖光标、导航、移动端阅读和过渡恢复，本地默认使用 Edge。修改源码后重新构建即可更新预览；切回根路径开发时，在开发终端执行 `Remove-Item Env:SITE_BASE_PATH -ErrorAction SilentlyContinue`。
+预览服务读取 `dist/`。源文件变更后重新构建即可更新预览内容。切回根路径开发时，在启动开发服务的终端执行 `Remove-Item Env:SITE_BASE_PATH -ErrorAction SilentlyContinue`。
+
+### 浏览器回归
+
+预览服务运行期间，在另一终端从仓库根目录执行：
+
+```powershell
+$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'
+npm run check:browser-ci
+```
+
+该套件依次执行 `check:cursor`、`check:navigation`、`check:learning-ui` 和 `check:recovery`。单项测试的默认地址有差异，例如 `check:ui` 默认连接 5173 端口，`check:static` 默认连接 4173 端口。显式设置 `TEST_URL` 可让这些测试检查同一份预览产物。
 
 ## 测试命令与覆盖范围
 
@@ -36,17 +50,7 @@ npm run preview -- --port 4174 --strictPort
 
 表中的 `check:*` 使用 `npm run` 执行。浏览器用例针对运行中的预览；`check:learning` 和引用扫描直接读取 `dist/`。
 
-## 浏览器验收
-
-浏览器测试使用运行中的生产预览。项目筛选和教材导航分别由 `check:projects` 与 `check:learning-ui` 验证，命令在独立终端的仓库根目录执行。
-
-```powershell
-$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'
-npm run check:projects
-npm run check:learning-ui
-```
-
-`TEST_URL` 指定测试的站点地址。开发服务实时读取 `src/`，生产预览读取 `dist/`；源码变更经 `npm run build` 后才进入预览。构建与预览使用相同的 `SITE_BASE_PATH`。
+## 手动验收场景
 
 | 验收对象 | 实际操作 | 预期结果 |
 | --- | --- | --- |

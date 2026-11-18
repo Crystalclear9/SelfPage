@@ -12,21 +12,14 @@
 
 自动任务忽略仅涉及 `README.md` 和 `docs/` 的改动。文章、论文与教材正文位于 `content/`，修改后会触发构建。同一分支连续推送时，工作流取消较早的运行。
 
-## 本地发布构建
+## 运行环境与任务权限
 
-在仓库根目录运行以下命令，以线上子路径预览。这能直接发现详情页中的脚本、图片或字体误用了域名根路径。
+工作流使用 Ubuntu 24.04 和 Node.js 24，通过 `npm ci` 安装锁定的依赖。浏览器回归优先使用运行器上的 Chrome，缺少时由 Playwright 安装 Chromium。复现同一部署前缀及测试地址的命令见[生产预览](DEVELOPMENT.md#生产预览)。
 
-```powershell
-npm ci
-$env:SITE_BASE_PATH = '/SelfPage/'
-node tests/voice.mjs
-npm run check:content
-npm run build
-npm run check:learning
-npm run preview -- --port 4174 --strictPort
-```
-
-预览运行后，在另一个终端设置 `$env:TEST_URL = 'http://127.0.0.1:4174/SelfPage/'`，运行 `npm run check:browser-ci`。CI 使用 Ubuntu 24.04 与 Node.js 24，优先使用运行器自带的 Chrome；缺少时安装 Chromium。详细覆盖范围见[开发与测试](DEVELOPMENT.md)。
+| 任务 | 输入 | 输出与权限 |
+| --- | --- | --- |
+| `build` | 当前提交、锁文件和部署前缀 | 读取仓库内容及 Pages 配置。发布分支上传 `dist/` 为 `github-pages` 产物 |
+| `deploy` | 同次运行的 `github-pages` 产物 | 在 `github-pages` 环境中发布；使用 `pages: write` 和 `id-token: write` |
 
 ## 部署状态与版本核对
 
@@ -52,4 +45,4 @@ npm run preview -- --port 4174 --strictPort
 
 ## 手动运行浏览器回归
 
-在仓库 Actions 中选择 **Verify and deploy GitHub Pages → Run workflow**，选择要验证的分支，勾选 `browser_checks`。非 `main` 分支完成到构建与验证；选择 `main` 会继续发布。若本次仅更新维护手册，在 GitHub 查看对应提交的 Markdown 即可核对交付。
+在仓库 Actions 中选择 **Verify and deploy GitHub Pages → Run workflow**，选择要验证的分支，勾选 `browser_checks`。非 `main` 分支完成到构建与验证；选择 `main` 会继续发布。

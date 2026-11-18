@@ -4,14 +4,18 @@
 
 在 [site.js](../src/data/site.js) 中编辑 `profile`。`subtitle` 出现在首屏，`intro` 和 `about` 组成「关于我」。`github` 指向公开主页，填写 `email` 后会显示邮件入口。首屏标题下的补充说明在 [App.jsx](../src/App.jsx)。
 
-每个展示项目有两份内容。先在 `projects` 更新卡片标题、副标题、简介、分类和源码地址，再在 [project-notes.js](../src/data/project-notes.js) 用相同的 ID 编辑详情页。
+项目卡片与介绍弹窗读取 `projects` 数组。独立详情页按同一 ID 从 [project-notes.js](../src/data/project-notes.js) 的 `projectNotes` 对象读取正文。新增项目时，两处各登记一条记录；修改已有项目时按显示位置选择字段。
 
-| 内容 | 写法 |
-| --- | --- |
-| 首页卡片 | 用一句话说明项目解决什么问题，简介补充实现方式。`category` 生成筛选选项，`source` 用于「查看源码」。 |
-| 项目背景 | `motivation` 交代使用场景或研究问题。Autellix 是一次论文复现，原方法通过项目的 `reference` 字段引用。 |
-| 实现过程 | `implementation` 的每项含 `title` 和 `text`。按处理流程讲清输入、关键选择和输出。 |
-| 当前进展 | `scopeTitle` 与 `scope` 记录已实现的部分、实验条件和仍待验证的问题。 |
+| 数据位置 | 字段 | 页面用途 |
+| --- | --- | --- |
+| `projects[]` | `id`、`category`、`icon` | 生成详情页地址、首页分类选项和卡片图标 |
+| `projects[]` | `title`、`subtitle`、`description`、`tags` | 项目名称、副标题、简介和技术标签 |
+| `projects[]` | `details`、`note`、`source` | 弹窗分项说明、项目备注和源码入口。`details` 每项包含 `title` 与 `text` |
+| `projects[]` | `reference` | 原论文标题与地址。Autellix 据此展示「论文复现」及原论文链接 |
+| `projectNotes[id]` | `motivation`、`implementation` | 项目背景和实现过程。`implementation` 按数组顺序展示各项 `title` 与 `text` |
+| `projectNotes[id]` | `scopeTitle`、`scope` | 当前实现范围的小节标题与正文段落 |
+
+例如，GameQA 的 ID 是 `gameqa`，仓库名是 `RagGameQa`。其详情页地址为 `/projects/gameqa/`，实现说明读取 `projectNotes.gameqa.implementation`。源码地址变更只涉及 `source`；更改项目 ID 则同时影响公开地址、详情查找和文章关联。
 
 当前展示随手办（`suishouban`）、GameQA（`gameqa`）、Autellix（`autellix`）、TimePredictModel（`time-predict`）和 SandBoxSim（`sandboxsim`）。ID 用于 `/projects/<id>/` 和文章关联，数组顺序决定首页排序和项目翻页顺序。
 
