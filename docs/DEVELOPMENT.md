@@ -121,6 +121,7 @@ Lighthouse 结果写入 `.local/reports/lighthouse.json`，部分浏览器测试
 | --- | --- | --- |
 | 开发服务能打开，生产环境直接访问失败 | 查看 `dist/` 下是否存在对应的 `index.html`，再检查资源请求是否带部署前缀 | `src/data/routes.js`、`scripts/prerender.mjs`、`vite.config.js` |
 | 地址已切换，正文仍显示上一章 | 对比直接访问的正文和站内切换请求返回的 `#learning-content`。浏览器测试等待目标内容出现后再断言 | `src/main.jsx`、`tests/learning-ui.mjs` |
+| 语音点击后晚响或切换时重叠 | 检查页面加载后 FLAC 请求的状态，再快速执行问候、点赞和撤回，确认只播放最后选择的音轨。按钮状态与实际出声可分别检查 | `src/lib/useVoice.js`、`src/lib/voice-player.js`、`tests/voice.mjs` |
 | 学习资料只在窄屏溢出 | 在 375px 视口检查表格、长代码行、公式和图片，并切换深色主题检查语法配色 | `src/styles/content.css`、`tests/learning-render.mjs` |
 | 返回时光标短暂消失 | 分别测试站内返回链接、浏览器后退及刷新，回到页面后先保持指针静止 | `src/lib/cursor-entry.js`、`src/components/AnimatedCursor.jsx`、`tests/cursor-refresh.mjs` |
 

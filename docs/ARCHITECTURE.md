@@ -92,6 +92,10 @@ AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、�
 
 持久化键与默认值见功能说明。所有浏览器 effect 应在卸载时取消动画帧、计时器、监听和观察器。客户端使用 StrictMode，开发中 effect 可能重复挂载，新增逻辑不能依赖“只执行一次且永不清理”的假设。
 
+### 首页音频的生命周期
+
+`profile` 提供三段音频的相对路径。`ProfileAvatar` 使用问候音轨，`App` 按喜欢状态选择点赞或撤回音轨。`useVoice` 在挂载后安排预缓冲，并在卸载或 `pagehide` 时停止播放。`voice-player.js` 协调当前活动播放器，后一次操作会取消前一次请求。异步播放结果按请求版本处理，失效音频元素的事件也会被忽略。替换素材修改数据和文件；修改互斥、取消或失败重试时，同时验证播放器和首页入口。
+
 ## 5. 组件之间的事件约定
 
 业务操作使用 document 上的 `cursor-feedback` CustomEvent 通知角色组件：

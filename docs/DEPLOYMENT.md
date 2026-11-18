@@ -8,7 +8,7 @@
 - Pages Source：**GitHub Actions**（`build_type: workflow`）
 - 工作流：`.github/workflows/deploy.yml`
 
-工作流使用 Node.js 24 执行 `npm ci`、内容检查、生产构建及 `check:learning`，将 `dist/` 上传至 Pages。学习资料检查覆盖全部章节链接、锚点与公式输出，失败时不上传产物。日常发布只需提交源码并推送到 `main`，不提交构建产物，也不需要在前端配置中填写令牌。
+工作流使用 Node.js 24 执行 `npm ci`、语音播放器回归、内容检查、生产构建及 `check:learning`，将 `dist/` 上传至 Pages。学习资料检查覆盖全部章节链接、锚点与公式输出，失败时不上传产物。日常发布只需提交源码并推送到 `main`，不提交构建产物，也不需要在前端配置中填写令牌。
 
 拉取请求在仓库子路径下构建并验证。推送到 `main` 或在 `main` 手动运行时，构建使用 Pages 配置的路径。两条流程都会启动生产预览，使用 Playwright 的 Chromium 依次检查光标刷新和历史返回、站内导航、移动端章节阅读及页面恢复。浏览器检查通过后，主分支直接发布这份已验证的 `dist/`。运行环境为 Ubuntu 24.04，同一分支的新运行取代旧运行。
 

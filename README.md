@@ -70,6 +70,7 @@ npm run preview -- --port 4174 --strictPort
 | 改动 | 本地验证重点 |
 | --- | --- |
 | 项目卡片、分类或详情 | 在生产预览运行 `npm run check:projects` 和 `npm run check:pages`，再从卡片进入详情，用浏览器后退检查原列表。 |
+| 首页语音 | 运行 `node tests/voice.mjs` 检查播放互斥、取消和失败重试，再在生产预览依次点击头像、点赞和撤回，确认各入口对应的音轨。 |
 | 教材正文与插图 | 构建后运行 `npm run check:learning` 和 `node tests/learning-references.mjs`；涉及排版或渲染器时，在预览上运行 `node tests/learning-render.mjs` 检查逐页渲染。 |
 | 光标、翻页或滚动 | 运行 `npm run check:cursor`、`npm run check:motion`；在桌面浏览器保持指针静止，依次检查进入详情、返回和刷新。 |
 | 构建前缀或入口资源 | 运行 `npm run check:assets` 与 `npm run check:static`，直接打开嵌套网址，查看 CSS、脚本和图片请求。 |
