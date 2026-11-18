@@ -2,13 +2,15 @@
 
 使用与 CI 相同的 Node.js 24，在仓库根目录运行 `npm ci`。日常编辑使用开发服务，验收路由、样式与素材路径时使用生产预览。
 
-## 环境配置
+## 服务与配置
 
-| 参数 | 读取位置 | 用途 |
+`npm run dev` 默认在 `http://127.0.0.1:5173/` 提供源码开发服务。生产预览使用 `npm run preview` 读取构建输出；该模式包含部署前缀、预渲染 HTML、入口资源版本以及发布状态过滤。
+
+| 环境变量 | 生效阶段 | 本站常用值 |
 | --- | --- | --- |
-| `SITE_BASE_PATH` | Vite 构建与预览 | 开发默认使用 `/`，复核当前 Pages 发布时使用 `/SelfPage/` |
-| `TEST_URL` | 浏览器测试与 Lighthouse | 指向运行中的站点，含协议、端口与部署前缀 |
-| `BROWSER_CHANNEL` | CI 浏览器回归套件 | 本地默认使用 `msedge`，可指定 `chrome` 或 `chromium` |
+| `SITE_BASE_PATH` | Vite 开发、构建和生产预览的根路径 | 本地开发 `/`；Pages 构建与预览 `/SelfPage/` |
+| `TEST_URL` | 浏览器测试和 Lighthouse 的访问地址 | `http://127.0.0.1:4174/SelfPage/` |
+| `BROWSER_CHANNEL` | 浏览器回归套件启动的浏览器 | 本地默认 `msedge`；CI 使用 `chrome` 或 `chromium` |
 
 ### 生产预览
 
@@ -36,6 +38,18 @@ npm run check:browser-ci
 
 该套件依次执行 `check:cursor`、`check:navigation`、`check:learning-ui` 和 `check:recovery`。单项测试的默认地址有差异，例如 `check:ui` 默认连接 5173 端口，`check:static` 默认连接 4173 端口。显式设置 `TEST_URL` 可让这些测试检查同一份预览产物。
 
+### 浏览器环境
+
+`npm run check:browser-ci` 默认使用 Microsoft Edge。使用 Playwright 提供的 Chromium 时，在第二个终端运行以下命令。教材逐页渲染脚本 `tests/learning-render.mjs` 明确使用 Edge；运行这项全量检查的机器需要安装 Edge。
+
+```powershell
+npx playwright install chromium
+$env:BROWSER_CHANNEL = 'chromium'
+npm run check:browser-ci
+```
+
+`check:learning` 适合每次内容构建后执行。调整公式处理、代码高亮、教材图片路径或全局阅读样式时，再运行 `node tests/learning-render.mjs`。它逐页打开折叠内容、等待字体与图片就绪，分别检查启用和关闭 JavaScript、375px 和 1440px 视口、浅色和深色主题。失败输出中的路由可直接拼在预览地址后复现。
+
 ## 测试命令与覆盖范围
 
 | 改动 | 检查 | 观察点 |
@@ -48,7 +62,7 @@ npm run check:browser-ci
 | 光标、语音或动作 | `check:cursor`、`check:motion`、`node tests/voice.mjs` | 衣装切换、命中位置、减少动态效果、取消和重试 |
 | 全站控件与性能 | `check:ui`、`npm run audit` | 窄屏菜单、主题、弹窗和 Lighthouse 报告 |
 
-表中的 `check:*` 使用 `npm run` 执行。浏览器用例针对运行中的预览；`check:learning` 和引用扫描直接读取 `dist/`。
+表中的 `check:*` 对应 package.json 中的 npm 脚本。语音测试直接检验播放器；`check:content` 检验索引和 Markdown；`check:learning` 与引用扫描读取 `dist/`。涉及界面、样式和历史记录的测试使用运行中的 HTTP 服务。
 
 ## 手动验收场景
 
@@ -58,18 +72,6 @@ npm run check:browser-ci
 | 教材阅读 | 从「文章」进入分类、主题、章节，复制章节地址到新标签页 | 两个入口展示相同章标题、目录、公式和图片；前后章链接沿清单顺序切换 |
 | 图文排版 | 将视口调到 375px，查看含表格、长代码与图片的章节，再切换深色主题 | 长代码保留缩进和语法颜色；内容可阅读，页面整体宽度贴合视口 |
 | 历史恢复 | 同一标签页从首页进入详情后按后退，再按前进 | 地址、主标题、返回操作和滚动位置对应当前页面 |
-
-### 浏览器环境
-
-`npm run check:browser-ci` 默认使用 Microsoft Edge。使用 Playwright 提供的 Chromium 时，在第二个终端运行以下命令。教材逐页渲染脚本 `tests/learning-render.mjs` 明确使用 Edge；运行这项全量检查的机器需要安装 Edge。
-
-```powershell
-npx playwright install chromium
-$env:BROWSER_CHANNEL = 'chromium'
-npm run check:browser-ci
-```
-
-`check:learning` 适合每次内容构建后执行。调整公式处理、代码高亮、教材图片路径或全局阅读样式时，再运行 `node tests/learning-render.mjs`。它逐页打开折叠内容、等待字体与图片就绪，分别检查启用和关闭 JavaScript、375px 和 1440px 视口、浅色和深色主题。失败输出中的路由可直接拼在预览地址后复现。
 
 ## 渲染诊断
 

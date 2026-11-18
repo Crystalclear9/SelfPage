@@ -1,12 +1,12 @@
 # SelfPage
 
-SelfPage 是 Crystalclear9 个人网站的源码仓库。网站用于介绍个人开源项目、记录开发过程，以及发布技术文章和研究论文。
+SelfPage 是 Crystalclear9 个人网站的源码仓库，用于维护和发布开源项目介绍、开发记录、技术文章和研究论文。
 
 [访问个人主页](https://crystalclear9.github.io/SelfPage/)
 
 ## 本地运行
 
-CI 使用 Node.js 24，npm 按仓库中的 `package-lock.json` 安装依赖。
+项目使用 React 和 Vite，开发与部署环境采用 Node.js 24。在仓库根目录通过 npm 安装锁定版本的依赖：
 
 ```sh
 git clone https://github.com/Crystalclear9/SelfPage.git
@@ -15,42 +15,30 @@ npm ci
 npm run dev
 ```
 
-开发地址为 `http://127.0.0.1:5173/`。仓库已包含发布所用的文章、教材快照与配图。编辑首页和页面组件时，Vite 会更新浏览器中的页面。
+开发服务默认监听 `http://127.0.0.1:5173/`。已发布的文章、教材和配图随仓库提供；修改页面布局或正文时可直接在开发服务中预览。
 
-## 内容维护
+## 源码结构
 
-| 内容 | 编辑位置 | 页面上的变化 |
-| --- | --- | --- |
-| 个人资料 | [site.js](src/data/site.js) 中的 `profile` | 首页简介、联系方式和互动语音 |
-| 项目 | 同文件的 `projects` 数组，以及 [project-notes.js](src/data/project-notes.js) | 数组决定卡片分类与顺序；同一 ID 的详情记录提供项目背景、实现过程和进展 |
-| 文章与论文 | [发布索引](content/index.json) 和 `content/articles/`、`content/papers/` 下的 Markdown | 索引决定标题、地址与发布状态，Markdown 提供正文。论文的作者、会议和 PDF 地址也在索引中维护 |
-| AILearning | 教材源仓库 | 导入器复制正文和配图，生成分类、主题、章节之间的导航关系 |
-
-教材源目录位于相邻的 `AI_Learning/` 时，同步命令如下。导入结果分别保存在 `content/collections/ailearning/` 和 `public/files/ailearning/`，两部分随同一次内容更新提交。[内容字段与发布示例](docs/CONTENT.md)
-
-```sh
-npm run import:learning -- ../AI_Learning
-```
-
-## 开发结构
-
-首页布局在 [App.jsx](src/App.jsx)。`src/pages/` 实现项目详情、文章索引、教材和论文阅读页；`src/components/` 与 `src/lib/` 提供导航、筛选、音频和光标等共享功能，样式集中在 `src/styles/`。
-
-[路由表](src/data/routes.js) 将项目 ID、文章 slug 和教材清单映射到公开地址。[预渲染脚本](scripts/prerender.mjs) 为每个地址生成对应的 `index.html`；[客户端入口](src/main.jsx) 在这份 HTML 上挂载 React。例如 `gameqa` 的页面文件为 `dist/projects/gameqa/index.html`，线上地址为 `/SelfPage/projects/gameqa/`。[构建与导航架构](docs/ARCHITECTURE.md)
-
-### 目录约定
-
-| 路径 | 用途 |
+| 位置 | 职责 |
 | --- | --- |
-| `content/` | 参与构建的内容源文件。文章的 `body` 字段相对此目录解析。 |
-| `public/` | 按原文件名发布的资源。例如 `public/files/k-gat/training.png` 在论文正文中引用为 `/files/k-gat/training.png`。 |
-| `scripts/` | 内容加载、教材导入、静态页面生成与本地维护工具。 |
-| `tests/` | 内容、资源与浏览器交互检查。CI 的执行顺序由 `.github/workflows/deploy.yml` 定义。 |
-| `dist/` | 生产构建的输出目录，也是 GitHub Pages 使用的发布根目录。 |
+| [src/App.jsx](src/App.jsx)、[src/pages/](src/pages) | 首页布局、项目详情、文章与论文索引、教材阅读页 |
+| [src/data/](src/data) | 个人资料、项目数据、公开路由 |
+| [src/components/](src/components)、[src/lib/](src/lib)、[src/styles/](src/styles) | 公共组件、浏览器交互、布局与样式 |
+| [content/](content)、[public/](public) | 参与构建的正文和清单，以及按原路径发布的图片、音频和附件 |
+| [scripts/](scripts)、[tests/](tests) | 内容导入、静态页生成、数据校验与浏览器测试 |
+| [.github/workflows/](.github/workflows) | 拉取请求检查与 GitHub Pages 部署 |
 
-## 构建与发布
+## 内容更新
 
-在 PowerShell 中使用线上路径前缀构建，随后启动生产预览：
+**个人资料与项目**由 [site.js](src/data/site.js) 维护。`profile` 保存首页资料，`projects` 定义卡片及展示顺序。[project-notes.js](src/data/project-notes.js) 使用相同的项目 ID 保存背景、实现过程和当前进展。修改项目简介与扩写独立详情页，各有对应的数据位置。
+
+**文章与论文**以 Markdown 编写，在 [content/index.json](content/index.json) 登记标题、日期、正文路径及发布状态。索引中的 `type` 与 `slug` 决定公开地址；论文的作者、发表会议与 PDF 也在该条目中维护。
+
+**AILearning 教材**从源目录导入。若源仓库位于相邻的 `AI_Learning/`，执行 `npm run import:learning -- ../AI_Learning`。提交导入后的正文、清单及对应配图即可发布同一版本的资料。[字段定义、正文示例与教材目录规则](docs/CONTENT.md)
+
+## 构建与测试
+
+Vite 生成资源后，预渲染脚本把每个公开页面写入 `dist/`。例如，项目 `gameqa` 生成 `dist/projects/gameqa/index.html`。线上部署前缀为 `/SelfPage/`，本地生产预览使用相同前缀。
 
 ```powershell
 $env:SITE_BASE_PATH = '/SelfPage/'
@@ -60,10 +48,14 @@ npm run check:learning
 npm run preview -- --port 4174 --strictPort
 ```
 
-生产预览位于 `http://127.0.0.1:4174/SelfPage/`。预览运行期间，可在另一终端执行 `npm run check:browser-ci`，检查真实页面中的导航、章节阅读、光标和历史恢复。[测试命令与浏览器配置](docs/DEVELOPMENT.md)
+预览地址为 `http://127.0.0.1:4174/SelfPage/`。保留该服务，在第二个终端运行 `npm run check:browser-ci`，可验证同一份构建产物的导航、阅读、光标与历史恢复。[开发环境与测试](docs/DEVELOPMENT.md)
 
-发往 `main` 的拉取请求运行构建和浏览器回归。站点变更推送至 `main` 后，GitHub Actions 将通过内容检查的 `dist/` 发布到 Pages。仅修改 README 或 `docs/` 时跳过部署。[部署配置与版本回退](docs/DEPLOYMENT.md)
+## 发布与维护
 
-## 界面与资源
+发往 `main` 的拉取请求运行生产构建与浏览器回归。站点改动推送到 `main` 后，工作流校验内容并将 `dist/` 发布到 GitHub Pages。仅涉及 README 或 `docs/` 的提交直接更新仓库文档。[工作流与发布配置](docs/DEPLOYMENT.md)
 
-[站点功能](docs/FEATURES.md)记录页面操作与导航目的地，[导航与动效](docs/MOTION.md)说明滚动入场、卡片布局和光标姿态的实现。插画、角色光标和语音的来源与规格见[站点素材](docs/ASSETS.md)，教材图片的引用路径与署名见[教材配图](docs/LEARNING-IMAGE-SOURCES.md)。
+| 维护主题 | 文档 |
+| --- | --- |
+| 扩展路由、页面类型和客户端导航 | [站点架构](docs/ARCHITECTURE.md) |
+| 调整项目筛选、返回入口与角色交互 | [站点功能](docs/FEATURES.md) · [导航与动效](docs/MOTION.md) |
+| 替换插画和音轨、更新图片出处 | [站点素材](docs/ASSETS.md) · [教材配图](docs/LEARNING-IMAGE-SOURCES.md) |

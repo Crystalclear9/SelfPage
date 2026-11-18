@@ -1,55 +1,43 @@
-# 架构
+# 站点架构
 
-SelfPage 将公开数据和 Markdown 编译成静态页面。GitHub Pages 提供 HTML、脚本、样式和附件，浏览器负责筛选、导航与阅读交互。
+SelfPage 的发布单元是一个目录中的 `index.html`。构建端和浏览器共用路由表及 React 组件：构建端写出带正文的页面，浏览器端在已有 DOM 上挂载交互。
 
-## 静态页面构建流程
+## 构建输入
 
-1. `src/data/site.js` 提供个人资料和项目顺序。`scripts/content.mjs` 读取内容索引，按发布日期排序，并通过 Vite 的 `virtual:writing` 模块提供已发布条目。
-2. `src/data/routes.js` 合并首页、项目、文章与论文，以及 AILearning 清单中的子页。`href()` 为站内地址添加部署前缀，`currentPath()` 把浏览器地址还原为应用路径。
-3. `scripts/prerender.mjs` 加载与客户端相同的组件，逐条路由输出 `dist/<路径>/index.html`，并生成 `dist/404.html`。学习资料在这一步渲染公式、代码和正文。
-4. `src/main.jsx` 接管页面。已有 HTML 使用 `hydrateRoot`，开发环境的空挂载点使用 `createRoot`。站点标签页统一显示「Crystalclear9 | 个人主页」，页面描述随路由更新。
-
-构建入口使用稳定的 `assets/site.js`、`assets/site.css` 路径，HTML 通过内容摘要查询参数标识版本。`scripts/legacy-entrypoints.json` 保存迁移前的入口名，构建时为旧 HTML 生成对应副本。
-
-## 直接访问与站内导航
-
-直接打开教材章节时，客户端从当前文档的 `#learning-content` 取得正文。站内进入另一章时，`readPage` 请求目标 HTML，提取同一节点；开发服务从 `__learning` 返回片段。独立文章与论文按需加载 `WritingDetail`，论文的章节和图注由 `PaperBody` 排版。
-
-支持 Navigation API 的浏览器在当前文档内切换已注册的站内路由。页面数据就绪后，应用提交内容、恢复滚动并更新描述。连续跳转会取消过期请求，加载目标失败时由浏览器重新请求该地址。刷新、下载、新标签页和外部链接使用浏览器原生导航。
-
-`Site` 保留共享光标，内部 `App` 以路径为 key。换页时，项目筛选、弹窗与页面监听器随旧页面卸载；会话衣装和浏览器偏好有独立的存储周期。
-
-## 组件与状态
-
-| 维护位置 | 职责 |
-| --- | --- |
-| `App`、`ContentPage` | 首页分区、主题与喜欢状态；选择项目、索引、正文与 404 页面 |
-| `useProjectFilter`、`ProjectPager` | 替换筛选结果；按完整项目数组计算相邻项目 |
-| `LearningPage`、`WritingDetail`、`PaperBody` | 教材层级、独立正文、论文页内目录 |
-| `PageNavigation`、`ScrollToTop`、`Modal` | 返回目的地、滚动方向、顶部入口、弹窗焦点 |
-| `ChapterMotion`、`PointerSurfaces`、`AnimatedCursor` | 模块进出视口、鼠标命中区域、人物与状态反馈 |
-| `useVoice`、`voice-player.js` | 首页音轨预缓冲、互斥播放、停止与失败重试 |
-
-业务组件通过自定义事件通知角色光标。事件名为 `cursor-feedback`。头像使用 `greeting`，喜欢状态使用 `like` 或 `unlike`，复制成功后发送 `copied`，筛选结果更新后发送 `filtered`。角色组件按事件类型切换表情或姿态。头像组件负责语音，项目弹窗负责写入剪贴板。
-
-## 教材页面的导入、构建与加载
-
-微积分第一章的路由由源文件所在的分类、主题和章节编号组成。导入、构建与阅读三个阶段共用同一条清单记录。
-
-| 阶段 | 输入与输出 | 负责模块 |
+| 输入 | 加载方式 | 结果 |
 | --- | --- | --- |
-| 导入 | 源文件 `Mathematics/Calculus/01-导数偏导数与链式法则.md` → 快照中的同名文件和路由 `/articles/ailearning/mathematics/calculus/chapter-01/` | [import-learning.mjs](../scripts/import-learning.mjs) 读取标题、推导路由及父级 |
-| 构建 | 快照与清单 → 带章标题、公式、语法着色和 `#learning-content` 的 HTML | [learning.mjs](../scripts/learning.mjs) 处理正文，[prerender.mjs](../scripts/prerender.mjs) 写入路由目录 |
-| 浏览 | 当前页或目标页的 HTML → `LearningPage` 接收正文，显示目录、上级链接和相邻章节 | [main.jsx](../src/main.jsx) 读取正文，[LearningPage.jsx](../src/pages/LearningPage.jsx) 组织页面 |
+| 首页资料与项目 | [site.js](../src/data/site.js) 和 [project-notes.js](../src/data/project-notes.js) 按 ID 提供摘要与正文 | 首页卡片及 `/projects/<id>/` |
+| 独立文章与论文 | [content.mjs](../scripts/content.mjs) 读取发布索引，过滤草稿、校验字段并按日期倒序排列 | Vite 虚拟模块 `virtual:writing` 提供条目、正文和详情地址 |
+| AILearning | [learning.mjs](../scripts/learning.mjs) 读取专题清单、Markdown 和图片路径 | 专题目录、分级路由与渲染后的章节正文 |
 
-章节标题取自源 Markdown 的一级标题，在下次导入时更新。公式解析规则由构建渲染器统一处理，重新构建后作用于所有章节。直接访问和站内换章使用相同的正文节点；若两者显示的章标题不同，可核对 `readPage` 请求地址、响应中的 `#learning-content` 与 React 提交的页面路径。
+[路由表](../src/data/routes.js) 汇总这些输入。`href()` 为站内路径加上 Vite 的部署前缀，`currentPath()` 从浏览器地址解析应用路径。教材专题条目的发布状态同时控制下级路由。
 
-## 页面状态的生命周期
+## 静态页面生成
 
-页面跳转由浏览器的 `navigate` 事件进入。`readPage` 完成后，`flushSync` 提交新树，然后恢复滚动、打开锚点所在的折叠块、发送 `site-page-rendered`。新页面的 `App` 因路径 key 改变而重新挂载，共享角色光标位于该 key 之外。原生刷新重新加载文档，从 head 中的首屏入口开始执行。
+`npm run build` 先运行 Vite，再运行 [prerender.mjs](../scripts/prerender.mjs)。脚本以打包生成的首页 HTML 为模板，逐条渲染路由，在 `#root` 写入组件标记并替换页面描述。普通页面落在 `dist/<路由>/index.html`，缺省错误页为 `dist/404.html`。
 
-首页筛选值在组件挂载时初始化。语音播放器在组件卸载或 `pagehide` 事件触发时停止。主题与喜欢状态存于本地，跨访问保留。播放器同时清除缓冲定时器并解除窗口监听。相关代码见 [useProjectFilter.js](../src/lib/useProjectFilter.js)、[useVoice.js](../src/lib/useVoice.js) 和 [main.jsx](../src/main.jsx)。
+入口脚本和样式使用稳定文件名 `assets/site.js`、`assets/site.css`。模板中的资源地址带有对应文件的内容摘要，文件变化时查询参数随之更新。[旧入口映射](../scripts/legacy-entrypoints.json) 记录此前发布过的文件名，构建阶段为旧页面保留相应资源路径。
 
-## 新增页面类型
+## 教材正文的加载
 
-在 `src/data/routes.js` 登记公开路径，并在页面组件中实现该路径的视图。预渲染器按路由表输出 HTML；站内切换由 `readPage` 装配目标页面的数据。用同一个地址验证直接访问、站内点击、刷新和历史返回，可以分别覆盖静态入口与客户端导航。[内容字段](CONTENT.md) · [本地验证](DEVELOPMENT.md)
+以微积分第一章为例，导入器从 `Mathematics/Calculus/01-导数偏导数与链式法则.md` 提取标题、章节编号与父目录，生成 `/articles/ailearning/mathematics/calculus/chapter-01/`。预渲染器将公式、图片及代码块写入该页的 `#learning-content`。
+
+| 访问方式 | 正文来源 |
+| --- | --- |
+| 直接访问生产地址 | 客户端从当前文档的 `#learning-content` 读取已有正文 |
+| 生产环境站内换章 | `readPage` 请求目标 HTML，提取目标文档中的同名节点 |
+| 本地开发 | Vite 插件在 `__learning?route=…` 返回指定章节的 HTML 片段 |
+
+普通文章与论文由 `WritingDetail` 按需加载。论文正文另经 `PaperBody` 处理二级标题、页内目录和对照图组。[阅读页组件](../src/pages)
+
+## 导航与组件生命周期
+
+[main.jsx](../src/main.jsx) 对预渲染页面调用 `hydrateRoot`；开发服务的空挂载点使用 `createRoot`。支持 Navigation API 的浏览器会拦截已登记的站内跨页导航。`readPage` 准备目标数据后，`flushSync` 提交新视图，更新页面描述、恢复滚动并发送 `site-page-rendered` 事件。刷新、下载、新标签页与外部链接沿用浏览器导航。
+
+`Site` 跨页保留角色光标，内部 `App` 按路径重新挂载。项目筛选和弹窗随页面卸载，主题、喜欢状态及本次衣装有各自的存储周期。头像、点赞、复制和筛选完成时，业务组件通过 `cursor-feedback` 发送动作类型；角色组件据此切换姿态。[光标与页面状态](MOTION.md)
+
+## 扩展页面类型
+
+1. 在 `src/data/routes.js` 登记公开路径、标题和描述。已有项目、文章和论文由数据自动生成路由。
+2. 在 `src/pages/` 实现视图，并接入首页或内容页的分发逻辑。需要完整正文的页面在构建阶段向预渲染器提供相应数据。
+3. 若站内跳转需读取独立数据，在 `readPage` 添加对应加载逻辑。核对同一地址的静态 HTML 与客户端切换后的主标题、正文和返回链接。[生产预览与回归](DEVELOPMENT.md)

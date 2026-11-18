@@ -34,7 +34,7 @@
 | 点赞 | `public/audio/megumi-response-like.flac` | 10.54 秒 | happy |
 | 取消点赞 | `public/audio/megumi-response-unlike.flac` | 14.91 秒 | sad |
 
-### 录制参数与台词
+### 合成与导出参数
 
 语速 1.02，保持原音高，开启日语语言增强。停顿标记以秒计。导出前以 FFmpeg 的 `loudnorm=I=-20:TP=-3:LRA=11` 统一响度，保存为 44.1 kHz、16 bit、单声道 FLAC。
 
@@ -42,13 +42,11 @@
 - **like**：あ、ありがとう。<#0.25#>ともやくんが、いいって思ってくれたんだ。<#0.4#>そっか……。<#0.3#>うん。ちょっとだけ、うれしい、かも。
 - **unlike**：あれ？<#0.2#>……取り消しちゃうんだ。<#0.5#>そっか。<#0.3#>気のせいかなぁ。私、また存在感、薄くなってない？<#0.4#>……ちゃんと、ここにいるんだけどな。
 
-播放逻辑通过 `node tests/voice.mjs` 验证。
-
 ### 音轨配置与播放行为
 
-点赞音轨存放在 `public/audio/`，`profile.likeVoice` 记录相对发布根目录的文件路径，例如 `audio/megumi-response-like.flac`。头像问候与取消点赞分别读取 `avatarVoice`、`unlikeVoice`。开发环境与 Pages 共用这组路径。
+音轨存放在 `public/audio/`。[profile](../src/data/site.js) 中的 `avatarVoice`、`likeVoice`、`unlikeVoice` 分别对应问候、点赞与取消点赞。字段值使用发布根目录下的相对路径，例如 `audio/megumi-response-like.flac`。
 
-[useVoice](../src/lib/useVoice.js) 在挂载后安排缓冲，用户点击时由 [voice-player.js](../src/lib/voice-player.js) 调用浏览器的 `play()`。三个入口共享当前播放器，新操作会停止旧音轨并复位播放时间。首页组件卸载、浏览器触发 pagehide 或再次点击正在播放的头像时，播放器会停止。音轨验收覆盖连续操作和跨页停止：依次触发问候、点赞和取消点赞时，只播放当前操作对应的回应；播放期间进入详情页时，首页音轨停止。
+[useVoice](../src/lib/useVoice.js) 在首页挂载时预缓冲音频，点击事件交由 [voice-player.js](../src/lib/voice-player.js) 播放。新音轨接管时，上一段暂停并回到起点；组件卸载或触发 `pagehide` 时停止播放。`node tests/voice.mjs` 检验播放、取消与重试逻辑。更换录音后，依次触发三个入口可试听音量和切换效果。
 
 ## 正文附件
 

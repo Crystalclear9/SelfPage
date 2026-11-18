@@ -17,7 +17,7 @@
 
 例如，GameQA 的 ID 是 `gameqa`，仓库名是 `RagGameQa`。其详情页地址为 `/projects/gameqa/`，实现说明读取 `projectNotes.gameqa.implementation`。源码地址变更只涉及 `source`；更改项目 ID 则同时影响公开地址、详情查找和文章关联。
 
-当前展示随手办（`suishouban`）、GameQA（`gameqa`）、Autellix（`autellix`）、TimePredictModel（`time-predict`）和 SandBoxSim（`sandboxsim`）。数组顺序决定首页排序和项目翻页顺序。
+首页与详情页共用项目数组的排列顺序。调整顺序会同时改变卡片位置及详情页的相邻项目链接。Autellix 的原论文登记在项目的 `reference` 字段，本站的复现工作记录在项目正文。
 
 ## 发布文章
 
@@ -40,7 +40,7 @@
 
 ### 文章与项目关联
 
-索引中的 `"project": "gameqa"` 将这篇笔记加入 GameQA 详情页的「相关记录」。独立文章省略该字段。
+索引中的 `"project": "gameqa"` 将这篇笔记加入 GameQA 详情页的「相关记录」。没有关联项目的文章可省略该字段。
 
 `content/articles/retrieval-notes.md` 保存文章正文。详情页使用索引的 `title` 生成一级标题，正文从二级标题开始。
 
@@ -88,7 +88,7 @@
 ![规划不足时的协作结构](/files/k-gat/under-planning.png)
 ```
 
-写入正文的地址从 `/files/` 开始，对应仓库里的 `public/files/`。渲染器在生产环境补上 `/SelfPage/`。直接访问论文详情，点击页内目录，观察当前小节、两张图的顺序、图注，以及窄屏下的阅读顺序。
+正文中的 `/files/` 对应仓库的 `public/files/`。构建器补上部署前缀，例如第一张图在生产环境的请求地址为 `/SelfPage/files/k-gat/over-planning.png`。
 
 ## 同步 AILearning
 
@@ -107,7 +107,16 @@ npm run check:learning
 node tests/learning-references.mjs
 ```
 
-目录中的 README 提供分类与主题说明。`01-标题.md` 生成 `chapter-01`；修改标题时可以保留编号和网址。添加顶级分类或阅读指南时，同步更新[导入映射](../scripts/import-learning.mjs)。
+### 教材目录与公开地址
+
+| 源文件 | 导入结果 |
+| --- | --- |
+| 根目录 `README.md` | 专题总览，发布地址为 `/articles/ailearning/` |
+| 分类或主题目录的 `README.md` | 当前目录页。分类隶属专题，主题隶属分类。 |
+| 主题目录的 `01-标题.md` | 对应主题下的 `chapter-01/`，父级为该主题的 README |
+| 根目录的阅读指南 | 按导入器中的 `guides` 映射生成 `guides/<名称>/` |
+
+章节标题读取 Markdown 的一级标题。公开地址使用目录名和文件编号，因此只改中文标题可保留原地址。新增顶级分类或根目录指南时，在[导入器](../scripts/import-learning.mjs)登记映射。导入会检查章节编号、父目录和重复地址，在清单中写入各页的 `file`、`kind`、`route` 和 `parent`。
 
 ### 教材渲染验证
 

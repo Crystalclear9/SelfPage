@@ -11,11 +11,16 @@
 | 本站发布副本 | [public/files/ailearning 下的图像](../public/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp) |
 | 浏览器请求 | `/SelfPage/files/ailearning/AdvancedStudies/BayesianComputation/images/01-cavi-coordinate-progress.webp` |
 
-更换插图时，在源资料中更新文件和 Markdown 引用，再[同步教材](CONTENT.md#同步-ailearning)。第三方插图同时记录作者、原始来源、许可及改动，许可文件与图片存放在同一目录。
+图片更新在源章节目录中完成：替换素材，修改 Markdown 相对路径，再[导入教材](CONTENT.md#同步-ailearning)。导入器识别 SVG、PNG、JPG、JPEG、GIF 和 WebP，同时复制同目录的许可文本。新增第三方素材时，记录作者、来源、许可和本地改动。
 
-## 图像检查
+## 图片引用与验证
 
-构建后运行 `node tests/learning-references.mjs`，脚本从生成的 HTML 提取引用，核对本地文件和 SVG 片段目标。生产预览中的逐页检查使用 `node tests/learning-render.mjs`，由浏览器展开折叠内容并解码图片。前者可定位路径和锚点错误，后者可发现文件存在但解码失败的图像。
+渲染器以当前章节所在目录为基准解析相对路径，在清单中找到对应文件后，为 URL 加上部署前缀并编码各段路径。图片原有的查询参数与 SVG 片段跟随目标文件保留。清单中缺少目标时，构建错误 `Missing learning image` 会给出解析后的路径。[教材渲染器](../scripts/learning.mjs)
+
+| 验证层 | 命令 | 检查对象 |
+| --- | --- | --- |
+| 文件与引用 | `node tests/learning-references.mjs` | 构建后的 HTML、对应的本地文件以及 SVG 中命名的片段目标 |
+| 浏览器解码 | `node tests/learning-render.mjs` | 生产预览中的正文图片，包括折叠内容内的图片、窄屏和深色模式下的布局 |
 
 ## 早期版本使用的外部插图
 
