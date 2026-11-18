@@ -48,22 +48,40 @@ export default function AnimatedCursor() {
       if (target.closest('p, h1, h2, h3, li')) return 'text';
       return 'default';
     };
+    let scrollCue = '', scrollTimer = 0;
+    const clearScroll = () => {
+      clearTimeout(scrollTimer);
+      scrollCue = '';
+    };
+    const wheel = event => {
+      if (down || nativeDrag || event.ctrlKey || event.shiftKey || !event.deltaY || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+      if (!visible) position(event);
+      if (!visible) return;
+      clearTimeout(pauseTimer);
+      reversals = 0;
+      if (transient === 'playful') { clearTimeout(timer); transient = ''; }
+      scrollCue = event.deltaY > 0 ? 'scroll-down' : 'scroll-up';
+      schedule();
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => { scrollCue = ''; schedule(); }, 260);
+    };
     const render = () => {
       frame = 0;
       if (!visible) return;
       target = document.elementFromPoint(x, y) || target;
       el.style.transform = `translate3d(${x - 8}px, ${y - 12}px, 0)`;
       const mode = down?.mode || context();
-      const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : mode);
+      const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : scrollCue || mode);
       if (el.dataset.state !== state) el.dataset.state = state;
       if (el.dataset.context !== mode) el.dataset.context = mode;
       const axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
       if (el.dataset.axis !== axis) el.dataset.axis = axis;
-      const symbol = symbols[state] || '';
+      const symbol = state === 'scroll-up' ? '↑' : state === 'scroll-down' ? '↓' : symbols[state] || '';
       if (status.textContent !== symbol) status.textContent = symbol;
     };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
+    const schedule = () => { if (visible && !frame) frame = requestAnimationFrame(render); };
     const hide = () => {
+      clearScroll();
       pending = null; clearTimeout(pauseTimer);
       visible = false; down = null; nativeDrag = false; transient = '';
       strokeX = null; reversals = 0; previousDirection = 0;
@@ -114,7 +132,7 @@ export default function AnimatedCursor() {
           reversals = 0;
         }, 240);
       }
-      if (down && Math.hypot(x - down.x, y - down.y) > 5) transient = ['text', 'vertical-text'].includes(down.mode) ? down.mode : 'grabbing';
+      if (down && Math.hypot(x - down.x, y - down.y) > 5) transient = ['text', 'vertical-text', 'read'].includes(down.mode) ? down.mode : 'grabbing';
       schedule();
     };
     const pulse = (state, duration = 420) => {
@@ -122,6 +140,7 @@ export default function AnimatedCursor() {
       timer = setTimeout(() => { transient = ''; schedule(); }, duration);
     };
     const press = event => {
+      clearScroll();
       position(event);
       clearTimeout(pauseTimer);
       if (!visible) return;
@@ -167,12 +186,25 @@ export default function AnimatedCursor() {
     });
     observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open', 'aria-busy', 'data-cursor', 'disabled', 'aria-disabled'] });
     const restore = event => { if (event.persisted) loadSprite(); };
+    const preventWordSelection = event => {
+      if (event.button !== 0 || event.detail < 2 || !(event.target instanceof Element)) return;
+      if (event.target.closest('input, textarea, select, button, a, label, summary, [role="button"]') || event.target.isContentEditable) return;
+      event.preventDefault();
+    };
     const preference = () => { hide(); loadSprite(); };
     const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
     loadSprite();
+    document.addEventListener('wheel', wheel, { passive: true });
+    document.addEventListener('mousedown', preventWordSelection);
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
     document.addEventListener('cursor-feedback', feedback);
-    return () => { disposed = true; sprite.removeAttribute('src'); hide(); observer.disconnect(); document.removeEventListener('cursor-feedback', feedback); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
+    return () => {
+      disposed = true; sprite.removeAttribute('src'); hide(); observer.disconnect();
+      document.removeEventListener('wheel', wheel);
+      document.removeEventListener('mousedown', preventWordSelection);
+      document.removeEventListener('cursor-feedback', feedback);
+      events.forEach(([node, name, fn]) => node.removeEventListener(name, fn));
+    };
   }, []);
   return <div ref={ref} popover="manual" className="animated-cursor" aria-hidden="true">
     <img className="cursor-sprite" alt="" width="64" height="68" draggable="false" />

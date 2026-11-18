@@ -44,6 +44,25 @@ try {
   await page.mouse.up();
   assert.equal(await geometry(), 'none');
   await page.locator('.hero-description').dblclick(); await state('text');
+  assert.equal(await page.evaluate(() => getSelection().toString()), '');
+  // A wheel can be the first mouse input after keyboard navigation.
+  await page.keyboard.press('Shift');
+  await expect(cursor).toBeHidden();
+  await page.mouse.wheel(0, 90); await state('scroll-down');
+  await expect(cursor.locator('.cursor-status')).toHaveText('↓');
+  await page.mouse.wheel(0, -90); await state('scroll-up');
+  await expect(cursor.locator('.cursor-status')).toHaveText('↑');
+  await expect(cursor).not.toHaveAttribute('data-state', /^scroll-/);
+  const field = page.locator('#selection-probe');
+  await page.evaluate(() => {
+    const input = document.createElement('input');
+    input.id = 'selection-probe';
+    input.value = 'editable';
+    document.querySelector('main').prepend(input);
+  });
+  await field.dblclick({ position: { x: 15, y: 10 } });
+  assert.equal(await field.evaluate(el => el.value.slice(el.selectionStart, el.selectionEnd)), 'editable');
+  await field.evaluate(el => el.remove());
   await page.waitForTimeout(700);
   await page.locator('.hero-description').hover(); await state('text');
   await page.locator('.hero-image').hover(); await state('grab');

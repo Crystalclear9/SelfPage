@@ -45,3 +45,30 @@
 .animated-cursor[data-state='grabbing'] .cursor-sprite { filter: contrast(1.06); }
 @keyframes megumi-sidelook { 0%, 30%, 100% { opacity: 0; } 41%, 76% { opacity: 1; } }
 @keyframes megumi-warmth { 0%, 25%, 100% { opacity: 0; } 55%, 73% { opacity: .48; } }
+
+/* Both layers turn together about the pointing fingertip. A sustained wheel
+   gesture holds one pose, including while the page underneath changes. */
+.animated-cursor :is(.cursor-sprite, .cursor-expression) {
+  transform-origin: 8px 12px;
+  rotate: var(--megumi-lean, 0deg);
+  transition: rotate .19s ease-out, opacity .24s ease, filter .3s ease;
+}
+.animated-cursor[data-state='scroll-down'] { --megumi-lean: 5deg; }
+.animated-cursor[data-state='scroll-up'] { --megumi-lean: -5deg; }
+.animated-cursor[data-state='grabbing'] { --megumi-lean: -3deg; }
+.animated-cursor:is([data-state='pointer'], [data-state='pressed'][data-context='pointer']) .cursor-blush {
+  opacity: .22;
+  transition: opacity .28s ease .12s;
+}
+.animated-cursor:is([data-state='unlike'], [data-state='copied'], [data-state='filtered']) .cursor-lids {
+  animation: megumi-blink .48s ease both;
+}
+.animated-cursor:is([data-state='wait'], [data-state='progress']) .cursor-status {
+  animation: megumi-wait 1.6s ease-in-out infinite alternate;
+}
+@keyframes megumi-wait { from { opacity: .55; } to { opacity: 1; } }
+.cursor-status:not(:empty) {
+  border-radius: 6px;
+  background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+}
