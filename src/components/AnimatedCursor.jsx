@@ -1,12 +1,4 @@
 import { useEffect, useRef } from 'react';
-// Original site dialogue, reserved for deliberate interactions.
-const replies = {
-  playful: '……我看到了。',
-  greeting: '嗯，我在。',
-  like: '嗯。谢谢你。',
-  reconsidered: '……这么快就改主意了？',
-};
-
 // Both outfits pivot at the pointing fingertip (8, 12).
 // A manual popover keeps the pointer above native dialogs without intercepting input.
 export default function AnimatedCursor() {
@@ -24,7 +16,6 @@ export default function AnimatedCursor() {
     let transient = '', nativeDrag = false, visible = false;
     let strokeX = null, previousDirection = 0, reversals = 0, lastReverse = 0, lastPlay = -Infinity;
     let lastLike = -Infinity;
-    const aside = el.querySelector('.cursor-aside');
     const aliases = { auto: 'default', all: 'move', 'all-scroll': 'move', 'n-resize': 'ns-resize', 's-resize': 'ns-resize', 'e-resize': 'ew-resize', 'w-resize': 'ew-resize', 'ne-resize': 'nesw-resize', 'sw-resize': 'nesw-resize', 'nw-resize': 'nwse-resize', 'se-resize': 'nwse-resize' };
     const allowed = new Set(['read', 'download', 'default', 'pointer', 'text', 'vertical-text', 'wait', 'progress', 'grab', 'grabbing', 'move', 'not-allowed', 'no-drop', 'copy', 'alias', 'zoom-in', 'zoom-out', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize', 'col-resize', 'row-resize', 'crosshair', 'help']);
     const context = () => {
@@ -50,12 +41,9 @@ export default function AnimatedCursor() {
       el.style.transform = `translate3d(${x - 8}px, ${y - 12}px, 0)`;
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : context());
       el.dataset.state = state;
-      const line = replies[state] || '';
-      if (aside.textContent !== line) aside.textContent = line;
-      el.dataset.flip = x > innerWidth - 200 ? 'true' : 'false';
-      el.querySelector('.cursor-hint').textContent = state === 'copied' ? '已复制' : state === 'filtered' ? '已筛选' : '';
+      el.dataset.context = down?.mode || context();
       el.dataset.axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
-      el.querySelector('.cursor-status').textContent = ({ wait: '…', progress: '…', read: '≡', download: '↓', text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
+      el.querySelector('.cursor-status').textContent = ({ copied: '✓', filtered: '✓', wait: '…', progress: '…', read: '≡', download: '↓', text: 'I', 'vertical-text': 'I', 'not-allowed': '⊘', 'no-drop': '⊘', copy: '+', alias: '↗', 'zoom-in': '+', 'zoom-out': '−', help: '?', crosshair: '+', move: '↔', 'ew-resize': '↔', 'ns-resize': '↔', 'nesw-resize': '↔', 'nwse-resize': '↔', 'col-resize': '↔', 'row-resize': '↔', grabbing: '↔', scroll: '↕', context: '···' })[state] || '';
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
     const hide = () => {
@@ -90,7 +78,7 @@ export default function AnimatedCursor() {
         }
         previousDirection = direction;
       }
-      if (down && Math.hypot(x - down.x, y - down.y) > 5) transient = down.mode === 'text' ? 'text' : 'grabbing';
+      if (down && Math.hypot(x - down.x, y - down.y) > 5) transient = ['text', 'vertical-text'].includes(down.mode) ? down.mode : 'grabbing';
       schedule();
     };
     const pulse = (state, duration = 420) => {
@@ -119,7 +107,7 @@ export default function AnimatedCursor() {
       if (state === 'like') lastLike = now;
       if (state === 'unlike') lastLike = -Infinity;
       const reaction = reconsidered ? 'reconsidered' : state;
-      pulse(reaction, replies[reaction] ? 1450 : 750);
+      pulse(reaction, 900);
     };
     const dragStart = event => {
       nativeDrag = true;
@@ -135,7 +123,7 @@ export default function AnimatedCursor() {
     const dragLeave = event => { if (event.clientX <= 0 || event.clientY <= 0 || event.clientX >= innerWidth || event.clientY >= innerHeight) hide(); };
     const visibility = () => { if (document.hidden) hide(); };
     const observer = new MutationObserver(records => {
-      if (records.some(r => r.attributeName === 'open') && visible) {
+      if (records.some(r => r.target instanceof HTMLDialogElement && r.target.open && r.attributeName === 'open') && visible) {
         el.hidePopover(); el.showPopover();
       }
       schedule();
@@ -148,7 +136,17 @@ export default function AnimatedCursor() {
   }, []);
   return <div ref={ref} popover="manual" className="animated-cursor" aria-hidden="true">
     <img className="cursor-sprite" alt="" width="64" height="68" draggable="false" />
-    <span className="cursor-status" /><span className="cursor-hint" />
-    <span className="cursor-aside" />
+    <svg className="cursor-expression" viewBox="0 0 320 340" width="64" height="68" aria-hidden="true">
+      <g className="cursor-lids" fill="#f8d8c7">
+        <path d="M111 91 Q111 79 120 79 Q126 79 129 87 Q125 86 121 86 Q115 85 111 91Z" />
+        <path d="M149 102 Q150 90 158 92 Q166 93 170 103 Q159 98 149 102Z" />
+        <path d="M112 90 Q119 83 128 87 M150 102 Q158 98 169 103" fill="none" stroke="#513b39" strokeWidth="2.3" strokeLinecap="round" />
+      </g>
+      <g className="cursor-blush" fill="#dd827f">
+        <ellipse cx="111" cy="106" rx="5" ry="2" transform="rotate(17 111 106)" />
+        <ellipse cx="159" cy="119" rx="6" ry="2" transform="rotate(17 159 119)" />
+      </g>
+    </svg>
+    <span className="cursor-status" />
   </div>;
 }

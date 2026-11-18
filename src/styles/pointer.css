@@ -1,5 +1,3 @@
-.cursor-hint { position: absolute; left: 45px; top: 58px; padding: 4px 7px; border-radius: 6px; background: var(--elevated); color: var(--ink); border: 1px solid var(--line); font: 11px/1.4 system-ui; white-space: nowrap; }
-.cursor-hint:empty { display: none; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .project-card, .art-window, .contact-inner, .avatar { position: relative; isolation: isolate; }
   .project-card, .art-window, .contact-inner, .avatar {
@@ -28,22 +26,18 @@
   .filter-bar button[data-pointer-inside] { box-shadow: inset 0 0 0 1px var(--line); }
 }
 
-/* Utility states stay still. A personal response gets one small, delayed turn. */
-.cursor-aside {
-  position: absolute; left: 47px; top: 2px; white-space: nowrap;
-  padding: 3px 8px; border: 1px solid var(--line); border-radius: 9px 9px 9px 2px;
-  background: var(--elevated); color: var(--ink); font: 12px/1.5 system-ui;
+/* Reading contrast follows the target through press and release. */
+.animated-cursor .cursor-sprite { transition: opacity .24s ease, filter .3s ease; }
+.animated-cursor:is([data-context='text'], [data-context='vertical-text'], [data-context='read']) .cursor-sprite { opacity: .78; }
+.cursor-expression { position: absolute; top: 0; left: 0; pointer-events: none; }
+.cursor-lids, .cursor-blush { opacity: 0; }
+.animated-cursor:is([data-state='playful'], [data-state='reconsidered']) .cursor-lids {
+  animation: megumi-sidelook 1.35s ease-in-out both;
 }
-.cursor-aside:empty { display: none; }
-.animated-cursor[data-flip='true'] .cursor-aside { left: auto; right: 89px; }
-.animated-cursor:is([data-state='text'], [data-state='vertical-text'], [data-state='read'], [data-state='crosshair']) .cursor-sprite { transform: scale(.88); }
-.animated-cursor[data-state='grabbing'] .cursor-sprite { transform: rotate(3deg); }
-.animated-cursor:is([data-state='like'], [data-state='greeting'], [data-state='playful'], [data-state='reconsidered']) .cursor-aside {
-  animation: megumi-reply 1.4s both;
+.animated-cursor[data-state='reconsidered'] .cursor-lids { animation-duration: .88s; }
+.animated-cursor:is([data-state='like'], [data-state='greeting']) .cursor-blush {
+  animation: megumi-warmth .88s ease-in-out both;
 }
-.animated-cursor:is([data-state='greeting'], [data-state='playful'], [data-state='reconsidered'], [data-state='like']) .cursor-sprite {
-  animation: megumi-turn 1.2s both;
-}
-.animated-cursor[data-state='like'] { --turn: 4deg; }
-@keyframes megumi-reply { 0%, 22%, 100% { opacity: 0; } 32%, 90% { opacity: 1; } }
-@keyframes megumi-turn { 0%, 20%, 100% { transform: none; } 40%, 72% { transform: rotate(var(--turn, -4deg)); } }
+.animated-cursor[data-state='grabbing'] .cursor-sprite { filter: contrast(1.06); }
+@keyframes megumi-sidelook { 0%, 30%, 100% { opacity: 0; } 41%, 76% { opacity: 1; } }
+@keyframes megumi-warmth { 0%, 25%, 100% { opacity: 0; } 55%, 73% { opacity: .48; } }

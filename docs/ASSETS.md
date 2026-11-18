@@ -24,7 +24,7 @@
 
 `public/images/megumi-cursor.svg` 内嵌由内置 imagegen 生成的透明 PNG，SVG 仅定义 64 × 68 的光标显示尺寸，保留原始透明度。属于加藤惠同人角色素材，并非官方插画。原生 CSS cursor 的热点为 `(8, 12)`，对应伸出的指尖；移动端不启用。
 
-袜口参考第一季第三话坡道场景。窄紫褐色缎带束住白色褶边，上缘微微立起，下缘向外展开。[镜头参考](https://www.anime-graffiti.com/wp-content/uploads/img/201501/20150130-s035.jpg) 过膝白袜版本内嵌 256 × 272 透明位图。两套服装共用 CSS 姿态；中文气泡为本站原创文案。原版短袜插画保存在 `public/images/megumi-cursor-short.svg`。
+袜口参考第一季第三话坡道场景。窄紫褐色缎带束住白色褶边，上缘微微立起，下缘向外展开。[镜头参考](https://www.anime-graffiti.com/wp-content/uploads/img/201501/20150130-s035.jpg) 过膝白袜版本内嵌 256 × 272 透明位图。两套服装共用眼帘与面颊的矢量细节，原画与指尖位置固定。原版短袜插画保存在 `public/images/megumi-cursor-short.svg`。
 
 生成提示词：
 

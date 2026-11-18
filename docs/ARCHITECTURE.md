@@ -97,7 +97,7 @@ AILearning 正文在 `scripts/learning.mjs` 中转换为 HTML，处理公式、�
 | `copied` | App 的复制链接操作 | 剪贴板写入成功之后 |
 | `filtered` | useProjectFilter | 新类别已同步更新之后 |
 
-角色组件记录本页上一次收到喜欢的时间。四秒内撤回派生出 `reconsidered`，其余撤回仅保留按钮反馈。角色组件只在可见且允许动态效果时响应事件。业务逻辑不等待角色动画完成；角色不可用时，按钮、内容变化和文字提示仍然有效。
+角色组件记录本页上一次收到喜欢的时间。四秒内撤回派生出 `reconsidered`，稍后撤回沿用按钮反馈。角色组件只在可见且允许动态效果时响应事件。业务逻辑不等待角色动画完成；角色不可用时，按钮、内容变化和文字提示仍然有效。
 
 ```javascript
 // 先完成操作，再通知装饰性反馈；不要用该事件执行实际业务。
@@ -114,7 +114,7 @@ document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'copied' }))
 | --- | --- |
 | base.css | 主题变量、基础布局、导航、卡片、弹窗、断点 |
 | motion.css | 通用动效、项目滚动翻转、项目区 sticky |
-| pointer.css | 指针反馈、表面倾转、短句气泡与角色姿态 |
+| pointer.css | 指针反馈、表面倾转、眼帘与脸颊的局部叠色 |
 | content.css | 索引、项目详情、Markdown 与阅读交互 |
 | navigation.css | 页面过渡、返回入口和项目翻页 |
 | avatar.css | 头像构图与问候反馈 |

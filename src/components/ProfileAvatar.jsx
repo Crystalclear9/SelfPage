@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import useVoice from '../lib/useVoice';
 
-export default function ProfileAvatar({ enabled, onGreet, voiceSrc = '' }) {
+export default function ProfileAvatar({ enabled, onVoiceError, voiceSrc = '' }) {
   const [greeting, setGreeting] = useState(false);
-  const voice = useVoice(voiceSrc, () => onGreet('语音暂时无法播放，请稍后再试。'));
+  const voice = useVoice(voiceSrc, () => onVoiceError('语音暂时无法播放，请稍后再试。'));
   useEffect(() => {
     if (!greeting) return;
     const timer = setTimeout(() => setGreeting(false), 850);
@@ -13,7 +13,6 @@ export default function ProfileAvatar({ enabled, onGreet, voiceSrc = '' }) {
   const greet = () => {
     if (!greeting) {
       setGreeting(true);
-      onGreet();
     }
     if (!voice.playing) document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'greeting' }));
     voice.toggle();

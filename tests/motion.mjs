@@ -23,7 +23,6 @@ try {
   await page.mouse.move(550, 160);
   await page.mouse.move(720, 160, { steps: 5 });
   await state('playful');
-  await expect(cursor.locator('.cursor-aside')).toHaveText('……我看到了。');
   await page.mouse.down();
   await page.waitForTimeout(1200);
   await state('pressed');
@@ -36,6 +35,14 @@ try {
   assert.equal(await cursor.locator('.cursor-sprite').evaluate(el => getComputedStyle(el).animationName), 'none');
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.documentElement.style.scrollBehavior = 'auto');
+  await page.locator('.hero-description').hover();
+  await state('text');
+  const geometry = () => cursor.locator('img').evaluate(el => getComputedStyle(el).transform);
+  await page.mouse.down();
+  await state('pressed');
+  assert.equal(await geometry(), 'none');
+  await page.mouse.up();
+  assert.equal(await geometry(), 'none');
   await page.locator('.hero-description').dblclick(); await state('text');
   await page.waitForTimeout(700);
   await page.locator('.hero-description').hover(); await state('text');
@@ -84,7 +91,6 @@ try {
   await page.screenshot({ path: '.local/reports/motion-projects.png' });
   const first = await page.locator('.projects-intro').boundingBox();
   await page.mouse.wheel(0, Math.max(400, first.y - 138 + 100));
-  await expect(cursor.locator('.cursor-aside')).toBeEmpty();
   await page.waitForTimeout(500);
   const later = await page.locator('.projects-intro').boundingBox();
   assert.ok(Math.abs(later.y - 138) < 3, `Project intro pins below the header: initial=${first.y}, after=${later.y}`);
@@ -107,7 +113,8 @@ try {
   await like.click();
   await expect(like).toHaveAttribute('aria-pressed', 'false');
   await state('reconsidered');
-  await expect(cursor.locator('.cursor-aside')).toHaveText('……这么快就改主意了？');
+  assert.equal(await geometry(), 'none');
+  assert.equal((await cursor.textContent()).trim(), '');
   await page.locator('.avatar-button').click();
   await state('greeting');
   await page.emulateMedia({ reducedMotion: 'reduce' });

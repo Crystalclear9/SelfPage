@@ -109,4 +109,4 @@ git revert COMMIT_SHA_TO_REVERT
 
 参考：[GitHub Pages 自定义工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
 
-发布后可直接访问项目详情并刷新几次，确认两款光标都能从站点子路径的 `images/` 加载。点击头像可验证角色短句和语音。开启系统的减少动态效果选项后，用同一地址检查静态光标。
+发布后可直接访问项目详情并刷新几次，确认两款光标都能从站点子路径的 `images/` 加载。点击头像可验证面颊反馈和语音。开启系统的减少动态效果选项后，用同一地址检查静态光标。
