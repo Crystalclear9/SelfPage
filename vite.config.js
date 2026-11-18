@@ -11,14 +11,21 @@ const transitionGuard = {
   transformIndexHtml() {
     // The browser can paint the chosen native cursor before external assets arrive.
     const cursor = name => 'url(data:image/png;base64,' +
-      readFileSync(new URL('./src/assets/' + name + '.png', import.meta.url)).toString('base64') + ') 8 12, auto';
-    return [{ tag: 'style', attrs: { 'data-native-cursor': '' }, injectTo: 'head-prepend',
+      readFileSync(new URL('./src/assets/' + name + '.png', import.meta.url)).toString('base64') + ') 8 12';
+    return [{ tag: 'meta', attrs: { charset: 'UTF-8' }, injectTo: 'head-prepend' },
+    { tag: 'script', attrs: { 'data-base': siteBase, 'data-cursor-entry': '' }, injectTo: 'head-prepend',
+      children: readFileSync(new URL('./src/lib/cursor-entry.js', import.meta.url), 'utf8') },
+    { tag: 'style', attrs: { 'data-native-cursor': '' }, injectTo: 'head-prepend',
       children: `@media (hover: hover) and (pointer: fine) {
-        html { --native-cursor: ${cursor('megumi-cursor')}; }
-        html[data-cursor-outfit="short"] { --native-cursor: ${cursor('megumi-cursor-short')}; }
-        html:not(.animated-cursor-active), html:not(.animated-cursor-active) * { cursor: var(--native-cursor) !important; }
-        html.animated-cursor-active:active-view-transition, html.animated-cursor-active:active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
-        html:active-view-transition .animated-cursor { visibility: hidden; }
+        html {
+          --long-cursor: ${cursor('megumi-cursor')};
+          --short-cursor: ${cursor('megumi-cursor-short')};
+          --native-cursor: var(--long-cursor), var(--short-cursor), auto;
+        }
+        html[data-cursor-outfit="short"] { --native-cursor: var(--short-cursor), var(--long-cursor), auto; }
+        html, html * { cursor: var(--native-cursor) !important; }
+        html.cursor-posing.animated-cursor-active:active-view-transition, html.cursor-posing.animated-cursor-active:active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
+        html:active-view-transition .animated-cursor { display: none !important; }
       }` }, { tag: 'script', attrs: { 'data-transition-guard': '' },
       children: readFileSync(new URL('./src/lib/transition-guard.js', import.meta.url), 'utf8'),
       injectTo: 'head' }, { tag: 'script', attrs: { 'data-home-entry': '', 'data-base': siteBase },

@@ -32,11 +32,21 @@ try {
     }
     const sprite = page.locator('.cursor-sprite');
     await expect(sprite).toHaveAttribute('src', new RegExp(name + '$'));
+    // Check the stationary pointer first, before any pointermove can repair it.
+    const firstImage = await page.locator('html').evaluate((el, short) => {
+      const css = getComputedStyle(el);
+      const expected = css.getPropertyValue(short ? '--short-cursor' : '--long-cursor').trim();
+      const data = /base64,([A-Za-z0-9+/=]+)/;
+      return css.cursor.match(data)?.[1] === expected.match(data)[1];
+    }, short);
+    assert.ok(firstImage, 'First native cursor matches the new outfit without mouse movement');
     await page.mouse.move(300, 220);
     await expect(page.locator('html')).not.toHaveClass(/animated-cursor-active/);
     await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
     resume();
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
+    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
+    await expect(sprite).toBeHidden();
     const box = await page.locator('.animated-cursor').boundingBox();
     assert.equal(box.x + 8, 300);
     assert.equal(box.y + 12, 220);

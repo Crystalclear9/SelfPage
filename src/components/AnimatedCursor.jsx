@@ -73,6 +73,7 @@ export default function AnimatedCursor() {
       const mode = down?.mode || context();
       const state = nativeDrag ? 'grabbing' : transient || (down ? 'pressed' : scrollCue || mode);
       if (el.dataset.state !== state) el.dataset.state = state;
+      root.classList.toggle('cursor-posing', state === 'scroll-up' || state === 'scroll-down' || state === 'grabbing');
       if (el.dataset.context !== mode) el.dataset.context = mode;
       const axis = /ns|row/.test(state) ? 'vertical' : /nesw/.test(state) ? 'diagonal-up' : /nwse/.test(state) ? 'diagonal-down' : 'horizontal';
       if (el.dataset.axis !== axis) el.dataset.axis = axis;
@@ -86,7 +87,7 @@ export default function AnimatedCursor() {
       visible = false; down = null; nativeDrag = false; transient = '';
       strokeX = null; reversals = 0; previousDirection = 0;
       clearTimeout(timer); cancelAnimationFrame(frame); frame = 0;
-      root.classList.remove('animated-cursor-active');
+      root.classList.remove('animated-cursor-active', 'cursor-posing');
       if (el.matches(':popover-open')) el.hidePopover();
     };
     const position = event => {

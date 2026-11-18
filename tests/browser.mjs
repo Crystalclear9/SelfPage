@@ -47,7 +47,7 @@ try {
   assert.equal(await page.getByRole('button', { name: '已经留下喜欢' }).getAttribute('aria-pressed'), 'true');
   // Reveal each section before taking the full-page capture.
   for (const section of await page.locator('main > section').all()) await section.scrollIntoViewIfNeeded();
-  assert.equal(await page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0)), true);
+  assert.equal(await page.locator('img:not(.cursor-sprite)').evaluateAll(images => Promise.all(images.map(img => img.decode())).then(() => images.every(img => img.naturalWidth > 0))), true);
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: '.local/reports/desktop-light.png', fullPage: true });
   await page.getByRole('button', { name: '切换到深色模式' }).click();
@@ -77,9 +77,9 @@ try {
   await page.mouse.move(400, 250);
   await page.mouse.move(700, 400, { steps: 20 });
   assert.equal(await page.locator('.character-cursor').count(), 0);
-  assert.equal(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), 'none');
+  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /data:image\/png/);
   await page.getByRole('button', { name: '项目介绍：随手办' }).click();
-  assert.equal(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), 'none');
+  assert.match(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), /data:image\/png/);
   await page.keyboard.press('Escape');
   await page.mouse.move(600, 350);
   await page.mouse.move(700, 400, { steps: 20 });

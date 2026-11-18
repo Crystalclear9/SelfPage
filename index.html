@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fcf8f9" />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
@@ -10,34 +9,6 @@
     <meta property="og:description" content="Crystalclear9 的技术个人站：AI 应用、检索问答与推理调度项目。" />
     <meta name="description" content="Crystalclear9 的个人主页。公开源码项目、AI 应用与系统研究，实现思路与开源实践。" />
     <title>Crystalclear9 | 个人主页</title>
-    <script>
-      {
-        const key = 'cursor-outfit:%BASE_URL%';
-        const root = document.documentElement;
-        const valid = value => value === 'short' || value === 'long';
-        try {
-          let outfit = sessionStorage.getItem(key);
-          if (!valid(outfit) || performance.getEntriesByType('navigation')[0]?.type === 'reload') {
-            outfit = Math.random() < 0.5 ? 'short' : 'long';
-            sessionStorage.setItem(key, outfit);
-          }
-          root.dataset.cursorOutfit = outfit;
-          window.addEventListener('pageshow', event => {
-            if (!event.persisted) return;
-            const current = sessionStorage.getItem(key);
-            if (valid(current)) root.dataset.cursorOutfit = current;
-          });
-        } catch { root.dataset.cursorOutfit = 'long'; }
-        const short = root.dataset.cursorOutfit === 'short';
-        if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-          const preload = document.createElement('link');
-          preload.rel = 'preload';
-          preload.as = 'image';
-          preload.href = '%BASE_URL%images/' + (short ? 'megumi-cursor-short.svg' : 'megumi-cursor.svg');
-          document.head.append(preload);
-        }
-      }
-    </script>
     <script>try{const t=localStorage.getItem('spring-theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme='light'}</script>
   </head>
   <body><div id="root"></div><noscript>当前为静态浏览模式；开启 JavaScript 可使用主题切换、项目筛选和图片预览。</noscript><script type="module" src="/src/main.jsx"></script></body>
