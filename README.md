@@ -1,8 +1,8 @@
 # SelfPage
 
-[Crystalclear9 的个人主页](https://crystalclear9.github.io/SelfPage/)。首页收录随手办、GameQA、SandBoxSim 等应用，也记录推理调度与预测方面的系统研究。每个项目有独立的实现说明和源码入口。文章区按章节提供 AILearning 学习资料，论文区收录发表信息、方法图解和实验结果。
+SelfPage 是 Crystalclear9 个人网站的源码仓库。网站用于介绍个人开源项目、记录开发过程，以及发布技术文章和研究论文。
 
-站点使用 React 和 Vite。构建时，项目资料、Markdown 正文和教材目录一起生成静态 HTML，GitHub Pages 直接提供每个页面。首次打开章节链接即可阅读公式、代码和图表。浏览器加载后接入项目筛选、站内翻页、主题切换和加藤惠角色光标。
+[访问个人主页](https://crystalclear9.github.io/SelfPage/)
 
 ## 本地运行
 
