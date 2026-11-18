@@ -3,18 +3,14 @@
   const key = 'cursor-outfit:' + base;
   const root = document.documentElement;
   const valid = value => value === 'short' || value === 'long';
-  const chooseOutfit = () => {
-    const outfit = Math.random() < 0.5 ? 'short' : 'long';
-    root.dataset.cursorOutfit = outfit;
-    try { sessionStorage.setItem(key, outfit); } catch { /* Storage is optional. */ }
-    return outfit;
-  };
-  window.chooseCursorOutfit = chooseOutfit;
   try {
     let outfit = sessionStorage.getItem(key);
-    if (!valid(outfit) || performance.getEntriesByType('navigation')[0]?.type === 'reload') {
-      outfit = chooseOutfit();
+    if (!valid(outfit)) {
+      outfit = Math.random() < 0.5 ? 'short' : 'long';
+    } else if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+      outfit = outfit === 'short' ? 'long' : 'short';
     }
+    sessionStorage.setItem(key, outfit);
     root.dataset.cursorOutfit = outfit;
     window.addEventListener('pageshow', event => {
       if (!event.persisted) return;

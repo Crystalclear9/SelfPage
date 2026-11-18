@@ -48,8 +48,7 @@ async function readPage(path, initial, signal) {
 
 async function start() {
   let path = currentPath(location.pathname);
-  let refreshGeneration = 0;
-  const render = page => <React.StrictMode><Site key={refreshGeneration} page={page} /></React.StrictMode>;
+  const render = page => <React.StrictMode><Site page={page} /></React.StrictMode>;
   const initial = render(await readPage(path, true));
   const prerendered = container.hasChildNodes();
   const root = prerendered ? hydrateRoot(container, initial) : createRoot(container);
@@ -105,55 +104,6 @@ async function start() {
       }
     } });
   };
-  // Edge can leave its system arrow at a stationary pointer after a document
-  // replacement. Revalidate a plain F5 in place when the running bundle matches.
-  let refreshing;
-  const refreshAtPointer = async event => {
-    if (event.key !== 'F5' || event.defaultPrevented || event.ctrlKey || event.shiftKey ||
-        event.altKey || event.metaKey || !matchMedia('(hover: hover) and (pointer: fine)').matches || import.meta.env.DEV) return;
-    event.preventDefault();
-    if (event.repeat) return;
-    refreshing?.abort();
-    const request = new AbortController();
-    refreshing = request;
-    const address = location.href;
-    const current = () => !request.signal.aborted && location.href === address;
-    try {
-      const response = await fetch(address, { cache: 'reload', signal: request.signal });
-      if (!response.ok || response.redirected) throw new Error('Full reload required');
-      const next = new DOMParser().parseFromString(await response.text(), 'text/html');
-      if (!current()) return;
-      const entry = doc => [
-        doc.querySelector('script[type="module"][src]')?.getAttribute('src'),
-        doc.querySelector('link[rel="stylesheet"]')?.getAttribute('href'),
-      ];
-      const bundled = entry(document);
-      const incoming = entry(next);
-      if (bundled.some((url, i) => !url || url !== incoming[i]) ||
-          document.querySelector('[data-native-cursor]')?.textContent !== next.querySelector('[data-native-cursor]')?.textContent) {
-        throw new Error('New site assets');
-      }
-      const updated = await readPage(path, true);
-      if (path.startsWith('/articles/ailearning/')) {
-        const chapter = next.getElementById('learning-content');
-        if (!chapter) throw new Error('Missing chapter');
-        updated.learningHtml = chapter.innerHTML;
-      }
-      if (!current()) return;
-      const y = scrollY;
-      window.chooseCursorOutfit();
-      refreshGeneration++;
-      flushSync(() => root.render(render(updated)));
-      scrollTo({ top: y, behavior: 'instant' });
-      revealAnchor();
-    } catch {
-      if (current()) location.reload();
-    } finally {
-      if (refreshing === request) refreshing = undefined;
-    }
-  };
-  document.addEventListener('keydown', refreshAtPointer);
-  window.navigation?.addEventListener('navigate', () => refreshing?.abort());
   window.navigation?.addEventListener('navigate', navigate);
   if (import.meta.hot) import.meta.hot.dispose(() => window.navigation?.removeEventListener('navigate', navigate));
   document.documentElement.classList.add('interactive');

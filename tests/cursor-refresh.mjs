@@ -12,7 +12,7 @@ try {
     const random = Math.random;
     Math.random = () => {
       Math.random = random;
-      return sessionStorage.short === 'yes' ? .1 : .9;
+      return .9; // Deterministic first visit; reloads must alternate independently.
     };
   });
   for (const short of [false, true, false]) {
@@ -28,8 +28,14 @@ try {
     const initial = page.url() === 'about:blank';
     if (initial) await page.goto(base, { waitUntil: 'domcontentloaded' });
     else {
-      await page.evaluate(value => { sessionStorage.short = value; }, short ? 'yes' : 'no');
-      // Exercise browser-level reload separately from the page's F5 handler.
+      // Keyboard events must reach the browser without the site cancelling F5.
+      const cancelled = await page.evaluate(() => {
+        const event = new KeyboardEvent('keydown', { key: 'F5', bubbles: true, cancelable: true });
+        document.dispatchEvent(event);
+        return event.defaultPrevented;
+      });
+      assert.equal(cancelled, false);
+      const previousOrigin = await page.evaluate(() => performance.timeOrigin);
       let startApp;
       const appGate = new Promise(resolve => { startApp = resolve; });
       const entry = /\/assets\/site\.js(?:\?|$)/;
@@ -38,6 +44,8 @@ try {
         await page.reload({ waitUntil: 'commit' });
         const root = page.locator('html');
         await expect(root).toHaveAttribute('data-cursor-outfit', short ? 'short' : 'long');
+        assert.ok(await page.evaluate(previous => performance.timeOrigin !== previous &&
+          performance.getEntriesByType('navigation')[0]?.type === 'reload', previousOrigin));
         await expect(root).toHaveCSS('cursor', /data:image\/svg\+xml/);
         assert.equal(await root.evaluate(el => getComputedStyle(el, '::after').content), 'none');
         await expect(page.locator('.animated-cursor:popover-open')).toHaveCount(0);
@@ -54,7 +62,7 @@ try {
       const data = /base64,([A-Za-z0-9+/=]+)/;
       return css.cursor.match(data)?.[1] === expected.match(data)[1];
     }, short);
-    assert.ok(firstImage, 'First native cursor matches the new outfit without mouse movement');
+    assert.ok(firstImage, 'CSS cursor declaration matches the new outfit without mouse movement');
     if (initial) await page.mouse.move(300, 220);
     else {
       await expect(page.locator('.animated-cursor:popover-open')).toHaveCount(1);
@@ -82,21 +90,6 @@ try {
     assert.deepEqual(requests, [name]);
     await page.unroute('**/megumi-cursor*.svg');
   }
-  // A focused desktop F5 revalidates the current URL without an OS cursor reset.
-  const origin = await page.evaluate(() => performance.timeOrigin);
-  await page.evaluate(() => { Math.random = () => .1; });
-  const revalidated = page.waitForResponse(r => r.url() === base && r.request().resourceType() === 'fetch');
-  await page.keyboard.press('F5');
-  await revalidated;
-  await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'short');
-  await expect(page.locator('.cursor-sprite')).toBeHidden();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', 'none');
-  assert.equal(await page.evaluate(() => performance.timeOrigin), origin);
-  await page.evaluate(() => { Math.random = () => .9; });
-  await page.keyboard.press('F5');
-  await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
-  // Choose the opposite of the current outfit on the next real draw.
-  await page.evaluate(() => { sessionStorage.short = 'yes'; });
   const scripts = [];
   page.on('request', request => {
     if (request.resourceType() === 'script') scripts.push(request.url());
