@@ -25,9 +25,13 @@ try {
       await gate;
       await route.continue();
     });
-    if (page.url() === 'about:blank') await page.goto(base, { waitUntil: 'domcontentloaded' });
+    const initial = page.url() === 'about:blank';
+    if (initial) await page.goto(base, { waitUntil: 'domcontentloaded' });
     else {
       await page.evaluate(value => { sessionStorage.short = value; }, short ? 'yes' : 'no');
+      // Headless keyboard input delivers F5 to the document; reload performs
+      // the browser command normally dispatched by the desktop shortcut.
+      await page.keyboard.press('F5');
       await page.reload({ waitUntil: 'domcontentloaded' });
     }
     const sprite = page.locator('.cursor-sprite');
@@ -42,7 +46,8 @@ try {
       return painted.match(data)?.[1] === expected.match(data)[1];
     }, short);
     assert.ok(firstImage, 'First native cursor matches the new outfit without mouse movement');
-    await page.mouse.move(300, 220);
+    if (initial) await page.mouse.move(300, 220);
+    else await expect(page.locator('.animated-cursor')).toBeVisible();
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     await expect(page.locator('html')).not.toHaveClass(/cursor-posing/);
     await expect(page.locator('body')).toHaveCSS('cursor', 'none');

@@ -44,7 +44,11 @@
     window.readCursorPoint = () => point;
     document.addEventListener('pointermove', remember, { capture: true, passive: true });
     document.addEventListener('pointerdown', remember, { capture: true, passive: true });
-    document.addEventListener('keydown', forget, true);
+    // Keyboard navigation dismisses the character. Reload shortcuts need the
+    // last mouse position so the next document can paint it without movement.
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Tab' || event.key === 'Escape') forget();
+    }, true);
     root.addEventListener('pointerleave', forget);
     window.addEventListener('blur', forget);
     let savedOnSwap = false;
