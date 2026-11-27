@@ -43,7 +43,7 @@ npm run check:recovery
 
 ### 浏览器环境
 
-本地浏览器测试以 Microsoft Edge 为主。发布流程验证 GameQA 的标题过渡，也可使用 Playwright 安装的 Chromium 复现该项检查。
+浏览器测试通过 [tests/support/browser.mjs](../tests/support/browser.mjs) 读取 `TEST_URL` 和 `BROWSER_CHANNEL`。默认使用 Microsoft Edge；指定 `chromium` 后，同一组用例可以在 Playwright 安装的 Chromium 上执行。需要检验前进与后退缓存的用例单独开启该选项。
 
 ```powershell
 npx playwright install chromium
@@ -58,14 +58,14 @@ node tests/project-transition.mjs
 | 需求 | 入口 | 对应页面或行为 |
 | --- | --- | --- |
 | 修改昵称、个人说明、GitHub 地址 | `src/data/site.js` 的 `profile` | “关于我”读取 `intro`、`about` 两段；邮箱留空时不生成邮件入口 |
-| 修改首屏的补充说明 | `src/App.jsx` 的 `hero-description` | 与个人介绍独立维护，调整技术方向时核对两处文案 |
+| 修改首屏的补充说明 | `src/pages/HomePage.jsx` 的 `hero-description` | 与个人介绍独立维护，调整技术方向时核对两处文案 |
 | 修改项目卡片、分类和简介弹窗 | `src/data/site.js` 的 `projects` | 保持已有 `id` 稳定 |
 | 扩充项目独立详情 | `src/data/project-notes.js` | 对应项目 ID 必须存在 |
 | 新增文章、论文或附件 | `content/`、`public/files/` | 按内容指南配置元数据 |
 | 同步 AILearning 学习资料 | `scripts/import-learning.mjs`、`content/collections/ailearning/` | 一个专题入口，下级章节不写入文章列表 |
 | 调整学习目录和章节阅读页 | `src/pages/LearningPage.jsx`、`scripts/learning.mjs` | 检查深层链接、公式、锚点与静态阅读 |
-| 调整首页结构、公共导航 | `src/App.jsx` | 同时检查桌面与手机菜单 |
-| 调整项目详情、文章列表 | `src/pages/ContentPage.jsx` | 独立文章与论文正文由 `WritingDetail.jsx` 承载 |
+| 调整首页结构、公共导航 | 首页分区在 `src/pages/HomePage.jsx`，公共导航在 `src/App.jsx` | 同时检查桌面与手机菜单 |
+| 调整项目详情、文章列表 | `src/pages/ProjectPage.jsx` 组织项目详情，`src/components/EntryList.jsx` 渲染条目 | 独立文章与论文正文由 `WritingDetail.jsx` 承载 |
 | 调整论文正文、配图和页内目录 | `src/pages/PaperBody.jsx`、`src/styles/content.css` | 保持静态连续阅读，核对图片尺寸、图注和锚点 |
 | 修改主题、基础排版 | `src/styles/base.css` | 浅色、深色共用主题变量 |
 | 修改滚动、翻页、光标 | 对应组件与 `src/styles/` | 文件职责见交互文档，保留减少动态效果分支 |
@@ -124,6 +124,6 @@ powershell -NoProfile -File scripts/clean.ps1 -WhatIf
 npm run clean
 ```
 
-`node_modules/` 保存本机开发依赖。Vite 在其中创建 `.vite/` 和 `.vite-temp/` 作为缓存，可在停止相关进程后单独清理。再次使用生产预览前需执行 `npm run build`；直接运行会保存截图的测试时，可用 `New-Item -ItemType Directory -Force .local/reports` 创建输出目录。
+`node_modules/` 保存本机开发依赖。Vite 在其中创建 `.vite/` 和 `.vite-temp/` 作为缓存，可在停止相关进程后单独清理。再次使用生产预览前需执行 `npm run build`。输出截图的浏览器测试会创建 `.local/reports/`。
 
 教材正文以清单的 `pages[].file` 对应 `content/collections/ailearning/`，附件以 `images[]` 对应 `public/files/ailearning/`。这两组文件属于构建输入，随教材更新一起维护。[教材同步](CONTENT.md#同步-ailearning)

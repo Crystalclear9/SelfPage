@@ -1,15 +1,14 @@
-import { chromium } from '@playwright/test';
+import { launchBrowser, testUrl } from './support/browser.mjs';
 import assert from 'node:assert/strict';
 import { projects } from '../src/data/site.js';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 
-const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
+const browser = await launchBrowser({ reports: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, colorScheme: 'light', reducedMotion: 'reduce' });
 const errors = [];
 page.on('pageerror', e => errors.push(e.message));
 page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
-await mkdir('.local/reports', { recursive: true });
-const base = process.env.TEST_URL || 'http://127.0.0.1:5173';
+const base = testUrl('http://127.0.0.1:5173');
 try {
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);

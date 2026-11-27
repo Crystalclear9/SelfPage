@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { createServer } from 'vite';
-import { loadLearning, renderLearning } from './learning.mjs';
+import { loadLearning, createLearningRenderer } from './learning.mjs';
 const escape = value => value.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 try {
@@ -26,9 +26,11 @@ try {
   }
   if (!html.includes('<div id="root"></div>')) throw new Error('Missing prerender mount point');
   const learning = loadLearning();
+  const renderLearning = createLearningRenderer(learning, server.config.base);
+  const pagesByRoute = new Map(learning.pages.map(page => [page.route, page]));
   for (const route of [...routes, { path: '/404/', title: '页面不存在', description: '页面不存在或尚未发布。' }]) {
-    const learningPage = learning.pages.find(p => p.route === route.path);
-    const learningHtml = learningPage ? renderLearning(learningPage, server.config.base, learning) : '';
+    const learningPage = pagesByRoute.get(route.path);
+    const learningHtml = learningPage ? renderLearning(learningPage) : '';
     const markup = renderToString(createElement(App, { path: route.path, learningHtml, WritingDetail }));
     const target = route.path === '/404/' ? 'dist/404.html' : path.join('dist', route.path, 'index.html');
     await mkdir(path.dirname(target), { recursive: true });

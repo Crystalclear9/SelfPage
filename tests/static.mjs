@@ -1,8 +1,8 @@
-import { chromium } from '@playwright/test';
+import { launchBrowser, testUrl } from './support/browser.mjs';
 import assert from 'node:assert/strict';
 
-const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
-const base = process.env.TEST_URL || 'http://127.0.0.1:4173';
+const browser = await launchBrowser();
+const base = testUrl('http://127.0.0.1:4173');
 try {
   for (const mode of ['disabled', 'blocked']) {
     const page = await browser.newPage({ javaScriptEnabled: mode !== 'disabled', viewport: { width: 375, height: 812 } });

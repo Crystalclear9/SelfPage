@@ -1,10 +1,10 @@
+import { launchBrowser, testUrl } from './support/browser.mjs';
 import assert from 'node:assert/strict';
-import { chromium } from '@playwright/test';
 import { loadLearning } from '../scripts/learning.mjs';
 
-const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
+const base = testUrl();
 const { pages } = loadLearning();
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const browser = await launchBrowser();
 const failures = [];
 try {
   for (const javaScriptEnabled of [false, true]) {

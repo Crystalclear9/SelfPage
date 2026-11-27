@@ -1,8 +1,7 @@
-import { chromium, expect } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
-const base = process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/';
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
-await mkdir('.local/reports', { recursive: true });
+import { launchBrowser, testUrl } from './support/browser.mjs';
+import { expect } from '@playwright/test';
+const base = testUrl();
+const browser = await launchBrowser({ reports: true });
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, permissions: ['clipboard-read', 'clipboard-write'] });
   const errors = []; page.on('pageerror', e => errors.push(e.message));

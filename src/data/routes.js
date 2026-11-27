@@ -3,6 +3,10 @@ import { projects } from './site';
 import { pages, revision, source } from '../../content/collections/ailearning/manifest.json';
 export const learning = { pages, revision, source };
 export { writing };
+export const writingSections = [
+  { type: 'articles', title: '文章', description: '记录开发中遇到的问题与尝试过的方法。' },
+  { type: 'papers', title: '论文', description: '研究工作、论文与相关材料。' },
+];
 export const learningPublished = writing.some(p => p.route === '/articles/ailearning/');
 export const href = route => `${import.meta.env.BASE_URL}${route.replace(/^\//, '')}`;
 export const routes = [
@@ -18,5 +22,6 @@ export const routes = [
 export function currentPath(pathname) {
   const base = import.meta.env.BASE_URL;
   const relative = pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, '');
-  return `/${relative.replace(/index\.html$/, '').replace(/\/$/, '')}${relative.replace(/index\.html$/, '').replace(/\/$/, '') ? '/' : ''}`;
+  const route = relative.replace(/index\.html$/, '').replace(/\/$/, '');
+  return route ? `/${route}/` : '/';
 }

@@ -36,7 +36,7 @@ git push origin main
 
 工作流通过 `actions/configure-pages` 读取站点前缀，并将当前提交写入 `VITE_SITE_REVISION`。构建时统一补齐末尾斜杠，将结果写入 `SITE_BASE_PATH`。例如 `/projects/gameqa/` 对应公开地址 `/SelfPage/projects/gameqa/`，其产物仍位于 `dist/projects/gameqa/index.html`。
 
-浏览器检查运行器优先使用预装 Chrome，缺少时安装 Chromium。任务在 4174 端口启动生产预览，等待带前缀的首页返回成功响应，再执行 `node tests/project-transition.mjs`。[本地复现命令](DEVELOPMENT.md#生产预览)
+浏览器检查运行器优先使用预装 Chrome，缺少时安装 Chromium。任务在 4174 端口启动生产预览，等待带前缀的首页返回成功响应，再执行 `node tests/project-transition.mjs`，验证进入 GameQA 及返回首页时的原生标题过渡。测试通过 `TEST_URL` 读取完整预览地址，`BROWSER_CHANNEL` 选择运行器上的浏览器。[本地复现命令](DEVELOPMENT.md#生产预览)
 
 `scripts/pages-size.mjs` 生成 `dist/assets/build-size.json`。Actions 摘要列出发布总量、相对上次的变化、新增的大图和重复图片。首次生成的清单用作后续发布的比较基线。
 

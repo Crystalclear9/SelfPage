@@ -64,15 +64,15 @@ npm run dev
 content/            文章、论文正文与元数据
 public/             直接发布的图片、图标和附件
 src/
-  App.jsx           首页与公共页面框架
+  App.jsx           全站布局、主题、导航与页脚
   main.jsx          客户端入口
   components/       导航、头像、光标、弹窗和拖尾
   data/             个人资料、项目及路由数据
-  lib/              首页入口、项目筛选、翻页方向与异常恢复
-  pages/            项目详情、内容索引和正文
+  lib/              导航、状态管理、音频及 Markdown 配置
+  pages/            首页、项目详情、内容索引与阅读页
   styles/           基础、内容、导航及动效样式
 scripts/            内容校验、静态生成、性能检查与产物清理
-tests/              内容、渲染及交互回归检查
+tests/              内容、渲染与交互回归；support/ 提供浏览器环境
 docs/               内容维护、部署、交互及素材文档
 ```
 

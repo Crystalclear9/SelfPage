@@ -1,15 +1,15 @@
+import { launchBrowser, testUrl } from './support/browser.mjs';
 import assert from 'node:assert/strict';
-import { chromium } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { loadLearning } from '../scripts/learning.mjs';
 
-const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
+const base = testUrl();
 const { pages } = loadLearning();
 const entry = pages.find(p => readFileSync(`content/collections/ailearning/${p.file}`, 'utf8').includes('scalar graph and accumulation'));
 assert.ok(entry, 'The reference PyTorch chapter must exist');
 const source = readFileSync(`content/collections/ailearning/${entry.file}`, 'utf8');
 const sample = [...source.matchAll(/```python\r?\n([\s\S]*?)```/g)].find(m => m[1].includes('scalar graph and accumulation'))[1].replaceAll('\r\n', '\n');
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const browser = await launchBrowser();
 try {
   for (const javaScriptEnabled of [false, true]) {
     const page = await browser.newPage({ javaScriptEnabled, viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });

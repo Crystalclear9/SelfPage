@@ -2,7 +2,7 @@ import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { loadLearning, normalizeLearningMath, renderLearning } from '../scripts/learning.mjs';
+import { loadLearning, normalizeLearningMath, createLearningRenderer } from '../scripts/learning.mjs';
 
 
 const require = createRequire(import.meta.url);
@@ -12,7 +12,9 @@ assert.equal(require('katex/package.json').version, rendererRequire('katex/packa
 const literals = ['公式使用 `$...$`、`$$...$$` 数学标记。', '``带 ` 和 $$ 的代码``', '```tex\n$$x$$\n```', '~~~tex\n$$x$$\n~~~', '`多行\n$$example$$`'];
 for (const literal of literals) assert.equal(normalizeLearningMath(literal), literal);
 assert.equal(normalizeLearningMath('$$x^2$$'), '\n$$\nx^2\n$$\n');
-const { pages } = loadLearning();
+const manifest = loadLearning();
+const { pages } = manifest;
+const renderLearning = createLearningRenderer(manifest);
 const rootHtml = renderLearning(pages.find(p => p.kind === 'collection'));
 assert.ok(rootHtml.includes('learning') || rootHtml.length > 100, 'Collection renders content');
 const calculus = pages.find(p => p.file === 'Mathematics/Calculus/01-导数偏导数与链式法则.md');

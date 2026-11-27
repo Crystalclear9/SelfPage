@@ -1,10 +1,9 @@
-import { chromium, expect } from '@playwright/test';
+import { launchBrowser, testUrl } from './support/browser.mjs';
+import { expect } from '@playwright/test';
 import assert from 'node:assert/strict';
-import { mkdir } from 'node:fs/promises';
 
-const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
-const base = process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/';
-await mkdir('.local/reports', { recursive: true });
+const browser = await launchBrowser({ reports: true });
+const base = testUrl();
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
   const errors = [];

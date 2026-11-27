@@ -59,7 +59,7 @@ Vite 将 `src/lib/transition-guard.js` 内联到文档 head。过渡准备失败
 | 悬浮返回与回到顶部 | `components/PageNavigation.jsx`、`components/ScrollToTop.jsx` | 上滑显示、下滑隐藏、焦点可达性和页脚互斥 |
 | 翻页方向与快照 | `lib/navigation.js`、`styles/navigation.css` | 前后项目、返回主页、浏览器历史遍历 |
 
-表中路径相对 `src/`。
+表中路径相对 `src/`。项目标题使用同一项目 ID 生成 `view-transition-name`。首页卡片的标题在 `pages/HomePage.jsx`，详情页标题在 `pages/ProjectPage.jsx`。调整两处标记后，在生产预览上运行 `node tests/project-transition.mjs` 检验往返过渡。
 
 ## 验证入口
 

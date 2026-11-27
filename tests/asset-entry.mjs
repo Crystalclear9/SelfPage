@@ -1,6 +1,7 @@
-import { chromium, expect } from '@playwright/test';
-const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
-const browser = await chromium.launch({ channel: 'msedge', headless: true, ignoreDefaultArgs: ['--disable-back-forward-cache'] });
+import { launchBrowser, testUrl } from './support/browser.mjs';
+import { expect } from '@playwright/test';
+const base = testUrl();
+const browser = await launchBrowser({ ignoreDefaultArgs: ['--disable-back-forward-cache'] });
 try {
   const context = await browser.newContext({ reducedMotion: 'no-preference' });
   const page = await context.newPage(), errors = [];

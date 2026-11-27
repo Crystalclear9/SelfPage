@@ -3,17 +3,14 @@ import path from 'node:path';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 import GithubSlugger from 'github-slugger';
-import codeHighlight from '../src/lib/code-highlight.js';
+import { remarkPlugins, rehypePlugins } from '../src/lib/markdown.js';
 
 const directory = path.resolve('content/collections/ailearning');
 export const loadLearning = () => JSON.parse(readFileSync(path.join(directory, 'manifest.json'), 'utf8'));
 
 // Recognize only the source's empty anchor tags; arbitrary HTML remains disabled.
-function learningMarkdown({ page, pages, images, base }) {
+function learningMarkdown({ page, pagesByFile, images, base }) {
   return tree => {
     const slugger = new GithubSlugger();
     const headingText = node => node.value || node.children?.map(headingText).join('') || '';
@@ -41,8 +38,7 @@ function learningMarkdown({ page, pages, images, base }) {
         node.data = { ...node.data, hProperties: { ...node.data?.hProperties, id: slugger.slug(headingText(node)) } };
       }
       if (node.type === 'table') {
-        const text = n => n.value || n.children?.map(text).join('') || '';
-        const headings = node.children[0].children.map(text);
+        const headings = node.children[0].children.map(headingText);
         if (headings.join('|') === '主题|章节|主要内容') {
           node.data = { ...node.data, hProperties: { className: ['learning-topic-table'] } };
         }
@@ -74,7 +70,7 @@ function learningMarkdown({ page, pages, images, base }) {
         const [file, fragment] = node.url.split('#');
         const target = path.posix.normalize(path.posix.join(path.posix.dirname(page.file), decodeURIComponent(file)));
         if (images.has(target)) { node.url = base + 'files/ailearning/' + target.split('/').map(encodeURIComponent).join('/') + (fragment ? `#${fragment}` : ''); return; }
-        const linked = pages.find(p => p.file === target);
+        const linked = pagesByFile.get(target);
         if (!linked) throw new Error(`Unresolved learning link in ${page.file}: ${node.url}`);
         node.url = base + linked.route.slice(1) + (fragment ? `#${fragment}` : '');
       }
@@ -112,20 +108,22 @@ export function normalizeLearningMath(source) {
   }).join('\n');
 }
 
-export function renderLearning(page, base = '/', manifest = loadLearning(), contentDirectory = directory) {
-  const { pages } = manifest;
+export function createLearningRenderer(manifest, base = '/', contentDirectory = directory) {
+  const pagesByFile = new Map(manifest.pages.map(page => [page.file, page]));
   const images = new Set(manifest.images);
-  const markdown = normalizeLearningMath(readFileSync(path.join(contentDirectory, page.file), 'utf8'));
-  return renderToStaticMarkup(createElement(ReactMarkdown, {
-    remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, images, base }]],
-    rehypePlugins: [[rehypeKatex, { strict: false, trust: false }], codeHighlight],
-    components: {
-      table: ({ node, children, ...props }) => props.className === 'learning-topic-table'
-        ? createElement('div', { className: 'learning-table-scroll', tabIndex: 0, role: 'region', 'aria-label': '主题与章节目录，可横向滚动' }, createElement('table', props, children))
-        : createElement('table', props, children),
-    },
-    skipHtml: true,
-  }, markdown));
+  return page => {
+    const markdown = normalizeLearningMath(readFileSync(path.join(contentDirectory, page.file), 'utf8'));
+    return renderToStaticMarkup(createElement(ReactMarkdown, {
+      remarkPlugins: [...remarkPlugins, [learningMarkdown, { page, pagesByFile, images, base }]],
+      rehypePlugins,
+      components: {
+        table: ({ node, children, ...props }) => props.className === 'learning-topic-table'
+          ? createElement('div', { className: 'learning-table-scroll', tabIndex: 0, role: 'region', 'aria-label': '主题与章节目录，可横向滚动' }, createElement('table', props, children))
+          : createElement('table', props, children),
+      },
+      skipHtml: true,
+    }, markdown));
+  };
 }
 
 export function learningPlugin() {
@@ -142,7 +140,7 @@ export function learningPlugin() {
         if (!page) { res.statusCode = 404; return res.end(); }
         try {
           res.setHeader('Content-Type', 'text/html; charset=utf-8');
-          res.end(renderLearning(page, base, manifest));
+          res.end(createLearningRenderer(manifest, base)(page));
         } catch (error) { next(error); }
       });
       server.watcher.add(directory);

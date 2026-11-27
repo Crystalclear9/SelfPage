@@ -1,12 +1,10 @@
+import { launchBrowser, testUrl } from './support/browser.mjs';
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-import { chromium, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 
-const base = process.env.TEST_URL || 'http://127.0.0.1:4189/SelfPage/';
-const browser = await chromium.launch({
-  channel: process.env.BROWSER_CHANNEL || 'msedge',
-  ignoreDefaultArgs: ['--disable-back-forward-cache'],
-});
+const base = testUrl();
+const browser = await launchBrowser({ ignoreDefaultArgs: ['--disable-back-forward-cache'] });
 try {
   const page = await browser.newPage({ deviceScaleFactor: 2, reducedMotion: 'no-preference' });
   await page.addInitScript(() => {

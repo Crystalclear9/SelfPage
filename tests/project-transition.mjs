@@ -1,8 +1,9 @@
+import { launchBrowser, testUrl } from './support/browser.mjs';
 import assert from 'node:assert/strict';
-import { chromium, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 
-const base = process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/';
-const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge' });
+const base = testUrl();
+const browser = await launchBrowser();
 try {
   const page = await browser.newPage({ viewport: { width: 1365, height: 900 }, reducedMotion: 'no-preference' });
   await page.addInitScript(() => {

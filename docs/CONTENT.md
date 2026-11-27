@@ -2,7 +2,7 @@
 
 ## 首页与项目
 
-在 [site.js](../src/data/site.js) 中编辑 `profile`。`subtitle` 出现在首屏，`intro` 和 `about` 组成「关于我」。`github` 指向公开主页，填写 `email` 后会显示邮件入口。首屏标题下的补充说明在 [App.jsx](../src/App.jsx)。
+在 [site.js](../src/data/site.js) 中编辑 `profile`。`subtitle` 出现在首屏，`intro` 和 `about` 组成「关于我」。`github` 指向公开主页，填写 `email` 后会显示邮件入口。首屏标题下的补充说明在 [HomePage.jsx](../src/pages/HomePage.jsx)。
 
 项目卡片与介绍弹窗读取 `projects` 数组。独立详情页按同一 ID 从 [project-notes.js](../src/data/project-notes.js) 的 `projectNotes` 对象读取正文。新增项目时，在数组中添加卡片记录，并以该记录的 ID 为键添加详情正文。
 
@@ -179,6 +179,6 @@ node tests/learning-references.mjs
 
 打开生产预览，在另一个终端设置对应的 `TEST_URL`，运行 `npm run check:learning-ui` 和 `node tests/learning-render.mjs`。前者覆盖目录与阅读导航，后者核对实际页面中的图片解码和不同阅读环境。预览命令见[开发与测试](DEVELOPMENT.md)。
 
-- **公式与代码**。正文公式由 KaTeX 排版，围栏代码块按语言标记着色。显示 Markdown 语法示例时放入反引号或围栏，保留原样。
+- **公式与代码**。正文公式由 KaTeX 排版，围栏代码块按语言标记着色。需要增加高亮语言时，在[共用 Markdown 配置](../src/lib/markdown.js) 登记，并通过 `node tests/code-blocks.mjs` 检查生产预览。显示 Markdown 语法示例时放入反引号或围栏，保留原样。
 - **图片与定位**。源文件使用相对路径，导入后由本站提供图片。带片段的 SVG 引用保留 `#view-id`。图像路径、许可与署名见[教材配图](LEARNING-IMAGE-SOURCES.md)。
 - **资料引用**。内部 Markdown 链接映射到发布路由，章内目录使用标题或显式锚点。检查外部资料时运行 `node tests/learning-references.mjs --external`。[历史检查记录](LEARNING-LINK-AUDIT.json)保存了 2026-11-08 对 248 个外部地址的检查结果。

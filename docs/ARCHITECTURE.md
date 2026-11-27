@@ -28,13 +28,15 @@ SelfPage 的发布单元是一个目录中的 `index.html`。构建端和浏览�
 | 生产环境站内换章 | 浏览器打开目标章节的独立 HTML，客户端复用该页正文 |
 | 本地开发 | Vite 插件在 `__learning?route=…` 返回指定章节的 HTML 片段 |
 
+教材导入校验和静态构建都按快照建立文件名到页面的索引，用同一份资源清单解析相对链接。教材、文章与论文共用 [Markdown 配置](../src/lib/markdown.js)，其中登记 GFM、数学语法、KaTeX 和高亮语言。教材专用的锚点、目录表格和图片路径在 [learning.mjs](../scripts/learning.mjs) 处理。
+
 普通文章与论文由 `WritingDetail` 按需加载。论文正文另经 `PaperBody` 处理二级标题、页内目录和对照图组。[阅读页组件](../src/pages)
 
 ## 导航与组件生命周期
 
 [main.jsx](../src/main.jsx) 对预渲染页面调用 `hydrateRoot`；开发服务的空挂载点使用 `createRoot`。站内链接使用浏览器的跨文档导航。支持 View Transitions 的浏览器在离开和进入文档时，根据起点与终点选择展开、返回或相邻项目的翻页方向。
 
-各页面独立挂载 `App`。项目筛选和弹窗由当前页面管理，主题与喜欢状态使用 localStorage，角色衣装按标签页保存。[光标与页面状态](MOTION.md)
+各页面独立挂载 [App](../src/App.jsx)，共用导航、主题、角色光标与回顶入口。[HomePage](../src/pages/HomePage.jsx) 挂载首页分区、项目筛选和速览弹窗，并处理喜欢状态与语音。[ProjectPage](../src/pages/ProjectPage.jsx) 根据项目 ID 组织实现说明、参考资料和关联文章。角色衣装按标签页保存。[光标与页面状态](MOTION.md)
 
 ## 组件事件与样式分层
 

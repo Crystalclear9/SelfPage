@@ -1,8 +1,5 @@
+import { remarkPlugins, rehypePlugins } from '../lib/markdown.js';
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import codeHighlight from '../lib/code-highlight';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import PageNavigation from '../components/PageNavigation';
 import PaperBody from './PaperBody';
@@ -25,6 +22,6 @@ export default function WritingDetail({ entry }) {
         {entry.pdf && <a className={isPaper ? 'text-link' : 'button primary'} data-cursor="download" href={contentUrl(entry.pdf)} target="_blank" rel="noreferrer">阅读 PDF <ArrowUpRight size={17}/></a>}
       </div>
     </header>
-    {isPaper ? <PaperBody markdown={entry.markdown} /> : <div className="prose"><ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[[rehypeKatex, { strict: false, trust: false }], codeHighlight]} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>}
+    {isPaper ? <PaperBody markdown={entry.markdown} /> : <div className="prose"><ReactMarkdown remarkPlugins={remarkPlugins} rehypePlugins={rehypePlugins} urlTransform={url => url.startsWith('/files/') ? href(url) : defaultUrlTransform(url)}>{entry.markdown}</ReactMarkdown></div>}
   </article>;
 }

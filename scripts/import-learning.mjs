@@ -1,7 +1,7 @@
 import { existsSync, renameSync, rmSync, readdirSync, readFileSync, mkdirSync, copyFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { renderLearning } from './learning.mjs';
+import { createLearningRenderer } from './learning.mjs';
 import { execFileSync } from 'node:child_process';
 
 const source = process.argv[2];
@@ -108,9 +108,10 @@ function identifySource(pages, contentStage) {
 }
 
 function validate(manifest, stage) {
+  const renderLearning = createLearningRenderer(manifest, '/', stage);
   const documents = new Map();
   for (const page of manifest.pages) {
-    const html = renderLearning(page, '/', manifest, stage);
+    const html = renderLearning(page);
     if (html.includes('class="katex-error"')) throw new Error(`Invalid formula in ${page.file}`);
     documents.set(page.route, {
       ids: new Set([...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1])),

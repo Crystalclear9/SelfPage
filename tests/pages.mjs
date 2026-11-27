@@ -1,8 +1,9 @@
-import { chromium, expect } from '@playwright/test';
+import { launchBrowser, testUrl } from './support/browser.mjs';
+import { expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { projects } from '../src/data/site.js';
-const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const base = testUrl();
+const browser = await launchBrowser({ reports: true });
 try {
  for (const javaScriptEnabled of [false, true]) {
   const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });

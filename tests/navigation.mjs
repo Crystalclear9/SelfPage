@@ -1,8 +1,8 @@
-import { chromium, expect } from '@playwright/test';
+import { launchBrowser, testUrl } from './support/browser.mjs';
+import { expect } from '@playwright/test';
 import assert from 'node:assert/strict';
-import { mkdir } from 'node:fs/promises';
-const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const base = testUrl();
+const browser = await launchBrowser({ reports: true });
 try {
   for (const javaScriptEnabled of [false, true]) {
     const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });
@@ -34,7 +34,6 @@ try {
   await page.waitForURL(base + 'projects/suishouban/');
   assert.equal(await page.evaluate(() => sessionStorage.getItem('transition-seen')), 'yes');
   await page.waitForTimeout(600);
-  await mkdir('.local/reports', { recursive: true });
   await page.screenshot({ path: '.local/reports/return-navigation.png' });
   await page.locator('.pager-next').click();
   await page.waitForURL(base + 'projects/gameqa/');

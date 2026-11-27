@@ -1,7 +1,8 @@
-import { chromium, expect } from '@playwright/test';
+import { launchBrowser, testUrl } from './support/browser.mjs';
+import { expect } from '@playwright/test';
 import assert from 'node:assert/strict';
-const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const base = testUrl();
+const browser = await launchBrowser();
 try {
   for (const stalled of [false, true]) {
     const context = await browser.newContext({ reducedMotion: 'no-preference' });
