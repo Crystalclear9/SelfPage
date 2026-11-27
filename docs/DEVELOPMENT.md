@@ -107,6 +107,8 @@ node tests/project-transition.mjs
 
 ## 工作区清理
 
+在仓库根目录运行 `git status --short --ignored` 可同时查看源码改动、未跟踪文件和已忽略的本地产物。其中 `!!` 表示命中忽略规则；例如 `node_modules/` 是运行开发服务所需的依赖，`dist/` 是可重新构建的站点副本。
+
 Windows 下的 `npm run clean` 直接删除仓库根目录的 `dist/` 和 `.local/`。先结束教材导入并停止占用这些目录的预览服务；如果上一次导入中断，应先恢复教材快照，再清理暂存区。[教材同步](CONTENT.md#同步-ailearning)
 
 | 本地产物 | 用途 | 重新生成方式 |
