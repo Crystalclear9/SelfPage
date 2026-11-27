@@ -87,11 +87,12 @@ export default function AnimatedCursor() {
       visible = false; down = null; nativeDrag = false; transient = '';
       strokeX = null; reversals = 0; previousDirection = 0;
       clearTimeout(timer); cancelAnimationFrame(frame); frame = 0;
-      root.classList.remove('animated-cursor-active', 'cursor-posing');
+      root.classList.remove('animated-cursor-active', 'cursor-posing', 'cursor-stationary');
       if (el.matches(':popover-open')) el.hidePopover();
     };
-    const position = event => {
+    const position = (event, restored = false) => {
       if (!fine.matches || reduced.matches || (event.pointerType && event.pointerType !== 'mouse')) return hide();
+      root.classList.toggle('cursor-stationary', restored);
       const now = performance.now();
       x = event.clientX; y = event.clientY; target = event.target;
       if (!visible) {
@@ -183,7 +184,7 @@ export default function AnimatedCursor() {
     observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open', 'aria-busy', 'data-cursor', 'disabled', 'aria-disabled'] });
     const resumePoint = () => {
       const point = window.readCursorPoint?.();
-      if (point && !document.hidden) position(point);
+      if (point && !document.hidden) position(point, true);
     };
     const restore = event => { if (event.persisted) { loadSprite(); resumePoint(); } };
     const reveal = event => { event.viewTransition?.finished.then(schedule, schedule); };
@@ -192,9 +193,8 @@ export default function AnimatedCursor() {
       if (event.target.closest('input, textarea, select, button, a, label, summary, [role="button"]') || event.target.isContentEditable) return;
       event.preventDefault();
     };
-    const keyboard = event => { if (event.key === 'Escape' || event.key === 'Tab') hide(); };
     const preference = () => { hide(); loadSprite(); };
-    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', keyboard], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pageswap', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'site-page-rendered', schedule], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
+    const events = [[document, 'pointermove', position], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', cancel], [document, 'scroll', schedule], [document, 'dragstart', dragStart], [document, 'dragover', dragMove], [document, 'dragleave', dragLeave], [document, 'dragend', dragEnd], [document, 'drop', dragEnd], [document, 'keydown', hide], [document, 'visibilitychange', visibility], [root, 'pointerleave', leave], [window, 'blur', hide], [window, 'pageswap', hide], [window, 'pagehide', hide], [window, 'pageshow', restore], [window, 'load', schedule], [fine, 'change', preference], [reduced, 'change', preference]];
     loadSprite();
     resumePoint();
     document.fonts.ready.then(() => { if (!disposed) schedule(); });

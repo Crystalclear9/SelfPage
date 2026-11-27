@@ -51,7 +51,7 @@ try {
   await page.locator('.hero-description').dblclick(); await state('text');
   assert.equal(await page.evaluate(() => getSelection().toString()), '');
   // A wheel can be the first mouse input after keyboard navigation.
-  await page.keyboard.press('Escape');
+  await page.keyboard.press('Shift');
   await expect(cursor).toBeHidden();
   await page.mouse.wheel(0, 90); await state('scroll-down');
   await expect(cursor.locator('.cursor-status')).toHaveText('↓');
@@ -145,7 +145,7 @@ try {
   await page.mouse.move(300, 160);
   await expect(cursor).toBeHidden();
   assert.equal(await page.locator('[data-pointer-inside]').count(), 0);
-  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /data:image\/svg\+xml;base64,/);
+  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /data:image\/png;base64,/);
   const touch = await browser.newPage({ hasTouch: true, isMobile: true, viewport: { width: 375, height: 812 } });
   await touch.goto(base, { waitUntil: 'networkidle' });
   await expect(touch.locator('.animated-cursor')).toBeHidden();

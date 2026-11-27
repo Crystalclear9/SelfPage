@@ -1,23 +1,20 @@
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .project-card, .art-window, .contact-inner, .avatar { position: relative; isolation: isolate; }
-  .project-card, .art-window, .contact-panel, .avatar {
+  .project-card, .art-window, .contact-inner, .avatar {
     transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
     transition: transform .45s cubic-bezier(.16, 1, .3, 1), border-color .25s;
   }
-  .project-card[data-pointer-inside], .art-window[data-pointer-inside], .contact-inner[data-pointer-inside] > .contact-panel, .avatar[data-pointer-inside] {
+  .project-card[data-pointer-inside], .art-window[data-pointer-inside], .contact-inner[data-pointer-inside], .avatar[data-pointer-inside] {
     transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(3px);
     transition-duration: .14s;
   }
-  /* The outer rectangle owns hover; only its visual panel rotates. */
-  .contact-panel { position: relative; pointer-events: none; }
-  .contact-panel > div { pointer-events: auto; }
-  .project-card::before, .art-window::before, .contact-panel::before {
+  .project-card::before, .art-window::before, .contact-inner::before {
     content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
     background: radial-gradient(240px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 80%);
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
     opacity: 0; transition: opacity .35s; z-index: 1;
   }
-  .project-card[data-pointer-inside]::before, .art-window[data-pointer-inside]::before, .contact-inner[data-pointer-inside] > .contact-panel::before { opacity: 1; }
+  .project-card[data-pointer-inside]::before, .art-window[data-pointer-inside]::before, .contact-inner[data-pointer-inside]::before { opacity: 1; }
   .project-card::after, .art-window::after, .contact-inner::after, .avatar::after {
     content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px;
     border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; z-index: 2;

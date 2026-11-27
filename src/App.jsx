@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PetalTrail from './components/PetalTrail';
 import Modal from './components/Modal';
+import AnimatedCursor from './components/AnimatedCursor';
 import PointerSurfaces from './components/PointerSurfaces';
 import ProfileAvatar from './components/ProfileAvatar';
 import ScrollToTop from './components/ScrollToTop';
@@ -36,9 +37,11 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
     () => setToast('语音暂时无法播放。'));
   const toggleLike = () => {
     if (!liked) {
+      unlikeVoice.stop();
       document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' }));
       void likeVoice.play();
     } else {
+      likeVoice.stop();
       document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'unlike' }));
       void unlikeVoice.play();
     }
@@ -80,6 +83,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
+    {hydrated && <AnimatedCursor />}
     <PointerSurfaces />
     <ScrollToTop target={path === '/' ? '#home' : '#main'} />
     {path === '/' && <ChapterMotion />}
@@ -121,7 +125,8 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
       <section className="about section-shell reveal" id="about">
         <div className="profile-card" data-chapter="profile">
           <ProfileAvatar enabled={hydrated}
-            voiceSrc={profile.avatarVoice ? `${import.meta.env.BASE_URL}${profile.avatarVoice}` : ''} />
+            voiceSrc={profile.avatarVoice ? `${import.meta.env.BASE_URL}${profile.avatarVoice}` : ''}
+            onVoiceError={setToast} />
           <div><h2>{profile.name}</h2><a href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={15} /> GitHub <ArrowUpRight size={13} /></a></div>
         </div>
         <div className="about-copy" data-chapter="about">
@@ -161,23 +166,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
 
       <WritingSection />
       <section className="contact-section section-shell reveal" id="contact">
-        <div className="contact-inner" data-chapter="contact">
-          <div className="contact-panel">
-            <div>
-              <h2>在 GitHub 上</h2>
-              <p>最近的更新和完整实现，可以在 GitHub 找到。</p>
-            </div>
-            <div className="contact-actions">
-              <a className="button primary" href={profile.github} target="_blank" rel="noreferrer">
-                <GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} />
-              </a>
-              {profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}
-              <button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} disabled={!hydrated} onClick={toggleLike}>
-                <Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}
-              </button>
-            </div>
-          </div>
-        </div>
+        <div className="contact-inner" data-chapter="contact"><div><h2>在 GitHub 上</h2><p>最近的更新和完整实现，可以在 GitHub 找到。</p></div><div className="contact-actions"><a className="button primary" href={profile.github} target="_blank" rel="noreferrer"><GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} /></a>{profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}<button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} disabled={!hydrated} onClick={toggleLike}><Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}</button></div></div>
       </section>
       </> : <ContentPage path={path} learningHtml={learningHtml} WritingDetail={WritingDetail}/>}
     </main>

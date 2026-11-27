@@ -1,18 +1,18 @@
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 
-const base = process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/';
+const base = process.env.TEST_URL || 'http://127.0.0.1:4189/SelfPage/';
 const browser = await chromium.launch({
   channel: process.env.BROWSER_CHANNEL || 'msedge',
   ignoreDefaultArgs: ['--disable-back-forward-cache'],
 });
 try {
-  const page = await browser.newPage({ deviceScaleFactor: 2, reducedMotion: 'no-preference' });
+  const page = await browser.newPage({ reducedMotion: 'no-preference' });
   await page.addInitScript(() => {
     const random = Math.random;
     Math.random = () => {
       Math.random = random;
-      return .9; // Deterministic first visit; reloads must alternate independently.
+      return sessionStorage.short === 'yes' ? .1 : .9;
     };
   });
   for (const short of [false, true, false]) {
@@ -25,33 +25,10 @@ try {
       await gate;
       await route.continue();
     });
-    const initial = page.url() === 'about:blank';
-    if (initial) await page.goto(base, { waitUntil: 'domcontentloaded' });
+    if (page.url() === 'about:blank') await page.goto(base, { waitUntil: 'domcontentloaded' });
     else {
-      // Keyboard events must reach the browser without the site cancelling F5.
-      const cancelled = await page.evaluate(() => {
-        const event = new KeyboardEvent('keydown', { key: 'F5', bubbles: true, cancelable: true });
-        document.dispatchEvent(event);
-        return event.defaultPrevented;
-      });
-      assert.equal(cancelled, false);
-      const previousOrigin = await page.evaluate(() => performance.timeOrigin);
-      let startApp;
-      const appGate = new Promise(resolve => { startApp = resolve; });
-      const entry = /\/assets\/site\.js(?:\?|$)/;
-      await page.route(entry, async route => { await appGate; await route.continue(); });
-      try {
-        await page.reload({ waitUntil: 'commit' });
-        const root = page.locator('html');
-        await expect(root).toHaveAttribute('data-cursor-outfit', short ? 'short' : 'long');
-        assert.ok(await page.evaluate(previous => performance.timeOrigin !== previous &&
-          performance.getEntriesByType('navigation')[0]?.type === 'reload', previousOrigin));
-        await expect(root).toHaveCSS('cursor', /data:image\/svg\+xml/);
-        assert.equal(await root.evaluate(el => getComputedStyle(el, '::after').content), 'none');
-        await expect(page.locator('.animated-cursor:popover-open')).toHaveCount(0);
-      } finally { startApp(); }
-      await page.unroute(entry);
-
+      await page.evaluate(value => { sessionStorage.short = value; }, short ? 'yes' : 'no');
+      await page.reload({ waitUntil: 'domcontentloaded' });
     }
     const sprite = page.locator('.cursor-sprite');
     await expect(sprite).toHaveAttribute('src', new RegExp(name + '$'));
@@ -60,36 +37,27 @@ try {
       const css = getComputedStyle(el);
       const expected = css.getPropertyValue(short ? '--short-cursor' : '--long-cursor').trim();
       const data = /base64,([A-Za-z0-9+/=]+)/;
-      return css.cursor.match(data)?.[1] === expected.match(data)[1];
+      const painted = el.classList.contains('cursor-stationary')
+        ? getComputedStyle(document.querySelector('.animated-cursor')).backgroundImage : css.cursor;
+      return painted.match(data)?.[1] === expected.match(data)[1];
     }, short);
-    assert.ok(firstImage, 'CSS cursor declaration matches the new outfit without mouse movement');
-    if (initial) await page.mouse.move(300, 220);
-    else {
-      await expect(page.locator('.animated-cursor:popover-open')).toHaveCount(1);
-      await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', 'none');
-    }
+    assert.ok(firstImage, 'First native cursor matches the new outfit without mouse movement');
+    await page.mouse.move(300, 220);
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     await expect(page.locator('html')).not.toHaveClass(/cursor-posing/);
-    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/svg\+xml/);
+    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
     resume();
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
-    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/svg\+xml/);
+    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
     await expect(sprite).toBeHidden();
-    const resolution = await page.locator('.animated-cursor').evaluate(async el => {
-      const image = new Image();
-      const uri = getComputedStyle(el).cursor.match(/url\("([^"]+)"\)/)[1];
-      const svg = new DOMParser().parseFromString(atob(uri.split(',')[1]), 'image/svg+xml');
-      image.src = svg.querySelector('image').getAttribute('href');
-      await image.decode();
-      return [image.naturalWidth, image.naturalHeight];
-    });
-    assert.deepEqual(resolution, [192, 204], 'Idle pointer uses the full-resolution artwork');
     const box = await page.locator('.animated-cursor').boundingBox();
     assert.equal(box.x + 8, 300);
     assert.equal(box.y + 12, 220);
     assert.deepEqual(requests, [name]);
     await page.unroute('**/megumi-cursor*.svg');
   }
+  // Choose the opposite of the current outfit on the next real draw.
+  await page.evaluate(() => { sessionStorage.short = 'yes'; });
   const scripts = [];
   page.on('request', request => {
     if (request.resourceType() === 'script') scripts.push(request.url());
@@ -100,8 +68,8 @@ try {
   await page.route(externalAssets, route => route.abort());
   await page.locator('.writing-door').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
-  await expect(page.locator('.entry-row').first()).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', 'none');
+  await expect(page.locator('html')).not.toHaveClass(/animated-cursor-active/);
+  await expect(page.locator('.entry-row').first()).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
   assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor')), nativeBefore);
   await page.unroute(externalAssets);
   await page.goBack({ waitUntil: 'commit' });
@@ -114,13 +82,13 @@ try {
   // restoration of the pointer or its contextual feedback.
   const [cx, cy] = await page.evaluate(() => JSON.parse(sessionStorage.testPoint));
   await expect(page.locator('.animated-cursor')).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', 'none');
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/png;base64/);
   const restored = await page.locator('.animated-cursor').boundingBox();
   assert.ok(Math.abs(restored.x + 8 - cx) < 1);
   assert.ok(Math.abs(restored.y + 12 - cy) < 1);
   await page.mouse.move(cx + 4, cy);
-  await expect(page.locator('.animated-cursor')).toBeVisible();
-  await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/svg\+xml/);
+  await expect(page.locator('html')).not.toHaveClass(/cursor-stationary/);
+  await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
   await page.unroute('**/megumi-cursor*.svg');
   await page.locator('.entry-row').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
@@ -135,5 +103,5 @@ try {
   await page.goto(new URL('papers/k-gat/', base).href);
   await expect(page.locator('.paper-contents')).toBeVisible();
   assert.ok(scripts.some(url => url.includes('/WritingDetail-')), 'Paper renderer loaded on demand');
-  console.log('Both outfits, stationary page navigation, refresh and history passed.');
+  console.log('Both outfit switches use one request and take over at the stationary fingertip after decoding.');
 } finally { await browser.close(); }

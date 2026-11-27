@@ -12,10 +12,8 @@ export default function useVoice(src, onError) {
       onError: () => errorHandler.current?.(),
     });
     player.current = voice;
-    const warmup = setTimeout(voice.prepare, 0);
     window.addEventListener('pagehide', voice.stop);
     return () => {
-      clearTimeout(warmup);
       voice.stop();
       player.current = null;
       window.removeEventListener('pagehide', voice.stop);

@@ -5,12 +5,10 @@
   const valid = value => value === 'short' || value === 'long';
   try {
     let outfit = sessionStorage.getItem(key);
-    if (!valid(outfit)) {
+    if (!valid(outfit) || performance.getEntriesByType('navigation')[0]?.type === 'reload') {
       outfit = Math.random() < 0.5 ? 'short' : 'long';
-    } else if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
-      outfit = outfit === 'short' ? 'long' : 'short';
+      sessionStorage.setItem(key, outfit);
     }
-    sessionStorage.setItem(key, outfit);
     root.dataset.cursorOutfit = outfit;
     window.addEventListener('pageshow', event => {
       if (!event.persisted) return;
@@ -46,11 +44,7 @@
     window.readCursorPoint = () => point;
     document.addEventListener('pointermove', remember, { capture: true, passive: true });
     document.addEventListener('pointerdown', remember, { capture: true, passive: true });
-    // Keyboard navigation dismisses the character. Reload shortcuts need the
-    // last mouse position so the next document can paint it without movement.
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Tab' || event.key === 'Escape') forget();
-    }, true);
+    document.addEventListener('keydown', forget, true);
     root.addEventListener('pointerleave', forget);
     window.addEventListener('blur', forget);
     let savedOnSwap = false;

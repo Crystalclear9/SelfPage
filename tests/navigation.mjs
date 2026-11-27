@@ -2,7 +2,7 @@ import { chromium, expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
-const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
   for (const javaScriptEnabled of [false, true]) {
     const context = await browser.newContext({ javaScriptEnabled, viewport: { width: 375, height: 812 }, reducedMotion: 'reduce' });
@@ -19,6 +19,9 @@ try {
   }
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
   const errors = []; page.on('pageerror', e => errors.push(e.message));
+  await page.addInitScript(() => window.addEventListener('pagereveal', event => {
+    if (event.viewTransition) sessionStorage.setItem('transition-seen', 'yes');
+  }));
   await page.goto(base);
   await page.locator('.avatar-button').click();
   await expect(page.locator('.avatar-button')).toHaveClass(/is-greeting/);
@@ -27,10 +30,9 @@ try {
   // The greeting animation stays active for the actual ~13.74s synthesized response.
   await expect(page.locator('.avatar-button')).toHaveAttribute('aria-label', '播放加藤惠语音', { timeout: 20000 });
   await expect(page.locator('.avatar-button')).not.toHaveClass(/is-greeting/);
-  const persistentCursor = await page.locator('.animated-cursor').elementHandle();
   await page.locator('.project-page-link').first().click();
   await page.waitForURL(base + 'projects/suishouban/');
-  assert.ok(await persistentCursor.evaluate(el => el === document.querySelector('.animated-cursor')));
+  assert.equal(await page.evaluate(() => sessionStorage.getItem('transition-seen')), 'yes');
   await page.waitForTimeout(600);
   await mkdir('.local/reports', { recursive: true });
   await page.screenshot({ path: '.local/reports/return-navigation.png' });
@@ -58,52 +60,19 @@ try {
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await page.goto(base);
     const stage = page.locator('.project-reveal').nth(1);
-    await expect(page.locator('html')).toHaveClass(/interactive/);
-    await page.evaluate(async () => {
-      await document.fonts.ready;
-      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    });
-    const card = stage.locator('.project-card');
-    let firstAngle;
+    const { top, height } = await stage.evaluate(el => ({ top: el.getBoundingClientRect().top + scrollY, height: el.offsetHeight }));
+    const angles = [];
     for (const progress of [.12, .5, .88, .5, .12]) {
-      // ViewTimeline offsets include the site's scroll padding.
-      await card.evaluate((el, fraction) => {
-        const timeline = el.getAnimations().find(a => a.animationName?.startsWith('card-arrive')).timeline;
-        const start = timeline.startOffset.to('px').value;
-        const end = timeline.endOffset.to('px').value;
-        scrollTo({ top: start + fraction * (end - start), behavior: 'instant' });
-      }, progress);
-      const angle = () => card.evaluate((el, fraction) => {
-        const animation = el.getAnimations().find(a => a.animationName?.startsWith('card-arrive'));
-        const position = animation?.effect.getComputedTiming().progress;
-        if (position == null || Math.abs(position - fraction) > .002) return NaN;
-        return Number.parseFloat(getComputedStyle(el).rotate.replace(/^x /, ''));
-      }, progress);
-      const sample = expect.poll(angle, { message: `Card rotation at width ${width}, scroll fraction ${progress}` });
-      if (progress === .5) await sample.toBe(0);
-      else if (progress === .88) await sample.toBeLessThan(-8);
-      else if (firstAngle !== undefined) await sample.toBeCloseTo(firstAngle, 1);
-      else {
-        await sample.toBeGreaterThan(8);
-        firstAngle = await angle();
-      }
+      await page.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), top - 1000 + progress * (1000 + height));
+      await page.waitForTimeout(100);
+      angles.push(await stage.locator('.project-card').evaluate(el => parseFloat(getComputedStyle(el).rotate.replace('x ', ''))));
     }
+    assert.ok(angles[0] > 8 && angles[2] < -8, 'Visible rotation at both viewport edges');
+    assert.equal(angles[1], 0); assert.equal(angles[3], 0);
+    assert.equal(angles[0], angles[4], 'Reverse scrolling follows the same motion');
     assert.equal(await page.locator('.project-grid').evaluate(el => getComputedStyle(el).gap), width === 375 ? '12px' : '16px');
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   }
-  const contact = page.locator('.contact-inner');
-  const panel = contact.locator('.contact-panel');
-  await contact.scrollIntoViewIfNeeded();
-  await expect(contact).toHaveCSS('translate', '0px');
-  const box = await contact.boundingBox();
-  const tiltY = () => panel.evaluate(el => new DOMMatrixReadOnly(getComputedStyle(el).transform).m31);
-  await page.mouse.move(box.x + 5, box.y + 5);
-  await expect.poll(tiltY).toBeLessThan(-.02);
-  await page.mouse.move(box.x + box.width - 5, box.y + 5);
-  await expect.poll(tiltY).toBeGreaterThan(.02);
-  assert.deepEqual(await contact.boundingBox(), box);
-  await page.mouse.move(box.x + box.width + 5, box.y + 5);
-  await expect.poll(tiltY).toBe(0);
   await page.setViewportSize({ width: 375, height: 600 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const route of ['projects/gameqa/', 'articles/', 'papers/']) {

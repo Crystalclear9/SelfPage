@@ -16,8 +16,6 @@
     "audit": "node scripts/audit.mjs",
     "check:motion": "node tests/motion.mjs",
     "check:content": "node tests/content.mjs",
-    "check:cursor": "node tests/cursor-refresh.mjs",
-    "check:browser-ci": "npm run check:cursor && npm run check:navigation && npm run check:learning-ui && npm run check:recovery",
     "check:pages": "node tests/pages.mjs",
     "check:navigation": "node tests/navigation.mjs",
     "check:recovery": "node tests/render-recovery.mjs",

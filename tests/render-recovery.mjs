@@ -1,7 +1,7 @@
 import { chromium, expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
-const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'msedge', headless: true });
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
   for (const stalled of [false, true]) {
     const context = await browser.newContext({ reducedMotion: 'no-preference' });
@@ -20,9 +20,8 @@ try {
     });
     const page = await context.newPage(), errors = [];
     page.on('pageerror', e => errors.push(e.message));
-    // Exercise the cross-document path when the enhanced router is unavailable.
-    await context.route(/\.js(?:\?|$)/, route => route.abort());
     await page.goto(base);
+    if (stalled) await context.route(/\.js(?:\?|$)/, route => route.abort());
     await page.locator('.project-page-link').first().click();
     await page.waitForURL(base + 'projects/suishouban/');
     await expect.poll(() => page.evaluate(() => window.transitionResult?.finished), { timeout: 3500 }).toBe(true);

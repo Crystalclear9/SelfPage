@@ -1,9 +1,9 @@
 // Runs in the document head, before native fragment scrolling and hydration.
 (() => {
   const base = document.currentScript.dataset.base;
-  const onHome = () => location.pathname === base || location.pathname === `${base}index.html`;
+  if (location.pathname !== base && location.pathname !== `${base}index.html`) return;
   const navigation = performance.getEntriesByType('navigation')[0];
-  if (onHome() && navigation?.type === 'reload') {
+  if (navigation?.type === 'reload') {
     // Native restoration must not inherit the smooth behavior used by section links.
     const root = document.documentElement;
     const previous = root.style.getPropertyValue('scroll-behavior');
@@ -26,7 +26,7 @@
   let clickedSection = null;
   let traversing = false;
   document.addEventListener('click', event => {
-    if (!onHome() || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target.closest?.('a[href]');
     if (!link || link.target && link.target !== '_self' || link.hasAttribute('download')) return;
     const to = new URL(link.href, location.href);
@@ -37,7 +37,6 @@
     }
   }, true);
   window.navigation?.addEventListener('navigate', event => {
-    if (!onHome()) return;
     traversing = event.navigationType === 'traverse';
     if (!traversing && event.hashChange) {
       const internalClick = clickedSection === event.destination.url;
@@ -49,9 +48,9 @@
     }
   });
   window.addEventListener('hashchange', () => {
-    if (onHome() && !traversing) cleanAddress();
+    if (!traversing) cleanAddress();
   });
-  if (!onHome() || navigation?.type === 'back_forward' || navigation?.type === 'reload') return;
+  if (navigation?.type === 'back_forward' || navigation?.type === 'reload') return;
   if (!sectionReturn) {
     cleanAddress();
     const restoration = history.scrollRestoration;

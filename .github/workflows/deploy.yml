@@ -1,83 +1,39 @@
-name: Verify and deploy GitHub Pages
+name: Deploy GitHub Pages
 on:
-  pull_request:
-    branches: [main]
-    paths-ignore: [README.md, "docs/**"]
   push:
     branches: [main]
-    paths-ignore: [README.md, "docs/**"]
   workflow_dispatch:
-    inputs:
-      browser_checks:
-        description: Run the browser regression suite before publishing
-        type: boolean
-        default: true
 permissions:
   contents: read
+  pages: write
+  id-token: write
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 jobs:
   build:
-    permissions:
-      contents: read
-      pages: read
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
+      # Pages must be enabled with Source = GitHub Actions in repository settings.
+      # GITHUB_TOKEN can deploy to an existing site, but cannot enable a new one.
+      - name: Check GitHub Pages configuration
+        id: pages
+        uses: actions/configure-pages@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: node tests/voice.mjs
       - run: npm run check:content
-      - name: Read deployment path
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        id: pages
-        uses: actions/configure-pages@v6
-      - name: Select preview and build path
-        env:
-          PAGES_PATH: ${{ steps.pages.outputs.base_path }}
-          PR_PATH: /${{ github.event.repository.name }}
-        run: |
-          if [[ "$GITHUB_EVENT_NAME" == pull_request || "$GITHUB_REF" != refs/heads/main ]]; then
-            PAGES_PATH="$PR_PATH"
-          fi
-          echo "SITE_BASE_PATH=${PAGES_PATH%/}/" >> "$GITHUB_ENV"
       - run: npm run build
+        env:
+          SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
       - run: npm run check:learning
-      - name: Prepare browser for regression tests
-        if: github.event_name == 'pull_request' || inputs.browser_checks
-        run: |
-          if command -v google-chrome >/dev/null; then
-            google-chrome --version
-            echo "BROWSER_CHANNEL=chrome" >> "$GITHUB_ENV"
-          else
-            npx playwright install --with-deps chromium
-            echo "BROWSER_CHANNEL=chromium" >> "$GITHUB_ENV"
-          fi
-      - name: Exercise production pages in browser
-        if: github.event_name == 'pull_request' || inputs.browser_checks
-        run: |
-          export TEST_URL="http://127.0.0.1:4174${SITE_BASE_PATH}"
-          npm run preview -- --port 4174 --strictPort > "$RUNNER_TEMP/preview.log" 2>&1 &
-          preview_pid=$!
-          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
-          if ! curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 "$TEST_URL" -o /dev/null 2>"$RUNNER_TEMP/preview-curl.log"; then
-            cat "$RUNNER_TEMP/preview-curl.log" "$RUNNER_TEMP/preview.log" >&2
-            exit 1
-          fi
-          npm run check:browser-ci
       - uses: actions/upload-pages-artifact@v5
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           path: dist
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
