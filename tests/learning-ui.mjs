@@ -62,5 +62,20 @@ try {
   await page.screenshot({ path: '.local/reports/learning-directory.png', fullPage: true });
   await page.goto(base + chapter + '#sec-1');
   await page.screenshot({ path: '.local/reports/learning-chapter.png' });
+  await page.setViewportSize({ width: 320, height: 667 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto(base + 'articles/ailearning/mathematics/calculus/chapter-01/#sec-3');
+  await page.locator('.chapter-contents button').waitFor();
+  await page.evaluate(() => document.fonts.ready);
+  await expect.poll(() => page.locator('#sec-3').evaluate(el => {
+    const top = el.getBoundingClientRect().top;
+    return top > 64 && top < innerHeight / 2;
+  })).toBe(true);
+  await expect(page.locator('.chapter-source-directory > ul')).toBeHidden();
+  await page.getByLabel('完整小节目录').check();
+  await expect(page.locator('.chapter-source-directory > ul')).toBeVisible();
+  await page.goto(base + 'articles/ailearning/guides/learning-path/');
+  await page.getByRole('button', { name: '页内目录' }).click();
+  await expect(page.locator('#chapter-sections a').first()).toBeVisible();
   console.log('Learning UI: one article entry, nested navigation, direct/reload/history, no-JS, mobile layout and hydration passed.');
 } finally { await browser.close(); }

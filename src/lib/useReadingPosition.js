@@ -8,6 +8,10 @@ export default function useReadingPosition(nodes) {
     let frame = 0;
     const update = () => {
       frame = 0;
+      if (scrollY > 0 && scrollY + innerHeight >= document.documentElement.scrollHeight - 2) {
+        setActive(nodes.at(-1).id);
+        return;
+      }
       const anchorTop = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
       const margin = parseFloat(getComputedStyle(nodes[0]).scrollMarginTop) || 0;
       const line = Math.max(anchorTop + margin + 1, innerHeight * .22);

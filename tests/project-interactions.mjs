@@ -31,7 +31,7 @@ try {
   await page.screenshot({ path: '.local/reports/projects-refined.png' });
   await page.locator('.detail-button').first().click();
   await page.locator('.copy-project-link').click();
-  await expect(page.locator('.toast')).toContainText('项目链接已复制');
+  await expect(page.locator('.copy-project-link')).toHaveText('项目链接已复制');
   expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(new URL('projects/suishouban/', base).href);
   await expect(page.locator('.animated-cursor')).toHaveAttribute('data-state', 'copied');
   await page.keyboard.press('Escape');
@@ -63,6 +63,12 @@ try {
   await page.getByRole('button', { name: '系统研究', exact: true }).click();
   await expect(page.locator('.project-card')).toHaveCount(2);
   expect(await page.locator('.project-grid').evaluate(el => el.getAnimations().length)).toBe(0);
+  await page.locator('.detail-button').first().click();
+  await page.getByRole('link', { name: '查看完整介绍' }).click();
+  await page.locator('.detail-layout').waitFor();
+  await page.goBack();
+  await expect(page.locator('.filter-bar .selected')).toHaveText('系统研究');
+  await expect(page.locator('.project-card')).toHaveCount(2);
   await page.goto(new URL('projects/gameqa/', base).href);
   for (const section of ['scope', 'implementation', 'code', 'overview']) {
     const link = page.locator(`.detail-aside a[href="#${section}"]`);

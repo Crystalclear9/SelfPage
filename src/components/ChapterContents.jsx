@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ListBullets } from '@phosphor-icons/react';
 import useReadingPosition from '../lib/useReadingPosition';
 
-export default function ChapterContents() {
+export default function ChapterContents({ guide }) {
   const [headings, setHeadings] = useState([]);
   const [open, setOpen] = useState(false);
   const root = useRef(null), trigger = useRef(null);
@@ -10,17 +10,16 @@ export default function ChapterContents() {
   useEffect(() => {
     const compact = matchMedia('(max-width: 760px)');
     const collect = () => {
-      const directory = document.querySelector('#learning-content .chapter-source-directory');
-      if (directory) directory.open = !compact.matches;
-      const nodes = compact.matches ? [...document.querySelectorAll('#learning-content h2[id]')]
+      const content = document.getElementById('learning-content');
+      const nodes = compact.matches ? [...content.querySelectorAll('h2[id]')]
         .filter(node => node.textContent.trim() !== '本章目录') : [];
-      setHeadings(nodes);
+      setHeadings(guide && (nodes.length < 3 || content.scrollHeight < innerHeight * 2) ? [] : nodes);
       setOpen(false);
     };
     collect();
     compact.addEventListener('change', collect);
     return () => compact.removeEventListener('change', collect);
-  }, []);
+  }, [guide]);
   useEffect(() => {
     if (!open) return;
     const selected = root.current.querySelector('[aria-current]') || root.current.querySelector('a');
@@ -40,9 +39,9 @@ export default function ChapterContents() {
     };
   }, [open]);
   if (!headings.length) return null;
-  return <nav className="chapter-contents" ref={root} aria-label="章节内导航">
+  return <nav className="chapter-contents" ref={root} aria-label={guide ? '指南页内导航' : '章节内导航'}>
     <button type="button" ref={trigger} aria-expanded={open} aria-controls="chapter-sections" onClick={() => setOpen(!open)}>
-      <ListBullets size={18} aria-hidden="true" />本章目录
+      <ListBullets size={18} aria-hidden="true" />{guide ? '页内目录' : '本章目录'}
     </button>
     <div id="chapter-sections" hidden={!open}>{headings.map(node =>
       <a key={node.id} href={`#${node.id}`} aria-current={active === node.id ? 'location' : undefined}

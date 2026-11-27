@@ -122,7 +122,7 @@ h1 > span { color: var(--accent); }
   .project-actions > :is(a, button) { gap: 3px; margin-left: 0; padding-inline: 0; min-height: 44px; white-space: nowrap; }
   .project-actions .detail-button svg { padding: 3px; }
 }
-@media not all and (any-pointer: fine) {
+@media not all and (any-pointer: fine), (prefers-reduced-motion: reduce) {
   .nav-actions .trail-toggle { display: none; }
 }
 .source-link { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--accent); padding: 9px 0; }
@@ -160,6 +160,8 @@ h1 > span { color: var(--accent); }
 .modal::backdrop { background: #19151dcc; backdrop-filter: blur(8px); }
 .close-modal { position: absolute; top: 16px; right: 16px; background: var(--surface); color: var(--ink); z-index: 1; }
 .modal-body { padding: 46px; }
+.project-modal { overflow: hidden; }
+.project-modal .modal-body { max-height: calc(88dvh - 2px); overflow-y: auto; overscroll-behavior: contain; }
 .modal-meta { display: block; font-size: 11px; color: var(--muted); padding-right: 35px; }
 .modal h2 { font-size: 35px; font-weight: 500; letter-spacing: -.7px; margin: 16px 0; overflow-wrap: anywhere; }
 .modal-body > p { font-size: 14px; line-height: 1.9; color: var(--muted); }

@@ -142,6 +142,7 @@
 .diagram-panels { display: none; }
 @media (max-width: 600px) {
   .panelled-figure > img { display: none; }
+  .panelled-figure > figcaption { display: none; }
   .diagram-panels { display: grid; gap: 20px; margin-top: 14px; }
   .diagram-panel > div { position: relative; margin-inline: auto; overflow: hidden; border-radius: 6px; background: white; }
   .diagram-panel img { position: absolute; top: 0; max-width: none; }
@@ -207,6 +208,9 @@
 .learning-row { position: relative; isolation: isolate; overflow: hidden; }
 .learning-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; color: var(--accent); }
 .learning-row:active { color: var(--accent); background: var(--soft); }
+.learning-page a[aria-busy="true"], .entry-row[aria-busy="true"] { color: var(--accent); }
+.navigation-pending { font-size: 12px; white-space: nowrap; color: var(--accent); }
+a[aria-busy="true"] > svg { display: none; }
 @media (prefers-reduced-motion: no-preference) {
  .learning-row { transition: color .2s, border-color .2s, background-color .2s; }
  .learning-row h3, .learning-row svg { transition: transform .24s cubic-bezier(.16, 1, .3, 1); }

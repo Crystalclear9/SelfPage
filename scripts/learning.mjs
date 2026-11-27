@@ -37,8 +37,11 @@ function learningMarkdown({ page, pages, images, base }) {
       const list = tree.children[index + 1];
       if (index >= 0 && list?.type === 'list') {
         tree.children[index + 1] = {
-          type: 'chapterDirectory', data: { hName: 'details', hProperties: { open: true, className: ['chapter-source-directory'] } },
-          children: [{ type: 'summary', data: { hName: 'summary' }, children: [{ type: 'text', value: '完整小节目录' }] }, list],
+          type: 'chapterDirectory', data: { hName: 'div', hProperties: { className: ['chapter-source-directory'] } },
+          children: [{ type: 'directoryToggle', data: { hName: 'label' }, children: [
+            { type: 'directoryInput', data: { hName: 'input', hProperties: { type: 'checkbox' } }, children: [] },
+            { type: 'text', value: '完整小节目录' },
+          ] }, list],
         };
       }
     }

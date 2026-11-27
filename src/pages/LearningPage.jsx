@@ -42,7 +42,7 @@ export default function LearningPage({ page, html = '' }) {
     {isIndex ? <details className="learning-notes"><summary><CaretRight size={18} aria-hidden="true" /><span>资料说明与阅读建议</span></summary>
       <div id="learning-content" className="prose" dangerouslySetInnerHTML={{ __html: html }} />
     </details> : <div id="learning-content" className="prose" dangerouslySetInnerHTML={{ __html: html }} />}
-    {page.kind === 'chapter' && <ChapterContents />}
+    {(page.kind === 'chapter' || page.kind === 'guide') && <ChapterContents guide={page.kind === 'guide'} />}
     {position >= 0 && <nav className="learning-pager" aria-label="章节翻页">
       <a href={href(previous?.route || page.parent)}><ArrowLeft size={18} /><span><small>{previous ? '上一章' : '主题目录'}</small>{previous?.title || parent?.title}</span></a>
       {next && <a href={href(next.route)}><span><small>下一章</small>{next.title}</span><ArrowRight size={18} /></a>}

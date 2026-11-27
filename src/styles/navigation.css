@@ -57,10 +57,12 @@
 .floating-top[hidden], .site-footer .back-top[hidden] { display: none; }
 .floating-top svg { color: var(--accent); }
 .floating-top:hover { border-color: var(--accent); }
-.chapter-source-directory[open] > summary { display: none; }
+.chapter-source-directory > label { display: none; }
 .chapter-contents { display: none; }
 @media (max-width: 760px) {
- .chapter-source-directory > summary, .chapter-source-directory[open] > summary { display: list-item; color: var(--accent); padding-block: 10px; }
+ .chapter-source-directory > label { display: inline-flex; gap: 8px; align-items: center; color: var(--accent); padding-block: 10px; }
+ .chapter-source-directory input { accent-color: var(--accent); }
+ .chapter-source-directory:has(input:not(:checked)) > :is(ul, ol) { display: none; }
  .chapter-contents { position: fixed; display: block; z-index: 9; left: max(16px, env(safe-area-inset-left)); bottom: max(24px, env(safe-area-inset-bottom)); }
  .chapter-contents button, #chapter-sections { border: 1px solid var(--line); background: var(--elevated); color: var(--ink); box-shadow: 0 6px 22px color-mix(in srgb, var(--ink) 10%, transparent); }
  .chapter-contents button { display: flex; align-items: center; gap: 8px; min-height: 46px; padding-inline: 15px; border-radius: 999px; font-size: 13px; }

@@ -26,7 +26,7 @@
 
 ## 首页语音
 
-三段日语回应使用 MiniMax speech-2.8-hd 合成。角色参考来自 [Xperia Ear Duo 加藤恵角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)。首页提前缓冲本地音轨，点击时播放对应文件；再次点击头像可停止播放。
+三段日语回应使用 MiniMax speech-2.8-hd 合成。角色参考来自 [Xperia Ear Duo 加藤恵角色语音介绍页](https://charactervoice.jp/s/smccv/page/xea20_kato)。鼠标进入或键盘聚焦时准备对应音轨。触屏设备在控件进入视口时开始缓冲，轻触即可播放；再次点击头像可停止播放。
 
 | 场景 | 文件 | 时长 | 情绪设置 |
 | --- | --- | --- | --- |
@@ -46,7 +46,7 @@
 
 音轨存放在 `public/audio/`。[profile](../src/data/site.js) 中的 `avatarVoice`、`likeVoice`、`unlikeVoice` 分别对应问候、点赞与取消点赞。字段值使用发布根目录下的相对路径，例如 `audio/megumi-response-like.flac`。
 
-[useVoice](../src/lib/useVoice.js) 在首页挂载时预缓冲音频，点击事件交由 [voice-player.js](../src/lib/voice-player.js) 播放。新音轨接管时，上一段暂停并回到起点；组件卸载或触发 `pagehide` 时停止播放。`node tests/voice.mjs` 检验播放、取消与重试逻辑。更换录音后，依次触发三个入口可试听音量和切换效果。
+[useVoice](../src/lib/useVoice.js) 按头像与喜欢按钮的交互意图准备音频，首次点赞时开始准备取消点赞回应，点击事件交由 [voice-player.js](../src/lib/voice-player.js) 播放。新音轨接管时，上一段暂停并回到起点；组件卸载或触发 `pagehide` 时停止播放。`node tests/voice.mjs` 检验播放、取消与重试逻辑。更换录音后，依次触发三个入口可试听音量和切换效果。
 
 ## 正文附件
 
