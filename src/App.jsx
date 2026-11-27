@@ -84,7 +84,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
     {hydrated && <AnimatedCursor />}
-    <PointerSurfaces readingPage={/^\/(articles|papers)\//.test(path)} />
+    <PointerSurfaces />
     <ScrollToTop target={path === '/' ? '#home' : '#main'} />
     {path === '/' && <ChapterMotion />}
     <div className="scroll-progress" aria-hidden="true" />

@@ -121,7 +121,6 @@
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
  .writing-door::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(240px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%); opacity: 0; transition: opacity .2s; }
  .writing-door[data-pointer-inside]::before { opacity: 1; }
- .writing-door::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; }
 }
 
 .main-nav a[aria-current="page"] { color: var(--accent); }
@@ -197,7 +196,6 @@
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
  .learning-row::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(220px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 85%); opacity: 0; transition: opacity .22s; z-index: -1; }
  .learning-row[data-pointer-inside]::before { opacity: 1; }
- .learning-row::after { content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0; pointer-events: none; }
  .learning-row:hover h3 { transform: translateX(6px); }
  .learning-row:hover svg { transform: translateX(7px); }
  .learning-row:active h3 { transform: translateX(4px) scale(.98); }

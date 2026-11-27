@@ -1,15 +1,24 @@
 import { useEffect, useRef } from 'react';
 
 // Pointer-only enhancement: content and hit areas never move with magnetic icons.
-export default function PointerSurfaces({ readingPage }) {
-  const readingRipple = useRef(null);
+export default function PointerSurfaces() {
+  const ripple = useRef(null);
   useEffect(() => {
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const surfaceSelector = '.project-card, .art-window, .contact-inner, .avatar, .writing-door, .learning-row';
     const controlSelector = '.button, .icon-button, .filter-bar button, .source-link';
     let frame = 0, last = null, surface = null, control = null, pressed = null;
-    const pulses = new Map();
+    const ring = ripple.current;
+    let pulse = null;
+    const clearPulse = () => {
+      if (pulse) {
+        pulse.onfinish = null;
+        pulse.cancel();
+        pulse = null;
+      }
+      if (ring.hidePopover && ring.matches(':popover-open')) ring.hidePopover();
+    };
     const reset = el => {
       if (!el) return;
       delete el.dataset.pointerInside;
@@ -18,7 +27,7 @@ export default function PointerSurfaces({ readingPage }) {
     const hide = () => {
       cancelAnimationFrame(frame); frame = 0; last = null; pressed = null;
       reset(surface); reset(control); surface = control = null;
-      pulses.forEach(animation => animation.cancel()); pulses.clear();
+      clearPulse();
     };
     const paint = () => {
       frame = 0;
@@ -46,31 +55,31 @@ export default function PointerSurfaces({ readingPage }) {
       }
     };
     const move = e => {
-      if (!fine.matches || reduced.matches || e.pointerType !== 'mouse') return hide();
+      if (reduced.matches || e.pointerType !== 'mouse') return hide();
       if (pressed && Math.hypot(pressed.x - e.clientX, pressed.y - e.clientY) > 6) pressed = null;
+      if (!fine.matches) return;
       last = { x: e.clientX, y: e.clientY };
       if (!frame) frame = requestAnimationFrame(paint);
     };
     const scroll = () => { if (last && !frame) frame = requestAnimationFrame(paint); };
     const press = e => {
-      if (e.button !== 0 || !fine.matches || reduced.matches || e.pointerType !== 'mouse') return;
-      pressed = { x: e.clientX, y: e.clientY, el: e.target.closest(surfaceSelector) || readingRipple.current };
+      if (e.button !== 0 || reduced.matches || e.pointerType !== 'mouse') return;
+      pressed = { x: e.clientX, y: e.clientY };
     };
     const release = e => {
       if (e.button !== 0 || e.pointerType !== 'mouse') return;
       const hit = pressed; pressed = null;
-      if (!hit?.el?.isConnected || Math.hypot(hit.x - e.clientX, hit.y - e.clientY) > 6) return;
-      const el = hit.el, rect = el.getBoundingClientRect();
-      el.style.setProperty('--hit-x', `${e.clientX - rect.left}px`);
-      el.style.setProperty('--hit-y', `${e.clientY - rect.top}px`);
-      pulses.get(el)?.cancel();
-      const animation = el.animate([{ opacity: .45, transform: 'translate(-50%, -50%) scale(.3)' }, { opacity: 0, transform: 'translate(-50%, -50%) scale(7)' }], { duration: 650, easing: 'ease-out', pseudoElement: '::after' });
-      pulses.set(el, animation);
-      animation.onfinish = () => { if (pulses.get(el) === animation) pulses.delete(el); };
+      if (!hit || Math.hypot(hit.x - e.clientX, hit.y - e.clientY) > 6) return;
+      clearPulse();
+      ring.style.left = `${e.clientX}px`;
+      ring.style.top = `${e.clientY}px`;
+      ring.showPopover?.();
+      pulse = ring.animate([{ opacity: .45, transform: 'translate(-50%, -50%) scale(.3)' }, { opacity: 0, transform: 'translate(-50%, -50%) scale(7)' }], { duration: 650, easing: 'ease-out' });
+      pulse.onfinish = clearPulse;
     };
     const events = [[document, 'pointermove', move], [document, 'pointerdown', press], [document, 'pointerup', release], [document, 'pointercancel', hide], [document, 'keydown', hide], [document, 'wheel', hide], [document, 'scroll', scroll], [document, 'visibilitychange', hide], [document.documentElement, 'pointerleave', hide], [window, 'blur', hide], [window, 'pagehide', hide], [window, 'resize', hide], [fine, 'change', hide], [reduced, 'change', hide]];
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
     return () => { hide(); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
   }, []);
-  return readingPage ? <span ref={readingRipple} className="reading-click-ripple" aria-hidden="true" /> : null;
+  return <span ref={ripple} popover="manual" className="click-ripple" aria-hidden="true" />;
 }

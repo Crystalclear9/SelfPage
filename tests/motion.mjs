@@ -12,6 +12,8 @@ try {
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
   const cursor = page.locator('.animated-cursor');
+  const ring = page.locator('.click-ripple');
+  const pulse = () => ring.evaluate(el => el.getAnimations().length);
   const state = async value => {
     await expect(cursor).toHaveAttribute('data-state', value);
     await expect(cursor).toHaveCSS('opacity', '1');
@@ -109,7 +111,11 @@ try {
   assert.notEqual(await card.evaluate(el => el.style.getPropertyValue('--tilt-x')), '0deg');
   await page.screenshot({ path: '.local/reports/pointer-card.png' });
   await card.click({ position: { x: 70, y: 65 } });
-  assert.ok(await card.evaluate(el => el.getAnimations({ subtree: true }).some(a => a.effect?.pseudoElement === '::after')));
+  assert.equal(await pulse(), 1);
+  assert.equal(await card.evaluate(el => getComputedStyle(el, '::after').content), 'none');
+  await page.mouse.click(4, 140);
+  assert.equal(await pulse(), 1);
+  assert.equal(await ring.evaluate(el => el.style.left), '4px');
   await page.mouse.move(400, 160);
   await expect(card).not.toHaveAttribute('data-pointer-inside', 'true');
   await page.screenshot({ path: '.local/reports/motion-projects.png' });
@@ -124,6 +130,9 @@ try {
   await page.getByRole('button', { name: '项目速览：随手办' }).click();
   await expect(page.locator('dialog')).toBeVisible();
   await page.locator('dialog h2').hover(); await state('text');
+  await page.locator('dialog h2').click();
+  assert.equal(await pulse(), 1);
+  assert.equal(await ring.evaluate(el => el.matches(':popover-open')), true);
   assert.equal(await cursor.evaluate(el => el.matches(':popover-open')), true);
   await page.screenshot({ path: '.local/reports/motion-dialog.png' });
   await page.keyboard.press('Escape');
@@ -151,6 +160,7 @@ try {
   await expect(touch.locator('.animated-cursor')).toBeHidden();
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   for (const [route, paragraph] of [
+    ['projects/gameqa/', 'main h1'],
     ['articles/ailearning/mathematics/linear-algebra/chapter-01/', '#learning-content p:not(:has(a))'],
     ['papers/k-gat/', '.research-section p'],
   ]) {
@@ -158,12 +168,10 @@ try {
     await page.locator('.animated-cursor').waitFor({ state: 'attached' });
     const bodyText = page.locator(paragraph).first();
     await bodyText.click({ position: { x: 8, y: 8 } });
-    const ring = page.locator('.reading-click-ripple');
-    const pulse = () => ring.evaluate(el => el.getAnimations({ subtree: true }).length);
     assert.equal(await pulse(), 1);
     const point = await ring.evaluate(el => ({
-      x: parseFloat(el.style.getPropertyValue('--hit-x')),
-      y: parseFloat(el.style.getPropertyValue('--hit-y')),
+      x: parseFloat(el.style.left),
+      y: parseFloat(el.style.top),
     }));
     const bounds = await bodyText.boundingBox();
     assert.ok(Math.abs(point.x - bounds.x - 8) < 2 && Math.abs(point.y - bounds.y - 8) < 2);
