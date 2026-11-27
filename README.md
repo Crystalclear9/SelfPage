@@ -90,6 +90,8 @@ npm run preview -- --port 4174 --strictPort
 
 预览地址为 `http://127.0.0.1:4174/SelfPage/`。
 
+构建输出位于 `dist/`，本地测试报告位于 `.local/reports/`。产物的清理范围与重新生成方式见[工作区清理](docs/DEVELOPMENT.md#工作区清理)。
+
 ## 检查与发布
 
 | 改动范围 | 检查命令 |

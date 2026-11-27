@@ -107,11 +107,21 @@ node tests/project-transition.mjs
 
 ## 工作区清理
 
-Windows 下结束教材导入并停止开发服务或生产预览后，运行 `npm run clean` 直接删除下表列出的本地产物。使用 `powershell -NoProfile -File scripts/clean.ps1 -WhatIf` 可先列出本次实际存在的清理目标。
+Windows 下的 `npm run clean` 直接删除仓库根目录的 `dist/` 和 `.local/`。先结束教材导入并停止占用这些目录的预览服务；如果上一次导入中断，应先恢复教材快照，再清理暂存区。[教材同步](CONTENT.md#同步-ailearning)
 
-| 清理目录 | 内容 | 重新生成方式 |
+| 本地产物 | 用途 | 重新生成方式 |
 | --- | --- | --- |
 | `dist/` | 生产页面与打包资源 | `npm run build` |
-| `.local/` | 浏览器测试截图、Lighthouse 报告 | 运行对应测试或 `npm run audit` |
+| `.local/reports/` | 浏览器测试截图、界面检查结果和 Lighthouse 报告 | 运行对应测试或 `npm run audit` |
+| `.local/learning-import/` | 教材导入的暂存文件、锁和目录替换记录 | 下次运行 `npm run import:learning` 时创建 |
+
+在仓库根目录运行以下命令，可依次预览清理目标并执行清理。
+
+```powershell
+powershell -NoProfile -File scripts/clean.ps1 -WhatIf
+npm run clean
+```
+
+`node_modules/` 保存本机开发依赖。Vite 在其中创建 `.vite/` 和 `.vite-temp/` 作为缓存，可在停止相关进程后单独清理。再次使用生产预览前需执行 `npm run build`；直接运行会保存截图的测试时，可用 `New-Item -ItemType Directory -Force .local/reports` 创建输出目录。
 
 教材正文以清单的 `pages[].file` 对应 `content/collections/ailearning/`，附件以 `images[]` 对应 `public/files/ailearning/`。这两组文件属于构建输入，随教材更新一起维护。[教材同步](CONTENT.md#同步-ailearning)
