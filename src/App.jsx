@@ -148,9 +148,9 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
               <p className="project-description">{p.description}</p>
               <ul className="project-tags">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
               <div className="project-actions">
-                <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>了解项目 <ArrowRight size={15}/></a>
+                <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>查看详情 <ArrowRight size={15}/></a>
                 <a className="source-link" href={p.source} target="_blank" rel="noreferrer" aria-label={`${p.title} 查看源码`}>查看源码 <ArrowUpRight size={16} /></a>
-                <button className="detail-button" aria-label={`项目介绍：${p.title}`} onClick={() => setProject(p)}><span>项目介绍</span><Plus size={18} /></button>
+                <button className="detail-button" aria-label={`快速预览：${p.title}`} onClick={() => setProject(p)}><span>快速预览</span><Plus size={18} /></button>
               </div>
             </article></div>;
           })}

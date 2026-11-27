@@ -28,7 +28,7 @@ export default function LearningPage({ page, html = '' }) {
     ? `选择一个${page.kind === 'category' ? '主题' : '章节'}继续阅读。`
     : parent?.title || 'AILearning 学习资料';
   const source = `${learning.source}/blob/${learning.revision || 'main'}/${page.file.split('/').map(encodeURIComponent).join('/')}`;
-  return <article className={`detail-page section-shell learning-page ${!isIndex ? 'reading-page' : ''}`}>
+  return <article className={`detail-page section-shell learning-page ${isRoot ? 'learning-collection' : !isIndex ? 'reading-page' : ''}`}>
     <PageNavigation section={isRoot ? '返回文章列表' : '返回'} sectionHref={page.parent} />
     <header className="detail-heading">
       <p className="eyebrow">{isRoot ? '学习资料' : <a href={href(rootRoute)}>AILearning</a>}</p>

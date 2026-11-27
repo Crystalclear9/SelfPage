@@ -34,7 +34,7 @@ try {
   assert.equal(await delayed.locator('.source-link').count(), 5);
   await delayed.locator('html.interactive').waitFor({ timeout: 15000 });
   assert.deepEqual(errors, []);
-  await delayed.getByRole('button', { name: '项目介绍：随手办' }).click();
+  await delayed.getByRole('button', { name: '快速预览：随手办' }).click();
   assert.equal(await delayed.locator('dialog[open]').count(), 1);
   await delayed.close();
   console.log('Cold load renders content before delayed JavaScript and hydrates successfully.');

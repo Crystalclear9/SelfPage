@@ -18,11 +18,11 @@ try {
   assert.equal(await page.locator('.project-card').count(), projects.length);
   await page.getByRole('button', { name: '应用', exact: true }).click();
   assert.equal(await page.locator('.project-card').count(), projects.filter(p => p.category === '应用').length);
-  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
+  await page.getByRole('button', { name: '快速预览：随手办' }).click();
   assert.equal(await page.locator('dialog[open]').count(), 1);
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('dialog[open]').count(), 0);
-  assert.equal(await page.getByRole('button', { name: '项目介绍：随手办' }).evaluate(el => el === document.activeElement), true);
+  assert.equal(await page.getByRole('button', { name: '快速预览：随手办' }).evaluate(el => el === document.activeElement), true);
   await page.getByRole('button', { name: '系统研究', exact: true }).click();
   assert.equal(await page.locator('.project-card').count(), projects.filter(p => p.category === '系统研究').length);
   await page.getByRole('button', { name: '全部' }).click();
@@ -77,9 +77,9 @@ try {
   await page.mouse.move(400, 250);
   await page.mouse.move(700, 400, { steps: 20 });
   assert.equal(await page.locator('.character-cursor').count(), 0);
-  assert.equal(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), 'none');
-  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
-  assert.equal(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), 'none');
+  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /^url\("data:image\/svg\+xml;base64,/);
+  await page.getByRole('button', { name: '快速预览：随手办' }).click();
+  assert.match(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), /^url\("data:image\/svg\+xml;base64,/);
   await page.keyboard.press('Escape');
   await page.mouse.move(600, 350);
   await page.mouse.move(700, 400, { steps: 20 });
