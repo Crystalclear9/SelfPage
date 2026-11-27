@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Pointer-only enhancement: content and hit areas never move with magnetic icons.
-export default function PointerSurfaces() {
+export default function PointerSurfaces({ readingPage }) {
+  const readingRipple = useRef(null);
   useEffect(() => {
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -46,15 +47,17 @@ export default function PointerSurfaces() {
     };
     const move = e => {
       if (!fine.matches || reduced.matches || e.pointerType !== 'mouse') return hide();
+      if (pressed && Math.hypot(pressed.x - e.clientX, pressed.y - e.clientY) > 6) pressed = null;
       last = { x: e.clientX, y: e.clientY };
       if (!frame) frame = requestAnimationFrame(paint);
     };
     const scroll = () => { if (last && !frame) frame = requestAnimationFrame(paint); };
     const press = e => {
       if (e.button !== 0 || !fine.matches || reduced.matches || e.pointerType !== 'mouse') return;
-      pressed = { x: e.clientX, y: e.clientY, el: e.target.closest(surfaceSelector) };
+      pressed = { x: e.clientX, y: e.clientY, el: e.target.closest(surfaceSelector) || readingRipple.current };
     };
     const release = e => {
+      if (e.button !== 0 || e.pointerType !== 'mouse') return;
       const hit = pressed; pressed = null;
       if (!hit?.el?.isConnected || Math.hypot(hit.x - e.clientX, hit.y - e.clientY) > 6) return;
       const el = hit.el, rect = el.getBoundingClientRect();
@@ -69,5 +72,5 @@ export default function PointerSurfaces() {
     events.forEach(([node, name, fn]) => node.addEventListener(name, fn, { passive: true }));
     return () => { hide(); events.forEach(([node, name, fn]) => node.removeEventListener(name, fn)); };
   }, []);
-  return null;
+  return readingPage ? <span ref={readingRipple} className="reading-click-ripple" aria-hidden="true" /> : null;
 }

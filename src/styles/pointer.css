@@ -1,3 +1,4 @@
+.reading-click-ripple { display: none; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .project-card, .art-window, .contact-inner, .avatar { position: relative; isolation: isolate; }
   .project-card, .art-window, .contact-inner, .avatar {
@@ -15,7 +16,8 @@
     opacity: 0; transition: opacity .35s; z-index: 1;
   }
   .project-card[data-pointer-inside]::before, .art-window[data-pointer-inside]::before, .contact-inner[data-pointer-inside]::before { opacity: 1; }
-  .project-card::after, .art-window::after, .contact-inner::after, .avatar::after {
+  .reading-click-ripple { display: block; position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 21; pointer-events: none; }
+  .project-card::after, .art-window::after, .contact-inner::after, .avatar::after, .reading-click-ripple::after {
     content: ''; position: absolute; left: var(--hit-x, 50%); top: var(--hit-y, 50%); width: 28px; height: 28px;
     border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; opacity: 0; z-index: 2;
   }

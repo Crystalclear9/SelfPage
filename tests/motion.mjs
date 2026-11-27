@@ -149,6 +149,33 @@ try {
   const touch = await browser.newPage({ hasTouch: true, isMobile: true, viewport: { width: 375, height: 812 } });
   await touch.goto(base, { waitUntil: 'networkidle' });
   await expect(touch.locator('.animated-cursor')).toBeHidden();
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  for (const [route, paragraph] of [
+    ['articles/ailearning/mathematics/linear-algebra/chapter-01/', '#learning-content p:not(:has(a))'],
+    ['papers/k-gat/', '.research-section p'],
+  ]) {
+    await page.goto(new URL(route, base).href);
+    await page.locator('.animated-cursor').waitFor({ state: 'attached' });
+    const bodyText = page.locator(paragraph).first();
+    await bodyText.click({ position: { x: 8, y: 8 } });
+    const ring = page.locator('.reading-click-ripple');
+    const pulse = () => ring.evaluate(el => el.getAnimations({ subtree: true }).length);
+    assert.equal(await pulse(), 1);
+    const point = await ring.evaluate(el => ({
+      x: parseFloat(el.style.getPropertyValue('--hit-x')),
+      y: parseFloat(el.style.getPropertyValue('--hit-y')),
+    }));
+    const bounds = await bodyText.boundingBox();
+    assert.ok(Math.abs(point.x - bounds.x - 8) < 2 && Math.abs(point.y - bounds.y - 8) < 2);
+    await expect.poll(pulse).toBe(0);
+    await page.mouse.down(); await page.mouse.move(point.x + 55, point.y);
+    await page.mouse.move(point.x, point.y); await page.mouse.up();
+    assert.equal(await pulse(), 0, 'Dragging text leaves no click ring');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await bodyText.click();
+    assert.equal(await pulse(), 0);
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+  }
   assert.deepEqual(errors, []);
   console.log('Quiet presses, contextual replies, card tilt/ripple, cursor states, dialogs, touch and reduced motion passed.');
 } finally { await browser.close(); }
