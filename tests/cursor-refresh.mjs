@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 
@@ -7,7 +8,7 @@ const browser = await chromium.launch({
   ignoreDefaultArgs: ['--disable-back-forward-cache'],
 });
 try {
-  const page = await browser.newPage({ reducedMotion: 'no-preference' });
+  const page = await browser.newPage({ deviceScaleFactor: 2, reducedMotion: 'no-preference' });
   await page.addInitScript(() => {
     const random = Math.random;
     Math.random = () => {
@@ -32,6 +33,11 @@ try {
     }
     const sprite = page.locator('.cursor-sprite');
     await expect(sprite).toHaveAttribute('src', new RegExp(name + '$'));
+    const artwork = readFileSync(new URL('../public/images/' + name, import.meta.url));
+    assert.match(artwork.toString(), /viewBox="0 0 192 204"/);
+    const embedded = await page.locator('html').evaluate((el, short) =>
+      getComputedStyle(el).getPropertyValue(short ? '--short-cursor' : '--long-cursor'), short);
+    assert.ok(embedded.includes(artwork.toString('base64')), 'Native and animated states use the same full-resolution artwork');
     // Check the stationary pointer first, before any pointermove can repair it.
     const firstImage = await page.locator('html').evaluate((el, short) => {
       const css = getComputedStyle(el);
@@ -45,10 +51,10 @@ try {
     await page.mouse.move(300, 220);
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
     await expect(page.locator('html')).not.toHaveClass(/cursor-posing/);
-    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
+    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/svg\+xml;base64,.*8 12, auto/);
     resume();
     await expect(page.locator('html')).toHaveClass(/animated-cursor-active/);
-    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
+    await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/svg\+xml/);
     await expect(sprite).toBeHidden();
     const box = await page.locator('.animated-cursor').boundingBox();
     assert.equal(box.x + 8, 300);
@@ -69,7 +75,7 @@ try {
   await page.locator('.writing-door').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');
   await expect(page.locator('html')).not.toHaveClass(/animated-cursor-active/);
-  await expect(page.locator('.entry-row').first()).toHaveCSS('cursor', /data:image\/png;base64,.*8 12, auto/);
+  await expect(page.locator('.entry-row').first()).toHaveCSS('cursor', /data:image\/svg\+xml;base64,.*8 12, auto/);
   assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).getPropertyValue('--native-cursor')), nativeBefore);
   await page.unroute(externalAssets);
   await page.goBack({ waitUntil: 'commit' });
@@ -82,13 +88,13 @@ try {
   // restoration of the pointer or its contextual feedback.
   const [cx, cy] = await page.evaluate(() => JSON.parse(sessionStorage.testPoint));
   await expect(page.locator('.animated-cursor')).toBeVisible();
-  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/png;base64/);
+  await expect(page.locator('.animated-cursor')).toHaveCSS('background-image', /data:image\/svg\+xml;base64/);
   const restored = await page.locator('.animated-cursor').boundingBox();
   assert.ok(Math.abs(restored.x + 8 - cx) < 1);
   assert.ok(Math.abs(restored.y + 12 - cy) < 1);
   await page.mouse.move(cx + 4, cy);
   await expect(page.locator('html')).not.toHaveClass(/cursor-stationary/);
-  await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/png/);
+  await expect(page.locator('body')).toHaveCSS('cursor', /data:image\/svg\+xml/);
   await page.unroute('**/megumi-cursor*.svg');
   await page.locator('.entry-row').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-cursor-outfit', 'long');

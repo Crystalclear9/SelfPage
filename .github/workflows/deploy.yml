@@ -2,6 +2,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore: [README.md, "docs/**"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -26,10 +27,35 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check:content
-      - run: npm run build
+      - name: Set build path and snapshot revision
         env:
-          SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          echo "SITE_BASE_PATH=${BASE_PATH%/}/" >> "$GITHUB_ENV"
+          echo "VITE_SITE_REVISION=$GITHUB_SHA" >> "$GITHUB_ENV"
+      - run: npm run build
       - run: npm run check:learning
+      - name: Report published size and image changes
+        run: node scripts/pages-size.mjs
+        env:
+          PREVIOUS_SITE_URL: ${{ steps.pages.outputs.base_url }}
+      - name: Verify native project title transitions
+        run: |
+          if command -v google-chrome >/dev/null; then
+            export BROWSER_CHANNEL=chrome
+          else
+            npx playwright install --with-deps chromium
+            export BROWSER_CHANNEL=chromium
+          fi
+          export TEST_URL="http://127.0.0.1:4174${SITE_BASE_PATH}"
+          npm run preview -- --port 4174 --strictPort > "$RUNNER_TEMP/preview.log" 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          if ! curl -fs --retry 15 --retry-connrefused --retry-delay 1 "$TEST_URL" -o /dev/null; then
+            cat "$RUNNER_TEMP/preview.log"
+            exit 1
+          fi
+          node tests/project-transition.mjs
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist

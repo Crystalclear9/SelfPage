@@ -42,27 +42,43 @@ function researchSections() {
 export default function PaperBody({ markdown }) {
   const root = useRef(null);
   const [sections, setSections] = useState([]);
+  const [selected, setSelected] = useState('');
   const [active, setActive] = useState('');
   useEffect(() => {
     const nodes = [...root.current.querySelectorAll('.research-section')];
     setSections(nodes.map(node => ({ id: node.id, title: node.querySelector('h2').textContent })));
-    const intersecting = new Set();
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) intersecting.add(entry.target);
-        else intersecting.delete(entry.target);
-      }
-      const visible = nodes.filter(node => intersecting.has(node));
-      if (visible.length) setActive(visible.at(-1).id);
-    }, { rootMargin: '-20% 0px -60% 0px' });
-    nodes.forEach(node => observer.observe(node));
-    return () => observer.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (!nodes.length) return;
+      const bottom = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      const current = bottom ? nodes.at(-1) : nodes.findLast(node => node.getBoundingClientRect().top <= innerHeight * .25) || nodes[0];
+      setActive(current.id);
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const resize = new ResizeObserver(schedule);
+    resize.observe(root.current);
+    update();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    const clearSelection = () => setSelected('');
+    const events = ['scrollend', 'wheel', 'touchstart', 'keydown', 'popstate'];
+    events.forEach(type => window.addEventListener(type, clearSelection, { passive: true }));
+    return () => {
+      cancelAnimationFrame(frame);
+      resize.disconnect();
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      events.forEach(type => window.removeEventListener(type, clearSelection));
+    };
   }, [markdown]);
 
   return <div className="paper-content-layout">
     <nav className="paper-contents" hidden={!sections.length} aria-label="论文页内导航">
       <span>本页内容</span>
-      {sections.map(section => <a key={section.id} href={`#${section.id}`} aria-current={active === section.id ? 'location' : undefined}>{section.title}</a>)}
+      {sections.map(section => <a key={section.id} href={`#${section.id}`} onClick={event => {
+        if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) setSelected(section.id);
+      }} aria-current={(selected || active) === section.id ? 'location' : undefined}>{section.title}</a>)}
     </nav>
     <div ref={root} className="prose research-body">
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, researchSections]} rehypePlugins={[[rehypeKatex, { strict: false, trust: false }], codeHighlight]} components={{

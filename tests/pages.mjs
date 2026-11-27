@@ -1,4 +1,4 @@
-import { chromium } from '@playwright/test';
+import { chromium, expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { projects } from '../src/data/site.js';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
@@ -40,11 +40,21 @@ try {
   assert.deepEqual(errors, []); await context.close();
  }
  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
- await page.goto(base); assert.equal(await page.locator('.writing-count').count(), 0); await page.locator('.writing-door').first().scrollIntoViewIfNeeded();
- await page.locator('.writing-door').first().hover(); await page.waitForTimeout(800);
- assert.equal(await page.locator('.animated-cursor').getAttribute('data-state'), 'read');
+ await page.goto(base);
+ await page.locator('html.interactive').waitFor();
+ assert.equal(await page.locator('.writing-count').count(), 0);
+ const door = page.locator('.writing-door').first();
+ await door.evaluate(el => window.scrollTo({ top: scrollY + el.getBoundingClientRect().top - innerHeight / 3, behavior: 'instant' }));
+ await door.locator('h3').hover();
+ await expect(page.locator('.animated-cursor')).toHaveAttribute('data-state', 'read');
  await page.screenshot({ path: '.local/reports/writing-section.png' });
  await page.goto(base + 'projects/autellix/');
  await page.screenshot({ path: '.local/reports/project-page.png', fullPage: true });
+ await page.goto(base + 'papers/k-gat/');
+ const last = page.locator('.paper-contents a').last();
+ await last.click();
+ await expect(last).toHaveAttribute('aria-current', 'location');
+ await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+ await expect(last).toHaveAttribute('aria-current', 'location');
  console.log('All project/detail/index routes: direct load, refresh, no-JS, mobile overflow, paper links and reading cursor passed.');
 } finally { await browser.close(); }

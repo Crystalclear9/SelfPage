@@ -1,4 +1,4 @@
-import { chromium } from '@playwright/test';
+import { chromium, expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { loadLearning } from '../scripts/learning.mjs';
 const base = (process.env.TEST_URL || 'http://127.0.0.1:4174/SelfPage/').replace(/\/?$/, '/');
@@ -36,9 +36,22 @@ try {
     }
     await page.locator('.learning-pager a').last().click();
     await page.waitForURL(/chapter-02\/$/);
+    const checkDirection = async direction => {
+      if (javaScriptEnabled) await expect.poll(() => page.locator('html').evaluate(el =>
+        el.style.getPropertyValue('--page-direction'))).toBe(String(direction));
+    };
+    await checkDirection(1);
+    await page.locator('.learning-pager a').first().click();
+    await page.waitForURL(base + chapter);
+    await checkDirection(-1);
+    await page.locator('.learning-pager a').last().click();
+    await page.waitForURL(/chapter-02\/$/);
+    await checkDirection(1);
     await page.goBack({ waitUntil: 'commit' }); await page.waitForURL(base + chapter);
+    await checkDirection(-1);
     assert.ok(await page.locator('.katex').count() > 0);
     await page.goForward({ waitUntil: 'commit' }); await page.waitForURL(/chapter-02\/$/);
+    await checkDirection(1);
     assert.deepEqual(errors, []);
     await context.close();
   }

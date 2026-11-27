@@ -112,10 +112,10 @@ export function normalizeLearningMath(source) {
   }).join('\n');
 }
 
-export function renderLearning(page, base = '/', manifest = loadLearning()) {
+export function renderLearning(page, base = '/', manifest = loadLearning(), contentDirectory = directory) {
   const { pages } = manifest;
   const images = new Set(manifest.images);
-  const markdown = normalizeLearningMath(readFileSync(path.join(directory, page.file), 'utf8'));
+  const markdown = normalizeLearningMath(readFileSync(path.join(contentDirectory, page.file), 'utf8'));
   return renderToStaticMarkup(createElement(ReactMarkdown, {
     remarkPlugins: [remarkGfm, remarkMath, [learningMarkdown, { page, pages, images, base }]],
     rehypePlugins: [[rehypeKatex, { strict: false, trust: false }], codeHighlight],

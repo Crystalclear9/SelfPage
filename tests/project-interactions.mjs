@@ -48,6 +48,11 @@ try {
     await page.setViewportSize({ width, height: 900 });
     await page.locator('.project-card').first().hover();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const aligned = await page.locator('.project-actions').evaluateAll(rows => rows.every(row => {
+      const centers = [...row.children].map(el => el.offsetTop + el.offsetHeight / 2);
+      return Math.max(...centers) - Math.min(...centers) < 2;
+    }));
+    expect(aligned, `Project actions share a row at ${width}px`).toBe(true);
     if (width === 375) await page.screenshot({ path: '.local/reports/projects-mobile.png' });
   }
   await page.getByRole('button', { name: '切换到深色模式' }).click();

@@ -121,7 +121,7 @@ try {
   await page.mouse.wheel(0, 200);
   await page.waitForTimeout(300);
   assert.ok(Math.abs((await page.locator('.projects-intro').boundingBox()).y - later.y) < 3);
-  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
+  await page.getByRole('button', { name: '项目速览：随手办' }).click();
   await expect(page.locator('dialog')).toBeVisible();
   await page.locator('dialog h2').hover(); await state('text');
   assert.equal(await cursor.evaluate(el => el.matches(':popover-open')), true);
@@ -145,7 +145,7 @@ try {
   await page.mouse.move(300, 160);
   await expect(cursor).toBeHidden();
   assert.equal(await page.locator('[data-pointer-inside]').count(), 0);
-  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /data:image\/png;base64,/);
+  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /data:image\/svg\+xml;base64,/);
   const touch = await browser.newPage({ hasTouch: true, isMobile: true, viewport: { width: 375, height: 812 } });
   await touch.goto(base, { waitUntil: 'networkidle' });
   await expect(touch.locator('.animated-cursor')).toBeHidden();

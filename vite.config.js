@@ -10,8 +10,8 @@ const transitionGuard = {
   configResolved(config) { siteBase = config.base; },
   transformIndexHtml() {
     // The browser can paint the chosen native cursor before external assets arrive.
-    const cursor = name => 'url(data:image/png;base64,' +
-      readFileSync(new URL('./src/assets/' + name + '.png', import.meta.url)).toString('base64') + ')';
+    const cursor = name => 'url("data:image/svg+xml;base64,' +
+      readFileSync(new URL('./public/images/' + name + '.svg', import.meta.url)).toString('base64') + '")';
     return [{ tag: 'meta', attrs: { charset: 'UTF-8' }, injectTo: 'head-prepend' },
     { tag: 'script', attrs: { 'data-base': siteBase, 'data-cursor-entry': '' }, injectTo: 'head-prepend',
       children: readFileSync(new URL('./src/lib/cursor-entry.js', import.meta.url), 'utf8') },
@@ -21,9 +21,9 @@ const transitionGuard = {
           --long-cursor: ${cursor('megumi-cursor')};
           --short-cursor: ${cursor('megumi-cursor-short')};
           --cursor-image: var(--long-cursor);
-          --native-cursor: var(--long-cursor) 8 12, var(--short-cursor) 8 12, auto;
+          --native-cursor: var(--cursor-image) 8 12, auto;
         }
-        html[data-cursor-outfit="short"] { --cursor-image: var(--short-cursor); --native-cursor: var(--short-cursor) 8 12, var(--long-cursor) 8 12, auto; }
+        html[data-cursor-outfit="short"] { --cursor-image: var(--short-cursor); }
         html, html * { cursor: var(--native-cursor) !important; }
         html.animated-cursor-active:is(.cursor-posing, .cursor-stationary):active-view-transition, html.animated-cursor-active:is(.cursor-posing, .cursor-stationary):active-view-transition *, html::view-transition { cursor: var(--native-cursor) !important; }
         html:active-view-transition .animated-cursor { display: none !important; }
