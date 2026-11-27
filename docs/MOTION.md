@@ -39,10 +39,6 @@
 
 **浮动返回栏。** [PageNavigation.jsx](../src/components/PageNavigation.jsx) 为页首和浮层复用一组链接。原栏滚过站点页头后，上滚显示浮层，下滚收起。组件用 4px 的方向阈值过滤触控板细微位移，浮层顶部位于站点页头下沿 10px 处。键盘焦点进入浮层后保持可见，Tab 移出时重新计算。两栏的文案和目标地址均来自组件收到的 section 和 sectionHref。
 
-[ScrollToTop.jsx](../src/components/ScrollToTop.jsx) 独立计算回顶按钮的显示时机。窄屏或触屏设备累计向上滚动 72px 后显示，短页面按可滚动距离缩短阈值。向下滚动清空累计距离。
-
-同一主题的章节按路由末尾的章节序号判定翻页方向。正文翻页和浏览器前进、后退共用 [navigationIntent](../src/lib/navigation.js)。
-
 ## 翻页异常恢复
 
 Vite 将 `src/lib/transition-guard.js` 内联到文档 head。过渡准备失败或等待超过 1.8 秒时，脚本调用 `skipTransition()` 释放快照，继续显示已经加载的正文。历史缓存恢复时清理旧的出站过渡。`check:recovery` 覆盖正常过渡、挂起恢复以及阻断应用脚本后的页面显示。

@@ -64,22 +64,6 @@ async function start() {
   };
   window.addEventListener('hashchange', revealAnchor);
   requestAnimationFrame(revealAnchor);
-  // A direct chapter link can be laid out before its text and math fonts arrive.
-  if (location.hash && path.startsWith('/articles/ailearning/') && performance.getEntriesByType('navigation')[0]?.type === 'navigate') {
-    const initialURL = location.href;
-    const input = new AbortController();
-    const cancel = () => input.abort();
-    for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) {
-      window.addEventListener(type, cancel, { once: true, passive: true, signal: input.signal });
-    }
-    document.fonts.ready.then(() => requestAnimationFrame(() => {
-      if (!input.signal.aborted && initialURL === location.href) {
-        const target = document.querySelector(':target');
-        target?.scrollIntoView({ behavior: 'instant', block: 'start' });
-      }
-      cancel();
-    }));
-  }
   if (import.meta.hot) import.meta.hot.dispose(() => window.removeEventListener('hashchange', revealAnchor));
   // Keep the document and its cursor layer alive across internal page changes.
   // Downloads, external URLs, reloads and new tabs retain browser navigation.
@@ -92,24 +76,6 @@ async function start() {
     const route = routes.find(item => item.path === next);
     if (next === path || !route) return;
     event.intercept({ scroll: 'manual', handler: async () => {
-      const link = (event.sourceElement || document.activeElement)?.closest('a');
-      const status = document.createElement('span');
-      const clearPending = () => {
-        clearTimeout(timer);
-        if (status.parentElement) {
-          status.parentElement.removeAttribute('aria-busy');
-          status.remove();
-        }
-      };
-      const timer = setTimeout(() => {
-        if (link?.href !== to.href || event.signal.aborted || !next.startsWith('/articles/ailearning/')) return;
-        link.setAttribute('aria-busy', 'true');
-        status.className = 'navigation-pending';
-        status.setAttribute('role', 'status');
-        status.textContent = '加载中…';
-        link.append(status);
-      }, 150);
-      event.signal.addEventListener('abort', clearPending, { once: true });
       try {
         const page = await readPage(next, false, event.signal);
         if (event.signal.aborted) return;
@@ -135,9 +101,6 @@ async function start() {
         }
       } catch {
         if (!event.signal.aborted) location.reload();
-      } finally {
-        clearPending();
-        event.signal.removeEventListener('abort', clearPending);
       }
     } });
   };

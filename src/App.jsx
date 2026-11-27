@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PetalTrail from './components/PetalTrail';
-import ProjectPreview from './components/ProjectPreview';
+import Modal from './components/Modal';
 import PointerSurfaces from './components/PointerSurfaces';
 import ProfileAvatar from './components/ProfileAvatar';
 import ScrollToTop from './components/ScrollToTop';
@@ -9,7 +9,7 @@ import { HomeLink } from './components/PageNavigation';
 import ContentPage, { WritingSection } from './pages/ContentPage';
 import { href } from './data/routes';
 import useProjectFilter from './lib/useProjectFilter';
-import useVoice, { useTouchVoiceWarmup } from './lib/useVoice';
+import useVoice from './lib/useVoice';
 import { ArrowUpRight, ArrowRight, ArrowUp, Flower, Moon, Sun, Sparkle, GithubLogo, EnvelopeSimple, Code, DeviceMobile, GameController, Stack, Timer, Plus, Heart, X, List } from '@phosphor-icons/react';
 import { profile, projects, extraLinks } from './data/site';
 
@@ -27,7 +27,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
   const [liked, setLiked] = useState(false);
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState('home');
-  const { filter, gridRef, changeFilter } = useProjectFilter(categories);
+  const { filter, gridRef, changeFilter } = useProjectFilter();
   const [project, setProject] = useState(null);
   const [toast, setToast] = useState('');
   const likeVoice = useVoice(path === '/' && profile.likeVoice ? `${import.meta.env.BASE_URL}${profile.likeVoice}` : '',
@@ -38,7 +38,6 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
     if (!liked) {
       document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'like' }));
       void likeVoice.play();
-      unlikeVoice.prepare();
     } else {
       document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'unlike' }));
       void unlikeVoice.play();
@@ -48,30 +47,12 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
   const links = [['home', '首页'], ['about', '关于我'], ['projects', '我的项目'], ['writing', '文章与论文']];
   const activeSection = path === '/' ? active : /^\/(articles|papers)\//.test(path) ? 'writing' : path.startsWith('/projects/') ? 'projects' : null;
   useEffect(() => {
-    const system = matchMedia('(prefers-color-scheme: dark)');
-    const updateTheme = () => {
-      const preference = read('spring-theme', '');
-      const value = ['dark', 'light'].includes(preference) ? preference : system.matches ? 'dark' : 'light';
-      document.documentElement.dataset.theme = value;
-      setTheme(value);
-    };
-    updateTheme();
-    system.addEventListener('change', updateTheme);
-    window.addEventListener('storage', updateTheme);
+    setTheme(document.documentElement.dataset.theme || 'light');
     setTrail(read('spring-trail', 'true') === 'true');
     setLiked(read('spring-liked', 'false') === 'true');
     setHydrated(true);
-    return () => {
-      system.removeEventListener('change', updateTheme);
-      window.removeEventListener('storage', updateTheme);
-    };
   }, []);
-  const toggleTheme = () => {
-    const value = theme === 'light' ? 'dark' : 'light';
-    save('spring-theme', value);
-    document.documentElement.dataset.theme = value;
-    setTheme(value);
-  };
+  useEffect(() => { if (hydrated) { document.documentElement.dataset.theme = theme; save('spring-theme', theme); } }, [theme, hydrated]);
   useEffect(() => { if (hydrated) save('spring-trail', String(trail)); }, [trail, hydrated]);
   useEffect(() => { if (hydrated) save('spring-liked', String(liked)); }, [liked, hydrated]);
   useEffect(() => { if (!toast) return; const timer = setTimeout(() => setToast(''), 2500); return () => clearTimeout(timer); }, [toast]);
@@ -85,21 +66,17 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
   }, []);
   useEffect(() => {
     if (!menu) return;
-    document.querySelector('#navigation a')?.focus({ preventScroll: true });
     const close = e => { if (e.key === 'Escape') { setMenu(false); document.querySelector('.mobile-toggle')?.focus(); } };
-    const outside = event => {
-      if (!event.target.closest('#navigation, .mobile-toggle')) setMenu(false);
-    };
-    document.addEventListener('pointerdown', outside);
-    window.addEventListener('keydown', close);
-    return () => {
-      document.removeEventListener('pointerdown', outside);
-      window.removeEventListener('keydown', close);
-    };
+    window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close);
   }, [menu]);
   const toggleTrail = () => { setTrail(!trail); setToast(trail ? '樱花拖尾已关闭' : '樱花拖尾已开启（鼠标设备生效）'); };
-  const prepareLike = liked ? unlikeVoice.prepare : likeVoice.prepare;
-  const likeControl = useTouchVoiceWarmup(hydrated ? prepareLike : null);
+  const copyProjectLink = async () => {
+    try {
+      await navigator.clipboard.writeText(new URL(href(`/projects/${project.id}/`), location.href).href);
+      setToast('项目链接已复制');
+      document.dispatchEvent(new CustomEvent('cursor-feedback', { detail: 'copied' }));
+    } catch { setToast('未能复制链接，请打开项目页面后复制地址栏网址。'); }
+  };
   return <>
     <a href="#main" className="skip-link">跳到主要内容</a>
     <PetalTrail enabled={trail} />
@@ -115,7 +92,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
         </nav>
         <div className="nav-actions">
           <button className="icon-button trail-toggle" aria-label="樱花拖尾" title="樱花拖尾" aria-pressed={trail} onClick={toggleTrail}><Sparkle size={21} weight={trail ? 'duotone' : 'regular'} /></button>
-          <button className="icon-button" aria-label={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'} onClick={toggleTheme}>{theme === 'light' ? <Moon size={21} /> : <Sun size={21} />}</button>
+          <button className="icon-button" aria-label={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={21} /> : <Sun size={21} />}</button>
           <button className="icon-button mobile-toggle" aria-label={menu ? '关闭导航' : '打开导航'} aria-controls="navigation" aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X size={23} /> : <List size={23} />}</button>
         </div>
       </div>
@@ -171,9 +148,9 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
               <p className="project-description">{p.description}</p>
               <ul className="project-tags">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
               <div className="project-actions">
-                <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>查看详情 <ArrowRight size={15}/></a>
+                <a className="project-page-link text-link" data-cursor="read" href={href(`/projects/${p.id}/`)}>了解项目 <ArrowRight size={15}/></a>
                 <a className="source-link" href={p.source} target="_blank" rel="noreferrer" aria-label={`${p.title} 查看源码`}>查看源码 <ArrowUpRight size={16} /></a>
-                <button className="detail-button" aria-label={`快速预览：${p.title}`} onClick={() => setProject(p)}><span>快速预览</span><Plus size={18} /></button>
+                <button className="detail-button" aria-label={`项目介绍：${p.title}`} onClick={() => setProject(p)}><span>项目介绍</span><Plus size={18} /></button>
               </div>
             </article></div>;
           })}
@@ -195,7 +172,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
                 <GithubLogo size={19} /> {profile.name} <ArrowUpRight size={16} />
               </a>
               {profile.email && <a className="text-link" href={`mailto:${profile.email}`}><EnvelopeSimple size={18} /> 邮件联系</a>}
-              <button ref={likeControl} className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} disabled={!hydrated} onPointerEnter={prepareLike} onPointerDown={prepareLike} onFocus={prepareLike} onClick={toggleLike}>
+              <button className={`like-button ${liked ? 'liked' : ''}`} aria-pressed={liked} disabled={!hydrated} onClick={toggleLike}>
                 <Heart size={16} weight={liked ? 'fill' : 'regular'} />{liked ? '已经留下喜欢' : '留下一份喜欢'}
               </button>
             </div>
@@ -207,7 +184,13 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
     <footer className="site-footer section-shell"><div><a className="footer-brand" href={href('/#home')}><Code size={21} weight="light" />{profile.name}</a><span>© {new Date().getFullYear()} {profile.name}.</span></div><div className="footer-links">{path !== '/' && <HomeLink compact />}<a className="visual-credit" href="https://saenai-movie.com/" target="_blank" rel="noreferrer">角色与官方视觉来源 <ArrowUpRight size={12} /></a><a href={path === '/' ? '#home' : '#main'} className="back-top" aria-label="回到顶部"><ArrowUp size={20} /></a></div></footer>
     <div className="toast" role="status" aria-live="polite">{toast && <span><Flower size={17} />{toast}</span>}</div>
 
-    {project && <ProjectPreview project={project} onClose={() => setProject(null)} />}
+    {project && <Modal title={project.title} onClose={() => setProject(null)} className="project-modal">
+      <div className="modal-body"><span className="modal-meta">{project.category} / 公开源码</span><h2>{project.title}</h2><p>{project.description}</p>
+        <div className="project-detail-list">{project.details.map(detail => <div key={detail.title}><h3>{detail.title}</h3><p>{detail.text}</p></div>)}</div>
+        <p className="project-note">{project.note}</p>
+        <div className="summary-actions"><a className="button primary" href={project.source} target="_blank" rel="noreferrer"><GithubLogo size={18} /> 在 GitHub 查看源码 <ArrowUpRight size={16} /></a><button className="text-link copy-project-link" onClick={copyProjectLink} data-cursor="copy">复制项目链接</button></div>
+      </div>
+    </Modal>}
 
   </>;
 }

@@ -7,12 +7,6 @@ export function navigationIntent(from, to) {
   const projectIndex = route => projects.findIndex(p => route === `/projects/${p.id}/`);
   const first = projectIndex(from), second = projectIndex(to);
   if (first >= 0 && second >= 0) return { kind: 'project', direction: second > first ? 1 : -1 };
-  const chapter = /^(\/articles\/ailearning\/.+\/)chapter-(\d+)\/$/;
-  const previous = from.match(chapter), next = to.match(chapter);
-  if (previous && next && previous[1] === next[1]) {
-    const backward = Number(next[2]) < Number(previous[2]);
-    return { kind: backward ? 'return' : 'open', direction: backward ? -1 : 1 };
-  }
   if (to === '/' || (from.startsWith(to) && from !== to)) return { kind: 'return', direction: -1 };
   return { kind: 'open', direction: 1 };
 }

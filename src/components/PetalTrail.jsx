@@ -4,7 +4,7 @@ export default function PetalTrail({ enabled }) {
   const ref = useRef(null);
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
-    const fine = matchMedia('(any-pointer: fine)');
+    const fine = matchMedia('(pointer: fine)');
     const canvas = ref.current;
     const ctx = canvas.getContext('2d');
     let particles = [], frame = 0, previous = 0, lastSpawn = 0;

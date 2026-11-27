@@ -5,44 +5,6 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { href } from '../data/routes';
-import useReadingPosition from '../lib/useReadingPosition';
-
-// Horizontal bounds in the original diagrams. At reading-column widths on
-// phones, each stage gets its own line while sharing the original image URL.
-const diagramPanels = {
-  'evidence-first.png': { width: 1024, height: 416, panels: [
-    [0, 468, '先规划再检索：预设分工可能与检索到的证据冲突。'],
-    [468, 1024, '先检索再规划：让证据决定需要哪些角色，以及谁来核查。'],
-  ] },
-  'inference.png': { width: 3360, height: 1280, panels: [
-    [0, 755, '两条输入箭头分别来自问题和带来源的知识图谱证据。'],
-    [755, 2190, '生成节点后再决定连边。图中的掩码限制了验证节点可以接收哪些消息。'],
-    [2190, 3360, '候选图经过排序，选中的图进入执行与验证环节。'],
-  ] },
-  'training.png': { width: 3360, height: 1280, panels: [
-    [0, 1110, '候选池有三个来源：预设结构、随机有向无环图和生成器自身。'],
-    [1110, 1995, '剪刀标记的是裁剪步骤：删去角色或连边后，再检查成功率。'],
-    [1995, 3360, '虚线把生成器连回结构数据集，下一轮采样可以利用这一轮的训练结果。'],
-  ] },
-};
-
-function PaperFigure({ image, children }) {
-  const { src, alt } = image.properties;
-  const diagram = src.includes('/files/k-gat/') && diagramPanels[src.split('/').pop()];
-  const url = src.startsWith('/files/') ? href(src) : src;
-  return <figure className={`publication-figure${diagram ? ' panelled-figure' : ''}`}>
-    {children}
-    {diagram && <div className="diagram-panels">{diagram.panels.map(([left, right, caption]) =>
-      <div key={left} className="diagram-panel">
-        <div aria-hidden="true" style={{ aspectRatio: `${right - left} / ${diagram.height}`, maxWidth: 360 * (right - left) / diagram.height }}>
-          <img src={url} alt="" loading="lazy" decoding="async" style={{ width: `${100 * diagram.width / (right - left)}%`, left: `${-100 * left / (right - left)}%` }} />
-        </div>
-        <p>{caption}</p>
-      </div>
-    )}</div>}
-    <figcaption>{alt}</figcaption>
-  </figure>;
-}
 
 // Group Markdown sections without changing code blocks, tables, or inline markup.
 function researchSections() {
@@ -77,33 +39,35 @@ function researchSections() {
   };
 }
 
-function PaperContents({ root, markdown }) {
-  const [nodes, setNodes] = useState([]);
-  const [selected, setSelected] = useState('');
-  const active = useReadingPosition(nodes);
-  useEffect(() => {
-    setNodes([...root.current.querySelectorAll('.research-section')]);
-    const clear = () => setSelected('');
-    const events = ['scrollend', 'wheel', 'touchstart', 'keydown', 'popstate'];
-    events.forEach(type => window.addEventListener(type, clear, { passive: true }));
-    return () => events.forEach(type => window.removeEventListener(type, clear));
-  }, [root, markdown]);
-  return <nav className="paper-contents" hidden={!nodes.length} aria-label="论文页内导航">
-    <span>本页内容</span>
-    {nodes.map(node => <a key={node.id} href={`#${node.id}`} onClick={e => {
-      if (!e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) setSelected(node.id);
-    }} aria-current={(selected || active) === node.id ? 'location' : undefined}>{node.querySelector('h2').textContent}</a>)}
-  </nav>;
-}
-
 export default function PaperBody({ markdown }) {
   const root = useRef(null);
+  const [sections, setSections] = useState([]);
+  const [active, setActive] = useState('');
+  useEffect(() => {
+    const nodes = [...root.current.querySelectorAll('.research-section')];
+    setSections(nodes.map(node => ({ id: node.id, title: node.querySelector('h2').textContent })));
+    const intersecting = new Set();
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) intersecting.add(entry.target);
+        else intersecting.delete(entry.target);
+      }
+      const visible = nodes.filter(node => intersecting.has(node));
+      if (visible.length) setActive(visible.at(-1).id);
+    }, { rootMargin: '-20% 0px -60% 0px' });
+    nodes.forEach(node => observer.observe(node));
+    return () => observer.disconnect();
+  }, [markdown]);
+
   return <div className="paper-content-layout">
-    <PaperContents root={root} markdown={markdown} />
+    <nav className="paper-contents" hidden={!sections.length} aria-label="论文页内导航">
+      <span>本页内容</span>
+      {sections.map(section => <a key={section.id} href={`#${section.id}`} aria-current={active === section.id ? 'location' : undefined}>{section.title}</a>)}
+    </nav>
     <div ref={root} className="prose research-body">
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, researchSections]} rehypePlugins={[[rehypeKatex, { strict: false, trust: false }], codeHighlight]} components={{
         p: ({ children, node }) => node.children.length === 1 && node.children[0].tagName === 'img'
-          ? <PaperFigure image={node.children[0]}>{children}</PaperFigure>
+          ? <figure className="publication-figure">{children}<figcaption>{node.children[0].properties.alt}</figcaption></figure>
           : <p>{children}</p>,
         img: ({ src, alt }) => {
           const size = src.endsWith('/k-gat/evidence-first.png') ? [1024, 416]

@@ -7,18 +7,14 @@ export default function ScrollToTop({ target = '#home' }) {
 
   useEffect(() => {
     const footerLink = document.querySelector('.site-footer .back-top');
-    const compact = matchMedia('(max-width: 760px), (pointer: coarse)');
-    let lastY = scrollY, upwardDistance = 0, frame = 0;
+    let lastY = scrollY, direction = 0, frame = 0;
     const update = () => {
       frame = 0;
       const y = Math.max(0, Math.min(scrollY, document.documentElement.scrollHeight - innerHeight));
       const delta = y - lastY;
-      if (Math.abs(delta) >= 4) {
-        upwardDistance = delta < 0 ? upwardDistance - delta : 0;
-        lastY = y;
-      }
+      if (Math.abs(delta) >= 4) { direction = Math.sign(delta); lastY = y; }
       const threshold = Math.min(80, Math.max(0, document.documentElement.scrollHeight - innerHeight) * .15);
-      const show = y > threshold && upwardDistance >= (compact.matches ? Math.min(72, threshold) : 4) && upwardDistance > 0;
+      const show = y > threshold && direction < 0;
       // Upward scrolling prioritizes the floating control, even near the footer.
       if (footerLink) footerLink.hidden = show;
       if (!show && document.activeElement === link.current) {

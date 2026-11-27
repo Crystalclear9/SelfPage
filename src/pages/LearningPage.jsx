@@ -1,5 +1,4 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, CaretRight } from '@phosphor-icons/react';
-import ChapterContents from '../components/ChapterContents';
 import PageNavigation from '../components/PageNavigation';
 import { href, learning, writing } from '../data/routes';
 
@@ -29,7 +28,7 @@ export default function LearningPage({ page, html = '' }) {
     ? `选择一个${page.kind === 'category' ? '主题' : '章节'}继续阅读。`
     : parent?.title || 'AILearning 学习资料';
   const source = `${learning.source}/blob/${learning.revision || 'main'}/${page.file.split('/').map(encodeURIComponent).join('/')}`;
-  return <article className={`detail-page section-shell learning-page ${isRoot ? 'learning-collection' : !isIndex ? 'reading-page' : ''}`}>
+  return <article className={`detail-page section-shell learning-page ${!isIndex ? 'reading-page' : ''}`}>
     <PageNavigation section={isRoot ? '返回文章列表' : '返回'} sectionHref={page.parent} />
     <header className="detail-heading">
       <p className="eyebrow">{isRoot ? '学习资料' : <a href={href(rootRoute)}>AILearning</a>}</p>
@@ -42,7 +41,6 @@ export default function LearningPage({ page, html = '' }) {
     {isIndex ? <details className="learning-notes"><summary><CaretRight size={18} aria-hidden="true" /><span>资料说明与阅读建议</span></summary>
       <div id="learning-content" className="prose" dangerouslySetInnerHTML={{ __html: html }} />
     </details> : <div id="learning-content" className="prose" dangerouslySetInnerHTML={{ __html: html }} />}
-    {(page.kind === 'chapter' || page.kind === 'guide') && <ChapterContents guide={page.kind === 'guide'} />}
     {position >= 0 && <nav className="learning-pager" aria-label="章节翻页">
       <a href={href(previous?.route || page.parent)}><ArrowLeft size={18} /><span><small>{previous ? '上一章' : '主题目录'}</small>{previous?.title || parent?.title}</span></a>
       {next && <a href={href(next.route)}><span><small>下一章</small>{next.title}</span><ArrowRight size={18} /></a>}

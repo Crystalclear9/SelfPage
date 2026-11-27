@@ -121,7 +121,7 @@ try {
   await page.mouse.wheel(0, 200);
   await page.waitForTimeout(300);
   assert.ok(Math.abs((await page.locator('.projects-intro').boundingBox()).y - later.y) < 3);
-  await page.getByRole('button', { name: '快速预览：随手办' }).click();
+  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
   await expect(page.locator('dialog')).toBeVisible();
   await page.locator('dialog h2').hover(); await state('text');
   assert.equal(await cursor.evaluate(el => el.matches(':popover-open')), true);

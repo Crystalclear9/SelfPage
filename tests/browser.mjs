@@ -15,16 +15,14 @@ try {
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.title(), 'Crystalclear9 | 个人主页');
   assert.equal(await page.locator('.hero-image').evaluate(el => el.naturalWidth > 0), true);
-  assert.equal(await page.evaluate(() => localStorage.getItem('spring-theme')), null);
-  assert.equal(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.endsWith('.flac'))), false);
   assert.equal(await page.locator('.project-card').count(), projects.length);
   await page.getByRole('button', { name: '应用', exact: true }).click();
   assert.equal(await page.locator('.project-card').count(), projects.filter(p => p.category === '应用').length);
-  await page.getByRole('button', { name: '快速预览：随手办' }).click();
+  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
   assert.equal(await page.locator('dialog[open]').count(), 1);
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('dialog[open]').count(), 0);
-  assert.equal(await page.getByRole('button', { name: '快速预览：随手办' }).evaluate(el => el === document.activeElement), true);
+  assert.equal(await page.getByRole('button', { name: '项目介绍：随手办' }).evaluate(el => el === document.activeElement), true);
   await page.getByRole('button', { name: '系统研究', exact: true }).click();
   assert.equal(await page.locator('.project-card').count(), projects.filter(p => p.category === '系统研究').length);
   await page.getByRole('button', { name: '全部' }).click();
@@ -43,12 +41,9 @@ try {
   assert.equal(await page.locator('#moments, .interest-tags').count(), 0);
   await page.getByRole('button', { name: '留下一份喜欢' }).click();
   assert.equal(await page.getByRole('button', { name: '已经留下喜欢' }).getAttribute('aria-pressed'), 'true');
-  assert.equal(await page.locator('.trail-toggle').isVisible(), false);
-  await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.getByRole('button', { name: '樱花拖尾', exact: true }).click();
   await page.reload({ waitUntil: 'networkidle' });
   assert.equal(await page.getByRole('button', { name: '樱花拖尾', exact: true }).getAttribute('aria-pressed'), 'false');
-  await page.emulateMedia({ reducedMotion: 'reduce' });
   assert.equal(await page.getByRole('button', { name: '已经留下喜欢' }).getAttribute('aria-pressed'), 'true');
   // Reveal each section before taking the full-page capture.
   for (const section of await page.locator('main > section').all()) await section.scrollIntoViewIfNeeded();
@@ -82,9 +77,9 @@ try {
   await page.mouse.move(400, 250);
   await page.mouse.move(700, 400, { steps: 20 });
   assert.equal(await page.locator('.character-cursor').count(), 0);
-  assert.match(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), /^url\("data:image\/svg\+xml;base64,/);
-  await page.getByRole('button', { name: '快速预览：随手办' }).click();
-  assert.match(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), /^url\("data:image\/svg\+xml;base64,/);
+  assert.equal(await page.locator('body').evaluate(el => getComputedStyle(el).cursor), 'none');
+  await page.getByRole('button', { name: '项目介绍：随手办' }).click();
+  assert.equal(await page.locator('dialog[open]').evaluate(el => getComputedStyle(el).cursor), 'none');
   await page.keyboard.press('Escape');
   await page.mouse.move(600, 350);
   await page.mouse.move(700, 400, { steps: 20 });
