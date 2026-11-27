@@ -1,190 +1,27 @@
 # 内容维护
 
-## 个人介绍
+## 首页与项目
 
-个人信息统一维护在 `src/data/site.js` 的 `profile` 对象中。`name` 和 `subtitle` 用于身份与首屏展示；“关于我”依次展示 `intro` 与 `about` 两段正文，简要介绍技术方向、项目与记录内容。
+在 [site.js](../src/data/site.js) 中编辑 `profile`。`subtitle` 出现在首屏，`intro` 和 `about` 组成「关于我」。`github` 指向公开主页，填写 `email` 后会显示邮件入口。首屏标题下的补充说明在 [App.jsx](../src/App.jsx)。
 
-| 字段 | 显示位置与用途 |
-| --- | --- |
-| `name` | 首屏姓名、顶部与页脚标识、头像旁的昵称及 GitHub 按钮 |
-| `siteName` | 当前保留字段，尚未被页面或构建脚本读取，修改它不会改变站点标题 |
-| `subtitle` | 首屏的技术方向说明 |
-| `intro` | “关于我”第一段，概括关注方向 |
-| `about` | “关于我”第二段，补充项目与记录范围 |
-| `github` | 公开 GitHub 主页及仓库列表入口 |
-| `email` | 可选公开联系邮箱，空字符串时隐藏入口 |
+项目卡片与介绍弹窗读取 `projects` 数组。独立详情页按同一 ID 从 [project-notes.js](../src/data/project-notes.js) 的 `projectNotes` 对象读取正文。新增项目时，在数组中添加卡片记录，并以该记录的 ID 为键添加详情正文。
 
-当前个人介绍为：
-
-> 我主要做一些 AI 应用，也关注推理和调度相关的系统问题。
->
-> 从任务整理、检索问答，到论文里的调度方法，尝试把想法落实到代码里。这里放着其中的一些项目和记录。
-
-维护时保留简短的介绍形式，不在这里逐项复述项目、堆叠技术栈或展开研究计划。项目细节放到对应详情页，较长的过程记录使用文章。只修改文字时编辑这两个字段即可，无需增加段落或调整布局。
-
-首屏 `hero-description` 的补充说明目前直接写在 `src/App.jsx` 中，不由 `intro` 或 `about` 自动生成。调整整体技术方向时应同时核对这段说明；仅修改“关于我”时无需连带改动首屏、项目区或动效。
-
-介绍应以公开项目为依据，保持简短、自然，避免把兴趣或复现尝试写成已取得的研究成果。无需填写真实姓名、学校、住址或私人联系方式。`github` 为公开主页；`email` 默认为空，仅在主动决定公开联系邮箱时填写，留空不会显示邮件入口。修改介绍后重新构建，静态页面与浏览器加载后的内容会一并更新。
-
-`profile` 会随客户端代码公开发布，其中未直接显示的字段同样不适合存放私人信息。删除页面中的联系方式并不等于清除了 Git 历史中的内容。
-
-## 项目
-
-修改 `src/data/site.js` 中的 `projects`。每个项目的 `id` 生成 `/projects/<id>/`，首页与介绍弹窗保持简短。`source` 指向源码；`reference` 可记录原论文标题与链接。
-
-首页五个项目统一沿用 GameQA 的卡片规格：图标与分类、项目标题、一句副标题、简介、技术标签和操作入口。应用与系统研究仅通过分类文字区分，不单独调整字号、图标尺寸、背景或内边距；移动端也使用同一套响应式规则。简介先说明用途，再概括实现方式与使用价值；详细的验证范围放在详情页。
-
-独立详情页正文放在 `src/data/project-notes.js`，使用同一个项目 `id` 关联：`motivation` 说明问题背景，`implementation` 展开实现过程，`scopeTitle` 和 `scope` 说明当前范围与验证边界。新增项目时需一并补充正文。内容依据公开仓库整理，不复制敏感配置，也不把 README 中的性能声明直接改写为已验证结论。
-
-项目文案应区分方法来源、实现范围和验证结果。Autellix 标注为他人论文的个人复现尝试，原论文不作为本站作者的发表成果列入论文索引。
-
-当前项目 ID 与详情路径：
-
-| 项目 | ID | 相对站点路径 |
+| 数据位置 | 字段 | 页面用途 |
 | --- | --- | --- |
-| 随手办 | `suishouban` | `/projects/suishouban/` |
-| GameQA | `gameqa` | `/projects/gameqa/` |
-| Autellix | `autellix` | `/projects/autellix/` |
-| TimePredictModel | `time-predict` | `/projects/time-predict/` |
-| SandBoxSim | `sandboxsim` | `/projects/sandboxsim/` |
+| `projects[]` | `id`、`category`、`icon` | 生成详情页地址、首页分类选项和卡片图标 |
+| `projects[]` | `title`、`subtitle`、`description`、`tags` | 项目名称、副标题、简介和技术标签 |
+| `projects[]` | `details`、`note`、`source` | 弹窗分项说明、项目备注和源码入口。`details` 每项包含 `title` 与 `text` |
+| `projects[]` | `reference` | 原论文标题与地址。Autellix 据此展示「论文复现」及原论文链接 |
+| `projectNotes[id]` | `motivation`、`implementation` | 项目背景和实现过程。`implementation` 按数组顺序展示各项 `title` 与 `text` |
+| `projectNotes[id]` | `scopeTitle`、`scope` | 当前实现范围的小节标题与正文段落 |
 
-已有 ID 应保持稳定，它同时用于页面网址、文章关联和项目间翻页。新增项目需同时更新 `projects` 与 `projectNotes`；项目数组顺序决定首页和前后翻页顺序。分类取自 `category`，筛选按钮自动生成。
+例如，GameQA 的 ID 是 `gameqa`，仓库名是 `RagGameQa`。其详情页地址为 `/projects/gameqa/`，实现说明读取 `projectNotes.gameqa.implementation`。源码地址变更只涉及 `source`；更改项目 ID 则同时影响公开地址、详情查找和文章关联。
 
-维护正文时，优先更新具体处理流程、关键设计选择和验证边界。首页的 `description` 与弹窗的 `details` 保留摘要，较长的解释放入 `projectNotes.implementation`。论文方法、仓库自述的测试记录和本人独立验证的结果应分别表述；配置教程与易变的参数留在原项目仓库维护。
-
-## AILearning 专题
-
-返回栏沿用原有位置、样式和动效：左侧主按钮执行返回上级，学习资料子页面显示“返回”；右侧轻量链接显示“返回个人主页”，跳转首页。顶部和上滚浮动栏一致，页脚的独立主页入口不变。
-
-文章列表只保留 `content/index.json` 中 `slug: "ailearning"` 的一条入口。该条目的标题、摘要与日期由索引维护；专题总览使用专用的 `LearningPage`，`body` 文件是简短说明，不承载整套章节。分类、主题、章节和阅读指南不分别加入文章索引。
-
-从文章列表进入专题，可按分类、主题读到单章，也可从总览进入阅读指南。目录保留下一级入口，原 README 收在“资料说明与阅读建议”里。章节支持前后翻页与章内定位。
-
-### 同步资料
-
-资料来自同一作者的 [AILearning 仓库](https://github.com/Crystalclear9/AILearning)。本站保存一份 Markdown 快照，部署不依赖本机的其他目录，也不会在访问时从 GitHub 拉取正文。
-
-```powershell
-npm run import:learning -- ../AI_Learning
-$env:SITE_BASE_PATH = '/SelfPage/'
-npm run build
-npm run check:learning
-# 启动生产预览后，逐页检查渲染
-node tests/learning-render.mjs
-```
-
-路径可替换为实际源目录。导入脚本复制 Markdown、配图与图片许可文本，不复制 `.git`、隐藏目录或运行环境；生成的 `manifest.json` 记录来源提交和页面层级。导入器先在 `.local/learning-import/` 生成候选快照，逐页渲染并核对公式、本地引用和章节锚点。校验通过后整体替换教材正文目录与配图目录，源资料中已经删除的文件同时移出发布内容。
-
-导入器按 Git 对象核对候选正文。与来源提交一致的页面链接到 AILearning 对应提交，含本地修改或未跟踪的页面链接到 SelfPage 本次发布提交中的 Markdown。独立目录导入的正文也使用本站副本。
-
-若导入进程意外终止，先检查 `.local/learning-import/owner` 记录的进程号。确认进程已退出后移除这个锁文件，再次运行导入命令。导入器会先按交换记录还原未完成的替换，再处理新快照。
-
-新增章节使用已有目录结构及 `01-标题.md` 形式。路由使用分类、主题的英文目录名与 `chapter-01` 编号，修改中文标题不改变网址；更改目录或编号前需检查旧链接。新增顶级分类或阅读指南时，需同步扩展 `scripts/import-learning.mjs` 的映射。
-
-提交 `content/collections/ailearning/` 的 Markdown 和清单，以及需要更新的文章摘要。将专题入口设为 `published: false` 会停止生成专题及下级路由；文件仍存在于公开源码仓库。页面层级与资料来源记录在专题的 `manifest.json` 中。
-
-### 渲染检查
-
-2026-11-08 针对当前快照检查了 248 个不同的外部网址，全部返回成功响应，详见 docs/LEARNING-LINK-AUDIT.json。该结果仅代表检查时的可访问性，不等同于参考内容正确性的认证。
-
-构建后运行 `node tests/learning-references.mjs` 检查本地图片与 SVG 定位片段；加 `--external` 可检测外部参考网址，非成功响应与超时会分别列出，需复核后再修改来源。`node tests/learning-render.mjs` 会等待正文图片实际解码，并检查手机/电脑、明暗主题以及启用/禁用 JavaScript 的页面。带 `#view-id` 的 SVG 图片保留定位片段，以展示源资料指定的局部图示。
-
-支持 GitHub 的美元符号加反引号行内公式写法；渲染器仅在已识别的数学节点中移除包装反引号，不修改代码示例或同步原文。
-
-公式由 `remark-math` 与 `rehype-katex` 在构建时渲染，字体本地托管。原文相对 Markdown 链接转换为本站地址；空的 `<a id="…"></a>` 标记转换为安全锚点，其余原始 HTML 不执行。行内代码（包括多反引号和跨行代码）与代码块保留原文；其中的 `$...$`、`$$...$$` 只作为示例显示，不参与公式预处理。代码之外的公式结束符与公式同行时由渲染器规范化，避免后续正文被吞入公式。
-
-章节 HTML 随对应页面提供，客户端只接入当前页内容，不把全部正文放进首页脚本。直接访问、刷新、浏览器历史和禁用 JavaScript 均可阅读。开启生产预览后，用 `npm run check:learning-ui` 检查单一入口、层级导航、公式和移动端布局；`check:learning` 需要先构建，检查全部生成页面的内部目标和章内锚点。
-
-## 新增文章
-
-### 文件与发布状态
-
-1. 在 `content/articles/` 创建 Markdown 文件，例如 `retrieval-notes.md`。
-2. 在 `content/index.json` 数组中加入以下对象，替换标题、日期和摘要。
-3. 编辑期间保持 `published: false`；需要查看生成页面时，在本地临时设为 `true`，再启动开发服务或重新构建预览。
-4. 核对正文、图片与链接。准备发布则保留 `true`，否则改回 `false` 后再提交。
-5. 执行构建和检查，提交并推送至 `main`。
-
-```json
-{
-  "type": "articles",
-  "slug": "retrieval-notes",
-  "title": "检索流程实现记录",
-  "date": "2026-10-02",
-  "summary": "本文的具体问题、实现范围与观察结果。",
-  "body": "articles/retrieval-notes.md",
-  "project": "gameqa",
-  "published": false
-}
-```
-
-`project` 可省略，填写项目 ID 后会自动显示在该项目的“相关记录”中。`slug` 仅使用小写英文、数字和连字符，决定永久网址；日期使用有效的 `YYYY-MM-DD`。索引按日期倒序排列。
-
-Markdown 支持标题、列表、代码块、表格、引用和图片。正文标题建议从 `##` 开始，页面已渲染文章标题。代码块保留语言标记，当前不提供语法高亮。原始 HTML 不执行。
-
-```markdown
-## 问题
-说明输入、约束与预期结果。
-
-## 实现
-记录方法和必要的代码片段。
-
-## 验证与限制
-区分已观察到的结果与尚未验证的假设。
-
-![实验结果](/files/retrieval-result.png)
-```
-
-正文图片放在 `public/files/`；使用 `/files/文件名` 引用，构建自动加上站点部署前缀。站外链接使用完整 HTTPS 地址。
-
-## 新增论文
-
-当前已发布 K-GAT，入口为 `/papers/k-gat/`，正文位于 `content/papers/k-gat.md`。发表渠道为 EMNLP 2026，`externalUrl` 指向 OpenReview，`pdf` 保留 arXiv 原文入口。`date` 记录预印本首次提交日期，不代表会议发表日期；正文明确介绍所依据的 arXiv 版本。论文详情采用完整标题统一字号与颜色、换行作者列表和研究展示布局，首页文章与论文入口不显示收录数量。论文正文按研究动机、推理流程、训练方法、实验与边界组织；作者提供的原始插图保存在 `public/files/k-gat/`，使用 `/files/k-gat/…` 引用，渲染时自动补站点前缀。独立成段的论文图片在正文中显示图注；更新实验时必须保留来源版本与对比条件。
-
-论文说明放在 `content/papers/`。元数据示例（占位内容应替换为真实信息，保持未发布直到核对完毕）：
-
-```json
-{
-  "type": "papers",
-  "slug": "paper-slug",
-  "title": "论文标题",
-  "date": "2026-10-02",
-  "summary": "研究问题与论文摘要。",
-  "authors": ["实际作者姓名"],
-  "venue": "实际发表渠道或预印本平台",
-  "body": "papers/paper-slug.md",
-  "pdf": "files/paper-slug.pdf",
-  "externalUrl": "https://example.org/replace-with-publication-url",
-  "published": false
-}
-```
-
-`authors`、`venue`、`body`、`pdf`、`externalUrl` 均可按实际情况省略，但已发布条目至少需要正文、PDF 或外部链接之一。不提供的字段不会生成按钮。PDF 支持 `public/files/` 内的文件或 HTTPS 地址。没有材料时保持空索引即可，无需发布占位条目。
-
-## 元数据字段速查
-
-`content/index.json` 始终是 JSON 数组，多个对象之间使用逗号；JSON 不支持注释和尾随逗号。下面的“必填”指已发布条目。
-
-| 字段 | 类型与要求 | 页面用途 |
-| --- | --- | --- |
-| `type` | 必填；`articles` 或 `papers` | 决定所属列表和 URL 前缀 |
-| `slug` | 必填；小写字母、数字、单连字符分隔 | 决定正文的永久路径 |
-| `title` | 必填；非空字符串 | 正文标题、索引标题、浏览器标题 |
-| `date` | 必填；真实有效的 `YYYY-MM-DD` | 展示日期并按日期倒序排列 |
-| `summary` | 必填；非空字符串 | 索引摘要、正文导语、页面描述 |
-| `published` | 只有布尔值 `true` 表示发布 | 字符串 `"true"` 不会发布 |
-| `body` | 可选；相对 `content/` 的 `.md` 文件路径 | 载入正文；文件必须存在 |
-| `project` | 可选；现有项目 ID | 显示在项目页的相关记录中 |
-| `authors` | 可选；字符串数组 | 论文作者列表，按原顺序展示 |
-| `venue` | 可选；字符串 | 论文发表渠道或预印本平台 |
-| `pdf` | 可选；`files/...pdf` 或 HTTPS 地址 | 生成“阅读 PDF”按钮 |
-| `externalUrl` | 可选；完整 HTTPS 地址 | 生成发表页面链接 |
-
-同一个 `type` 下的 `slug` 不可重复。`project` 的关联值应人工核对，当前加载器不会拒绝未知项目 ID；填写错误会使条目无法出现在预期的项目页中。远程 HTTPS 资源的可访问性也需要手动检查。
+首页与详情页共用项目数组的排列顺序。调整顺序会同时改变卡片位置及详情页的相邻项目链接。Autellix 的原论文登记在项目的 `reference` 字段，本站的复现工作记录在项目正文。
 
 ## 新增项目的完整示例
 
-项目不是 Markdown 条目，需要在两个 JavaScript 数据文件中各增加一项。以下为结构示例，标题、说明和源码地址需替换后再使用。
+新增项目包含一条卡片记录和一条详情记录。以下示例以同一个 ID 关联两个 JavaScript 文件。
 
 在 `src/data/site.js` 的 `projects` 数组中追加：
 
@@ -226,7 +63,78 @@ Markdown 支持标题、列表、代码块、表格、引用和图片。正文�
 }
 ```
 
-两处 ID 必须完全一致；详情渲染直接读取对应正文，缺少 `projectNotes` 会导致构建失败。构建后检查首页、介绍弹窗、直接打开详情，以及前后项目导航。项目页与首页测试从项目清单读取数量和路由，新增项目后仍需运行全量跳转检查。
+两份记录使用同一 ID。构建后，项目应同时出现在首页筛选结果、简介弹窗和独立详情页。
+
+## 发布文章
+
+在 `content/articles/` 写 Markdown，再把条目加入[内容索引](../content/index.json)。例如，文件 `content/articles/retrieval-notes.md` 对应以下记录。
+
+```json
+{
+  "type": "articles",
+  "slug": "retrieval-notes",
+  "title": "检索流程实现记录",
+  "date": "2026-11-18",
+  "summary": "从文档分段到结果排序，记录一次检索流程的实现。",
+  "body": "articles/retrieval-notes.md",
+  "project": "gameqa",
+  "published": true
+}
+```
+
+`body` 相对 `content/`，`slug` 决定公开地址。写作期间可设 `published: false`，准备预览详情页时改为 `true`。使用小写英文、数字和连字符命名 slug，日期采用 `YYYY-MM-DD`。保存后运行 `npm run check:content` 核对索引。
+
+### 文章与项目关联
+
+索引中的 `"project": "gameqa"` 将这篇笔记加入 GameQA 详情页的「相关记录」。没有关联项目的文章可省略该字段。
+
+`content/articles/retrieval-notes.md` 保存文章正文。详情页使用索引的 `title` 生成一级标题，正文从二级标题开始。
+
+```markdown
+## 检索流程
+
+查询先进入候选检索，再由排序阶段选择交给回答模块的片段。
+
+## 检索结果核对
+
+选定同一个问题，分别记录召回的文档、排序后的片段和回答采用的来源。
+```
+
+文章列表按 `date` 倒序排列，示例文章的详情页生成于 `dist/articles/retrieval-notes/index.html`。
+
+### 发布索引字段
+
+| 字段 | 读取规则与效果 |
+| --- | --- |
+| `published` | 布尔值 `true` 参与构建。草稿仍保存在源码目录。 |
+| `type`、`slug` | 两者组成公开地址。同一类型内 slug 唯一，使用小写字母、数字与单个连字符分段。 |
+| `title`、`summary`、`date` | 标题用于列表与详情，摘要同时生成路由描述，日期按有效日历日期排序。 |
+| `body` | 相对 `content/` 的 Markdown 文件。已发布条目至少提供正文、PDF 或外部页面之一。 |
+| `project` | 对应项目 ID，使条目出现在该项目的相关记录中。 |
+| `authors`、`venue` | 作者字符串数组按给定顺序展示；`venue` 展示会议或期刊名称。 |
+| `externalUrl`、`pdf` | 分别生成发表页面和阅读 PDF 的入口。正文图片另由 Markdown 引用。 |
+
+## 维护论文
+
+论文条目使用 `type: "papers"`，正文放在 `content/papers/`。`authors` 按署名顺序填写，`venue` 填发表会议或期刊，`externalUrl` 对应发表页面。`pdf` 可以是 HTTPS 链接，也可以指向 `public/files/` 下的文件，索引写作 `files/paper.pdf`，本地附件采用英文文件名。
+
+[K-GAT 正文](../content/papers/k-gat.md)与[配图](../public/files/k-gat)可以作为编排示例。首页索引保留正式题目与摘要，详情页按问题、方法和实验展开。K-GAT 的会议标记为 EMNLP 2026，发表入口指向 OpenReview，PDF 指向 arXiv，索引日期沿用预印本日期。
+
+### 论文插图与页内目录
+
+[PaperBody.jsx](../src/pages/PaperBody.jsx) 将每个二级标题及其后的内容组成一个研究小节。目录取自这些标题，按顺序生成 `#paper-section-1` 等定位地址。正文里可以继续用三级标题组织实验条件和结果。调整二级标题的顺序也会改变这些位置编号。
+
+独占段落的 Markdown 图片渲染为 `figure`，替代文字用作图注。同一小节内相邻的图片段落组成对照图组；以正文段落隔开时，各图独立排版。K-GAT 的对照图引用格式如下。
+
+```markdown
+## 协作结构的两类偏差
+
+![规划过度时的协作结构](/files/k-gat/over-planning.png)
+
+![规划不足时的协作结构](/files/k-gat/under-planning.png)
+```
+
+正文中的 `/files/` 对应仓库的 `public/files/`。构建器补上部署前缀，例如第一张图在生产环境的请求地址为 `/SelfPage/files/k-gat/over-planning.png`。
 
 ## 图片、PDF 与链接路径
 
@@ -237,72 +145,40 @@ Markdown 支持标题、列表、代码块、表格、引用和图片。正文�
 | 本地 PDF 元数据 | `files/paper-slug.pdf` | `public/files/paper-slug.pdf` |
 | 站外发表链接 | `https://example.org/paper` | 完整的远程地址 |
 
-PDF 元数据中的本地路径不能以 `/` 开头，扩展名使用 `.pdf`；当前校验仅接受英文字母、数字、下划线、连字符、点和目录分隔符。建议图片和附件也统一使用简短英文文件名，避免大小写差异。Windows 上可读取的错误大小写路径，在 Linux 构建或线上可能失效。
+修改文章标题或移动正文文件时，保留条目的 `type` 与 `slug` 即可沿用原地址。移动正文后更新 `body`。撤下内容时将 `published` 改为 `false`，下次构建会从列表与路由中移除该条目。
 
-Markdown 中 `/files/` 开头的链接会自动加上部署前缀；其他站内地址不会普遍自动重写。例如链接到项目时，可使用本站完整网址 `https://crystalclear9.github.io/SelfPage/projects/gameqa/`。移动部署位置后，需要同时核查这些手写地址。
+## 同步 AILearning
 
-## 修改、撤下和更换内容
+文章列表通过 `ailearning` 条目进入专题。分类、主题、章节与阅读指南由[专题清单](../content/collections/ailearning/manifest.json)生成。更新专题摘要或日期时编辑内容索引，修改教材正文时编辑源资料。
 
-修改标题、摘要和正文不会改变链接，改变 `slug` 或 `type` 则会改变 URL。当前没有旧正文地址自动重定向功能；已有分享链接应尽量保留原 slug。
+1. 在源目录查看 `git status --short`。导入读取磁盘上的内容，包含未提交的编辑，清单中的 `revision` 记录源仓库 HEAD。与该提交不同的正文标记为 `localSnapshot`，其源码入口指向本次发布的 SelfPage 副本。
+2. 在本站根目录运行 `import:learning`，路径参数指定源工作区。
+3. 对照 Git 差异检查 `content/collections/ailearning/` 和 `public/files/ailearning/`。导入器先在 `.local/learning-import/` 暂存并校验新快照，再替换两组目录。已撤下的文件随同步清除，校验失败时保留上次快照。正文、清单和配图一并提交。
 
-暂时撤下内容时将 `published` 改为 `false` 并重新发布。对应页面不再生成，但关联附件仍位于 `public/`，公开仓库历史也仍保留原文。删除文章记录不会自动删除 PDF 或图片；确需移除附件时，先检查其他文章是否仍在引用。
-
-论文后续有正式发表版本时，可在同一条目中更新 `venue`、`externalUrl`、PDF 与说明。作者顺序和日期按实际材料维护，不通过复制条目制造两个相同路径。
-
-## 不在当前正文渲染范围内的功能
-
-普通文章、论文与 AILearning 均支持 GFM 表格、任务列表、数学公式与代码语法高亮；AILearning 另有源文档锚点转换。本站暂不提供评论系统、站内搜索或在线上传后台。
-
-## 校验与公开范围
-
-```bash
+```powershell
+npm run import:learning -- ../AI_Learning
+$env:SITE_BASE_PATH = '/SelfPage/'
 npm run check:content
 npm run build
+npm run check:learning
+node tests/learning-references.mjs
 ```
 
-构建对已发布条目检查重复网址、无效日期、缺少正文文件、越界路径以及错误的链接格式。只有 `published: true` 的内容进入校验、页面和客户端模块；未发布草稿不会生成预览页面。`check:content` 使用测试样例验证加载器，当前索引的校验以实际构建为准。
+### 教材目录与公开地址
 
-这是静态发布流程，不包含后台上传或在线编辑。可在本地编辑，或通过 GitHub 上传文件并编辑元数据；推送后由 Actions 构建。`public/` 下的文件始终会部署，公开仓库中的草稿也能通过仓库访问。私人内容应保存在仓库之外。
-
-常见错误可按以下顺序排查：
-
-| 构建信息或现象 | 核对位置 |
+| 源文件 | 导入结果 |
 | --- | --- |
-| `content/index.json must be an array` | 根节点是否为 `[]` 而非单个对象 |
-| `Invalid content type or slug` | type 枚举、slug 字符与连字符格式 |
-| `Missing metadata` / `Invalid date` | 标题、摘要、日期及日期是否真实存在 |
-| `Duplicate route` | 同一分类中是否重复使用 slug |
-| `Invalid Markdown path` 或文件读取失败 | body 是否在 content 内，扩展名、大小写及文件是否正确 |
-| `Missing or invalid PDF` | PDF 路径格式和实际文件是否一致 |
-| `Published entry has no content` | 正文是否为空，是否至少有 PDF 或外部链接 |
-| 已发布但项目页无相关记录 | project 是否等于该项目的 id |
+| 根目录 `README.md` | 专题总览，发布地址为 `/articles/ailearning/` |
+| 分类或主题目录的 `README.md` | 当前目录页。分类隶属专题，主题隶属分类。 |
+| 主题目录的 `01-标题.md` | 对应主题下的 `chapter-01/`，父级为该主题的 README |
+| 根目录的阅读指南 | 按导入器中的 `guides` 映射生成 `guides/<名称>/` |
 
-发布前至少检查索引摘要、正文换行、图片、PDF、外链和返回入口。浏览器预览不会自动检查远程链接内容是否正确，仍需实际打开核对。
+章节标题读取 Markdown 的一级标题。公开地址使用目录名和文件编号，因此只改中文标题可保留原地址。新增顶级分类或根目录指南时，在[导入器](../scripts/import-learning.mjs)登记映射。导入会检查章节编号、父目录和重复地址，在清单中写入各页的 `file`、`kind`、`route` 和 `parent`。
 
-### 论文展示页的组织
+### 教材渲染验证
 
-`PaperBody.jsx` 将 Markdown 的二级标题组织成独立研究模块，桌面端生成侧边页内目录，窄屏将目录放在正文前。内容仍在 `content/papers/` 维护，不需要重复编写页面组件。三级标题用于模块内分组；有序列表按步骤排版。新增内容请保持“概览、动机、方法、训练、实验、讨论”的阅读顺序，并保留数值来源。
+打开生产预览，在另一个终端设置对应的 `TEST_URL`，运行 `npm run check:learning-ui` 和 `node tests/learning-render.mjs`。前者覆盖目录与阅读导航，后者核对实际页面中的图片解码和不同阅读环境。预览命令见[开发与测试](DEVELOPMENT.md)。
 
-论文正文始终静态显示，不使用滚动入场、退场或翻转，也不添加章节装饰横线。章节用适度留白区分，保持连续阅读。作者配图预留固有尺寸，避免图片加载后影响锚点位置。目录选中项由可见章节更新，图片仅在正文中展示，不提供原图放大入口；返回主页、返回列表及回到顶部继续使用全站控件。
-
-论文配图按概览、动机对比、推理、训练排列。连续的独立图片段落自动组成对比图组，手机端改为纵向；图注统一取图片替代文字。新增图片需在 `PaperBody.jsx` 中登记固有尺寸，避免加载时位置跳动。方法与训练步骤使用单列顺序列表，图文保持固定位置。
-
-“资料说明与阅读建议”保留原生 details/summary 语义，支持键盘展开。悬停、按下及箭头旋转沿用全站配色；支持的浏览器平滑过渡展开高度，减少动态效果模式停用动画。
-
-论文介绍采用作者直接陈述的语气，避免反复使用“论文中”“本页整理”等转述。实验条件与版本仍需准确保留。论文页面优先使用 Outfit 与 Noto Sans SC / 微软雅黑 UI 字体组合，正文、步骤和图注分别统一字号与行距；不要在各模块单独指定字体或添加装饰性统计。
-
-补充说明中表头为“主题 / 章节 / 主要内容”的目录表自动应用专用列布局：主题不换行，章节与内容按比例自然换行。窄屏仅表格容器横向滚动，可通过键盘聚焦，其他数据表不受影响。
-
-KaTeX 的渲染器、CSS 和字体必须使用同一版本。直接依赖固定为 `0.19.1`，与 `rehype-katex` 使用的版本一致；升级时同时检查渲染依赖，`check:learning` 会验证版本相同，避免分式、上下标错位。
-
-### 首页头像与点赞语音
-
-在 `src/data/site.js` 中分别设置 `profile.avatarVoice`、`profile.likeVoice` 和 `profile.unlikeVoice`，路径相对 `public/`。点头像播放问候，再点一次停止；点赞和撤回各有一句回应。三种动作共用一个播放通道。替换素材时一起更新[素材来源](ASSETS.md)。
-
-### 公式、代码与插图
-
-围栏代码块标注语言后会生成语法高亮。行内公式使用 `$...$`，块级公式使用单独成行的 `$$`。更新 KaTeX 后运行 `npm run check:learning`，检查数学字体、公式标记和章节引用。
-
-学习资料中的图片使用相对于 Markdown 的路径。导入后图片保存在 `public/files/ailearning/`，构建时补上站点前缀。手写锚点与自动生成的标题锚点均可用于章节引用。
-
-头像问候和喜欢按钮分别由 `ProfileAvatar` 和 `App` 通知光标。眼帘与脸颊的 SVG 图层位于 `AnimatedCursor.jsx`，与日语音频独立维护；角色动作及事件名称见[开发设计](ARCHITECTURE.md)。
+- **公式与代码**。正文公式由 KaTeX 排版，围栏代码块按语言标记着色。显示 Markdown 语法示例时放入反引号或围栏，保留原样。
+- **图片与定位**。源文件使用相对路径，导入后由本站提供图片。带片段的 SVG 引用保留 `#view-id`。图像路径、许可与署名见[教材配图](LEARNING-IMAGE-SOURCES.md)。
+- **资料引用**。内部 Markdown 链接映射到发布路由，章内目录使用标题或显式锚点。检查外部资料时运行 `node tests/learning-references.mjs --external`。[历史检查记录](LEARNING-LINK-AUDIT.json)保存了 2026-11-08 对 248 个外部地址的检查结果。
