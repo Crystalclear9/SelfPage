@@ -142,6 +142,11 @@ try {
       await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
       await expect(topLink).toBeHidden();
       await page.mouse.wheel(0, -15);
+      if (width === 375) {
+        if (route) await expect(page.locator('.scroll-return')).toHaveClass(/is-visible/);
+        await expect(topLink).toBeHidden();
+        await page.mouse.wheel(0, -75);
+      }
       await expect(topLink).toBeVisible();
       await expect(page.locator('.site-footer .back-top')).toBeHidden();
       await expect(topLink).toBeVisible();
@@ -159,6 +164,11 @@ try {
       await page.goto(base + route);
       await page.getByRole('button', { name: '切换到深色模式' }).click();
       await page.getByRole('button', { name: '切换到浅色模式' }).click();
+      if (await page.evaluate(() => document.documentElement.scrollHeight === innerHeight)) {
+        await expect(page.locator('.floating-top')).toBeHidden();
+        await expect(page.locator('.back-top')).toBeVisible();
+        continue;
+      }
       await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
       await page.waitForTimeout(100);
       await page.mouse.wheel(0, -10);
@@ -172,7 +182,17 @@ try {
   for (const width of [1440, 375]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto(base);
-    if (width === 375) await page.getByRole('button', { name: '打开导航' }).click();
+    if (width === 375) {
+      const toggle = page.locator('.mobile-toggle');
+      await toggle.focus();
+      await page.keyboard.press('Enter');
+      await expect(page.locator('.main-nav a').first()).toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(page.locator('.main-nav a').nth(1)).toBeFocused();
+      await page.keyboard.press('Escape');
+      await expect(toggle).toBeFocused();
+      await toggle.click();
+    }
     const writingNav = page.locator('.main-nav').getByRole('link', { name: '文章与论文', exact: true, includeHidden: true });
     await writingNav.click();
     await expect(writingNav).toHaveClass('active');

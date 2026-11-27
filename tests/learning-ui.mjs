@@ -34,11 +34,26 @@ try {
       assert.equal(await page.locator('h1').count(), 1);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Mobile overflow');
     }
+    if (javaScriptEnabled) {
+      const button = page.getByRole('button', { name: '本章目录' });
+      await button.click();
+      const section = page.locator('#chapter-sections a').nth(2);
+      await section.click();
+      await expect(button).toHaveAttribute('aria-expanded', 'false');
+      await expect(section).toHaveAttribute('aria-current', 'location');
+      await button.click();
+      await expect(section).toBeFocused();
+      await page.keyboard.press('Escape');
+      await expect(button).toBeFocused();
+    }
     await page.locator('.learning-pager a').last().click();
     await page.waitForURL(/chapter-02\/$/);
-    await page.goBack({ waitUntil: 'commit' }); await page.waitForURL(base + chapter);
+    await expect(page.locator('h1')).toContainText('第 2 章');
+    await page.goBack({ waitUntil: 'commit' }); await page.waitForURL(url => url.pathname === new URL(base + chapter).pathname);
     await expect(page.locator('.katex').first()).toBeAttached();
+    if (javaScriptEnabled) await expect.poll(() => page.locator('html').evaluate(el => el.style.getPropertyValue('--page-direction'))).toBe('-1');
     await page.goForward({ waitUntil: 'commit' }); await page.waitForURL(/chapter-02\/$/);
+    if (javaScriptEnabled) await expect.poll(() => page.locator('html').evaluate(el => el.style.getPropertyValue('--page-direction'))).toBe('1');
     assert.deepEqual(errors, []);
     await context.close();
   }

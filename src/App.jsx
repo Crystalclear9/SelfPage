@@ -66,6 +66,7 @@ export default function App({ path = '/', learningHtml = '', WritingDetail }) {
   }, []);
   useEffect(() => {
     if (!menu) return;
+    document.querySelector('#navigation a')?.focus({ preventScroll: true });
     const close = e => { if (e.key === 'Escape') { setMenu(false); document.querySelector('.mobile-toggle')?.focus(); } };
     window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close);
   }, [menu]);

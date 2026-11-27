@@ -6,6 +6,43 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { href } from '../data/routes';
 
+// Horizontal bounds in the original diagrams. At reading-column widths on
+// phones, each stage gets its own line while sharing the original image URL.
+const diagramPanels = {
+  'evidence-first.png': { width: 1024, height: 416, panels: [
+    [0, 468, '先规划再检索：预设分工可能与检索到的证据冲突。'],
+    [468, 1024, '先检索再规划：让证据决定需要哪些角色，以及谁来核查。'],
+  ] },
+  'inference.png': { width: 3360, height: 1280, panels: [
+    [0, 755, '输入：问题和知识图谱证据共同进入生成器。'],
+    [755, 2190, '生成：逐个选择角色，并为新节点建立通信连接。'],
+    [2190, 3360, '执行：选定协作结构，运行并验证答案。'],
+  ] },
+  'training.png': { width: 3360, height: 1280, panels: [
+    [0, 1110, '候选挖掘：从已有模式、随机图和当前模型中采样。'],
+    [1110, 1995, '执行与裁剪：重复运行候选结构，评估得分并移除冗余。'],
+    [1995, 3360, '生成器优化：用保留的结构训练模型，继续探索新的候选。'],
+  ] },
+};
+
+function PaperFigure({ image, children }) {
+  const { src, alt } = image.properties;
+  const diagram = src.includes('/files/k-gat/') && diagramPanels[src.split('/').pop()];
+  const url = src.startsWith('/files/') ? href(src) : src;
+  return <figure className={`publication-figure${diagram ? ' panelled-figure' : ''}`}>
+    {children}
+    {diagram && <div className="diagram-panels">{diagram.panels.map(([left, right, caption]) =>
+      <div key={left} className="diagram-panel">
+        <div aria-hidden="true" style={{ aspectRatio: `${right - left} / ${diagram.height}`, maxWidth: 360 * (right - left) / diagram.height }}>
+          <img src={url} alt="" loading="lazy" decoding="async" style={{ width: `${100 * diagram.width / (right - left)}%`, left: `${-100 * left / (right - left)}%` }} />
+        </div>
+        <p>{caption}</p>
+      </div>
+    )}</div>}
+    <figcaption>{alt}</figcaption>
+  </figure>;
+}
+
 // Group Markdown sections without changing code blocks, tables, or inline markup.
 function researchSections() {
   return tree => {
@@ -67,7 +104,7 @@ export default function PaperBody({ markdown }) {
     <div ref={root} className="prose research-body">
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, researchSections]} rehypePlugins={[[rehypeKatex, { strict: false, trust: false }], codeHighlight]} components={{
         p: ({ children, node }) => node.children.length === 1 && node.children[0].tagName === 'img'
-          ? <figure className="publication-figure">{children}<figcaption>{node.children[0].properties.alt}</figcaption></figure>
+          ? <PaperFigure image={node.children[0]}>{children}</PaperFigure>
           : <p>{children}</p>,
         img: ({ src, alt }) => {
           const size = src.endsWith('/k-gat/evidence-first.png') ? [1024, 416]

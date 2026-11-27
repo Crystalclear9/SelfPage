@@ -48,6 +48,11 @@ try {
     await page.setViewportSize({ width, height: 900 });
     await page.locator('.project-card').first().hover();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const aligned = await page.locator('.project-actions').evaluateAll(rows => rows.every(row => {
+      const centers = [...row.children].map(control => control.offsetTop + control.offsetHeight / 2);
+      return Math.max(...centers) - Math.min(...centers) < 2;
+    }));
+    expect(aligned, `Card actions share one row at ${width}px`).toBe(true);
     if (width === 375) await page.screenshot({ path: '.local/reports/projects-mobile.png' });
   }
   await page.getByRole('button', { name: '切换到深色模式' }).click();
@@ -58,6 +63,12 @@ try {
   await page.getByRole('button', { name: '系统研究', exact: true }).click();
   await expect(page.locator('.project-card')).toHaveCount(2);
   expect(await page.locator('.project-grid').evaluate(el => el.getAnimations().length)).toBe(0);
+  await page.goto(new URL('projects/gameqa/', base).href);
+  for (const section of ['scope', 'implementation', 'code', 'overview']) {
+    const link = page.locator(`.detail-aside a[href="#${section}"]`);
+    await link.click();
+    await expect(link).toHaveAttribute('aria-current', 'location');
+  }
   expect(errors).toEqual([]);
   console.log('Upper-positioned sidebar, stable filtering, grouped actions, clipboard, glow cleanup and viewport containment passed.');
 } finally { await browser.close(); }

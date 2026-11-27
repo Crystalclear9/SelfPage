@@ -32,6 +32,16 @@ function learningMarkdown({ page, pages, images, base }) {
     };
     stripZoom(tree);
     if (tree.children[0]?.type === 'heading' && tree.children[0].depth === 1) tree.children.shift();
+    if (page.kind === 'chapter') {
+      const index = tree.children.findIndex(node => node.type === 'heading' && headingText(node) === '本章目录');
+      const list = tree.children[index + 1];
+      if (index >= 0 && list?.type === 'list') {
+        tree.children[index + 1] = {
+          type: 'chapterDirectory', data: { hName: 'details', hProperties: { open: true, className: ['chapter-source-directory'] } },
+          children: [{ type: 'summary', data: { hName: 'summary' }, children: [{ type: 'text', value: '完整小节目录' }] }, list],
+        };
+      }
+    }
     const visit = node => {
       // Preserve source snapshots while following the official Pandas API move.
       if (node.url?.startsWith('https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.transform.html')) {

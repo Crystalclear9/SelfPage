@@ -28,7 +28,8 @@ try {
       await page.locator('.paper-contents a', { hasText: '方法框架' }).click();
       assert.ok(new URL(page.url()).hash === '#paper-section-3');
     }
-    for (const img of await page.locator('.publication-figure img').all()) {
+    assert.equal(await page.locator('.diagram-panel:visible').count(), 8);
+    for (const img of await page.locator('.publication-figure img:visible').all()) {
       await img.scrollIntoViewIfNeeded();
       await img.evaluate(el => el.decode());
       assert.ok(await img.evaluate(el => el.naturalWidth > 0));
