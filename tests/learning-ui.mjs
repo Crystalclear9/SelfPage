@@ -12,10 +12,10 @@ try {
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     await page.goto(base + 'articles/');
-    assert.equal(await page.locator('.entry-row').count(), 1);
+    await expect(page.locator('.entry-row')).toHaveCount(1);
     await page.locator('.entry-row', { hasText: 'AILearning' }).click();
     await page.waitForURL(base + 'articles/ailearning/');
-    assert.equal(await page.locator('.learning-row').count(), loadLearning().pages.filter(p => p.parent === '/articles/ailearning/').length);
+    await expect(page.locator('.learning-row')).toHaveCount(loadLearning().pages.filter(p => p.parent === '/articles/ailearning/').length);
     assert.equal(await page.locator('.learning-notes').getAttribute('open'), null);
     assert.equal(await page.locator('.learning-meta').count(), 0);
     assert.equal(await page.locator('.learning-row span').count(), 0);
@@ -24,7 +24,7 @@ try {
     await page.locator('.learning-notes summary').click();
     await page.locator('.learning-row', { hasText: '数学基础' }).click();
     await page.locator('.learning-row', { hasText: '线性代数' }).click();
-    assert.equal(await page.locator('.learning-row').count(), 4);
+    await expect(page.locator('.learning-row')).toHaveCount(4);
     await page.locator('.learning-row').first().click();
     await page.waitForURL(base + chapter);
     for (const action of [() => page.reload(), () => page.goto(base + chapter)]) {
@@ -49,7 +49,7 @@ try {
     await checkDirection(1);
     await page.goBack({ waitUntil: 'commit' }); await page.waitForURL(base + chapter);
     await checkDirection(-1);
-    assert.ok(await page.locator('.katex').count() > 0);
+    await expect(page.locator('.katex').first()).toBeAttached();
     await page.goForward({ waitUntil: 'commit' }); await page.waitForURL(/chapter-02\/$/);
     await checkDirection(1);
     assert.deepEqual(errors, []);
